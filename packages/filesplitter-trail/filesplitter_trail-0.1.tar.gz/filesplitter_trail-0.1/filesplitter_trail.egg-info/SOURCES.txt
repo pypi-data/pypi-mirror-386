@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+filesplitter/__init__.py
+filesplitter/splitter.py
+filesplitter_trail.egg-info/PKG-INFO
+filesplitter_trail.egg-info/SOURCES.txt
+filesplitter_trail.egg-info/dependency_links.txt
+filesplitter_trail.egg-info/top_level.txt
+tests/test_splitter.py
