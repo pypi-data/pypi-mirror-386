@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+gwBOB/gwBOB.egg-info/PKG-INFO
+gwBOB/gwBOB.egg-info/SOURCES.txt
+gwBOB/gwBOB.egg-info/dependency_links.txt
+gwBOB/gwBOB.egg-info/requires.txt
+gwBOB/gwBOB.egg-info/top_level.txt
+tests/test_BOB_utils.py
