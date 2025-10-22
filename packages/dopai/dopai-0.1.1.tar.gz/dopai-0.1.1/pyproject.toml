@@ -1,0 +1,18 @@
+[project]
+name = "dopai"
+version = "0.1.1"
+description = 'DOPai is an intelligent medical assistance tool and leverages artificial intelligence technology to assist clinical doctors in diagnosing diabetes complicated with osteoporosis. The tool classifies diabetic patients into the "low bone mass/normal bone mass group" or the "osteoporosis/severe osteoporosis group" using 12 clinical features of diabetic patients.'
+authors = [
+    {name = "ycj",email = "yanchangjian2019@126.com"}
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "dopai", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
