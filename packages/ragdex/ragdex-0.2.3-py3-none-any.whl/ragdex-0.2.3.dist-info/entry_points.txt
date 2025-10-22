@@ -1,0 +1,5 @@
+[console_scripts]
+ragdex = personal_doc_library.cli:main
+ragdex-index = personal_doc_library.indexing.index_monitor:main
+ragdex-mcp = personal_doc_library.servers.mcp_complete_server:main
+ragdex-web = personal_doc_library.monitoring.monitor_web_enhanced:main
