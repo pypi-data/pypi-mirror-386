@@ -1,0 +1,86 @@
+Metadata-Version: 2.4
+Name: fluxloop-cli
+Version: 0.1.0
+Summary: FluxLoop CLI for running agent simulations
+Author-email: FluxLoop Team <team@fluxloop.dev>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/fluxloop/fluxloop
+Project-URL: Documentation, https://docs.fluxloop.dev
+Project-URL: Repository, https://github.com/fluxloop/fluxloop
+Project-URL: Issues, https://github.com/fluxloop/fluxloop/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: typer[all]>=0.9.0
+Requires-Dist: pydantic>=2.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: rich>=13.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: fluxloop>=0.1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.0; extra == "dev"
+Requires-Dist: black>=23.0; extra == "dev"
+Provides-Extra: openai
+Requires-Dist: openai>=1.0.0; extra == "openai"
+Provides-Extra: anthropic
+Requires-Dist: anthropic>=0.7.0; extra == "anthropic"
+
+# FluxLoop CLI
+
+Command-line interface for running agent simulations and managing FluxLoop workflows.
+
+## Installation
+
+```bash
+pip install fluxloop-cli
+```
+
+## Quick Start
+
+```bash
+# Initialize a new FluxLoop project
+fluxloop init
+
+# Run agent simulations
+fluxloop run
+
+# Generate test inputs
+fluxloop generate
+
+# Check status
+fluxloop status
+```
+
+## Features
+
+- 🚀 **Easy Setup**: Initialize projects with a single command
+- 🔄 **Simulation Runner**: Execute agent tests with various input scenarios
+- 📝 **Input Generation**: LLM-powered test input generation
+- 📊 **Rich Output**: Beautiful terminal UI with detailed progress tracking
+
+## Requirements
+
+- Python 3.8 or higher
+- FluxLoop SDK
+
+## Documentation
+
+For detailed documentation, visit [https://docs.fluxloop.dev](https://docs.fluxloop.dev)
+
+## License
+
+Apache License 2.0 - see LICENSE file for details
+
