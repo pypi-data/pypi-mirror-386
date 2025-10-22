@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/hermes/__init__.py
+src/hermes/awinda/__init__.py
+src/hermes/awinda/handler.py
+src/hermes/awinda/producer.py
+src/hermes/awinda/stream.py
+src/pysio_hermes_awinda.egg-info/PKG-INFO
+src/pysio_hermes_awinda.egg-info/SOURCES.txt
+src/pysio_hermes_awinda.egg-info/dependency_links.txt
+src/pysio_hermes_awinda.egg-info/requires.txt
+src/pysio_hermes_awinda.egg-info/top_level.txt
