@@ -1,0 +1,2 @@
+[console_scripts]
+img-to-pdf-kompres = img_to_pdf_compress.main:main
