@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rice_price_collector"
+version = "0.1.1"
+description = "this will collect rice prices from CBSL web"
+
+authors = [
+  { name = "Chamodh Chiran", email = "your.email@example.com" }
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.10"
+dependencies = [
+  "aiohttp",
+  "beautifulsoup4",
+  "pdfplumber",
+  "pandas"
+]
+
+[project.urls]
+Homepage = "https://github.com/ChamoChiran/rice_price_collector"
+Repository = "https://github.com/ChamoChiran/rice_price_collector"
+Issues = "https://github.com/ChamoChiran/rice_price_collector/issues"
+
+
+
+# setuptools-specific configuration for package discovery
+[tool.setuptools]
+packages = { find = {} }
+
+
+
+[tool.ruff]
+line-length = 99
+src = ["rice_price_collector"]
+include = ["pyproject.toml", "rice_price_collector/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["rice_price_collector"]
+force-sort-within-sections = true
+
+[tool.twine]
+repository = "https://upload.pypi.org/legacy/"
+
+[tool.twine.repositories.github]
+repository = "https://upload.pypi.org/legacy/"
+username = "__token__"
+password = "${{ secrets.PYPI_API_TOKEN }}"
+
+[tool.twine.repositories.github-packages]
+repository = "https://upload.pypi.org/legacy/"
+username = "${{ github.actor }}"
+password = "${{ secrets.GITHUB_TOKEN }}"
+
