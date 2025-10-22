@@ -1,0 +1,40 @@
+[build-system]
+
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+
+name = "pace-mdgroup"
+
+version = "0.1.1"
+
+description = "Tools for the pace-mdgroup project."
+
+requires-python = ">=3.9" 
+
+readme = "README.md"
+
+authors = [
+    {name = "Mudit Dixit", email = "dixitmuditg@gmail.com"},
+]
+
+dependencies = [
+    # Add your dependencies here, e.g.,
+    # "requests>=2.20.0",
+]
+
+license = {text = "MIT"}
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    # Add other relevant classifiers here
+]
+
+[project.urls]
+Homepage = "https://github.com/dixitmudit/PACE"
+
+Repository = "https://github.com/dixitmudit/PACE"
+
