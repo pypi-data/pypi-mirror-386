@@ -1,0 +1,6 @@
+soup_files>=1.4
+PyMuPDF
+convert_stream>=2.3.3
+ocr_stream>=2.3.3
+pandas
+opencv-python
