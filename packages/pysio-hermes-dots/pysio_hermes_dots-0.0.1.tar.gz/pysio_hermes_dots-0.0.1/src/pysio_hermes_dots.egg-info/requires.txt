@@ -1,0 +1,4 @@
+pysio-hermes
+
+[movella]
+numpy==1.26.*

@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/hermes/__init__.py
+src/hermes/dots/__init__.py
+src/hermes/dots/producer.py
+src/hermes/dots/stream.py
+src/hermes/dots/asyncio/__init__.py
+src/hermes/dots/movella/__init__.py
+src/hermes/dots/movella/constants.py
+src/hermes/dots/movella/handler.py
+src/hermes/dots/movella/user_settings.py
+src/pysio_hermes_dots.egg-info/PKG-INFO
+src/pysio_hermes_dots.egg-info/SOURCES.txt
+src/pysio_hermes_dots.egg-info/dependency_links.txt
+src/pysio_hermes_dots.egg-info/requires.txt
+src/pysio_hermes_dots.egg-info/top_level.txt
