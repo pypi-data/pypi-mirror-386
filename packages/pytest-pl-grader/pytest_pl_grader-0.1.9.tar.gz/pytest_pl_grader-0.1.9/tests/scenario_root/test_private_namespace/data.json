@@ -1,0 +1,25 @@
+{
+  "params": {
+    "b": {
+      "c": 1
+    },
+    "other_secret_value": 20,
+    "names_for_user": [
+      {
+        "name": "a",
+        "type": "int",
+        "description": ""
+      },
+      {
+        "name": "b",
+        "type": "dict",
+        "description": ""
+      },
+      {
+        "name": "f",
+        "type": "function",
+        "description": ""
+      }
+    ]
+  }
+}
