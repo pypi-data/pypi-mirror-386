@@ -1,0 +1,3 @@
+[mtcli.plugins]
+mtcli_rvo=mtcli_rvo.plugin:register
+
