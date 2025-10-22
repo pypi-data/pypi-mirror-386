@@ -1,0 +1,2 @@
+[console_scripts]
+canify = src.cli:app
