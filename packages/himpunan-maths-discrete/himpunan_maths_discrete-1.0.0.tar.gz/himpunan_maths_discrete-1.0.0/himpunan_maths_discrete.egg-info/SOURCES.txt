@@ -1,0 +1,13 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+himpunan_maths_discrete/__init__.py
+himpunan_maths_discrete/himpunan.py
+himpunan_maths_discrete/main.py
+himpunan_maths_discrete.egg-info/PKG-INFO
+himpunan_maths_discrete.egg-info/SOURCES.txt
+himpunan_maths_discrete.egg-info/dependency_links.txt
+himpunan_maths_discrete.egg-info/top_level.txt
