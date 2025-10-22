@@ -1,0 +1,16 @@
+[project]
+name = "jupyter-background-keepalive"
+version = "0.1.6"
+description = "Initialize a background thread that pings Jupyter so that it doesn't get culled"
+readme = "README.md"
+authors = [
+    { name = "Muhammad Alif Putra Yasa", email = "130131893+alifyasa@users.noreply.github.com" }
+]
+requires-python = ">=3.6"
+dependencies = [
+    "requests>=2.27.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
