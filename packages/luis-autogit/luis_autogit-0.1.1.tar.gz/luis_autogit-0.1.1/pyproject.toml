@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luis-autogit"
+version = "0.1.1"
+
+dependencies = [
+    "python-slugify>=8.0.0",
+]
+
+[project.scripts]
+autogit = "autogit.autogit:main"
