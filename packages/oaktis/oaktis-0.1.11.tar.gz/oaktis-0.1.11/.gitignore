@@ -1,0 +1,32 @@
+.claude
+
+# Dependencies
+node_modules
+dist
+.build
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.env.*
+
+# Build outputs
+build/
+*.tgz
+*.tar.gz
+
+# Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Docs
+site/
+
+# OS
+.DS_Store
+Thumbs.db
