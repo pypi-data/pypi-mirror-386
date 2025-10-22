@@ -1,0 +1,17 @@
+iLibrary/__init__.py,sha256=MGZIqRKrpKg4qnkVlSPO31Fb-B4J45aR-N3LeA7E7c0,76
+iLibrary/src/Library.py,sha256=t0y2DrcAnP2HpEtkv0TS_y9m45G-x_s8_NudWY6WsPE,2789
+iLibrary/src/User.py,sha256=PNvCw9g5JxxvoZ5x1PsOJ42l6wsmuB6I1v9_2SrmkQU,2812
+iLibrary/src/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+iLibrary/src/getInfoForLibrary.py,sha256=sFzQBOMx95Ryk8kxKeG3wqOkVDwiP0cGwdWp9QbCCr4,11769
+iLibrary/src/getUserInfoForUser.py,sha256=tIWxmFNwQL069W-BMdgyZsiiv7t2oT_iuzoJUYnQGkg,167
+iLibrary/src/saveLibrary.py,sha256=gxUk5InJ-KNUB71ClpWhnALNZdNZC5OEZ2FetbFjb6o,19280
+iLibrary/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+iLibrary/tests/test_getSavf.py,sha256=TwKNo2seLhGvLLJJBgrEYzTKBRf0IC1eKD69TUTGGjY,4545
+iSave/__init__.py,sha256=vrcAQNoHF5Va-mIQZuRzTlIjcqI5R_KL9tWUt-D9MsA,44
+iSave/src/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+iSave/src/savlibusr.py,sha256=1hl1uK7ZNdGquDKHKZtYhoR5UYHDzsHDw0d-8AGS174,126
+ilibrary-0.0.5.dist-info/licenses/LICENSE.txt,sha256=5VH57jnTi2chgN7JqpG46ftl7mOIB7Dy-aaVxKegbDw,1061
+ilibrary-0.0.5.dist-info/METADATA,sha256=KD6cqHPi9teULnvCSCfTk_F2-7TkcxCebkCTBbboEDk,3530
+ilibrary-0.0.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ilibrary-0.0.5.dist-info/top_level.txt,sha256=pgsrRlb---N55yqxgeWbMYEVHb-ON77vt20eLbhkJB0,9
+ilibrary-0.0.5.dist-info/RECORD,,
