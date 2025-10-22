@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_client/__init__.py
+src/dm_client/file/__init__.py
+src/dm_client/file/apps.py
+src/dm_client/file/errors.py
+src/dm_client/file/serializers.py
+src/dm_client/file/service.py
+src/dm_client/file/tests/__init__.py
+src/dm_client_file.egg-info/PKG-INFO
+src/dm_client_file.egg-info/SOURCES.txt
+src/dm_client_file.egg-info/dependency_links.txt
+src/dm_client_file.egg-info/requires.txt
+src/dm_client_file.egg-info/top_level.txt
