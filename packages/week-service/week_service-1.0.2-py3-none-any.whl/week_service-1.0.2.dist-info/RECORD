@@ -1,0 +1,14 @@
+cli.py,sha256=13RoPdcB-wu2jx68Dt0zbx-uNdenS2A3_Sf_3le275A,1661
+week_service.py,sha256=jzD6V-9uP4YvvjY2i6vzM2yKJGXm5Al2lL5Ii68ietw,42384
+core/__init__.py,sha256=udxB7McZpVe-3uxHYN71l2XkPxrRa3DFJysE6IuPNDI,244
+core/database.py,sha256=BYBeDLxXQVj1i9BV_89y5wPVbEPP_0jldv9w5NHwcSM,1921
+core/match_loader.py,sha256=wX30my-56avfXvdbBjZG65AIhKkJsoywMEy5ve_DHlk,1536
+core/standings_calculator.py,sha256=V90aVAyt4GHUieqirQSD0WJX97ziA-5GsPyUqtMTddU,6828
+core/week_divider.py,sha256=BfC6WzXWyLNz_kCDqZpXmdfyC6V7xRLGEpIF2AZh0PQ,2796
+utils/__init__.py,sha256=ujANemsZU6GnTeucWpsrLjevVJeE18ize12yL3xbhVE,121
+utils/logger.py,sha256=C05HkzTwb5KMAx9vBulQGDbUCK6PI7hO46PLONtDM20,1876
+week_service-1.0.2.dist-info/METADATA,sha256=cYtpQV5_a55_Kae6wJyEMtvQb-PkV_2sZKyf2awIINU,3710
+week_service-1.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+week_service-1.0.2.dist-info/entry_points.txt,sha256=GZKO5y1OJ_0KE_c64BaOgXv8oVHY7nNcKa7zB0v0v3k,55
+week_service-1.0.2.dist-info/top_level.txt,sha256=wVeAszi3orGAi9Cla6eZjWnrgskMlB0HnAJrCDFo8T0,28
+week_service-1.0.2.dist-info/RECORD,,
