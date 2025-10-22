@@ -1,0 +1,28 @@
+tester:
+  title: Basic Usage
+  description: |-
+    Demonstrate the basic usage of tricot
+
+variables:
+  passwd: /etc/passwd
+
+tests:
+
+  - title: Test passwd File
+    description: |-
+      Test that our passwd file contains some expected user names.
+      Make sure that david is not contained within our passwd file.
+
+    command:
+      - cat
+      - ${passwd}
+    validators:
+      - status: 0
+      - contains:
+          ignore_case: False
+          values:
+            - root
+            - bin
+            - www-data
+          invert:
+            - david

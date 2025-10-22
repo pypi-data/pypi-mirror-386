@@ -1,0 +1,49 @@
+tester:
+  name: os_command
+  title: OsCommandPlugin Tests
+  description: |-
+    'Tests the correct functionality of the OsCommandPlugin'
+
+variables:
+  file: /etc/passwd
+  dir: test-dir-1
+
+plugins:
+  - os_command:
+      cmd:
+        - mkdir
+        - ${dir}
+  - os_command:
+      cmd:
+        - cp
+        - ${file}
+        - ${dir}
+  - os_command:
+      init: 2
+      background: true
+      shell: True
+      cmd:
+        - 'cd ${dir} && python3 -m http.server 8000'
+  - cleanup:
+      force: true
+      items:
+        - ${dir}
+
+
+tests:
+  - title: Verify HTTP - Success
+    description: >
+      'The above series of os commands should spawn a HttpListener in the background. This is
+      tested by this test.'
+    command:
+      - curl
+      - http://127.0.0.1:8000/passwd
+    validators:
+      - contains:
+          values:
+            - root
+            - daemon
+            - bin
+      - regex:
+          match:
+            - '^root:x:'

@@ -1,0 +1,24 @@
+tester:
+  title: Nested Testers
+  description: |-
+    An example for nested testers and plugins
+  error_mode: break
+
+plugins:
+  - mkdir:
+      cleanup: True
+      force: True
+      dirs:
+        - ./www
+  - copy:
+      from:
+        - /etc/passwd
+      to:
+        - ./www
+  - http_listener:
+      port: 8000
+      dir: ./www
+
+testers:
+  - ./example3/curl.yml
+  - ./example3/wget.yml

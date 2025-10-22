@@ -1,0 +1,53 @@
+tester:
+  name: count
+  title: CountValidator Tests
+  description: |-
+    "Performs tests on the CountValidator"
+
+tests:
+  - title: Values - Success
+    description: >
+      'Checks whether operation with values is handeled correctly'
+    command:
+      - cat
+      - /etc/passwd
+    validators:
+      - count:
+          values:
+            - :0:0
+            - systemd-network
+          counts:
+            - 1
+            - 1
+
+  - title: Case Insensitive - Success
+    description: >
+      'Checks whether the ignore_case switch is working'
+    command:
+      - cat
+      - /etc/passwd
+    validators:
+      - count:
+          ignore_case: True
+          values:
+            - :0:0
+            - SystemD-NetworK
+          counts:
+            - 1
+            - 1
+
+  - title: Check Failure - Fail
+    description: >
+      'Checks that missmatching counts lead to an error'
+    command:
+      - cat
+      - /etc/passwd
+    validators:
+      - count:
+          ignore_case: False
+          values:
+            - :0:0
+            - SystemD-NetworK
+          counts:
+            - 1
+            - 1

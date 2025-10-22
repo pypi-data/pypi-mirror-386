@@ -1,0 +1,1181 @@
+tester:
+  name: extra
+  title: Extra Tests
+  description: |-
+    'Perfors some additional tests on tricot, not related to plugins
+    or validators.'
+
+  id: 04
+  groups:
+    - extra
+
+tests:
+  - title: Docker
+    description: |-
+      'Test tricots docker integration'
+
+    groups:
+      - docker
+
+    command:
+      - tricot
+      - ${EXTRA}/Docker.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - Success... success
+            - Fail... failed
+            - 'Starting container: nginx-host'
+            - 'Stopping container: nginx-host'
+            - 'Starting container: nginx'
+            - 'Stopping container: nginx'
+            - 'Network Mode: host'
+            - 'Network Mode: default'
+          counts:
+            - 3
+            - 0
+            - 1
+            - 1
+            - 2
+            - 2
+            - 1
+            - 1
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Env
+    description: |-
+      'Test tricots environment integration'
+
+    groups:
+      - env
+
+    command:
+      - tricot
+      - ${EXTRA}/Env.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - Success... success
+            - Fail... failed
+          counts:
+            - 9
+            - 0
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Conditions - Regular
+    description: |-
+      "Test tricot's condition feature"
+
+    groups:
+      - conditions
+      - conditionals
+
+    command:
+      - tricot
+      - ${EXTRA}/Conditionals/Regular/launcher.yml
+
+    validators:
+      - status: 12
+      - count:
+          values:
+            - Success... success
+            - Failure... failed
+            - Skipped... skipped
+            - 'Skipping test: Conditionals Skipped'
+          counts:
+            - 11
+            - 1
+            - 10
+            - 2
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Conditions - Error1
+    description: |-
+      "Test tricot's condition feature"
+
+    groups:
+      - conditions
+      - conditionals
+
+    command:
+      - tricot
+      - ${EXTRA}/Conditionals/Error1/launcher.yml
+
+    validators:
+      - status: 16
+      - contains:
+          values:
+            - "Condition 'Test5' was used but never declared within a tester"
+
+
+  - title: Conditions - Error2
+    description: |-
+      "Test tricot's condition feature"
+
+    groups:
+      - conditions
+      - conditionals
+
+    command:
+      - tricot
+      - ${EXTRA}/Conditionals/Error2/launcher.yml
+
+    validators:
+      - status: 16
+      - contains:
+          values:
+            - "Condition 'Test5' was used but never declared within a tester"
+
+
+  - title: Conditions - Error3
+    description: |-
+      "Test tricot's condition feature"
+
+    groups:
+      - conditions
+      - conditionals
+
+    command:
+      - tricot
+      - ${EXTRA}/Conditionals/Error3/launcher.yml
+
+    validators:
+      - status: 16
+      - contains:
+          values:
+            - "Conditions need to be specified as string -> bool pairs"
+
+
+  - title: Conditions - Error4
+    description: |-
+      "Test tricot's condition feature"
+
+    groups:
+      - conditions
+      - conditionals
+
+    command:
+      - tricot
+      - ${EXTRA}/Conditionals/Error4/launcher.yml
+
+    validators:
+      - status: 16
+      - contains:
+          values:
+            - "The keys 'all', 'one_of' and 'none_of' need to be lists"
+
+
+  - title: Variables
+    description: |-
+      "Different test on tricot variables"
+
+    groups:
+      - vars
+      - variables
+
+    command:
+      - tricot
+      - --variables
+      - r_var1="named runtime variable"
+      - r_var2="another named runtime variable"
+      - --positionals
+      - "positional runtime variable"
+      - "another positional runtime variable"
+      - '--'
+      - ${EXTRA}/Variables.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - Success... success
+            - Fail... failed
+          counts:
+            - 7
+            - 0
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Streams
+    description: |-
+      "Different test on tricot streams"
+
+    groups:
+      - streams
+
+    command:
+      - tricot
+      - ${EXTRA}/Streams.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - Success... success
+            - Fail... failed
+          counts:
+            - 4
+            - 0
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Prev
+    description: |-
+      "Test whether $prev variable works as expected"
+
+    groups:
+      - prev
+
+    command:
+      - tricot
+      - ${EXTRA}/Prev.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - Success... success
+            - Fail... failed
+          counts:
+            - 2
+            - 0
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Shell
+    description: |-
+      "Test tricot command execution in shell mode"
+
+    groups:
+      - shell
+
+    command:
+      - tricot
+      - ${EXTRA}/Shell.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - Success... success
+            - Fail... failed
+          counts:
+            - 3
+            - 0
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Log
+    description: |-
+      "Test tricot's logfile feature"
+
+    groups:
+      - log
+      - logging
+
+    command:
+      - tricot
+      - ${EXTRA}/Log.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - Success... success
+            - Fail... failed
+          counts:
+            - 2
+            - 0
+      - contains:
+          invert:
+            - Fail... success
+            - Success... failed
+
+
+  - title: Groups All
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Groups One
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - group_one
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+          invert:
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Groups Two
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - group_two
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+
+
+  - title: Groups One - One
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - group_one,one
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+          invert:
+            - Test Group One - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Groups One / Two - One
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - '{group_one,group_two},one'
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group Two - One... success
+          invert:
+            - Test Group One - Two... success
+            - Test Group Two - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Groups One / Two - One (explicit)
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - 'group_one,one'
+      - 'group_two,one'
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group Two - One... success
+          invert:
+            - Test Group One - Two... success
+            - Test Group Two - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Groups One / Two * - Two
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - '{group_one,group_two},*,two'
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Three - Two... success
+            - Test Group Four - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Three - One... success
+            - Test Group Four - One... success
+
+
+  - title: Groups ** - One
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - '**,one'
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group Two - One... success
+            - Test Group Three - One... success
+            - Test Group Four - One... success
+          invert:
+            - Test Group One - Two... success
+            - Test Group Two - Two... success
+            - Test Group Three - Two... success
+            - Test Group Four - Two... success
+
+
+  - title: Exclude group_one
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --exclude-groups
+      - group_one
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+
+
+  - title: Exclude ** - One
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --exclude-groups
+      - '**,one'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - Two... success
+            - Test Group Two - Two... success
+            - Test Group Three - Two... success
+            - Test Group Four - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group Two - One... success
+            - Test Group Three - One... success
+            - Test Group Four - One... success
+
+
+  - title: Exclude vs Include
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --exclude-groups
+      - 'group_one'
+      - --groups
+      - 'group_one'
+
+    validators:
+      - error: False
+      - contains:
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Exclude vs Include 2
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --exclude-groups
+      - 'group_one'
+      - --groups
+      - '**,one'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Two - One... success
+            - Test Group Four - One... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Two - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Four - Two... success
+
+
+  - title: Exclude vs Include 3
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --exclude-groups
+      - 'group_one,one'
+      - --groups
+      - 'group_one'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Group Merge
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --groups
+      - 'merge'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: Group Merge Exclude
+    description: |-
+      "Test tricot's test group feature"
+
+    groups:
+      - group
+      - groups
+
+    command:
+      - tricot
+      - ${EXTRA}/Groups.yml
+      - --exclude-groups
+      - 'group_one'
+      - --groups
+      - 'merge'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+
+
+  - title: ID Test - One Two
+    description: |-
+      "Test tricot's ID feature"
+
+    groups:
+      - id
+      - ids
+
+    command:
+      - tricot
+      - ${EXTRA}/IDs.yml
+      - --ids
+      - 'group_one'
+      - 'group_two'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+
+
+  - title: ID Test - One
+    description: |-
+      "Test tricot's ID feature"
+
+    groups:
+      - id
+      - ids
+
+    command:
+      - tricot
+      - ${EXTRA}/IDs.yml
+      - --ids
+      - 'group_one'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+          invert:
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+            - Test Group Four - Two... success
+
+
+  - title: ID Test - FourOne
+    description: |-
+      "Test tricot's ID feature"
+
+    groups:
+      - id
+      - ids
+
+    command:
+      - tricot
+      - ${EXTRA}/IDs.yml
+      - --ids
+      - 'group_four_one'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Four - One... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - Two... success
+
+
+  - title: Exclude ID
+    description: |-
+      "Test tricot's ID feature"
+
+    groups:
+      - id
+      - ids
+
+    command:
+      - tricot
+      - ${EXTRA}/IDs.yml
+      - --exclude-ids
+      - 'group_four_one'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - Two... success
+          invert:
+            - Test Group Four - One... success
+
+
+  - title: Exclude vs Include (ID)
+    description: |-
+      "Test tricot's ID feature"
+
+    groups:
+      - id
+      - ids
+
+    command:
+      - tricot
+      - ${EXTRA}/IDs.yml
+      - --exclude-ids
+      - 'group_four_one'
+      - --ids
+      - 'group_four_one'
+
+    validators:
+      - error: False
+      - contains:
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - Two... success
+            - Test Group Four - One... success
+
+
+  - title: Exclude vs Include 2 (ID)
+    description: |-
+      "Test tricot's ID feature"
+
+    groups:
+      - id
+      - ids
+
+    command:
+      - tricot
+      - ${EXTRA}/IDs.yml
+      - --exclude-ids
+      - 'group_four_one'
+      - --ids
+      - 'group_four'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Four - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+
+
+  - title: Exclude vs Include (Groups vs ID)
+    description: |-
+      "Test tricot's ID feature"
+
+    groups:
+      - id
+      - ids
+
+    command:
+      - tricot
+      - ${EXTRA}/IDs.yml
+      - --exclude-ids
+      - 'group_four_one'
+      - --groups
+      - 'group_two,group_four'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - Test Group Four - Two... success
+          invert:
+            - Test Group One - One... success
+            - Test Group One - Two... success
+            - Test Group Three - One... success
+            - Test Group Three - Two... success
+            - Test Group Two - One... success
+            - Test Group Two - Two... success
+            - Test Group Four - One... success
+
+
+  - title: Skip Until 1
+    description: |-
+      'Test the --skip-until option'
+
+    groups:
+      - skip
+      - continue
+
+    command:
+      - tricot
+      - ${EXTRA}/SkipAndContinue.yml
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - '[001-000] Dummy Test 1... success'
+            - '[001-001] Dummy Test 2... success'
+            - '[001-002] Dummy Test 3... success'
+            - '[001-003] Dummy Test 4... success'
+            - '[002-000] Dummy Test 1... success'
+            - '[002-001] Dummy Test 2... success'
+            - '[002-002] Dummy Test 3... success'
+            - '[002-003] Dummy Test 4... success'
+            - '[003-000] Dummy Test 1... success'
+            - '[003-001] Dummy Test 2... success'
+            - '[003-002] Dummy Test 3... success'
+            - '[003-003] Dummy Test 4... success'
+
+
+  - title: Skip Until 2
+    description: |-
+      'Test the --skip-until option'
+
+    groups:
+      - skip
+      - continue
+
+    command:
+      - tricot
+      - ${EXTRA}/SkipAndContinue.yml
+      - --skip-until
+      - '002'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - '[002-000] Dummy Test 1... success'
+            - '[002-001] Dummy Test 2... success'
+            - '[002-002] Dummy Test 3... success'
+            - '[002-003] Dummy Test 4... success'
+            - '[003-000] Dummy Test 1... success'
+            - '[003-001] Dummy Test 2... success'
+            - '[003-002] Dummy Test 3... success'
+            - '[003-003] Dummy Test 4... success'
+          invert:
+            - '[001-000] Dummy Test 1... success'
+            - '[001-001] Dummy Test 2... success'
+            - '[001-002] Dummy Test 3... success'
+            - '[001-003] Dummy Test 4... success'
+
+
+  - title: Skip Until 3
+    description: |-
+      'Test the --skip-until option'
+
+    groups:
+      - skip
+      - continue
+
+    command:
+      - tricot
+      - ${EXTRA}/SkipAndContinue.yml
+      - --skip-until
+      - '002-003'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - '[002-003] Dummy Test 4... success'
+            - '[003-000] Dummy Test 1... success'
+            - '[003-001] Dummy Test 2... success'
+            - '[003-002] Dummy Test 3... success'
+            - '[003-003] Dummy Test 4... success'
+          invert:
+            - '[001-000] Dummy Test 1... success'
+            - '[001-001] Dummy Test 2... success'
+            - '[001-002] Dummy Test 3... success'
+            - '[001-003] Dummy Test 4... success'
+            - '[002-000] Dummy Test 1... success'
+            - '[002-001] Dummy Test 2... success'
+            - '[002-002] Dummy Test 3... success'
+
+
+  - title: Continue From 1
+    description: |-
+      'Test the --continue-from option'
+
+    groups:
+      - skip
+      - continue
+
+    command:
+      - tricot
+      - ${EXTRA}/SkipAndContinue.yml
+      - --continue-from
+      - '002-003'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - '[002-003] Dummy Test 4... success'
+            - '[003-000] Dummy Test 1... success'
+            - '[003-001] Dummy Test 2... success'
+            - '[003-002] Dummy Test 3... success'
+            - '[003-003] Dummy Test 4... success'
+          invert:
+            - '[001-000] Dummy Test 1... success'
+            - '[001-001] Dummy Test 2... success'
+            - '[001-002] Dummy Test 3... success'
+            - '[001-003] Dummy Test 4... success'
+            - '[002-000] Dummy Test 1... success'
+            - '[002-001] Dummy Test 2... success'
+            - '[002-002] Dummy Test 3... success'
+
+
+  - title: Continue From 2
+    description: |-
+      'Test the --continue-from option'
+
+    groups:
+      - skip
+      - continue
+
+    command:
+      - tricot
+      - ${EXTRA}/SkipAndContinue.yml
+      - --continue-from
+      - '002'
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - '[002-000] Dummy Test 1... success'
+            - '[002-001] Dummy Test 2... success'
+            - '[002-002] Dummy Test 3... success'
+            - '[002-003] Dummy Test 4... success'
+            - '[003-000] Dummy Test 1... success'
+            - '[003-001] Dummy Test 2... success'
+            - '[003-002] Dummy Test 3... success'
+            - '[003-003] Dummy Test 4... success'
+          invert:
+            - '[001-000] Dummy Test 1... success'
+            - '[001-001] Dummy Test 2... success'
+            - '[001-002] Dummy Test 3... success'
+            - '[001-003] Dummy Test 4... success'
+
+
+  - title: ID Pattern
+    description: |-
+      'Test the id_pattern feature'
+
+    groups:
+      - id_pattern
+
+    command:
+      - tricot
+      - ${EXTRA}/IDPattern.yml
+
+    validators:
+      - error: False
+      - contains:
+          values:
+            - '[test-1-000] Test One... success'
+            - '[test-1-001] Test Two... success'
+            - '[test-1-002] Test Three... success'
+            - '[test-2-000] Test One... success'
+            - '[test-2-001] Test Two... success'
+            - '[test-2-002] Test Three... success'
+            - '[test-2-003] Test Four... success'
+            - '[test-2-004] Test Five... success'
+            - '[test-2-005] Test Six... success'
+            - '[test-2-006] Test Seven... success'
+            - '[test-2-007] Test Eight... success'
+            - '[test-2-008] Test Nine... success'
+            - '[test-2-009] Test Ten... success'
+            - '[test-2-00a] Test Eleven... success'
+            - '[test-2-00b] Test Twelve... success'
+            - '[test-2-00c] Test Thirteen... success'
+            - '[test-2-00d] Test Fourteen... success'
+            - '[test-2-00e] Test Fifteen... success'
+            - '[test-2-00f] Test Sixteen... success'
+
+
+  - title: Includes
+    description: |-
+      "Different tests on tricots include feature"
+
+    groups:
+      - include
+      - includes
+
+    command:
+      - tricot
+      - ${EXTRA}/Includes.yml
+
+    validators:
+      - error: False
+      - count:
+          values:
+            - ... success
+            - ... failed
+          counts:
+            - 4
+            - 0
