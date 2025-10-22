@@ -1,0 +1,5 @@
+asn1crypto>=1.5.1
+cryptography>=46.0.3
+
+[dev]
+pytest>=8.4.2
