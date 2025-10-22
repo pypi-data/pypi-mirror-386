@@ -1,0 +1,211 @@
+import asyncio
+import time
+from typing import Sequence, Literal, Any
+
+import pybotters
+
+from hyperquant.broker.coinw import Coinw
+
+
+async def test_detail() -> None:
+    """Fetch instrument metadata via REST."""
+    async with pybotters.Client() as client:
+        async with Coinw(client) as cw:
+            detail = cw.store.detail.find({
+                'symbol': 'SOL_USDT'
+            })
+            print(detail)
+            
+
+
+async def test_update_private() -> None:
+    """Refresh private endpoints (requires ./apis.json with coinw credentials)."""
+    async with pybotters.Client(apis="./apis.json") as client:
+        async with Coinw(client) as cw:
+            await cw.update("balance")
+            print(cw.store.balance.find())
+            # await cw.update("position", instrument="BTC")
+            # print(cw.store.position.find())
+            # await cw.update("orders", instrument="BTC")
+            # print(cw.store.orders.find())
+
+
+async def test_sub_orderbook(
+    symbols: Sequence[str] = ("BTC",),
+    depth: int = 1,
+    interval: float = 1.0,
+) -> None:
+    """Subscribe CoinW order book and print snapshots."""
+    async with pybotters.Client() as client:
+        async with Coinw(client) as cw:
+            await cw.sub_orderbook(symbols, depth_limit=depth)
+            while True:
+                for sym in symbols:
+                    levels = cw.store.book.find({"s": sym})
+                    if levels:
+                        print(sym, levels[: depth * 2])
+                await asyncio.sleep(interval)
+
+async def test_place_cancel() -> None:
+    """Demonstrate place/cancel flow (requires credentials and tradable environment)."""
+    async with pybotters.Client(apis="./apis.json") as client:
+        async with Coinw(client) as cw:
+            start = time.time()
+            order = await cw.place_order(
+                instrument="SOL",
+                direction="long",
+                quantity_unit=0,
+                leverage=25,
+                quantity=0.8,
+                position_type="plan",
+                price=175,
+                position_model="cross",
+            )
+            latency = time.time() - start
+            print(f'下单延迟: {latency*1000:.2f} ms')
+            order_id = order.get("value") or order.get("data")
+            print("place_order response:", order)
+            if order_id:
+                await asyncio.sleep(1)
+                cancel_resp = await cw.cancel_order(order_id)
+                print("cancel_order response:", cancel_resp)
+
+
+async def test_place_web() -> None:
+    """Use the web interface to place an order (requires device/token)."""
+    async with pybotters.Client(apis="./apis.json") as client:
+        async with Coinw(client) as cw:
+            device_id = '4f5ddd75b019fa4d64a24febc95442c1'
+            token = '2BBD54A6463281D563F1C956A41D13D7web_1761054928090_26370305'
+            start = time.time()
+            resp = await cw.place_order_web(
+                instrument="SOL",
+                direction="long",
+                leverage="50",
+                quantity_unit=1,
+                quantity="1",
+                position_model=1,
+                position_type="plan",
+                open_price="175",
+                device_id=device_id,
+                token=token,
+            )
+            print("place_order_web response:", resp)
+            latency = time.time() - start
+            print(f'下单延迟: {latency*1000:.2f} ms')
+
+
+async def order_sync_polling(
+    broker: Coinw,
+    *,
+    instrument: str,
+    direction: Literal["long", "short"] = "long",
+    leverage: int | str = 50,
+    quantity: str | float | int = "1",
+    quantity_unit: Literal[0, 1, 2] = 0,
+    position_model: Literal[0, 1] = 1,
+    position_type: Literal["plan", "planTrigger", "execute"] = "plan",
+    open_price: str | float | None = None,
+    window_sec: float = 5.0,
+    cancel_retry: int = 3,
+) -> dict[str, Any]:
+    """
+    CoinW 订单轮询：在 window_sec 内等待订单终态，超时后尝试撤单。
+    """
+
+    order_id: str | None = None
+    snapshot: dict[str, Any] | None = None
+
+    try:
+        async with asyncio.timeout(window_sec):
+            with broker.store.orders.watch() as stream:
+                started = int(time.time() * 1000)
+                resp = await broker.place_order(
+                    instrument=instrument,
+                    direction=direction,
+                    leverage=leverage,
+                    quantity_unit=quantity_unit,
+                    quantity=quantity,
+                    position_model=position_model,
+                    position_type=position_type,
+                    price=open_price,
+                )
+                print(resp)
+                latency = int(time.time() * 1000) - started
+                print(f"下单延迟 {latency} ms")
+
+                raw_id = (
+                    resp.get("value")
+                    or resp.get("orderId")
+                    or resp.get("data")
+                    or (
+                        resp.get("data", {}).get("value")
+                        if isinstance(resp.get("data"), dict)
+                        else None
+                    )
+                )
+                if not raw_id:
+                    raise RuntimeError(f"place_order 返回缺少 order_id: {resp}")
+                order_id = str(raw_id)
+
+                async for change in stream:
+     
+                    data = change.data or {}
+                    if str(data.get("id")) != order_id:
+                        continue
+                    snapshot = data
+                    status = str(data.get("orderStatus") or data.get("status") or "").lower()
+                    print(change.operation )
+                    if change.operation == "delete":
+                        return change.source
+                    if status in {"finish", "cancel", "canceled"}:
+                        return snapshot
+                    
+    except TimeoutError:
+        pass
+
+    if order_id:
+        for attempt in range(cancel_retry):
+            try:
+                await broker.cancel_order(order_id)
+                break
+            except Exception as exc:
+                print(f"撤单异常({attempt + 1}/{cancel_retry}): {exc}")
+            await asyncio.sleep(1.0)
+
+    return snapshot or {"order_id": order_id, "status": "timeout"}
+
+async def test_subp() -> None:
+    """Subscribe to private channels (requires credentials)."""
+    async with pybotters.Client(apis="./apis.json") as client:
+        async with Coinw(client) as cw:
+            await cw.sub_personal()
+            with cw.store.orders.watch() as watcher:
+                async for change in watcher:
+                    print(change)
+
+
+async def test_order_sync_polling() -> None:
+    """Test the order_sync_polling function (requires credentials)."""
+    async with pybotters.Client(apis="./apis.json") as client:
+        async with Coinw(client) as cw:
+            await cw.sub_personal()
+            print("Placing order with order_sync_polling...")
+            result = await order_sync_polling(
+                broker=cw,
+                instrument="SOL",
+                direction="long",
+                leverage=25,
+                quantity=1,
+                quantity_unit=1,
+                position_model="cross",
+                position_type="execute",
+                open_price=None,
+                window_sec=3,
+                cancel_retry=2,
+            )
+            print("order_sync_polling result:", result)
+
+
+if __name__ == "__main__":
+    asyncio.run(test_order_sync_polling())
