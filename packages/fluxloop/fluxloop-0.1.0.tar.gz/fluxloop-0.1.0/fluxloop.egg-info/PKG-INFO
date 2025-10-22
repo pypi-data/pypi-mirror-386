@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: fluxloop
+Version: 0.1.0
+Summary: FluxLoop SDK for agent instrumentation and tracing
+Author-email: FluxLoop Team <team@fluxloop.dev>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/fluxloop/fluxloop
+Project-URL: Documentation, https://docs.fluxloop.dev
+Project-URL: Repository, https://github.com/fluxloop/fluxloop
+Project-URL: Issues, https://github.com/fluxloop/fluxloop/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: python-dotenv>=1.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.0; extra == "dev"
+Requires-Dist: black>=23.0; extra == "dev"
+Provides-Extra: langchain
+Requires-Dist: langchain>=0.1.0; extra == "langchain"
+Provides-Extra: langgraph
+Requires-Dist: langgraph>=0.0.20; extra == "langgraph"
+
+# FluxLoop SDK
+
+FluxLoop SDK for agent instrumentation and tracing.
+
+## Installation
+
+```bash
+pip install fluxloop
+```
+
+## Quick Start
+
+```python
+from fluxloop import trace, FluxLoopClient
+
+# Initialize the client
+client = FluxLoopClient()
+
+# Use the trace decorator
+@trace()
+def my_agent_function(prompt: str):
+    # Your agent logic here
+    return result
+```
+
+## Features
+
+- 🔍 **Automatic Tracing**: Instrument your agent code with simple decorators
+- 📊 **Rich Context**: Capture inputs, outputs, and metadata
+- 🔄 **Async Support**: Works with both sync and async functions
+- 🎯 **Framework Integration**: Built-in support for LangChain and LangGraph
+
+## Documentation
+
+For detailed documentation, visit [https://docs.fluxloop.dev](https://docs.fluxloop.dev)
+
+## License
+
+Apache License 2.0 - see LICENSE file for details
+
