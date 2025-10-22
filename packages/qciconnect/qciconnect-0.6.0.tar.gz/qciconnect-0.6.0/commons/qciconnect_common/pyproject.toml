@@ -1,0 +1,33 @@
+[project]
+name = "qciconnect_common"
+version = "0.1.0"
+description = "Contains utility methods for QCI Connect application"
+authors = [{ name = "QC Software Team" }]
+requires-python = "==3.12.7"
+dependencies = ["sqlmodel==0.0.19"]
+
+[project.optional-dependencies]
+testing = [
+    "pytest==8.3.5",
+    "numpy",
+]
+codestyle-mypy = [
+    "mypy==1.11.2",
+    "pytest==8.3.5",
+    "pydantic>=2.9.2",
+    "pydantic-settings==2.4.0",
+    "celery==5.4.0",
+    "numpy",
+]
+codestyle-ruff = ["ruff>=0.12.2"]
+dev = [
+    "pytest==8.3.5",
+    "numpy",
+    "mypy==1.11.2",
+    "pydantic>=2.9.2",
+    "pydantic-settings==2.4.0",
+    "celery==5.4.0",
+    "ruff>=0.12.2",
+]
+
+

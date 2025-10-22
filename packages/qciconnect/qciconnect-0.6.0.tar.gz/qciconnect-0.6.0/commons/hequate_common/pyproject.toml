@@ -1,0 +1,6 @@
+[project]
+name = "hequate_common"
+version = "0.1.0"
+description = ""
+authors = [{ name = "Hequate Software Team" }]
+requires-python = "==3.12.7"
