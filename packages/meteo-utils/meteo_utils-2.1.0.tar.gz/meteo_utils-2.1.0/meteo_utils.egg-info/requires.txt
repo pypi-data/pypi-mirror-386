@@ -1,0 +1,14 @@
+cdsapi
+netCDF4
+numpy
+gdal
+osr
+scipy
+scikit-image
+pyyaml
+cfgrib
+xarray
+rioxarray
+radiative-transfer-models
+pytseb
+python-dms

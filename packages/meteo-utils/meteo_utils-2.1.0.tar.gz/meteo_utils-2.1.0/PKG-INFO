@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: meteo_utils
+Version: 2.1.0
+Summary: Python methods for the automatic download and processing of ECMWF data relevant for evapotranspiration modelling.
+Author-email: Héctor Nieto <hector.nieto@csic.es>, Radoslaw Guzinski <rmgu@dhigroup.com>
+License-Expression: GPL-3.0-or-later
+Project-URL: Homepage, https://github.com/hectornieto/meteo_utils
+Keywords: SEN-ET,Evapotranspiration,Landsat,Sentinel-3,SLSTR,Copernicus,ERA5,CAMS,ECMWF,Remote Sensing
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Hydrology
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cdsapi
+Requires-Dist: netCDF4
+Requires-Dist: numpy
+Requires-Dist: gdal
+Requires-Dist: osr
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Requires-Dist: pyyaml
+Requires-Dist: cfgrib
+Requires-Dist: xarray
+Requires-Dist: rioxarray
+Requires-Dist: radiative-transfer-models
+Requires-Dist: pytseb
+Requires-Dist: python-dms
+Dynamic: license-file
+
+# Meteo Utils
+This Python repository contains methods that allow the automatic download and processing of ECMWF data relevant for evapotranspiration modelling.
+
+## Installation
+With `conda`, you can create a complete environment with all the required librarie typing
+```
+conda env create -f environment.yml
+```
+or update a current environment:
+```
+conda env update -n <environment> -f environment.yml
+```
+
+## Requirements
+### Registration at the Copernicus climate and atmoshperic data stores
+This plugin allows the automatic download and preprocessing of ERA5 meteorological data, provided by ECMWF.
+In order to properly work you should first register to get an ECWMF account [here](https://accounts.ecmwf.int/auth/realms/ecmwf/login-actions/registration?client_id=cds&tab_id=uP8OQT6ER-E).
+Once registered, follow the next steps to configure the credentials for the processor:
+
+1. Go to your *HOME* or *user* folder. 
+  > In Linux/MacOS this folder is at `/home/your_user_name`. In windows it is usually at `C:\Users\your_user_name`.
+
+2. Login to the [Climate Data Store](https://cds.climate.copernicus.eu/) with your ECMWF username and password, 
+then type the next URL address [https://cds.climate.copernicus.eu/how-to-api](https://cds.climate.copernicus.eu/how-to-api)
+
+3. Create a blank ASCII file in your *HOME* folder named `.cdsapirc` (please note the dot `.` at the beginning of the string),
+and paste the two lines that appear in the black box of the webpage.
+
+![](./figures/cds_key.png)
+
+  > These two lines have the following format:
+  ```
+  url: https://cds.climate.copernicus.eu/api
+  key: UID:API-KEY
+  ```
+  where *UID* and *API-KEY* are your Copernicus Climate Data Store credentials.
+
+4. Login to the [Atmospheric Data Store](https://ads.atmosphere.copernicus.eu/) with your ECMWF username and password, 
+then type the next URL address [https://ads.atmosphere.copernicus.eu/how-to-api](https://ads.atmosphere.copernicus.eu/how-to-api)
+
+5. Create a blank ASCII file in your *HOME* folder named `.adsapirc` (please note the dot `.` at the beginning of the string),
+and paste the two lines that appear in the black box of the webpage.
+
+  > These two lines have the following format:
+  ```
+   url: https://ads.atmosphere.copernicus.eu/api
+   key: UID:API-KEY
+  ```
+  where *UID* and *API-KEY* are your Copernicus Atmospheric Climate Data Store credentials.
+
+## Usage
+An example for using the package can be found in the script `process_era5.py`
+
+
