@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rice_price_collector"
+version = "0.1.5"  # will be updated automatically by bump-my-version
+description = "Collects daily rice prices from CBSL (Central Bank of Sri Lanka) reports."
+authors = [
+  { name = "Chamodh Chiran", email = "your.email@example.com" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+  "aiohttp",
+  "beautifulsoup4",
+  "pdfplumber",
+  "pandas"
+]
+
+[project.urls]
+Homepage = "https://github.com/ChamoChiran/rice_price_collector"
+Repository = "https://github.com/ChamoChiran/rice_price_collector"
+Issues = "https://github.com/ChamoChiran/rice_price_collector/issues"
+
+# setuptools: package discovery
+[tool.setuptools.packages.find]
+where = ["."]
+
+# ───────────────────────────────────────────────
+# Formatting & Linting
+# ───────────────────────────────────────────────
+[tool.ruff]
+line-length = 99
+src = ["rice_price_collector"]
+include = ["pyproject.toml", "rice_price_collector/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["rice_price_collector"]
+force-sort-within-sections = true
+
+# ───────────────────────────────────────────────
+# Twine configuration for uploads
+# ───────────────────────────────────────────────
+[tool.twine]
+# Default repository (PyPI)
+repository = "https://upload.pypi.org/legacy/"
+
+[tool.twine.repositories.pypi]
+repository = "https://upload.pypi.org/legacy/"
+username = "__token__"
+password = "${{ secrets.PYPI_API_TOKEN }}"
+
+[tool.twine.repositories.testpypi]
+repository = "https://test.pypi.org/legacy/"
+username = "__token__"
+password = "${{ secrets.TEST_PYPI_API_TOKEN }}"
+
+[tool.twine.repositories.github-packages]
+repository = "https://upload.pkg.github.com/ChamoChiran/rice_price_collector"
+username = "${{ github.actor }}"
+password = "${{ secrets.GITHUB_TOKEN }}"
