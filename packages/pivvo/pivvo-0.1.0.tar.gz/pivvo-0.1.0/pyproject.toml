@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=65.5.0","wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pivvo"
+version = "0.1.0"
+description = "CLI tool to auto-init Python projects with venv, git, and basic files."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name="Devrat Kuntal", email="rdxdevbhai76@gmail.com" }
+]
+license = "MIT"
+keywords = ["cli","project","automation","python"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+pivvo = "pivvo.cli:app"
