@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/cunumpy/__init__.py
+src/cunumpy/main.py
+src/cunumpy/xp.py
+src/cunumpy.egg-info/PKG-INFO
+src/cunumpy.egg-info/SOURCES.txt
+src/cunumpy.egg-info/dependency_links.txt
+src/cunumpy.egg-info/requires.txt
+src/cunumpy.egg-info/top_level.txt
