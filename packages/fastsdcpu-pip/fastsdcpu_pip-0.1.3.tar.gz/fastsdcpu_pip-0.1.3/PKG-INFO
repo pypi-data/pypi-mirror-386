@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: fastsdcpu-pip
+Version: 0.1.3
+Summary: Fast stable diffusion on CPU and AI PC ported to a pip module
+Home-page: https://github.com/Flyns157/fastsdcpu/pip
+Author: Cuisset Mattéo
+Author-email: matteo.cuisset@gmail.com
+License: MIT AND (Apache-2.0 OR BSD-2-Clause)
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: THIRD-PARTY-LICENSES
+License-File: LICENSE
+Requires-Dist: accelerate
+Requires-Dist: diffusers
+Requires-Dist: transformers
+Requires-Dist: PyQt5
+Requires-Dist: Pillow
+Requires-Dist: openvino
+Requires-Dist: optimum-intel
+Requires-Dist: onnx
+Requires-Dist: numpy
+Requires-Dist: onnxruntime
+Requires-Dist: pydantic
+Requires-Dist: typing-extensions
+Requires-Dist: pyyaml
+Requires-Dist: gradio
+Requires-Dist: peft
+Requires-Dist: opencv-python
+Requires-Dist: omegaconf
+Requires-Dist: controlnet-aux
+Requires-Dist: tomesd
+Requires-Dist: mcp
+Requires-Dist: fastapi-mcp
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# FastSD CPU (pip version)
