@@ -1,0 +1,17 @@
+pyba/__init__.py,sha256=wAMJMxcQxSQR1oY15afi9y0LuhRLELk10VfktbLcSmg,29
+pyba/core/__init__.py,sha256=OQ7eE7anryedWXG200lek2xdkHuMeTSBXcM63ZwoGcc,89
+pyba/core/agent/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyba/core/agent/playwright_agent.py,sha256=xiDXKJFBGd4cmu8CYrf_fJUIwHkIchHTj_f5tTamVtA,4368
+pyba/core/main.py,sha256=oMALZmrrobJhDQpFrWDs9rHKVTMQsKPh9fQ8L1cqd7Q,4882
+pyba/idea.md,sha256=A8jWCgmQONa7syjHp90Tt9FScz8ARrLi0Hezpt9T4uI,1355
+pyba/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyba/utils/common.py,sha256=TFvpGt1AYrIcsTJZAv6vOHOBOeW23rVzQBvpRjjLzVA,204
+pyba/utils/exceptions.py,sha256=L1IjX3l7W1DPIyK9KkWrQt63q0SaxS8iy-5df-n0_yk,909
+pyba/utils/prompts/__init__.py,sha256=THFqFKPmvzCsWVab7MoLzzOZZiyf-Q8VJB_mEI46VRk,142
+pyba/utils/prompts/general_prompt.py,sha256=FGmto96Npl4tVwkuA5sawzdlg1sPCcPZMuImz_5H1sE,3765
+pyba/utils/prompts/system_prompt.py,sha256=RrHT3cuPtZf59zQ6aANi5v4QtlfVN98hHMaTwOO36Kc,3252
+pyba/utils/structure.py,sha256=zLi-cItbe_TFmzUFlZD5IKNX7Docdkrana-pjGXS874,1572
+py_browser_automation-0.1.1.dist-info/METADATA,sha256=yV2wRpcAEDYLLK_WLpPSfEWCo6ByD5ecZCAeKFcGayY,1089
+py_browser_automation-0.1.1.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+py_browser_automation-0.1.1.dist-info/licenses/LICENSE,sha256=E7eLw0qxkxbFigSeOSpelmiwWj_GRkLsm6_8ZO0JCFs,1076
+py_browser_automation-0.1.1.dist-info/RECORD,,
