@@ -1,0 +1,237 @@
+Metadata-Version: 2.4
+Name: openatlas
+Version: 1.0.0
+Summary: An autonomous browser agent with web search and interactive browsing capabilities
+Home-page: https://github.com/openatlas/openatlas
+Author: Harish Santhanalakshmi Ganesan
+Author-email: 
+License: MIT
+Project-URL: Homepage, https://github.com/openatlas/openatlas
+Project-URL: Bug Reports, https://github.com/openatlas/openatlas/issues
+Project-URL: Source, https://github.com/openatlas/openatlas
+Keywords: ai,agent,browser,automation,web-scraping,llm,claude,gpt,gemini
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: agno
+Requires-Dist: ddgs
+Requires-Dist: httpx
+Requires-Dist: julia_browser
+Requires-Dist: python-dotenv
+Requires-Dist: anthropic
+Requires-Dist: litellm
+Requires-Dist: openai
+Requires-Dist: google-genai
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# OpenAtlas Agent
+
+An autonomous browser agent with web search and interactive browsing capabilities. OpenAtlas can search the web using DuckDuckGo, browse websites interactively, click elements, fill forms, and extract information.
+
+> **Note**: This project requires Node.js support. Make sure you have Node.js installed on your system.
+
+## Installation
+
+```bash
+pip3 install openatlas
+```
+
+## API Keys Setup
+
+OpenAtlas requires an API key for your chosen LLM provider. Add one of the following to your environment:
+
+### Anthropic (Claude)
+```bash
+export ANTHROPIC_API_KEY=your_key_here
+```
+
+### OpenAI (GPT)
+```bash
+export OPENAI_API_KEY=your_key_here
+```
+
+### Google (Gemini)
+```bash
+export GEMINI_API_KEY=your_key_here
+```
+
+### Any LLM supported by LiteLLM
+OpenAtlas supports 100+ models from various providers including:
+- OpenAI (GPT-4, GPT-3.5)
+- Anthropic (Claude)
+- Google (Gemini)
+- Cohere
+- Mistral AI
+- And many more!
+
+See [LiteLLM documentation](https://docs.litellm.ai/docs/) for the full list of supported models.
+
+## Quick Start
+
+```bash
+# Start OpenAtlas Agent
+openatlas
+
+# Or run directly with Python
+python cli.py
+
+# Specify a model
+python cli.py --model gpt-4o
+```
+
+## Usage
+
+### Commands
+
+All commands start with `/`:
+
+- `/model` - Choose a different AI model
+- `/status` - Show current session configuration
+- `/clear` - Clear the screen
+- `/help` - Show detailed help information
+- `/quit` - Exit the CLI
+
+### Example Tasks
+
+**Web Search**
+```
+> What's happening in AI today?
+> Search for Python 3.13 new features
+> Find the latest news about SpaceX
+```
+
+**Website Browsing**
+```
+> Open https://news.ycombinator.com and list the top stories
+> Browse to github.com and search for AI projects
+> Go to wikipedia.org and find information about Mars
+```
+
+**Interactive Tasks**
+```
+> Open reddit.com/r/programming and show me the trending posts
+> Search Google for "best restaurants near me"
+> Navigate to amazon.com and search for wireless headphones
+```
+
+**Research Tasks**
+```
+> Research on multiple websites and find top whey protein brands in 2025
+> Compare prices for MacBook Pro across different retailers
+> Find reviews for the latest iPhone from tech websites
+> Browse 5 different tech news sites and summarize today's biggest story
+```
+
+## Use Cases
+
+### 🔬 Research & Information Gathering
+- **Multi-source research**: Gather information from multiple websites simultaneously
+- **Competitive analysis**: Research competitors' products, pricing, and strategies
+- **Academic research**: Collect data and citations from various web sources
+- **Product comparison**: Compare features, prices, and reviews across platforms
+
+**Example:**
+```
+> Research on multiple websites and find top whey protein brands in 2025
+```
+
+### 📰 News & Updates
+- **Breaking news monitoring**: Track news from multiple sources in real-time
+- **Topic tracking**: Follow specific topics across different news outlets
+- **Social media aggregation**: Gather trending discussions from social platforms
+- **Industry trends**: Stay updated with the latest developments in your field
+
+**Example:**
+```
+> Open https://news.ycombinator.com and list the top stories
+> Check latest AI news from TechCrunch and The Verge
+```
+
+### 🛍️ Shopping & E-commerce
+- **Product research**: Find and compare products across retailers
+- **Price comparison**: Track prices across different e-commerce platforms
+- **Review aggregation**: Collect and analyze product reviews
+- **Availability checking**: Check stock across multiple stores
+
+**Example:**
+```
+> Compare prices for iPhone 15 Pro on Amazon, Best Buy, and Apple Store
+> Find the best-rated wireless earbuds under $100
+```
+
+### 💼 Business Intelligence
+- **Competitor monitoring**: Track competitor websites and announcements
+- **Market trend analysis**: Analyze market trends from multiple sources
+- **Lead generation**: Find potential customers and partners online
+- **Industry news tracking**: Monitor industry-specific news and updates
+
+**Example:**
+```
+> Monitor tech startup funding announcements from TechCrunch this week
+> Research top SaaS companies in the project management space
+```
+
+### 🎓 Learning & Education
+- **Research for assignments**: Gather information for academic projects
+- **Finding educational resources**: Discover tutorials, courses, and documentation
+- **Staying updated**: Learn about latest developments in any field
+- **Exploring topics**: Deep dive into subjects with guided research
+
+**Example:**
+```
+> Find the official Python documentation and explain the new features in 3.13
+> Research the history of artificial intelligence from multiple sources
+```
+
+### 🎯 Content Creation
+- **Content research**: Gather information for articles and blog posts
+- **Fact-checking**: Verify information across multiple sources
+- **Trend analysis**: Identify trending topics and discussions
+- **Source collection**: Compile references and citations
+
+**Example:**
+```
+> Research the top 10 AI trends for 2025 from multiple tech blogs
+> Find statistics about remote work adoption in 2024
+```
+
+## Supported Models
+
+### Default Models
+- **claude-sonnet-4-5** (Anthropic) - Default, best for complex tasks
+- **gpt-4o** (OpenAI) - Excellent for general tasks
+- **gemini-2.0-flash** (Google) - Fast and efficient
+
+### Custom Models
+Use any model supported by LiteLLM by selecting option 4 during model selection or using the `/model` command. This includes:
+- gpt-4, gpt-3.5-turbo (OpenAI)
+- claude-3-opus, claude-3-sonnet (Anthropic)
+- gemini-pro, gemini-1.5-pro (Google)
+- command-r-plus (Cohere)
+- mistral-large (Mistral AI)
+- And 100+ more models!
+
+## License
+
+MIT License
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Support
+
+For issues, questions, or feature requests, please open an issue on GitHub.
+
+---
+
+**Made with ❤️ by Harish Santhanalakshmi Ganesan**
