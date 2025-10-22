@@ -1,0 +1,10 @@
+connio>=0.2.0
+umodbus>=1.0.4
+
+[numpy]
+numpy>=1.1
+
+[tests]
+pytest>=6
+pytest-asyncio
+pytest-cov
