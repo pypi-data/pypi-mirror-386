@@ -1,0 +1,2 @@
+[console_scripts]
+pocket-recs = pocket_recs.cli:app
