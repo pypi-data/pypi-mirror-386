@@ -1,0 +1,65 @@
+inputs:
+  _include:
+  - (.)gridding.yml
+  - (.)cgopts.yml
+  - (.)dist.yml
+  - (.)out.yml
+  eta:
+    abbreviation: eta
+    default: 1e-5
+    dtype: float
+    info: Standard deviation of assumed GRF prior
+  gamma:
+    default: 1.0
+    dtype: float
+    info: Step size of update
+  mask:
+    abbreviation: mask
+    dtype: str
+    info: Either path to mask.fits or set to model to construct from model
+  memory-greedy:
+    default: false
+    dtype: bool
+    info: Holds data in memory if set
+  min-model:
+    default: 1e-5
+    dtype: float
+    info: If using mask to construct model construct it where model > min-model
+  model-name:
+    default: MODEL
+    dtype: str
+    info: Name of the model to update
+  or-mask-with-model:
+    default: false
+    dtype: bool
+    info: Make a new mask consisting of the union of input mask and where the MFS
+      model is larger than zero.
+  residual-name:
+    default: RESIDUAL
+    dtype: str
+    info: Name of the residual to use
+  suffix:
+    default: main
+    dtype: str
+    info: Can be used to specify a custom name for the image space data product
+  use-psf:
+    default: true
+    dtype: bool
+    info: Whether to approximate the Hessian as a convolution by the PSF
+  zero-model-outside-mask:
+    default: false
+    dtype: bool
+    info: Make sure the input model is zero outside the mask. Only has an effect if
+      an external mask has been passed in. A major cycle will be triggered to recompute
+      the residual after zeroing.
+outputs:
+  dds-out:
+    dtype: Directory
+    implicit: '{current.output-filename}_{current.product}_{current.suffix}.dds'
+    must_exist: false
+  mds-out:
+    dtype: Directory
+    implicit: '{current.output-filename}_{current.product}_{current.suffix}_model.mds'
+    must_exist: false
+policies:
+  pass_missing_as_none: true

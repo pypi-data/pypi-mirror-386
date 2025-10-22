@@ -1,0 +1,73 @@
+inputs:
+  _include:
+  - (.)out.yml
+  fit-mode:
+    default: Legendre
+    dtype: str
+  from-fits:
+    dtype: str
+    info: An optional fits input model. An mds will be created that matches the model
+      resolution.
+  mds:
+    dtype: str
+    info: An optional input model to append to the model. Will be rendered to the
+      same resolution as the model in the dds.
+  min-val:
+    dtype: float
+    info: Only fit components above this flux level
+  model-name:
+    abbreviation: mname
+    default: MODEL
+    dtype: str
+    info: Name of model in mds
+  model-out:
+    dtype: str
+    info: Optional explicit output name. Otherwise the default naming convention is
+      used.
+  nbasisf:
+    dtype: int
+    info: Order of interpolating polynomial for frequency axis. One less than the
+      number of bands by default.
+  nbasist:
+    default: 1
+    dtype: int
+    info: Order of interpolating polynomial for time axis. This is hypothetical for
+      the time being.
+  nthreads:
+    abbreviation: nt
+    dtype: int
+    info: Number of threads
+  out-format:
+    choices:
+    - zarr
+    - json
+    default: zarr
+    dtype: str
+    info: Format to dump model to.
+  out-freqs:
+    dtype: str
+    info: A string flow:fhigh:step of frequencies in hertz where the output cube needs
+      to be evaluated.
+  overwrite:
+    default: false
+    dtype: bool
+    info: Allow overwrite of existing model
+  sigmasq:
+    default: 1e-10
+    dtype: float
+    info: Multiple of the identity to add to the hessian for stability
+  suffix:
+    default: main
+    dtype: str
+    info: Can be used to specify a custom name for the image space data products
+  use-wsum:
+    default: true
+    dtype: bool
+    info: Use wsum as weights during fit
+outputs:
+  mds-out:
+    dtype: Directory
+    implicit: =IFSET(current.model-out, current.model-out, '{current.output-filename}_{current.product}_{current.suffix}_{current.model-name}.mds')
+    must_exist: false
+policies:
+  pass_missing_as_none: true

@@ -1,0 +1,28 @@
+fits-cubes:
+  default: true
+  dtype: bool
+  info: Output fits cubes
+fits-mfs:
+  default: true
+  dtype: bool
+  info: Output MFS fits files
+fits-output-folder:
+  abbreviation: fitso
+  dtype: str
+  info: Optional path to write fits files to. Set to output-filename if not provided.
+    The same naming conventions apply.
+log-directory:
+  abbreviation: ldir
+  dtype: str
+  info: Directory to write logs and performance reports to.
+output-filename:
+  abbreviation: o
+  dtype: str
+  info: Basename of output
+  required: true
+product:
+  abbreviation: p
+  default: I
+  dtype: str
+  info: String specifying which Stokes products to produce. Outputs are always be
+    alphabetically ordered.

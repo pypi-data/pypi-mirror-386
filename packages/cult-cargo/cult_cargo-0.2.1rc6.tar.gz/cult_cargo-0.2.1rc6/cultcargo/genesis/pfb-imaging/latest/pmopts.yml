@@ -1,0 +1,20 @@
+pm-maxit:
+  abbreviation: pmmaxit
+  default: 100
+  dtype: int
+  info: Maximum iterations for power method
+pm-report-freq:
+  abbreviation: pmrf
+  default: 100
+  dtype: int
+  info: Report frequency of power method algorithm
+pm-tol:
+  abbreviation: pmol
+  default: 1e-3
+  dtype: float
+  info: Tolreance of power method
+pm-verbose:
+  abbreviation: pmverb
+  default: 1
+  dtype: int
+  info: Verbosity of primal power method. Set to > 1 for \ debugging, 0 for silence
