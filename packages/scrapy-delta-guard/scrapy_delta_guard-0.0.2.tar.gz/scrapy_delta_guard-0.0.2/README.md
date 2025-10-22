@@ -1,0 +1,97 @@
+# 🛡️ Delta Guard
+
+**Delta Guard** is a lightweight, production-ready plugin for **Scrapy** projects that detects and manages **data deltas** (changes) between newly scraped items and existing database records.  
+It helps maintain data integrity, reduces false updates, and can automatically trigger alerts (e.g., JIRA tickets) when meaningful changes occur.
+
+---
+
+## 🚀 Why use Delta Guard?
+
+Large-scale crawlers and ETL pipelines commonly face:
+- layout or markup changes on target sites,
+- formatting differences (phone `123-456` vs `123456`),
+- transient incorrect data in sponsored or related blocks,
+- and other causes of noisy updates.
+
+Delta Guard helps you:
+- Detect **real** content changes, not formatting noise.
+- Avoid cascading bad writes by stopping crawls if many fields drift.
+- Integrate without changing your existing item pipelines.
+- Optionally notify downstream systems (JIRA, Slack, email).
+
+---
+
+## ⚙️ Quick Start
+
+Add the following to your Scrapy project's `settings.py`:
+
+```python
+DELTA_GUARD_ENABLED = True
+DELTA_GUARD_DEFAULT_THRESHOLD = 0.05   # 5% default tolerance
+DELTA_GUARD_FIELDS_CONFIG = [
+    {"name": "phone"},                 # uses default threshold
+    {"name": "email", "threshold": 0.08},  # override threshold for email
+]
+# Optional: a runtime object (ORM instance, dict or variable name)
+DELTA_GUARD_DB_OBJECT = None           # set at runtime if desired
+DELTA_GUARD_BATCH_SIZE = 100
+DELTA_GUARD_DB_NONE_IGNORE = True
+DELTA_GUARD_SPIDER_NONE_IGNORE = False
+# Optional: dotted path to function to call on alert (title, description) or custom signature.
+DELTA_GUARD_JIRA_FUNC = None
+
+# Single pipeline entry that wraps user pipelines automatically
+ITEM_PIPELINES = {
+    "delta_guard.pipeline.DeltaGuardAdapterPipeline": 500,
+}
+```
+
+🧩 **How It Works**  
+Delta Guard compares each scraped item with its corresponding record from the database (using SQLAlchemy ORM, dicts, or variables).  
+For every field defined in `DELTA_GUARD_FIELDS_CONFIG`, it measures the difference between old and new values.  
+If a delta exceeds its threshold, it accumulates that difference in memory.  
+Every `DELTA_GUARD_BATCH_SIZE` items, it evaluates the overall delta for the batch.  
+If the drift surpasses acceptable limits:  
+- Delta Guard halts the spider to prevent further corruption.  
+- Optionally, it triggers a JIRA ticket or alert function.
+
+⚡ **Configuration Reference**  
+
+| Setting | Type | Default | Description |
+|---------|------|---------|-------------|
+| `DELTA_GUARD_ENABLED` | `bool` | `False` | Enables or disables Delta Guard. |
+| `DELTA_GUARD_DEFAULT_THRESHOLD` | `float` | `0.05` | Default allowed delta (5%). |
+| `DELTA_GUARD_FIELDS_CONFIG` | `list[dict]` | `–` | Field-level delta config. |
+| `DELTA_GUARD_BATCH_SIZE` | `int` | `100` | Number of items per evaluation batch. |
+| `DELTA_GUARD_DB_NONE_IGNORE` | `bool` | `True` | Ignore if DB value is None. |
+| `DELTA_GUARD_SPIDER_NONE_IGNORE` | `bool` | `False` | Ignore if spider provides None. |
+| `DELTA_GUARD_JIRA_FUNC` | `str` | `None` | Optional dotted path to alert handler. |
+| `DELTA_GUARD_DB_OBJECT` | `str/obj` | `None` | ORM, dict, or variable name for DB object. |
+
+🧠 **Example Behavior**  
+
+| Field | DB Value | Spider Value | Result |
+|-------|----------|--------------|--------|
+| `phone` | `1234567890` | `123-456-7890` | ✅ Ignored (minor format change) |
+| `email` | `user@site.com` | `user@fake.com` | ⚠️ Delta exceeds threshold (alert) |
+| `address` | `None` | `123 Main St` | ✅ Ignored if `DELTA_GUARD_DB_NONE_IGNORE=True` |
+
+📦 **Installation**  
+```bash
+pip install scrapy-delta-guard
+```
+Then enable it via your Scrapy project’s `settings.py`.
+
+🧰 **Optional Integration**  
+If you wish to auto-create JIRA tickets (or alerts), define a handler:  
+```python
+# myproject/utils.py
+def jira_ticket(title: str, description: str):
+    print(f"[JIRA] {title}: {description}")
+```
+and set:  
+`DELTA_GUARD_JIRA_FUNC = "myproject.utils.jira_ticket"`
+
+
+***
+

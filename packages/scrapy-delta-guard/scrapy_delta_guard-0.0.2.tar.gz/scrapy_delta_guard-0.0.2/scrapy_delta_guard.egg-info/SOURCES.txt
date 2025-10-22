@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.cfg
+delta_guard/__init__.py
+delta_guard/core.py
+delta_guard/pipeline.py
+delta_guard/utils.py
+scrapy_delta_guard.egg-info/PKG-INFO
+scrapy_delta_guard.egg-info/SOURCES.txt
+scrapy_delta_guard.egg-info/dependency_links.txt
+scrapy_delta_guard.egg-info/requires.txt
+scrapy_delta_guard.egg-info/top_level.txt
+tests/test_core.py
