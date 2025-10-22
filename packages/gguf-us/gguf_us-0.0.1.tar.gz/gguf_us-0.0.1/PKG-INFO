@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: gguf-us
+Version: 0.0.1
+Summary: localhost for gguf.us frontend
+Author-email: gguf <info@gguf.us>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Repository, https://github.com/gguf-org/frontend
+
+## frontend
+```
+python -m gguf_us
+```
