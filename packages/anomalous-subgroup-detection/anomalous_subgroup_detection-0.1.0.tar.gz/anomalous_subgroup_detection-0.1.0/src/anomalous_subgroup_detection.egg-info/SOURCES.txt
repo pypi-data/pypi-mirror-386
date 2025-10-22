@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/anomalous_subgroup_detection/__init__.py
+src/anomalous_subgroup_detection/detector.py
+src/anomalous_subgroup_detection/scan_statistics.py
+src/anomalous_subgroup_detection.egg-info/PKG-INFO
+src/anomalous_subgroup_detection.egg-info/SOURCES.txt
+src/anomalous_subgroup_detection.egg-info/dependency_links.txt
+src/anomalous_subgroup_detection.egg-info/requires.txt
+src/anomalous_subgroup_detection.egg-info/top_level.txt
+tests/test_detector.py
