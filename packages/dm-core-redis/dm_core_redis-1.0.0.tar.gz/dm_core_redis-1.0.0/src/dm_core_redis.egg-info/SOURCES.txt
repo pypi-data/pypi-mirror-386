@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_core/__init__.py
+src/dm_core/redis/__init__.py
+src/dm_core/redis/apps.py
+src/dm_core/redis/datetime_util.py
+src/dm_core/redis/email_handler.py
+src/dm_core/redis/service.py
+src/dm_core/redis/utils.py
+src/dm_core/redis/tests/__init__.py
+src/dm_core_redis.egg-info/PKG-INFO
+src/dm_core_redis.egg-info/SOURCES.txt
+src/dm_core_redis.egg-info/dependency_links.txt
+src/dm_core_redis.egg-info/requires.txt
+src/dm_core_redis.egg-info/top_level.txt
