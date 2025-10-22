@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_core/__init__.py
+src/dm_core/rabbit/__init__.py
+src/dm_core/rabbit/admin.py
+src/dm_core/rabbit/apps.py
+src/dm_core/rabbit/models.py
+src/dm_core/rabbit/service.py
+src/dm_core/rabbit/utils.py
+src/dm_core/rabbit/tests/__init__.py
+src/dm_core_rabbit.egg-info/PKG-INFO
+src/dm_core_rabbit.egg-info/SOURCES.txt
+src/dm_core_rabbit.egg-info/dependency_links.txt
+src/dm_core_rabbit.egg-info/requires.txt
+src/dm_core_rabbit.egg-info/top_level.txt
