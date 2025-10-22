@@ -1,0 +1,114 @@
+Metadata-Version: 2.4
+Name: rice_price_collector
+Version: 0.1.4
+Summary: Collects daily rice prices from CBSL (Central Bank of Sri Lanka) reports.
+Author-email: Chamodh Chiran <your.email@example.com>
+License: 
+        The MIT License (MIT)
+        Copyright (c) 2025, chamodh
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        
+        
+Project-URL: Homepage, https://github.com/ChamoChiran/rice_price_collector
+Project-URL: Repository, https://github.com/ChamoChiran/rice_price_collector
+Project-URL: Issues, https://github.com/ChamoChiran/rice_price_collector/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp
+Requires-Dist: beautifulsoup4
+Requires-Dist: pdfplumber
+Requires-Dist: pandas
+Dynamic: license-file
+
+# CBSL Rice Price Collector
+
+![PyPI](https://img.shields.io/pypi/v/rice_price_collector?color=blue)
+![Build](https://github.com/ChamoChiran/rice_price_collector/actions/workflows/publish-to-pypi.yml/badge.svg)
+
+rice_price_collector collects rice prices from the CBSL website and provides tools for downloading, parsing, and processing rice price data.
+
+---
+
+## Installation
+
+Install from PyPI:
+
+```bash
+pip install cbsl_rice_price_collector
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/ChamoChiran/rice_price_collector.git
+cd rice_price_collector
+pip install .
+```
+
+## Usage
+
+Download rice price PDFs and process them:
+
+```python
+from rice_price_collector.downloader import pdf_downloader
+from rice_price_collector.parser import parser
+
+# Download PDFs
+data_dir = "./data/raw/2024"
+pdf_downloader.download_pdfs(data_dir)
+
+# Parse PDFs
+parsed_data = parser.parse_pdfs(data_dir)
+```
+
+See the [docs](docs/README.md) for more details and advanced usage.
+
+---
+
+## Project Organization
+
+```
+├── LICENSE
+├── Makefile
+├── README.md
+├── data/
+│   ├── processed/
+│   └── raw/
+├── docs/
+├── models/
+├── notebooks/
+├── pyproject.toml
+├── references/
+├── reports/
+│   └── figures/
+├── requirements.txt
+├── rice_price_collector/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── downloader/
+│   └── parser/
+└── tests/
+```
+
+---
+
+## Contributing
+
+Contributions are welcome! Please open issues or pull requests for improvements or bug fixes.
+
+## License
+
+This project is licensed under the terms of the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or support, open an issue or contact [ChamoChiran](https://github.com/ChamoChiran).
