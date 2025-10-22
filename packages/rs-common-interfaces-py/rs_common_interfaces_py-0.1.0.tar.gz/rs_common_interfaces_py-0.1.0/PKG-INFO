@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: rs-common-interfaces-py
+Version: 0.1.0
+Summary: Common interface types for video processing and request handling
+Project-URL: Homepage, https://github.com/yourusername/rs-common-interfaces-py
+Project-URL: Repository, https://github.com/yourusername/rs-common-interfaces-py
+Author-email: Your Name <your.email@example.com>
+Keywords: interfaces,processing,types,video
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.11
+Requires-Dist: pydantic>=2.0.0
