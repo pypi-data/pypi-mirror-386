@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/distributions/Binomialdistribution.py
+src/distributions/Gaussiandistribution.py
+src/distributions/Generaldistribution.py
+src/distributions/__init__.py
+src/distributions_josep.egg-info/PKG-INFO
+src/distributions_josep.egg-info/SOURCES.txt
+src/distributions_josep.egg-info/dependency_links.txt
+src/distributions_josep.egg-info/top_level.txt
+tests/test.py

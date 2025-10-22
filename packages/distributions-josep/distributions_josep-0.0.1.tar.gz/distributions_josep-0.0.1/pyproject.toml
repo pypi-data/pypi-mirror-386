@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "distributions-josep"
+version = "0.0.1"
+description = "Gaussian and Binomial distributions utilities"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [{ name = "josep roman", email = "pepinho@gmail.com" }]
+keywords = ["statistics", "gaussian", "binomial", "probability"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

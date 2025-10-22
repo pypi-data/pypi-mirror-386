@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: distributions-josep
+Version: 0.0.1
+Summary: Gaussian and Binomial distributions utilities
+Author-email: josep roman <pepinho@gmail.com>
+License: #### `LICENSE` (MIT, mínimo)
+Keywords: statistics,gaussian,binomial,probability
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# distributions-josep
+
+Pequeña librería de distribuciones (Gaussiana y Binomial).
+
+## Instalación
+```bash
+pip install distributions-josep
