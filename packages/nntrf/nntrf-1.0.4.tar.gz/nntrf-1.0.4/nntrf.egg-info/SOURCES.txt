@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+nntrf/__init__.py
+nntrf/loss.py
+nntrf/metrics.py
+nntrf/utils.py
+nntrf.egg-info/PKG-INFO
+nntrf.egg-info/SOURCES.txt
+nntrf.egg-info/dependency_links.txt
+nntrf.egg-info/requires.txt
+nntrf.egg-info/top_level.txt
+nntrf/models/__init__.py
+nntrf/models/composite.py
+nntrf/models/linear.py
+nntrf/models/nonlinear.py
+tests/testNonLinear.py
