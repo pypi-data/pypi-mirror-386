@@ -1,0 +1,12 @@
+Metadata-Version: 2.3
+Name: jupyter-background-keepalive
+Version: 0.1.0
+Summary: Add your description here
+Author: Muhammad Alif Putra Yasa
+Author-email: Muhammad Alif Putra Yasa <130131893+alifyasa@users.noreply.github.com>
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+# Jupyter Background Keep-Alive
+
+Initialize a background thread that pings Jupyter so that it doesn't get culled
