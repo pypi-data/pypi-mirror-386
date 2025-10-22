@@ -1,0 +1,5 @@
+Django==5.2.5
+django-cassandra-engine==1.9.0
+cassandra-driver==3.29.2
+scylla-driver==3.26.9
+pytz==2023.3
