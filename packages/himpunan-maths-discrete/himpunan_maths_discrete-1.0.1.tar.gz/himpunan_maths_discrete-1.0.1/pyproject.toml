@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "himpunan-maths-discrete"
+dynamic = ["version"]
+description = "Implementasi teori himpunan untuk Matematika Diskrit dalam Python"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Wyatt Matthew", email = "wyatt.honny06@gmail.com"}
+]
+keywords = ["matematika", "diskrit", "himpunan", "set theory", "discrete mathematics"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/wyattmatt/himpunan-maths-discrete"
+"Bug Reports" = "https://github.com/wyattmatt/himpunan-maths-discrete/issues"
+Source = "https://github.com/wyattmatt/himpunan-maths-discrete"
