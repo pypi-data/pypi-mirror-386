@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/hermes/__init__.py
+src/hermes/vicon/__init__.py
+src/hermes/vicon/producer.py
+src/hermes/vicon/stream.py
+src/pysio_hermes_vicon.egg-info/PKG-INFO
+src/pysio_hermes_vicon.egg-info/SOURCES.txt
+src/pysio_hermes_vicon.egg-info/dependency_links.txt
+src/pysio_hermes_vicon.egg-info/requires.txt
+src/pysio_hermes_vicon.egg-info/top_level.txt
