@@ -1,0 +1,9 @@
+README.md
+setup.py
+filesharecli/__init__.py
+filesharecli/filesharecli.py
+filesharecli.egg-info/PKG-INFO
+filesharecli.egg-info/SOURCES.txt
+filesharecli.egg-info/dependency_links.txt
+filesharecli.egg-info/requires.txt
+filesharecli.egg-info/top_level.txt
