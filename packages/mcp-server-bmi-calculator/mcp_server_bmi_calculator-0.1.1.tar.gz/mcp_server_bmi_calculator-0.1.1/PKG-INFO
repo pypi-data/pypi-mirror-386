@@ -1,0 +1,85 @@
+Metadata-Version: 2.4
+Name: mcp-server-bmi-calculator
+Version: 0.1.1
+Summary: A Model Context Protocol server for BMI (Body Mass Index) calculation and health assessment
+Project-URL: Homepage, https://github.com/yourusername/mcp-server-bmi-calculator
+Project-URL: Repository, https://github.com/yourusername/mcp-server-bmi-calculator
+Project-URL: Issues, https://github.com/yourusername/mcp-server-bmi-calculator/issues
+Author-email: BMI Calculator Team <bmi@example.com>
+License: MIT
+Keywords: bmi,calculator,health,llm,mcp
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Requires-Dist: mcp>=1.0.0
+Requires-Dist: pydantic>=2.0.0
+Description-Content-Type: text/markdown
+
+###### **1. 服务介绍**
+
+提供身体质量指数（BMI）计算功能，帮助用户评估健康状况。
+
+###### **2. 关键特性**
+
+* BMI计算功能
+* 健康状况评估
+
+###### **3. 使用方法**
+
+* 在MCP服务市场部署BMI计算器服务。
+
+* 在MCP服务市场开通BMI计算器服务。
+
+###### （1）`calculate_bmi`
+
+**描述**：计算身体质量指数（BMI）并返回健康状况评估。
+
+**输入参数**：\
+**`height`**：\
+类型：`float`\
+必填：是\
+描述：身高（米），例如：1.75
+
+**`weight`**：\
+类型：`float`\
+必填：是\
+描述：体重（千克），例如：70
+
+**返回值**：\
+类型：`string`\
+描述：包含BMI值和健康状况评估的字符串
+
+**健康状况评估标准**：
+
+* BMI < 18.5：体重过轻
+* 18.5 ≤ BMI < 24：体重正常
+* 24 ≤ BMI < 28：超重
+* BMI ≥ 28：肥胖
+
+**示例**：
+
+```text
+height: 1.75
+weight: 70
+```
+
+返回结果：
+```text
+BMI值：22.9
+健康状况：体重正常
+```
+
+###### **4. 常见问题解答**
+
+* Q：BMI计算器 MCP服务可以免费使用吗？
+
+* A：可以，BMI计算器 MCP服务是开源的，其声明的MIT许可协议可以免费使用。
+
+* Q：BMI计算的标准是什么？
+
+* A：本服务采用国际通用的BMI计算公式：BMI = 体重(kg) / 身高²(m²)，健康状况评估标准参考世界卫生组织（WHO）的建议。
