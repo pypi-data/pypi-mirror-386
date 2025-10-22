@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ironBars"
+version = "0.3.6"
+description = "A lightweight Python utility library providing handy functions for efficient data handling, CSV management, and Google Sheets integration."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Sevrus", email = "b25bs1304@iitj.ac.in" }
+]
+license = { file = "LICENSE" }
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=2.0",
+  "requests>=2.2",
+  "scikit-learn",
+  "opensimplex"
+]
+
+[project.urls]
+homepage = "https://github.com/sevruscorporations/ironbars"
+repository = "https://github.com/sevruscorporations/ironbars"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ironBars*"]
+exclude = ["tests*", "test.py"]
