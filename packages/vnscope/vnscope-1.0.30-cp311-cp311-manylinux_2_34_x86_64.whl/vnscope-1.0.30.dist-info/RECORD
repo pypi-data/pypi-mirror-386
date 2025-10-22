@@ -1,0 +1,9 @@
+vnscope-1.0.30.dist-info/METADATA,sha256=8wzbekpBuLtEr3A2IDoS-7jHxI8FuehQiAl72Z-3RcI,363
+vnscope-1.0.30.dist-info/WHEEL,sha256=OVlAaljgWPhfhJRVM6VsLWLOev5VbYFkuMRMXaOVkcY,108
+vnscope/__init__.py,sha256=pi12TIw2gvLNiG4xwHvXQX0KFDw5fju-cunA_AmXGYE,698
+vnscope/classify.py,sha256=ph8-PL5LdaIooERE-aoB3WGSwVZUq9tf79MDIrwT2FU,9143
+vnscope/core.cpython-311-x86_64-linux-gnu.so,sha256=Uzor_7VIPePBPg7HnIXNAvNX1QRj-SEo_8NTfSQl-Es,77995312
+vnscope/models.py,sha256=815_pXswLrLyexI-s-cZZ3uB-3QIiUxbL8IsF7NL-w0,140
+vnscope/symbols.py,sha256=SRRpzdZbRGv-XtASZooQu1PuVzZGkn-QdB6cnXJHpag,6762
+vnscope/util.py,sha256=96LHIRCoYLARBhc-XN2GDvAHFTAFbZ8NEsTPKJSccPE,1605
+vnscope-1.0.30.dist-info/RECORD,,
