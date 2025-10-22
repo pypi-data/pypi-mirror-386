@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-bmi-calculator = mcp_server_bmi_calculator:main
