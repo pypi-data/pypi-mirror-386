@@ -1,0 +1,25 @@
+# Core dependencies for pocket-recs
+# Install with: pip install -r requirements.txt
+
+numpy>=1.24
+polars>=1.5
+pydantic>=2.7
+lightgbm>=4.3
+sentence-transformers>=3.0
+scikit-learn>=1.4
+pyarrow>=15
+duckdb>=1.0
+typer>=0.12
+rich>=13.7
+
+# Optional dependencies (install as needed):
+# ANN support:
+#   hnswlib>=0.8.0
+#   faiss-cpu>=1.8.0.post1
+# API server:
+#   fastapi>=0.115
+#   uvicorn[standard]>=0.30
+#   prometheus-client>=0.20
+# ONNX optimization:
+#   onnxruntime>=1.18
+
