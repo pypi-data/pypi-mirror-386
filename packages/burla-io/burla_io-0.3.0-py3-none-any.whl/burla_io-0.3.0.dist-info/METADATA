@@ -1,0 +1,56 @@
+Metadata-Version: 2.4
+Name: burla_io
+Version: 0.3.0
+Summary: Utilities for Burla.dev (unofficial)
+Author-email: Qingyun Li <qingy2019@outlook.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Burla-Cloud/burla
+Keywords: utils,itertools,contextmanager,testing
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# burla_io
+
+Tiny utilities you can import for working with `burla`.
+
+## Install (local)
+
+From this folder, run:
+
+```
+pip install .
+```
+
+Or for development/editable mode:
+
+```
+pip install -e .
+```
+
+## Usage
+
+```
+from burla_io import cd, prepare_inputs
+
+with cd("/tmp"):
+    ...  # do work in /tmp
+
+combos = prepare_inputs({
+    "lr": [1e-3, 1e-4],
+    "batch": [16, 32],
+})
+# combos -> [
+#   {"lr": 0.001, "batch": 16},
+#   {"lr": 0.001, "batch": 32},
+#   {"lr": 0.0001, "batch": 16},
+#   {"lr": 0.0001, "batch": 32},
+# ]
+```
+
+## License
+
+MIT
