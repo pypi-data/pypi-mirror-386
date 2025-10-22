@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/mySQLDBCtrlAPI/__init__.py
+src/mySQLDBCtrlAPI/mySQLDBCtrl.py
+src/mySQLDBCtrlAPI.egg-info/PKG-INFO
+src/mySQLDBCtrlAPI.egg-info/SOURCES.txt
+src/mySQLDBCtrlAPI.egg-info/dependency_links.txt
+src/mySQLDBCtrlAPI.egg-info/requires.txt
+src/mySQLDBCtrlAPI.egg-info/top_level.txt
