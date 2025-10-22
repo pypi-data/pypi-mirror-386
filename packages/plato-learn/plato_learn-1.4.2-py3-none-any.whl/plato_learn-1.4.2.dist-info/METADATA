@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: plato-learn
+Version: 1.4.2
+Summary: Plato: a research framework for federated learning
+Project-URL: Homepage, https://github.com/TL-System/plato
+Project-URL: Repository, https://github.com/TL-System/plato
+Project-URL: Documentation, https://platodocs.netlify.app/
+License-Expression: Apache-2.0
+License-File: LICENSE
+Requires-Python: >=3.13
+Requires-Dist: accelerate
+Requires-Dist: aiohttp
+Requires-Dist: boto3
+Requires-Dist: datasets
+Requires-Dist: evaluate
+Requires-Dist: gdown
+Requires-Dist: lightly
+Requires-Dist: munch
+Requires-Dist: numpy
+Requires-Dist: python-socketio
+Requires-Dist: requests
+Requires-Dist: safetensors
+Requires-Dist: timm
+Requires-Dist: torch
+Requires-Dist: torch-optimizer
+Requires-Dist: torchvision
+Requires-Dist: zstd
+Provides-Extra: dp
+Requires-Dist: opacus; extra == 'dp'
+Provides-Extra: he
+Requires-Dist: tenseal; extra == 'he'
+Provides-Extra: huggingface
+Requires-Dist: peft; extra == 'huggingface'
+Requires-Dist: transformers; extra == 'huggingface'
+Provides-Extra: mlx
+Requires-Dist: mlx; extra == 'mlx'
+Provides-Extra: mpc
+Requires-Dist: kazoo; extra == 'mpc'
+Provides-Extra: rl
+Requires-Dist: gymnasium; extra == 'rl'
+Description-Content-Type: text/markdown
+
+# Plato: A Research Framework for Federated Learning
+
+Welcome to *Plato*, a software framework to facilitate scalable, reproducible, and extensible federated learning research. Please refer to the documentation website, available at the [Plato documentation website](https://platodocs.netlify.app/), for more details on installing, running, configuring, extending, and deploying Plato.
