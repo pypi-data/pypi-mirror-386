@@ -1,0 +1,140 @@
+[project]
+name = "pelican-render-math"
+version = "1.0.5"
+description = "Render mathematics in Pelican site content"
+authors = [
+    { name = "Pelican Dev Team", email = "authors@getpelican.com" },
+]
+readme = "README.md"
+keywords = [
+    "pelican",
+    "plugin",
+    "math",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Framework :: Pelican",
+    "Framework :: Pelican :: Plugins",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = "~=3.9"
+dependencies = [
+    "pelican>=4.5",
+]
+
+[project.license]
+text = "AGPL-3.0"
+
+[project.urls]
+Homepage = "https://github.com/pelican-plugins/render-math"
+"Issue Tracker" = "https://github.com/pelican-plugins/render-math/issues"
+Funding = "https://donate.getpelican.com/"
+
+[project.optional-dependencies]
+markdown = [
+    "markdown>=3.4",
+]
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "invoke>=2.2",
+    "ruff>=0.12.0,<0.13.0",
+]
+test = [
+    "markdown>=3.4",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-sugar>=1.0",
+]
+
+[tool.pdm.build]
+source-includes = [
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+]
+includes = [
+    "pelican/",
+]
+excludes = [
+    "**/.DS_Store",
+    "tasks.py",
+]
+
+[tool.autopub]
+project-name = "Render Math"
+git-username = "botpub"
+git-email = "52496925+botpub@users.noreply.github.com"
+append-github-contributor = true
+version-strings = [
+    "pelican/plugins/render_math/version.py",
+]
+
+[tool.ruff.lint]
+select = [
+    "B",
+    "BLE",
+    "C4",
+    "D",
+    "E",
+    "F",
+    "I",
+    "ICN",
+    "ISC",
+    "PGH",
+    "PL",
+    "RET",
+    "RUF",
+    "SIM",
+    "T10",
+    "T20",
+    "TID",
+    "TRY",
+    "UP",
+    "W",
+    "YTT",
+]
+ignore = [
+    "C417",
+    "D100",
+    "D101",
+    "D102",
+    "D104",
+    "D107",
+    "D203",
+    "D213",
+    "E501",
+    "ISC001",
+    "PLR0912",
+    "PLR0915",
+    "PLR1714",
+    "PLR2004",
+    "PLW2901",
+    "T201",
+    "TRY003",
+    "TRY301",
+    "UP031",
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+known-first-party = [
+    "pelican",
+]
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
