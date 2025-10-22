@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: onchaindata
+Version: 0.0.1
+Summary: Toolkit for extracting, loading onchain data
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: dbt-core>=1.10.6
+Requires-Dist: dbt-postgres>=1.9.0
+Requires-Dist: dlt[duckdb]>=1.14.1
+Requires-Dist: duckdb>=1.1.0
+Requires-Dist: eth-hash[pycryptodome]>=0.7.1
+Requires-Dist: jupyter>=1.1.1
+Requires-Dist: pandas>=2.3.1
+Requires-Dist: plotly>=6.3.0
+Requires-Dist: polars>=1.33.1
+Requires-Dist: psycopg2>=2.9.10
+Requires-Dist: pyarrow>=21.0.0
+Requires-Dist: pytest>=8.4.1
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: requests>=2.32.4
+Requires-Dist: sqlalchemy>=2.0.41
+Requires-Dist: web3>=7.13.0
+
+# Onchain data
+This repo is archived and moved to https://github.com/newgnart/fa-dae2-gnart
+A data engineering toolkit for extracting, transforming, and loading EVM blockchains data.
+
+## Usage
+### Setup python environment
+```bash
+uv sync
+cp .env.example .env # Then fill the .env file
+```
+
+### Most basic usage: Extract data from Etherscan to local parquet files
+Fill the `scripts/extraction/contracts.json` file with the contracts you want to extract data for.
+```bash
+uv run scripts/extraction/runner.py --logs --transactions --from-block 18000000 --to-block 19000000 # or just --logs or --transactions, if --from-block defaulted to the contract creation block, --to-block defaulted to the latest block
+```
+
