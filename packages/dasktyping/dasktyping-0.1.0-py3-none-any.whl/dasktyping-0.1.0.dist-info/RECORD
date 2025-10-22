@@ -1,0 +1,13 @@
+dasktyping/__init__.py,sha256=CaLOazGU51kLmAhrE9fT_Z9vqIOsNlhS2TbhMth17Jg,609
+dasktyping/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dasktyping/stubs/__init__.py,sha256=IyHt202HZXkaoFksNsxM4W7Bpk35KpScfmxB8xrEr_g,58
+dasktyping/stubs/dask/__init__.pyi,sha256=hQiq1Iy376swqMrUs_ZsTFk1YbYQ9XGSbDTXAN87wDc,359
+dasktyping/stubs/dask/array/__init__.pyi,sha256=LhTxJ8Nuxlc3s3DzVNFCEsVgIwJ8DXMlzHGNa5wMD2s,1429
+dasktyping/stubs/dask/bag/__init__.pyi,sha256=_j6HRfVMOfgqQ6eX1Nryj6lUYnpHrsxzkr1cjt43cGo,934
+dasktyping/stubs/dask/dataframe/__init__.pyi,sha256=d8Nx7byCUTiMjI64a8Zk0R85tk27wv7IiUWY7KT3ppc,2579
+dasktyping/stubs/dask/delayed.pyi,sha256=owaFoa8W1kRnG0E0ajCA8DIRa7aLXCB58oPcip91gSc,2193
+dasktyping/stubs/dask/distributed/__init__.pyi,sha256=1Vg0e-jCdrbhK3A5rFd9IBsaGIySP0OeebFGabo6oRk,303
+dasktyping/stubs/distributed/__init__.pyi,sha256=ovuzesJ728P2sWTT-55vbuHhNOfhv5k1ROBw7Mh_Iu8,9589
+dasktyping-0.1.0.dist-info/WHEEL,sha256=M6du7VZflc4UPsGphmOXHANdgk8zessdJG0DBUuoA-U,78
+dasktyping-0.1.0.dist-info/METADATA,sha256=LIa4Grtz6eRS9Y0mUG1ObTo5qojSwNzxeKJBmo7_UXE,2011
+dasktyping-0.1.0.dist-info/RECORD,,
