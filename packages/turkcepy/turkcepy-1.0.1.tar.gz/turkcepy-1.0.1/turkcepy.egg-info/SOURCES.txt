@@ -1,0 +1,17 @@
+LİCENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+tr/__init__.py
+turkcepy/__init__.py
+turkcepy/cevirici.py
+turkcepy/donguler.py
+turkcepy/dosya.py
+turkcepy/matematik.py
+turkcepy/temel.py
+turkcepy/veri_yapilari.py
+turkcepy.egg-info/PKG-INFO
+turkcepy.egg-info/SOURCES.txt
+turkcepy.egg-info/dependency_links.txt
+turkcepy.egg-info/top_level.txt
