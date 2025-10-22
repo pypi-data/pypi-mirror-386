@@ -1,0 +1,21 @@
+[CDF-25996] 🐛 Fix implict assumption on reference id in Canvas migration (#2112)
+
+# Description
+
+Ref https://cognitedata.slack.com/archives/C04NCE72DHT/p1761075036454959
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Fixed
+
+- [alpha] The `cdf migrate canvas` migration command now creates nodes
+with externalId in the format that the Canvas application is expecting.
+
+## templates
+
+No changes.
