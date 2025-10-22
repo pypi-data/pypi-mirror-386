@@ -1,0 +1,5 @@
+numpy==2.2.4
+qdrant-client==1.13.3
+sentence-transformers==4.0.2
+Django==5.2.5
+dm-core-redis
