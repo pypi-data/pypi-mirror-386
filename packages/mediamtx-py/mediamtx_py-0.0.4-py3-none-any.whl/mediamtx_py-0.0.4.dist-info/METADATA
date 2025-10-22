@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: mediamtx-py
+Version: 0.0.4
+Summary: Unofficial Python wrapper of MediaMTX
+Author-email: yt-koike <y.koike.2001code@gmail.com>
+License-Expression: MIT
+Project-URL: Repository, https://github.com/yt-koike/MediaMTX-py
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYAML==6.0.2
+Requires-Dist: requests==2.32.5
+Dynamic: license-file
+
+# MediaMTX-py
+
+This is an unofficial Python wrapper for [MediaMTX](https://mediamtx.org/)
+
+# How to use
+
+Execute `pip install git+https://github.com/yt-koike/MediaMTX-py`(Recommended) or `pip install mediamtx-py` to install this package.
+
+After installation, you can use MediaMTX like as follows.
+
+```
+from mediamtx import MediaMTX
+mtx = MediaMTX("amd64") # In __init__(), the MediaMTX binary will be downloaded
+yaml = mtx.get_yaml() # Get mediamtx.yml
+yaml["paths"][name] = {"source": url}
+mtx.set_yaml(yaml) # Set mediamtx.yml
+mtx.start() # Start MediaMTX on another thread
+mtx.stop() # Stop the MediaMTX on the thread
+```
+
+MediaMTX() takes four arguments: arch, platform, version and overwrite.
+
+- arch = Architecture: basically "amd64" or "arm64".
+- platform = Platform OS: basically "linux", "windows" or "darwin". (Default: value of platform.system().lower())
+- version = If set to "latest", it will download the latest MediaMTX. You also can specify the version like "v1.15.3" (Default: "latest")
+- overwrite = If set to False, it will preserve the downloaded MediaMTX. (Default: True)
