@@ -1,0 +1,21 @@
+# Ignore all
+*.*
+
+# Except for
+!*.py
+!*.ipynb
+!*.md
+!*.sh
+!*.yaml
+!*.yml
+!*.toml
+!*.lock
+!*.in
+!*.txt
+!**.github/workflows/
+!*.gitignore
+!*.dockerignore
+!*Dockerfile
+!tests/*.jpg
+
+build
