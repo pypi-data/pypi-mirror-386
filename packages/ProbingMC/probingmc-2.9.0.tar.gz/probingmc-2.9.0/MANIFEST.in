@@ -1,0 +1,26 @@
+# Include your code and the essential docs
+graft src
+include README.md
+include LICENSE
+include pyproject.toml
+
+# (Optional) include tiny runnable examples; prune big data
+graft examples
+prune examples/data/large
+
+# Never ship secrets or local junk
+exclude TestPyPI.txt
+global-exclude *.pem *.key *.p12 *.token *.env *.log
+global-exclude __pycache__ *.py[cod] *.so *.dylib .DS_Store Thumbs.db
+
+# Belt-and-suspenders: keep repo/CI/config dirs out of the sdist
+prune .git
+exclude .gitignore
+prune .github
+prune build
+prune dist
+prune .eggs
+
+# If you don't want this zip included:
+exclude src/Structure/probingmc.zip
+
