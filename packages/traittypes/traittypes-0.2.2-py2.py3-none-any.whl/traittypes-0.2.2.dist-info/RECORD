@@ -1,0 +1,13 @@
+traittypes/__init__.py,sha256=AL--R6Hsf-dwV7hcfUjBNM-9PO8IOJRcZU9z4n8dIxA,74
+traittypes/_version.py,sha256=0oQBHjp2j2gxypLOKFBxEfvvDLC6DnV7NCri2u_Wx34,72
+traittypes/traittypes.py,sha256=A71hDp4UUHaN8irmoJH8JI4HJQ2LgOCRKQIwJkf2Vgs,10168
+traittypes/utils.py,sha256=Syc9MgpvuVeZjrrq5iD4E3WmU_-z1JgwPj73dfhLpQ0,524
+traittypes/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+traittypes/tests/test_import_errors.py,sha256=XLxrzCErp0agBcugAHIYlSssggMIsDUlqHWY9A27TAY,212
+traittypes/tests/test_traittypes.py,sha256=4q89605n_5aSSFqpW4cNb94hZDeououOCdUuGEi4-r8,7498
+traittypes/tests/test_validators.py,sha256=FpDOoNHwIwj98zocbf-Vf-12J608vgLSrybrLBeeQ3U,1267
+traittypes-0.2.2.dist-info/licenses/LICENSE,sha256=Ihl2361dsoOiZp7-hgfiTJya7MqEU9a-ugReZlwviKE,1489
+traittypes-0.2.2.dist-info/METADATA,sha256=5PXLj3JXIGSzAQy0C9pRMBh-z8ee5Q0jSNXKoU15vA0,1244
+traittypes-0.2.2.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+traittypes-0.2.2.dist-info/top_level.txt,sha256=w9jK3J0KkU-Vhgi_puy6BpNpjCHRvuIBdBVT6BnNUtA,11
+traittypes-0.2.2.dist-info/RECORD,,
