@@ -1,0 +1,358 @@
+# Milvus Filter Expression
+
+[![PyPI version](https://badge.fury.io/py/milvus-filter-expression.svg)](https://badge.fury.io/py/milvus-filter-expression)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Type-safe, MongoDB-style filter builder for [Milvus](https://milvus.io/) vector database. Build complex filter expressions with an intuitive, Pythonic API.
+
+## ✨ Features
+
+- 🎯 **Type-safe**: Full type hints and IDE autocomplete support
+- 🚀 **Flexible**: Dictionary, builder, or shortcut syntax - use what fits your style
+- 📦 **Zero dependencies**: Pure Python, optional Milvus integration
+- 🧪 **Well-tested**: 95%+ test coverage
+- 📖 **Well-documented**: Comprehensive examples and API documentation
+- 🔧 **Milvus-native**: Generates expressions following [Milvus official syntax](https://milvus.io/docs/boolean.md)
+
+## 🚀 Quick Start
+
+### Installation
+```bash
+pip install milvus-filter-expression
+```
+
+### Basic 
+```python
+from milvus_filter_expression import FilterBuilder, to_expression
+
+# Dictionary style (most flexible)
+filters = {"age": 25, "status": "active"}
+expr = to_expression(filters)
+# Result: (age == 25) AND (status == "active")
+
+# Builder style (type-safe, chainable)
+fb = FilterBuilder().eq("age", 25).eq("status", "active")
+expr = to_expression(fb.build())
+
+# Use with Milvus
+from pymilvus import Collection
+
+collection = Collection("users")
+results = collection.search(
+    data=[query_vector],
+    anns_field="embedding",
+    expr=expr,  # ← Use your filter here
+    limit=10
+)
+```
+
+## 📚 Documentation
+
+### Comparison Operators
+
+| Operator | Method | Dictionary | Example |
+|----------|--------|------------|---------|
+| Equal | `.eq(key, val)` | `{"key": val}` | `age == 25` |
+| Not Equal | `.ne(key, val)` | `{"key": {"$ne": val}}` | `age != 25` |
+| Greater Than | `.gt(key, val)` | `{"key": {"$gt": val}}` | `age > 25` |
+| Greater or Equal | `.gte(key, val)` | `{"key": {"$gte": val}}` | `age >= 25` |
+| Less Than | `.lt(key, val)` | `{"key": {"$lt": val}}` | `age < 25` |
+| Less or Equal | `.lte(key, val)` | `{"key": {"$lte": val}}` | `age <= 25` |
+| IN | `.in_(key, list)` | `{"key": {"$in": list}}` | `status IN ["a", "b"]` |
+| Range | `.between(key, min, max)` | `{"key": {"$gte": min, "$lte": max}}` | `(age >= 18) AND (age <= 65)` |
+
+### String Operators
+```python
+# LIKE pattern matching
+filters = {"email": {"$like": "%@gmail.com"}}
+expr = to_expression(filters)
+# Result: email LIKE "%@gmail.com"
+
+# Using builder
+fb = FilterBuilder().like("name", "John%")  # Starts with "John"
+```
+
+**Patterns:**
+- `%`: Zero or more characters
+- `_`: Exactly one character
+
+### NULL Operators
+```python
+# IS NULL
+filters = {"deleted_at": {"$is_null": True}}
+# Result: deleted_at IS NULL
+
+# IS NOT NULL
+filters = {"created_at": {"$is_not_null": True}}
+# Result: created_at IS NOT NULL
+
+# Using None value
+filters = {"field": None}
+# Result: field IS NULL
+```
+
+### Logical Operators
+
+#### OR Condition
+```python
+# Dictionary style
+filters = {
+    "$or": [
+        {"status": "active"},
+        {"status": "pending"}
+    ]
+}
+# Result: (status == "active") OR (status == "pending")
+
+# Builder style
+fb = FilterBuilder().or_([
+    {"status": "active"},
+    {"status": "pending"}
+])
+```
+
+#### AND Condition (Explicit)
+```python
+filters = {
+    "$and": [
+        {"age": {"$gte": 18}},
+        {"age": {"$lte": 65}}
+    ]
+}
+# Result: (age >= 18) AND (age <= 65)
+
+# Note: Multiple filters are automatically combined with AND
+filters = {"age": 25, "status": "active"}
+# Result: (age == 25) AND (status == "active")
+```
+
+#### NOT Condition
+```python
+filters = {
+    "$not": {"status": "deleted"}
+}
+# Result: NOT (status == "deleted")
+```
+
+### Complex Nested Filters
+```python
+# Combine OR, AND, and other operators
+filters = {
+    "$or": [
+        {"category": "ml"},
+        {"category": "ai"}
+    ],
+    "score": {"$gte": 80},
+    "published_year": {"$gte": 2020},
+    "is_verified": True
+}
+
+expr = to_expression(filters)
+# Result: ((category == "ml") OR (category == "ai")) AND (score >= 80) 
+#         AND (published_year >= 2020) AND (is_verified == true)
+```
+
+## 🎨 Three Ways to Build Filters
+
+### 1. Dictionary Style (Most Flexible)
+```python
+filters = {
+    "age": {"$gte": 18, "$lte": 65},
+    "status": {"$in": ["active", "pending"]},
+    "$or": [
+        {"role": "admin"},
+        {"role": "moderator"}
+    ]
+}
+expr = to_expression(filters)
+```
+
+**Pros:** Flexible, can be serialized to JSON, easy to generate dynamically  
+**Cons:** No type checking, easy to make typos
+
+### 2. Builder Style (Type-safe)
+```python
+fb = (FilterBuilder()
+    .between("age", 18, 65)
+    .in_("status", ["active", "pending"])
+    .or_([
+        {"role": "admin"},
+        {"role": "moderator"}
+    ])
+)
+expr = to_expression(fb.build())
+```
+
+**Pros:** Type-safe, IDE autocomplete, chainable, harder to make mistakes  
+**Cons:** More verbose
+
+### 3. Shortcut Functions (Quick & Clean)
+```python
+from milvus_filter_expression import eq, between, or_
+
+filters = {
+    **between("age", 18, 65),
+    **or_(
+        {"role": "admin"},
+        {"role": "moderator"}
+    )
+}
+expr = to_expression(filters)
+```
+
+**Pros:** Concise, functional style  
+**Cons:** Limited to simple cases
+
+## 💡 Real-World Examples
+
+### E-commerce Product Search
+```python
+fb = (FilterBuilder()
+    .eq("category", "electronics")
+    .between("price", 100, 1000)
+    .gte("rating", 4.0)
+    .eq("in_stock", True)
+)
+
+# Search products with vector similarity + filters
+results = collection.search(
+    data=[product_embedding],
+    anns_field="embedding",
+    expr=to_expression(fb.build()),
+    limit=20
+)
+```
+
+### Document Retrieval with RAG
+```python
+# Filter for recent, relevant documents
+filters = {
+    "document_type": {"$in": ["article", "paper"]},
+    "published_year": {"$gte": 2020},
+    "language": "en",
+    "$or": [
+        {"category": "machine_learning"},
+        {"category": "artificial_intelligence"}
+    ]
+}
+
+# Use with LangChain
+from langchain.vectorstores import Milvus
+
+vectorstore = Milvus(collection_name="documents")
+docs = vectorstore.similarity_search(
+    "explain transformers",
+    k=5,
+    expr=to_expression(filters)
+)
+```
+
+### Multi-tenant Application
+```python
+def get_tenant_filter(tenant_id: str, user_id: str) -> str:
+    """Ensure data isolation"""
+    fb = FilterBuilder()
+    
+    # Tenant isolation
+    fb.eq("tenant_id", tenant_id)
+    
+    # User permissions
+    fb.or_([
+        {"visibility": "public"},
+        {"$and": [
+            {"visibility": "private"},
+            {"owner_id": user_id}
+        ]}
+    ])
+    
+    # Only active records
+    fb.is_null("deleted_at")
+    
+    return to_expression(fb.build())
+```
+
+### Content Moderation
+```python
+# Find content that needs review
+filters = {
+    "$or": [
+        {"status": "flagged"},
+        {"report_count": {"$gte": 3}}
+    ],
+    "reviewed_at": {"$is_null": True},
+    "auto_approved": {"$ne": True}
+}
+
+flagged_content = collection.search(
+    data=[query_vector],
+    expr=to_expression(filters),
+    limit=100
+)
+```
+
+## 🔧 Field Prefix Support
+
+Useful when your metadata is nested:
+```python
+filters = {"age": 25, "city": "NYC"}
+
+# Add prefix for nested fields
+expr = to_expression(filters, field_prefix="metadata.")
+# Result: (metadata.age == 25) AND (metadata.city == "NYC")
+```
+
+## 🧪 Testing
+```bash
+# Run tests
+pytest
+
+# With coverage
+pytest --cov=src/milvus_filter_expression --cov-report=html
+
+# Run examples
+python examples/basic_usage.py
+python examples/advanced_usage.py
+```
+
+## 📖 More Examples
+
+Check out the [`examples/`](examples/) directory:
+- [`basic_usage.py`](examples/basic_usage.py) - Getting started guide
+- [`advanced_usage.py`](examples/advanced_usage.py) - Complex real-world scenarios  
+
+## 🤝 Integration with Frameworks
+
+### LangChain
+```python
+from langchain.vectorstores import Milvus
+from milvus_filter_expression import to_expression
+
+filters = {"category": "tech", "year": {"$gte": 2020}}
+vectorstore = Milvus(collection_name="docs")
+
+results = vectorstore.similarity_search(
+    "machine learning",
+    k=5,
+    expr=to_expression(filters)
+)
+```
+
+### Direct Milvus
+```python
+from pymilvus import Collection
+from milvus_filter_expression import FilterBuilder
+
+collection = Collection("my_collection")
+
+fb = FilterBuilder().eq("status", "active").gte("score", 0.8)
+
+results = collection.search(
+    data=[[0.1, 0.2, ...]],
+    anns_field="embedding",
+    param={"metric_type": "IP", "params": {"nprobe": 10}},
+    expr=to_expression(fb.build()),
+    limit=10,
+    output_fields=["id", "text", "metadata"]
+)
+```

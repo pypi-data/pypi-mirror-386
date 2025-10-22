@@ -1,0 +1,73 @@
+[project]
+name = "milvus-filter-expression"  # PyPI 이름은 하이픈 OK
+version = "0.1.0"
+description = "Type-safe, MongoDB-style filter builder for Milvus vector database"
+authors = [
+    {name = "ooeunoo", email = "seongeun.cho.dev@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+keywords = ["milvus", "vector-database", "filter", "query-builder"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+milvus = [
+    "pymilvus>=2.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ooeunoo/milvus-filter-expression"
+Documentation = "https://github.com/ooeunoo/milvus-filter-expression#readme"
+Repository = "https://github.com/ooeunoo/milvus-filter-expression"
+Issues = "https://github.com/ooeunoo/milvus-filter-expression/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/milvus_filter_expression"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src/milvus_filter_expression --cov-report=html --cov-report=term"
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
