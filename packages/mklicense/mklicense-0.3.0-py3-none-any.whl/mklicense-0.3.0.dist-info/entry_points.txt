@@ -1,0 +1,3 @@
+[console_scripts]
+mklicense=mklicense:app.run
+
