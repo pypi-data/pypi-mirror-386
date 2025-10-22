@@ -1,0 +1,2 @@
+[console_scripts]
+openatlas = openatlas.cli:main
