@@ -1,0 +1,8 @@
+protobuf==5.29.4
+
+[compression]
+lz4==4.4.4
+zstandard==0.23.0
+
+[dns-srv]
+dnspython==2.6.1
