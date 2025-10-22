@@ -1,0 +1,3 @@
+[console_scripts]
+diffmind=diffmind.cli:app
+
