@@ -1,0 +1,54 @@
+[project]
+name='omniblack.secret'
+version='0.0.14'
+description="Classes for safely handling secrets"
+license={text='MIT License'}
+readme={file="README.md", content-type="text/markdown"}
+requires-python = "> 3.12"
+
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: POSIX :: Linux',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Topic :: Security',
+    'Topic :: Software Development',
+    "Typing :: Typed"
+]
+
+[project.optional-dependencies]
+test=['pytest']
+
+[project.urls]
+Homepage='https://gitlab.com/terryp/secret'
+Repository='https://gitlab.com/terryp/secret.git'
+
+[[project.authors]]
+name='Terry Patterson'
+email='terryp@wegrok.net'
+
+[tool.hatch.build.targets.sdist]
+include = ['src/omniblack/secret.pyi']
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/omniblack"]
+
+[tool.hatch.build.targets.sdist.force-include]
+'src/'='src/'
+'include/'='include/'
+
+[[tool.hatch.build.hooks.omniblack-hatch.extensions]]
+name='omniblack.secret'
+sources=['src/mod.c', 'src/password.c', 'src/random_secret.c', 'src/secret.c']
+include_dirs=['./include/']
+libraries=['sodium', 'passwdqc']
+
+[build-system]
+requires = [
+    "hatchling",
+    "omniblack-hatch >= 0.0.7",
+]
+build-backend = "hatchling.build"
