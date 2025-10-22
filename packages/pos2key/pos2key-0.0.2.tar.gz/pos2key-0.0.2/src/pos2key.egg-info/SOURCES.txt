@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/pos2key/__init__.py
+src/pos2key/config.py
+src/pos2key.egg-info/PKG-INFO
+src/pos2key.egg-info/SOURCES.txt
+src/pos2key.egg-info/dependency_links.txt
+src/pos2key.egg-info/requires.txt
+src/pos2key.egg-info/top_level.txt
