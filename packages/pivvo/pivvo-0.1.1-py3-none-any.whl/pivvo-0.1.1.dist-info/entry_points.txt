@@ -1,0 +1,2 @@
+[console_scripts]
+pivvo = pivvo.cli:app
