@@ -1,0 +1,2 @@
+[console_scripts]
+tushare-docs-mcp = tushare_docs_mcp.main:main
