@@ -1,0 +1,2 @@
+[console_scripts]
+asxshorts = asxshorts.cli:app
