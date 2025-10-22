@@ -1,0 +1,94 @@
+# Figctx - Figure Context for QuiME
+
+This Package helps you to conveniently make figures with QuiME template
+
+## How to install
+
+
+```bash
+pip install figctx
+```
+
+## Example1 (single figure context)
+
+```python
+import numpy as np
+import figctx as ctx
+
+testdata = np.random.rand(2,100)
+
+with ctx.single(80, 60, './example.png') as (fig,ax):
+        
+    ax.scatter(testdata[0], testdata[1], label='data')
+    ax.set_title('title')
+```
+
+![Example Single Figure](https://raw.githubusercontent.com/ckckdud3/figctx/refs/heads/main/resource/example.png?token=GHSAT0AAAAAADNSDYSZZM74LRWVDDLNWGI62HYOFAA)
+
+
+## Example2 (multi figure context)
+
+```python
+import numpy as np
+import figctx as ctx
+
+testdata = np.random.rand(2,100)
+testdata[0] = np.sort(testdata[0])
+
+with ctx.multi(70, 150, 2, 1, [1], [1,2], './example2.png') as (fig, subfig):
+
+    c = subfig[0]
+    
+    ax = c.subplots(1,1)
+    ax.tick_params(
+            direction='in',
+            width=1,
+            length=3,
+            pad=2
+        )
+    ax.plot(testdata[0], 2*testdata[1]+1, label='Test1')
+
+    temp = np.random.rand(100)
+    ax.plot(testdata[0], temp, label='Test2')
+
+    temp = np.random.rand(100)
+    ax.plot(testdata[0], 1.5*temp+0.5, label='Test3')
+
+    ax.legend()
+    ax.set_title('ax title1')
+
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+
+    c.suptitle('fig suptitle1')
+
+    c = subfig[1]
+
+    axes = c.subplots(1,2)
+    for ax in axes:
+        ax.tick_params(
+            direction='in',
+            width=1,
+            length=3,
+            pad=2
+        )
+    
+    ax = axes[0]
+
+    ax.plot(testdata[1], testdata[0])
+    ax.set_title('ax title2')
+
+    ax = axes[1]
+
+    ax.scatter(testdata[0], 0.5*testdata[1], label='Test3', color='black')
+    ax.scatter(2*testdata[1], 0.5*testdata[0], label='Test4')
+    ax.set_title('ax title3')
+
+    ax.legend()
+
+    c.suptitle('fig suptitle2')
+
+    fig.suptitle('Suptitle')
+```
+
+![Example Multi Figure](https://raw.githubusercontent.com/ckckdud3/figctx/refs/heads/main/resource/example2.png?token=GHSAT0AAAAAADNSDYSYJ2KP4PNZLL2NCF2C2HYOFMQ)
