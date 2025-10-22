@@ -1,0 +1,13 @@
+nntrf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nntrf/loss.py,sha256=h-ZzLoBd3S0uRENiqyfwTpb75x6Xp6WjRpNnD-_jraE,651
+nntrf/metrics.py,sha256=TUkg2yVXhNTW96uxHu4nMYKWvt7jbh_HdHVo9ii3Lpw,782
+nntrf/utils.py,sha256=h6vdrNvArn88cOhsCXz1_24a-HPiX36RfzNfq-jAdn0,224
+nntrf/models/__init__.py,sha256=9RSC1DAp-d2ZgKndAk6myWn7ogyMj5ODkLPemBrStnE,71
+nntrf/models/composite.py,sha256=qgni2yZgTUFAiGP96egSKg5m7PNCmawb6suroV7tuvo,2136
+nntrf/models/linear.py,sha256=MrsVGnIIkuOOMXcBff1GQOiX2l5isF6_8f_2XOrgTrk,8203
+nntrf/models/nonlinear.py,sha256=UM-xOgxCsgy9_oMv1Zc84Ep6C9bGnYUXELr_oY-wLZw,45853
+nntrf-1.0.4.dist-info/licenses/LICENSE,sha256=BxgW39X9rivrb3TVuhpIgjctmWn3HsvEsN4dXtTDNgU,1069
+nntrf-1.0.4.dist-info/METADATA,sha256=RUJ5wmeeYYQiOGW90CQZpXdcFEzqBhFbF8E00rpVcWw,644
+nntrf-1.0.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+nntrf-1.0.4.dist-info/top_level.txt,sha256=amAdTZ4QBomZv41i3oWF5lnkU6187LpyDIqhpJSCw4g,6
+nntrf-1.0.4.dist-info/RECORD,,
