@@ -1,0 +1,22 @@
+# ==============================================
+# mxm-dataio/config/profile.yaml
+# ----------------------------------------------
+# Configuration profiles (e.g., default, offline, test)
+# allowing multiple runtime configurations under
+# the same environment.
+# ==============================================
+
+default:
+  mxm_dataio: {}
+
+offline:
+  mxm_dataio:
+    cache: { use_cache: true, write_cache: false, force_refresh: false }
+    http.timeout_s: 0.1
+
+test:
+  mxm_dataio:
+    audit.record_parse_log: false
+    cache: { use_cache: true, write_cache: false }
+    concurrency.workers: 2
+
