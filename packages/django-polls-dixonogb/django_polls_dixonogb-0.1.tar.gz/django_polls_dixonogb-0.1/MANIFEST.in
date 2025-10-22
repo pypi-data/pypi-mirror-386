@@ -1,0 +1,2 @@
+recursive-include django_polls_dixonogb/static *
+recursive-include django_polls_dixonogb/templates *
