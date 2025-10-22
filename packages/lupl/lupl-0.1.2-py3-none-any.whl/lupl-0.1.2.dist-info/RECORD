@@ -1,0 +1,10 @@
+lupl/__init__.py,sha256=IzogYgKa3cYgU6wX17v3PxC7TAXIcvwZsBk1PH0rRk0,368
+lupl/compose_router.py,sha256=3QHEW7b7XoiegbkH64ZLGPMpyZ-g2r8EVqnI2RdtKDg,2170
+lupl/ichunk.py,sha256=KIDKYH7oT0sPmkUCjUTZxulQVa_eXE75j7F53hITM7Y,421
+lupl/pydantic_tools/curry_model.py,sha256=TpzhMia_gIZSEAVNmWVsuB52dNsIxAshnj1iKrmGxeM,2429
+lupl/pydantic_tools/mutual_constraint_validator.py,sha256=-3_WTFr5TDQvb_Y5DB0bao0cca0JlQ1R98WBrTuEw4Y,2273
+lupl/pydantic_tools/flat_init/flat_init_model.py,sha256=RnFv1iRHMRLRY3hYhUSU__05aRW-KedocVchVjO4euo,2468
+lupl/pydantic_tools/flat_init/utils.py,sha256=gNpWtjd1b8hL33Qwh6qPWToEz39MgGt8-9dJZtRf2FY,2725
+lupl-0.1.2.dist-info/METADATA,sha256=ZQGmWvt7_30TTNqw0iqDbVT4qsdyA6e_Vw9MpzKSK8A,6097
+lupl-0.1.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+lupl-0.1.2.dist-info/RECORD,,
