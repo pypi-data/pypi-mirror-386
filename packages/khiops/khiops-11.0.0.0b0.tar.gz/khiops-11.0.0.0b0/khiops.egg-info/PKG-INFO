@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: khiops
+Version: 11.0.0.0b0
+Summary: Python library for the Khiops AutoML suite
+Home-page: https://khiops.org
+Maintainer: The Khiops Team
+Maintainer-email: khiops.team@orange.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8
+License-File: LICENSE.md
+Requires-Dist: pandas>=0.25.3
+Requires-Dist: scikit-learn>=0.22.2
+Provides-Extra: s3
+Requires-Dist: boto3<=1.35.69,>=1.17.39; extra == "s3"
+Requires-Dist: pyopenssl<25.0.0,>=24.0.0; extra == "s3"
+Provides-Extra: gcs
+Requires-Dist: google-cloud-storage>=1.37.0; extra == "gcs"
