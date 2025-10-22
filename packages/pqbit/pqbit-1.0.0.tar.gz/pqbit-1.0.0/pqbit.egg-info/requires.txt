@@ -1,0 +1,9 @@
+pypqc>=0.0.6.2
+pyshark>=0.6
+wg-meshconf>=2.5.1
+wireguard>=1.0.2
+wireguard4netns>=0.1.6
+scapy>=2.5.0
+cffi>=2.0.0
+pycparser>=2.23
+logging4>=0.0.2
