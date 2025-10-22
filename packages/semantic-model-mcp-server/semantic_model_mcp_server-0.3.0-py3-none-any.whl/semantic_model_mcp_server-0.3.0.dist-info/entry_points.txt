@@ -1,0 +1,2 @@
+[console_scripts]
+semantic-model-mcp-server = server:main
