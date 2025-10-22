@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: inSis
+Version: 2.0.0.0
+Summary: installation of inSis Package
+Home-page: https://www.jaajitech.com
+Author: Sivarambrahmam
+Author-email: sivarambrahmam@jaajitech.com
+License: MIT
+License-File: LICENSE.txt
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: summary

@@ -1,0 +1,1 @@
+This is a simple inSis package.By Import this Package, We can get the Current Information, History Data, Publish the ManualEntry data, RawData and also we can get the BatchAnalysis Data.

@@ -1,0 +1,10 @@
+LICENSE.txt
+README.txt
+setup.py
+inSis/Infoview.py
+inSis/__init__.py
+inSis.egg-info/PKG-INFO
+inSis.egg-info/SOURCES.txt
+inSis.egg-info/dependency_links.txt
+inSis.egg-info/not-zip-safe
+inSis.egg-info/top_level.txt
