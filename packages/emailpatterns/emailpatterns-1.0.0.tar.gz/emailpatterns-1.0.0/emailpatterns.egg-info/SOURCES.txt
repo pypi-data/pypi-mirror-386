@@ -1,0 +1,10 @@
+LICENCE
+README.md
+pyproject.toml
+setup.py
+emailpatterns/__init__.py
+emailpatterns/utils.py
+emailpatterns.egg-info/PKG-INFO
+emailpatterns.egg-info/SOURCES.txt
+emailpatterns.egg-info/dependency_links.txt
+emailpatterns.egg-info/top_level.txt

@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: emailpatterns
+Version: 1.0.0
+Summary: Shared Email Pattern Generator
+Home-page: https://github.com/pupattan/emailpatterns
+Author: Pulak Pattanayak
+Author-email: pulak.pattanayak@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# Email Patterns
+
+Python utility to generate email addresses based on common patterns.
+
+## Usage
+
+```python
+from emailpatterns.utils import generate_pattern_email, generate_all_pattern_emails
+
+email = generate_pattern_email("pattern1", "example.com", "John", "Doe")
+print(email)  # john.doe@example.com
+
+all_emails = generate_all_pattern_emails("example.com", "John", "Doe")
+print(all_emails)
