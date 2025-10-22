@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: qbt-helper
+Version: 0.7
+Summary: Helper program for adding torrents from URLs to a qBittorrent instance.
+Project-URL: Homepage, https://git.hyperreal.coffee/hyperreal/qbt-helper
+Project-URL: Issues, https://git.hyperreal.coffee/hyperreal/qbt-helper/issues
+Author-email: Jeffrey Serio <hyperreal@moonshadow.dev>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: beautifulsoup4>=4.12.3
+Requires-Dist: docopt>=0.6.2
+Requires-Dist: qbittorrent-api>=2024.12.71
+Requires-Dist: requests>=2.32.3
+Requires-Dist: rich>=13.9.4
+Description-Content-Type: text/markdown
+
+# qbt-helper
+
+This program helps me add torrents from URLs to a running qBittorrent instance.
+
+## Installation
+
+``` shell
+pipx install qbt-helper
+```
+
+## Usage
+
+``` shell
+Usage:
+    qbt-helper (HOSTNAME) (USERNAME) (PASSWORD)
+    qbt-helper -h
+    
+Examples:
+    qbt-helper "localhost:8080" "admin" "adminadmin"
+    qbt-helper "https://cat.seedhost.eu/lol/qbittorrent" "lol" "meow"
+    
+Options:
+    -h, --help  show this help message and exit
+```

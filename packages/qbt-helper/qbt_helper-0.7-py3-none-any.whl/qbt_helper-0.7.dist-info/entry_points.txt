@@ -1,0 +1,2 @@
+[console_scripts]
+qbt-helper = qbt_helper:main
