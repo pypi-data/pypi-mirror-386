@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: 2048-river
+Version: 0.1.3
+Requires-Dist: requests
+Requires-Dist: pygame
+Dynamic: requires-dist
