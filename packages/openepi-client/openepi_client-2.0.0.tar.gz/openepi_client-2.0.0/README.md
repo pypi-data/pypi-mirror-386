@@ -1,0 +1,119 @@
+# openepi-client
+A python client for accessing data from OpenEPI.
+Can be installed from PyPI on [https://pypi.org/project/openepi-client/](https://pypi.org/project/openepi-client/)
+
+## Table of Contents
+- [Weather Data](#weather)
+  - [Sync usage](#sync-usage)
+  - [Async usage](#async-usage)
+- [Geocoding](#geocoding)
+  - [Sync usage](#sync-usage-1)
+  - [Async usage](#async-usage-1)
+- [Global Forest Watch](#global-forest-watch)
+  - [Sync usage](#sync-usage-2)
+
+## Weather
+### Sync usage
+```python
+from openepi_client import GeoLocation
+from openepi_client.weather import WeatherClient
+
+# Getting the sunrise and sunset times for a location
+sunrise_sunset = WeatherClient.get_sunrise(geolocation=GeoLocation(lat=51.5074, lon=0.1278))
+
+# Getting the weather forecast for a location
+forecast = WeatherClient.get_location_forecast(geolocation=GeoLocation(lat=51.5074, lon=0.1278, alt=0))
+```
+
+### Async usage
+```python
+from openepi_client import GeoLocation
+from openepi_client.weather import AsyncWeatherClient
+
+# Getting the sunrise and sunset times for a location
+sunrise_sunset = await AsyncWeatherClient.get_sunrise(geolocation=GeoLocation(lat=51.5074, lon=0.1278))
+
+# Getting the weather forecast for a location
+forecast = await AsyncWeatherClient.get_location_forecast(geolocation=GeoLocation(lat=51.5074, lon=0.1278, alt=0))
+```
+
+## Geocoding
+### Sync usage
+```python
+from openepi_client import GeoLocation
+from openepi_client.geocoding import GeocodeClient
+
+# Searching for the coordinates to a named place
+feature_collection = GeocodeClient.geocode(q="Kigali, Rwanda")
+
+# Geocode with priority to a lat and lon
+feature_collection = GeocodeClient.geocode(q="Kigali, Rwanda", geolocation=GeoLocation(lat=51.5074, lon=0.1278))
+
+# Reverse geocode
+feature_collection = GeocodeClient.reverse_geocode(geolocation=GeoLocation(lat=51.5074, lon=0.1278))
+```
+
+### Async usage
+```python
+from openepi_client import GeoLocation
+from openepi_client.geocoding import AsyncGeocodeClient
+
+# Searching for coordinates for a location
+feature_collection = await AsyncGeocodeClient.geocode(q="Kigali, Rwanda")
+
+# Geocode with priority to a lat and lon
+feature_collection = await AsyncGeocodeClient.geocode(q="Kigali, Rwanda", geolocation=GeoLocation(lat=51.5074, lon=0.1278))
+
+# Reverse geocode
+feature_collection = await AsyncGeocodeClient.reverse_geocode(geolocation=GeoLocation(lat=51.5074, lon=0.1278))
+```
+
+## Global Forest Watch
+### Sync usage
+```python
+from openepi_client.global_forest_watch import GlobalForestWatchClient
+
+# Create an account
+# Note that after doing this, you must verify your email and set a password before you can use your account
+GlobalForestWatchClient().create_account(name="Your Name", email="your@mail.com")
+
+# Create an API key
+gfw = GlobalForestWatchClient(email="your@mail.com", password="your secret password")
+response = gfw.create_api_key(alias="my-alias", organization="Example org", domains=["example.com"])
+print(f"Your API key is: {response.api_key}")
+
+gfw = GlobalForestWatchClient(api_key="your-api-key")
+
+# List datasets
+datasets = gfw.list_datasets()
+
+# Get a specific dataset
+dataset = gfw.get_dataset(dataset_id="<identifier>")
+
+# Get the latest version of a dataset
+latest_version = dataset.get_version(version = dataset.latest_version_id)
+
+# List fields in a dataset version
+fields = latest_version.fields()
+for field in fields:
+    print(fields.description)
+
+# List assets in a dataset version
+assets_response = latest_version.assets()
+
+# download all downloadable assets
+for asset in assets_response.assets:
+    if asset.is_downloadable:
+        asset.download(to="<my_download_path>")
+```
+
+## Updating the client
+The following commands are used to update the client types. The commands are run from the root of the project.
+```bash
+poetry run datamodel-codegen --url https://api.openepi.io/geocoding/openapi.json --output openepi_client/geocoding/_geocoding_types.py --enum-field-as-literal all --output-model-type pydantic_v2.BaseModel --input-file-type "openapi"
+poetry run datamodel-codegen --url https://api.openepi.io/flood/openapi.json --output openepi_client/flood/_flood_types.py --enum-field-as-literal all --output-model-type pydantic_v2.BaseModel --input-file-type "openapi"
+poetry run datamodel-codegen --url https://api.openepi.io/deforestation/openapi.json --output openepi_client/deforestation/_deforestation_types.py --enum-field-as-literal all --output-model-type pydantic_v2.BaseModel --input-file-type "openapi"
+poetry run datamodel-codegen --url https://api.openepi.io/soil/openapi.json --output openepi_client/soil/_soil_types.py --enum-field-as-literal all --output-model-type pydantic_v2.BaseModel --input-file-type "openapi"
+poetry run datamodel-codegen --url https://api.openepi.io/crop-health/openapi.json --output openepi_client/crop_health/_crop_health_types.py --enum-field-as-literal all --output-model-type pydantic_v2.BaseModel --input-file-type "openapi"
+```
+
