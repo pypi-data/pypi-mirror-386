@@ -1,0 +1,11 @@
+tensorlogic/__init__.py,sha256=rlQh2LPBZXG12lF3Nhx8MneXddQGu63_SAc3TP_yiak,560
+tensorlogic/backend.py,sha256=84s83gTLXwISN_DDt4qeoxFX6S_nJFz1yG2Y6Cvu3ig,11644
+tensorlogic/namedtensor.py,sha256=-SdQzKGCmZmBsCHagLPDldt6VuFkRA7CcGykvqwPonY,3755
+tensorlogic/nn.py,sha256=rZJJL4YhIep2aObML2F8v6a3Vp6ZiNtwt85369LOsWI,2036
+tensorlogic/program.py,sha256=MIpy854_C_l2x0wjZUIttxOD2h0Ec88q_kWJ_kmLP4w,24978
+tensorlogic/relations.py,sha256=csPKaKPNk89mOlkcjrLTwg6q0Q8H4NlFJaGBJp_Mt2k,1624
+tensorlogic/utils.py,sha256=bwmUhOMRcCmzpLSUDyulvV-MRFymBjbR4DcmstXrNcc,1177
+tensorlogic-0.0.2.dist-info/METADATA,sha256=ThHEUW0uMARidAp115urGE62IwLzQ7m8YC_PuujBoIY,3239
+tensorlogic-0.0.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+tensorlogic-0.0.2.dist-info/licenses/LICENSE,sha256=czn6QYya0-jhLnStD9JqnMS-hwP5wRByipkrGTvoXLI,11355
+tensorlogic-0.0.2.dist-info/RECORD,,
