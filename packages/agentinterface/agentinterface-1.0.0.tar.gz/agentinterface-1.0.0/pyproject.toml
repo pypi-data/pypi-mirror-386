@@ -1,0 +1,96 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "agentinterface"
+version = "1.0.0"
+description = "Agent GUIs"
+authors = [{ name = "Tyson Chan", email = "tyson.chan@proton.me" }]
+readme = "README.md"
+license = "MIT"
+homepage = "https://agentinterface.dev"
+repository = "https://github.com/iteebz/agentinterface"
+keywords = ["ai", "agents", "interface", "ui", "components", "protocol", "selection", "rendering", "react", "conversational", "aip", "magic"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.9,<4.0"
+dependencies = [
+    "typing-extensions>=4.0",
+    "google-genai (>=1.36.0,<2.0.0)",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+gemini = ["google-genai>=1.29.0"]
+anthropic = ["anthropic>=0.20.0"]
+all = ["openai>=1.0", "google-genai>=1.29.0", "anthropic>=0.20.0"]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "0.8.6"
+pytest = "8.4.2"
+pytest-asyncio = "0.21.2"
+pytest-cov = "6.3.0"
+fastapi = "0.116.1"
+uvicorn = ">=0.37.0"
+
+[tool.poetry]
+packages = [{ include = "agentinterface", from = "src" }]
+
+[tool.poetry.scripts]
+pytest = "pytest:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+exclude = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear (common bugs)
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+]
+ignore = [
+    "W291",   # Trailing whitespace (handled by ruff format)
+    "W293",   # Blank line contains whitespace (handled by ruff format)
+    "UP006",  # non-pep585-annotation (allow typing.List vs list for compatibility)
+    "UP035",  # deprecated-import (allow typing imports for compatibility)
+    "SIM108", # if-else-block-instead-of-if-exp (ternary not always clearer)
+    "SIM117", # combine-multiple-isinstance (sometimes separate is clearer)
+    "E501",   # line-too-long (pragmatic choice for readable code)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["F401", "F811", "B017"]  # Allow test-specific patterns
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+pythonpath = ["src"]
+filterwarnings = [
+    "ignore:websockets.legacy is deprecated:DeprecationWarning",
+    "ignore:websockets.server.WebSocketServerProtocol is deprecated:DeprecationWarning",
+]
