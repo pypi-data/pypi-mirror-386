@@ -1,0 +1,14 @@
+hermes/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hermes/dots/__init__.py,sha256=9IN51gg9e8x_9RscuKQWf6ku3Fu9XcV-PqyiqU18KtE,68
+hermes/dots/producer.py,sha256=6YKstF3rZHo18JXiQEBk-BCbVNyk2RqjuPb0dpfPHUo,6603
+hermes/dots/stream.py,sha256=45kAmh4fjUvSbYyNciyy-9pzip-UhDXpHa0Bu82OAag,9056
+hermes/dots/asyncio/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hermes/dots/movella/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hermes/dots/movella/constants.py,sha256=mjNnACwOvkWBLClxiMEDm66-RW5iTYZcW9G7rXiSzzc,12203
+hermes/dots/movella/handler.py,sha256=m2C_trrhsjBcid0VV9Djw04m98JIT7dlwM_UJfgXMGo,11076
+hermes/dots/movella/user_settings.py,sha256=ZtjSR4dAG9fcKLWnrxZrjX6u5j2P_lQZutLDt8j94T4,1803
+pysio_hermes_dots-0.0.1.dist-info/licenses/LICENSE,sha256=DSQLXk4OWRUgWLwtQJfg3nkFxF7aAzM2qQ3hOLw8OD0,1148
+pysio_hermes_dots-0.0.1.dist-info/METADATA,sha256=kR3JG66Pk6aMOqQQEcmCvHWQ1B5rmMdOHsk_9JkAQdA,1490
+pysio_hermes_dots-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pysio_hermes_dots-0.0.1.dist-info/top_level.txt,sha256=1TupzjD_10P0-QWmHdzyxP4OXHKizFdjhlf91BcdH28,7
+pysio_hermes_dots-0.0.1.dist-info/RECORD,,
