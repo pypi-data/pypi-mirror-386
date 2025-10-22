@@ -1,0 +1,10 @@
+mcp_tip/__init__.py,sha256=nWUtgupBuue7qyTfSaGAZjIOFdpDKp7Fh82nGynLwDk,129
+mcp_tip/server.py,sha256=rAj0sa17tYAzzcxzfmmHKkzx7DtMpMZ62LZqEp7HZ7E,9183
+tests/__init__.py,sha256=dfwWXYouo8WOMM035H9ZfxqOI4qvBXwc9uiNb5CpJuY,108
+tests/test_ip_only.py,sha256=GcsaQ9D3gxfdDcRvzprI33pITeNav7ZYu7g8tcilFF4,4107
+tests/test_server.py,sha256=u5hRm8OkiT0HPZT-2GMnyCvVdUVI189uMKM253EdjXU,7924
+mcp_tip-0.1.9.dist-info/METADATA,sha256=trpYAF3SNlOYOTBic6FsAe6mc3JA1A2bSQXNH0TR6ew,657
+mcp_tip-0.1.9.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mcp_tip-0.1.9.dist-info/entry_points.txt,sha256=TEaReWM8NxZUkrvAVq78-Omiq_sfdmP-trS2-YobqWM,102
+mcp_tip-0.1.9.dist-info/top_level.txt,sha256=ustBwwwapJZNcNITxhPERBNUhusoFztZgT6i_63qOaM,14
+mcp_tip-0.1.9.dist-info/RECORD,,
