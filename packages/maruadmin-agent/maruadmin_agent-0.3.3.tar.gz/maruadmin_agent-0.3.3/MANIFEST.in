@@ -1,0 +1,3 @@
+include VERSION
+include README_RASPBERRY_PI.md
+include requirements.txt
