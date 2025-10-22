@@ -1,0 +1,14 @@
+projectdump/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+projectdump/__main__.py,sha256=iJf3PMwUP9sli9Nf7qB9B77z9Dqik9_raqj7usjGtXw,726
+projectdump/aggregator.py,sha256=wAJsD0p5TA8dK1z-o0CHNmiW2HJ17j5WWmlizjAvSXE,4624
+projectdump/constants.py,sha256=k2fIdKx8rVNWO-2BMZrvnt_S3oSO7dD6Qxa7jH47f6A,2517
+projectdump/detector.py,sha256=t5mSF3-ZdZ3h7e1JiDczz3etaH5RLrSJwyqgtrbeS48,5018
+projectdump/filters.py,sha256=tKUisoO7Cxq_Pw8v9aLZbVQk68InTQsD6nzJIlfZEY8,3830
+projectdump/one_file_version.py,sha256=MOwMZOfysnWO4zTH85UgH3j_i_MDBPs9djD1RRJSNCA,13699
+projectdump/tree_generator.py,sha256=yl5sZdZBpeukheK5baebze7lhYpETC5KZTsClkTvJY4,2174
+projectdump-0.1.0.dist-info/licenses/LICENSE,sha256=1Me-tGY1nIs7yNM5P91sFM0OfovMYTxbdgk-BbNCjIY,1138
+projectdump-0.1.0.dist-info/METADATA,sha256=5lAL-kc82wTfUrl68XeBixG-oy-OU8FT7Ltg9fY4u1E,4334
+projectdump-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+projectdump-0.1.0.dist-info/entry_points.txt,sha256=U261wq3iENOPYOzlNSvJuImom-61z6nKquxrXlAKtfY,58
+projectdump-0.1.0.dist-info/top_level.txt,sha256=sUPvx8zY6b6Y-EOzb_24umfXgaYTSBfvuhKdgGYGvrs,12
+projectdump-0.1.0.dist-info/RECORD,,
