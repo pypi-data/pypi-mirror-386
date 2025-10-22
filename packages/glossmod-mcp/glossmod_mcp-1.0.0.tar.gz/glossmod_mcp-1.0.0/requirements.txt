@@ -1,0 +1,12 @@
+# GlossModMCP - 3DM Mod API MCP Server
+# 项目依赖文件
+# 生成时间: 2025年10月22日
+
+# Core MCP Framework
+mcp[cli]>=1.18.0
+
+# HTTP Client
+httpx>=0.24.0
+
+# Data Validation
+pydantic>=2.0.0
