@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: sounava
+Version: 0.0.7
+Summary: A telegram SDK offering clean and simple route decorators.
+Author: Ankit Mehta
+Author-email: starexx.m@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+**Note**: This is not the official [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI) library. This is a lightweight alternative with similar syntax and functionality. If you accidentally install this package instead of [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI), don't worry. your basic bot code will still work seamlessly. This package maintains compatibility with common [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI) patterns while providing additional simplicity and ease of use.
+
+
+### Example Setup
+
+```python
+from sounava import telegram
+
+bot = telegram("YOUR_BOT_TOKEN")
+
+@bot.command('/start')
+def start_command(update, bot):
+    bot.reply(update, "Hello World!.")
+
+@bot.message
+def echo(update, bot):
+    bot.reply(update, f"You said: {update['message']['text']}")
+
+bot.start()
+```
