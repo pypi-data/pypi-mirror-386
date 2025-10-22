@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "camlab"
+version = "0.1.6.0"
+description = "A Python library for camera-related utilities and lab tools."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+authors = [
+    { name = "Liwei Liao", email = "your_email@example.com" },
+]
+maintainers = [
+    { name = "Liwei Liao", email = "your_email@example.com" },
+]
+keywords = ["camera", "computer-vision", "lab", "toolkit"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    # 示例依赖（按需添加或删除）
+    "numpy>=1.22",
+    "torch>=2.0",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/leviome/camlab"
+Repository = "https://github.com/leviome/camlab"
+Issues = "https://github.com/leviome/camlab/issues"
+
