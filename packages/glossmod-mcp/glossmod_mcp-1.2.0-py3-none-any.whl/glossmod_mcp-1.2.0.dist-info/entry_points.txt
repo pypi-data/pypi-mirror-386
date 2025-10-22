@@ -1,0 +1,2 @@
+[console_scripts]
+glossmod-mcp = glossmod_mcp.server:main
