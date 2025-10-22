@@ -1,0 +1,13 @@
+market_data_ibkr/__init__.py,sha256=CiSzPYwd_lW1opG217LgTCyxHfifMZz7I5764LWeJEk,1725
+market_data_ibkr/errors.py,sha256=LCKMAA3yN1mwkHc0RX3eUxbfn5NyN7ilZ-B7fn2kW7w,4773
+market_data_ibkr/mapping.py,sha256=l3iWEG9zq7fBsrtfDPHYfxOdDY3leNQcV2qatHg2H9I,3458
+market_data_ibkr/pacing.py,sha256=C06jo5SzXe4cZzZQrcjvjyLcFV01P874OxbRlNDrkUI,6328
+market_data_ibkr/provider.py,sha256=D04vIUTOLMK5nRnUbRxY7ajWm2GLm0zqMlYxNbg0AUg,17364
+market_data_ibkr/server.py,sha256=tmVD3MZzdAiaXRVUfI5IvN5Qa8TJh6gcWqNYUiDQmc8,10165
+market_data_ibkr/session.py,sha256=Swq4v_fR5Gz3DaZ4UbzRTvbyxewf2Tc_h6G91xPYOWE,5108
+market_data_ibkr/settings.py,sha256=DI-TjLOxKOP-yp2ARiSJhfEvyhtbUQ8OVohTF_6aorc,4541
+market_data_ibkr-1.1.2.dist-info/licenses/LICENSE,sha256=UkeDgucz676xctcRHcgtpcsmJ7z_8gGqe8gxGVV5nZo,1069
+market_data_ibkr-1.1.2.dist-info/METADATA,sha256=8VmxvX-PAIIj6ZgBtGpJVyKoglLst-WHXkevUGELpCc,16159
+market_data_ibkr-1.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+market_data_ibkr-1.1.2.dist-info/top_level.txt,sha256=MkHzDAKTjVx8Fh6-4E-3gJZ09XvC4bC_ruK86uAOYfs,17
+market_data_ibkr-1.1.2.dist-info/RECORD,,
