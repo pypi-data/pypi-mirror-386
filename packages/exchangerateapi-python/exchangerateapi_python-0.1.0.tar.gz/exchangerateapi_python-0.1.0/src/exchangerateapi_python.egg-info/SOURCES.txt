@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/exchangerateapi/__init__.py
+src/exchangerateapi/client.py
+src/exchangerateapi_python.egg-info/PKG-INFO
+src/exchangerateapi_python.egg-info/SOURCES.txt
+src/exchangerateapi_python.egg-info/dependency_links.txt
+src/exchangerateapi_python.egg-info/top_level.txt
