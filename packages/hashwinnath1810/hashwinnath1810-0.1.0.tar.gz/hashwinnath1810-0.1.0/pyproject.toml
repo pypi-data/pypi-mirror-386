@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hashwinnath1810"
+version = "0.1.0"
+authors = [
+  { name="Hashwinnath", email="your_email@example.com" }
+]
+description = "A simple math library for basic operations"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+keywords = ["math", "utility", "example"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/coolmath"
+Issues = "https://github.com/yourusername/coolmath/issues"

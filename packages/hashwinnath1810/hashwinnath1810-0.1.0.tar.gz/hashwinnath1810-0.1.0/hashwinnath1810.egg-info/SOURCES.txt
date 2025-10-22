@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+coolmath/__init__.py
+coolmath/operations.py
+hashwinnath1810.egg-info/PKG-INFO
+hashwinnath1810.egg-info/SOURCES.txt
+hashwinnath1810.egg-info/dependency_links.txt
+hashwinnath1810.egg-info/top_level.txt
+test/test_operations.py
