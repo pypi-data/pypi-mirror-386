@@ -1,0 +1,16 @@
+sagemaker_shim/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sagemaker_shim/app.py,sha256=5zmmLyQ8ZGY9tTkglpP-Jb3NJMvbi_1djA7LhigbzWc,2101
+sagemaker_shim/cli.py,sha256=CxHLGbKXhIrSXQ5VmCsazAyOoBpeszFAfll49EBbGy8,4790
+sagemaker_shim/exceptions.py,sha256=vpvgclqENqIYtJwmbrw6LGi8UHs4n129Bq5kb98T0Fs,76
+sagemaker_shim/extract.py,sha256=2zpHX8K1h_iIteNFatKRBIyXtkIbxXs8khNeAtj0diQ,2870
+sagemaker_shim/logging.py,sha256=ZIBuNec_g4hy1Rwhh8ShO1OrfRgoFD8FEBlSrHqKjqY,2809
+sagemaker_shim/models.py,sha256=-P4XPRoiqqiUPMDqT6RXMiwGw6sL5cu-a6VC1Nf3aO8,33730
+sagemaker_shim/vendor/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sagemaker_shim/vendor/werkzeug/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sagemaker_shim/vendor/werkzeug/security.py,sha256=RU96g3O-7pd2k2b5yCrWwV_dzvygfuQ3bpV0yH_ba5E,1190
+sagemaker_shim-0.6.0.dist-info/licenses/LICENSE,sha256=16fniRhJBpYDlakf7O2sPdMaOJv1Ir0U6lrPPXGQXmE,11363
+sagemaker_shim-0.6.0.dist-info/METADATA,sha256=dCnmXlK8Pw5t6tXOZk9izrWvLw1jHB7BuZFI0voJ2r8,6234
+sagemaker_shim-0.6.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sagemaker_shim-0.6.0.dist-info/entry_points.txt,sha256=8PCOa1wCLWhbS5yDkW1dr_qlzkppmFvyfGFGvpejQBc,58
+sagemaker_shim-0.6.0.dist-info/top_level.txt,sha256=KLTeYiEq9ZjSGJIS9slaf_Wt6HaB-vkPZWsR-wJots0,15
+sagemaker_shim-0.6.0.dist-info/RECORD,,
