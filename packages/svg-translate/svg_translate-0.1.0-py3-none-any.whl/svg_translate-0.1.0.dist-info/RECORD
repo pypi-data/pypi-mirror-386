@@ -1,0 +1,12 @@
+svg_translate/__init__.py,sha256=cy0de-m0njGCJ4qDIu9i-1gCBFWbxAkXinZ3hy5tBJE,482
+svg_translate/text_utils.py,sha256=n9KKFDcFA7y8Cb9JKJ9N4bVv5OHQo5lgcUikazpz1fs,869
+svg_translate/workflows.py,sha256=Ej5-R38J7KBsUIg3z5_T72QcFUqDpidaLy0Yyi3NJXU,2467
+svg_translate/extraction/__init__.py,sha256=NXkrUT_bfOp_xX0flbqrSiPAyefy93XR_IlYIrxpFns,105
+svg_translate/extraction/extractor.py,sha256=hJnD7jKxqmAzyQkjG9uCe3SbxrroqOFFlCVGG0WiE3w,5179
+svg_translate/injection/__init__.py,sha256=ZVD2eAmcPi317bI7pipV74XAPJ0gw66Q98BkZQcyVNQ,445
+svg_translate/injection/batch.py,sha256=NvJ1wbUJRPUdyWE0Ls0DexjUVnIBCC3AgdIPL6Qlflw,2281
+svg_translate/injection/injector.py,sha256=fuDHSxo1Mn6Wwi06xc2CmWbx2FDTY68yb1ryGhnpmDs,8842
+svg_translate/injection/preparation.py,sha256=cmngerp9END07HVWvGUWe1LAYLblE0wRU4UinL3O3Wc,5639
+svg_translate-0.1.0.dist-info/METADATA,sha256=gDDFExJ0Dqx-DhQBb-yRZCCHeRfL4cs4WjVzzccPSLo,6220
+svg_translate-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+svg_translate-0.1.0.dist-info/RECORD,,
