@@ -1,0 +1,25 @@
+# Include the README and LICENSE files
+include README.md
+include LICENSE
+
+# Include requirements files
+include requirements.txt
+
+# Include all Python files in the package
+recursive-include personallize *.py
+
+# Exclude development and testing files
+exclude .gitignore
+exclude .gitattributes
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.orig
+recursive-exclude * *.rej
+recursive-exclude * .DS_Store
+recursive-exclude * .coverage
+recursive-exclude * .pytest_cache
+recursive-exclude * .mypy_cache
+recursive-exclude * .tox
+recursive-exclude * .venv
+recursive-exclude * venv
+recursive-exclude * env
