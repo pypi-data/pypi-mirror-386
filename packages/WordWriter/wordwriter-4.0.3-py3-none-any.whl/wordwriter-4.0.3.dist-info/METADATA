@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: WordWriter
+Version: 4.0.3
+Summary: A Python library for Word document template processing with OOP API
+Home-page: https://github.com/pzweuj/WordWriter
+Author: pzweuj
+Author-email: pzweuj <pzweuj@live.com>
+License: MIT
+Project-URL: Homepage, https://github.com/pzweuj/WordWriter
+Project-URL: Bug Reports, https://github.com/pzweuj/WordWriter/issues
+Project-URL: Source, https://github.com/pzweuj/WordWriter
+Keywords: docx,word,template,document,office
+Platform: all
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Text Processing
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-docx>=0.8.10
+Requires-Dist: pandas>=1.0.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: platform
+Dynamic: requires-python
