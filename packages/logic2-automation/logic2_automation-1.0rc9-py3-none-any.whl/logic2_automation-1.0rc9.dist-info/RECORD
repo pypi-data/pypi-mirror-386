@@ -1,0 +1,11 @@
+saleae/automation/__init__.py,sha256=hj1IzLrnTMcYvSASP-MCf__yh78rI1EssFDHOqOVVsQ,505
+saleae/automation/capture.py,sha256=cV7SZZiUpZBHEs_1NZa90n70cwYCsL9IeDgG14cKqjk,15941
+saleae/automation/errors.py,sha256=0q_okIdwLGK7SYP1uVYtStJ9P4UbbeIj6pAPnUROM8s,4320
+saleae/automation/manager.py,sha256=0wpgiL7oSMCHNKZpWyrQNwapNbXx0MuevcyJywS8cjQ,23756
+saleae/grpc/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+saleae/grpc/saleae_pb2.py,sha256=jMxHeI7FQP9ZChoPf7TPt49u3cl9RqbGqZXF4lCfIVI,19243
+saleae/grpc/saleae_pb2_grpc.py,sha256=41JEIM-HyR6cDU-dAMb_5lYMRFNP2t5tI1wqV_E5woM,28388
+logic2_automation-1.0rc9.dist-info/METADATA,sha256=NRN-MDvtpV9dqVjCV7M0sVt-wTXeCuYIqqatCaQG-_Y,2802
+logic2_automation-1.0rc9.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+logic2_automation-1.0rc9.dist-info/entry_points.txt,sha256=5OxBeXBI4grz7bF6oKjIWyKtnaTc_U9jufdM9pTvff0,57
+logic2_automation-1.0rc9.dist-info/RECORD,,
