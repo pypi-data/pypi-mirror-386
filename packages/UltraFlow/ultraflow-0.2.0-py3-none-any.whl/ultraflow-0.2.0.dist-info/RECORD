@@ -1,0 +1,12 @@
+ultraflow-0.2.0.dist-info/METADATA,sha256=cBKR4i9Csr9q_6k0MzRvVN02RYmJT4rpSdKvqBDJCtE,4096
+ultraflow-0.2.0.dist-info/WHEEL,sha256=9P2ygRxDrTJz3gsagc0Z96ukrxjr-LFBGOgv3AuKlCA,90
+ultraflow-0.2.0.dist-info/entry_points.txt,sha256=iW_DpLcSskDXl0rQC516VrggnbT8kJpOSOrrlKULkuw,62
+ultraflow/__init__.py,sha256=3Uvcl0OppF9_76KLQ2sy7lONX5qYYd7hi2PHuVJTbK8,313
+ultraflow/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ultraflow/cli/main.py,sha256=ajxYKhaExWLKVZH2A7ZdSGFfCeDusr4cALeizACiWDU,3607
+ultraflow/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ultraflow/core/example.prompty,sha256=85axtXyrnROUsC9R4RuBek_V8K-TAcvvZAM-aKM5jq0,412
+ultraflow/core/flow.py,sha256=CchuVl454OfQJAqGWvdVGRnhFnpcsxdnE_IGpoXOPu8,4383
+ultraflow/core/start_flow.py,sha256=crg96aD_YeYl4De8JoeQTXI3_aSKZ8UQTYsVg82pdyk,1902
+ultraflow/core/utils.py,sha256=9x5ybHRBbjAg91ijDtpWaGh9RPSw9kiWdyLhy-iWWB4,1854
+ultraflow-0.2.0.dist-info/RECORD,,
