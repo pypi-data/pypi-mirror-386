@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "wb-execute"
+version = "0.0.1"
+authors = ["mathewgeola <mathewgeola@gmail.com>"]
+readme = "README.md"
+
+packages = [
+    { include = "execute", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+pyexecjs = "^1.5.1"
+mini-racer = "^0.12.4"
+orjson = "^3.11.3"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
