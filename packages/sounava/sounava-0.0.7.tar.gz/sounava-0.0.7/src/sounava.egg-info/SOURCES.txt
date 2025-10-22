@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+src/sounava.egg-info/PKG-INFO
+src/sounava.egg-info/SOURCES.txt
+src/sounava.egg-info/dependency_links.txt
+src/sounava.egg-info/top_level.txt
+src/starexx/__init__.py
+src/starexx/__main__.py
+src/starexx/ext.py
