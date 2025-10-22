@@ -1,0 +1,51 @@
+[project]
+name = "dasktyping"
+version = "0.1.1"
+description = "Typing stubs for the Dask ecosystem."
+readme = "README.md"
+authors = [
+  { name = "Clouder0", email = "clouder0@outlook.com" },
+]
+requires-python = ">=3.12"
+dependencies = []
+keywords = ["typing", "type-stubs", "dask"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.3,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+mypy_path = ["src/dasktyping/stubs"]
+namespace_packages = true
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+  "dask>=2025.10.0",
+  "mypy>=1.18.2",
+  "nox>=2025.10.16",
+  "pytest>=8.4.2",
+  "pytest-mypy-plugins>=3.2.0",
+  "ruff>=0.14.1",
+]
