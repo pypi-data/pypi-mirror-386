@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_client/employment/__init__.py
+src/dm_client/employment/apps.py
+src/dm_client/employment/dataclasses.py
+src/dm_client/employment/service.py
+src/dm_client/employment/tests/__init__.py
+src/dm_client_employment.egg-info/PKG-INFO
+src/dm_client_employment.egg-info/SOURCES.txt
+src/dm_client_employment.egg-info/dependency_links.txt
+src/dm_client_employment.egg-info/requires.txt
+src/dm_client_employment.egg-info/top_level.txt
