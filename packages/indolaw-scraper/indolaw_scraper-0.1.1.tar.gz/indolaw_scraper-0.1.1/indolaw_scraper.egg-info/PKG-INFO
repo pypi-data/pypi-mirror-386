@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: indolaw-scraper
+Version: 0.1.1
+Summary: Scraper for official Indonesian legal documents from various institutions
+Home-page: https://github.com/Alammahadika/indolaw_scraper
+Author: Alam Mahadika
+Author-email: alam.mahadika.psm@umy.ac.id
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.1
+Requires-Dist: beautifulsoup4>=4.9.3
+Requires-Dist: click>=8.0.0
+Requires-Dist: urllib3>=1.26.4
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# IndoLaw Scraper
+
+Scraper for official Indonesian legal documents from various institutions
+
+## Instalasi
+```bash
+pip install .
