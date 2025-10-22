@@ -1,0 +1,95 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Atom	Atom.py	/^class Atom:$/;"	c
+PPs	Atom.py	/^    PPs = {"H": "H 1.008 H.pbe-mt_fhi.UPF", "C": "C 12.0107 C.pbe-mt_fhi.UPF",  # pseudo-potentials$/;"	v	class:Atom
+PPs_pbe_rrkjus	Atom.py	/^    PPs_pbe_rrkjus = {"H": "H 1.008 H.pbe-rrkjus.UPF", "C": "C 12.0107 C.pbe-rrkjus.UPF",  # pseudo-potentials$/;"	v	class:Atom
+Structure	__init__.py	/^class Structure:$/;"	c
+__init__	Atom.py	/^    def __init__(self, element, coors, coors_type, cn=0, layer=None, branch=None):$/;"	m	class:Atom
+__init__	__init__.py	/^    def __init__(self, filename, type_relax='vc-relax', shift_vect=None, expansion_coefficient=1.0, final=True):$/;"	m	class:Structure
+__str__	Atom.py	/^    def __str__(self, for_array=False):$/;"	m	class:Atom	file:
+__str__	__init__.py	/^    def __str__(self):$/;"	m	class:Structure	file:
+ab_surface	__init__.py	/^    def ab_surface(self):$/;"	m	class:Structure
+add_ase_structure	__init__.py	/^    def add_ase_structure(self, ase_str):$/;"	m	class:Structure
+add_atom	__init__.py	/^    def add_atom(self, el, coors, type):$/;"	m	class:Structure
+add_neighbour	Atom.py	/^    def add_neighbour(self, at):$/;"	m	class:Atom
+angle_between_vectors	__init__.py	/^    def angle_between_vectors(v1, v2):$/;"	m	class:Structure
+atom_new_pos	__init__.py	/^    def atom_new_pos(self, atom, pos, type):$/;"	m	class:Structure
+atoms_text	QEIO.py	/^def atoms_text(atoms, ind=None):$/;"	f
+attach_atom	__init__.py	/^    def attach_atom(self, atom, bond, element):$/;"	m	class:Structure
+calculate_cell_components	__init__.py	/^    def calculate_cell_components(self):$/;"	m	class:Structure
+calculate_cell_matrix	__init__.py	/^    def calculate_cell_matrix(self):$/;"	m	class:Structure
+cart_to_cryst	Atom.py	/^    def cart_to_cryst(self, cell_matrix_inv, shift_vect=None):$/;"	m	class:Atom
+cell_vectors_from_xyz	__init__.py	/^    def cell_vectors_from_xyz(self):$/;"	m	class:Structure
+cell_volume	__init__.py	/^    def cell_volume(self):$/;"	m	class:Structure
+change_element	Atom.py	/^    def change_element(self, new_el):$/;"	m	class:Atom
+copy_atoms	__init__.py	/^    def copy_atoms(self, indices):$/;"	m	class:Structure
+covalent_radii	Atom.py	/^    covalent_radii = {"H": 0.31, "C": 0.75, "O": 0.66, "K": 2.03, "B": 0.82, "N": 0.71, "F": 0.64, "Si": 1.11}$/;"	v	class:Atom
+cryst_to_cart	Atom.py	/^    def cryst_to_cart(self, cell):$/;"	m	class:Atom
+decoration	__init__.py	/^    def decoration(self, atom_indices, height, el):$/;"	m	class:Structure
+dist_between_atoms	__init__.py	/^    def dist_between_atoms(self, i, j):$/;"	m	class:Structure
+dist_to_atom	Atom.py	/^    def dist_to_atom(self, atom, cell=None):$/;"	m	class:Atom
+dump_structure_to_cif	CIFIO.py	/^def dump_structure_to_cif(cell_components, atoms, filename):$/;"	f
+dump_structure_to_mop	__init__.py	/^def dump_structure_to_mop(atoms, filename, name):$/;"	f
+dump_structure_to_qe	QEIO.py	/^def dump_structure_to_qe(cell_components, atoms, filename, name, type):$/;"	f
+dump_structure_to_xyz	__init__.py	/^def dump_structure_to_xyz(atoms, filename, name):$/;"	f
+duplicate_atoms	CIFIO.py	/^def duplicate_atoms(atoms, reflection_planes, reflection_coeffs_list):$/;"	f
+element_center	__init__.py	/^    def element_center(self, el):$/;"	m	class:Structure
+elemental_composition	__init__.py	/^    def elemental_composition(self):$/;"	m	class:Structure
+elements_of_structure	QEIO.py	/^def elements_of_structure(atoms):$/;"	f
+error_throw	controls.py	/^def error_throw(message):$/;"	f
+find_reference_atom	__init__.py	/^    def find_reference_atom(self):$/;"	m	class:Structure
+fix_x	Atom.py	/^    def fix_x(self):$/;"	m	class:Atom
+fix_y	Atom.py	/^    def fix_y(self):$/;"	m	class:Atom
+fix_z	Atom.py	/^    def fix_z(self):$/;"	m	class:Atom
+get_ase	__init__.py	/^    def get_ase(self, inserted_atoms=None):$/;"	m	class:Structure
+is_relax_everything	Atom.py	/^    def is_relax_everything(self):$/;"	m	class:Atom
+load_structure_from_cif	CIFIO.py	/^def load_structure_from_cif(filename):$/;"	f
+load_structure_from_mop_out	__init__.py	/^def load_structure_from_mop_out(filename, final=True):$/;"	f
+load_structure_from_qe_relax	QEIO.py	/^def load_structure_from_qe_relax(filename):$/;"	f
+load_structure_from_qe_vc_relax	QEIO.py	/^def load_structure_from_qe_vc_relax(filename):$/;"	f
+load_structure_from_xyz	__init__.py	/^def load_structure_from_xyz(filename):$/;"	f
+make_double_layer_structure	__init__.py	/^    def make_double_layer_structure(self, d=6.0, shift_vector=[0.5, 0.5, 0.0], reflection=None):$/;"	m	class:Structure
+min_max_coors	__init__.py	/^    def min_max_coors(self):$/;"	m	class:Structure
+min_periodic_dist	Atom.py	/^    def min_periodic_dist(a1, a2, cell):$/;"	m	class:Atom
+modified_name	__init__.py	/^    def modified_name(filename, modifier=None):$/;"	m	class:Structure
+move_atom	__init__.py	/^    def move_atom(self, atom, vector, type):$/;"	m	class:Structure
+move_structure	__init__.py	/^    def move_structure(self, vector, type, indices=None):$/;"	m	class:Structure
+number_of_atoms	__init__.py	/^    def number_of_atoms(self):$/;"	m	class:Structure
+number_of_elements	__init__.py	/^    def number_of_elements(self):$/;"	m	class:Structure
+overlap_with_atom_covalent	Atom.py	/^    def overlap_with_atom_covalent(self, atom, cell=None):$/;"	m	class:Atom
+overlap_with_atom_vdw	Atom.py	/^    def overlap_with_atom_vdw(self, atom, cell=None, k=1.0):$/;"	m	class:Atom
+point_xy_image	__init__.py	/^    def point_xy_image(self, p, nx, ny):$/;"	m	class:Structure
+point_xy_images	__init__.py	/^    def point_xy_images(self, p):$/;"	m	class:Structure
+position_2_integer	CIFIO.py	/^def position_2_integer(pos):$/;"	f
+pps_text	QEIO.py	/^def pps_text(elements, type):$/;"	f
+print	Atom.py	/^    def print(self):$/;"	m	class:Atom
+print	__init__.py	/^    def print(self):$/;"	m	class:Structure
+print_array	Atom.py	/^    def print_array(self, ar):$/;"	m	class:Atom
+reflect_structure_through_plane	__init__.py	/^    def reflect_structure_through_plane(self, atom_indices, h, d):$/;"	m	class:Structure
+reflect_through_plane	__init__.py	/^    def reflect_through_plane(r, h, d):$/;"	m	class:Structure
+relaxation_flags	Atom.py	/^    def relaxation_flags(self):$/;"	m	class:Atom
+remove_atom	__init__.py	/^    def remove_atom(self, index):$/;"	m	class:Structure
+remove_atoms	__init__.py	/^    def remove_atoms(self):$/;"	m	class:Structure
+rotate_structure	__init__.py	/^    def rotate_structure(self, rot_matr, indices=None):$/;"	m	class:Structure
+rotate_structure_from_a_to_b	__init__.py	/^    def rotate_structure_from_a_to_b(self, a, b, indices=None):$/;"	m	class:Structure
+rotate_structure_from_bond_to_bond	__init__.py	/^    def rotate_structure_from_bond_to_bond(self, a1, a2, b1, b2, indices=None):$/;"	m	class:Structure
+rotation_matrix_from_a_to_b	__init__.py	/^def rotation_matrix_from_a_to_b(a, b):$/;"	f
+sc_build	__init__.py	/^    def sc_build(self, dim, n, reference_atom_index=None):$/;"	m	class:Structure
+set_cell_height	__init__.py	/^    def set_cell_height(self, new_height):$/;"	m	class:Structure
+sq_dist_to_atom	Atom.py	/^    def sq_dist_to_atom(self, atom):$/;"	m	class:Atom
+sq_periodic_dist	Atom.py	/^    def sq_periodic_dist(a1, a2, nx, ny, nz, cell):$/;"	m	class:Atom
+substitute_atom	__init__.py	/^    def substitute_atom(self, index, new_el):$/;"	m	class:Structure
+super_cell	__init__.py	/^    def super_cell(self, nx, ny, nz, chess_flip=False):$/;"	m	class:Structure
+vdw_radii	Atom.py	/^    vdw_radii = {"H": 1.2, "C": 1.7, "O": 1.52, "K": 2.75, "B": 1.92, "F": 1.47, "N": 1.55, "Si": 2.1}$/;"	v	class:Atom
+vector_module	__init__.py	/^    def vector_module(v):$/;"	m	class:Structure
+weight	Atom.py	/^    def weight(self):$/;"	m	class:Atom
+weight	__init__.py	/^    def weight(self):$/;"	m	class:Structure
+weights	Atom.py	/^    weights = {"H": 1.008, "C": 12.011, "O": 15.999, "K": 39.098, "B": 10.81, "N": 14.007, "F": 18.998}$/;"	v	class:Atom
+write_structure_to_cif	__init__.py	/^    def write_structure_to_cif(self, modifier=None, inserted_atoms=None, selected_atoms=None):$/;"	m	class:Structure
+write_structure_to_mop	__init__.py	/^    def write_structure_to_mop(self, modifier=None, inserted_atoms=None, new_path_filename=None):$/;"	m	class:Structure
+write_structure_to_qe_in	__init__.py	/^    def write_structure_to_qe_in(self, modifier=None, inserted_atoms=None, type='scf'):$/;"	m	class:Structure
+write_structure_to_xyz	__init__.py	/^    def write_structure_to_xyz(self, modifier=None, inserted_atoms=None, new_path_filename=None):$/;"	m	class:Structure
