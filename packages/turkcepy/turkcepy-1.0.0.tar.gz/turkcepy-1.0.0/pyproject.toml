@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turkcepy"
+version = "1.0.0"
+description = "Türkçe anahtar kelimelerle Python programlama"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+authors = [
+  { name = "Yılmaz Kutsal", email = "ykutsal@gmail.com" }
+]
+license = "MIT"
+keywords = ["python", "turkce", "egitim", "keywords", "turkish"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Intended Audience :: Education",
+  "Topic :: Education",
+]
+
+[tool.setuptools]
+packages = { find = { include = ["turkcepy*", "tr*"] } }
