@@ -1,0 +1,10 @@
+alitra
+isar>=1.33.2
+
+[dev]
+black
+mypy
+pip-tools
+pre-commit
+pytest
+ruff
