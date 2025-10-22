@@ -1,0 +1,54 @@
+[project]
+name = "scikit-sound"
+version = "0.3.2"
+description = "Python utilites for working with sound signals"
+authors = [{ name = "Thomas Haslwanter", email = "thomas.haslwanter@fh-ooe.at" }]
+requires-python = ">=3.9"
+readme = "README.md"
+license = "BSD-3-Clause"
+keywords = [
+    "sound",
+    "auditory signals",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "docutils>= 0.3",
+    "numpy>= 1.13.0",
+    "appdirs>= 1.4.3",
+    "pyyaml>= 5.3.1",
+    "scipy>= 1.5",
+    "pygame>= 2.0 ; sys_platform == 'linux'",
+]
+
+[project.urls]
+Homepage = "http://work.thaslwanter.at/sksound/html"
+Repository = "https://github.com/thomas-haslwanter/scikit-sound"
+
+[dependency-groups]
+dev = [
+    "pytest~=5.2",
+    "sphinx>=7.3.7,<8",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "sksound",
+    "tests",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "sksound",
+    "tests",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
