@@ -1,0 +1,11 @@
+goldhand/__init__.py,sha256=2D68nqSZuv6sqyLJbOXnWIeeFpNgpYc90rHa2Fo70lk,152
+goldhand/backtest.py,sha256=hxSyFEDNvGg8P2eQKHG6fEzr0pOuG3Mgk2-lGnyz2RU,8825
+goldhand/helpers.py,sha256=cXTGMLXXWiCDP1OaK38icCxhBy7EBuwanIxiYHckRr8,6402
+goldhand/stocks.py,sha256=b1gE_-Pt3zS6I7VRCNbAZ5fSODFcuSqraDNcUKqB1PU,14367
+goldhand/strategy_goldhand_line.py,sha256=VopjGsufi1Dg367ys_8xWgYSSF1cw96lHgxJx2bPUNA,11656
+goldhand/strategy_rsi.py,sha256=TWZyT2uzQ1zCfevM2sMZAD6p_vSY_rTZ0qnJiMDN02Y,9831
+goldhand/tw.py,sha256=jT6DL2PyJxoPojNHL39pkk0PsuZajTQBbRStipnbq9w,12840
+goldhand-18.0.dist-info/METADATA,sha256=TOfQfQY2BQyBIBWr8r4ZeRs3nOCyW32l_Ce6fNctEkw,5575
+goldhand-18.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+goldhand-18.0.dist-info/top_level.txt,sha256=siEJ2_a_Fx_7hqRI4Ms6SzCelbXrK_1H_eOF8KAaMdA,9
+goldhand-18.0.dist-info/RECORD,,
