@@ -1,0 +1,60 @@
+[project]
+name = "get4u"
+authors = [
+    { name = "Dominik Müller", email = "mulldo53@gmail.com" },
+]
+readme = "README.md"
+version = "0.0.0"
+requires-python = ">=3.6"
+keywords = []
+dependencies = []
+
+[project.urls]
+homepage = "https://gitlab.com/loroka/get4u"
+documentation = "https://gitlab.com/loroka/get4u"
+repository = "https://gitlab.com/loroka/mget4u"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+dev = [
+    "mypy",
+    "yapf",
+]
+
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+
+# Tooling
+
+[tool.setuptools_scm]
+write_to = "src/pyreleaser/__version__.py"
+version_scheme = "guess-next-dev"
+local_scheme = "node-and-date"
+
+[tool.yapf]
+based_on_style="google"
+column_limit=120
+split_before_logical_operator=true
+continuation_align_style="SPACE"
+dedent_closing_brackets=true
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+warn_unreachable = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+show_error_codes = true
+junit_xml = "report-mypy.xml"
+exclude = ["venv"]
+
+[tool.pytest.ini_options]
+# Directories that are not visited by pytest collector:
+norecursedirs = ["*.egg", ".eggs", "dist", "build", "docs", ".tox", ".git", "__pycache__",]
+
