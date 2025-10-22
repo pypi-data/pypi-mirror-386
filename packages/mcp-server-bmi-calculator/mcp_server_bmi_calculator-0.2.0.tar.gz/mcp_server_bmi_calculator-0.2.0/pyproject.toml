@@ -1,0 +1,35 @@
+[project]
+name = "mcp-server-bmi-calculator"
+version = "0.2.0"
+description = "A Model Context Protocol server for BMI (Body Mass Index) calculation and health assessment"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "BMI Calculator Team", email = "bmi@example.com" }
+]
+keywords = ["bmi", "health", "calculator", "mcp", "llm"]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/mcp-server-bmi-calculator"
+Repository = "https://github.com/yourusername/mcp-server-bmi-calculator"
+Issues = "https://github.com/yourusername/mcp-server-bmi-calculator/issues"
+
+[project.scripts]
+mcp-server-bmi-calculator = "mcp_server_bmi_calculator:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

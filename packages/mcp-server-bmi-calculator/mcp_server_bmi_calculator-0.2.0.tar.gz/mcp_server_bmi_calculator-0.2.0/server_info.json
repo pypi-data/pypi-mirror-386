@@ -1,0 +1,36 @@
+{
+    "server": {
+        "autoStart": true,
+        "type": "stdio",
+        "command": "uvx",
+        "args": [
+            "mcp-server-bmi-calculator@latest"
+        ],
+        "extension_param": []
+    },
+    "version": "V1",
+    "server_language": "python",
+    "server_tag": {
+        "zh-CN": "健康工具",
+        "en-US": "Health Tools"
+    },
+    "server_type": "1",
+    "name": {
+        "zh-CN": "BMI计算器",
+        "en-US": "BMI Calculator"
+    },
+    "description": {
+        "zh-CN": "计算身体质量指数(BMI)并提供健康状况评估。",
+        "en-US": "Calculate Body Mass Index (BMI) and provide health status assessment."
+    },
+    "param": {
+        "label": {
+            "zh-CN": [
+                "健康工具"
+            ],
+            "en-US": [
+                "Health Tools"
+            ]
+        }
+    }
+}
