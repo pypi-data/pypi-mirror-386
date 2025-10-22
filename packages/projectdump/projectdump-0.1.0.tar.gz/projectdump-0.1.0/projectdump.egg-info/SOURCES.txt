@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+projectdump/__init__.py
+projectdump/__main__.py
+projectdump/aggregator.py
+projectdump/constants.py
+projectdump/detector.py
+projectdump/filters.py
+projectdump/one_file_version.py
+projectdump/tree_generator.py
+projectdump.egg-info/PKG-INFO
+projectdump.egg-info/SOURCES.txt
+projectdump.egg-info/dependency_links.txt
+projectdump.egg-info/entry_points.txt
+projectdump.egg-info/top_level.txt

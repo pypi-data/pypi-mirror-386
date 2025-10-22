@@ -1,0 +1,20 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "projectdump"
+version = "0.1.0"
+authors = [
+  { name="Nguyễn Huỳnh Anh Khoa", email="you@example.com" },
+  { name="Nguyen Huy", email="ntqhuy2k2@gmail.com" },
+]
+description = "Generate full source dump summary for any project"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+projectdump = "projectdump.__main__:main"

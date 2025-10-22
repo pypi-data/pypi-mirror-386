@@ -1,0 +1,2 @@
+[console_scripts]
+projectdump = projectdump.__main__:main
