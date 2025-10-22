@@ -1,0 +1,3 @@
+[console_scripts]
+spherapy-clear-credentials = spherapy.__main__:clear_credentials
+spherapy-create-credentials = spherapy.__main__:create_credentials
