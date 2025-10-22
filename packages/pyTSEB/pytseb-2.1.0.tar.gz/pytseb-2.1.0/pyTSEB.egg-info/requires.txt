@@ -1,0 +1,10 @@
+gdal>=3.8
+numpy
+scipy
+pandas
+jupyter
+notebook
+bokeh
+netCDF4
+Py6S
+radiative-transfer-models
