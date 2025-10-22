@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: rdt-kernel
+Version: 0.1.0
+Summary: Recursive-Depth Logarithmic Dissipation Kernel
+Author: Steven Reid
+License: MIT
+Requires-Dist: numpy>=1.24
