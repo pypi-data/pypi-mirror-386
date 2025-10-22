@@ -1,0 +1,8 @@
+milvus_filter_expression/__init__.py,sha256=o92NEBrOvH7BnXMW1P9FhbNgisYAgXm2JJdEYfdQwvY,2123
+milvus_filter_expression/builder.py,sha256=klOYH1QKDlDcFVT7Pk_RDulCqq-kHb9KbA4pdwnf3E0,3874
+milvus_filter_expression/converter.py,sha256=WH4m0OsjXbH6oAvP_GO9d-zcMf7mRnitXMjKtAfn9LU,7355
+milvus_filter_expression/operators.py,sha256=QhTsdn2CiDnEioK1nqg1_y-NyQ5wbpMH2m3ES3NF9qU,1009
+milvus_filter_expression/shortcuts.py,sha256=wLdSNXEdeIa29YSxnRrc1BF9eBmob7TnJek9S0u06OM,2011
+milvus_filter_expression-0.1.0.dist-info/METADATA,sha256=XWsgtuRdFvzCb9gEcrUnc7cHkPqF1YYp3NTtvlhLc7U,10228
+milvus_filter_expression-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+milvus_filter_expression-0.1.0.dist-info/RECORD,,
