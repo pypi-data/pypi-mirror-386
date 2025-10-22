@@ -1,0 +1,11 @@
+LICENSE
+NOTICE
+README.md
+pyproject.toml
+src/excel_convertor.egg-info/PKG-INFO
+src/excel_convertor.egg-info/SOURCES.txt
+src/excel_convertor.egg-info/dependency_links.txt
+src/excel_convertor.egg-info/requires.txt
+src/excel_convertor.egg-info/top_level.txt
+src/xlsxcreator/__init__.py
+src/xlsxcreator/excel_convertor.py
