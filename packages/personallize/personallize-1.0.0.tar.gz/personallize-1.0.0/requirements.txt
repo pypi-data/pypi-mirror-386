@@ -1,0 +1,19 @@
+# Core dependencies for personallize library
+selenium>=4.0.0
+webdriver-manager>=3.8.0
+sqlalchemy>=2.0.0
+pymysql>=1.0.0
+psycopg2-binary>=2.9.0
+pyodbc>=4.0.0
+psutil>=5.8.0
+colorama>=0.4.4
+rich>=12.0.0
+tzdata>=2021.1
+
+# Development dependencies (optional)
+# Install with: pip install -r requirements.txt -r requirements-dev.txt
+# pytest>=6.0
+# pytest-cov>=2.0
+# black>=21.0
+# flake8>=3.8
+# mypy>=0.800

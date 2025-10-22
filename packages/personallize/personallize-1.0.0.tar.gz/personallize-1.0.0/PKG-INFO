@@ -1,0 +1,159 @@
+Metadata-Version: 2.4
+Name: personallize
+Version: 1.0.0
+Summary: Biblioteca Python com ferramentas essenciais para desenvolvimento de RPA e ML, oferecendo recursos para conexão com bancos de dados, logging, ORM e monitoramento de performance.
+Project-URL: Homepage, https://github.com/MiguelTenorio42/personallize
+Project-URL: Bug Reports, https://github.com/MiguelTenorio42/personallize/issues
+Project-URL: Source, https://github.com/MiguelTenorio42/personallize
+Project-URL: Documentation, https://github.com/MiguelTenorio42/personallize#readme
+Author-email: Miguel Tenório <deepydev42@gmail.com>
+Maintainer-email: Miguel Tenório <deepydev42@gmail.com>
+License: MIT
+License-File: LICENSE
+Keywords: database,logging,ml,orm,performance,rpa,selenium,webdriver
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Logging
+Requires-Python: >=3.13
+Requires-Dist: build>=1.3.0
+Requires-Dist: colorama>=0.4.4
+Requires-Dist: psutil>=5.8.0
+Requires-Dist: psycopg2-binary>=2.9.0
+Requires-Dist: pymysql>=1.0.0
+Requires-Dist: pyodbc>=4.0.0
+Requires-Dist: rich>=12.0.0
+Requires-Dist: selenium>=4.0.0
+Requires-Dist: sqlalchemy>=2.0.0
+Requires-Dist: twine>=6.2.0
+Requires-Dist: tzdata>=2021.1
+Requires-Dist: webdriver-manager>=3.8.0
+Provides-Extra: dev
+Requires-Dist: mypy>=0.800; extra == 'dev'
+Requires-Dist: ruff>=0.1.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Personallize
+
+Uma biblioteca Python com ferramentas essenciais para desenvolvimento de RPA (Robotic Process Automation) e/ou ML (Machine Learning), oferecendo recursos para conexão com bancos de dados, logging, estruturação de projetos, ORM e monitoramento de performance.
+
+## 📋 Requisitos
+
+- Python >= 3.13
+- Selenium >= 4.0.0
+- SQLAlchemy >= 2.0.0
+- Rich >= 12.0.0
+
+## 📦 Instalação
+
+### Com pip
+
+```bash
+pip install personallize
+```
+
+### Com uv (recomendado)
+
+```bash
+uv add personallize
+```
+
+### Para desenvolvimento
+
+```bash
+# Com pip
+pip install personallize[dev]
+
+# Com uv
+uv add personallize --optional dev
+```
+
+## 🚀 Uso Básico
+
+```python
+from personallize import Connection, LogManager, FactoryEntity
+import personallize as pz
+
+# Exemplo de uso da conexão com banco de dados
+conn = Connection('sqlite', database='exemplo.db')
+
+# Exemplo de uso do sistema de logging
+logger = pz.get_logger(__name__)
+logger.info("Aplicação iniciada")
+```
+
+## 🚀 Recursos
+
+### 📊 Connection
+
+Módulo flexível para conexão com diversos bancos de dados:
+
+- SQLite
+- MySQL
+- PostgreSQL
+- SQL Server
+
+### 📝 Logs
+
+Sistema de logging avançado com capacidade de:
+
+- Gerar logs em arquivo
+- Registrar logs em banco de dados (quando integrado com Connection)
+- Personalização de formatos e níveis de log
+
+### 🏗️ Make Structure
+
+Gerador de estruturas de projeto:
+
+- MVC simplificado
+- Estrutura para projetos ML
+- Estruturas personalizadas via configuração
+
+### 🔄 ORM
+
+Mapeamento Objeto-Relacional simplificado:
+
+- Criação de entidades a partir de DataFrames
+- Mapeamento de tabelas existentes
+
+### ⚡ Performance
+
+Decorators para monitoramento de performance:
+
+- Medição de tempo de execução
+- Monitoramento de uso de memória RAM
+
+### 🌐 WebDriver
+
+Ferramentas para automação web:
+
+- Gerenciamento customizado do ChromeDriver
+- Manipulação avançada de WebDriver
+- Integração com Selenium
+
+## 📋 Requisitos
+
+- Python >= 3.13
+- Selenium >= 4.0.0
+- SQLAlchemy >= 2.0.0
+- Rich >= 12.0.0
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 👨‍💻 Autor
+
+**Miguel Tenório**
+
+- Email: `deepydev42@gmail.com`
+- GitHub: [@MiguelTenorio42](https://github.com/MiguelTenorio42)
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Por favor, sinta-se à vontade para submeter um Pull Request.
