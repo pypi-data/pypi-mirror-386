@@ -1,0 +1,135 @@
+Metadata-Version: 2.4
+Name: tushare-docs-mcp
+Version: 0.0.1
+Summary: Tushare Docs MCP Server - 提供Tushare接口文档查询功能
+Project-URL: Homepage, https://github.com/momojie/tushare-docs-mcp
+Project-URL: Repository, https://github.com/momojie/tushare-docs-mcp.git
+Project-URL: Issues, https://github.com/momojie/tushare-docs-mcp/issues
+Author-email: Momojie <momojiesuper@gmail.com>
+License: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.11
+Requires-Dist: mcp>=1.15.0
+Description-Content-Type: text/markdown
+
+# Tushare Docs MCP Server
+
+一个提供 Tushare 接口文档查询功能的 MCP (Model Context Protocol) 服务器。
+
+## 功能特性
+
+- 📚 提供完整的 Tushare 接口文档查询
+- 🔍 支持按目录浏览和搜索文档
+- ⚡ 快速响应的文档检索
+- 🛠️ 支持多种传输方式 (HTTP/stdio)
+
+## 安装
+
+### 使用 pip 安装
+
+```bash
+pip install tushare-docs-mcp
+```
+
+### 使用 uvx 运行（推荐）
+
+```bash
+uvx tushare-docs-mcp stdio
+```
+
+## 使用方法
+
+### 作为 MCP 服务器运行
+
+1. **标准输入输出模式**（适用于 Claude 等 AI 工具）：
+```bash
+tushare-docs-mcp stdio
+```
+
+2. **HTTP 模式**（适用于开发和测试）：
+```bash
+# 默认端口 8888
+tushare-docs-mcp
+
+# 指定端口
+tushare-docs-mcp 8080
+```
+
+### 配置 Claude Desktop
+
+在 `claude_desktop_config.json` 中添加：
+
+```json
+{
+  "mcpServers": {
+    "tushare-docs": {
+      "command": "uvx",
+      "args": ["tushare-docs-mcp", "stdio"]
+    }
+  }
+}
+```
+
+## 可用工具
+
+- `tushare_basic`: 获取 Tushare 库的基础用法说明
+- `tushare_docs_catalog`: 获取 Tushare 库的接口文档目录
+- `tushare_docs`: 根据路径获取特定接口的文档
+
+## 使用示例
+
+在 Claude 中，你可以这样询问：
+
+> "请帮我查看 Tushare 中获取股票列表的接口文档"
+
+> "显示 Tushare 的基础用法说明"
+
+> "我想了解日线行情的接口，路径是 01_股票数据 02_行情数据 01_历史日线"
+
+## 开发
+
+### 本地开发
+
+```bash
+# 克隆仓库
+git clone https://github.com/momojie/tushare-docs-mcp.git
+cd tushare-docs-mcp
+
+# 安装依赖
+pip install -e .
+
+# 运行服务器
+python -m tushare_docs_mcp.main stdio
+```
+
+### 构建
+
+```bash
+# 构建分发包
+python -m build
+
+# 检查包
+twine check dist/*
+```
+
+## 许可证
+
+MIT License
+
+## 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 相关链接
+
+- [Tushare 官网](https://tushare.pro/)
+- [MCP 规范](https://modelcontextprotocol.io/)
