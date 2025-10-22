@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: filesplitter-trail
+Version: 0.1
+Summary: A simple file splitter
+Author: Narayana (nchikkam@gmail.com)
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: requires-python
+Dynamic: summary
