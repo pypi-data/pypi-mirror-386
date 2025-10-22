@@ -1,0 +1,5 @@
+[console_scripts]
+cc=cc.__main__:main
+cc-setup=cc.setup:setup_shell
+cogency=cc.__main__:main
+
