@@ -1,0 +1,9 @@
+hermes/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hermes/vicon/__init__.py,sha256=3IHxxa9EI33_U7PZR2ijNSWXvNNPvkm9xIvFuYEaTsE,70
+hermes/vicon/producer.py,sha256=UD8dC3tIKWmJ1UWAbmavLnMmz56WpL-d8qd8c7rebbE,6289
+hermes/vicon/stream.py,sha256=bEwuwjya7Si7zqDUEc-zzzI91PwQ_j4TOdV6qB-fJ8s,3612
+pysio_hermes_vicon-0.0.1.dist-info/licenses/LICENSE,sha256=DSQLXk4OWRUgWLwtQJfg3nkFxF7aAzM2qQ3hOLw8OD0,1148
+pysio_hermes_vicon-0.0.1.dist-info/METADATA,sha256=IroDd8OULwUgYGSAvltPoGWvKGmnVe4Q129pLl27FGU,1415
+pysio_hermes_vicon-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pysio_hermes_vicon-0.0.1.dist-info/top_level.txt,sha256=1TupzjD_10P0-QWmHdzyxP4OXHKizFdjhlf91BcdH28,7
+pysio_hermes_vicon-0.0.1.dist-info/RECORD,,
