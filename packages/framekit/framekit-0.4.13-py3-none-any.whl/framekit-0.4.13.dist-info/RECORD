@@ -1,0 +1,15 @@
+framekit/__init__.py,sha256=MM-afpMd2VMf25Qo7aNJCdgw1oMbl7M86AgvKxHggws,231
+framekit/animation.py,sha256=N12rBtxsbv1vWgu48lw0gGi9CdNdW4u3I_VktA7OsHM,15683
+framekit/audio_element.py,sha256=u0HnCV8AvFS-1JTRiCJiNOeDlIdxMYEdTOJES7dRZi4,5132
+framekit/audio_utils.py,sha256=0Z0fEkreM2gXL9_yrHP7Wz25XVu8JZHFYlOkCDNaDEI,1277
+framekit/image_element.py,sha256=oOKzbyo6gbertK7xPEbxTJbFuBUjsGDsWNM6KRXtqdY,6735
+framekit/master_scene_element.py,sha256=A0CvX92INnO0ZdPhoifU79DuJ_mTKeosZze9z5pj02A,15572
+framekit/scene_element.py,sha256=o3_qasNOtV_M6D41Ty77mMnt7Zoun4Wm1MwkGALQhg4,7079
+framekit/text_element.py,sha256=8gyhuQn8QP48afkHLF_qemt01utRJsKsLsgM-xATCr4,11375
+framekit/transition.py,sha256=mFM9DrmWeJSiO92wJvW67XFiXWla_HChydGiVfB3I8Q,1209
+framekit/video_base.py,sha256=ERt2Bagnt0D-JjhOGZi4I1IXTrAc8EhavE5Jm6uoGYE,17580
+framekit/video_element.py,sha256=9PHvrbFgYYQOOLgl0Qs3zhegEJ6r6a0hAYKWn4qWmws,12940
+framekit-0.4.13.dist-info/METADATA,sha256=gWk8SIrCVYxBZH9VCvGZVVJ-KMovajaArpUoy-AQCFM,310
+framekit-0.4.13.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+framekit-0.4.13.dist-info/top_level.txt,sha256=Vuy5-vVe_WBcFW2joa7brpKItAJoZcSe1UV1UFXStmI,9
+framekit-0.4.13.dist-info/RECORD,,
