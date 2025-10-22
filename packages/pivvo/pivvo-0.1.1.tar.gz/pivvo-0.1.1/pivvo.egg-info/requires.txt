@@ -1,0 +1,7 @@
+typer
+rich
+GitPython
+pyfiglet
+
+[dev]
+pytest
