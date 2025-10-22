@@ -1,0 +1,15 @@
+
+[:python_version >= "3.5"]
+lxml==6.0.0
+
+[:python_version >= "3.8"]
+tree-sitter-usfm3==3.2.0-beta.1
+jsonschema==4.24.0
+
+[:python_version >= "3.9"]
+tree-sitter>=0.25.2
+
+[dev]
+rnc2rng
+jupyterlab
+pytest
