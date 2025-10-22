@@ -1,0 +1,16 @@
+mobile_app_version/__init__.py,sha256=XS6wa4H4azoHik1r1qAdTIw2KOQKzmcsKiqPnmXKPf0,155
+mobile_app_version/admin.py,sha256=r6thkJicA1ggAZCyrSQ3DY6sqizoTe_w5v-y7QYtsD0,526
+mobile_app_version/apps.py,sha256=QbJa3r3ORb_4C-PUQt1Tm3dNRHm23Sc2YBsh8271agU,166
+mobile_app_version/messages.py,sha256=CGCkxGwRpwkvSC1FD0oupasO7LnbI00Qzj1KCoTneJM,332
+mobile_app_version/middlewares.py,sha256=zsepXVHEhSHZ2leTk5kHEGZxqu529nOXved4hkzx96c,2294
+mobile_app_version/models.py,sha256=3OYt4ghT4uDlq_lyJsO9xpvpViLvwP51ku71CP9HgYg,1282
+mobile_app_version/paginations.py,sha256=aIlqHqety5HjR4iHwVux0ACe957Fb1TMpY6SHaPErfY,155
+mobile_app_version/serializers.py,sha256=rj-jIl7sW4B_0Xz9GUpH7Q_g4KqIY0H4TQoVdyhpf5E,515
+mobile_app_version/tests.py,sha256=lcDGvC0n9nSaht6YrcsZlwaXNo-6cZ6mQhv_zVxdll4,10858
+mobile_app_version/urls.py,sha256=vtZgSy1W2Ry5Kq-AjkDPjJUJHwczcmkHngiaFcVCxx4,312
+mobile_app_version/validators.py,sha256=PHxXLkpMXP3cuGGC_YJKcWwNhB70Gtbhv9QEH_OLkUY,1637
+mobile_app_version/views.py,sha256=4cLCYNrnGDXAwXdAOW7oBen1JhrdxUmRFhXOJ8IyxJc,1305
+django_mobile_app_version-1.2.0.dist-info/METADATA,sha256=N1aT0cBJfZut8Om48hC8nGd0fGmg08rZiLSAQi0_tBo,4860
+django_mobile_app_version-1.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+django_mobile_app_version-1.2.0.dist-info/top_level.txt,sha256=ozxZy6uhWRMbAE761kJ5ddi9F6CTsF5jxL4SwtPcKhs,19
+django_mobile_app_version-1.2.0.dist-info/RECORD,,
