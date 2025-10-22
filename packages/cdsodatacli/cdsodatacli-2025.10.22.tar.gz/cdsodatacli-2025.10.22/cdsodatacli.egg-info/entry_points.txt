@@ -1,0 +1,3 @@
+[console_scripts]
+downloadFromCDS = cdsodatacli.download:main
+queryCDS = cdsodatacli.query:query_client
