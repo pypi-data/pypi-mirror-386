@@ -1,0 +1,145 @@
+Metadata-Version: 2.4
+Name: week-service
+Version: 1.0.2
+Summary: Futbol maçlarını haftalara bölen ve puan durumu hesaplayan profesyonel servis
+Home-page: https://github.com/yourusername/week-service
+Author: Monscer
+Author-email: your.email@example.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: psycopg[binary]>=3.1.0
+Requires-Dist: python-dotenv>=1.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Week Service
+
+Futbol maçlarını haftalara bölen ve puan durumu tablolarını oluşturan yüksek performanslı servis.
+
+## 🚀 Kurulum
+
+```bash
+pip install week-service
+```
+
+## 📋 Özellikler
+
+- ⚡ **Yüksek Performans**: COPY komutu ile toplu veri işleme
+- 📊 **Haftalık Bölümleme**: Maçları otomatik haftalara böler
+- 🏆 **Puan Durumu**: Haftalık ve güncel puan durumlarını hesaplar
+- 🔒 **.env Desteği**: Güvenli veritabanı yapılandırması
+- 🎯 **Esnek Filtreleme**: Status bazlı akıllı filtreleme
+
+## ⚙️ Yapılandırma
+
+`.env` dosyası oluşturun:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=football_db
+DB_USER=your_user
+DB_PASSWORD=your_password
+
+MIN_MATCHES=5
+BATCH_SIZE=10
+```
+
+## 💻 Kullanım
+
+### CLI (Command Line)
+
+```bash
+# Güncel sezonları işle
+week-service
+
+# Tüm sezonları işle
+week-service --all
+
+# Minimum maç sayısı belirle
+week-service --min-matches 10
+
+# Test için limit koy
+week-service --limit 50
+```
+
+### Python Kodu
+
+```python
+from week_service import WeekService
+
+# Servis oluştur
+service = WeekService()
+
+# Tüm ligleri işle
+service.process_all_leagues_bulk(
+    min_matches=5,
+    limit=None
+)
+```
+
+## 📊 Veritabanı Tabloları
+
+### match_weeks
+Maçların haftalık bölümlenmesi:
+- `match_id`, `season_id`, `week_number`
+- `home_team`, `away_team`, `status`
+- `match_date`, `match_time`
+
+### weekly_standings
+Haftalık puan durumları:
+- `season_id`, `week_number`, `team_id`
+- `position`, `played`, `wins`, `draws`, `losses`
+- `points`, `goals_for`, `goals_against`
+
+### current_standings
+Güncel puan durumları (son hafta)
+
+## 📈 Performans
+
+- **77,701 maç** → 6 dakika
+- **401 lig** → Tek batch işlem
+- **155,733 puan durumu** → COPY ile toplu kayıt
+
+## 🗂️ Proje Yapısı
+
+```
+week_service/
+├── core/
+│   ├── database.py           # .env destekli DB bağlantısı
+│   ├── match_loader.py       # Maç yükleme
+│   ├── week_divider.py       # Hafta bölme
+│   └── standings_calculator.py  # Puan durumu
+├── utils/
+│   └── logger.py             # Loglama
+├── cli.py                    # CLI arayüzü
+├── week_service.py           # Ana servis
+└── setup.py                  # PyPI paketi
+```
+
+## 📄 Lisans
+
+MIT License
+
+## 🤝 Katkıda Bulunma
+
+Pull request'ler memnuniyetle karşılanır!

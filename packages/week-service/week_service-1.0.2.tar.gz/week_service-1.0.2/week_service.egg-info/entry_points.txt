@@ -1,0 +1,2 @@
+[console_scripts]
+week-service = week_service.cli:main

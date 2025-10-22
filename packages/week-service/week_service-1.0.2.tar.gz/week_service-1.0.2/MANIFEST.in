@@ -1,0 +1,6 @@
+include README_PYPI.md
+include .env.example
+include week_service.py
+include cli.py
+recursive-include core *.py
+recursive-include utils *.py
