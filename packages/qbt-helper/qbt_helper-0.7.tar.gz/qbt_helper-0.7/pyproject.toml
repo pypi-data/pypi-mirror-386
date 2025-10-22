@@ -1,0 +1,26 @@
+[project]
+name = "qbt-helper"
+version = "0.7"
+authors = [
+        { name="Jeffrey Serio", email="hyperreal@moonshadow.dev" },
+]
+description = "Helper program for adding torrents from URLs to a qBittorrent instance."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+            "Programming Language :: Python :: 3",
+            "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+            "Operating System :: OS Independent",
+]
+dependencies = ["beautifulsoup4>=4.12.3", "docopt>=0.6.2", "qbittorrent-api>=2024.12.71", "requests>=2.32.3", "rich>=13.9.4"]
+
+[project.scripts]
+qbt-helper = "qbt_helper:main"
+
+[project.urls]
+Homepage = "https://git.hyperreal.coffee/hyperreal/qbt-helper"
+Issues = "https://git.hyperreal.coffee/hyperreal/qbt-helper/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
