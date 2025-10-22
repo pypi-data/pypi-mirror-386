@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+setup.py
+src/dop1/__init__.py
+src/dop1/__main__.py
+src/dop1/cli.py
+src/dop1/exceptions.py
+src/dop1/predictor.py
+src/dop1/utils.py
+src/dop1.egg-info/PKG-INFO
+src/dop1.egg-info/SOURCES.txt
+src/dop1.egg-info/dependency_links.txt
+src/dop1.egg-info/not-zip-safe
+src/dop1.egg-info/requires.txt
+src/dop1.egg-info/top_level.txt
+tests/test_predictor.py
+tests/test_utils.py
