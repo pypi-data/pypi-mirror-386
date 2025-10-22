@@ -1,0 +1,6 @@
+b2luigi>=1.2.0
+PyYAML>=6.0
+pydantic<2
+
+[test]
+pytest-mock
