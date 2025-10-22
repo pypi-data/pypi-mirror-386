@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+glossmod_mcp/__init__.py
+glossmod_mcp/server.py
+glossmod_mcp.egg-info/PKG-INFO
+glossmod_mcp.egg-info/SOURCES.txt
+glossmod_mcp.egg-info/dependency_links.txt
+glossmod_mcp.egg-info/entry_points.txt
+glossmod_mcp.egg-info/requires.txt
+glossmod_mcp.egg-info/top_level.txt
