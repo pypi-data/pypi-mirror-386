@@ -1,0 +1,16 @@
+multi_doc_mcp/__init__.py,sha256=tU1cWWtzBfpCbJbpd0zcsRu1tARpwqxVVc2yjZbVg4k,255
+multi_doc_mcp/__main__.py,sha256=S-o2exSgAnxb-etBL3PYGWLwXb3HudNZz2OBPvZmdu4,421
+multi_doc_mcp/server.py,sha256=rMucXvwRKQn8pCyi1xd7KwyTydEa2EdO8DjGhZ_zXI8,12196
+multi_doc_mcp/converters/__init__.py,sha256=LbganCFWy2tUeXflGo_jw0zkRzRsurlPpG8f5ez1t5M,388
+multi_doc_mcp/converters/base_converter.py,sha256=BayNvtW6Wgsk4d035bfBWBs6-22briSEwRGRO5LfqrU,7208
+multi_doc_mcp/converters/excel_to_md.py,sha256=H5IQ03Qx7CkAn9IENF_0qMfA0oVDykLIZxk4Ep2hbyw,1849
+multi_doc_mcp/converters/pdf_to_md.py,sha256=UB22oE7r_kBf9_mY3KS_hnLInedChXMDcNi36LOuoU4,1640
+multi_doc_mcp/converters/ppt_to_md.py,sha256=QBMagW49VaAMI8jhNBFlE-s3VUod4kooPCoWprv1A7s,1869
+multi_doc_mcp/converters/word_to_md.py,sha256=b6f2WZUuf_YVOpOskqOVy7bUsVld4gJpT2TDcvSDbfY,2223
+multi_doc_mcp/utils/__init__.py,sha256=aX8_eHYfm5j66_VWs07MKtAmi7KRUMz8FO_AV4r_52o,175
+multi_doc_mcp/utils/file_utils.py,sha256=9fl5C5VO6SCShcvCI3QXhWkhdVbVnjIzz4ErM_pmgz8,4127
+multi_doc_mcp/utils/validation.py,sha256=Ga7G0l_0Y4gjBkfDiJSJ-2nt-af_iXcIvFgKLm1ASmM,6586
+markdown_format_converter_mcp-1.0.1.dist-info/METADATA,sha256=smWpU_PGTuMPuyFIoUjKfOvASowT0Mb_ggN3-R00eGI,4880
+markdown_format_converter_mcp-1.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+markdown_format_converter_mcp-1.0.1.dist-info/entry_points.txt,sha256=VoaEsLmJNw7QaEzg-YHjAN6vS1KpV5EWBF_hMVYGn9o,77
+markdown_format_converter_mcp-1.0.1.dist-info/RECORD,,
