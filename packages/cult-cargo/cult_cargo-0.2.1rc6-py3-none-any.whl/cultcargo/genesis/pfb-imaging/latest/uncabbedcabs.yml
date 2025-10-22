@@ -1,0 +1,70 @@
+pfb.degrid:
+  _include:
+  - (.)degrid.yaml
+  command: pfb.workers.degrid.degrid
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.fluxtractor:
+  _include:
+  - (.)fluxtractor.yaml
+  command: pfb.workers.fluxtractor.fluxtractor
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.grid:
+  _include:
+  - (.)grid.yaml
+  command: pfb.workers.grid.grid
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.hci:
+  _include:
+  - (.)hci.yaml
+  command: pfb.workers.hci.hci
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.init:
+  _include:
+  - (.)init.yaml
+  command: pfb.workers.init.init
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.kclean:
+  _include:
+  - (.)kclean.yaml
+  command: pfb.workers.kclean.kclean
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.model2comps:
+  _include:
+  - (.)model2comps.yaml
+  command: pfb.workers.model2comps.model2comps
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.restore:
+  _include:
+  - (.)restore.yaml
+  command: pfb.workers.restore.restore
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.sara:
+  _include:
+  - (.)sara.yaml
+  command: pfb.workers.sara.sara
+  flavour: python
+  policies:
+    pass_missing_as_none: true
+pfb.smoovie:
+  _include:
+  - (.)smoovie.yaml
+  command: pfb.workers.smoovie.smoovie
+  flavour: python
+  policies:
+    pass_missing_as_none: true

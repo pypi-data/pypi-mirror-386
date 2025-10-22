@@ -1,0 +1,24 @@
+host-address:
+  abbreviation: ha
+  dtype: str
+  info: Address where the distributed client lives. Uses LocalCluster if no address
+    is provided and scheduler is set to distributed.
+log-level:
+  choices:
+  - error
+  - warning
+  - info
+  - debug
+  default: error
+  dtype: str
+nthreads:
+  abbreviation: nt
+  dtype: int
+  info: Number of threads used to scale vertically (eg. for FFTs and gridding). Each
+    dask thread can in principle spawn this many threads. Will attempt to use half
+    the available threads by default.
+nworkers:
+  abbreviation: nw
+  default: 1
+  dtype: int
+  info: Number of worker processes. Use with distributed scheduler.
