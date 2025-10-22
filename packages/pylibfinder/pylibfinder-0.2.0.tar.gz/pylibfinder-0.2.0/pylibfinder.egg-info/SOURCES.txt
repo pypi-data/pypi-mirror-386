@@ -1,0 +1,9 @@
+LICENSE
+README.rst
+funcfinder.c
+pyproject.toml
+pylibfinder.egg-info/PKG-INFO
+pylibfinder.egg-info/SOURCES.txt
+pylibfinder.egg-info/dependency_links.txt
+pylibfinder.egg-info/top_level.txt
+tests/test_funcfinder.py
