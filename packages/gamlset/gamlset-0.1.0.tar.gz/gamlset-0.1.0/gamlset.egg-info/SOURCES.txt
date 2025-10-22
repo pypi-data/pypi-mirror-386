@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+gamlset/__init__.py
+gamlset/py.typed
+gamlset.egg-info/PKG-INFO
+gamlset.egg-info/SOURCES.txt
+gamlset.egg-info/dependency_links.txt
+gamlset.egg-info/requires.txt
+gamlset.egg-info/top_level.txt
+tests/test_gamlset.py
