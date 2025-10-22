@@ -1,0 +1,461 @@
+Metadata-Version: 2.4
+Name: ssh-auto-upgrade
+Version: 1.0.7
+Summary: 自动检测和升级OpenSSH的工具
+Home-page: https://gitee.com/liumou_site/ssh-automatic-upgrade
+Author: SSH Auto Upgrade Team
+Author-email: 坐公交也用券 <liumou.site@qq.com>
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Topic :: System :: Systems Administration
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Requires-Dist: beautifulsoup4>=4.9.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# SSH自动升级工具
+
+> 一个专业的OpenSSH自动检测和升级工具，支持守护进程模式和systemd服务管理
+
+[![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/)
+
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)](https://www.linux.org/)
+- **项目地址**: https://gitee.com/liumou_site/ssh-automatic-upgrade
+- **PyPI地址**: https://pypi.org/project/ssh-auto-upgrade
+- **最新版本**: ![PyPI](https://img.shields.io/pypi/v/ssh-auto-upgrade)
+- **下载量**: ![PyPI - Downloads](https://img.shields.io/pypi/dm/ssh-auto-upgrade?style=flat-square)
+
+
+## 📖 项目简介
+
+SSH自动升级工具是一个专为Linux系统管理员设计的自动化工具，能够自动检测OpenSSH最新版本、下载源码、编译安装，并支持注册为systemd守护进程服务。工具采用模块化设计，具有良好的可扩展性和稳定性。
+
+### ✨ 核心特性
+
+- 🔍 **智能版本检测** - 自动从OpenSSH官方源检测最新版本
+- 📥 **可靠下载机制** - 支持断点续传、进度显示和文件完整性验证
+- 🛡️ **安全安装流程** - 包含安装前验证、回滚机制和错误处理
+- 🔧 **系统服务管理** - 支持systemd服务注册、启动、停止和管理
+- 📋 **依赖自动管理** - 智能检测和安装编译所需的系统依赖
+- 📊 **详细日志记录** - 完整的安装过程日志和状态监控
+- 🎯 **模块化架构** - 清晰的代码结构，易于维护和扩展
+
+## 🏗️ 系统架构
+
+```
+ssh_auto_upgrade/
+├── 📁 src/ssh_auto_upgrade/
+│   ├── 🚀 main.py                    # 主程序入口，守护进程模式
+│   ├── 🔍 version_detector.py         # 版本检测模块
+│   ├── 📥 downloader.py              # 下载器模块
+│   ├── 🛠️ installer.py               # 安装器核心模块
+│   ├── ⚙️ installer_service_manager.py # 安装器服务管理
+│   ├── 📁 installer_file_manager.py   # 安装器文件管理
+│   ├── 🔧 service_manager.py          # systemd服务管理
+│   ├── 📋 dependencies.py            # 依赖管理模块
+│   ├── 📝 dependency_constants.py     # 依赖常量定义
+│   ├── 📊 logger.py                   # 日志记录模块
+│   └── 🔨 compile.py                  # 传统编译脚本（兼容模式）
+├── 📄 pyproject.toml                  # 项目配置和打包信息
+├── 📄 requirements.txt               # Python依赖列表
+└── 📄 setup.py                       # 传统打包配置
+```
+
+### 🔄 工作流程
+
+1. **版本检测** → 检查当前OpenSSH版本和最新可用版本
+2. **依赖检查** → 验证系统是否具备编译环境
+3. **源码下载** → 从镜像源下载OpenSSH源码包
+4. **编译安装** → 配置、编译并安装到指定目录
+5. **服务配置** → 更新SSH服务配置和系统链接
+6. **验证重启** → 验证安装结果并重启SSH服务
+
+## 🚀 快速开始
+
+### 方法一：通过PyPI安装（推荐）
+
+```bash
+pip install ssh-auto-upgrade
+```
+
+### 方法二：开发模式安装（从源码安装）
+
+```bash
+# 开发模式安装，便于修改代码
+pip install -e .
+```
+
+### 升级到最新版本
+
+```bash
+pip install --upgrade ssh-auto-upgrade
+```
+
+### 卸载工具
+
+```bash
+pip uninstall ssh-auto-upgrade
+```
+
+## ⚙️ 使用说明
+
+```bash
+# 查看所有选项
+ssh-auto-upgrade --help
+
+# 自定义下载目录和日志目录
+ssh-auto-upgrade --download-dir /tmp/my-downloads --log-dir /var/log/my-logs
+
+# 注册为systemd服务（需要root权限）
+ssh-auto-upgrade --service
+
+# 设置升级时间段（默认00:00:00-08:00:00）
+ssh-auto-upgrade --upgrade-time 00:00:00-08:00:00
+
+# 设置跨天时间段（22:00:00-06:00:00）
+ssh-auto-upgrade --upgrade-time 22:00:00-06:00:00
+
+# 强制升级并设置时间段
+ssh-auto-upgrade --force --upgrade-time 12:00:00-14:00:00
+
+# 升级后启用root登录
+ssh-auto-upgrade --enable-root-login
+
+# 升级后禁用root登录
+ssh-auto-upgrade --disable-root-login
+
+# 注册服务时设置root登录配置
+ssh-auto-upgrade --service --enable-root-login
+ssh-auto-upgrade --service --disable-root-login
+
+# 结合所有功能
+ssh-auto-upgrade --force --upgrade-time 00:00:00-08:00:00 --enable-root-login
+```
+
+### systemd服务管理
+
+#### 注册为systemd服务
+```bash
+sudo ssh-auto-upgrade --service
+```
+
+
+### 安装使用效果
+
+```shell
+root@tb4:~# pip install ssh-auto-upgrade
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting ssh-auto-upgrade
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/5e/19/b65e8262373487dae669d87985b703b847bdbd623f55defbc3f440d02d4a/ssh_auto_upgrade-1.0.5-py3-none-any.whl (31 kB)
+Requirement already satisfied: requests>=2.25.0 in /usr/lib/python3/dist-packages (from ssh-auto-upgrade) (2.28.1)
+Requirement already satisfied: beautifulsoup4>=4.9.0 in /usr/local/lib/python3.11/dist-packages (from ssh-auto-upgrade) (4.13.4)
+Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4>=4.9.0->ssh-auto-upgrade) (2.7)
+Requirement already satisfied: typing-extensions>=4.0.0 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4>=4.9.0->ssh-auto-upgrade) (4.14.1)
+Installing collected packages: ssh-auto-upgrade
+Successfully installed ssh-auto-upgrade-1.0.5
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+root@tb4:~# ssh-a
+ssh-add           ssh-agent         ssh-argv0         ssh-auto-upgrade  
+root@tb4:~# ssh-a
+ssh-add           ssh-agent         ssh-argv0         ssh-auto-upgrade  
+root@tb4:~# ssh-auto-upgrade -h
+usage: ssh-auto-upgrade [-h] [--mirror MIRROR] [--install-dir INSTALL_DIR] [--download-dir DOWNLOAD_DIR] [--log-dir LOG_DIR] [--force] [--service]
+
+OpenSSH自动升级守护进程工具
+
+options:
+  -h, --help            show this help message and exit
+  --mirror MIRROR, -m MIRROR
+                        OpenSSH镜像源URL
+  --install-dir INSTALL_DIR, -i INSTALL_DIR
+                        OpenSSH安装目录
+  --download-dir DOWNLOAD_DIR, -d DOWNLOAD_DIR
+                        下载目录
+  --log-dir LOG_DIR, -l LOG_DIR
+                        日志目录
+  --force, -f           强制升级，即使版本相同也执行安装
+  --service             注册为systemd服务
+root@tb4:~# ssh-auto-upgrade --service
+检查编译依赖...
+2025-10-21 20:17:06 - ssh_auto_upgrade - INFO - 检查编译依赖
+检查编译依赖...
+检测到系统: debian
+检测到包管理器: apt
+缺失的依赖: build-essential, zlib1g-dev, clang, autoconf, automake, libtool
+开始自动安装缺失的依赖...
+正在更新包管理器缓存...
+正在安装缺失的依赖: build-essential, zlib1g-dev, clang, autoconf, automake, libtool
+✓ 依赖安装成功
+✓ 编译依赖检查通过
+2025-10-21 20:17:47 - ssh_auto_upgrade - INFO - 编译依赖检查通过
+正在注册systemd服务...
+Created symlink /etc/systemd/system/multi-user.target.wants/ssh-auto-upgrade.service → /etc/systemd/system/ssh-auto-upgrade.service.
+成功: systemd服务注册成功
+
+服务已注册，可以使用以下命令管理:
+  systemctl start ssh-auto-upgrade    # 启动服务
+  systemctl stop ssh-auto-upgrade     # 停止服务
+  systemctl status ssh-auto-upgrade   # 查看服务状态
+  systemctl enable ssh-auto-upgrade   # 启用开机自启
+  systemctl disable ssh-auto-upgrade  # 禁用开机自启
+root@tb4:~# 
+```
+
+### 时间段升级功能
+
+工具支持设置特定的升级时间段，只有在指定时间段内才会执行版本检测和升级操作，其他时间自动跳过检测。
+
+#### 时间段格式
+- **格式**: `HH:MM:SS-HH:MM:SS`
+- **示例**: `00:00:00-08:00:00` (凌晨0点到早上8点)
+- **跨天支持**: `22:00:00-06:00:00` (晚上10点到次日早上6点)
+
+#### 使用场景
+1. **业务低峰期升级** - 在凌晨时段自动升级，避免影响正常业务
+2. **网络空闲时段** - 在网络使用率低的时段进行下载和安装
+3. **运维窗口期** - 在预定的维护窗口内执行升级操作
+
+#### 示例日志
+```
+升级时间段设置为: 00:00:00 - 08:00:00
+当前时间 09:33:09 不在升级时间段内，跳过检测...
+等待1小时后再次检查...
+```
+
+### Root登录配置功能
+
+工具支持在OpenSSH升级后自动配置root登录权限，可以根据当前系统配置智能处理或强制设置。
+
+#### 智能检测机制
+- **配置文件不存在** - 默认启用root登录
+- **配置未设置** - 默认启用root登录  
+- **配置被注释** - 默认启用root登录
+- **配置已设置** - 遵循当前配置值
+
+#### 命令行参数
+```bash
+# 升级后启用root登录
+ssh-auto-upgrade --enable-root-login
+
+# 升级后禁用root登录  
+ssh-auto-upgrade --disable-root-login
+
+# 强制升级并启用root登录
+ssh-auto-upgrade --force --enable-root-login
+
+# 注册服务时设置root登录配置
+ssh-auto-upgrade --service --enable-root-login
+ssh-auto-upgrade --service --disable-root-login
+
+# 结合时间段和root登录配置
+ssh-auto-upgrade --upgrade-time 00:00:00-08:00:00 --enable-root-login
+```
+
+#### 配置处理流程
+1. **升级前检测** - 检查当前SSH配置中的root登录设置
+2. **升级执行** - 完成OpenSSH版本升级
+3. **配置应用** - 根据参数设置root登录权限
+4. **服务重启** - 重启SSH服务使配置生效
+
+#### 安全特性
+- **自动备份** - 修改配置前自动备份原文件
+- **权限保护** - 确保配置文件权限正确
+- **错误恢复** - 配置失败时自动恢复备份
+
+#### 示例日志
+```
+检查当前root登录配置...
+当前root登录状态: 启用 (PermitRootLogin yes)
+OpenSSH升级成功! 新版本: 9.6p1
+SSH服务重启成功
+已启用root登录: root登录已启用
+SSH服务重启成功（应用root登录配置）: SSH服务重启成功
+```
+
+### 作为Python模块使用
+
+```python
+from ssh_auto_upgrade import VersionDetector, Downloader, Installer
+
+# 检测最新版本
+detector = VersionDetector()
+version_info = detector.get_latest_version()
+print(f"最新版本: {version_info['version']}")
+
+# 下载安装文件
+downloader = Downloader()
+script_path = downloader.download_install_script()
+
+# 执行安装
+installer = Installer(script_path, version_info['download_url'])
+if installer.install_openssh():
+    print("安装成功!")
+```
+
+## 📋 系统要求
+
+### Python环境
+- **Python**: 3.6 或更高版本
+- **pip**: 包管理工具
+
+### 系统包（自动检测和安装）
+- **编译工具**: gcc, make, autoconf, automake
+- **开发库**: zlib-devel, openssl-devel, pam-devel
+- **系统工具**: wget, tar, systemd
+
+### Python包依赖
+- **requests** >= 2.25.0 - HTTP请求处理
+- **beautifulsoup4** >= 4.9.0 - HTML解析
+
+## 🔧 模块详解
+
+### 核心模块
+
+#### 1. 版本检测模块 (`version_detector.py`)
+- 从OpenSSH官方镜像源解析最新版本信息
+- 检测当前系统安装的OpenSSH版本
+- 支持自定义镜像源URL
+
+#### 2. 下载器模块 (`downloader.py`)
+- 支持断点续传和进度显示
+- 文件完整性验证和错误重试
+- 可配置的下载目录和超时设置
+
+#### 3. 安装器模块 (`installer.py`)
+- 完整的编译安装流程控制
+- 错误处理和回滚机制
+- 与服务管理和文件管理模块协同工作
+
+#### 4. 服务管理模块 (`service_manager.py`)
+- systemd服务注册和管理
+- 服务状态监控和故障恢复
+- 权限验证和安全控制
+
+### 辅助模块
+
+#### 依赖管理模块 (`dependencies.py`)
+- 自动检测系统包管理器（apt/yum/dnf等）
+- 智能安装缺失的编译依赖
+- 支持多种Linux发行版
+
+#### 日志记录模块 (`logger.py`)
+- 结构化日志记录
+- 文件和控制台双重输出
+- 时间戳和日志轮转支持
+
+## 🐛 故障排除
+
+### 常见问题
+
+#### 1. 权限不足
+```bash
+# 确保以root权限运行服务注册
+sudo ssh-auto-upgrade --service
+```
+
+#### 2. 网络连接问题
+```bash
+# 检查网络连接
+ping mirrors.aliyun.com
+```
+
+#### 3. 依赖安装失败
+```bash
+# 手动安装编译依赖（Ubuntu/Debian）
+sudo apt update
+sudo apt install build-essential zlib1g-dev libssl-dev libpam0g-dev
+
+# CentOS/RHEL
+sudo yum install gcc make zlib-devel openssl-devel pam-devel
+```
+
+### 日志查看
+
+```bash
+# 查看服务日志
+sudo journalctl -u ssh-auto-upgrade
+
+# 实时监控日志
+sudo journalctl -u ssh-auto-upgrade -f
+
+# 查看特定时间段的日志
+sudo journalctl -u ssh-auto-upgrade --since "2024-01-01" --until "2024-01-02"
+```
+
+## 🤝 贡献指南
+
+我们欢迎各种形式的贡献！请参考以下步骤：
+
+### 开发环境设置
+
+1. **Fork项目**
+   ```bash
+   git clone https://gitee.com/liumou_site/ssh-automatic-upgrade.git
+   cd ssh-automatic-upgrade
+   ```
+
+2. **创建特性分支**
+   ```bash
+   git checkout -b feature/你的特性名称
+   ```
+
+3. **提交更改**
+   ```bash
+   git commit -m "描述你的特性"
+   ```
+
+4. **推送到分支**
+   ```bash
+   git push origin feature/你的特性名称
+   ```
+
+5. **创建Pull Request**
+
+### 代码规范
+
+- 遵循PEP 8 Python代码规范
+- 添加适当的文档字符串（docstring）
+- 包含单元测试（如果适用）
+- 更新相关文档
+
+## 📄 许可证
+
+本项目采用 [MIT许可证](LICENSE)。您可以自由使用、修改和分发本软件。
+
+## 🔗 相关链接
+
+- **项目主页**: https://gitee.com/liumou_site/ssh-automatic-upgrade
+- **问题反馈**: 请在Gitee Issues中提交
+- **作者主页**: https://liumou.site
+- **QQ群**: [点击链接加入群聊【坐公交也用券】：](https://qm.qq.com/q/rjB2YGP0M)
+
+## 🙏 致谢
+
+感谢所有为这个项目做出贡献的开发者！特别感谢：
+
+- OpenSSH开发团队提供优秀的SSH实现
+- 各Linux发行版维护者
+- 开源社区的支持和反馈
+
+---
+
+**注意**: 使用本工具前请确保您了解相关风险，建议在生产环境使用前进行充分测试。工具作者不对因使用本工具导致的任何问题负责。
