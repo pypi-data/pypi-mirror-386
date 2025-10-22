@@ -1,0 +1,15 @@
+coremusic/__init__.py,sha256=KfGOjee4NmWjkkBEGEQzQ6rzrHeXjEyEmfO4JnGlz4o,1918
+coremusic/__init__.pyi,sha256=hDl9RZucbJcq57kbkXWvWxEScJwx2oithikWhvYm5VI,2030
+coremusic/async_io.py,sha256=6k2DetajHi4uF6IEJ6Nbv3ZuvjiHXqQci19Zw3KTo_c,13550
+coremusic/capi.cpython-314-darwin.so,sha256=LmS7tlWRUKYDlM3haRspVbA8PGdBPnZ2MOibbTaBBLE,1034712
+coremusic/capi.pyi,sha256=wCIOxbeH6b-S7oH4C2WYOTvEKr_aCHgdy5JREfGvdyw,41194
+coremusic/objects.py,sha256=FqYlPoFjKONVNtp5WGWiyR1mocAr_MLwGmyN2obh9Kw,86015
+coremusic/objects.pyi,sha256=n-tI4v2MhRB-CMQyyXIh7CDHO-X1NuaYwopr3R2rQuQ,23371
+coremusic/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+coremusic/scipy_utils.py,sha256=UaT2HDabb8Hou7h9NlHhy2-oVngLpGfTfOnfaxGaw9M,25053
+coremusic/utilities.py,sha256=YM5Vu6prOTD4vuCur6h5yj3Rnthz8iS1kdAmJGBAJpc,34767
+coremusic-0.1.7.dist-info/licenses/LICENSE,sha256=5h7qxkt_P_fdQrNQTOJ7Rslo5khuNv2UAIuwamD9OS4,1062
+coremusic-0.1.7.dist-info/METADATA,sha256=0J7XvZ9Tu4YU9X7XsElKsjVgabP7SS-cF-xMOMfF3zQ,22904
+coremusic-0.1.7.dist-info/WHEEL,sha256=qa7Ze6x93sDWsUrZyYs-AGyW7OSn74lUGCcXBep5IAc,109
+coremusic-0.1.7.dist-info/top_level.txt,sha256=jB2W9f4d1lqV-USckJiPRE7IRXYLh0YZxKwjrhGfvzs,10
+coremusic-0.1.7.dist-info/RECORD,,
