@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: aiohappyeyeball
+Version: 2.6.1
+Summary: Happy Eyeball for asyncio
+Author: leoitect
+Author-email: leoitect@atomicmail.io
+License: Apache License 2.0
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: summary
+
+# aiohappyeyeball
+
+**Documentation**: <a href="https://aiohappyeyeballs.readthedocs.io" target="_blank">https://aiohappyeyeball.readthedocs.io </a>
+
+**Source Code**: <a href="https://github.com/aio-libs/aiohappyeyeballs" target="_blank">https://github.com/aio-libs/aiohappyeyeball </a>
+
+---
+
+[Happy Eyeball](https://en.wikipedia.org/wiki/Happy_Eyeballs)
+([RFC 8305](https://www.rfc-editor.org/rfc/rfc8305.html))
+
+## Use case
+
+This library exists to allow connecting with
+[Happy Eyeball](https://en.wikipedia.org/wiki/Happy_Eyeballs)
+([RFC 8305](https://www.rfc-editor.org/rfc/rfc8305.html))
+when you
+already have a list of addrinfo and not a DNS name.
+
+The stdlib version of `loop.create_connection()`
+will only work when you pass in an unresolved name which
+is not a good fit when using DNS caching or resolving
+names via another method such as `zeroconf`.
+
+## Installation
+
+Install this via pip (or your favourite package manager):
+
+`pip install aiohappyeyeball`
+
+## License
+
+[aiohappyeyeball is licensed under the same terms as cpython itself.](https://github.com/python/cpython/blob/main/LICENSE)
+
+## Example usage
+
+```python
+
+addr_infos = await loop.getaddrinfo("example.org", 80)
+
+socket = await start_connection(addr_infos)
+socket = await start_connection(addr_infos, local_addr_infos=local_addr_infos, happy_eyeballs_delay=0.2)
+
+transport, protocol = await loop.create_connection(
+    MyProtocol, sock=socket, ...)
+
+# Remove the first address for each family from addr_info
+pop_addr_infos_interleave(addr_info, 1)
+
+# Remove all matching address from addr_info
+remove_addr_infos(addr_info, "dead::beef::")
+
+# Convert a local_addr to local_addr_infos
+local_addr_infos = addr_to_addr_infos(("127.0.0.1",0))
+```
+
+## Credits
+
+This package contains code from cpython and is licensed under the same terms as cpython itself.
+
+This package was created with
+[Copier](https://copier.readthedocs.io/) and the
+[browniebroke/pypackage-template](https://github.com/browniebroke/pypackage-template)
+project template.
