@@ -1,0 +1,361 @@
+# 🧠 StegoImageX v11.0  
+**Advanced Adaptive AES-Encrypted Steganography Library for Python**
+
+> 📦 Created by **ATHALLAH RAJENDRA PUTRA JUNIARTO**  
+> 🔐 Secure • ⚙️ Fast • 🧬 Intelligent • 🧩 Modular  
+
+---
+
+## 📘 Deskripsi Singkat
+
+**StegoImageX v11.0** adalah **perpustakaan steganografi tingkat lanjut berbasis Python** yang memungkinkan penyembunyian pesan teks ke dalam gambar dengan keamanan tinggi.  
+Menggabungkan berbagai teknologi seperti:
+
+- 🔒 **AES-256 CBC Encryption**
+- ⚡ **Zlib + Base64 Compression**
+- 🧬 **SHA-256 Hash Integrity Check**
+- 🌀 **Dynamic Position Embedding (DPE)**
+- 🧠 **Adaptive LSB (Pixel Intensity–Based Embedding)**
+- 🧩 **Batch Processing (Multi-threaded)**
+- 📊 **Hidden Message Detection Engine**
+- 🧾 **Auto Logging & Reporting System**
+
+Dirancang untuk riset keamanan digital, pengembangan sistem steganografi, maupun aplikasi forensik digital.
+
+---
+
+## 📂 Struktur Proyek
+
+```yaml
+StegoImageX/
+│
+├── stegoimagex/
+│ ├── init.py
+│ ├── core.py
+│ ├── batch.py
+│ ├── encoder.py
+│ ├── decoder.py
+│ ├── detector.py
+│ ├── compression.py
+│ ├── crypto.py
+│ ├── dpe.py
+│ ├── integrity.py
+│ ├── logger.py
+│
+├── setup.py
+├── README.md
+└── LICENSE
+```
+
+---
+
+## ⚙️ Instalasi
+
+### 🧩 Via pip (setelah upload ke PyPI)
+
+```bash
+pip install stegoimagex
+```
+
+### 💾 Manual
+
+```bash
+git clone https://github.com/Athallah1234/StegoImageX.git
+cd StegoImageX
+pip install -r requirements.txt
+```
+
+---
+
+## 🚀 Fitur Utama
+
+| Fitur | Deskripsi |
+|----------|----------|
+| 🔐 AES-256 Encryption | Enkripsi teks dengan AES-256 CBC menggunakan password pengguna. |
+| 🧬 SHA-256 Integrity Hash | Menjamin integritas pesan dari manipulasi data. |
+| 🌀 Dynamic Position Embedding (DPE) | Posisi embedding acak deterministik berbasis password hash. |
+| 🧠 Adaptive LSB Embedding | Bit disisipkan berdasarkan intensitas pixel untuk meminimalkan distorsi. |
+| ⚡ Zlib Compression | Kompres pesan agar efisien & lebih cepat. |
+| 🔎 Hidden Message Detection Engine | Mendeteksi probabilitas adanya pesan tersembunyi. |
+| 🧰 Batch Processing | Pemrosesan paralel ribuan gambar sekaligus. |
+| 📜 Logging & Report System | Otomatis menyimpan log dan ekspor laporan ke JSON/CSV. |
+
+---
+
+## 🧩 Penggunaan Dasar
+
+✉️ **Menyembunyikan Pesan ke dalam Gambar**
+
+```python
+from stegoimagex import hide_text
+
+hide_text(
+    input_image="input.png",
+    output_image="output.png",
+    message="Ini pesan rahasia dari Athallah!",
+    encrypted=True,
+    password="supersecret",
+    layers=2,
+    dynamic=True,
+    compress=True,
+    adaptive=True,
+    logging=True
+)
+```
+
+🔍 **Mengekstrak Pesan dari Gambar**
+
+```python
+from stegoimagex import extract_text
+
+message = extract_text(
+    image_path="output.png",
+    password="supersecret",
+    layers=2,
+    dynamic=True,
+    compress=True,
+    adaptive=True
+)
+
+print("Pesan Tersembunyi:", message)
+```
+
+🧠 **Mendeteksi Adanya Pesan Tersembunyi**
+
+```python
+from stegoimagex import detect_message_info
+
+info = detect_message_info("output.png")
+print(info)
+```
+
+Contoh keluaran:
+
+```json
+{
+    "has_marker": true,
+    "entropy": 0.9998,
+    "bit_ratio": 0.4981,
+    "randomness_score": 0.0019,
+    "probability_of_hidden_message": 97.5,
+    "message_detected": true
+}
+```
+
+## 🧵 Batch Processing
+
+💡 **Menyembunyikan Pesan di Banyak Gambar Sekaligus**
+
+```python
+from stegoimagex import hide_text_batch
+
+results = hide_text_batch(
+    input_folder="dataset/input",
+    output_folder="dataset/output",
+    message="Batch secret message",
+    encrypted=True,
+    password="securepass",
+    compress=True,
+    adaptive=True,
+    max_workers=8,
+    logging=True,
+    report_path="report_hide.json"
+)
+
+print(results)
+```
+
+💡 **Mengekstrak Semua Pesan dari Folder**
+
+```python
+from stegoimagex import extract_text_batch
+
+results = extract_text_batch(
+    input_folder="dataset/output",
+    password="securepass",
+    compress=True,
+    report_path="report_extract.csv"
+)
+```
+
+💡 **Deteksi Pesan di Folder Gambar**
+
+```python
+from stegoimagex import detect_message_batch
+
+results = detect_message_batch(
+    input_folder="dataset/output",
+    report_path="report_detect.json"
+)
+```
+
+---
+
+## 🧱 Arsitektur Modul
+
+🔹 ``core.py``
+
+Modul utama yang mengatur API publik (``hide_text``, ``extract_text``, ``detect_message_info``, dan versi batch-nya).
+
+🔹 ``encoder.py``
+
+Mengubah teks menjadi bit, melakukan enkripsi, kompresi, hashing, dan menyisipkan ke dalam LSB gambar.
+
+🔹 ``decoder.py``
+
+Melakukan proses ekstraksi bit, dekripsi, dekompresi, dan verifikasi integritas pesan.
+
+🔹 ``detector.py``
+
+Menganalisis distribusi bit LSB untuk mendeteksi kemungkinan adanya pesan tersembunyi.
+
+🔹 ``dpe.py``
+
+Dynamic Position Embedding – menghasilkan urutan pixel embedding acak berdasarkan hash password.
+
+🔹 ``crypto.py``
+
+Menyediakan enkripsi dan dekripsi AES-256 CBC dengan padding dan IV acak.
+
+🔹 ``compression.py``
+
+Mengompres dan mendekompres pesan menggunakan ``zlib + base64``.
+
+🔹 ``integrity.py``
+
+Menyisipkan dan memverifikasi hash SHA-256 untuk memastikan integritas pesan.
+
+🔹 ``batch.py``
+
+Pemrosesan paralel untuk hide, extract, dan detect secara multi-threaded.
+
+🔹 ``logger.py``
+
+Sistem logging aktivitas otomatis dan ekspor laporan ke CSV/JSON.
+
+---
+
+## 🔍 Dokumentasi Fungsi Utama
+
+🔸 ``hide_text()``
+
+Menyembunyikan teks ke dalam gambar.
+
+```python
+hide_text(input_image, output_image, message,
+          encrypted=False, password=None,
+          layers=1, dynamic=True, compress=False,
+          adaptive=True, logging=False)
+```
+
+| Parameter | Tipe | Deskripsi |
+|----------|----------|----------|
+| ``input_image`` | str | Path gambar sumber |
+| ``output_image`` | str | Path untuk menyimpan hasil |
+| ``message`` | str | Pesan teks yang akan disembunyikan |
+| ``encrypted`` | bool | Aktifkan enkripsi AES-256 |
+| ``password`` | str | Password untuk enkripsi/dekripsi |
+| ``layers`` | int | Jumlah bit LSB yang digunakan (1–4) |
+| ``dynamic`` | bool | Aktifkan DPE (Dynamic Position Embedding) |
+| ``compress`` | bool | Aktifkan kompresi zlib |
+| ``adaptive`` | bool | Gunakan Adaptive LSB |
+| ``logging`` | bool | Simpan log aktivitas ke file |
+
+🔸 ``extract_text()``
+
+Ekstrak pesan dari gambar.
+
+```python
+extract_text(image_path, password=None, layers=1,
+             dynamic=True, compress=True, adaptive=True, logging=False)
+```
+
+🔸 ``detect_message_info()``
+
+Analisis probabilitas keberadaan pesan tersembunyi.
+
+```python
+detect_message_info(image_path, logging=False, layers=1)
+```
+
+output(dict): 
+```yaml
+{
+  "has_marker": True,
+  "entropy": 0.9987,
+  "bit_ratio": 0.5012,
+  "randomness_score": 0.0012,
+  "probability_of_hidden_message": 95.42,
+  "message_detected": True
+}
+```
+
+---
+
+## 🧪 Contoh Output Log
+
+File log akan tersimpan di folder ``logs/``:
+
+```bash
+logs/stegoimagex_20251022.log
+```
+
+contoh isi:
+
+```log
+[2025-10-22 12:45:02] [HIDE] input.png -> output.png | enc=True | cmp=True | dyn=True | adp=True
+[2025-10-22 12:45:10] [EXTRACT] output.png | len=28 | cmp=True | dyn=True | adp=True
+[2025-10-22 12:45:12] [DETECT] output.png | prob=97.5
+```
+
+---
+
+## 🧾 Laporan Batch
+
+Hasil batch dapat diekspor ke ``.csv`` atau ``.json``, misalnya:
+
+```json
+[
+  {"filename": "img1.png", "status": "✅"},
+  {"filename": "img2.png", "status": "❌ File rusak"}
+]
+```
+
+---
+
+## 🧠 Catatan Teknis
+
+- Setiap pesan diakhiri dengan terminator bit ``11111110`` agar ekstraksi berhenti tepat.
+- Enkripsi hanya dilakukan jika ``encrypted=True``.
+- Kompresi otomatis didekode dengan deteksi tag ``[CMP]``.
+- DPE menjamin hasil embedding unik untuk setiap password.
+- Adaptive LSB menyesuaikan jumlah bit berdasarkan intensitas pixel, sehingga gambar tidak mudah terdeteksi secara visual.
+
+---
+
+## Kontribusi
+
+Kontribusi selalu terbuka!.
+Silakan buat pull request atau laporkan bug melalui [Issues]().
+
+---
+
+## 🪪 Lisensi
+
+Lisensi: MIT License.
+© 2025 — ATHALLAH RAJENDRA PUTRA JUNIARTO
+
+---
+
+## 🌟 Dukungan
+
+Jika proyek ini membantu kamu:
+- ⭐ Beri bintang di GitHub
+- 📢 Bagikan ke rekan riset kamu
+
+---
+
+## Versi
+
+StegoImageX v0.0.1.
+Stable Release — Updated October 2025
