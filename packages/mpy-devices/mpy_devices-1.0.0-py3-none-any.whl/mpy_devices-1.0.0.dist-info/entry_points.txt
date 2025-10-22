@@ -1,0 +1,3 @@
+[console_scripts]
+check-devices = mpy_devices.cli:main
+mpy-devices = mpy_devices.cli:main
