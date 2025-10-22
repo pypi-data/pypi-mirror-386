@@ -1,0 +1,2 @@
+[console_scripts]
+network-manager-provider = network_manager_provider.cli.cli:cli
