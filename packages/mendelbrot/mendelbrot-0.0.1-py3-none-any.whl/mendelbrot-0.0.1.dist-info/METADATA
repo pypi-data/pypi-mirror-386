@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: mendelbrot
+Version: 0.0.1
+Summary: A really simple Pedigree Parser
+Project-URL: Repository, https://github.com/MattWellie/mendelbrot
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >3.8
+Requires-Dist: cloudpathlib[all]
+Requires-Dist: loguru
+Provides-Extra: dev
+Requires-Dist: bump-my-version; extra == 'dev'
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# mendelbrot
+
+A pedigree parser, and a pypi packaging experiment
+
+This is a simple pedigree parser, which provides a simple, minimal-dependency interface for parsing a Pedigree file.
+
+This was developed as part of the broader [Talos](https://github.com/populationgenomics/talos) project, and as such can
+support standard 6-column pedigree files, as well as 7-column pedigree files which pack HPO terms into the final column. 
+See the [Usage documentation](docs/Pedigree.md) for more details
