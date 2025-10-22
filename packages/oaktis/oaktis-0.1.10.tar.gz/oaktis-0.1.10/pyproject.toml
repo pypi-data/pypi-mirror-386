@@ -1,0 +1,62 @@
+[project]
+name = "oaktis"
+version = "0.1.10"
+description = "Official Python SDK for Oaktis - AI-powered image & video generation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Oaktis", email = "dev@oaktis.com"}
+]
+keywords = ["oaktis", "ai", "video", "image", "generation", "api"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "httpx>=0.25.0",
+    "pydantic>=2.5.0"
+]
+
+[project.urls]
+Homepage = "https://oaktis.com/?utm_source=pypi&utm_medium=devhub&utm_campaign=oss-sdk&utm_content=pkg-homepage"
+Documentation = "https://docs.oaktis.com"
+Repository = "https://github.com/Oaktis/Oaktis"
+Issues = "https://github.com/Oaktis/Oaktis/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["oaktis"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.ruff]
+line-length = 100
+target-version = "0.1.10"
+
+[tool.mypy]
+python_version = "0.1.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
