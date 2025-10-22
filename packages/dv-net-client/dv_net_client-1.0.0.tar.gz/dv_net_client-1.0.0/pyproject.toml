@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "dv-net-client"
+version = "1.0.0"
+description = "A convenient way to integrate DV.net to your platform"
+authors = ["Kurt Morgan <kurt.morgan@dv.net>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://docs.dv.net"
+repository = "https://github.com/dv-net/dv-python"
+keywords = ["api", "client", "dv.net", "payment", "crypto"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiohttp = {version = "^3.9.5", optional = true}
+
+[tool.poetry.extras]
+async = ["aiohttp"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+pytest-asyncio = "^0.23.7"
+flake8 = "^7.1.0"
+mypy = "^1.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
