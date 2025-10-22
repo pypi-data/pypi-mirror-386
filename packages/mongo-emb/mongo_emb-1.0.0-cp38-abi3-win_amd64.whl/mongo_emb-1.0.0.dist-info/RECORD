@@ -1,0 +1,8 @@
+mongo_emb-1.0.0.dist-info/METADATA,sha256=qFn37Yf2smzNs-p9M1KK3i-IMN8HdsAc-LHQQkbpd1w,1098
+mongo_emb-1.0.0.dist-info/WHEEL,sha256=CG8OzNtm0LMpJ2zhrjswlO8N-965OeMLklsQAG-nMvQ,94
+mongo_emb/__init__.py,sha256=JJwxX1M5SHAfPo9nm6N8jsY8pUHJ-YPe4BcWm7OE78o,41
+mongo_emb/__pycache__/__init__.cpython-311.pyc,sha256=mgIRXXkOBms-67ENqnVU9sRvcEih3sRuKHVr-0QGCa0,229
+mongo_emb/__pycache__/core.cpython-311.pyc,sha256=lOZrfL8TDs4hx_wlGncy4mZMDHEGMJoF3MOxJmkXDFc,5799
+mongo_emb/core.py,sha256=EyvG5gESrpsnXGhpQoavs9YsRY_2-aoVr-7nvMeVB74,2390
+mongo_emb/mongo_emb.pyd,sha256=R5AZw6BbEzYCJwKFc0HjA3azoglMyEMwEAGZvWSnL5Y,9434112
+mongo_emb-1.0.0.dist-info/RECORD,,
