@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glossmod-mcp"
+version = "0.1.0"
+description = "MCP 服务器 - 3DM Mod API 集成"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "小莫", email = "xiaomo1433675239@outlook.com"}
+]
+keywords = ["mcp", "3dm", "mod", "api"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "mcp[cli]>=1.18.0",
+    "httpx>=0.24.0",
+    "pydantic>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/GlossMod/GlossModMCP"
+Repository = "https://github.com/GlossMod/GlossModMCP.git"
+Documentation = "https://github.com/GlossMod/GlossModMCP/docs"
+
+[project.scripts]
+glossmod-mcp = "glossmod_mcp.server:main"
