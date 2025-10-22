@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: turkcepy
+Version: 1.0.2
+Summary: Türkçe anahtar kelimelerle Python programlama
+Author-email: Yılmaz Kutsal <ykutsal@gmail.com>
+License-Expression: MIT
+Keywords: python,turkce,egitim,keywords,turkish
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Education
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+
+# TürkçePy
+
+Türkçe anahtar kelimelerle Python programlama yapmanızı sağlayan bir kütüphane.
+
+## Kurulum
+
+```bash
+pip install turkcepy
+```
+
+## Kullanım
+
+Kısa takma ad ile:
+
+```python
+import tr
+
+tr.yaz("Merhaba Dünya")
+print(tr.liste(1, 2, 3))
+print(tr.mat_topla(5, 7))
+```
+
+Doğrudan paket ile:
+
+```python
+from turkcepy import yaz, liste, mat_topla
+
+yaz("Merhaba")
+print(liste(range(3)))
+print(mat_topla(2, 3))
+```
+
+Basit çevirici:
+
+```python
+from turkcepy import kod_cevir, çalıştır_türkçe
+
+py_kod = kod_cevir("yaz('selam')")
+print(py_kod)  # print('selam')
+
+çalıştır_türkçe("yaz('selam')")
+```
