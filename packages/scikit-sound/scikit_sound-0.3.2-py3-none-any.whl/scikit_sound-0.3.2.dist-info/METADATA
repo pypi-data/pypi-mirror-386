@@ -1,0 +1,77 @@
+Metadata-Version: 2.4
+Name: scikit-sound
+Version: 0.3.2
+Summary: Python utilites for working with sound signals
+Project-URL: Homepage, http://work.thaslwanter.at/sksound/html
+Project-URL: Repository, https://github.com/thomas-haslwanter/scikit-sound
+Author-email: Thomas Haslwanter <thomas.haslwanter@fh-ooe.at>
+License-Expression: BSD-3-Clause
+License-File: LICENSE.txt
+Keywords: auditory signals,sound
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Requires-Dist: appdirs>=1.4.3
+Requires-Dist: docutils>=0.3
+Requires-Dist: numpy>=1.13.0
+Requires-Dist: pygame>=2.0; sys_platform == 'linux'
+Requires-Dist: pyyaml>=5.3.1
+Requires-Dist: scipy>=1.5
+Description-Content-Type: text/markdown
+
+![Title](docs/Images/scikit_sound.png)
+============
+scikit-sound
+============
+
+*scikit-sound* contains functions for working with sound 
+
+Dependencies
+------------
+
+numpy, scipy
+
+Homepage
+--------
+
+<http://work.thaslwanter.at/sksound/html/>
+
+Author: Thomas Haslwanter Date: 08-10-2024 Ver: 0.3.0 Licence: BSD
+2-Clause License (<http://opensource.org/licenses/BSD-2-Clause>)
+Copyright (c) 2024, Thomas Haslwanter All rights reserved.
+
+Installation
+------------
+
+You can install scikit-sound with
+
+> pip install scikit-sound
+
+and upgrade to a new version with
+
+> pip install scikit-sound -U
+
+Sound Processing Utilities
+==========================
+
+- sounds.Sound ... class, with methods
+    * generate_sound
+    * get_info
+    * play
+    * read_sound
+    * summary
+    * write_wav
+
+Misc Other Utilities
+====================
+
+- misc ... GUI routines for standard file- and directory-handling
+   * askquestion
+   * get_dir
+   * get_file
+   * progressbar
+   * save_file
