@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=80", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gh-actions-tool-kit"
+dynamic = ["version"]
+description = "Tiny actions/core-style helpers for Python GitHub Actions"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name="Akash B"}]
+maintainers = [
+  {name = "Akash B", email = "akashbasa8@gmail.com"}
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[tool.setuptools_scm]
+# Basic config https://setuptools-scm.readthedocs.io/en/latest/
+version_scheme = "only-version"
+local_scheme   = "no-local-version"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "mypy>=1.10", "types-setuptools"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+
+[tool.setuptools]
+packages = ["actions_tool_kit"]
+
+[project.scripts]
+actions-core = "actions_tool_kit.__main__:main"

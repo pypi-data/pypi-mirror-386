@@ -1,0 +1,19 @@
+name: Create GitHub Release
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  create-github-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+        
+      - name: Create Git Release
+        uses: ab-git-actions/gh-release@v1.0.3
+        with:
+          github_token: '${{ secrets.GH_TOKEN }}'
