@@ -1,0 +1,41 @@
+services:
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Variables de BD solo se pasan si están definidas
+        KC_DB: ${KC_DB}
+        KC_DB_URL: ${KC_DB_URL}
+        KC_DB_USERNAME: ${KC_DB_USERNAME}
+        KC_DB_PASSWORD: ${KC_DB_PASSWORD}
+        KC_DB_URL_DATABASE: ${KC_DB_URL_DATABASE}
+        # Variables base con valores por defecto
+        KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+        KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+        KC_HTTP_ENABLED: ${KC_HTTP_ENABLED:-true}
+        KC_HOSTNAME: ${KC_HOSTNAME}
+        KC_HOSTNAME_STRICT: ${KC_HOSTNAME_STRICT:-false}
+        KC_HOSTNAME_STRICT_HTTPS: ${KC_HOSTNAME_STRICT_HTTPS:-false}
+        KC_PROXY_HEADERS: ${KC_PROXY_HEADERS:-xforwarded}
+        KC_HTTP_PORT: ${KC_HTTP_PORT:-80}
+        KC_LOG_LEVEL: ${KC_LOG_LEVEL:-INFO}
+    container_name: keycloak
+    environment:
+      # Solo variables base, las de BD se manejan en el script de inicio
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+      KC_HTTP_ENABLED: ${KC_HTTP_ENABLED:-true}
+      KC_HOSTNAME: ${KC_HOSTNAME}
+      KC_HOSTNAME_STRICT: ${KC_HOSTNAME_STRICT:-false}
+      KC_HOSTNAME_STRICT_HTTPS: ${KC_HOSTNAME_STRICT_HTTPS:-false}
+      KC_PROXY_HEADERS: ${KC_PROXY_HEADERS:-xforwarded}
+      KC_HTTP_PORT: ${KC_HTTP_PORT:-80}
+      KC_LOG_LEVEL: ${KC_LOG_LEVEL:-INFO}
+    ports:
+      - "${KC_HTTP_PORT:-8090}:${KC_HTTP_PORT:-80}"
+    volumes:
+      - keycloak_data:/opt/keycloak/data
+
+volumes:
+  keycloak_data:
