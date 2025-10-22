@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_app/__init__.py
+src/dm_app/scheduler/__init__.py
+src/dm_app/scheduler/admin.py
+src/dm_app/scheduler/apps.py
+src/dm_app/scheduler/tests.py
+src/dm_app/scheduler/urls.py
+src/dm_app/scheduler/views.py
+src/dm_app_scheduler.egg-info/PKG-INFO
+src/dm_app_scheduler.egg-info/SOURCES.txt
+src/dm_app_scheduler.egg-info/dependency_links.txt
+src/dm_app_scheduler.egg-info/requires.txt
+src/dm_app_scheduler.egg-info/top_level.txt
