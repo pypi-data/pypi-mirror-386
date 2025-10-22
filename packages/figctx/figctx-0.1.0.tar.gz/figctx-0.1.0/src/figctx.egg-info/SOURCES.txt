@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+resource/example.png
+resource/example2.png
+src/figctx/__init__.py
+src/figctx/context.py
+src/figctx/palette.py
+src/figctx.egg-info/PKG-INFO
+src/figctx.egg-info/SOURCES.txt
+src/figctx.egg-info/dependency_links.txt
+src/figctx.egg-info/requires.txt
+src/figctx.egg-info/top_level.txt
+tests/test_all.py

@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "figctx"
+version = "0.1.0"
+description = "Figure context manager for QuiME Lab"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Lee Chan-yeong", email = "ckckdud123@gmail.com"}]
+license = {text="MIT"}
+dependencies = ["matplotlib >=3.3"]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov"]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--cov=figctx --cov-report=term-missing --cov-fail-under=80"
+
+
+[tool.coverage.run]
+source = ["src/figctx"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
