@@ -1,0 +1,362 @@
+Metadata-Version: 2.4
+Name: oaktis
+Version: 0.1.2
+Summary: Official Python SDK for Oaktis - AI-powered image & video generation
+Project-URL: Homepage, https://oaktis.com/?utm_source=pypi&utm_medium=devhub&utm_campaign=oss-sdk&utm_content=pkg-homepage
+Project-URL: Documentation, https://docs.oaktis.com
+Project-URL: Repository, https://github.com/Oaktis/Oaktis
+Project-URL: Issues, https://github.com/Oaktis/Oaktis/issues
+Author-email: Oaktis <dev@oaktis.com>
+License: MIT
+Keywords: ai,api,generation,image,oaktis,video
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: pydantic>=2.5.0
+Provides-Extra: dev
+Requires-Dist: black>=23.0.0; extra == 'dev'
+Requires-Dist: mypy>=1.7.0; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.21.0; extra == 'dev'
+Requires-Dist: pytest>=7.4.0; extra == 'dev'
+Requires-Dist: ruff>=0.1.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# oaktis
+
+> **🔗 Try Oaktis → [https://oaktis.com](https://oaktis.com/?utm_source=pypi&utm_medium=devhub&utm_campaign=oss-sdk&utm_content=readme)**
+
+Official Python SDK for Oaktis - AI-powered image & video generation.
+
+[![PyPI version](https://img.shields.io/pypi/v/oaktis)](https://pypi.org/project/oaktis/)
+[![Python versions](https://img.shields.io/pypi/pyversions/oaktis)](https://pypi.org/project/oaktis/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+## Features
+
+- 🎬 **Video Generation** - Create AI-powered videos from text prompts
+- 🖼️ **Image Generation** - Generate images with advanced AI models
+- 🔄 **Async Support** - Built on httpx with full async/await support
+- 📝 **Type Hints** - Complete type annotations with Pydantic models
+- 🛡️ **Error Handling** - Comprehensive error types and messages
+- 🔌 **Context Managers** - Automatic resource cleanup
+
+## Installation
+
+```bash
+pip install oaktis
+```
+
+## Quick Start
+
+### Async Usage (Recommended)
+
+```python
+import asyncio
+from oaktis import OaktisClient, VideoGenerateParams
+
+async def main():
+    client = OaktisClient(api_key="your-api-key")
+
+    # Generate a video
+    job = await client.video.generate(
+        VideoGenerateParams(
+            prompt="a cat surfing on ocean waves at sunset",
+            duration=5,
+            resolution="1080p"
+        )
+    )
+
+    print(f"Job ID: {job.id}")
+
+    # Check job status
+    status = await client.video.get_status(job.id)
+    print(f"Status: {status.status}")
+    print(f"Progress: {status.progress}%")
+
+    # Get completed job with video URL
+    if status.status == "completed":
+        completed_job = await client.video.get_job(job.id)
+        print(f"Video URL: {completed_job.video_url}")
+
+    await client.close()
+
+asyncio.run(main())
+```
+
+### Sync Usage
+
+```python
+from oaktis import OaktisClient, VideoGenerateParams
+
+client = OaktisClient(api_key="your-api-key")
+
+# Generate a video (sync)
+job = client.video.generate_sync(
+    VideoGenerateParams(prompt="a cat surfing")
+)
+
+print(f"Job ID: {job.id}")
+
+# Check status (sync)
+status = client.video.get_status_sync(job.id)
+print(f"Status: {status.status}")
+
+client.close_sync()
+```
+
+### Context Manager
+
+```python
+import asyncio
+from oaktis import OaktisClient, ImageGenerateParams
+
+async def main():
+    async with OaktisClient(api_key="your-api-key") as client:
+        job = await client.image.generate(
+            ImageGenerateParams(
+                prompt="a futuristic city at night with neon lights",
+                size="1024x1024",
+                n=1
+            )
+        )
+
+        completed_job = await client.image.get_job(job.id)
+        print(f"Image URLs: {completed_job.image_urls}")
+
+asyncio.run(main())
+```
+
+## API Reference
+
+### Client Initialization
+
+```python
+from oaktis import OaktisClient
+
+client = OaktisClient(
+    api_key="your-api-key",              # Required
+    base_url="https://api.oaktis.com",   # Optional
+    timeout=60.0                         # Optional, in seconds
+)
+```
+
+### Video API
+
+#### Generate Video (Async)
+
+```python
+from oaktis import VideoGenerateParams
+
+job = await client.video.generate(
+    VideoGenerateParams(
+        prompt="a cat surfing",      # Required
+        duration=5,                  # Optional
+        resolution="1080p"           # Optional: "720p", "1080p", "4k"
+    )
+)
+```
+
+#### Generate Video (Sync)
+
+```python
+job = client.video.generate_sync(
+    VideoGenerateParams(prompt="a cat surfing")
+)
+```
+
+#### Get Video Status
+
+```python
+# Async
+status = await client.video.get_status(job.id)
+
+# Sync
+status = client.video.get_status_sync(job.id)
+```
+
+#### Get Video Job Details
+
+```python
+# Async
+job = await client.video.get_job(job_id)
+
+# Sync
+job = client.video.get_job_sync(job_id)
+```
+
+### Image API
+
+#### Generate Image (Async)
+
+```python
+from oaktis import ImageGenerateParams
+
+job = await client.image.generate(
+    ImageGenerateParams(
+        prompt="a futuristic city",           # Required
+        size="1024x1024",                     # Optional
+        n=1                                   # Optional: number of images
+    )
+)
+```
+
+#### Generate Image (Sync)
+
+```python
+job = client.image.generate_sync(
+    ImageGenerateParams(prompt="a futuristic city")
+)
+```
+
+#### Get Image Status
+
+```python
+# Async
+status = await client.image.get_status(job.id)
+
+# Sync
+status = client.image.get_status_sync(job.id)
+```
+
+#### Get Image Job Details
+
+```python
+# Async
+job = await client.image.get_job(job_id)
+
+# Sync
+job = client.image.get_job_sync(job_id)
+```
+
+## Error Handling
+
+The SDK raises `APIError` exceptions with detailed information:
+
+```python
+from oaktis import OaktisClient, APIError, VideoGenerateParams
+
+async def main():
+    client = OaktisClient(api_key="your-api-key")
+
+    try:
+        job = await client.video.generate(
+            VideoGenerateParams(prompt="test")
+        )
+    except APIError as e:
+        print(f"Error Code: {e.code}")
+        print(f"Message: {e.message}")
+        print(f"HTTP Status: {e.status}")
+        print(f"Details: {e.details}")
+    finally:
+        await client.close()
+```
+
+Common error codes:
+- `UNAUTHORIZED` - Invalid API key
+- `TIMEOUT` - Request timeout
+- `API_ERROR` - General API error
+- `VALIDATION_ERROR` - Invalid parameters
+
+## Type Hints
+
+All functions and classes are fully typed. Use your IDE's autocomplete for better development experience:
+
+```python
+from oaktis import (
+    OaktisClient,
+    VideoGenerateParams,
+    ImageGenerateParams,
+    VideoJob,
+    ImageJob,
+    JobStatus,
+    APIError
+)
+```
+
+## Advanced Usage
+
+### Custom Timeout
+
+```python
+# 2 minute timeout
+client = OaktisClient(
+    api_key="your-api-key",
+    timeout=120.0
+)
+```
+
+### Custom Base URL
+
+```python
+client = OaktisClient(
+    api_key="your-api-key",
+    base_url="https://custom-api.example.com"
+)
+```
+
+### Polling for Completion
+
+```python
+import asyncio
+from oaktis import OaktisClient, VideoGenerateParams
+
+async def wait_for_completion(client, job_id, max_wait=300):
+    """Poll for job completion with timeout"""
+    start_time = asyncio.get_event_loop().time()
+
+    while True:
+        status = await client.video.get_status(job_id)
+
+        if status.status == "completed":
+            return await client.video.get_job(job_id)
+
+        if status.status == "failed":
+            raise Exception(f"Job failed: {status.error}")
+
+        # Check timeout
+        if asyncio.get_event_loop().time() - start_time > max_wait:
+            raise TimeoutError("Job did not complete in time")
+
+        # Wait before next poll
+        await asyncio.sleep(2)
+
+async def main():
+    async with OaktisClient(api_key="your-api-key") as client:
+        job = await client.video.generate(
+            VideoGenerateParams(prompt="a cat surfing")
+        )
+
+        completed_job = await wait_for_completion(client, job.id)
+        print(f"Video URL: {completed_job.video_url}")
+
+asyncio.run(main())
+```
+
+## Requirements
+
+- Python 3.9+
+- httpx >= 0.25.0
+- pydantic >= 2.5.0
+
+## Links
+
+- 🌐 **Website**: [https://oaktis.com](https://oaktis.com)
+- 📚 **Documentation**: [https://docs.oaktis.com](https://docs.oaktis.com)
+- 🐙 **GitHub**: [https://github.com/Oaktis/Oaktis](https://github.com/Oaktis/Oaktis)
+- 🐛 **Issues**: [https://github.com/Oaktis/Oaktis/issues](https://github.com/Oaktis/Oaktis/issues)
+
+## License
+
+MIT © Oaktis
+
+---
+
+**Need an API key?** Get started at [oaktis.com](https://oaktis.com/?utm_source=pypi&utm_medium=devhub&utm_campaign=oss-sdk&utm_content=readme-footer)
