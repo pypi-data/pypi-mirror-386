@@ -1,0 +1,8 @@
+numpy
+scipy
+
+[mypy]
+pytest
+
+[tests]
+pytest
