@@ -1,0 +1,55 @@
+[project]
+name = "torchfont"
+version = "0.4.0"
+description = "Datasets, Transforms and Models specific to Vector Fonts"
+readme = "README.md"
+authors = [{ name = "Takumu Fujioka", email = "fjktkm@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "fonttools>=4.60",
+    "numpy>=1.21.3",
+    "torch>=2.6.0",
+    "tqdm>=4.63.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.13,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+    "pytest>=8.4.2",
+    "ruff>=0.12.4",
+    "types-tqdm>=4.67.0.20250809",
+]
+docs = ["mkdocs>=1.6.1", "mkdocs-material>=9.6.20"]
+examples = ["lightning>=2.5.5"]
+
+[tool.uv]
+default-groups = "all"
+
+[tool.pytest.ini_options]
+filterwarnings = ["ignore:.*fork.*:DeprecationWarning"]
+testpaths = ["tests"]
+
+[tool.mypy]
+mypy_path = "typings"
+
+[tool.ruff]
+unsafe-fixes = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["D", "EXE002"]
+
+[tool.ruff.lint.per-file-ignores]
+"examples/**/*.py" = ["T201"]
+"src/torchfont/datasets/repo.py" = ["S603"]
+"src/torchfont/datasets/*.py" = ["PLR0913"]
+"src/torchfont/io/pens.py" = ["N802"]
+"tests/**/*.py" = ["S101"]
+"typings/**/*.pyi" = ["N"]
+
+[tool.setuptools.package-data]
+"torchfont" = ["py.typed"]
