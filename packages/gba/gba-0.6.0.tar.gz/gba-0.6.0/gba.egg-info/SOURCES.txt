@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+gba/Builder.py
+gba/Enumerations.py
+gba/Model.py
+gba/Reaction.py
+gba/Species.py
+gba/__init__.py
+gba.egg-info/PKG-INFO
+gba.egg-info/SOURCES.txt
+gba.egg-info/dependency_links.txt
+gba.egg-info/requires.txt
+gba.egg-info/top_level.txt
