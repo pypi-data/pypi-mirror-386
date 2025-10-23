@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: tdp-QrCode
+Version: 0.1.0
+Summary: A prefab for TouchDesigner-Projects that will be complelty managed and run by UV.
+Author-email: Wieland Hilker <wieland@plusplus.one>
+Project-URL: Website, https://plusplus.one
+Project-URL: Repository, https://github.com/PlusPlusOneGmbH/tdp-QrCode
+Keywords: TouchDesigner,TOP,QrCode
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: qrcode[pil]>=8.2
+Dynamic: license-file
+
+# TDP QR-CodeGenerator
+Fully implements the TDP Structure.
+
+```uv add tdp-QrCode``` or ```pip install tdp-QrCode```
+
+Use ```mod.TdQrcode.ToxFile``` as refference to implement the external tox.
+
+## Parameters
+__Text:__ The text of the qrcode.
+
+__Fieldsize:__ Currently has no effect.
+__Bordersize:__ The width of the border of the qrcode.
+__Version:__ The size and repetition.
+__Errorcorrection:__ Level of errorcorrection,
+
+## Inputs
+__colorLookup:__ A ramp to define the black and white value.
+
+## Outputs
+__original_out:__ The top in the original, generated resolution.
+__rescaled_top:__ The QRCode crispy rescaled to 256*256.

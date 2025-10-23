@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/TdQrcode/TdQrcode.tox
+src/TdQrcode/__init__.py
+src/TdQrcode/extTdQrCode.py
+src/tdp_QrCode.egg-info/PKG-INFO
+src/tdp_QrCode.egg-info/SOURCES.txt
+src/tdp_QrCode.egg-info/dependency_links.txt
+src/tdp_QrCode.egg-info/requires.txt
+src/tdp_QrCode.egg-info/top_level.txt
