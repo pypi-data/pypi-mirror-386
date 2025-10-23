@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>((r) => {
+          setTimeout(r);
+        })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"&#x6570;&#x636e;&#x6cbb;&#x7406;&#x67b6;&#x6784;\\n## &#x67b6;&#x6784;&#x6982;&#x89c8;&#x4e0e;&#x6838;&#x5fc3;&#x7ec4;&#x4ef6;\\n### &#x7ae0;&#x8282;&#x4e00;&#xff1a;&#x6570;&#x636e;&#x6cbb;&#x7406;&#x6846;&#x67b6;&#x4ecb;&#x7ecd;\\n- &#x6570;&#x636e;&#x6cbb;&#x7406;&#x5b9a;&#x4e49;&#x53ca;&#x91cd;&#x8981;&#x6027;&#x6982;&#x8ff0;\\n- &#x6570;&#x636e;&#x6cbb;&#x7406;&#x7684;&#x76ee;&#x6807;&#x4e0e;&#x539f;&#x5219;\\n- &#x6570;&#x636e;&#x6cbb;&#x7406;&#x7684;&#x751f;&#x547d;&#x5468;&#x671f;&#x7b80;&#x4ecb;\\n### &#x7ae0;&#x8282;&#x4e8c;&#xff1a;&#x6570;&#x636e;&#x7ba1;&#x7406;&#x7b56;&#x7565;\\n- &#x6570;&#x636e;&#x8d28;&#x91cf;&#x7ba1;&#x7406;\\n- &#x6570;&#x636e;&#x5b89;&#x5168;&#x4e0e;&#x9690;&#x79c1;&#x4fdd;&#x62a4;\\n- &#x6570;&#x636e;&#x5206;&#x7c7b;&#x4e0e;&#x5206;&#x7ea7;&#x6807;&#x51c6;\\n- &#x6570;&#x636e;&#x6240;&#x6709;&#x6743;&#x4e0e;&#x8d23;&#x4efb;&#x5206;&#x914d;\\n### &#x7ae0;&#x8282;&#x4e09;&#xff1a;&#x6280;&#x672f;&#x67b6;&#x6784;&#x7ec4;&#x4ef6;\\n- &#x6570;&#x636e;&#x6e56;&#x4e0e;&#x6570;&#x636e;&#x4ed3;&#x5e93;&#x7684;&#x9009;&#x62e9;\\n- ETL/ELT&#x6d41;&#x7a0b;&#x7684;&#x8bbe;&#x8ba1;&#x4e0e;&#x5b9e;&#x73b0;\\n- &#x6570;&#x636e;&#x96c6;&#x6210;&#x4e0e;&#x4e92;&#x64cd;&#x4f5c;&#x6027;&#x89e3;&#x51b3;&#x65b9;&#x6848;\\n  - API&#x63a5;&#x53e3;&#x8bbe;&#x8ba1;\\n  - &#x6570;&#x636e;&#x4ea4;&#x6362;&#x683c;&#x5f0f;&#x89c4;&#x8303;\\n### &#x7ae0;&#x8282;&#x56db;&#xff1a;&#x7ec4;&#x7ec7;&#x7ed3;&#x6784;&#x4e0e;&#x89d2;&#x8272;&#x5b9a;&#x4e49;\\n- &#x6570;&#x636e;&#x6cbb;&#x7406;&#x59d4;&#x5458;&#x4f1a;&#x7684;&#x89d2;&#x8272;&#x4e0e;&#x804c;&#x8d23;\\n- &#x6570;&#x636e;&#x7ba1;&#x7406;&#x5458;&#xff08;Data Steward&#xff09;&#x7684;&#x4efb;&#x52a1;&#x63cf;&#x8ff0;\\n- &#x6570;&#x636e;&#x7528;&#x6237;&#x6743;&#x9650;&#x7ba1;&#x7406;&#x6a21;&#x578b;\\n  - &#x8bbf;&#x95ee;&#x63a7;&#x5236;&#x673a;&#x5236;\\n  - &#x7528;&#x6237;&#x884c;&#x4e3a;&#x5ba1;&#x8ba1;\\n### &#x7ae0;&#x8282;&#x4e94;&#xff1a;&#x5b9e;&#x65bd;&#x8def;&#x5f84;&#x4e0e;&#x6301;&#x7eed;&#x6539;&#x8fdb;\\n- &#x6570;&#x636e;&#x6cbb;&#x7406;&#x9879;&#x76ee;&#x7684;&#x542f;&#x52a8;&#x6b65;&#x9aa4;\\n- &#x6210;&#x529f;&#x6848;&#x4f8b;&#x5206;&#x4eab;&#x4e0e;&#x7ecf;&#x9a8c;&#x6559;&#x8bad;\\n- &#x76d1;&#x63a7;&#x4e0e;&#x8bc4;&#x4f30;&#x6307;&#x6807;&#x4f53;&#x7cfb;&#x5efa;&#x7acb;\\n  - KPI&#x8bbe;&#x5b9a;\\n  - &#x5b9a;&#x671f;&#x5ba1;&#x67e5;&#x4e0e;&#x4f18;&#x5316;&#x6d41;&#x7a0b;","children":[],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

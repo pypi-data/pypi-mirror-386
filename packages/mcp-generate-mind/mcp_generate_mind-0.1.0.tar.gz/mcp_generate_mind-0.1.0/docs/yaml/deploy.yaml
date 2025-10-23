@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mindmap-mcp
+  labels:
+    app: mindmap-mcp
+  namespace: {namespace}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: mindmap-mcp
+  template:
+    metadata:
+      labels:
+        app: mindmap-mcp
+    spec:
+      containers:
+      - name: mindmap-mcp
+        image: {image}
+        imagePullPolicy: Always
+        volumeMounts:
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        env:
+        - name: HOST_URL
+          value: {HOST_URL}
+        - name: HOST_PORT
+          value: {HOST_PORT
+        resources:
+          limits:
+            cpu: "1"
+            memory: 2Gi
+          requests:
+            cpu: "1"
+            memory: 2Gi
+      restartPolicy: Always
+      dnsPolicy: ClusterFirst

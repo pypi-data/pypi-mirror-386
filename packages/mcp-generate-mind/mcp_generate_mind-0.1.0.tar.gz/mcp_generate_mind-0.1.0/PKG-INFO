@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: mcp-generate-mind
+Version: 0.1.0
+Summary: MCP服务器用于思维导图的生成
+Author-email: chenzeng <chenzeng@cmss.chinamobile.com>
+Requires-Python: >=3.11
+Requires-Dist: aiohttp>=3.9.0
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: gunicorn>=23.0.0
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: mcp>=1.9.0
+Requires-Dist: pydantic-settings>=2.0.0
+Requires-Dist: pydantic>=2.4.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Provides-Extra: dev
+Requires-Dist: black>=23.9.0; extra == 'dev'
+Requires-Dist: gunicorn>=23.0.0; extra == 'dev'
+Requires-Dist: isort>=5.12.0; extra == 'dev'
+Requires-Dist: mypy>=1.6.0; extra == 'dev'
+Requires-Dist: pre-commit>=3.5.0; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.21.0; extra == 'dev'
+Requires-Dist: pytest-httpx>=0.26.0; extra == 'dev'
+Requires-Dist: pytest>=7.4.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# generate_mind_html 工具文档
+
+## 功能说明
+思维导图html图片一站式生成。
+
+## 使用方法
+### 请求参数
+```json
+{
+  "content": "# 数据治理架构\n## 架构概览与核心组件\n### 章节一：数据治理框架介绍\n- 数据治理定义及重要性概述\n- 数据治理的目标与原则\n- 数据治理的生命周期简介\n### 章节二：数据管理策略\n- 数据质量管理\n- 数据安全与隐私保护\n- 数据分类与分级标准\n- 数据所有权与责任分配\n### 章节三：技术架构组件\n- 数据湖与数据仓库的选择\n- ETL/ELT流程的设计与实现\n- 数据集成与互操作性解决方案\n  - API接口设计\n  - 数据交换格式规范\n### 章节四：组织结构与角色定义\n- 数据治理委员会的角色与职责\n- 数据管理员（Data Steward）的任务描述\n- 数据用户权限管理模型\n  - 访问控制机制\n  - 用户行为审计\n### 章节五：实施路径与持续改进\n- 数据治理项目的启动步骤\n- 成功案例分享与经验教训\n- 监控与评估指标体系建立\n  - KPI设定\n  - 定期审查与优化流程"
+}
+```
+
+### 返回示例
+```json
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "http://100.76.10.162:30098/html/1757989402_df6bee5d.html"
+    }
+  ],
+  "isError": false
+}
+```

@@ -1,0 +1,1977 @@
+2025-09-29 11:05:36 - INFO - app - check_environment - 正在检查运行环境...
+2025-09-29 11:05:36 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-09-29 11:05:36 - INFO - app - check_environment - 开始检查必要依赖...
+2025-09-29 11:05:37 - DEBUG - app - check_environment - mcp 已安装
+2025-09-29 11:05:37 - DEBUG - app - check_environment - fastapi 已安装
+2025-09-29 11:05:37 - DEBUG - app - check_environment - httpx 已安装
+2025-09-29 11:05:37 - DEBUG - app - check_environment - pydantic 已安装
+2025-09-29 11:05:37 - DEBUG - app - check_environment - uvicorn 已安装
+2025-09-29 11:05:37 - INFO - app - check_environment - 所有必要依赖已安装
+2025-09-29 11:05:37 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-09-29 11:05:37 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-09-29 11:05:37 - INFO - app - main - 创建新的事件循环
+2025-09-29 11:05:37 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-09-29 11:05:37 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-09-29 11:05:37 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-09-29 11:05:37 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-09-29 11:05:37 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Received MCP request: initialize (ID: 0)
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Initialize request - Client Protocol: 2025-06-18
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Client Info: {'name': 'Postman Client - c6ad06c2-dc2c-496d-a8aa-5157132e1b3e', 'version': '1.0.0'}
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Initialize response sent - Protocol: 2025-06-18, Session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Received MCP request: notifications/initialized (ID: None)
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Processing message for session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Received notification: initialized
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Client initialized successfully - MCP handshake complete!
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Received MCP request: tools/list (ID: 1)
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Processing message for session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Tools list requested
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_get - 🔗 New MCP GET connection established - Session ID: ce3a22e6-b852-458a-8b5f-ebd8a124b9f7
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Received MCP request: resources/list (ID: 2)
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Processing message for session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:06:08 - WARNING - app - mcp_endpoint_post - Unknown method: resources/list
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Received MCP request: prompts/list (ID: 3)
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Processing message for session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Prompts list requested
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Received MCP request: resources/templates/list (ID: 4)
+2025-09-29 11:06:08 - INFO - app - mcp_endpoint_post - Processing message for session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:06:08 - WARNING - app - mcp_endpoint_post - Unknown method: resources/templates/list
+2025-09-29 11:06:18 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 5)
+2025-09-29 11:06:18 - INFO - app - mcp_endpoint_post - Processing message for session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:06:18 - INFO - app - mcp_endpoint_post - Executing tool: generate_mind_html
+2025-09-29 11:06:18 - INFO - app - mcp_endpoint_post - Arguments: {'content': '# 数据治理\n## 1. 概述\n- 1.1 定义\n- 1.2 目标\n- 1.3 原则\n- 1.4 范围\n## 2. 核心领域\n- 2.1 数据质量\n  - 2.1.1 准确性\n  - 2.1.2 完整性\n  - 2.1.3 一致性\n  - 2.1.4 及时性\n- 2.2 数据安全\n  - 2.2.1 访问控制\n  - 2.2.2 数据加密\n  - 2.2.3 风险管理\n  - 2.2.4 合规性\n- 2.3 数据架构\n  - 2.3.1 数据模型\n  - 2.3.2 数据流设计\n  - 2.3.3 技术标准\n  - 2.3.4 元数据管理\n- 2.4 数据生命周期管理\n  - 2.4.1 创建与采集\n  - 2.4.2 存储与维护\n  - 2.4.3 使用与共享\n  - 2.4.4 归档与删除\n## 3. 组织与角色\n- 3.1 数据治理委员会\n- 3.2 数据管理员\n- 3.3 数据所有者\n- 3.4 数据使用者\n- 3.5 外部审计与合规检查机构\n## 4. 实施框架\n- 4.1 规划阶段\n  - 4.1.1 现状评估\n  - 4.1.2 目标设定\n  - 4.1.3 路线图制定\n- 4.2 设计阶段\n  - 4.2.1 政策制定\n  - 4.2.2 流程设计\n  - 4.2.3 技术选型\n- 4.3 执行阶段\n  - 4.3.1 实施计划\n  - 4.3.2 培训与沟通\n  - 4.3.3 监控与优化\n- 4.4 评估阶段\n  - 4.4.1 效果评估\n  - 4.4.2 持续改进\n  - 4.4.3 成功案例分享\n## 5. 工具与技术\n- 5.1 数据质量管理工具\n- 5.2 数据安全管理工具\n- 5.3 数据集成工具\n- 5.4 数据分析与报告工具\n- 5.5 自动化工具\n## 6. http://100.76.10.162:30098/html/1759112235_f459a365.html\n- 6.1 高层支持\n- 6.2 清晰的政策和流程\n- 6.3 强有力的数据治理团队\n- 6.4 持续培训与发展\n- 6.5 监督与反馈机制'}
+2025-09-29 11:06:18 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 数据使用者
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. http://100.76.10.162:30098/html/1759112235_f459a365.html
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-09-29 11:06:18 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 数据使用者
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. http://100.76.10.162:30098/html/1759112235_f459a365.html
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-09-29 11:06:20 - INFO - app - generate_mind_html - Markdown 文件 1759115178_cfc1392d.md 已保存并转换为 HTML 1759115178_cfc1392d.html, 预览地址: http://127.0.0.1:8000/html/1759115178_cfc1392d.html
+2025-09-29 11:06:20 - INFO - app - mcp_endpoint_post - Tool generate_mind_html executed successfully
+2025-09-29 11:06:28 - INFO - app - query_mind_html - 请求HTML文件: markdown/1759115178_cfc1392d.html
+2025-09-29 11:07:02 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 6)
+2025-09-29 11:07:02 - INFO - app - mcp_endpoint_post - Processing message for session: 85d39344-f3ab-4be0-8028-4a890d038a82
+2025-09-29 11:07:02 - INFO - app - mcp_endpoint_post - Executing tool: generate_mind_html
+2025-09-29 11:07:02 - INFO - app - mcp_endpoint_post - Arguments: {'content': "# 数据治理\n## 1. 概述\n- 1.1 定义\n- 1.2 目标\n- 1.3 原则\n- 1.4 范围\n## 2. 核心领域\n- 2.1 数据质量\n  - 2.1.1 准确性\n  - 2.1.2 完整性\n  - 2.1.3 一致性\n  - 2.1.4 及时性\n- 2.2 数据安全\n  - 2.2.1 访问控制\n  - 2.2.2 数据加密\n  - 2.2.3 风险管理\n  - 2.2.4 合规性\n- 2.3 数据架构\n  - 2.3.1 数据模型\n  - 2.3.2 数据流设计\n  - 2.3.3 技术标准\n  - 2.3.4 元数据管理\n- 2.4 数据生命周期管理\n  - 2.4.1 创建与采集\n  - 2.4.2 存储与维护\n  - 2.4.3 使用与共享\n  - 2.4.4 归档与删除\n## 3. 组织与角色\n- 3.1 数据治理委员会\n- 3.2 数据管理员\n- 3.3 数据所有者\n- 3.4 数据使用者\n- 3.5 外部审计与合规检查机构\n## 4. 实施框架\n- 4.1 规划阶段\n  - 4.1.1 现状评估\n  - 4.1.2 目标设定\n  - 4.1.3 路线图制定\n- 4.2 设计阶段\n  - 4.2.1 政策制定\n  - 4.2.2 流程设计\n  - 4.2.3 技术选型\n- 4.3 执行阶段\n  - 4.3.1 实施计划\n  - 4.3.2 培训与沟通\n  - 4.3.3 监控与优化\n- 4.4 评估阶段\n  - 4.4.1 效果评估\n  - 4.4.2 持续改进\n  - 4.4.3 成功案例分享\n## 5. 工具与技术\n- 5.1 数据质量管理工具\n- 5.2 数据安全管理工具\n- 5.3 数据集成工具\n- 5.4 数据分析与报告工具\n- 5.5 自动化工具\n## 6. <script>alert('XSS')</script>\n- 6.1 高层支持\n- 6.2 清晰的政策和流程\n- 6.3 强有力的数据治理团队\n- 6.4 持续培训与发展\n- 6.5 监督与反馈机制"}
+2025-09-29 11:07:02 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 数据使用者
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. <script>alert('XSS')</script>
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-09-29 11:07:02 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 数据使用者
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. &lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-09-29 11:07:03 - INFO - app - generate_mind_html - Markdown 文件 1759115222_4d3468db.md 已保存并转换为 HTML 1759115222_4d3468db.html, 预览地址: http://127.0.0.1:8000/html/1759115222_4d3468db.html
+2025-09-29 11:07:03 - INFO - app - mcp_endpoint_post - Tool generate_mind_html executed successfully
+2025-09-29 11:07:04 - INFO - app - query_mind_html - 请求HTML文件: markdown/1759115222_4d3468db.html
+2025-09-29 11:07:50 - INFO - app - generate_events - MCP GET connection closed - Session ID: ce3a22e6-b852-458a-8b5f-ebd8a124b9f7
+2025-10-10 13:44:20 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-10 13:44:20 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-10 13:44:20 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-10 13:44:21 - DEBUG - app - check_environment - mcp 已安装
+2025-10-10 13:44:21 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-10 13:44:21 - DEBUG - app - check_environment - httpx 已安装
+2025-10-10 13:44:21 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-10 13:44:21 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-10 13:44:21 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-10 13:44:21 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-10 13:44:21 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-10 13:44:21 - INFO - app - main - 创建新的事件循环
+2025-10-10 13:44:21 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-10 13:44:21 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-10 13:44:21 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-10 13:44:21 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-10 13:44:21 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Received MCP request: initialize (ID: 0)
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Initialize request - Client Protocol: 2025-06-18
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Client Info: {'name': 'Postman Client - c6ad06c2-dc2c-496d-a8aa-5157132e1b3e', 'version': '1.0.0'}
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Initialize response sent - Protocol: 2025-06-18, Session: a0deafc7-83f9-41ea-a34f-fa7e76a60a04
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Received MCP request: notifications/initialized (ID: None)
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Processing message for session: a0deafc7-83f9-41ea-a34f-fa7e76a60a04
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Received notification: initialized
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Client initialized successfully - MCP handshake complete!
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Received MCP request: tools/list (ID: 1)
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Processing message for session: a0deafc7-83f9-41ea-a34f-fa7e76a60a04
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Tools list requested
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_get - 🔗 New MCP GET connection established - Session ID: 47aca4a6-7da8-41f9-931a-924267dc6c7a
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Received MCP request: resources/list (ID: 2)
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Processing message for session: a0deafc7-83f9-41ea-a34f-fa7e76a60a04
+2025-10-10 13:45:47 - WARNING - app - mcp_endpoint_post - Unknown method: resources/list
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Received MCP request: prompts/list (ID: 3)
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Processing message for session: a0deafc7-83f9-41ea-a34f-fa7e76a60a04
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Prompts list requested
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Received MCP request: resources/templates/list (ID: 4)
+2025-10-10 13:45:47 - INFO - app - mcp_endpoint_post - Processing message for session: a0deafc7-83f9-41ea-a34f-fa7e76a60a04
+2025-10-10 13:45:47 - WARNING - app - mcp_endpoint_post - Unknown method: resources/templates/list
+2025-10-10 13:46:16 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-10 13:46:16 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-10 13:46:16 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-10 13:46:16 - DEBUG - app - check_environment - mcp 已安装
+2025-10-10 13:46:16 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-10 13:46:16 - DEBUG - app - check_environment - httpx 已安装
+2025-10-10 13:46:16 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-10 13:46:16 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-10 13:46:16 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-10 13:46:16 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-10 13:46:16 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-10 13:46:16 - INFO - app - main - 创建新的事件循环
+2025-10-10 13:46:16 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-10 13:46:16 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-10 13:46:16 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-10 13:46:16 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-10 13:46:16 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-10 13:46:28 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-10 13:46:28 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-10 13:46:28 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-10 13:46:28 - DEBUG - app - check_environment - mcp 已安装
+2025-10-10 13:46:28 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-10 13:46:28 - DEBUG - app - check_environment - httpx 已安装
+2025-10-10 13:46:28 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-10 13:46:28 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-10 13:46:28 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-10 13:46:28 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-10 13:46:28 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-10 13:46:28 - INFO - app - main - 创建新的事件循环
+2025-10-10 13:46:28 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-10 13:46:28 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-10 13:46:28 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-10 13:46:28 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-10 13:46:28 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-10 13:48:15 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 5)
+2025-10-10 13:48:15 - INFO - app - mcp_endpoint_post - Processing message for session: a0deafc7-83f9-41ea-a34f-fa7e76a60a04
+2025-10-10 13:48:15 - INFO - app - mcp_endpoint_post - Executing tool: generate_mind_html
+2025-10-10 13:48:15 - INFO - app - mcp_endpoint_post - Arguments: {'content': "# 数据治理\n## 1. 概述\n- 1.1 定义\n- 1.2 目标\n- 1.3 原则\n- 1.4 范围\n## 2. 核心领域\n- 2.1 数据质量\n  - 2.1.1 准确性\n  - 2.1.2 完整性\n  - 2.1.3 一致性\n  - 2.1.4 及时性\n- 2.2 数据安全\n  - 2.2.1 访问控制\n  - 2.2.2 数据加密\n  - 2.2.3 风险管理\n  - 2.2.4 合规性\n- 2.3 数据架构\n  - 2.3.1 数据模型\n  - 2.3.2 数据流设计\n  - 2.3.3 技术标准\n  - 2.3.4 元数据管理\n- 2.4 数据生命周期管理\n  - 2.4.1 创建与采集\n  - 2.4.2 存储与维护\n  - 2.4.3 使用与共享\n  - 2.4.4 归档与删除\n## 3. 组织与角色\n- 3.1 数据治理委员会\n- 3.2 数据管理员\n- 3.3 数据所有者\n- 3.4 数据使用者\n- 3.5 外部审计与合规检查机构\n## 4. 实施框架\n- 4.1 规划阶段\n  - 4.1.1 现状评估\n  - 4.1.2 目标设定\n  - 4.1.3 路线图制定\n- 4.2 设计阶段\n  - 4.2.1 政策制定\n  - 4.2.2 流程设计\n  - 4.2.3 技术选型\n- 4.3 执行阶段\n  - 4.3.1 实施计划\n  - 4.3.2 培训与沟通\n  - 4.3.3 监控与优化\n- 4.4 评估阶段\n  - 4.4.1 效果评估\n  - 4.4.2 持续改进\n  - 4.4.3 成功案例分享\n## 5. 工具与技术\n- 5.1 数据质量管理工具\n- 5.2 数据安全管理工具\n- 5.3 数据集成工具\n- 5.4 数据分析与报告工具\n- 5.5 自动化工具\n## 6. <script>alert('XSS')</script>\n- 6.1 高层支持\n- 6.2 清晰的政策和流程\n- 6.3 强有力的数据治理团队\n- 6.4 持续培训与发展\n- 6.5 监督与反馈机制"}
+2025-10-10 13:48:15 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 数据使用者
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. <script>alert('XSS')</script>
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-10 13:48:15 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 数据使用者
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. &lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-10 13:48:16 - INFO - app - generate_mind_html - Markdown 文件 1760075295_05a9a55c.md 已保存并转换为 HTML 1760075295_05a9a55c.html, 预览地址: http://127.0.0.1:8000/html/1760075295_05a9a55c.html
+2025-10-10 13:48:16 - INFO - app - mcp_endpoint_post - Tool generate_mind_html executed successfully
+2025-10-10 13:48:32 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-10 13:48:32 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-10 13:48:32 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-10 13:48:32 - DEBUG - app - check_environment - mcp 已安装
+2025-10-10 13:48:32 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-10 13:48:32 - DEBUG - app - check_environment - httpx 已安装
+2025-10-10 13:48:32 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-10 13:48:32 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-10 13:48:32 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-10 13:48:32 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-10 13:48:32 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-10 13:48:32 - INFO - app - main - 创建新的事件循环
+2025-10-10 13:48:32 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-10 13:48:32 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-10 13:48:32 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-10 13:48:32 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-10 13:48:32 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-10 13:49:10 - INFO - app - generate_events - MCP GET connection closed - Session ID: 47aca4a6-7da8-41f9-931a-924267dc6c7a
+2025-10-10 13:49:31 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-10 13:49:31 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-10 13:49:31 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-10 13:49:31 - DEBUG - app - check_environment - mcp 已安装
+2025-10-10 13:49:31 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-10 13:49:31 - DEBUG - app - check_environment - httpx 已安装
+2025-10-10 13:49:31 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-10 13:49:31 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-10 13:49:31 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-10 13:49:31 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-10 13:49:31 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-10 13:49:31 - INFO - app - main - 创建新的事件循环
+2025-10-10 13:49:31 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-10 13:49:31 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-10 13:49:31 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-10 13:49:31 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-10 13:49:31 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-10 14:07:35 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-10 14:07:35 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-10 14:07:35 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-10 14:07:35 - DEBUG - app - check_environment - mcp 已安装
+2025-10-10 14:07:35 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-10 14:07:35 - DEBUG - app - check_environment - httpx 已安装
+2025-10-10 14:07:35 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-10 14:07:35 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-10 14:07:35 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-10 14:07:35 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-10 14:07:35 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-10 14:07:35 - INFO - app - main - 创建新的事件循环
+2025-10-10 14:07:35 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-10 14:07:35 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-10 14:07:35 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-10 14:07:35 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-10 14:07:35 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 15:01:48 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 15:01:48 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 15:01:48 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 15:01:49 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 15:01:49 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 15:01:49 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 15:01:49 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 15:01:49 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 15:01:49 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 15:01:49 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 15:01:49 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 15:01:49 - INFO - app - main - 创建新的事件循环
+2025-10-14 15:01:49 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 15:01:49 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 15:01:49 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-14 15:01:49 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-14 15:01:49 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 15:18:25 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 15:18:25 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 15:18:25 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 15:18:25 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 15:18:25 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 15:18:25 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 15:18:25 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 15:18:25 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 15:18:25 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 15:18:25 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 15:18:25 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 15:18:25 - INFO - app - main - 创建新的事件循环
+2025-10-14 15:18:25 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 15:18:25 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 15:18:25 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-14 15:18:25 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-14 15:18:25 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 15:20:24 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 15:20:24 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 15:20:24 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 15:20:24 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 15:20:24 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 15:20:24 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 15:20:24 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 15:20:24 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 15:20:24 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 15:20:24 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 15:20:24 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 15:20:24 - INFO - app - main - 创建新的事件循环
+2025-10-14 15:20:24 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 15:20:24 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 15:20:24 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-14 15:20:24 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-14 15:20:24 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Received MCP request: initialize (ID: 0)
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Initialize request - Client Protocol: 2025-06-18
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Client Info: {'name': 'Postman Client - c6ad06c2-dc2c-496d-a8aa-5157132e1b3e', 'version': '1.0.0'}
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Initialize response sent - Protocol: 2025-06-18, Session: d561422a-e382-4d6b-903d-3ee24cb57288
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Received MCP request: notifications/initialized (ID: None)
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Processing message for session: d561422a-e382-4d6b-903d-3ee24cb57288
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Received notification: initialized
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Client initialized successfully - MCP handshake complete!
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Received MCP request: tools/list (ID: 1)
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Processing message for session: d561422a-e382-4d6b-903d-3ee24cb57288
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Tools list requested
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_get - 🔗 New MCP GET connection established - Session ID: 3b25de82-e9bb-430e-9be8-ff0e87f2c108
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Received MCP request: resources/list (ID: 2)
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Processing message for session: d561422a-e382-4d6b-903d-3ee24cb57288
+2025-10-14 15:20:44 - WARNING - app - mcp_endpoint_post - Unknown method: resources/list
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Received MCP request: prompts/list (ID: 3)
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Processing message for session: d561422a-e382-4d6b-903d-3ee24cb57288
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Prompts list requested
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Received MCP request: resources/templates/list (ID: 4)
+2025-10-14 15:20:44 - INFO - app - mcp_endpoint_post - Processing message for session: d561422a-e382-4d6b-903d-3ee24cb57288
+2025-10-14 15:20:44 - WARNING - app - mcp_endpoint_post - Unknown method: resources/templates/list
+2025-10-14 16:14:33 - INFO - app - generate_events - MCP GET connection closed - Session ID: 3b25de82-e9bb-430e-9be8-ff0e87f2c108
+2025-10-14 16:14:33 - INFO - app - generate_events - 🗑️ Session terminated and cleaned up: 3b25de82-e9bb-430e-9be8-ff0e87f2c108
+2025-10-14 16:15:04 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:15:04 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:15:04 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:15:05 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:15:05 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:15:05 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:15:05 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:15:05 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:15:05 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:15:05 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:15:05 - ERROR - app - get_settings - 配置加载发生未知错误: ValidationError: 1 validation error for Settings
+mcp_type
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='streamable_http', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/int_parsing，使用默认值
+2025-10-14 16:15:05 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:15:05 - INFO - app - main - 创建新的事件循环
+2025-10-14 16:15:05 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:15:05 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:15:05 - INFO - app - main_server - 传输类型: streamable_http
+2025-10-14 16:15:05 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:15:05 - ERROR - app - main - 启动失败: asyncio.run() cannot be called from a running event loop
+2025-10-14 16:36:32 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:36:32 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:36:32 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:36:32 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:36:32 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:36:32 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:36:32 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:36:32 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:36:32 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:36:32 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:36:32 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:36:32 - INFO - app - main - 创建新的事件循环
+2025-10-14 16:36:32 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:36:32 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:36:32 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:36:32 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:36:32 - INFO - app - main_server - 实际运行传输类型: streamable_http
+2025-10-14 16:36:32 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:36:32 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:38:11 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:38:11 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:38:11 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:38:11 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:38:11 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:38:11 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:38:11 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:38:11 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:38:11 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:38:11 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:38:11 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:38:11 - INFO - app - main - 创建新的事件循环
+2025-10-14 16:38:11 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:38:11 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:38:11 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:38:11 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:38:11 - INFO - app - main_server - 实际运行传输类型: streamable_http
+2025-10-14 16:38:11 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:38:11 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:38:58 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:38:58 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:38:58 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:38:59 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:38:59 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:38:59 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:38:59 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:38:59 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:38:59 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:38:59 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:38:59 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:38:59 - INFO - app - main - 创建新的事件循环
+2025-10-14 16:38:59 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:38:59 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:38:59 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:38:59 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:38:59 - INFO - app - main_server - 实际运行传输类型: streamable_http
+2025-10-14 16:38:59 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:38:59 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:39:34 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:39:34 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:39:34 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:39:35 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:39:35 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:39:35 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:39:35 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:39:35 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:39:35 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:39:35 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:39:35 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:39:35 - INFO - app - main - 创建新的事件循环
+2025-10-14 16:39:35 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:39:35 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:39:35 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:39:35 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:39:35 - INFO - app - main_server - 实际运行传输类型: streamable_http
+2025-10-14 16:39:35 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:39:35 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:41:45 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:41:45 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:41:45 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:41:46 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:41:46 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:41:46 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:41:46 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:41:46 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:41:46 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:41:46 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:41:46 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:41:46 - INFO - app - main - 创建新的事件循环
+2025-10-14 16:41:46 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:41:46 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:41:46 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:41:46 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:41:46 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (Default)
+2025-10-14 16:41:46 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:41:46 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:47:10 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:47:10 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:47:10 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:47:10 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:47:10 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:47:10 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:47:10 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:47:10 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:47:10 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:47:10 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:47:10 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:47:33 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:47:33 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:47:33 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:47:34 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:47:34 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:47:34 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:47:34 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:47:34 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:47:34 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:47:34 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:47:34 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:47:34 - INFO - app - main - 创建新的事件循环
+2025-10-14 16:47:34 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:47:34 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:47:34 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:47:34 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:47:34 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (Default)
+2025-10-14 16:47:34 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:47:34 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:49:09 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:49:09 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:49:09 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:49:09 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:49:09 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:49:09 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:49:09 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:49:09 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:49:09 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:49:09 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:49:09 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:49:09 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:49:09 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:49:09 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:49:09 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:49:09 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (Default)
+2025-10-14 16:49:09 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:49:09 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:57:39 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:57:39 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:57:39 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:57:39 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:57:39 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:57:39 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:57:39 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:57:39 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:57:39 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:57:39 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:57:39 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:57:39 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:57:39 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:57:39 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:57:39 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:57:39 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (Default)
+2025-10-14 16:57:39 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:57:39 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 16:58:02 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 16:58:02 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 16:58:02 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 16:58:03 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 16:58:03 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 16:58:03 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 16:58:03 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 16:58:03 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 16:58:03 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 16:58:03 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 16:58:03 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 16:58:03 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 16:58:03 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 16:58:03 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 16:58:03 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 16:58:03 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (Default)
+2025-10-14 16:58:03 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 16:58:03 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:01:42 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:01:42 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:01:42 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:01:42 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:01:43 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:01:43 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:01:43 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:01:43 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:01:43 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:01:43 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:01:43 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:01:43 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:01:43 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:01:43 - INFO - app - main_server - 配置传输类型: streamable_http
+2025-10-14 17:01:43 - ERROR - app - create_app - Unknown MCP type: streamable_http. Defaulting to streamable-http.
+2025-10-14 17:01:43 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (Default)
+2025-10-14 17:01:43 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:01:43 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:02:40 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:02:40 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:02:40 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:02:40 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:02:40 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:02:40 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:02:40 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:02:40 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:02:40 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:02:40 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:02:40 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:02:40 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:02:40 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:02:40 - INFO - app - main_server - 配置传输类型: sse
+2025-10-14 17:02:40 - INFO - app - main_server - 实际运行传输类型: SSE (Legacy)
+2025-10-14 17:02:40 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:02:40 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:05:36 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:05:36 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:05:36 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:05:36 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:05:36 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:05:36 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:05:36 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:05:36 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:05:36 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:05:36 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:05:36 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:05:36 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:05:36 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:05:36 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:05:36 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (2025-08-26)
+2025-10-14 17:05:36 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:05:36 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:06:00 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:06:00 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:06:00 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:06:00 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:06:00 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:06:00 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:06:00 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:06:00 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:06:00 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:06:00 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:06:00 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:06:00 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:06:00 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:06:00 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:06:00 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (2025-08-26)
+2025-10-14 17:06:00 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:06:00 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:09:20 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:09:20 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:09:20 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:09:20 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:09:20 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:09:20 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:09:20 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:09:20 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:09:20 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:09:20 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:09:20 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:09:20 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:09:20 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:09:20 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:09:20 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (2025-08-26)
+2025-10-14 17:09:20 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:09:20 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:13:13 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:13:13 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:13:13 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:13:13 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:13:13 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:13:13 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:13:13 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:13:13 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:13:13 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:13:13 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:13:13 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:13:13 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:13:13 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:13:13 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:13:13 - ERROR - app - main - 启动失败: Already running asyncio in this thread
+2025-10-14 17:14:07 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:14:07 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:14:07 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:14:07 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:14:07 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:14:07 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:14:07 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:14:07 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:14:07 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:14:07 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:14:07 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:14:07 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:14:07 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:14:07 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:14:07 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (2025-08-26)
+2025-10-14 17:14:07 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:14:07 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:19:38 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:19:38 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:19:38 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:19:38 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:19:38 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:19:38 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:19:38 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:19:38 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:19:38 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:19:38 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:19:38 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:19:38 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:19:38 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:19:38 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:19:38 - INFO - app - main_server - 实际运行传输类型: Streamable HTTP (2025-08-26)
+2025-10-14 17:19:38 - INFO - app - main_server - MCP 端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:19:38 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:19:38 - INFO - app - fastmcp_startup - Starlette Startup: Checking FastMCP initialization...
+2025-10-14 17:27:14 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:27:14 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:27:14 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:27:14 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:27:14 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:27:14 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:27:14 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:27:14 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:27:14 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:27:14 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:27:14 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:27:14 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:27:14 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:27:14 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-14 17:27:14 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:27:14 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Received MCP request: initialize (ID: 0)
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Initialize request - Client Protocol: 2025-06-18
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Client Info: {'name': 'Postman Client - c6ad06c2-dc2c-496d-a8aa-5157132e1b3e', 'version': '1.0.0'}
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Initialize response sent - Protocol: 2025-06-18, Session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Received MCP request: notifications/initialized (ID: None)
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Processing message for session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Received notification: initialized
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Client initialized successfully - MCP handshake complete!
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Received MCP request: tools/list (ID: 1)
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Processing message for session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Tools list requested
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_get - 🔗 New MCP GET connection established - Session ID: 02af8536-3919-4b45-8528-c1ce88142d0e
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Received MCP request: resources/list (ID: 2)
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Processing message for session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:27:18 - WARNING - app - mcp_endpoint_post - Unknown method: resources/list
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Received MCP request: prompts/list (ID: 3)
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Processing message for session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Prompts list requested
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Received MCP request: resources/templates/list (ID: 4)
+2025-10-14 17:27:18 - INFO - app - mcp_endpoint_post - Processing message for session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:27:18 - WARNING - app - mcp_endpoint_post - Unknown method: resources/templates/list
+2025-10-14 17:27:43 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 5)
+2025-10-14 17:27:43 - INFO - app - mcp_endpoint_post - Processing message for session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:27:43 - INFO - app - mcp_endpoint_post - Executing tool: generate_mind_html
+2025-10-14 17:27:43 - INFO - app - mcp_endpoint_post - Arguments: {'content': '# 数据治理架构\\n## 架构概览与核心组件\\n### 章节一：数据治理框架介绍\\n- 数据治理定义及重要性概述\\n- 数据治理的目标与原则\\n- 数据治理的生命周期简介\\n### 章节二：数据管理策略\\n- 数据质量管理\\n- 数据安全与隐私保护\\n- 数据分类与分级标准\\n- 数据所有权与责任分配\\n### 章节三：技术架构组件\\n- 数据湖与数据仓库的选择\\n- ETL/ELT流程的设计与实现\\n- 数据集成与互操作性解决方案\\n  - API接口设计\\n  - 数据交换格式规范\\n### 章节四：组织结构与角色定义\\n- 数据治理委员会的角色与职责\\n- 数据管理员（Data Steward）的任务描述\\n- 数据用户权限管理模型\\n  - 访问控制机制\\n  - 用户行为审计\\n### 章节五：实施路径与持续改进\\n- 数据治理项目的启动步骤\\n- 成功案例分享与经验教训\\n- 监控与评估指标体系建立\\n  - KPI设定\\n  - 定期审查与优化流程'}
+2025-10-14 17:27:43 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理架构\n## 架构概览与核心组件\n### 章节一：数据治理框架介绍\n- 数据治理定义及重要性概述\n- 数据治理的目标与原则\n- 数据治理的生命周期简介\n### 章节二：数据管理策略\n- 数据质量管理\n- 数据安全与隐私保护\n- 数据分类与分级标准\n- 数据所有权与责任分配\n### 章节三：技术架构组件\n- 数据湖与数据仓库的选择\n- ETL/ELT流程的设计与实现\n- 数据集成与互操作性解决方案\n  - API接口设计\n  - 数据交换格式规范\n### 章节四：组织结构与角色定义\n- 数据治理委员会的角色与职责\n- 数据管理员（Data Steward）的任务描述\n- 数据用户权限管理模型\n  - 访问控制机制\n  - 用户行为审计\n### 章节五：实施路径与持续改进\n- 数据治理项目的启动步骤\n- 成功案例分享与经验教训\n- 监控与评估指标体系建立\n  - KPI设定\n  - 定期审查与优化流程
+2025-10-14 17:27:43 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理架构\n## 架构概览与核心组件\n### 章节一：数据治理框架介绍\n- 数据治理定义及重要性概述\n- 数据治理的目标与原则\n- 数据治理的生命周期简介\n### 章节二：数据管理策略\n- 数据质量管理\n- 数据安全与隐私保护\n- 数据分类与分级标准\n- 数据所有权与责任分配\n### 章节三：技术架构组件\n- 数据湖与数据仓库的选择\n- ETL/ELT流程的设计与实现\n- 数据集成与互操作性解决方案\n  - API接口设计\n  - 数据交换格式规范\n### 章节四：组织结构与角色定义\n- 数据治理委员会的角色与职责\n- 数据管理员（Data Steward）的任务描述\n- 数据用户权限管理模型\n  - 访问控制机制\n  - 用户行为审计\n### 章节五：实施路径与持续改进\n- 数据治理项目的启动步骤\n- 成功案例分享与经验教训\n- 监控与评估指标体系建立\n  - KPI设定\n  - 定期审查与优化流程
+2025-10-14 17:27:44 - INFO - app - generate_mind_html - Markdown 文件 1760434063_9445eada.md 已保存并转换为 HTML 1760434063_9445eada.html, 预览地址: http://127.0.0.1:8000/html/1760434063_9445eada.html
+2025-10-14 17:27:44 - INFO - app - mcp_endpoint_post - Tool generate_mind_html executed successfully
+2025-10-14 17:27:48 - INFO - app - query_mind_html - 请求HTML文件: markdown/1760434063_9445eada.html
+2025-10-14 17:28:04 - INFO - app - query_mind_html - 请求HTML文件: markdown/1760434063_9445eada.html
+2025-10-14 17:28:44 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 6)
+2025-10-14 17:28:44 - INFO - app - mcp_endpoint_post - Processing message for session: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:28:44 - INFO - app - mcp_endpoint_post - Executing tool: generate_mind_html
+2025-10-14 17:28:44 - INFO - app - mcp_endpoint_post - Arguments: {'content': "# 数据治理\n\n## 1. 概述\n- 1.1 定义\n- 1.2 目标\n- 1.3 原则\n- 1.4 范围\n\n## 2. 核心领域\n- 2.1 数据质量\n  - 2.1.1 准确性\n  - 2.1.2 完整性\n  - 2.1.3 一致性\n  - 2.1.4 及时性\n- 2.2 数据安全\n  - 2.2.1 访问控制\n  - 2.2.2 数据加密\n  - 2.2.3 风险管理\n  - 2.2.4 合规性\n- 2.3 数据架构\n  - 2.3.1 数据模型\n  - 2.3.2 数据流设计\n  - 2.3.3 技术标准\n  - 2.3.4 元数据管理\n- 2.4 数据生命周期管理\n  - 2.4.1 创建与采集\n  - 2.4.2 存储与维护\n  - 2.4.3 使用与共享\n  - 2.4.4 归档与删除\n\n## 3. 组织与角色\n- 3.1 数据治理委员会\n- 3.2 数据管理员\n- 3.3 数据所有者\n- 3.4 <script>alert('XSS')</script>\n- 3.5 外部审计与合规检查机构\n\n## 4. 实施框架\n- 4.1 规划阶段\n  - 4.1.1 现状评估\n  - 4.1.2 目标设定\n  - 4.1.3 路线图制定\n- 4.2 设计阶段\n  - 4.2.1 政策制定\n  - 4.2.2 流程设计\n  - 4.2.3 技术选型\n- 4.3 执行阶段\n  - 4.3.1 实施计划\n  - 4.3.2 培训与沟通\n  - 4.3.3 监控与优化\n- 4.4 评估阶段\n  - 4.4.1 效果评估\n  - 4.4.2 持续改进\n  - 4.4.3 成功案例分享\n\n## 5. 工具与技术\n- 5.1 数据质量管理工具\n- 5.2 数据安全管理工具\n- 5.3 数据集成工具\n- 5.4 数据分析与报告工具\n- 5.5 自动化工具\n\n## 6. 关键成功因素\n- 6.1 高层支持\n- 6.2 清晰的政策和流程\n- 6.3 强有力的数据治理团队\n- 6.4 持续培训与发展\n- 6.5 监督与反馈机制"}
+2025-10-14 17:28:44 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理
+
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 <script>alert('XSS')</script>
+- 3.5 外部审计与合规检查机构
+
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-14 17:28:44 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 &lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;
+- 3.5 外部审计与合规检查机构
+
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-14 17:28:45 - INFO - app - generate_mind_html - Markdown 文件 1760434124_4f3c9a2b.md 已保存并转换为 HTML 1760434124_4f3c9a2b.html, 预览地址: http://127.0.0.1:8000/html/1760434124_4f3c9a2b.html
+2025-10-14 17:28:45 - INFO - app - mcp_endpoint_post - Tool generate_mind_html executed successfully
+2025-10-14 17:28:52 - INFO - app - query_mind_html - 请求HTML文件: markdown/1760434124_4f3c9a2b.html
+2025-10-14 17:30:31 - INFO - app - generate_events - MCP GET connection closed - Session ID: 02af8536-3919-4b45-8528-c1ce88142d0e
+2025-10-14 17:30:33 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:30:33 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:30:33 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:30:33 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:30:33 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:30:33 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:30:33 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:30:33 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:30:33 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:30:33 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:30:33 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:30:33 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:30:33 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:30:33 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:30:33 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:30:33 - ERROR - app - main - 启动失败: asyncio.run() cannot be called from a running event loop
+2025-10-14 17:31:10 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:31:10 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:31:10 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:31:10 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:31:10 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:31:10 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:31:10 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:31:10 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:31:10 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:31:10 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:31:10 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:31:10 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:31:10 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:31:10 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:31:10 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:31:10 - ERROR - app - main - 启动失败: asyncio.run() cannot be called from a running event loop
+2025-10-14 17:37:15 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:37:15 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:37:15 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:37:15 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:37:15 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:37:15 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:37:15 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:37:15 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:37:15 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:37:15 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:37:15 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:37:15 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:37:15 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-14 17:37:15 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:37:15 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:37:15 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:37:15 - ERROR - app - main - 启动失败: asyncio.run() cannot be called from a running event loop
+2025-10-14 17:37:58 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:37:58 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:37:58 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:37:58 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:37:58 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:37:58 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:37:58 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:37:58 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:37:58 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:37:58 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:37:58 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:37:58 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:37:58 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-14 17:37:58 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:37:58 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:37:58 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:37:58 - INFO - app - main_server - 检测到运行中的事件循环，使用当前循环
+2025-10-14 17:37:58 - INFO - app - main_server - 创建新的事件循环
+2025-10-14 17:37:58 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:37:58 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:37:58 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-14 17:37:58 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:37:58 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:37:58 - ERROR - app - main - 启动失败: asyncio.run() cannot be called from a running event loop
+2025-10-14 17:38:17 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:38:17 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:38:17 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:38:17 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:38:17 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:38:17 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:38:17 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:38:17 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:38:17 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:38:17 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:38:17 - INFO - app - main - 启动思维导图生成 MCP服务器...
+2025-10-14 17:38:17 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:38:17 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-14 17:38:17 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:38:17 - INFO - app - main_server - 配置传输类型: streamable-http
+2025-10-14 17:38:17 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:38:17 - INFO - app - main_server - 检测到运行中的事件循环，使用当前循环
+2025-10-14 17:38:17 - INFO - app - main_server - 创建新的事件循环
+2025-10-14 17:38:17 - INFO - app - main_server - 启动思维导图生成 MCP服务器...
+2025-10-14 17:38:17 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:38:17 - INFO - app - main_server - 传输类型: Streamable HTTP
+2025-10-14 17:38:17 - INFO - app - main_server - MCP端点: http://0.0.0.0:8000/mcp
+2025-10-14 17:38:17 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:38:17 - ERROR - app - main - 启动失败: asyncio.run() cannot be called from a running event loop
+2025-10-14 17:43:42 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:43:42 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:43:42 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:43:42 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:43:42 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:43:43 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:43:43 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:43:43 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:43:43 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:43:43 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:43:43 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:43:43 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-14 17:43:43 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:43:43 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:43:43 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:43:51 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 7)
+2025-10-14 17:43:51 - ERROR - app - mcp_endpoint_post - Invalid session ID: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:44:55 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 8)
+2025-10-14 17:44:55 - ERROR - app - mcp_endpoint_post - Invalid session ID: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:45:11 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 9)
+2025-10-14 17:45:11 - ERROR - app - mcp_endpoint_post - Invalid session ID: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:45:57 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:45:57 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:45:57 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:45:57 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:45:57 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:45:57 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:45:57 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:45:57 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:45:57 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:45:57 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:45:57 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:45:57 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-14 17:45:57 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:45:57 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:45:57 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:46:16 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:46:16 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:46:16 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:46:16 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:46:16 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:46:16 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:46:16 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:46:16 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:46:16 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:46:16 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:46:16 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:46:16 - INFO - app - main_server - 启动思维导图生成MCP服务器....
+2025-10-14 17:46:16 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:46:16 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:46:16 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:47:20 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 10)
+2025-10-14 17:47:20 - ERROR - app - mcp_endpoint_post - Invalid session ID: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:47:42 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:47:42 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:47:42 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:47:42 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:47:42 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:47:42 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:47:42 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:47:42 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:47:42 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:47:42 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:47:42 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:47:42 - INFO - app - main_server - 启动思维导图生成MCP服务器....
+2025-10-14 17:47:42 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:47:42 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:47:42 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:47:44 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 11)
+2025-10-14 17:47:44 - ERROR - app - mcp_endpoint_post - Invalid session ID: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:48:10 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:48:10 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:48:10 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:48:10 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:48:11 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:48:11 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:48:11 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:48:11 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:48:11 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:48:11 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:48:11 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:48:11 - INFO - app - main_server - 启动思维导图生成MCP服务器....
+2025-10-14 17:48:11 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:48:11 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:48:11 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:48:15 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 12)
+2025-10-14 17:48:15 - ERROR - app - mcp_endpoint_post - Invalid session ID: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:49:45 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:49:45 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:49:45 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:49:45 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:49:45 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:49:46 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:49:46 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:49:46 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:49:46 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:49:46 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:49:46 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:49:46 - INFO - app - main_server - 启动思维导图生成MCP服务器....
+2025-10-14 17:49:46 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:49:46 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:49:46 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:49:54 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:49:54 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:49:54 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:49:54 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:49:54 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:49:54 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:49:54 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:49:54 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:49:54 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:49:54 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:49:54 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:49:54 - INFO - app - main_server - 启动思维导图生成MCP服务器....
+2025-10-14 17:49:54 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:49:54 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:49:54 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:50:13 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 13)
+2025-10-14 17:50:13 - ERROR - app - mcp_endpoint_post - Invalid session ID: f127ff24-5a31-4104-8621-0d3b5091dae4
+2025-10-14 17:50:28 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:50:28 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:50:28 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:50:28 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:50:29 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:50:29 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:50:29 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:50:29 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:50:29 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:50:29 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:50:40 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:50:58 - INFO - app - main_server - 启动思维导图生成MCP服务器....
+2025-10-14 17:50:58 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:50:58 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-14 17:50:58 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Received MCP request: initialize (ID: 0)
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Initialize request - Client Protocol: 2025-06-18
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Client Info: {'name': 'Postman Client - deaff50d-5f4b-4c74-976e-5128691f9147', 'version': '1.0.0'}
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Initialize response sent - Protocol: 2025-06-18, Session: 09591e5f-d11b-4687-92f0-e7b1b7d7c467
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Received MCP request: notifications/initialized (ID: None)
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Processing message for session: 09591e5f-d11b-4687-92f0-e7b1b7d7c467
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Received notification: initialized
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Client initialized successfully - MCP handshake complete!
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Received MCP request: tools/list (ID: 1)
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Processing message for session: 09591e5f-d11b-4687-92f0-e7b1b7d7c467
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Tools list requested
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_get - 🔗 New MCP GET connection established - Session ID: 9e06a3b4-d088-4242-8690-de3f2a5e4d23
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Received MCP request: resources/list (ID: 2)
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Processing message for session: 09591e5f-d11b-4687-92f0-e7b1b7d7c467
+2025-10-14 17:51:32 - WARNING - app - mcp_endpoint_post - Unknown method: resources/list
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Received MCP request: prompts/list (ID: 3)
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Processing message for session: 09591e5f-d11b-4687-92f0-e7b1b7d7c467
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Prompts list requested
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Received MCP request: resources/templates/list (ID: 4)
+2025-10-14 17:51:32 - INFO - app - mcp_endpoint_post - Processing message for session: 09591e5f-d11b-4687-92f0-e7b1b7d7c467
+2025-10-14 17:51:32 - WARNING - app - mcp_endpoint_post - Unknown method: resources/templates/list
+2025-10-14 17:51:50 - INFO - app - mcp_endpoint_post - Received MCP request: tools/call (ID: 5)
+2025-10-14 17:51:50 - INFO - app - mcp_endpoint_post - Processing message for session: 09591e5f-d11b-4687-92f0-e7b1b7d7c467
+2025-10-14 17:51:50 - INFO - app - mcp_endpoint_post - Executing tool: generate_mind_html
+2025-10-14 17:51:50 - INFO - app - mcp_endpoint_post - Arguments: {'content': "# 数据治理\n## 1. 概述\n- 1.1 定义\n- 1.2 目标\n- 1.3 原则\n- 1.4 范围\n## 2. 核心领域\n- 2.1 数据质量\n  - 2.1.1 准确性\n  - 2.1.2 完整性\n  - 2.1.3 一致性\n  - 2.1.4 及时性\n- 2.2 数据安全\n  - 2.2.1 访问控制\n  - 2.2.2 数据加密\n  - 2.2.3 风险管理\n  - 2.2.4 合规性\n- 2.3 数据架构\n  - 2.3.1 数据模型\n  - 2.3.2 数据流设计\n  - 2.3.3 技术标准\n  - 2.3.4 元数据管理\n- 2.4 数据生命周期管理\n  - 2.4.1 创建与采集\n  - 2.4.2 存储与维护\n  - 2.4.3 使用与共享\n  - 2.4.4 归档与删除\n## 3. 组织与角色\n- 3.1 数据治理委员会\n- 3.2 数据管理员\n- 3.3 数据所有者\n- 3.4 <script>alert('XSS')</script>\n- 3.5 外部审计与合规检查机构\n## 4. 实施框架\n- 4.1 规划阶段\n  - 4.1.1 现状评估\n  - 4.1.2 目标设定\n  - 4.1.3 路线图制定\n- 4.2 设计阶段\n  - 4.2.1 政策制定\n  - 4.2.2 流程设计\n  - 4.2.3 技术选型\n- 4.3 执行阶段\n  - 4.3.1 实施计划\n  - 4.3.2 培训与沟通\n  - 4.3.3 监控与优化\n- 4.4 评估阶段\n  - 4.4.1 效果评估\n  - 4.4.2 持续改进\n  - 4.4.3 成功案例分享\n## 5. 工具与技术\n- 5.1 数据质量管理工具\n- 5.2 数据安全管理工具\n- 5.3 数据集成工具\n- 5.4 数据分析与报告工具\n- 5.5 自动化工具\n## 6. 关键成功因素\n- 6.1 高层支持\n- 6.2 清晰的政策和流程\n- 6.3 强有力的数据治理团队\n- 6.4 持续培训与发展\n- 6.5 监督与反馈机制"}
+2025-10-14 17:51:50 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 <script>alert('XSS')</script>
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-14 17:51:50 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 &lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-14 17:51:51 - INFO - app - generate_mind_html - Markdown 文件 1760435510_505aed0b.md 已保存并转换为 HTML 1760435510_505aed0b.html, 预览地址: http://127.0.0.1:8001/html/1760435510_505aed0b.html
+2025-10-14 17:51:51 - INFO - app - mcp_endpoint_post - Tool generate_mind_html executed successfully
+2025-10-14 17:52:05 - INFO - app - query_mind_html - 请求HTML文件: markdown/1760435510_505aed0b.html
+2025-10-14 17:54:41 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:54:41 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:54:41 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:54:41 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:54:41 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:54:41 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:54:41 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:54:41 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:54:41 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:54:41 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:54:41 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:54:41 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-14 17:54:41 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:54:41 - INFO - app - main_server - 配置传输类型: sse
+2025-10-14 17:54:41 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:59:16 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-14 17:59:16 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-14 17:59:16 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-14 17:59:16 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-14 17:59:16 - DEBUG - app - check_environment - mcp 已安装
+2025-10-14 17:59:17 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-14 17:59:17 - DEBUG - app - check_environment - httpx 已安装
+2025-10-14 17:59:17 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-14 17:59:17 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-14 17:59:17 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-14 17:59:17 - INFO - app - main - 创建新的事件循环
+2025-10-14 17:59:17 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-14 17:59:17 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-14 17:59:17 - INFO - app - main_server - 配置传输类型: sse
+2025-10-14 17:59:17 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-14 17:59:32 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 <script>alert('XSS')</script>
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-14 17:59:32 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 &lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-14 17:59:33 - INFO - app - generate_mind_html - Markdown 文件 1760435972_1b446409.md 已保存并转换为 HTML 1760435972_1b446409.html, 预览地址: http://127.0.0.1:8000/html/1760435972_1b446409.html
+2025-10-14 18:00:50 - INFO - app - query_mind_html - 请求HTML文件: markdown/1760435972_1b446409.html
+2025-10-15 09:12:05 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-15 09:12:05 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-15 09:12:05 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-15 09:12:05 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-15 09:12:05 - DEBUG - app - check_environment - mcp 已安装
+2025-10-15 09:12:05 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-15 09:12:05 - DEBUG - app - check_environment - httpx 已安装
+2025-10-15 09:12:05 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-15 09:12:05 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-15 09:12:05 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-15 09:12:05 - INFO - app - main - 创建新的事件循环
+2025-10-15 09:12:05 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-15 09:12:05 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-15 09:12:05 - INFO - app - main_server - 配置传输类型: stdio
+2025-10-15 09:12:05 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-15 09:12:05 - INFO - app - main_server - STDIO 模式启动。将直接调用 mcp.run()，不启动 Uvicorn。
+2025-10-15 09:12:05 - ERROR - app - main_server - STDIO server failed: Already running asyncio in this thread
+2025-10-15 14:26:41 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-15 14:26:41 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-15 14:26:41 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-15 14:26:41 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-15 14:26:41 - DEBUG - app - check_environment - mcp 已安装
+2025-10-15 14:26:41 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-15 14:26:41 - DEBUG - app - check_environment - httpx 已安装
+2025-10-15 14:26:41 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-15 14:26:41 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-15 14:26:41 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-15 14:26:41 - INFO - app - main - 创建新的事件循环
+2025-10-15 14:26:41 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-15 14:26:41 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-15 14:26:41 - INFO - app - main_server - 配置传输类型: stdio
+2025-10-15 14:26:41 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-15 14:26:41 - INFO - app - main_server - STDIO 模式启动。将直接调用 mcp.run()，不启动 Uvicorn。
+2025-10-15 14:26:41 - ERROR - app - main_server - STDIO server failed: Already running asyncio in this thread
+2025-10-15 14:26:59 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-15 14:26:59 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-15 14:26:59 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-15 14:26:59 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-15 14:26:59 - DEBUG - app - check_environment - mcp 已安装
+2025-10-15 14:26:59 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-15 14:26:59 - DEBUG - app - check_environment - httpx 已安装
+2025-10-15 14:26:59 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-15 14:26:59 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-15 14:26:59 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-15 14:26:59 - INFO - app - main - 创建新的事件循环
+2025-10-15 14:26:59 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-15 14:26:59 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-15 14:26:59 - INFO - app - main_server - 配置传输类型: sse
+2025-10-15 14:26:59 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-15 14:27:48 - INFO - app - generate_mind_html - 接收到新的Markdown内容, content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 <script>alert('XSS')</script>
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-15 14:27:48 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 &lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-15 14:27:49 - INFO - app - generate_mind_html - Markdown 文件 1760509668_0de99701.md 已保存并转换为 HTML 1760509668_0de99701.html, 预览地址: http://127.0.0.1:8000/html/1760509668_0de99701.html
+2025-10-15 14:31:24 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-15 14:31:24 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-15 14:31:24 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-15 14:31:24 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-15 14:31:25 - DEBUG - app - check_environment - mcp 已安装
+2025-10-15 14:31:25 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-15 14:31:25 - DEBUG - app - check_environment - httpx 已安装
+2025-10-15 14:31:25 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-15 14:31:25 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-15 14:31:25 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-15 14:31:25 - INFO - app - main - 创建新的事件循环
+2025-10-15 14:31:25 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-15 14:31:25 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-15 14:31:25 - INFO - app - main_server - 配置传输类型: sse
+2025-10-15 14:31:25 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-15 14:36:15 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-15 14:36:15 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-15 14:36:15 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-15 14:36:15 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-15 14:36:15 - DEBUG - app - check_environment - mcp 已安装
+2025-10-15 14:36:15 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-15 14:36:15 - DEBUG - app - check_environment - httpx 已安装
+2025-10-15 14:36:15 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-15 14:36:15 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-15 14:36:15 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-15 14:36:15 - INFO - app - main - 创建新的事件循环
+2025-10-15 14:36:15 - INFO - app - main_server - 启动思维导图生成MCP服务器...
+2025-10-15 14:36:15 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-15 14:36:15 - INFO - app - main_server - 配置传输类型: sse
+2025-10-15 14:36:15 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health
+2025-10-15 14:36:19 - DEBUG - app - generate_mind_html - 转义后的 content: # 数据治理
+## 1. 概述
+- 1.1 定义
+- 1.2 目标
+- 1.3 原则
+- 1.4 范围
+## 2. 核心领域
+- 2.1 数据质量
+  - 2.1.1 准确性
+  - 2.1.2 完整性
+  - 2.1.3 一致性
+  - 2.1.4 及时性
+- 2.2 数据安全
+  - 2.2.1 访问控制
+  - 2.2.2 数据加密
+  - 2.2.3 风险管理
+  - 2.2.4 合规性
+- 2.3 数据架构
+  - 2.3.1 数据模型
+  - 2.3.2 数据流设计
+  - 2.3.3 技术标准
+  - 2.3.4 元数据管理
+- 2.4 数据生命周期管理
+  - 2.4.1 创建与采集
+  - 2.4.2 存储与维护
+  - 2.4.3 使用与共享
+  - 2.4.4 归档与删除
+## 3. 组织与角色
+- 3.1 数据治理委员会
+- 3.2 数据管理员
+- 3.3 数据所有者
+- 3.4 &lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;
+- 3.5 外部审计与合规检查机构
+## 4. 实施框架
+- 4.1 规划阶段
+  - 4.1.1 现状评估
+  - 4.1.2 目标设定
+  - 4.1.3 路线图制定
+- 4.2 设计阶段
+  - 4.2.1 政策制定
+  - 4.2.2 流程设计
+  - 4.2.3 技术选型
+- 4.3 执行阶段
+  - 4.3.1 实施计划
+  - 4.3.2 培训与沟通
+  - 4.3.3 监控与优化
+- 4.4 评估阶段
+  - 4.4.1 效果评估
+  - 4.4.2 持续改进
+  - 4.4.3 成功案例分享
+## 5. 工具与技术
+- 5.1 数据质量管理工具
+- 5.2 数据安全管理工具
+- 5.3 数据集成工具
+- 5.4 数据分析与报告工具
+- 5.5 自动化工具
+## 6. 关键成功因素
+- 6.1 高层支持
+- 6.2 清晰的政策和流程
+- 6.3 强有力的数据治理团队
+- 6.4 持续培训与发展
+- 6.5 监督与反馈机制
+2025-10-15 14:36:20 - INFO - app - generate_mind_html - Markdown 文件 1760510179_cfe15ba6.md 已保存并转换为 HTML 1760510179_cfe15ba6.html, 预览地址: http://127.0.0.1:8000/html/1760510179_cfe15ba6.html
+2025-10-22 19:49:57 - WARNING - app - get_settings - ⚠配置文件未找到: /Users/chenzeng/cmss/bkdata_mcp_servers/mcp-generate-mind/src/mcp-generate-mind/.env，将尝试从环境变量加载
+2025-10-22 19:49:57 - INFO - app - check_environment - 正在检查运行环境...
+2025-10-22 19:49:57 - INFO - app - check_environment - Python 版本: 3.11.5
+2025-10-22 19:49:57 - INFO - app - check_environment - 开始检查必要依赖...
+2025-10-22 19:49:57 - DEBUG - app - check_environment - mcp 已安装
+2025-10-22 19:49:57 - DEBUG - app - check_environment - fastapi 已安装
+2025-10-22 19:49:57 - DEBUG - app - check_environment - httpx 已安装
+2025-10-22 19:49:57 - DEBUG - app - check_environment - pydantic 已安装
+2025-10-22 19:49:57 - DEBUG - app - check_environment - uvicorn 已安装
+2025-10-22 19:49:57 - INFO - app - check_environment - 所有必要依赖已安装
+2025-10-22 19:49:57 - INFO - app - main - 创建新的事件循环
+2025-10-22 19:49:57 - INFO - app - main_server - 启动思维导图生成MCP服务器....
+2025-10-22 19:49:57 - INFO - app - main_server - 协议版本: 2025-08-26
+2025-10-22 19:49:57 - INFO - app - main_server - 配置传输类型: Stream HTTP
+2025-10-22 19:49:57 - INFO - app - main_server - 健康检查: http://0.0.0.0:8000/health

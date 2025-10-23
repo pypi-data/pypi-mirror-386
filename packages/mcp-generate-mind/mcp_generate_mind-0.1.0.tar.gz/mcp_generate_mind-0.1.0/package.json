@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "install": "pip install -e .",
+    "build": "webpack",
+    "dev": "npm run build && python app.py"
+  },
+  "dependencies": {
+    "markmap-cli": "^0.18.11"
+  }
+}
