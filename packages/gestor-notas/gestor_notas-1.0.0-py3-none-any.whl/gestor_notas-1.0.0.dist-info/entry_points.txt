@@ -1,0 +1,2 @@
+[console_scripts]
+gestor_notas = gestor_notas.main:main
