@@ -1,0 +1,24 @@
+[build-system]
+requires = ["maturin>=1.9,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "candle-llm"
+version = "0.2.6"
+description = "data represent, processing"
+readme = "README.md"
+authors = [
+    { name = "wangmengdi", email = "790990241@qq.com" }
+]
+requires-python = ">=3.8"
+dependencies = []
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "candle_llm._core"
+python-packages = ["candle_llm"]
