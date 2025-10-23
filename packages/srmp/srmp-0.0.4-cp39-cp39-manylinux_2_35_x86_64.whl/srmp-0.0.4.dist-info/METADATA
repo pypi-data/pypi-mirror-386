@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: srmp
+Version: 0.0.4
+Summary: Python bindings for Search-Based Robot Motion Planning (SRMP)
+Author: The SRMP Team
+Author-email: The SRMP Team <imishani@gmail.com>
+Maintainer-email: The SRMP Team <nrkumar93@gmail.com>
+License: AGPL-3.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+License-File: LICENSE
+Dynamic: author
+Dynamic: license-file
