@@ -1,0 +1,9 @@
+README.md
+setup.py
+eldarutils/__init__.py
+eldarutils/listutils.py
+eldarutils/stringutils.py
+eldarutils.egg-info/PKG-INFO
+eldarutils.egg-info/SOURCES.txt
+eldarutils.egg-info/dependency_links.txt
+eldarutils.egg-info/top_level.txt
