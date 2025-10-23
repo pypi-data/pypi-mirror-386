@@ -1,0 +1,125 @@
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[project]
+authors = []
+requires-python = ">=3.10.0,<4.0.0"
+dependencies = [
+    "langchain-core<2.0.0,>=0.3.74",
+    "astrapy>=2.0.1,<3.0.0",
+    "numpy>=1.21",
+    "numpy>=1.26; python_version>='3.12'",
+    "numpy>=2.1.0; python_version>='3.13'",
+]
+name = "langchain-astradb"
+version = "1.0.0"
+description = "An integration package connecting Astra DB and LangChain"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+"Source Code" = "https://github.com/langchain-ai/langchain-datastax/tree/main/libs/astradb"
+repository = "https://github.com/langchain-ai/langchain-datastax"
+
+[dependency-groups]
+lint = [
+    "ruff<0.13,>=0.12.10",
+]
+typing = [
+    "mypy<1.18,>=1.17.1",
+    "simsimd<7.0.0,>=6.5.1",
+]
+test = [
+    "pytest<9,>=8",
+    "pytest-httpserver<1.1,>=1.0.8",
+    "pytest-dotenv<1.0.0,>=0.5.2",
+    "freezegun<2.0.0,>=1.2.2",
+    "pytest-mock<4.0.0,>=3.10.0",
+    "syrupy<5.0.0,>=4.0.2",
+    "pytest-watcher<1.0.0,>=0.3.4",
+    "pytest-asyncio<1.0.0,>=0.21.1",
+    "blockbuster<1.6.0,>=1.5.25",
+]
+test_integration = [
+    "langchain-tests<2.0.0,>=0.3.21",
+]
+codespell = [
+    "codespell<3.0.0,>=2.2.0",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+    "ALL",
+]
+ignore = [
+    "COM812",
+    "CPY",
+    "D101",
+    "ERA001",
+    "FIX002",
+    "ISC001",
+    "PLR09",
+    "TD002",
+    "TD003",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.pep8-naming]
+classmethod-decorators = [
+    "langchain_core.pydantic_v1.validator",
+]
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+mypy-init-return = true
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "D",
+    "DOC201",
+    "DOC402",
+    "S101",
+    "SLF001",
+    "T201",
+    "PLC2701",
+    "PLR2004",
+    "PLR6301",
+]
+"scripts/*" = [
+    "D",
+    "T201",
+]
+
+[tool.mypy]
+plugins = [
+    "pydantic.mypy",
+]
+strict = true
+enable_error_code = "deprecated"
+warn_unreachable = true
+disallow_any_generics = false
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+]
+
+[tool.pytest.ini_options]
+addopts = "--snapshot-warn-unused --strict-markers --strict-config --durations=5 -vv"
+markers = [
+    "requires: mark tests as requiring a specific library",
+    "asyncio: mark tests as requiring asyncio",
+    "compile: mark placeholder test used to compile integration tests without running them",
+]
+asyncio_mode = "auto"
+filterwarnings = "ignore::pytest.PytestUnraisableExceptionWarning"
