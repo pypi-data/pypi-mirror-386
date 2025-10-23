@@ -1,0 +1,12 @@
+cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cli/config_generator.py,sha256=4uF_8Qi9z6wJcNt43i5Al9HFtOVVlogKR4ZksAJ8HDw,15188
+cli/consts.py,sha256=zSlb7Q2LMLHXnXt6WaNsrQoKT84mQX1rYs8IgHztHro,376
+cli/core.py,sha256=6DL-FAx53x8xyiux2toSJiS_SC2alJObkuxaSTbNhBo,9126
+cli/docker_cli.py,sha256=1tefgBRrATX4Tku4xZ7xbqyvRwXd6pLRRGQI3Sn7GP8,3435
+cli/main.py,sha256=7SMTrMHIJTpjJkO93vzu-xdfW_EIrGAWYEORi0MrflQ,12229
+cli/targets.py,sha256=1o-GEL8JaPiifm6-GbXds0FMzNnqIP1KjaJrXqh9bHY,14813
+cli/utils.py,sha256=LYrIlJeya5dxm3kydg-eDQiGRK2_kUmv9MMY1BaCCb8,6921
+archgw-0.3.16.dist-info/METADATA,sha256=l-kjfONvWGsDF_YEtGPRBmNxX4Ozd-szvjBEyGV_4oM,2148
+archgw-0.3.16.dist-info/WHEEL,sha256=Nq82e9rUAnEjt98J6MlVmMCZb-t9cYE2Ir1kpBmnWfs,88
+archgw-0.3.16.dist-info/entry_points.txt,sha256=veng1sTphHZOO6DvBOHBmBkXOgZQRSBaBY0EGSRyZJY,40
+archgw-0.3.16.dist-info/RECORD,,
