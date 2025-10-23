@@ -1,0 +1,30 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adipylib"
+version = "0.0.1"  # Keep this in sync with your __init__.py
+authors = [
+  { name="Your Name", email="you@example.com" },
+]
+description = "My first Python package!"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+# This is where your dependencies from requirements.txt go!
+dependencies = [
+    "requests",  # Example: if you needed the 'requests' library
+    "numpy>=1.20", # You can specify versions
+]
+
+[project.urls]
+"Homepage" = "https://github.com/your-username/adipylib"
+"Bug Tracker" = "https://github.com/your-username/adipylib/issues"
