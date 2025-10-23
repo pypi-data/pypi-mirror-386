@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-app-runner-mcp-server = awslabs_app_runner_mcp_server.main:main
