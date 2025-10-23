@@ -1,0 +1,35 @@
+# OpenEarth API
+
+OpenEarth is a lightweight API for agents to query real‑time Earth insights. Insights are curated to your use case. The API takes in natural‑language questions, fetches live data, and returns a unified, structured response plus a concise natural‑language summary.
+
+## Installation
+
+```bash
+pip install openearth
+```
+
+## API Usage
+
+```python
+from openearth import OpenEarth
+
+oe = OpenEarth()
+
+# Wildfire queries
+result = oe.query("What crops might be impacted by fires in Napa Valley?")
+
+# Flood risk queries
+result = oe.query("How will flash flooding potential impact delivery routes in Miami?")
+
+# Air quality queries  
+result = oe.query("Is there smoke affecting air quality in Portland?")
+```
+
+## Requirements
+
+- Python 3.11+
+- httpx >= 0.27.0
+
+## License
+
+Proprietary
