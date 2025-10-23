@@ -1,0 +1,6 @@
+# SelFw
+Framework ligero basado en Selenium WebDriver.
+
+## Instalación
+```bash
+pip install SelFw
