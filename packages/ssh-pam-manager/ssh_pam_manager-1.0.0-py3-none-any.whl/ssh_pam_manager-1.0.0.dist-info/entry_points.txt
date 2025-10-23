@@ -1,0 +1,2 @@
+[console_scripts]
+ssh-pam-manager = ssh_pam_manager.main:main
