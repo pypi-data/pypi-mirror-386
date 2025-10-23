@@ -1,0 +1,11 @@
+div.mf-video {
+  aspect-ratio: 16/9;
+  width:100%;
+  background-size: contain;
+}
+div.mf-video span{
+  background-color:black;
+  color:white;
+  font-size:12px;
+  padding:5px;
+}
