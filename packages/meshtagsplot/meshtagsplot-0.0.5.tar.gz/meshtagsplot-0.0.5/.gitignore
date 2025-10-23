@@ -1,0 +1,5 @@
+__pycache__/
+*.sh
+.gitignore
+demos/meshes/
+demos/*.png
