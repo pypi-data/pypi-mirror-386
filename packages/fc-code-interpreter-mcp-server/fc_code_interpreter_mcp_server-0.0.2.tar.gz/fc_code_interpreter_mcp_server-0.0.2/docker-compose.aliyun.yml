@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # Sandbox Code Interpreter (Data Plane) - 使用阿里云镜像
+  sandbox-code-interpreter:
+    image: registry.cn-hangzhou.aliyuncs.com/dockerhacker/sync:sandbox-code-interpreter-e2b-v0.2.2
+    container_name: sandbox-code-interpreter
+    ports:
+      - "5001:5000"  # 映射到 localhost:5001 (容器内实际监听 5000)
+    environment:
+      - SANDBOX_ENV=production
+      - SANDBOX_HOST=0.0.0.0
+      - SANDBOX_PORT=5000
+      - SANDBOX_DEBUG=false
+      - SANDBOX_LOG_LEVEL=info
+      - SANDBOX_WORKSPACE_DIR=/workspace
+      - SANDBOX_MAX_CONTEXTS=100
+    volumes:
+      - sandbox-workspace:/workspace
+      - sandbox-logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - sandbox-net
+
+  # MCP Server (Control Plane) - 使用阿里云镜像
+  mcp-server:
+    image: registry.cn-hangzhou.aliyuncs.com/dockerhacker/sync:sandbox-code-interpreter-e2b-mcp-latest
+    container_name: sandbox-mcp-server
+    ports:
+      - "3000:3000"  # MCP Server SSE 端点
+    environment:
+      # 通过 Docker 网络连接到 sandbox-code-interpreter
+      - SANDBOX_URL=http://sandbox-code-interpreter:5000
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=3000
+      - LOG_LEVEL=INFO
+    depends_on:
+      sandbox-code-interpreter:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/sse"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - sandbox-net
+
+networks:
+  sandbox-net:
+    driver: bridge
+
+volumes:
+  sandbox-workspace:
+  sandbox-logs:
