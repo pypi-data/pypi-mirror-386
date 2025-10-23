@@ -1,0 +1,3 @@
+[console_scripts]
+genrdl = excel2pyral.main:genrdl_main
+pyral = excel2pyral.main:main
