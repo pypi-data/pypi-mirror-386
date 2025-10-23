@@ -1,0 +1,2 @@
+# I am finding it is better to do this myself.
+#pre-release-hook = ["git", "cliff", "-o", "CHANGELOG.md", "--tag", "{{version}}" ]

@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: pyft
+Version: 0.3.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: pandas>=2.0
+Requires-Dist: altair==5.5
+Requires-Dist: vegafusion[embed]
+Requires-Dist: tqdm
+Requires-Dist: typing-extensions
+Requires-Dist: polars
+Requires-Python: >=3.7
