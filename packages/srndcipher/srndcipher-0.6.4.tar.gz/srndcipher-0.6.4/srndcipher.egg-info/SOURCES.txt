@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+srndcipher.py
+srndcipher.egg-info/PKG-INFO
+srndcipher.egg-info/SOURCES.txt
+srndcipher.egg-info/dependency_links.txt
+srndcipher.egg-info/requires.txt
+srndcipher.egg-info/top_level.txt
