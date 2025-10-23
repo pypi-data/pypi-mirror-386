@@ -1,0 +1,72 @@
+Metadata-Version: 2.4
+Name: pillow-mbm
+Version: 0.2.0
+Summary: Kerbal Space Program MBM file conversion plugin
+Author-email: Andrew Cassidy <drewcassidy@me.com>
+License-Expression: Apache-2.0
+Project-URL: Source, https://git.offworldcolonies.nexus/drewcassidy/pillow-mbm
+Project-URL: Changelog, https://git.offworldcolonies.nexus/drewcassidy/pillow-mbm/src/branch/main/CHANGELOG.md
+Project-URL: Forum Post, https://forum.kerbalspaceprogram.com/index.php?/topic/201606-quicktex-dds-texture-encoderdecoder/&do=findComment&comment=395303
+Keywords: pillow,PIL,MBM,Texture,KSP
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Games/Entertainment :: Simulation
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: Click>=8.0
+Requires-Dist: Pillow>=8.0
+Dynamic: license-file
+
+# Pillow-mbm
+Pillow-mbm is a plugin for [pillow](https://pillow.readthedocs.io/en/stable/) 
+that adds support for KSP's proprietary MBM texture format.
+
+test/swis_mesh.mbm from [Coatl](https://forum.kerbalspaceprogram.com/topic/131145-wip-coatl-aerospace-probesplus-dev-thread-beta-10192020-18-110/) redistributed under CC-BY-NC-SA 4.0
+
+## Installation
+
+Install and update with [pip](https://pip.pypa.io/en/stable/getting-started/):
+
+```shell
+$ pip install -U pillow-mbm
+```
+
+Or with [uv](https://docs.astral.sh/uv/getting-started/):
+
+```shell
+$ uv tool install pillow-mbm
+```
+
+## Usage
+
+To decode MBM files, use the `convert-mbm` command, along with a glob or a
+list of files to decode. By default, it will convert to png in place.
+
+```
+Usage: convert-mbm [OPTIONS] [FILENAMES]...
+
+  Decode Kerbal Space Program MBM files
+
+Options:
+  -f, --flip / -F, --no-flip  Vertically flip image after converting.
+  -r, --remove                Remove input images after converting.
+  -s, --suffix TEXT           Suffix to append to output file(s). Ignored if
+                              output is a single file.
+
+  -x, --extension TEXT        Extension to use for output. Ignored if output
+                              is a single file. Output filetype is deduced
+                              from this  [default: .png]
+
+  -o, --output PATH           Output file or directory. If outputting to a
+                              file, input filenames must be only a single
+                              item. By default, files are decoded in place.
+
+  --version                   Show the version and exit.
+  --help                      Show this message and exit.
+```
