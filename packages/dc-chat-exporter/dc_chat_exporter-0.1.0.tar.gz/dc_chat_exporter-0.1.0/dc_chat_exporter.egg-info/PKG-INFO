@@ -1,0 +1,86 @@
+Metadata-Version: 2.4
+Name: dc-chat-exporter
+Version: 0.1.0
+Summary: Export Discord chats to beautiful HTML files
+Author: miguel_meier
+License: MIT
+Project-URL: GitHub, https://github.com/miguelmeier/discord-chat-exporter-python
+Keywords: discord,bot,chat-exporter,chat
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: discord.py>=2.0.0
+Requires-Dist: aiohttp>=3.8.0
+
+# Discord Chat Exporter
+
+Ein einfaches Python-Package zum Exportieren von Discord-Chats als HTML-Dateien.
+
+## Installation
+
+```bash
+pip install dc-chat-exporter
+```
+
+## Verwendung
+
+### Mit discord.py
+
+```python
+import discord
+from dc_chat_exporter import export_chat
+
+client = discord.Client(intents=discord.Intents.default())
+
+@client.event
+async def on_ready():
+    channel = client.get_channel(CHANNEL_ID)
+    await export_chat(channel, limit=100)
+    print("Chat exportiert!")
+
+client.run('YOUR_TOKEN')
+```
+
+### Mit py-cord
+
+```python
+import discord
+from dc_chat_exporter import export_chat
+
+bot = discord.Bot()
+
+@bot.slash_command(name="export", description="Exportiert den aktuellen Chat")
+async def export_command(ctx):
+    await ctx.defer()
+    file_path = await export_chat(ctx.channel, limit=100)
+    await ctx.respond(f"Chat wurde exportiert: {file_path}")
+
+bot.run('YOUR_TOKEN')
+```
+
+## Beispiel mit Custom-Dateinamen
+
+```python
+await export_chat(channel, limit=200, output_file="mein_chat_export.html")
+```
+
+## Features
+
+- ✅ Discord Dark Theme Design
+- ✅ Zeigt Avatare, Benutzernamen und Timestamps
+- ✅ Unterstützt Bilder und Anhänge
+- ✅ Unterstützt Embeds
+- ✅ Zeigt Rollenfarben
+- ✅ Nur-Lese-Ansicht (kein Schreiben möglich)
+
+## Lizenz
+
+MIT License - siehe LICENSE Datei

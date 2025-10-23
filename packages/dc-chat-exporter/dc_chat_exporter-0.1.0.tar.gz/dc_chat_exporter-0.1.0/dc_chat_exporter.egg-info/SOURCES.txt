@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+dc_chat_exporter/__init__.py
+dc_chat_exporter/exporter.py
+dc_chat_exporter/template.html
+dc_chat_exporter.egg-info/PKG-INFO
+dc_chat_exporter.egg-info/SOURCES.txt
+dc_chat_exporter.egg-info/dependency_links.txt
+dc_chat_exporter.egg-info/requires.txt
+dc_chat_exporter.egg-info/top_level.txt

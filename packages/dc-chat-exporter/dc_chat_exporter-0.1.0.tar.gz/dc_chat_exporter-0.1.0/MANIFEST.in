@@ -1,0 +1,4 @@
+include dc_chat_exporter/template.html
+include README.md
+include LICENSE
+include requirements.txt
