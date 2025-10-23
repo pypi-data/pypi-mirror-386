@@ -1,0 +1,36 @@
+[CDF-25973] 🙂 Create SourceSystem (#2108)
+
+# Description
+
+**Context**: This is part of the `alpha` migration tooling in Toolkit,
+for overview [see
+here](https://cognitedata.atlassian.net/wiki/spaces/~170890702/pages/5455773697/Migration+Tooling+in+Toolkit).
+This is a new step between 2 and 3.
+
+Before we can migrate assets/event/files/timeseries/sequences, we need
+to have a destination target space as well as CogniteSourceSystems
+created.
+
+<img width="989" height="312" alt="image"
+src="https://github.com/user-attachments/assets/0016082e-4b49-413b-b4a8-ed611d4a0c66"
+/>
+
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Added
+
+- [alpha] This adds `cdf migrate sourec-system` which create
+CogniteSourceSystem from the `source` properties of assets, events, and
+files.
+
+## templates
+
+No changes.
+
+
