@@ -1,0 +1,33 @@
+[project]
+name = "bicfit"
+version = "0.2.0"
+description = "General purpose exponential function fitting"
+keywords = ["fit", "numerics"]
+authors = [
+    {name = "Adrien Bocquet", email = "adrienbocquet38@gmail.com"},
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "scipy>=1.10.0",
+]
+
+[build-system]
+requires = ["uv_build >= 0.8.17, <0.9.0"]
+build-backend = "uv_build"
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.8",
+    "pytest>=8.0",
+    "pytest-ordering",
+    "pytest-sugar",
+    "pytest-xdist",
+]
+
+[project.urls]
+Repository = "https://github.com/abocquet/bicfit"
