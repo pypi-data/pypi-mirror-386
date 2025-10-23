@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+pyupgradecheck/__init__.py
+pyupgradecheck/checker.py
+pyupgradecheck/cli.py
+pyupgradecheck.egg-info/PKG-INFO
+pyupgradecheck.egg-info/SOURCES.txt
+pyupgradecheck.egg-info/dependency_links.txt
+pyupgradecheck.egg-info/entry_points.txt
+pyupgradecheck.egg-info/requires.txt
+pyupgradecheck.egg-info/top_level.txt
+tests/test_basic.py
