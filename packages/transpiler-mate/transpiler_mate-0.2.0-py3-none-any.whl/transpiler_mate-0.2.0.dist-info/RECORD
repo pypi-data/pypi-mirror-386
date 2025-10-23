@@ -1,0 +1,13 @@
+transpiler_mate/__about__.py,sha256=-AbMIm1aAxvw7BW6Dx1gzrcLNzOxLDdqvCckQbkpnXU,289
+transpiler_mate/__init__.py,sha256=jUDJbY5mX4y8IrcVEQNWfMuHxBB4V4vSwY5BLZvz08Y,3042
+transpiler_mate/cli.py,sha256=Ffres8aOjqyugO7VogqpCUoGm81ytn4zcqlOuPkCC0g,2265
+transpiler_mate/invenio.py,sha256=gGDvXz2XhDj63Ezr-B32hRTjVy1y3MixJXM3RyTo1A0,11567
+transpiler_mate/datacite/__init__.py,sha256=rxr4j2J8hCaNSD6Dtq9kQhBITBzvjbOeOMtXUVFCk8Q,3886
+transpiler_mate/datacite/datacite_4_6_models.py,sha256=Wh060szaEngcGZPOgZNqsgbNHyoXHeGmNxMU_TtkFtc,26306
+transpiler_mate/metadata/__init__.py,sha256=E4kEryiJaJvcLKxS-8HoHu9-KQnjoKmLa9rYtOE135U,2363
+transpiler_mate/metadata/software_application_models.py,sha256=SVfB9-6CsHpgrnSGgtlp87l56TQI8a-0aoRxKufk8Qo,430626
+transpiler_mate-0.2.0.dist-info/METADATA,sha256=2e4DpxIUNrdlwdwk3q4XPrejaf8YiQAb3nAN9fG2v08,1499
+transpiler_mate-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+transpiler_mate-0.2.0.dist-info/entry_points.txt,sha256=oLqsIe0T3VSbuDtGCcPnkRQHrdYdLYx8IxJ3Z6eNXMY,61
+transpiler_mate-0.2.0.dist-info/licenses/LICENSE,sha256=S8rOiX8ZLjpr1_V16-hc2-dQbJ5GtK6K2XhuRPhyM3g,18625
+transpiler_mate-0.2.0.dist-info/RECORD,,
