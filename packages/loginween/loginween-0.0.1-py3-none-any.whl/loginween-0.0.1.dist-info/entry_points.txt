@@ -1,0 +1,2 @@
+[console_scripts]
+loginween = loginween.run:main
