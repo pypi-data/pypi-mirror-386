@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/strelix/__init__.py
+src/strelix/__version__.py
+src/strelix/cli.py
+src/strelix.egg-info/PKG-INFO
+src/strelix.egg-info/SOURCES.txt
+src/strelix.egg-info/dependency_links.txt
+src/strelix.egg-info/entry_points.txt
+src/strelix.egg-info/requires.txt
+src/strelix.egg-info/top_level.txt
