@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ProbingMC"
+version = "2.9.0.post2"
+description = "Core tools for crystal structures, CIF/XYZ I/O, and Quantum ESPRESSO input/output"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Andrey Tokarev" }]
+dependencies = [
+  "numpy",
+  "ase"
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/Andrey-Tokarev/probingmc"
+Issues = "https://github.com/Andrey-Tokarev/probingmc/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
