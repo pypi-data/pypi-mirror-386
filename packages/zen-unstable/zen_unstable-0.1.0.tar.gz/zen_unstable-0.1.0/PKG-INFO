@@ -1,0 +1,284 @@
+Metadata-Version: 2.4
+Name: zen-unstable
+Version: 0.1.0
+Summary: Python component registry system - like shadcn/ui for Python
+Author: TheRaj71
+Author-email: theraj71@example.com
+Keywords: components,registry,shadcn,python,cli,zen
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: System :: Software Distribution
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: requests
+Requires-Dist: pydantic
+Requires-Dist: PyYAML
+Requires-Dist: Jinja2
+Requires-Dist: rich
+Requires-Dist: packaging
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# zen-unstable
+
+A Python component registry system inspired by shadcn/ui - install Python components from anywhere.
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+pip install zen-unstable
+```
+
+### Initialize a Project
+
+```bash
+zen init my-project
+cd my-project
+```
+
+### Install Components
+
+```bash
+# Install from any JSON URL
+zen add https://example.com/component.json
+
+# Install from GitHub
+zen add https://github.com/user/repo/component.json
+
+# Install from local file (for testing)
+zen add file:///path/to/component.json
+
+# Install to custom path
+zen add https://example.com/component.json --path src/auth
+```
+
+## 🎯 How It Works
+
+zen-unstable works exactly like shadcn/ui but for Python:
+
+1. **Developers** create components with embedded code in JSON format
+2. **Users** install components directly into their projects from any URL
+3. **Files** are copied into the project with automatic dependency management
+
+## 📦 Component Format
+
+Components are defined in JSON files with embedded Python code:
+
+```json
+{
+  "name": "email-validator",
+  "version": "1.0.0",
+  "description": "Simple email validation utility",
+  "category": "utils",
+  "dependencies": ["email-validator"],
+  "files": [
+    {
+      "name": "validator.py",
+      "path": "src/utils/validator.py",
+      "content": "\"\"\"Email validation utility.\"\"\"\nfrom email_validator import validate_email\n\ndef is_valid_email(email: str) -> bool:\n    try:\n        validate_email(email)\n        return True\n    except:\n        return False"
+    }
+  ]
+}
+```
+
+## 🏗️ Project Structure
+
+zen-unstable creates organized Python projects:
+
+```
+my-project/
+├── .zen/
+│   └── config.yaml    # Project configuration
+├── src/
+│   ├── components/    # General components
+│   ├── utils/         # Utility functions
+│   ├── models/        # Data models
+│   ├── services/      # Business logic
+│   ├── auth/          # Authentication
+│   └── data/          # Data processing
+├── requirements.txt   # Auto-managed dependencies
+└── README.md
+```
+
+## 🔧 CLI Commands
+
+```bash
+# Initialize new project
+zen init [project-name]
+
+# Install component from URL
+zen add <component-url>
+
+# Install to custom path
+zen add <component-url> --path src/custom
+
+# Overwrite existing files
+zen add <component-url> --overwrite
+
+# Dry run (show what would happen)
+zen add <component-url> --dry-run
+
+# Help
+zen --help
+zen add --help
+```
+
+## 📚 Creating Components
+
+### 1. Component Structure
+
+Create a JSON file with your component definition:
+
+```json
+{
+  "name": "my-component",
+  "version": "1.0.0",
+  "description": "What this component does",
+  "category": "utils",
+  "dependencies": ["requests", "pydantic"],
+  "files": [
+    {
+      "name": "main.py",
+      "path": "src/utils/main.py", 
+      "content": "# Your Python code here..."
+    }
+  ]
+}
+```
+
+### 2. Hosting Components
+
+Host your JSON file anywhere:
+
+- **GitHub**: `https://github.com/user/repo/component.json`
+- **GitHub Raw**: `https://raw.githubusercontent.com/user/repo/main/component.json`
+- **Personal Website**: `https://yoursite.com/components/auth.json`
+- **CDN**: `https://cdn.example.com/component.json`
+
+### 3. Sharing Components
+
+Users install with:
+```bash
+zen add https://yoursite.com/path/to/component.json
+```
+
+## 🌟 Features
+
+- **Zero Configuration**: Works out of the box
+- **No Registry Lock-in**: Install from any URL
+- **Automatic Dependencies**: Updates requirements.txt automatically
+- **File Ownership**: Code is copied into your project (you own it)
+- **Flexible Paths**: Install to any directory structure
+- **Rich CLI**: Beautiful terminal interface with progress indicators
+
+## 🎯 Use Cases
+
+### Company Internal Components
+```bash
+zen add https://github.com/company/components/auth/sso.json
+zen add https://github.com/company/components/data/processor.json
+```
+
+### Open Source Components
+```bash
+zen add https://github.com/python-utils/email-validator.json
+zen add https://github.com/ml-components/data-preprocessor.json
+```
+
+### Personal Collections
+```bash
+zen add https://yoursite.com/components/text-utils.json
+zen add https://yoursite.com/components/config-loader.json
+```
+
+## 🔄 Development Workflow
+
+1. **Create** component JSON with embedded Python code
+2. **Host** JSON file on GitHub, website, CDN, etc.
+3. **Share** URL with users
+4. **Users install** with `zen add <your-url>`
+5. **Files copied** directly into user projects
+6. **Dependencies** automatically added to requirements.txt
+
+## 🆚 vs Other Solutions
+
+| Feature | zen-unstable | pip packages | git submodules |
+|---------|--------------|--------------|----------------|
+| **Easy Installation** | ✅ One command | ✅ One command | ❌ Complex setup |
+| **Code Ownership** | ✅ Files in project | ❌ External dependency | ✅ Files in project |
+| **No Registry** | ✅ Any URL | ❌ PyPI only | ✅ Any git repo |
+| **Automatic Deps** | ✅ requirements.txt | ✅ Auto-installed | ❌ Manual |
+| **File Customization** | ✅ Easy to modify | ❌ Hard to modify | ✅ Easy to modify |
+
+## 📖 Examples
+
+### Email Validator Component
+```json
+{
+  "name": "email-validator", 
+  "version": "1.0.0",
+  "description": "Email validation utilities",
+  "category": "utils",
+  "dependencies": ["email-validator"],
+  "files": [
+    {
+      "name": "validator.py",
+      "path": "src/utils/validator.py",
+      "content": "from email_validator import validate_email\n\ndef is_valid_email(email: str) -> bool:\n    try:\n        validate_email(email)\n        return True\n    except:\n        return False"
+    }
+  ]
+}
+```
+
+### JWT Auth Component
+```json
+{
+  "name": "jwt-auth",
+  "version": "2.0.0", 
+  "description": "JWT authentication utilities",
+  "category": "auth",
+  "dependencies": ["PyJWT", "cryptography"],
+  "files": [
+    {
+      "name": "auth.py",
+      "path": "src/auth/jwt.py",
+      "content": "import jwt\n\ndef create_token(payload: dict, secret: str) -> str:\n    return jwt.encode(payload, secret)\n\ndef verify_token(token: str, secret: str) -> dict:\n    return jwt.decode(token, secret, algorithms=['HS256'])"
+    }
+  ]
+}
+```
+
+## 🤝 Contributing
+
+zen-unstable is open source. Contributions welcome!
+
+- **GitHub**: https://github.com/TheRaj71/Zenive-Unstable
+- **Issues**: https://github.com/TheRaj71/Zenive-Unstable/issues
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
+
+---
+
+**zen-unstable** - Python components made simple, inspired by shadcn/ui ✨
