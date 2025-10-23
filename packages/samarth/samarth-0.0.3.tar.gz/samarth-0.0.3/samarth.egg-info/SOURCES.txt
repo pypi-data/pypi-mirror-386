@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+samarth/__init__.py
+samarth/cvdl.py
+samarth.egg-info/PKG-INFO
+samarth.egg-info/SOURCES.txt
+samarth.egg-info/dependency_links.txt
+samarth.egg-info/top_level.txt

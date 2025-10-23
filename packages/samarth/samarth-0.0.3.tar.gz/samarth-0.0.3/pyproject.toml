@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "samarth"
+version = "0.0.3"
+authors = [
+    { name="Samarth Patel", email="samarthnimeshkumarpatel@gmail.com" },
+]
+description = "Enjoy my codes!"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+packages = ["samarth"]
