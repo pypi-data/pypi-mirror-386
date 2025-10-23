@@ -1,0 +1,292 @@
+Metadata-Version: 2.4
+Name: Cython
+Version: 3.2.0b1
+Summary: The Cython compiler for writing C extensions in the Python language.
+Home-page: https://cython.org/
+Author: Robert Bradshaw, Stefan Behnel, David Woods, Greg Ewing, et al.
+Author-email: cython-devel@python.org
+License: Apache-2.0
+Project-URL: Documentation, https://cython.readthedocs.io/
+Project-URL: Donate, https://cython.readthedocs.io/en/latest/src/donating.html
+Project-URL: Source Code, https://github.com/cython/cython
+Project-URL: Bug Tracker, https://github.com/cython/cython/issues/
+Project-URL: User Group, https://groups.google.com/g/cython-users
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: Implementation :: Stackless
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Cython
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Software Development :: Compilers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: project-url
+Dynamic: requires-python
+Dynamic: summary
+
+The Cython language makes writing C extensions for the Python language as
+easy as Python itself.  Cython is a source code translator based on Pyrex_,
+but supports more cutting edge functionality and optimizations.
+
+The Cython language is a superset of the Python language (almost all Python
+code is also valid Cython code), but Cython additionally supports optional
+static typing to natively call C functions, operate with C++ classes and
+declare fast C types on variables and class attributes.  This allows the
+compiler to generate very efficient C code from Cython code.
+
+This makes Cython the ideal language for writing glue code for external
+C/C++ libraries, and for fast C modules that speed up the execution of
+Python code.
+
+The newest Cython release can always be downloaded from https://cython.org/.
+Unpack the tarball or zip file, enter the directory, and then run::
+
+    pip install .
+
+Note that for one-time builds, e.g. for CI/testing, on platforms that are not
+covered by one of the wheel packages provided on PyPI *and* the pure Python wheel
+that we provide is not used, it is substantially faster than a full source build
+to install an uncompiled (slower) version of Cython with::
+
+    NO_CYTHON_COMPILE=true pip install .
+
+.. _Pyrex: https://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/
+
+3.2.0b1 (2025-10-22)
+====================
+
+Features added
+--------------
+
+* Builtin exception types are now inferred.
+  (Github issue https://github.com/cython/cython/issues/6908)
+
+* The list of known, inferred and optimised Python builtins was updated.
+  `range` is now considered a type. `ascii`, `bin`, `format`, `hex`, `oct` were added as functions.
+  (Github issue https://github.com/cython/cython/issues/6931)
+
+* The f-string syntax was extended according to PEP-701.
+  (Github issue https://github.com/cython/cython/issues/5452)
+
+* t-strings are implemented according to PEP-750.  The implementation backports the template classes
+  but prefers existing backports if installed separately.
+  (Github issue https://github.com/cython/cython/issues/6811)
+
+* Unknown return type annotations with `->` are no longer rejected but produce warnings.
+  This allows better integration with Python type hints that are not always usable for Cython.
+  ``-> None``  is also allowed now.
+  Patch by jpe.  (Github issue https://github.com/cython/cython/issues/6946)
+
+* The runtime Python dispatch for fused functions is substantially faster.
+  (Github issues https://github.com/cython/cython/issues/1385, https://github.com/cython/cython/issues/6996)
+
+* Freelists (via cdef class decorator and for internally used types such as ``async``)
+  are now also used in the Limited API and with extension type specs enabled.
+  (Github issue https://github.com/cython/cython/issues/7151)
+
+* Module imports now quickly check for an already imported module to speed up reimports.
+  Patch by Lysandros Nikolaou.  (Github issue https://github.com/cython/cython/issues/7035)
+
+* Type checks on PEP-604 union types (`int | None`) are optimised into separate checks.
+  (Github issue https://github.com/cython/cython/issues/6935)
+
+* Assignments to the PEP-604 union type `float | None` allow any suitable Python number as input
+  and convert it to a Python `float` automatically.
+  (Github issue https://github.com/cython/cython/issues/5750)
+
+* Item type inference was improved for looping over literals.
+  (Github issue https://github.com/cython/cython/issues/6912)
+
+* Looping over literal sequences and strings now uses efficient C array looping if possible.
+  (Github issue https://github.com/cython/cython/issues/6926)
+
+* Releasing the GIL from an unknown lock state is more efficient.
+  (Github issue https://github.com/cython/cython/issues/6847)
+
+* ``cython.critical_section(PyMutex)`` now works, as with Python objects.
+  (Github issue https://github.com/cython/cython/issues/6847)
+
+* ``bool(c_int/float/ptr)`` avoid passing through Python objects.
+  (Github issue https://github.com/cython/cython/issues/7015)
+
+* Variables assigned inside of ``prange`` loops can now be initialised outside of the loop.
+  (Github issue https://github.com/cython/cython/issues/7178)
+
+* Unused exceptions in ``except`` clauses are detected in some more cases to avoid their normalisation.
+  (Github issue https://github.com/cython/cython/issues/7021)
+
+* Mixed operations on C integers with Python ints use less code and are more streamlined for Py3.12+.
+  (Github issue https://github.com/cython/cython/issues/7244)
+
+* Some object constants are now marked as ``immortal`` to speed up their reference counting
+  in recent CPython versions.  This can be configured with the ``CYTHON_IMMORTAL_CONSTANTS`` C macro.
+  (Github issue https://github.com/cython/cython/issues/7118)
+
+* Further improvements were made to reduce the size of the resulting extension modules.
+  (Github issue https://github.com/cython/cython/issues/6983, https://github.com/cython/cython/issues/7199, https://github.com/cython/cython/issues/7220, https://github.com/cython/cython/issues/7238)
+
+* Several improvements were made in freethreaded Python code.
+  (Github issues https://github.com/cython/cython/issues/6936, https://github.com/cython/cython/issues/6939, https://github.com/cython/cython/issues/6949, https://github.com/cython/cython/issues/6984,
+  https://github.com/cython/cython/issues/7011, https://github.com/cython/cython/issues/7066, https://github.com/cython/cython/issues/7114, https://github.com/cython/cython/issues/7200)
+
+* Several improvements were made for the Limited API.
+  (Github issues https://github.com/cython/cython/issues/6959, https://github.com/cython/cython/issues/6991)
+
+* Several improvements were made for the GraalPython support.
+  Patch by Michael Šimáček.  (Github issue https://github.com/cython/cython/issues/7074)
+
+* Some GIL-safe C-API wrappers were added to the libc/libcpp declarations.
+  (Github issue https://github.com/cython/cython/issues/6829, https://github.com/cython/cython/issues/6993)
+
+* String and number constants use less storage space in the module.
+  (Github issues https://github.com/cython/cython/issues/6971, https://github.com/cython/cython/issues/6978, https://github.com/cython/cython/issues/6986)
+
+* The managed dict/weakref support in CPython 3.12+ is used for internal types
+  to benefit from future CPython optimisations here.
+  (Github issue https://github.com/cython/cython/issues/6891)
+
+* Using ``NaN`` as exception return value is supported.
+  (Github issues https://github.com/cython/cython/issues/6900, https://github.com/cython/cython/issues/6903)
+
+* Declarations for C++ condition variables were added.
+  (Github issue https://github.com/cython/cython/issues/6836)
+
+* The annotated source HTML page shows alternating +/− markers to open/close lines.
+  Patch by Kamil Monicz.  (Github issue https://github.com/cython/cython/issues/7099)
+
+* ``cython --embed`` gained a new option ``--embed-modules=…`` to list further extension modules
+  that will be statically linked into the generated extension module, to get them initialised
+  on application start.
+  (Github issue https://github.com/cython/cython/issues/2849)
+
+* The ``setup.py`` script of Cython now allows passing the desired Limited API version
+  like ``--cython-limited-api=3.11``.
+  (Github issue https://github.com/cython/cython/issues/7228)
+
+* Unicode 16.0.0 is used to parse identifiers.
+  (Github issue https://github.com/cython/cython/issues/6836)
+
+Bugs fixed
+----------
+
+* Special float exception values could generate invalid C code.
+  (Github issues https://github.com/cython/cython/issues/6900, https://github.com/cython/cython/issues/6903)
+
+* References to the Python ``bool`` type could generate invalid C code.
+  (Github issue https://github.com/cython/cython/issues/6902)
+
+* Unicode characters formatted from C integers with ``f"{value:c}"`` could result in
+  invalid Python string objects since Cython 3.1.0.
+  (Github issue https://github.com/cython/cython/issues/7240)
+
+* Vectorcalls could use needless temp assignments for ``self``.
+  (Github issue https://github.com/cython/cython/issues/6909)
+
+* Iterating over temporary memoryviews could crash Cython.
+  (Github issue https://github.com/cython/cython/issues/7005)
+
+* Type casts on constants as part of numeric expressions could crash Cython.
+  (Github issue https://github.com/cython/cython/issues/6779)
+
+* Long code bodies in ``with`` statements could crash Cython.
+  (Github issue https://github.com/cython/cython/issues/7122)
+
+* Indexing ``bytes`` failed to optimise in some cases.
+  (Github issue https://github.com/cython/cython/issues/6997)
+
+* Optimised C integer formatting in f-strings failed to apply to typedef types.
+  (Github issue https://github.com/cython/cython/issues/7170)
+
+* In auto-pickling, trying to unpickle an object that has no ``__dict__`` from object pickle data
+  that includes instance dict state is now an error.
+  (Github issue https://github.com/cython/cython/issues/7222)
+
+* The type objects of heap types were not always correctly decrefed on deallocation.
+  (Github issue https://github.com/cython/cython/issues/7145)
+
+* Pure mode type aliases like ``p_int`` or ``ulong`` leaked into some C type contexts,
+  risking to conflict with user declarations.
+  (Github issues https://github.com/cython/cython/issues/6922, https://github.com/cython/cython/issues/6339)
+
+* Boolean (emptyness) tests on builtin containers could fail to handle (unlikely) errors.
+  (Github issue https://github.com/cython/cython/issues/7090)
+
+* The return type of ``bytes.join()`` was sometimes inferred as plain ``object``.
+  (Github issue https://github.com/cython/cython/issues/6987)
+
+* Type inference could fail to understand ``prange()`` arguments.
+  (Github issue https://github.com/cython/cython/issues/6974)
+
+* ``embedsignatures`` failed if ``lambda`` was used in function default arguments.
+  (Github issue https://github.com/cython/cython/issues/6880)
+
+* An internal C function was not marked as ``static`` and leaked a linker symbol.
+  (Github issue https://github.com/cython/cython/issues/6957)
+
+* ``PyType_FromModuleAndSpec`` was incorrectly used in Limited API code before Py3.10.
+  (Github issue https://github.com/cython/cython/issues/7181)
+
+* Conversion code for memoryview dtypes from and to Python objects generated C warnings about
+  incorrect ``const`` / non-``const``  casting code.
+  (Github issue https://github.com/cython/cython/issues/7219)
+
+* ``cythonize`` (program and function) now uses ``concurrent.futures.ProcessPoolExecutor``
+  instead of ``multiprocessing.Pool`` to fix a hang on build failures in parallel builds.
+  A possible work-around is to disable parallel builds.
+  Patch by Sviatoslav Sydorenko.  (Github issue https://github.com/cython/cython/issues/7183)
+
+* Cython's tools and frontend scripts now use ``python3``  instead of just ``python``
+  in their shebang line.
+  Patch by Matti Picus.  (Github issue https://github.com/cython/cython/issues/7053)
+
+* The ``setup.py`` script in the ``Demos/`` subdirectory failed to build.
+  (Github issue https://github.com/cython/cython/issues/7228)
+
+* Includes all fixes as of Cython 3.1.5.
+
+3.1.5 (2025-10-20):
+
+* Conversion from C++ strings longer than ``PY_SSIZE_T_MAX`` did not validate the length.
+
+* Some non-Limited API code was incorrectly used in generated header files.
+  (Github issue https://github.com/cython/cython/issues/7157)
+
+* Optimised unpacking of Python integers in expressions uses a slightly safer scheme.
+  (Github issue https://github.com/cython/cython/issues/7134)
+
+* Empty return statements were not always reported when tracing.
+  (Github issue https://github.com/cython/cython/issues/7022)
+
+* Value conversion errors when tracing C return statements no longer fail the trace
+  but fall back to reporting ``None`` returns instead.
+  (Github issue https://github.com/cython/cython/issues/6503)
+
+Other changes
+-------------
+
+* Usages of `Py_TPFLAGS_HAVE_FINALIZE` were removed.  The constant remains available as cimport from
+  ``cpython.object`` for legacy reasons.
+  (Github issue https://github.com/cython/cython/issues/6423)
