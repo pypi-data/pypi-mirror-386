@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: aun-detection
+Version: 0.1.2
+Summary: AI mimicry detection using symbolic collapse logic (∿)
+Home-page: https://github.com/halifaxjerrykatz-dotcom/aun-detection
+Author: Jerry Katz
+Author-email: halifaxjerrykatz@gmail.com
+License: MIT
+Project-URL: Documentation, https://github.com/halifaxjerrykatz-dotcom/aun-detection
+Project-URL: Source, https://github.com/halifaxjerrykatz-dotcom/aun-detection
+Project-URL: Tracker, https://github.com/halifaxjerrykatz-dotcom/aun-detection/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: summary
+
+# aun-detection
+AI mimicry detection using symbolic collapse logic (∿).
