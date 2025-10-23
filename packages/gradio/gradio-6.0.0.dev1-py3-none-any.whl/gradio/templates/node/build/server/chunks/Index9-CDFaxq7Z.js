@@ -1,0 +1,20 @@
+import { c as create_ssr_component, b as createEventDispatcher, v as validate_component } from './ssr-C3HYbsxA.js';
+import { I as It, E as Et, Z as Ze } from './2-BcuNmVBB.js';
+import Gt from './Gallery-D0dafI4P.js';
+import { BaseFileUpload as lt } from './Index10-Ca0mRLj6.js';
+export { default as BaseExample } from './Example2-DF9c7LSI.js';
+import './index-ClteBeTX.js';
+import './Component-NmRBwSfF.js';
+import 'path';
+import 'url';
+import 'fs';
+import './ModifyUpload-DlGngGby.js';
+import './Video-BOxlhE7M.js';
+import './hls-DpKhbIaL.js';
+import './index8-DWEiEAhs.js';
+import './Example15-QUrFCQ6n.js';
+
+const Y=create_ssr_component((o,e,l,N)=>{let D,{loading_status:x}=e,{show_label:s}=e,{label:r}=e,{root:m}=e,{elem_id:y=""}=e,{elem_classes:n=[]}=e,{visible:B=!0}=e,{value:i=null}=e,{file_types:h=["image","video"]}=e,{container:j=!0}=e,{scale:U=null}=e,{min_width:z=void 0}=e,{columns:k=[2]}=e,{rows:G=void 0}=e,{height:v="auto"}=e,{preview:S}=e,{allow_preview:T=!0}=e,{selected_index:d=null}=e,{object_fit:E="cover"}=e,{buttons:f=null}=e,{interactive:w}=e,{gradio:a}=e,{fullscreen:c=!1}=e,{fit_columns:F=!0}=e;const O=createEventDispatcher();e.loading_status===void 0&&l.loading_status&&x!==void 0&&l.loading_status(x),e.show_label===void 0&&l.show_label&&s!==void 0&&l.show_label(s),e.label===void 0&&l.label&&r!==void 0&&l.label(r),e.root===void 0&&l.root&&m!==void 0&&l.root(m),e.elem_id===void 0&&l.elem_id&&y!==void 0&&l.elem_id(y),e.elem_classes===void 0&&l.elem_classes&&n!==void 0&&l.elem_classes(n),e.visible===void 0&&l.visible&&B!==void 0&&l.visible(B),e.value===void 0&&l.value&&i!==void 0&&l.value(i),e.file_types===void 0&&l.file_types&&h!==void 0&&l.file_types(h),e.container===void 0&&l.container&&j!==void 0&&l.container(j),e.scale===void 0&&l.scale&&U!==void 0&&l.scale(U),e.min_width===void 0&&l.min_width&&z!==void 0&&l.min_width(z),e.columns===void 0&&l.columns&&k!==void 0&&l.columns(k),e.rows===void 0&&l.rows&&G!==void 0&&l.rows(G),e.height===void 0&&l.height&&v!==void 0&&l.height(v),e.preview===void 0&&l.preview&&S!==void 0&&l.preview(S),e.allow_preview===void 0&&l.allow_preview&&T!==void 0&&l.allow_preview(T),e.selected_index===void 0&&l.selected_index&&d!==void 0&&l.selected_index(d),e.object_fit===void 0&&l.object_fit&&E!==void 0&&l.object_fit(E),e.buttons===void 0&&l.buttons&&f!==void 0&&l.buttons(f),e.interactive===void 0&&l.interactive&&w!==void 0&&l.interactive(w),e.gradio===void 0&&l.gradio&&a!==void 0&&l.gradio(a),e.fullscreen===void 0&&l.fullscreen&&c!==void 0&&l.fullscreen(c),e.fit_columns===void 0&&l.fit_columns&&F!==void 0&&l.fit_columns(F);let _,I,q=o.head;do _=!0,o.head=q,D=i===null?!0:i.length===0,O("prop_change",{selected_index:d}),I=`${validate_component(It,"Block").$$render(o,{visible:B,variant:"solid",padding:!1,elem_id:y,elem_classes:n,container:j,scale:U,min_width:z,allow_overflow:!1,height:typeof v=="number"?v:void 0,fullscreen:c},{fullscreen:t=>{c=t,_=!1;}},{default:()=>`${validate_component(Et,"StatusTracker").$$render(o,Object.assign({},{autoscroll:a.autoscroll},{i18n:a.i18n},x),{},{})} ${w&&D?`${validate_component(lt,"BaseFileUpload").$$render(o,{value:null,root:m,label:r,max_file_size:a.max_file_size,file_count:"multiple",file_types:h,i18n:a.i18n,upload:(...t)=>a.client.upload(...t),stream_handler:(...t)=>a.client.stream(...t)},{},{default:()=>`${validate_component(Ze,"UploadText").$$render(o,{i18n:a.i18n,type:"gallery"},{},{})}`})}`:`${validate_component(Gt,"Gallery").$$render(o,{label:r,show_label:s,columns:k,rows:G,height:v,preview:S,object_fit:E,interactive:w,allow_preview:T,show_share_button:f?.includes("share")??!0,show_download_button:f?.includes("download")??!0,fit_columns:F,i18n:a.i18n,_fetch:(...t)=>a.client.fetch(...t),show_fullscreen_button:f?.includes("fullscreen")??!0,fullscreen:c,root:m,file_types:h,max_file_size:a.max_file_size,upload:(...t)=>a.client.upload(...t),stream_handler:(...t)=>a.client.stream(...t),selected_index:d,value:i},{selected_index:t=>{d=t,_=!1;},value:t=>{i=t,_=!1;}},{})}`}`})}`;while(!_);return I});
+
+export { Gt as BaseGallery, Y as default };
+//# sourceMappingURL=Index9-CDFaxq7Z.js.map
