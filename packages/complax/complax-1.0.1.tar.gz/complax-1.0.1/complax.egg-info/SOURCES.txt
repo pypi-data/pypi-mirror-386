@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+complax/__init__.py
+complax/complax.py
+complax.egg-info/PKG-INFO
+complax.egg-info/SOURCES.txt
+complax.egg-info/dependency_links.txt
+complax.egg-info/entry_points.txt
+complax.egg-info/requires.txt
+complax.egg-info/top_level.txt
+examples/meli.xyz
+examples/thf.xyz
