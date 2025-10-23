@@ -1,0 +1,33 @@
+[project]
+name = "weakincentives"
+version = "0.1.0"
+description = "Tools for developing and optimizing side effect free background agents"
+readme = "README.md"
+authors = [
+    { name = "Andrei Savu", email = "andrei@weakincentives.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.14.1",
+    "ty>=0.0.1a23",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+addopts = "--cov=src/weakincentives --cov-report=term-missing --cov-fail-under=80"
