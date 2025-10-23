@@ -1,0 +1,3 @@
+[console_scripts]
+mcio = mcio_ctrl.scripts.mcio_cmd:main
+
