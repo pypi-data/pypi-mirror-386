@@ -1,0 +1,29 @@
+Block 19744623:
+  Event 0: SmartContractModule::RentContractCanceled
+    Attributes: {'contract_id': 1388222}
+------------------------------
+Block 19744447:
+  Event 0: SmartContractModule::ContractUpdated
+    Attributes: {'version': 4, 'state': 'Created', 'contract_id': 1519890, 'twin_id': 15073, 'contract_type': {'NodeContract': {'node_id': 6577, 'deployment_hash': '0x3632383766633535303565316538386264346238623931663566306130363538', 'deployment_data': '{"version":3,"type":"network","name":"kc2cloud746net","projectName":"kc2cloud746"}', 'public_ips': 0, 'public_ips_list': []}}, 'solution_provider_id': None}
+------------------------------
+Block 19738195:
+  Event 0: SmartContractModule::NameContractCanceled
+    Attributes: {'contract_id': 1517207}
+------------------------------
+Block 19741831:
+  Event 0: SmartContractModule::NodeContractCanceled
+    Attributes: {'contract_id': 1519098, 'node_id': 23, 'twin_id': 64}
+------------------------------
+Block 19741825:
+  Event 0: SmartContractModule::ContractCreated
+    Attributes: {'version': 4, 'state': 'Created', 'contract_id': 1519098, 'twin_id': 64, 'contract_type': {'NodeContract': {'node_id': 23, 'deployment_hash': '0x6637643330613665343435336439323132653534613166393862313935333635', 'deployment_data': '{"version":3,"type":"vm","name":"qsfs_64_data_23","projectName":"vm/qsfs_64_data_23"}', 'public_ips': 0, 'public_ips_list': []}}, 'solution_provider_id': None}
+------------------------------
+Block 19735189:
+  Event 0: SmartContractModule::UpdatedUsedResources
+    Attributes: {'contract_id': 35550, 'used': {'hru': 0, 'sru': 0, 'cru': 0, 'mru': 0}}
+------------------------------
+  Event 13: SmartContractModule::ContractBilled
+    Attributes: {'contract_id': 1445320, 'timestamp': 1759361328, 'discount_level': 'Gold', 'amount_billed': 10183100}
+------------------------------
+  Event 6: SmartContractModule::NruConsumptionReportReceived
+    Attributes: {'contract_id': 1247401, 'timestamp': 1759452145, 'window': 3600, 'nru': 6186610}
