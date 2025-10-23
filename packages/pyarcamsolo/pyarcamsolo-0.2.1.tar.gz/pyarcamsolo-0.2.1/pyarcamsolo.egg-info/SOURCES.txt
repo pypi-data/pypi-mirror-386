@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+pyarcamsolo/__init__.py
+pyarcamsolo/_version.py
+pyarcamsolo/commands.py
+pyarcamsolo/params.py
+pyarcamsolo/parser.py
+pyarcamsolo/util.py
+pyarcamsolo.egg-info/PKG-INFO
+pyarcamsolo.egg-info/SOURCES.txt
+pyarcamsolo.egg-info/dependency_links.txt
+pyarcamsolo.egg-info/entry_points.txt
+pyarcamsolo.egg-info/requires.txt
+pyarcamsolo.egg-info/top_level.txt
