@@ -1,0 +1,240 @@
+Metadata-Version: 2.2
+Name: fenics-basix
+Version: 0.10.0
+Summary: Basix Python interface
+Author: FEniCS Steering Council
+Author-Email: Unknown <fenics-steering-council@googlegroups.com>
+License: MIT License
+         
+         Copyright (c) 2020 FEniCS Project
+         
+         Permission is hereby granted, free of charge, to any person obtaining a copy
+         of this software and associated documentation files (the "Software"), to deal
+         in the Software without restriction, including without limitation the rights
+         to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+         copies of the Software, and to permit persons to whom the Software is
+         furnished to do so, subject to the following conditions:
+         
+         The above copyright notice and this permission notice shall be included in all
+         copies or substantial portions of the Software.
+         
+         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+         IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+         FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+         AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+         SOFTWARE.
+         
+Project-URL: homepage, https://fenicsproject.org
+Project-URL: repository, https://github.com/fenics/basix.git
+Project-URL: documentation, https://docs.fenicsproject.org
+Requires-Python: >=3.10
+Requires-Dist: numpy>=1.21
+Provides-Extra: docs
+Requires-Dist: markdown; extra == "docs"
+Requires-Dist: pylit3; extra == "docs"
+Requires-Dist: pyyaml; extra == "docs"
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: sphinx_rtd_theme; extra == "docs"
+Provides-Extra: lint
+Requires-Dist: ruff; extra == "lint"
+Provides-Extra: optional
+Requires-Dist: numba; extra == "optional"
+Requires-Dist: fenics-ufl<2025.3.0,>=2025.2.0; extra == "optional"
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: sympy; extra == "test"
+Requires-Dist: scipy; extra == "test"
+Requires-Dist: matplotlib; extra == "test"
+Requires-Dist: fenics-basix[optional]; extra == "test"
+Provides-Extra: ci
+Requires-Dist: mypy; extra == "ci"
+Requires-Dist: pytest-xdist; extra == "ci"
+Requires-Dist: fenics-basix[docs,lint,optional,test]; extra == "ci"
+Description-Content-Type: text/markdown
+
+# Basix
+
+[![Basix CI](https://github.com/FEniCS/basix/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/FEniCS/basix/actions/workflows/pythonapp.yml)
+[![Spack install](https://github.com/FEniCS/basix/actions/workflows/spack.yml/badge.svg)](https://github.com/FEniCS/basix/actions/workflows/spack.yml)
+[![DefElement verification](https://defelement.org/badges/basix.ufl.svg)](https://defelement.org/verification/basix.ufl.html)
+
+Basix is a finite element definition and tabulation runtime library.
+Basix allows users to:
+
+- evaluate finite element basis functions and their derivatives at a set
+  of points;
+- access geometric and topological information about reference cells;
+- apply push forward and pull back operations to map data between a
+  reference cell and a physical cell;
+- permute and transform DOFs to allow higher-order elements to be use on
+  arbitrary meshes; and
+- interpolate into and between finite element spaces.
+
+Basix includes a range of built-in elements, and also allows the user to
+define their own custom elements.
+
+Basix is one of the components of FEniCSx, alongside
+[UFL](https://github.com/fenics/ufl),
+[FFCx](https://github.com/fenics/ffcx), and
+[DOLFINx](https://github.com/fenics/dolfinx).
+
+
+## Installation
+
+To install Basix:
+```console
+pip install fenics-basix
+```
+We currently build binary wheels for Python 3.8 to 3.12 for Linux 
+(x86-64, aarch64), macOS (x86-64, arm64) and Windows (x86-64).
+
+For advanced and developer installation instructions see the more
+detailed [install instructions](INSTALL.md)
+
+
+## Documentation
+
+Documentation of Basix can be found at
+https://docs.fenicsproject.org/basix/main/.
+
+
+## Support
+
+If you find a bug in Basix, you can report it on the [GitHub issue
+tracker](https://github.com/fenics/basix/issues/new?labels=bug).
+
+Questions about using Basix can be asked on the [FEniCS discourse
+group](https://fenicsproject.discourse.group/).
+
+
+## Contributing
+
+Information about how to contribute to Basix can be found
+[here](CONTRIBUTING.md).
+
+## Supported elements
+
+### Interval
+
+In Basix, the sub-entities of the reference interval are numbered as
+follows:
+
+![The numbering of a reference interval](joss/img/interval_numbering.png)
+
+The following elements are supported on an interval:
+
+  - [Lagrange](https://defelement.org/elements/lagrange.html)
+  - [Bubble](https://defelement.org/elements/bubble.html)
+  - [Serendipity](https://defelement.org/elements/serendipity.html)
+  - [Hermite](https://defelement.org/elements/hermite.html)
+  - [iso](https://defelement.org/elements/p1-iso-p2.html)
+
+
+### Triangle
+
+In Basix, the sub-entities of the reference triangle are numbered as
+follows:
+
+![The numbering of a reference triangle](joss/img/triangle_numbering.png)
+
+The following elements are supported on a triangle:
+
+  - [Lagrange](https://defelement.org/elements/lagrange.html)
+  - [Nédélec first kind](https://defelement.org/elements/nedelec1.html)
+  - [Raviart-Thomas](https://defelement.org/elements/raviart-thomas.html)
+  - [Nédélec second kind](https://defelement.org/elements/nedelec2.html)
+  - [Brezzi-Douglas-Marini](https://defelement.org/elements/brezzi-douglas-marini.html)
+  - [Regge](https://defelement.org/elements/regge.html)
+  - [Hellan-Herrmann-Johnson](https://defelement.org/elements/hellan-hermann-johnson.html)
+  - [Crouzeix-Raviart](https://defelement.org/elements/crouzeix-raviart.html)
+  - [Bubble](https://defelement.org/elements/bubble.html)
+  - [Hermite](https://defelement.org/elements/hermite.html)
+  - [iso](https://defelement.org/elements/p1-iso-p2.html)
+
+
+### Quadrilateral
+
+In Basix, the sub-entities of the reference quadrilateral are numbered
+as follows:
+
+![The numbering of a reference quadrilateral](joss/img/quadrilateral_numbering.png)
+
+The following elements are supported on a quadrilateral:
+
+  - [Lagrange](https://defelement.org/elements/lagrange.html)
+  - [Nédélec first kind](https://defelement.org/elements/nedelec1.html)
+  - [Raviart-Thomas](https://defelement.org/elements/qdiv.html)
+  - [Nédélec second kind](https://defelement.org/elements/scurl.html)
+  - [Brezzi-Douglas-Marini](https://defelement.org/elements/sdiv.html)
+  - [Crouzeix-Raviart](https://defelement.org/elements/rannacher-turek.html)
+  - [Bubble](https://defelement.org/elements/bubble.html)
+  - [DPC](https://defelement.org/elements/dpc.html)
+  - [Serendipity](https://defelement.org/elements/serendipity.html)
+  - [iso](https://defelement.org/elements/p1-iso-p2.html)
+
+
+### Tetrahedron
+
+In Basix, the sub-entities of the reference tetrahedron are numbered as
+follows:
+
+![The numbering of a reference tetrahedron](joss/img/tetrahedron_numbering.png)
+
+The following elements are supported on a tetrahedron:
+
+  - [Lagrange](https://defelement.org/elements/lagrange.html)
+  - [Nédélec first kind](https://defelement.org/elements/nedelec1.html)
+  - [Raviart-Thomas](https://defelement.org/elements/raviart-thomas.html)
+  - [Nédélec second kind](https://defelement.org/elements/nedelec2.html)
+  - [Brezzi-Douglas-Marini](https://defelement.org/elements/brezzi-douglas-marini.html)
+  - [Regge](https://defelement.org/elements/regge.html)
+  - [Crouzeix-Raviart](https://defelement.org/elements/crouzeix-raviart.html)
+  - [Bubble](https://defelement.org/elements/bubble.html)
+  - [Hermite](https://defelement.org/elements/hermite.html)
+  - [iso](https://defelement.org/elements/p1-iso-p2.html)
+
+
+### Hexahedron
+
+In Basix, the sub-entities of the reference hexahedron are numbered as
+follows:
+
+![The numbering of a reference hexahedron](joss/img/hexahedron_numbering.png)
+
+The following elements are supported on a hexahedron:
+
+  - [Lagrange](https://defelement.org/elements/lagrange.html)
+  - [Nédélec first kind](https://defelement.org/elements/nedelec1.html)
+  - [Raviart-Thomas](https://defelement.org/elements/qdiv.html)
+  - [Nédélec second kind](https://defelement.org/elements/scurl.html)
+  - [Brezzi-Douglas-Marini](https://defelement.org/elements/sdiv.html)
+  - [Bubble](https://defelement.org/elements/bubble.html)
+  - [DPC](https://defelement.org/elements/dpc.html)
+  - [Serendipity](https://defelement.org/elements/serendipity.html)
+  - [iso](https://defelement.org/elements/p1-iso-p2.html)
+
+
+### Prism
+
+In Basix, the sub-entities of the reference prism are numbered as
+follows:
+
+![The numbering of a reference prism](joss/img/prism_numbering.png)
+
+The following elements are supported on a prism:
+
+  - [Lagrange](https://defelement.org/elements/lagrange.html)
+
+
+### Pyramid
+
+In Basix, the sub-entities of the reference pyramid are numbered as
+follows:
+
+![The numbering of a reference pyramid](joss/img/pyramid_numbering.png)
+
+The following elements are supported on a pyramid:
+
+  - [Lagrange](https://defelement.org/elements/lagrange.html)
