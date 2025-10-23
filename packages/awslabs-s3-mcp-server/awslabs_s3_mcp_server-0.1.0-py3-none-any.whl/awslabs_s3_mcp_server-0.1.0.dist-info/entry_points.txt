@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-s3-mcp-server = awslabs_s3_mcp_server.main:main
