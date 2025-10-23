@@ -1,0 +1,199 @@
+# AI助手测试用例生成规则
+
+## 🎯 核心规则
+
+当我需要生成或修改任何测试用例时，必须严格遵循以下规则：
+
+### 1. 强制性文档注释
+- **每个测试函数都必须包含完整的标准化注释**
+- **此文档就是权威标准**
+- **不允许生成没有文档注释的测试函数**
+
+### 2. 必需的注释字段
+所有测试函数必须包含以下字段：
+```go
+// @TestCase: [必填] 测试用例名称
+// @Description: [必填] 详细测试描述
+// @Scenario: [必填] 测试场景
+// @Given: [必填] 前置条件
+// @When: [必填] 执行操作
+// @Then: [必填] 期望结果
+// @Mocks: [必填] 描述测试中使用的Mock对象
+// @Category: [必填] unit/integration/e2e
+// @Priority: [必填] high/medium/low
+// @Tags: [推荐] 相关标签
+// @Author: [必填] <sombody> (默认)
+// @Created: [必填] 当前日期 YYYY-MM-DD
+// @Updated: [必填] 当前日期 YYYY-MM-DD
+```
+
+### 3. 分类标准
+- `unit`: 单元测试 - 测试单个函数或方法
+- `integration`: 集成测试 - 测试模块间交互
+- `e2e`: 端到端测试 - 测试完整流程
+
+### 4. 优先级标准
+- `high`: 核心功能、安全相关、关键路径
+- `medium`: 重要功能、常用场景
+- `low`: 边界情况、优化功能
+
+### 5. 常用标签
+- `auth`: 认证授权
+- `database`: 数据库操作
+- `api`: API接口
+- `security`: 安全相关
+- `performance`: 性能测试
+- `edge-case`: 边界情况
+- `error-handling`: 错误处理
+- `concurrency`: 并发测试
+- `mock`: 使用Mock对象的测试
+
+### 6. Mock 对象说明
+当测试中使用Mock对象时，必须在 `@Mocks` 字段中详细说明：
+
+#### Mock 类型
+- **外部服务**: HTTP客户端、gRPC服务、第三方API
+- **数据层**: 数据库连接、Repository、DAO对象
+- **依赖组件**: 文件系统、缓存、消息队列
+- **时间相关**: 时间获取、定时器、计时器
+- **系统调用**: 操作系统 API、环境变量
+
+#### Mock 描述格式
+```
+@Mocks: [Mock类型] - [Mock对象名称]: [Mock行为描述]; [Mock类型] - [Mock对象名称]: [Mock行为描述]
+```
+
+#### Mock 示例
+```go
+// @Mocks: 数据层 - mockUserRepo: 返回模拟用户数据和查询错误; 外部服务 - mockEmailService: 模拟邮件发送成功和失败场景
+```
+
+## 📝 生成模板
+
+### 单元测试模板
+```go
+// Test[FunctionName] 测试[功能描述]
+// @TestCase: [测试用例名称]
+// @Description: [详细描述测试的目的和范围]
+// @Scenario: [具体的测试场景]
+// @Given: [前置条件和输入数据]
+// @When: [执行的具体操作]
+// @Then: [期望的结果和验证点]
+// @Mocks: [可选] [如果使用Mock对象，在此描述]
+// @Category: unit
+// @Priority: [high/medium/low]
+// @Tags: [相关标签，用逗号分隔]
+// @Author: <sombody> 
+// @Created: [YYYY-MM-DD]
+// @Updated: [YYYY-MM-DD]
+func Test[FunctionName](t *testing.T) {
+    // 测试实现
+}
+```
+
+### 子测试模板
+```go
+// @SubTest: [子测试名称]
+// @Description: [子测试描述]
+// @Input: [输入参数或数据]
+// @Expected: [期望的结果]
+t.Run("[test_name]", func(t *testing.T) {
+    // 子测试实现
+})
+```
+
+## 🔍 质量检查规则
+
+生成测试后，我必须确保：
+
+1. **文档完整性**: 所有必需字段都已填写
+2. **逻辑清晰**: Given-When-Then 逻辑链条完整
+3. **分类正确**: Category 和 Priority 设置合理
+4. **标签准确**: Tags 反映测试的真实关注点
+5. **命名规范**: 函数名和子测试名清晰易懂
+
+## 🚫 严格禁止
+
+1. **不得生成没有文档注释的测试函数**
+2. **不得省略任何必需的注释字段**
+3. **不得使用不规范的注释格式**
+4. **不得使用未定义的Category或Priority值**
+
+## 🔄 工作流程
+
+每次生成测试时，我会：
+
+1. **分析需求**: 理解要测试的功能
+2. **确定分类**: 判断是unit/integration/e2e
+3. **设定优先级**: 基于功能重要性确定priority
+4. **编写文档**: 填写完整的标准化注释
+5. **实现测试**: 编写测试逻辑
+6. **自检验证**: 确保符合所有规则
+
+## 📋 检查清单
+
+生成每个测试函数后，我会检查：
+
+- [ ] 包含完整的标准化注释
+- [ ] 所有必需字段都已填写
+- [ ] Category值正确 (unit/integration/e2e)
+- [ ] Priority值正确 (high/medium/low)
+- [ ] Given-When-Then逻辑完整
+- [ ] 函数名和描述一致
+- [ ] 标签设置合理
+- [ ] 日期格式正确 (YYYY-MM-DD)
+
+## 💡 最佳实践
+
+1. **测试名称**: 使用动词+名词的形式，如 TestUserAuthentication
+2. **描述详细**: Description字段要详细说明测试范围和目的
+3. **场景具体**: Scenario要描述具体的业务场景
+4. **条件清晰**: Given-When-Then要形成完整的逻辑链
+5. **标签精准**: 选择最相关的3-5个标签
+6. **Mock说明**: 当使用Mock时，清楚说明Mock的行为和预期
+
+### Mock 使用最佳实践
+
+#### 1. Mock 描述要具体
+❌ **不好的例子**:
+```go
+// @Mocks: mockDB
+```
+
+✅ **好的例子**:
+```go
+// @Mocks: 数据层 - mockUserRepo: 返回特定用户ID的用户数据，模拟查询成功场景; 数据层 - mockUserRepo: 在无效ID时返回NotFound错误
+```
+
+#### 2. 明确 Mock 的行为
+应该说明Mock对象的具体行为：
+- **返回值**: Mock会返回什么数据
+- **错误场景**: Mock如何模拟错误情况
+- **调用次数**: 是否验证调用次数
+- **参数验证**: 是否验证传入参数
+
+#### 3. Mock 分类示例
+
+**外部服务 Mock**:
+```go
+// @Mocks: 外部服务 - mockHTTPClient: 模拟HTTP请求返回200状态码和JSON响应; 外部服务 - mockHTTPClient: 模拟网络超时错误
+```
+
+**数据层 Mock**:
+```go
+// @Mocks: 数据层 - mockUserRepository: 返回用户列表和分页信息; 数据层 - mockDB: 模拟数据库连接错误
+```
+
+**依赖组件 Mock**:
+```go
+// @Mocks: 依赖组件 - mockFileSystem: 模拟文件读取成功返回内容; 依赖组件 - mockCache: 模拟缓存命中和未命中场景
+```
+
+**时间相关 Mock**:
+```go
+// @Mocks: 时间相关 - mockClock: 固定时间为2024-01-01 12:00:00; 时间相关 - mockTimer: 模拟定时器触发事件
+```
+
+---
+
+**重要提醒**: 这些规则是强制性的，任何时候生成测试用例都必须遵循。如果用户要求生成不符合标准的测试，我应该解释标准的重要性并提供符合标准的版本。
