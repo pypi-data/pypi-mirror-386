@@ -1,0 +1,4 @@
+[console_scripts]
+agentic-fleet = agenticfleet.cli.dev_server:main
+dynamic-fleet = agenticfleet.workflows.dynamic.cli:main
+fleet = agenticfleet.cli.repl:main
