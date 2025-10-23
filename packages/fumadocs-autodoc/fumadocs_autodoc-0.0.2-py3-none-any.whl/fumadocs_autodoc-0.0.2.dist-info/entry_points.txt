@@ -1,0 +1,2 @@
+[console_scripts]
+fumadocs-autodoc = fumadocs_autodoc:generate

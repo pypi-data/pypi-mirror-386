@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: fumadocs-autodoc
+Version: 0.0.2
+Summary: Extract API documentation from source code and docstrings. For the python API extension for FumaDocs.
+Author-email: zrlf <florez@ethz.ch>
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: griffe>=1.11
+Description-Content-Type: text/markdown
+
+# Fumadocs-autodoc
+
+Generate serialized documentation for your Python projects for use with Fumadocs.
+
+## Usage
+
+Install `fumadocs-autodoc`:
+
+```bash
+pip install fumadocs-autodoc
+```
+
+Then run the `fumadocs-autodoc` command with the path to your Python project:
+
+```bash
+fumadocs-autodoc name-of-package --dir path/to/output/dir
+```
+
+## Dependencies
+- `griffe`
