@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+src/qwsend/__init__.py
+src/qwsend/cli.py
+src/qwsend/client.py
+src/qwsend/exceptions.py
+src/qwsend/version.py
+src/qwsend.egg-info/PKG-INFO
+src/qwsend.egg-info/SOURCES.txt
+src/qwsend.egg-info/dependency_links.txt
+src/qwsend.egg-info/entry_points.txt
+src/qwsend.egg-info/requires.txt
+src/qwsend.egg-info/top_level.txt
+tests/test_cli.py
+tests/test_client.py
