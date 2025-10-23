@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package mission_enrollment;
+
+message Filters {
+  string status = 1;
+  float performance__gte = 2;
+  float performance__lte = 3;
+  string start_date__gte = 4;
+  string start_date__lte = 5;
+  string end_date__gte = 6;
+  string end_date__lte = 7;
+  string goal_date__gte = 8;
+  string goal_date__lte = 9;
+  string job_position = 10;
+  string job_function = 11;
+  string director = 12;
+  string manager = 13;
+  string area_of_activity = 14;
+  string end_date__range = 15;
+  string start_date__range = 16;
+  string goal_date__range = 17;
+  string id = 18;
+  int32 days_late = 19;
+  string mission = 20;
+  string user = 21;
+  string mission__user_creator = 22;
+  string mission_id = 23;
+  string end_date = 24;
+  string start_date = 25;
+  string give_up = 26;
+  string performance = 27;
+  string goal_date = 28;
+}
+
+message Mission {
+  string id = 1;
+  string name = 2;
+  string mission_model = 3;
+}
+
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message MissionEnrollment {
+  string id = 1;
+  string status = 2;
+  bool in_progress = 3;
+  Mission mission = 4;
+  User user = 5;
+  bool evaluated = 6;
+  optional string created_date = 7;
+  string updated_date = 8;
+  optional float points = 9;
+  optional float performance = 10;
+  optional string start_date = 11;
+  optional string end_date = 12;
+  optional string goal_date = 13;
+}
+
+message MissionEnrollmentRequest {
+  Filters filters = 2;
+}
+
+message MissionEnrollmentListResponse {
+  repeated MissionEnrollment items = 1;
+}
+
+service MissionEnrollmentService {
+  rpc Get (MissionEnrollmentRequest) returns (MissionEnrollmentListResponse);
+}

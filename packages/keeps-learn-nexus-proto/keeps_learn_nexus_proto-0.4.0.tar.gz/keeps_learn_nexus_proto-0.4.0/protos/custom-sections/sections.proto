@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package sections;
+
+service SectionService {
+  rpc Get (ListSectionsRequest) returns (ListSectionsResponse);
+  rpc GetById (GetSectionByIdRequest) returns (GetSectionByIdResponse);
+}
+
+message ListSectionsRequest {
+  map<string, FilterValues> filters = 2;
+}
+
+message FilterValues {
+  repeated string values = 1;
+}
+
+message Section {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  string learningObjectType = 4;
+  string startDate = 5;
+  string endDate = 6;
+  int32 order = 7;
+  map<string, FilterValues> filters = 8;
+}
+
+message ListSectionsResponse {
+  repeated Section items = 1;
+}
+
+message GetSectionByIdRequest {
+  string id = 1;
+}
+
+message GetSectionByIdResponse {
+  Section section = 1;
+}
