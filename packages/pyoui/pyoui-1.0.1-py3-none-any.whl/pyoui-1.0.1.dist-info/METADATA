@@ -1,0 +1,146 @@
+Metadata-Version: 2.4
+Name: pyoui
+Version: 1.0.1
+Summary: Lookup the IEEE's OUI table by MAC, MAC prefix, organization name, or country
+Project-URL: Homepage, https://github.com/nbdy/pyoui
+Project-URL: Issues, https://github.com/nbdy/pyoui/issues
+Author-email: Pascal Eberlein <pascal@eberlein.io>
+License: MIT License
+        
+        Copyright (c) 2020 Pascal Eberlein
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: lookup,mac,oui
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.7
+Requires-Dist: loguru==0.7.3
+Requires-Dist: pycountry==24.6.1
+Requires-Dist: requests==2.32.5
+Provides-Extra: dev
+Requires-Dist: pytest==8.4.2; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# pyoui
+
+[![CodeFactor](https://www.codefactor.io/repository/github/nbdy/pyoui/badge/master)](https://www.codefactor.io/repository/github/nbdy/pyoui/overview/master)
+
+## Installation
+
+- Pip (users):
+  ```bash
+  pip install pyoui
+  ```
+- uv (inside your project):
+  ```bash
+  uv add pyoui
+  ```
+- Install from the main branch:
+  ```bash
+  pip install git+https://github.com/nbdy/pyoui
+  ```
+
+## CLI usage
+
+Run:
+```bash
+pyoui --help
+```
+
+Options:
+- -o, --outfile: file path for the downloaded IEEE OUI text file
+- -d, --debug: enable debug logging
+- -p, --prefix: search by MAC prefix (e.g., 00:22:72)
+- -org, --organization: search by organization name
+- -cc, --country-code: search by 2-letter country code (e.g., US)
+- -cn, --country-name: search by country name (e.g., United States)
+
+Examples:
+```bash
+pyoui -p 00:22:72
+pyoui -org "national security"
+pyoui -cc US
+```
+
+#### ... use by code:
+
+```python
+from pyoui import OUI
+
+entries = OUI(debug=True).parse()
+
+print("entries:", entries.size())
+
+e = next(entries.by_organization("national security"))
+print("organization", e.organization.__dict__, e.prefix)
+
+e = next(entries.by_prefix("00:22:72"))
+print("prefix", e.organization.__dict__, e.prefix)
+
+e = next(entries.by_mac("BC:23:92:42:42:42"))
+print("mac", e.organization.__dict__, e.prefix)
+
+e = list(entries.by_country_code("US"))
+print("length:", len(e))
+print("first item:", e[0].prefix, e[0].organization.__dict__)
+
+ae = list(entries.by_country_name("United States"))
+print("by country code length:", len(e), " | by name length:", len(ae))
+print("lengths should be equal")
+```
+
+
+## Development
+
+This project uses uv for dependency management and builds.
+
+- Create and sync a virtual environment:
+  ```bash
+  uv venv
+  uv sync
+  ```
+- Run tests:
+  ```bash
+  uv run pytest
+  ```
+- Build the package (sdist and wheel):
+  ```bash
+  uv build
+  ```
+- Run the CLI without installing:
+  ```bash
+  uv run pyoui --help
+  ```
+
+## Publishing
+
+Releases are published automatically to PyPI via GitHub Actions using PyPI Trusted Publishing.
+
+- Create a GitHub release (or trigger the workflow manually). Upon a published release, the workflow will:
+  - Build the package with `uv build`.
+  - Upload the artifacts to PyPI using `pypa/gh-action-pypi-publish` with OpenID Connect (OIDC).
+
+To enable trusted publishing, ensure the PyPI project is configured to trust this GitHub repository.
+See: https://github.com/pypa/gh-action-pypi-publish
