@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: robora
+Version: 0.0.18
+Summary: Utilities for research automation and storage providers.
+Requires-Python: >=3.11
+Requires-Dist: httpx
+Requires-Dist: pandas>=2.3.2
+Requires-Dist: python-dotenv
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: openpyxl>=3.1.0

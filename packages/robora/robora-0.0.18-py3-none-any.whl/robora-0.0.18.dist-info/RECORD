@@ -1,0 +1,13 @@
+robora/CONFIG.py,sha256=3AqfGcC6Nn5-gPzWRg68Oarc6ci_0ZuEaYrQTOW_taM,109
+robora/__init__.py,sha256=zq7Ew6msdGBO86s3B2MRsZ4SmKqVxBvBeZU32SmO4RM,339
+robora/classes.py,sha256=UtPPeaKTCXdKDuhJ-wq8QONw5rizHALKKJ6PzsnKrOA,5130
+robora/mock_query.py,sha256=bnHxMgoCPo-gLkdlkalAp0BvEqLN-IHc82pvacgXpP4,6574
+robora/pandas_integration.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+robora/session_storage.py,sha256=nV199VAv94SctBI2ka-olNgceI09slbeULbHFUP5aI0,1790
+robora/sonar_query.py,sha256=a2Y8OybgJtlVtfl8QrhMBowQBQmw8-titOrO8h6CS-Q,5657
+robora/sqlite_storage.py,sha256=INZzwfb0ws6TIbuzRUElOPkAQ61BX1mBLxpREZklO84,7106
+robora/workflow.py,sha256=chMS7T-rrVrrclHEEfGTNyWl1dKUGzjRXv7Jy581bNc,4625
+robora-0.0.18.dist-info/METADATA,sha256=nAZuKUCpmAnPGW-x6JV4zVKdB9RRVrWNFLf97GDRnvg,282
+robora-0.0.18.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+robora-0.0.18.dist-info/top_level.txt,sha256=eecPlXUOIZUOG3hRyaM5NcAVdmaOwcnmG4s8cSsFMgc,7
+robora-0.0.18.dist-info/RECORD,,
