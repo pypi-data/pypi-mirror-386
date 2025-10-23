@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: strangeworks-braket-extension
+Version: 0.7.0
+Summary: Add your description here
+Author-email: Strange Devs <hello@strangeworks.com>
+Requires-Python: >=3.10
+Requires-Dist: amazon-braket-sdk>=1.96.0
+Requires-Dist: strangeworks-extensions>=0.7.0
