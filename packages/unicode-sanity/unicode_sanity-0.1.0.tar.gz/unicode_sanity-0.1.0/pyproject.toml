@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "unicode-sanity"
+version = "0.1.0"
+description = "Clean invisible/control Unicode characters, normalize text, and optionally convert/remove emoji — with an explainable report."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [{ name = "Eklavya Tomar" }]
+keywords = ["unicode", "normalization", "text-cleaning", "bidi", "zero-width", "emoji"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Topic :: Text Processing :: Filters",
+  "Topic :: Utilities"
+]
+dependencies = ["emoji>=2.8.0"]
+
+[project.urls]
+Homepage = "https://github.com/EklavyaT/unicode-sanity"
+Repository = "https://github.com/EklavyaT/unicode-sanity"
+
+[project.scripts]
+unicode-sanity = "unicode_sanity.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/unicode_sanity"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/unicode_sanity",
+  "README.md",
+  "LICENSE",
+  "pyproject.toml",
+  "tests",
+  ".gitignore"
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+testpaths = ["tests"]
+pythonpath = ["src"]

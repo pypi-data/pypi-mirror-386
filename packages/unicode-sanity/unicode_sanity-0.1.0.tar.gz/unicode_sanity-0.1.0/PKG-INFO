@@ -1,0 +1,86 @@
+Metadata-Version: 2.4
+Name: unicode-sanity
+Version: 0.1.0
+Summary: Clean invisible/control Unicode characters, normalize text, and optionally convert/remove emoji — with an explainable report.
+Project-URL: Homepage, https://github.com/EklavyaT/unicode-sanity
+Project-URL: Repository, https://github.com/EklavyaT/unicode-sanity
+Author: Eklavya Tomar
+License: MIT License
+        
+        Copyright (c) 2025 Eklavya Tomar
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+License-File: LICENSE
+Keywords: bidi,emoji,normalization,text-cleaning,unicode,zero-width
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Requires-Python: >=3.9
+Requires-Dist: emoji>=2.8.0
+Description-Content-Type: text/markdown
+
+# unicode-sanity
+
+**Clean messy Unicode text**: remove or escape invisible/bidi control characters, normalize to a consistent form, and optionally remove/alias emoji — with a clear, human-readable report of what changed.
+
+## Why?
+Copy-pasted or scraped text often contains **invisible junk** (zero-width spaces, bidi control marks, BOMs) that break searching, matching, and CSV exports. `unicode-sanity` fixes these safely and explains what it did.
+
+## Install
+```bash
+pip install unicode-sanity
+```
+
+## Usage
+
+### CLI
+Run the sanitizer against a file or standard input:
+
+```bash
+unicode-sanity input.txt --out cleaned.txt --policy safe --escape-format brackets --explain --stats
+```
+
+- `--policy strict` removes invisible/bidi characters (default).
+- `--policy safe` replaces them with visible tags such as `[ZERO_WIDTH_SPACE]`.
+- `--policy audit` leaves text unchanged and only reports findings.
+- Add `--emoji remove` to strip emoji or `--emoji alias` to turn them into `:shortcodes:`.
+- `--normalize` controls Unicode normalization (`NFC`, `NFKC`, `NFD`, `NFKD`, or `none`).
+
+### Python API
+
+```python
+from unicode_sanity import sanitize
+
+result = sanitize("Cafe\u0301 \u200B", policy="safe", emoji="alias", explain=True)
+print(result.text)
+# -> Café <ZERO_WIDTH_SPACE>
+print(result.report)
+# -> ['normalized to NFC', 'escaped 1 invisible/bidi character(s)', 'converted emoji to aliases']
+```
+
+The `sanitize` helper returns a `CleanResult` dataclass with the cleaned text, an optional report, and per-issue counts that are handy for dashboards or logs.
