@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: dm-client-app-cas
+Version: 1.0.1
+Summary: DM Client App Cas
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dm-core-meta
+Requires-Dist: dm-client-auth
+Requires-Dist: django-phonenumber-field==8.1.0
+Dynamic: license-file
+
+# DM CLIENT APP CAS
