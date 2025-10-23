@@ -1,0 +1,5 @@
+[pymodaq.instruments]
+avantes = pymodaq_plugins_avantes
+
+[pymodaq.plugins]
+avantes = pymodaq_plugins_avantes
