@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: eldarutils
+Version: 0.1.0
+Summary: A simple Python utility library with string and list functions.
+Author: Eldar Eliyev
+Author-email: eldar6251@gmail.com
+Requires-Python: >=3.8
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-python
+Dynamic: summary
