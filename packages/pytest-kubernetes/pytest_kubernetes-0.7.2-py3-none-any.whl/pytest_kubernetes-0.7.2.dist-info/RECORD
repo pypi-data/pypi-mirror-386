@@ -1,0 +1,16 @@
+pytest_kubernetes/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytest_kubernetes/kubectl.py,sha256=oUSXVWtzPLFgdwBabc3QLG2zWO8E6tMYs_Dj16P6dNA,2751
+pytest_kubernetes/options.py,sha256=hzXKj_WWwwHWIezwAznIY4G_KFRR68RNEVyL-390tio,681
+pytest_kubernetes/plugin.py,sha256=N4iU1oiAsWpGzDLrHSlhIuXfBjShRp_XZkPDtePksnA,4947
+pytest_kubernetes/portforwarding.py,sha256=tf8GmPAVVLqHL6MIHMboNtGdEKepTDhF2toN6-0aK58,3350
+pytest_kubernetes/providers/__init__.py,sha256=QUOGR0MtMaMD0EJA0nSjyvA7AMcpH03ZTD8hmhH7mAU,3393
+pytest_kubernetes/providers/base.py,sha256=L_ByT1T3krBHaVn0MSmy0PqIEpHQSlSNpR_DD_jEpl4,9325
+pytest_kubernetes/providers/external.py,sha256=DVobweQz7QeQGkJnyd0sV_ms__L3NSFgApq4XZezxi0,723
+pytest_kubernetes/providers/k3d.py,sha256=0lf3fplWR8X47lAmblK_cdNjjBMedhujeYCJlrONuA0,2748
+pytest_kubernetes/providers/kind.py,sha256=iWJJUCGgwMlH5MEfhzj3YvVIdnZ8dKqkNuq2xBX8pKc,1342
+pytest_kubernetes/providers/minikube.py,sha256=V_ypInhWqaLt6QBi8yV_UiXQPAQdhCH1gTt6nx_qDso,3480
+pytest_kubernetes-0.7.2.dist-info/METADATA,sha256=d3XD1zW-vjI2Y08RkmSll7IVd6UjnbZjWeJejNzdne4,10517
+pytest_kubernetes-0.7.2.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+pytest_kubernetes-0.7.2.dist-info/entry_points.txt,sha256=nHLlOfYpZ4WHRyrtJUOj-m1oyNrphjdStT2y2uGR2hA,55
+pytest_kubernetes-0.7.2.dist-info/licenses/LICENSE,sha256=QwcOLU5TJoTeUhuIXzhdCEEDDvorGiC6-3YTOl4TecE,11356
+pytest_kubernetes-0.7.2.dist-info/RECORD,,
