@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+email_multi_check/__init__.py
+email_multi_check/email_multi_check.py
+email_multi_check.egg-info/PKG-INFO
+email_multi_check.egg-info/SOURCES.txt
+email_multi_check.egg-info/dependency_links.txt
+email_multi_check.egg-info/requires.txt
+email_multi_check.egg-info/top_level.txt
+tests/test_api.py
+tests/test_dns_smtp.py

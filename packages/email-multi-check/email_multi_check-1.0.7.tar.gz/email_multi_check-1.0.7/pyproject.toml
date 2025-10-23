@@ -1,0 +1,17 @@
+[project]
+name = "email-multi-check"
+version = "1.0.7"
+description = "A Python package to verify email addresses using SMTP, DNS, and web auth checks"
+authors = [{name = "Alexandr Vasilchenko", email = "r00t5st@mail.ru"}]
+license = "BSD-3-Clause"
+readme = "README.md"
+requires-python = ">=3.11.9"
+dependencies = [
+    "dnspython>=2.6.1",
+    "pydantic>=2.8.2",
+    "idna>=3.7",
+    "requests>=2.32.3"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/0x7f000001/email_multi_check"
