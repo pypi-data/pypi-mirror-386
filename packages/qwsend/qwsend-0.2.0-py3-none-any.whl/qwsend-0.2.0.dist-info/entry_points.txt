@@ -1,0 +1,2 @@
+[console_scripts]
+qwsend = qwsend.cli:main
