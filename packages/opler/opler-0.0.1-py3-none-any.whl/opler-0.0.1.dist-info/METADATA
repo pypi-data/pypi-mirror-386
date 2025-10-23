@@ -1,0 +1,29 @@
+Metadata-Version: 2.3
+Name: opler
+Version: 0.0.1
+Summary: A local, offline-first entity and place resolution system that maps messy place/entity strings and codes to canonical entities with calibrated confidence scores
+Keywords: entity-resolution,geocoding,place-names,data-commons,iso-codes,offline,disambiguation,normalization
+Author: Jorge Rivera
+Author-email: Jorge Rivera <jorge.rivera@one.org>
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Project-URL: Homepage, https://github.com/jm-rivera/opler
+Project-URL: Repository, https://github.com/jm-rivera/opler
+Description-Content-Type: text/markdown
+
+# opler
+An open offline resolver for places and entities
