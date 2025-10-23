@@ -1,0 +1,181 @@
+Metadata-Version: 2.4
+Name: orca-lab
+Version: 25.9.0
+Summary: OrcaLab - Cloud-native robotics simulation platform with advanced UI and asset management
+Author-email: 松应科技 <huangwei@orca3d.cn>
+License: MIT
+Project-URL: Homepage, https://github.com/openverse-orca/OrcaLab
+Project-URL: Documentation, https://github.com/openverse-orca/OrcaLab
+Project-URL: Repository, https://github.com/openverse-orca/OrcaLab
+Project-URL: Bug Tracker, https://github.com/openverse-orca/OrcaLab/issues
+Keywords: robotics,simulation,ui,asset-management,orca,pyside
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: orca-gym
+Requires-Dist: numpy>=2.0.0
+Requires-Dist: scipy
+Requires-Dist: scipy-stubs
+Requires-Dist: grpcio==1.66.1
+Requires-Dist: grpcio-tools==1.66.1
+Requires-Dist: pyside6==6.9.2
+Requires-Dist: aiohttp
+Requires-Dist: aiofiles
+Requires-Dist: qasync
+Requires-Dist: psutil
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Dynamic: license-file
+
+# OrcaLab
+
+OrcaLab is a front-end of OrcaGym. It provides a user-interface for scene assembling and simulation.
+
+## Features
+
+- TODO
+
+## Requirements
+
+- Python 3.12 or higher
+- [OrcaGym](https://github.com/your-org/OrcaGym) (required dependency)
+- Other dependencies listed in `pyproject.toml`
+
+## Development Requirements
+
+For building and releasing packages, the following pip packages are required:
+
+### Core Build Tools
+```bash
+pip install build twine wheel setuptools
+```
+
+### Development Tools (Optional)
+```bash
+pip install pytest pytest-cov flake8 black mypy
+```
+
+### Make Commands and Required Packages
+
+The project includes a `Makefile` with various commands. Here are the required packages for each command:
+
+| Make Command | Required pip packages | Description |
+|-------------|----------------------|-------------|
+| `make build` | `build`, `setuptools`, `wheel` | Build distribution packages |
+| `make check` | `twine` | Check package quality |
+| `make test-install` | `build`, `setuptools`, `wheel` | Test local installation |
+| `make test-install-testpypi` | `build`, `setuptools`, `wheel` | Test TestPyPI installation |
+| `make test-install-pypi` | `build`, `setuptools`, `wheel` | Test PyPI installation |
+| `make release-test` | `build`, `twine`, `setuptools`, `wheel` | Release to TestPyPI |
+| `make release-prod` | `build`, `twine`, `setuptools`, `wheel` | Release to PyPI |
+| `make bump-version` | None (uses sed) | Bump version number |
+| `make setup-pypirc` | None | Setup PyPI configuration file |
+| `make check-pypirc` | None | Check PyPI configuration |
+| `make clean` | None | Clean build artifacts |
+| `make test` | `pytest`, `pytest-cov` | Run tests |
+| `make format` | `black` | Format code |
+| `make lint` | `flake8`, `mypy` | Lint code |
+
+### Quick Setup for Development
+```bash
+# Install development dependencies
+pip install build twine wheel setuptools pytest pytest-cov flake8 black mypy
+
+# Or install from the project's optional dependencies
+pip install -e ".[dev]"
+```
+
+## Release Process
+
+### Quick Release
+```bash
+# Setup PyPI configuration (first time only)
+make setup-pypirc
+
+# Release to TestPyPI
+./scripts/release/release.sh test
+
+# Release to PyPI
+./scripts/release/release.sh prod
+```
+
+### Step-by-step Release
+```bash
+# Clean, build, check, and upload
+./scripts/release/clean.sh
+./scripts/release/build.sh
+./scripts/release/check.sh
+./scripts/release/upload_test.sh  # or upload_prod.sh
+```
+
+## Installation
+
+1. Install OrcaGym (required):
+	```bash
+	# Please follow the OrcaGym installation instructions
+	```
+2. Clone this repository and install OrcaLab in editable mode:
+	```bash
+	# required by pyside
+	sudo apt install libxcb-cursor0
+
+	git clone https://github.com/openverse-orca/OrcaLab.git
+	cd OrcaLab
+	pip install -e .
+	```
+
+
+## Usage
+
+To start OrcaLab, run:
+
+```bash
+python run.py
+```
+
+
+## Notice
+
+- Blocking function (like QDialog.exec()) should not be called in async function directly. It will stop the async loop in a strange way. There are two ways to work around:
+	- wrap in `qasync.asyncWrap`
+	- invoke by a qt signal.
+
+``` python
+# wrap in `qasync.asyncWrap`
+
+async def foo():
+	def bloc_task():
+		return dialog.exec()
+
+	await asyncWrap(bloc_task)	
+
+# invoke by a qt signal
+
+def bloc_task():
+	return dialog.exec()
+
+some_signal.connect(bloc_task)
+
+```
+
+## 常见问题
+
+### Linux上出现 version `GLIBCXX_3.4.30' not found
+    conda update -c conda-forge libstdcxx-ng
+
+
+
+## License
+
+This project is licensed under the terms of the [LICENSE](LICENSE) file.
