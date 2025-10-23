@@ -1,0 +1,18 @@
+data_I
+_chemical_name_common ''
+_cell_length_a 2.456
+_cell_length_b 2.456
+_cell_length_c 6.696
+_cell_angle_alpha 90
+_cell_angle_beta 90
+_cell_angle_gamma 120
+loop_
+    _atom_site_label
+    _atom_site_type_symbol
+    _atom_site_fract_x
+    _atom_site_fract_y
+    _atom_site_fract_z
+    _atom_site_occupancy
+    C0      C    0.00000   0.00000   0.00000   1.000
+    C1      C    0.33333   0.66667   0.00000   1.000
+
