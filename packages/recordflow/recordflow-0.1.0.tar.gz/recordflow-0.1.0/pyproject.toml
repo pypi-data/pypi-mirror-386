@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recordflow"
+version = "0.1.0"
+description = "Segmented screen recording helpers built on ffmpeg."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name = "Jonathan"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Multimedia :: Video :: Capture",
+]
+dependencies = []
+
+[project.scripts]
+recordflow = "recordflow.cli:main"
+
+[tool.setuptools]
+packages = ["recordflow"]

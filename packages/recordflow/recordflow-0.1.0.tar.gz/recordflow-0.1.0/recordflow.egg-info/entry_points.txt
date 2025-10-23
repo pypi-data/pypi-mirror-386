@@ -1,0 +1,2 @@
+[console_scripts]
+recordflow = recordflow.cli:main
