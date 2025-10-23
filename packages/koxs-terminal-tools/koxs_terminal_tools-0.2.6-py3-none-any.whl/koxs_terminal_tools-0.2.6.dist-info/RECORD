@@ -1,0 +1,19 @@
+Open/__init__.py,sha256=RcP7bgdIbJfAeIgihjwnBXjkHUkkTOzbMg0nX15PN7A,213
+Open/batch_operations.py,sha256=D4aQGv3GIUJ9kCjXTF5ne1thsvx8-QpCE2YO_L-WiVI,2814
+Open/core.py,sha256=Tyk01JLUeI5zW0XWOlHmDhEVl3yUPo9LmrC1BoP5vWo,1662
+Open/file_operations.py,sha256=_o1sqB3xJ3SHHg8DrrGPs9jx-cjEZf7N4LpkhbZSNZA,2973
+Open/large_file_operations.py,sha256=4d6pFGSB76Zlb6df6VnjX7HSa1XgLka8B6ZFOj-8ux8,2085
+Open/line_operations.py,sha256=hJAy2By20vz3C7GPR1enMsPf4O5WBblYe9hKvaTSdw4,2245
+Open/query_operations.py,sha256=aE5bXGBjlPFiemtfyOxp-C2HaTHHmX9rG2vk4_rUAeE,2458
+Open/regex_operations.py,sha256=StZJTPB9u1oxF99ahqUcZSNCHYxItZtt52BzJF8htVY,1375
+Open/text_operations.py,sha256=EyBPSFGjzVRHngD5fRtCeSlLa1dxfQ1XlelMMx-5R0g,4614
+Open/undo_redo.py,sha256=CYsESQ_gPMSVIl2BO-3JJ4FLIpvJ-AxQzvFDq0dAjoc,1431
+Open/utils.py,sha256=DQ1l04bVyPTMkkELZ2GWKhjFodHpAstMp2qmSShHf-U,777
+koxs Other Operations/__init__.py,sha256=2-fP_NQBmauqz-54shcO96IbtptyEwkl8q9Itf_zmKU,448
+koxs Other Operations/koxs编码.py,sha256=mYOyzfIet_fyXWeVO_mnC9kV1Y1EGj9oLFS5nw-foYg,9341
+koxs Other Operations/整理.py,sha256=SB505fuL1_HIBYoxhfSTmGVQU2TeCFWWIlsBoLlV1YM,439
+koxs_terminal_tools-0.2.6.dist-info/licenses/LICENSE,sha256=UVEssQoffuErDsaTpKgxXcHEW-UoCf9BHnprcMYfmGs,1063
+koxs_terminal_tools-0.2.6.dist-info/METADATA,sha256=g6GYpoUWSNbLRG_PJhvh87T3bAkps3f5aVbXst4vzCQ,1582
+koxs_terminal_tools-0.2.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+koxs_terminal_tools-0.2.6.dist-info/top_level.txt,sha256=nNbd00EkAZGsQBzU2Q_oUHOMGwNTD8BwPVCgxClFdRA,27
+koxs_terminal_tools-0.2.6.dist-info/RECORD,,
