@@ -1,0 +1,14 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+__init__.py
+pyproject.toml
+requirements.txt
+setup.py
+.github/workflows/publish.yaml
+livetxt.egg-info/PKG-INFO
+livetxt.egg-info/SOURCES.txt
+livetxt.egg-info/dependency_links.txt
+livetxt.egg-info/requires.txt
+livetxt.egg-info/top_level.txt
