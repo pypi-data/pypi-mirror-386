@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-elastic-beanstalk-mcp-server = awslabs_elastic_beanstalk_mcp_server.main:main
