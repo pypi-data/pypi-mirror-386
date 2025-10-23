@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luis-autogit"
+version = "0.2.1"
+readme = "README.md"
+description = "Utilities to automate frequently used git workflows."
+dependencies = [
+    "python-slugify>=8.0.0",
+]
+
+[project.urls]
+source = "https://github.com/luistm/autogit"
+
+[project.scripts]
+autogit = "autogit.autogit:main"
