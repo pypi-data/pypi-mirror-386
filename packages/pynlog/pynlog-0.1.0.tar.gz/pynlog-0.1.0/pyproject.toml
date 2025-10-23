@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[tools.hatch.build]
+packages = ["src/pynlog"]
+include = ["src/pynlog/*.pyi", "src/pynlog/py.typed"]
+
+[project]
+name = "pynlog"
+version = "0.1.0"
+authors = [
+    { name = "Michael", email = "michaelzdv7@gmail.com" }
+]
+description = "A simple logger that prints logs to the console and to a file out of the box."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/m-j-z/pynlog"
+Issues = "https://github.com/m-j-z/pynlog/issues"

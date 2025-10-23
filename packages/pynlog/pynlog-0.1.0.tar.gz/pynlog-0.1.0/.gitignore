@@ -1,0 +1,7 @@
+.venv
+__pycache__
+out
+logs
+.mypy_cache
+stubs
+*.pyi

@@ -1,0 +1,180 @@
+# pynlog: A Simple Python Logging Library
+pynlog is a lightweight, static logging library for Python, designed for simplicity and ease of use. 
+
+It provides a convenient way to log messages at different levels (DEBUG, INFO, SUCCESS, WARNING, ERROR) without the complexity of traditional logging setups. 
+
+It defaults to logging to both the console and a file.
+
+---
+
+## Key Features
+* **Simple & Static:** Easy-to-use static methods for logging - no class instantiation needed. The logger automatically determines the function or module where the log message originated, providing context without requiring manual input.
+* **Highly Customizable:** `Formatters` and `Writers` can be tailored to your needs.
+* **Dual Output:** Logs to both the console and a file by default.
+* **Lightweight:** Minimal dependencies and a compact codebase.
+
+---
+
+## Usage
+
+**When used by a function**
+```python
+from pynlog import Log
+
+
+def my_function():
+    Log.d("This is a debug log.")
+    Log.i("This is an info log.")
+    Log.s("This is a success log.")
+    Log.w("This is a warning log.")
+    Log.e("This is an error log.")
+
+
+my_function()
+```
+
+**Output**
+```
+[2025-10-22 16:50:56.409] [DEBUG]    my_function             : This is a debug log.
+[2025-10-22 16:50:56.409] [INFO]     my_function             : This is an info log.
+[2025-10-22 16:50:56.409] [SUCCESS]  my_function             : This is a success log.
+[2025-10-22 16:50:56.409] [WARNING]  my_function             : This is a warning log.
+[2025-10-22 16:50:56.409] [ERROR]    my_function             : This is an error log.
+```
+
+**When used by a class method**
+```python
+from pynlog import Log
+
+class MyClass():
+    def my_function(self):
+        Log.d("This is a debug log.")
+        Log.i("This is an info log.")
+        Log.s("This is a success log.")
+        Log.w("This is a warning log.")
+        Log.e("This is an error log.")
+
+
+MyClass().my_function()
+```
+
+**Output**
+```
+[2025-10-22 16:57:15.178] [DEBUG]    MyClass.my_function     : This is a debug log.
+[2025-10-22 16:57:15.178] [INFO]     MyClass.my_function     : This is an info log.
+[2025-10-22 16:57:15.178] [SUCCESS]  MyClass.my_function     : This is a success log.
+[2025-10-22 16:57:15.178] [WARNING]  MyClass.my_function     : This is a warning log.
+[2025-10-22 16:57:15.178] [ERROR]    MyClass.my_function     : This is an error log.
+```
+
+## Customization
+
+### 1. Adjusting the Minimum Log Level
+The default minimum level is `DEBUG`. Change it to suppress less important messages.
+
+```python
+from pynlog import Log, Level
+
+
+def my_function():
+    Log.d("This is a debug log.")
+
+    Log.MIN_LEVEL = Level.INFO
+
+    Log.d("This log will not show up.")
+    Log.i("This is an info log.")
+
+
+my_function()
+```
+
+**Output**
+```
+[2025-10-22 17:01:15.795] [DEBUG]    my_function             : This is a debug log.
+[2025-10-22 17:01:15.795] [INFO]     my_function             : This is an info log.
+```
+
+### 2. Creating a Custom Formatter
+Tailor the appearance of your log messages.
+
+```python
+from pynlog import Log, Formatter, LogEntry
+
+
+class MyFormatter(Formatter):
+    def format(self, entry: LogEntry) -> str:
+        return f"[{entry.level.name}] {entry.caller}: {entry.message}"
+
+
+def my_function():
+    Log.i("This is an info log using the default formatter.")
+
+    Log.FORMATTER = MyFormatter()
+
+    Log.i("This is an info log using MyFormatter.")
+
+
+my_function()
+```
+
+**Output**
+```
+[2025-10-22 17:04:15.480] [INFO]     my_function             : This is an info log using the default formatter.
+[INFO] my_function             : This is an info log using MyFormatter.
+```
+
+### 3. Adding/Removing Writers
+Control where your logs are sent:
+
+* **Adding a Writer**
+  
+  ```python
+  from pynlog import Log, Writer
+
+
+  class MyWriter(Writer):
+      def write(self, message: str) -> None:
+          print(f"Sending to custom destination: {message}")
+  
+  
+  def my_function():
+      Log.i("Writing to default writers.")
+
+    Log.WRITERS["my_writer"] = MyWriter()
+
+    Log.i("Writing to default and new writers.")
+
+
+  my_function()
+  ```
+  
+  **Output**
+  ```
+  [2025-10-22 17:09:13.531] [INFO]     my_function             : Writing to default writers.
+  [2025-10-22 17:09:13.531] [INFO]     my_function             : Writing to default and new writers.
+  Sending to custom destination: [2025-10-22 17:09:13.531] [INFO]     my_function             : Writing to default and new writers.
+  ```
+* **Removing a Writer**
+
+  ```python
+  from pynlog import Log
+
+
+  def my_function():
+      Log.i("This is an info log.")
+
+      del Log.WRITERS["console_writer"]
+  
+      Log.i("This will not be logged.")
+
+    
+  my_function()
+  ```
+
+  **Output**
+  ```
+  [2025-10-22 17:11:21.106] [INFO]     my_function             : This is an info log.
+  ```
+
+## License
+This project is licensed under the [MIT License](LICENSE).
