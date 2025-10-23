@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+CB2325NumericaG07.egg-info/PKG-INFO
+CB2325NumericaG07.egg-info/SOURCES.txt
+CB2325NumericaG07.egg-info/dependency_links.txt
+CB2325NumericaG07.egg-info/requires.txt
+CB2325NumericaG07.egg-info/top_level.txt
+NumericaG07/__init__.py
+NumericaG07/aproximacao.py
+NumericaG07/erros.py
+NumericaG07/integracao.py
+NumericaG07/interpolacao.py
+NumericaG07/raizes.py
