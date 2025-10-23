@@ -1,0 +1,28 @@
+tuxparse (0.6.0-1) UNRELEASED; urgency=medium
+
+  * Release 0.6.0. See: https://gitlab.com/Linaro/lkft/tuxparse/-/tags/v0.6.0
+
+ -- Anders Roxell <anders.roxell@linaro.org>  Wed, 22 Oct 2025 17:00:10 +0200
+
+tuxparse (0.5.0-1) UNRELEASED; urgency=medium
+
+  * Release 0.5.0. See: https://gitlab.com/Linaro/lkft/tuxparse/-/tags/v0.5.0
+
+ -- Anders Roxell <anders.roxell@linaro.org>  Wed, 01 Oct 2025 18:23:06 +0200
+
+tuxparse (0.4.0-1) UNRELEASED; urgency=medium
+
+  * Release 0.4.0. See: https://gitlab.com/Linaro/lkft/tuxparse/-/tags/v0.4.0
+
+ -- Anders Roxell <anders.roxell@linaro.org>  Tue, 30 Sep 2025 22:12:53 +0200
+
+tuxparse (0.3.0-1) UNRELEASED; urgency=medium
+
+  * Release 0.0.2
+
+ -- Your Name <your.name@yourdomain.com>  Wed, 22 Jun 2025 18:58:49 -0000
+tuxparse (0.0.1-1) UNRELEASED; urgency=medium
+
+  * Initial release
+
+ -- Your Name <your.name@yourdomain.com>  Wed, 19 Mar 2025 18:58:49 -0000
