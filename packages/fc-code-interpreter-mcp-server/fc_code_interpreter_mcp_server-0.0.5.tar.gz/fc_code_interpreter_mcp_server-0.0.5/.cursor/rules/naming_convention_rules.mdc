@@ -1,0 +1,44 @@
+---
+alwaysApply: true
+---
+
+# 文件和目录命名规范规则（AI 助手专用）
+
+单一事实来源（Single Source of Truth, SSOT）：docs/rules/naming_conventions.md
+
+请将 docs/rules/naming_conventions.md 作为命名规范的唯一权威来源，避免在本文件中重复或固化具体规则，防止产生规则漂移。
+
+## AI 助手行为要求
+- 严格依据 docs/rules/naming_conventions.md 执行命名相关的创建、重命名与校验操作。
+- 当需要引用具体正则或示例时，应优先从 docs/rules/naming_conventions.md 中读取/复用，而不是在此文件复制规则。
+- 如需调整命名规范，必须先更新 docs/rules/naming_conventions.md；本文件仅更新引用与行为说明。
+- 若发现仓库中现状与 docs/rules/naming_conventions.md 不一致，应先对齐文档与实现，再进行批量修复。
+
+## 便捷提示（非权威，仅作快速记忆，可能滞后）
+- Shell 脚本：使用 snake_case（下划线），如 scripts/ci_local.sh。
+- Go 源文件：允许下划线；测试文件以 _test.go 结尾。
+- cmd/ 下的命令目录：kebab-case（中划线），用于生成可执行文件名。
+- 配置文件（yaml/yml/json）：通常使用 kebab-case（与生态兼容）。
+- 文档（md）：使用 snake_case（README.md 例外）。
+
+请以 docs/rules/naming_conventions.md 的最新内容为准。
+# 文件和目录命名规范规则（AI 助手专用）
+
+单一事实来源（Single Source of Truth, SSOT）：docs/rules/naming_conventions.md
+
+请将 docs/rules/naming_conventions.md 作为命名规范的唯一权威来源，避免在本文件中重复或固化具体规则，防止产生规则漂移。
+
+## AI 助手行为要求
+- 严格依据 docs/rules/naming_conventions.md 执行命名相关的创建、重命名与校验操作。
+- 当需要引用具体正则或示例时，应优先从 docs/rules/naming_conventions.md 中读取/复用，而不是在此文件复制规则。
+- 如需调整命名规范，必须先更新 docs/rules/naming_conventions.md；本文件仅更新引用与行为说明。
+- 若发现仓库中现状与 docs/rules/naming_conventions.md 不一致，应先对齐文档与实现，再进行批量修复。
+
+## 便捷提示（非权威，仅作快速记忆，可能滞后）
+- Shell 脚本：使用 snake_case（下划线），如 scripts/ci_local.sh。
+- Go 源文件：允许下划线；测试文件以 _test.go 结尾。
+- cmd/ 下的命令目录：kebab-case（中划线），用于生成可执行文件名。
+- 配置文件（yaml/yml/json）：通常使用 kebab-case（与生态兼容）。
+- 文档（md）：使用 snake_case（README.md 例外）。
+
+请以 docs/rules/naming_conventions.md 的最新内容为准。
