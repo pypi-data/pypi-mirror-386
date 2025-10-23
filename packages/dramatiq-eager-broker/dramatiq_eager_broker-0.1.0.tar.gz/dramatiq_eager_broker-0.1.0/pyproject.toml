@@ -1,0 +1,121 @@
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[project]
+name = "dramatiq-eager-broker"
+version = "0.1.0"
+description = "Eager broker for dramatiq"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "dramatiq>=1.15.0",
+]
+
+[project.urls]
+repository = "https://codeberg.org/yaal/dramatiq-eager-broker"
+
+[dependency-groups]
+dev = [
+    "tox-uv >= 1.16.0",
+    "prek>=0.1.3",
+    "pytest>=8.4.2",
+    "pytest-coverage>=0.0",
+    "mypy>=1.18.2",
+]
+
+[tool.coverage.run]
+source = [
+    "dramatiq_eager_broker",
+    "tests",
+]
+omit = [".tox/*"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "@pytest.mark.skip",
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "except ImportError",
+    "pass",
+]
+
+[tool.ruff.lint]
+select = [
+    "D", # pydocstyle
+    "B", # flake8-bugbear
+    "E", # pycodestyle
+    "F", # pyflakes
+    "I", # isort
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line-too-long
+    "E722", # bare-except
+    "D100", # public module
+    "D101", # public class
+    "D102", # public method
+    "D103", # public function
+    "D104", # public package
+    "D105", # magic method
+    "D106", # nested class
+    "D107", # public init
+    "D203", # no-blank-line-before-class
+    "D213", # multi-line-summary-second-line
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.tox]
+requires = ["tox>=4.19"]
+env_list = [
+    "style",
+    "py310",
+    "py311",
+    "py312",
+    "py313",
+    "minversions",
+    "coverage",
+]
+
+[tool.tox.env_run_base]
+runner = "uv-venv-lock-runner"
+dependency_groups = ["dev"]
+uv_sync_flags = ["--all-extras"]
+commands = [
+    ["pytest", "--showlocals", "--full-trace", "{posargs}"],
+]
+
+[tool.tox.env.style]
+skip_install = true
+runner = "uv-venv-runner"
+commands = [
+    ["prek", "run", "--all-files", "--show-diff-on-failure"],
+]
+
+[tool.tox.env.minversions]
+uv_resolution = "lowest-direct"
+basepython = ["python3.10"]
+runner = "uv-venv-runner"
+
+[tool.tox.env.coverage]
+commands = [
+    ["pytest", "--cov", "--cov-fail-under=100", "--cov-report", "term:skip-covered", "{posargs}"],
+    ["coverage", "html"],
+]
+
+[tool.mypy]
+plugins = [
+  "pydantic.mypy"
+]
+warn_unused_ignores = true
+exclude = [
+  "tests/",
+  "conftest.py",
+]
