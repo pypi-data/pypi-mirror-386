@@ -1,0 +1,569 @@
+// Auto-generated SystemRDL from Excel
+// Source: PROJECT_TEST.xlsx
+
+regfile design_one {
+
+    name = "design_one Register File";
+    desc = "Register file description for design_one Factory FPGA";
+
+    default accesswidth = 32;
+    default regwidth = 32;
+    default sw = rw;
+    default hw = r;
+
+    reg {
+        field {
+            name = "TEST_CTRL_ADDR";
+            desc = "TEST Control Register";
+            sw = rw;
+            hw = r;
+            onwrite=woclr;
+            reset = 0x0;
+        } TEST_CTRL_ADDR[31:0];
+    } TEST_CTRL_ADDR @ 0x000;
+
+    reg {
+        field {
+            name = "TEST_STS_ADDR";
+            desc = "TEST Status Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_STS_ADDR[31:0];
+    } TEST_STS_ADDR @ 0x010;
+
+    reg {
+        field {
+            name = "TEST_RUPTCNT_ADDR";
+            desc = "TEST Packet interrupt count address";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_RUPTCNT_ADDR[31:0];
+    } TEST_RUPTCNT_ADDR @ 0x014;
+
+    reg {
+        field {
+            name = "TEST_CH0_EN_ADDR";
+            desc = "Bit 0, TEST Channel 0 Enable.";
+            sw = rw;
+            hw = r;
+            onwrite=woclr;
+            reset = 0x0;
+        } TEST_CH0_EN_ADDR[31:0];
+    } TEST_CH0_EN_ADDR @ 0x020;
+
+    reg {
+        field {
+            name = "TEST_CH0_DDR_ADDR";
+            desc = "Channel 0 PSDDR4 Address.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH0_DDR_ADDR[31:0];
+    } TEST_CH0_DDR_ADDR @ 0x024;
+
+    reg {
+        field {
+            name = "TEST_CH0_PKT_ADDR";
+            desc = "Channel 0 Packet Size.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH0_PKT_ADDR[31:0];
+    } TEST_CH0_PKT_ADDR @ 0x028;
+
+    reg {
+        field {
+            name = "TEST_CH0_BUF_ADDR";
+            desc = "Channel 0 Data Buffer Size.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH0_BUF_ADDR[31:0];
+    } TEST_CH0_BUF_ADDR @ 0x02C;
+
+    reg {
+        field {
+            name = "TEST_CH0_STS_ADDR";
+            desc = "Channel 0 Status Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH0_STS_ADDR[31:0];
+    } TEST_CH0_STS_ADDR @ 0x030;
+
+    reg {
+        field {
+            name = "TEST_CH0_WRP_ADDR";
+            desc = "Channel 0 Write Pointer Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH0_WRP_ADDR[31:0];
+    } TEST_CH0_WRP_ADDR @ 0x034;
+
+    reg {
+        field {
+            name = "TEST_CH0_MFIFO_ADDR";
+            desc = "Channel 0 Monitor FIFO Output Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH0_MFIFO_ADDR[31:0];
+    } TEST_CH0_MFIFO_ADDR @ 0x038;
+
+    reg {
+        field {
+            name = "TEST_CH0_IFIFO_ADDR";
+            desc = "PulseMetrics FIFO Status Flags Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH0_IFIFO_ADDR[31:0];
+    } TEST_CH0_IFIFO_ADDR @ 0x03C;
+
+    reg {
+        field {
+            name = "TEST_CH1_EN_ADDR";
+            desc = "Bit 0, TEST Channel 1 Enable.";
+            sw = rw;
+            hw = r;
+            onwrite=woclr;
+            reset = 0x0;
+        } TEST_CH1_EN_ADDR[31:0];
+    } TEST_CH1_EN_ADDR @ 0x040;
+
+    reg {
+        field {
+            name = "TEST_CH1_DDR_ADDR";
+            desc = "Channel 1 PSDDR4 Address.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH1_DDR_ADDR[31:0];
+    } TEST_CH1_DDR_ADDR @ 0x044;
+
+    reg {
+        field {
+            name = "TEST_CH1_PKT_ADDR";
+            desc = "Channel 1 Packet Size in 64 bit words.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH1_PKT_ADDR[31:0];
+    } TEST_CH1_PKT_ADDR @ 0x048;
+
+    reg {
+        field {
+            name = "TEST_CH1_BUF_ADDR";
+            desc = "Channel 1 Data Buffer Size.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH1_BUF_ADDR[31:0];
+    } TEST_CH1_BUF_ADDR @ 0x04C;
+
+    reg {
+        field {
+            name = "TEST_CH1_STS_ADDR";
+            desc = "Channel 1 Status Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH1_STS_ADDR[31:0];
+    } TEST_CH1_STS_ADDR @ 0x050;
+
+    reg {
+        field {
+            name = "TEST_CH1_WRP_ADDR";
+            desc = "Channel 1 Write Pointer Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH1_WRP_ADDR[31:0];
+    } TEST_CH1_WRP_ADDR @ 0x054;
+
+    reg {
+        field {
+            name = "TEST_CH1_MFIFO_ADDR";
+            desc = "Channel 1 Monitor FIFO Output Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH1_MFIFO_ADDR[31:0];
+    } TEST_CH1_MFIFO_ADDR @ 0x058;
+
+    reg {
+        field {
+            name = "TEST_CH1_IFIFO_ADDR";
+            desc = "ATEST CHA FIFO Status Flags Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH1_IFIFO_ADDR[31:0];
+    } TEST_CH1_IFIFO_ADDR @ 0x05C;
+
+    reg {
+        field {
+            name = "TEST_CH2_EN_ADDR";
+            desc = "Bit 0, TEST Channel 2 Enable.";
+            sw = rw;
+            hw = r;
+            onwrite=woclr;
+            reset = 0x0;
+        } TEST_CH2_EN_ADDR[31:0];
+    } TEST_CH2_EN_ADDR @ 0x060;
+
+    reg {
+        field {
+            name = "TEST_CH2_DDR_ADDR";
+            desc = "Channel 2 PSDDR4 Address.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH2_DDR_ADDR[31:0];
+    } TEST_CH2_DDR_ADDR @ 0x064;
+
+    reg {
+        field {
+            name = "TEST_CH2_PKT_ADDR";
+            desc = "Channel 2 Packet Size in 64 bit words.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH2_PKT_ADDR[31:0];
+    } TEST_CH2_PKT_ADDR @ 0x068;
+
+    reg {
+        field {
+            name = "TEST_CH2_BUF_ADDR";
+            desc = "Channel 2 Data Buffer Size.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH2_BUF_ADDR[31:0];
+    } TEST_CH2_BUF_ADDR @ 0x06C;
+
+};
+
+regfile design_two {
+
+    name = "design_two Register File";
+    desc = "Register file description for design_two Factory FPGA";
+
+    default accesswidth = 32;
+    default regwidth = 32;
+    default sw = rw;
+    default hw = r;
+
+    reg {
+        field {
+            name = "TEST_CH2_STS_ADDR";
+            desc = "Channel 2 Status Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH2_STS_ADDR[31:0];
+    } TEST_CH2_STS_ADDR @ 0x070;
+
+    reg {
+        field {
+            name = "TEST_CH2_WRP_ADDR";
+            desc = "Channel 2 Write Pointer Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH2_WRP_ADDR[31:0];
+    } TEST_CH2_WRP_ADDR @ 0x074;
+
+    reg {
+        field {
+            name = "TEST_CH2_MFIFO_ADDR";
+            desc = "Channel 2 Monitor FIFO Output Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH2_MFIFO_ADDR[31:0];
+    } TEST_CH2_MFIFO_ADDR @ 0x078;
+
+    reg {
+        field {
+            name = "TEST_CH2_IFIFO_ADDR";
+            desc = "ATEST CHB FIFO Status Flags Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH2_IFIFO_ADDR[31:0];
+    } TEST_CH2_IFIFO_ADDR @ 0x7C;
+
+    reg {
+        field {
+            name = "TEST_CH3_EN_ADDR";
+            desc = "Bit 0, TEST Channel 3 Enable.";
+            sw = rw;
+            hw = r;
+            onwrite=woclr;
+            reset = 0x0;
+        } TEST_CH3_EN_ADDR[31:0];
+    } TEST_CH3_EN_ADDR @ 0x080;
+
+    reg {
+        field {
+            name = "TEST_CH3_DDR_ADDR";
+            desc = "Channel 3 PSDDR4 Address.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH3_DDR_ADDR[31:0];
+    } TEST_CH3_DDR_ADDR @ 0x084;
+
+    reg {
+        field {
+            name = "TEST_CH3_PKT_ADDR";
+            desc = "Channel 3 Packet Size in 64 bit words.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH3_PKT_ADDR[31:0];
+    } TEST_CH3_PKT_ADDR @ 0x088;
+
+    reg {
+        field {
+            name = "TEST_CH3_BUF_ADDR";
+            desc = "Channel 3 Data Buffer Size.";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_CH3_BUF_ADDR[31:0];
+    } TEST_CH3_BUF_ADDR @ 0x08C;
+
+    reg {
+        field {
+            name = "TEST_CH3_STS_ADDR";
+            desc = "Channel 3 Status Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH3_STS_ADDR[31:0];
+    } TEST_CH3_STS_ADDR @ 0x090;
+
+    reg {
+        field {
+            name = "TEST_CH3_WRP_ADDR";
+            desc = "Channel 3 Write Pointer Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH3_WRP_ADDR[31:0];
+    } TEST_CH3_WRP_ADDR @ 0x094;
+
+    reg {
+        field {
+            name = "TEST_CH3_MFIFO_ADDR";
+            desc = "Channel 3 Monitor FIFO Output Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH3_MFIFO_ADDR[31:0];
+    } TEST_CH3_MFIFO_ADDR @ 0x098;
+
+    reg {
+        field {
+            name = "TEST_CH3_IFIFO_ADDR";
+            desc = "Debug Channel 3 FIFO Status Flags Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH3_IFIFO_ADDR[31:0];
+    } TEST_CH3_IFIFO_ADDR @ 0x09C;
+
+    reg {
+        field {
+            name = "TEST_INP_FMT_CTRL0_ADDR";
+            desc = "TEST Input Format Module Control Word0";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_INP_FMT_CTRL0_ADDR[31:0];
+    } TEST_INP_FMT_CTRL0_ADDR @ 0x0A0;
+
+    reg {
+        field {
+            name = "TEST_INP_FMT_CTRL1_ADDR";
+            desc = "TEST Input Format Module Control Word1";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_INP_FMT_CTRL1_ADDR[31:0];
+    } TEST_INP_FMT_CTRL1_ADDR @ 0x0A4;
+
+    reg {
+        field {
+            name = "TEST_LCLPULSE_CTRL_ADDR";
+            desc = "Local Pulse Waveform Generator Control Register";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_LCLPULSE_CTRL_ADDR[31:0];
+    } TEST_LCLPULSE_CTRL_ADDR @ 0x0A8;
+
+    reg {
+        field {
+            name = "TEST_LCLPULSE_RDATA_ADDR";
+            desc = "Waveform Buffer Read Data";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_LCLPULSE_RDATA_ADDR[31:0];
+    } TEST_LCLPULSE_RDATA_ADDR @ 0xAC;
+
+    reg {
+        field {
+            name = "ADVCI2_DATA_REPLAY_CTRL_ADDR";
+            desc = "Data Replay Module Control Register";
+            sw = rw;
+            hw = r;
+            onwrite=woclr;
+            reset = 0x0;
+        } ADVCI2_DATA_REPLAY_CTRL_ADDR[31:0];
+    } ADVCI2_DATA_REPLAY_CTRL_ADDR @ 0x0B0;
+
+    reg {
+        field {
+            name = "ADVCI2_DATA_REPLAY_STS_ADDR";
+            desc = "Bit 0, Data Replay Module FIFO Data Lost";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } ADVCI2_DATA_REPLAY_STS_ADDR[31:0];
+    } ADVCI2_DATA_REPLAY_STS_ADDR @ 0x0B4;
+
+    reg {
+        field {
+            name = "ADVCI2_DATA_REPLAY_TXFR_LENGTH_ADDR";
+            desc = "Number of 32 Bit Words Transferred from DDR into FPGA Via AXI DMA";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } ADVCI2_DATA_REPLAY_TXFR_LENGTH_ADDR[31:0];
+    } ADVCI2_DATA_REPLAY_TXFR_LENGTH_ADDR @ 0x0B8;
+
+    reg {
+        field {
+            name = "TEST_LCLPULSE_BUFR_LENGTH_ADDR";
+            desc = "Local Pulse Waveform Buffer Length Register";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_LCLPULSE_BUFR_LENGTH_ADDR[31:0];
+    } TEST_LCLPULSE_BUFR_LENGTH_ADDR @ 0x0C0;
+
+    reg {
+        field {
+            name = "TEST_LCLPULSE_WDATA_ADDR";
+            desc = "Waveform Buffer Write Data";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_LCLPULSE_WDATA_ADDR[31:0];
+    } TEST_LCLPULSE_WDATA_ADDR @ 0x0C4;
+
+    reg {
+        field {
+            name = "TEST_LCLPULSE_CEX_POS_CNTS_ADDR";
+            desc = "Local CEX Rising and Falling Edges Position Counts Register";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_LCLPULSE_CEX_POS_CNTS_ADDR[31:0];
+    } TEST_LCLPULSE_CEX_POS_CNTS_ADDR @ 0x0C8;
+
+    reg {
+        field {
+            name = "TEST_CH0_RUPTCNTR_ADDR";
+            desc = "Channel 0 Packet Interrupt Counter Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH0_RUPTCNTR_ADDR[31:0];
+    } TEST_CH0_RUPTCNTR_ADDR @ 0x0E0;
+
+    reg {
+        field {
+            name = "TEST_CH1_RUPTCNTR_ADDR";
+            desc = "Channel 1 Packet Interrupt Counter Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH1_RUPTCNTR_ADDR[31:0];
+    } TEST_CH1_RUPTCNTR_ADDR @ 0x0E4;
+
+    reg {
+        field {
+            name = "TEST_CH2_RUPTCNTR_ADDR";
+            desc = "Channel 2 Packet Interrupt Counter Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH2_RUPTCNTR_ADDR[31:0];
+    } TEST_CH2_RUPTCNTR_ADDR @ 0x0E8;
+
+    reg {
+        field {
+            name = "TEST_CH3_RUPTCNTR_ADDR";
+            desc = "Channel 3 Packet Interrupt Counter Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_CH3_RUPTCNTR_ADDR[31:0];
+    } TEST_CH3_RUPTCNTR_ADDR @ 0x0EC;
+
+    reg {
+        field {
+            name = "TEST_INTERRUPT_MASK_ADDR";
+            desc = "TEST Interrupt Mask Register";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_INTERRUPT_MASK_ADDR[31:0];
+    } TEST_INTERRUPT_MASK_ADDR @ 0x0F0;
+
+    reg {
+        field {
+            name = "TEST_INTERRUPT_CLR_ADDR";
+            desc = "TEST Interrupt Clear Register, Auto Reset";
+            sw = rw;
+            hw = r;
+            onwrite=woclr;
+            reset = 0x0;
+        } TEST_INTERRUPT_CLR_ADDR[31:0];
+    } TEST_INTERRUPT_CLR_ADDR @ 0x0F4;
+
+    reg {
+        field {
+            name = "TEST_INTERRUPT_STATE_ADDR";
+            desc = "TEST Interrupt Status Register";
+            sw = r;
+            hw = w;
+            reset = 0x0;
+        } TEST_INTERRUPT_STATE_ADDR[31:0];
+    } TEST_INTERRUPT_STATE_ADDR @ 0x0F8;
+
+    reg {
+        field {
+            name = "TEST_DUMP_ADDR";
+            desc = "TEST Scratch Register";
+            sw = rw;
+            hw = r;
+            reset = 0x0;
+        } TEST_DUMP_ADDR[31:0];
+    } TEST_DUMP_ADDR @ 0x0FC;
+
+};
+
+addrmap PROJECT_TEST {
+    addressing=regalign;
+    design_one design_u1 @ 0xA00C0000;
+    design_two design_u2 @ 0xA00C0080;
+};
