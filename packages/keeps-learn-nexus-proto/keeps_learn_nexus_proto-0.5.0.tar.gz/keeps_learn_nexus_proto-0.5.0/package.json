@@ -1,0 +1,23 @@
+{
+  "name": "@keeps-learn/nexus-proto",
+  "version": "0.5.0",
+  "description": "Shared Protocol Buffer definitions for Nexus microservices",
+  "files": [
+    "protos/**/*.proto"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keeps-Learn/nexus-proto.git"
+  },
+  "keywords": [
+    "grpc",
+    "protobuf",
+    "proto",
+    "microservices"
+  ],
+  "author": "Keeps",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
