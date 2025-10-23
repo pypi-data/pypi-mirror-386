@@ -1,0 +1,9 @@
+pyxarr/__init__.py,sha256=gotwUNOkfVGClyotNqjP9KnEwIBARRYJzW4kRj73yAI,881
+pyxarr/_pyxarr.py,sha256=UFqoPvuSa49VdkzD6tf7ml08KUcW008XgVQ-_KSemsA,19155
+pyxarr/dset_from_h5.py,sha256=6YCd8aU-8tLxe2SS_C2YaLuAaRd8XoAHKaLBoklNZf0,12058
+pyxarr/dset_from_xr.py,sha256=Evh8PwTSrfS5qFBsnCt-h5hnuVKt4i7QS0Pi7EsGW68,1477
+pyxarr/dset_to_h5.py,sha256=Gqmgcsf43q9R2hYP6CdN0VagdyC4q5wSVq5OjItqUTU,4891
+pyxarr-0.3.0.dist-info/METADATA,sha256=VKJPKYl9KvGMkJvA_RgoJJVa_Wrgly_iWTmepSnUa60,5303
+pyxarr-0.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pyxarr-0.3.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pyxarr-0.3.0.dist-info/RECORD,,
