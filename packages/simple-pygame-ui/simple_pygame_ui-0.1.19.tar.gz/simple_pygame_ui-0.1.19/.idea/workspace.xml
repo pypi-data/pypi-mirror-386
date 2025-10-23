@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36494760-a309-4df5-bc88-92931704071d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/PyGameUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PyGameUI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw_context.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_context.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements/texture.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/texture.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/preview_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygameui.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygameui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scene_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/scene_handler.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Villagerzock&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Villagerzock/PyGameUI.git&quot;,
+    &quot;accountId&quot;: &quot;5b06f90e-232d-47f7-bcda-c2f84f93b1ec&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="338LVuLhC8S9COBqvkgjEULuDLA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.pygameui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.real_gd.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="pygameui" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="PyGameUI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygameui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PY-252.23892.515" />
+        <option value="bundled-python-sdk-7e47963ff851-f0eec537fc84-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.23892.515" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36494760-a309-4df5-bc88-92931704071d" name="Changes" comment="" />
+      <created>1758693779206</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758693779206</updated>
+      <workItem from="1758693780467" duration="2440000" />
+      <workItem from="1758698324983" duration="8480000" />
+      <workItem from="1758715451141" duration="7495000" />
+      <workItem from="1758779014696" duration="29000" />
+      <workItem from="1758779064371" duration="4301000" />
+      <workItem from="1758784811360" duration="86000" />
+      <workItem from="1758793960534" duration="38000" />
+      <workItem from="1758868679303" duration="153000" />
+      <workItem from="1758874762686" duration="702000" />
+      <workItem from="1759212508147" duration="1608000" />
+      <workItem from="1759297717919" duration="594000" />
+      <workItem from="1759384270427" duration="10000" />
+      <workItem from="1759471288692" duration="1259000" />
+      <workItem from="1760421086052" duration="1184000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PyGameUI$pygameui.coverage" NAME="pygameui Coverage Results" MODIFIED="1760421662639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PyGameUI$real_gd.coverage" NAME="real_gd Coverage Results" MODIFIED="1758724663902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

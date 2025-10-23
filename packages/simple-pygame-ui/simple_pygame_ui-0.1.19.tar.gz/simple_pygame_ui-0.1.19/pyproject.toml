@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "simple-pygame-ui"         # so heißt es auf (Test)PyPI
+version = "0.1.19"               # semver
+description = "Simple UI Library for pygame"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{ name = "Villagerzock" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+  "pygame>=2.6,<3"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
