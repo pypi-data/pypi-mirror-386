@@ -1,0 +1,158 @@
+[build-system]
+requires = ["hatchling>=1.27.0,<2"]
+build-backend = "hatchling.build"
+
+[project]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+name = "numberlink"
+dynamic = ["version"]
+description = "NumberLink puzzle environment for Gymnasium"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Misagh Soltani", email = "misaghsoltani@gmail.com" }]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+keywords = [
+    "NumberLink",
+    "Puzzle",
+    "Game",
+    "Gymnasium",
+    "OpenAI Gym",
+    "gym",
+    "AI",
+    "reinforcement learning",
+    "deep reinforcement learning",
+    "search",
+    "heuristic search",
+    "pathfinding",
+    "planning",
+]
+dependencies = ["numpy>=2.0, <3", "gymnasium>=1.0, <2", "pygame>=2.0, <3"]
+
+[project.optional-dependencies]
+notebook = [
+    "ipython>=9.6.0, <10",
+    "ipywidgets>=8.1.7, <9",
+    "ipyevents>=2.0.4, <3",
+    "Pillow>=12.0.0, <13",
+]
+
+# run-numberlink will run the CLI
+[project.urls]
+GitHub = "https://github.com/misaghsoltani/NumberLink/"
+Documentation = "https://misaghsoltani.github.io/NumberLink/"
+
+
+[project.scripts]
+numberlink = "numberlink.main:main"
+numberlink-cli = "numberlink.cli:main"
+
+[project.entry-points."gymnasium.envs"]
+NumberLinkRGB-v0 = "numberlink.registration:env_creator"
+NumberLinkRGBVector-v0 = "numberlink.registration:vector_env_creator"
+
+# [tool.hatchling.packages.find]
+# include = ["numberlink*"] # Only consider package names starting with numberlink (e.g. numberlink, numberlink.submodule, etc.) when auto-discovering packages
+# namespaces = false # Don't treat directories without an __init__.py as namespace packages, only folders with __init__.py count
+
+[tool.hatchling]
+include-package-data = true
+
+# [tool.hatch.metadata]
+# allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["numberlink"]
+include = [
+    # "numberlink/**",
+    "numberlink/py.typed",
+    "numberlink/assets/**",
+    "README.md",
+]
+exclude = ["*.py[cod]", "__pycache__/**", ".DS_Store", ".git", ".vscode"]
+
+[tool.hatch.build.targets.sdist]
+packages = ["numberlink"]
+include = [
+    # "numberlink/**",
+    "numberlink/py.typed",
+    "numberlink/assets/**",
+    "README.md",
+]
+exclude = [
+    "*.py[cod]",
+    "__pycache__/**",
+    ".DS_Store",
+    ".vscode",
+    ".git",
+    ".pixi",
+]
+
+[tool.hatch.version]
+path = "numberlink/__init__.py"
+
+[dependency-groups]
+doc = [
+    "furo>=2024.8.6,<2025",
+    "sphinx-copybutton>=0.5.2,<0.6",
+    "sphinx-autodoc2>=0.5.0,<0.6",
+    "sphinx-sitemap>=2.9.0,<3",
+    "myst-parser[linkify]>=4.0.1,<5",
+]
+default = ["numberlink"]
+notebook = [
+    { include-group = "default" },
+    "ipython>=9.6.0,<10",
+    "ipywidgets>=8.1.7,<9",
+    "ipyevents>=2.0.4,<3",
+    "Pillow>=12.0.0,<13",
+]
+dev = [
+    { include-group = "default" },
+    { include-group = "notebook" },
+    { include-group = "doc" },
+    { include-group = "test" },
+    { include-group = "build" },
+    "ruff",
+    "pyright>=1.1.403,<2",
+    "mypy>=1.17.0,<2",
+    "shellcheck>=0.10.0,<0.11",
+    "yamllint>=1.37.1,<2",
+    "pre-commit>=4.3.0,<5",
+    "cffconvert>=2.0.0,<3",
+    "types-defusedxml>=0.7.0.20250822,<0.8",
+    "types-pytz>=2025.2.0.20250809,<2026",
+    "imageio>=2.37.0,<3",
+    "ipyevents>=2.0.4,<3",
+    "ipywidgets>=8.1.7,<9",
+]
+test = [
+    { include-group = "default" },
+    { include-group = "doc" },
+    "pytest>=8.4.2,<9",
+    "nose2>=0.15.1,<0.16",
+    "pytest-cov>=7.0.0,<8",
+    "tox>=4.31.0,<5",
+    "pillow>=12.0.0,<13",
+]
+build = [{ include-group = "default" }, { include-group = "notebook" }, "hatch"]
+all = [
+    { include-group = "default" },
+    { include-group = "dev" },
+    { include-group = "build" },
+    { include-group = "doc" },
+    { include-group = "test" },
+    { include-group = "notebook" },
+]
