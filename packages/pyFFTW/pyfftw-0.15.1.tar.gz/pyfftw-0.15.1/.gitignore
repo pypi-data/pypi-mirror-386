@@ -1,0 +1,38 @@
+*.py[cod]
+__pycache__
+*.so
+*.c
+*.swp
+*.*~
+build
+dist
+docs/_build
+MANIFEST
+CHANGELOG.md
+pyFFTW.egg-info
+pyfftw/_version.py
+github_changelog_generator_token
+.eggs/
+.pyodide*
+
+# Virtualenv
+.venv/
+venv/
+
+
+# FFTW
+*.exe
+*.dll
+*.lib
+*.def
+*.zip
+*.f
+*.f03
+*.exp
+pyfftw/fftw3.h
+
+# Editors
+.vscode
+
+.pdm-python
+.python-version
