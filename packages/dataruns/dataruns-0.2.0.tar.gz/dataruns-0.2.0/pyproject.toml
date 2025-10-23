@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dataruns"
+version = "0.2.0"
+description = "A small library with Pandas-Like api used for function ops execution and data transforms."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.2.5",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "requests>=2.32.3",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.14.1",
+]
+
+authors = [
+    {name = "Daniel"}
+]
+
+license = {text = "MIT"}
+
+[project.urls]
+"Bug Tracker" = "https://github.com/DanielUgoAli/dataruns/issues"  
+"Source Code" = "https://github.com/DanielUgoAli/dataruns"  
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+
+[tool.ruff]
+# Set the Python version your project targets.
+target-version = "py311"
+# A common line length, matching the 'black' code formatter.
+
+[tool.ruff.lint]
+# A curated set of rules instead of "ALL".
+# E = pycodestyle Errors
+# W = pycodestyle Warnings
+# F = Pyflakes (catches bugs)
+# I = isort (import sorting)
+# UP = pyupgrade (modernizes syntax)
+# B = flake8-bugbear (finds likely bugs)
+select = ["E", "W", "F", "I", "UP", "B"]
+
+# Ignore rules that are often considered too noisy or stylistic.
+ignore = [
+  # Allow print statements (useful for debugging)
+  "T201",
+  # Missing docstring in public module/class/method
+  "D100", "D104", "D101", "D102", "D103", "D105", "D107",
+  # Missing type annotation for `self` and `cls`
+  "ANN101", "ANN102",
+  # Don't require trailing commas
+  "COM812",
+  # Allow TODO comments
+  "TD002", "TD003",
+  # Allow using `assert`
+  "S101",
+  "W293",
+  "E501"
+]
+
+
+[tool.basedpyright]
+# This is the magic setting. "basic" is much more relaxed than the default "strict".
+typeCheckingMode = "basic"
+
+# Tell basedpyright where your source code is.
+include = ["."]
+
+# You can also disable specific annoying rules individually.
+# Below are some common ones to turn off.
+reportMissingTypeStubs = false # Stops complaining about libraries with no type hints.
+reportUnknownMemberType = "none" # Won't complain if it can't figure out a variable's type.
+reportUnknownVariableType = "none" # Similar to the above, but for variables.
+
