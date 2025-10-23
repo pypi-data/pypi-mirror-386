@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-storage-gateway-mcp-server = awslabs_storage_gateway_mcp_server.main:main
