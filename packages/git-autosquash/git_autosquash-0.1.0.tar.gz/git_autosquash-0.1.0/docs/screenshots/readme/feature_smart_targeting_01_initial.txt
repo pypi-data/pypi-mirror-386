@@ -1,0 +1,12 @@
+Current branch: feature/improvements
+                                    Merge base: 206b152cd4f7ce30ec92edbd2d5f8ebf7d602777
+                                                                                        Working tree status: staged=True
+, unstaged=True, clean=False
+
+                            Mixed staged and unstaged changes detected.
+                                                                       Choose an option:
+                                                                                          a) Process all changes (staged
+ + unstaged)
+              s) Stash unstaged changes and process only staged
+                                                                 q) Quit
+                                                                        Your choice [a/s/q]:
