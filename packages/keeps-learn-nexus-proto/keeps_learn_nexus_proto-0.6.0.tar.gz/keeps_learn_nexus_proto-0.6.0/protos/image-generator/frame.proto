@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package frame;
+
+message Empty {
+}
+
+message Frame {
+  string id = 1;
+  string url = 2;
+}
+
+message FrameCreateRequest {
+  optional string id = 1;
+  string url = 2;
+  string workspace_id = 3;
+}
+
+message FrameListRequest {
+  string workspace_id = 1;
+  repeated string id = 2;
+}
+
+message FrameListResponse {
+  repeated Frame frames = 1;
+}
+
+message FrameDeleteRequest {
+  string id = 1;
+}
+
+message FrameGetRequest {
+  string id = 1;
+}
+
+message FrameUpdateRequest {
+  string id = 1;
+  string url = 2;
+}
+
+service FrameService {
+    rpc List (FrameListRequest) returns (FrameListResponse);
+    rpc Create (FrameCreateRequest) returns (Frame);
+    rpc Get (FrameGetRequest) returns (Frame);
+    rpc Update (FrameUpdateRequest) returns (Frame);
+    rpc Delete (FrameDeleteRequest) returns (Empty);
+}

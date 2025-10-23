@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keeps-learn-nexus-proto"
+version = "0.6.0"
+description = "Shared Protocol Buffer definitions for Nexus microservices"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Keeps", email = "tecnologia@keeps.com.br"}
+]
+keywords = ["grpc", "protobuf", "proto", "microservices"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Communications",
+]
+
+[project.urls]
+Homepage = "https://github.com/Keeps-Learn/nexus-proto"
+Repository = "https://github.com/Keeps-Learn/nexus-proto.git"
+Issues = "https://github.com/Keeps-Learn/nexus-proto/issues"
+
+[tool.setuptools]
+packages = ["nexus_proto"]
+
+[tool.setuptools.package-data]
+nexus_proto = ["**/*.proto"]
+

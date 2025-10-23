@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package ai_image;
+
+message AIImage {
+  string id = 1;
+  string url = 2;
+}
+
+message AIImageGenerateRequest {
+  string prompt = 1;
+  optional bytes reference_image = 2;  // Optional reference image as binary data
+  optional string reference_image_format = 3;  // Format of reference image (e.g., "png", "jpg", "jpeg")
+  optional string aspect_ratio = 4;  // Desired aspect ratio (e.g., "16:9", "1:1", "4:3")
+  optional int32 num_images = 5;  // Number of images to generate (default: 1, max: 10)
+  optional bool save_images = 6;  // Whether to save images to repository (default: false)
+  optional bool enhance_prompt = 7;  // Whether to enhance the prompt using AI (default: true)
+}
+
+message AIImageGenerateResponse {
+  repeated AIImage images = 1;  // List of generated images
+  int32 total_generated = 2;  // Total number of images generated
+}
+
+service AIImageService {
+    rpc Generate (AIImageGenerateRequest) returns (AIImageGenerateResponse);
+}
