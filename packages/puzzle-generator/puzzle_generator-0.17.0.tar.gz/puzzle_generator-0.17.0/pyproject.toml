@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "puzzle-generator"
+version = "0.17.0"
+description = "Generates python code representing a puzzle"
+authors = ["piotr.idzik <vil02_puzzle_generator@10g.pl>"]
+readme = "./puzzle_generator/README.md"
+license = "MIT"
+packages = [{include = "puzzle_generator"}]
+repository = "https://github.com/vil02/puzzle_generator"
+keywords = ["puzzle-generation", "quiz-generation", "code-generation"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0.0"
+black = "25.9.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = "8.4.2"
+pylint = "4.0.2"
+flake8 = "7.3.0"
+flake8-bugbear = "25.10.21"
+flake8-pytest-style = "2.2.0"
+isort = "7.0.0"
+ruff = "0.14.1"
+coverage = "7.11.0"
+mypy = "1.18.2"
+pyright = {extras = ["nodejs"], version = "1.1.406"}
+bandit = "1.8.6"
+xenon = "0.9.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
