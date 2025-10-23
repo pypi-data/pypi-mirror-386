@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+link-cards=mkdocs_link_cards.plugin:LinkCardsPlugin
+
