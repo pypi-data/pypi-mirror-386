@@ -1,0 +1,11 @@
+odmcp/__init__.py,sha256=MWZDdAHrdUZS0c3VlLqX4O1eaxPodI7irMtEvknKQ94,23
+odmcp/cli.py,sha256=Psj_sO__mmCD9Le5M0L_4t8AN3vw8R83Zy0xShrCQsQ,6550
+odmcp/client.py,sha256=G56xOLeeb6a7-TuPzBoVN31aOS6OqWS9fmzATBfZJbA,1571
+odmcp/utils.py,sha256=fUr6YVlcE1lwK8NMZOmnciAwUYCAGUKwWfyM-dejO2w,2246
+odmcp/providers/__template__.py,sha256=hM4EYEfU8XjE_s3gocmQHAhqufjJGzdmFYk7upXRcQ4,3712
+odmcp/providers/ch_sbb.py,sha256=lxJqhB1lG3zqbRcA8qmHFp-gkMux7rMQ2nk27zeMEEo,14586
+odmcp_fastmcp-0.1.28.dist-info/METADATA,sha256=2_aEIgvhLH-1HB-gcHbXUGMUXWgpckxZtdF469E6CPo,10748
+odmcp_fastmcp-0.1.28.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+odmcp_fastmcp-0.1.28.dist-info/entry_points.txt,sha256=pBFTrsnBuGwupS7N_vptKxgFIaXIOt6eKi49qkBx2mc,41
+odmcp_fastmcp-0.1.28.dist-info/licenses/LICENSE,sha256=6g7ket0M3R-ZECVQRPhsg8t09rJ1lPhVZgT0bY-s5U4,1073
+odmcp_fastmcp-0.1.28.dist-info/RECORD,,
