@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: ansible-vault-tools
+Version: 0.2.0
+Summary: Simple library and CLI tool to deal with ansible vaults and encrypted strings
+License-Expression: Apache-2.0
+License-File: LICENSES/Apache-2.0.txt
+Author: Max Mehl
+Author-email: mail@mehl.mx
+Requires-Python: >=3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Provides-Extra: ansible-deps
+Requires-Dist: ansible ; extra == "ansible-deps"
+Requires-Dist: ansible-vault ; extra == "ansible-deps"
+Description-Content-Type: text/markdown
+
+<!--
+SPDX-FileCopyrightText: 2025 Max Mehl <https://mehl.mx>
+SPDX-License-Identifier: Apache-2.0
+-->
+
+# Ansible Vault Tools
+
+TBD
+
