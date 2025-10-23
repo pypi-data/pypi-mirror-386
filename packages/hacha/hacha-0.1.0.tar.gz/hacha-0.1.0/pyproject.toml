@@ -1,0 +1,28 @@
+[project]
+name = "hacha"
+version = "0.1.0"
+description = "A tool for splitting files in multiple parts and joining them at a later time."
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/cristian64/hacha"
+Repository = "https://github.com/cristian64/hacha.git"
+
+[project.scripts]
+hacha = "hacha:main"
+
+[build-system]
+requires = ["uv_build >= 0.9.5, <0.10.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+
+[tool.ruff.format]
+preview = true
+quote-style = "single"
