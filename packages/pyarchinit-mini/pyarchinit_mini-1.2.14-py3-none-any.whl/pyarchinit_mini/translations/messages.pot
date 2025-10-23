@@ -1,0 +1,3476 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-10-22 21:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:61
+#: pyarchinit_mini/desktop_gui/main_window.py:1490
+msgid "OK"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:63
+#: pyarchinit_mini/desktop_gui/dialogs.py:93
+#: pyarchinit_mini/desktop_gui/dialogs.py:536
+#: pyarchinit_mini/desktop_gui/dialogs.py:706
+#: pyarchinit_mini/desktop_gui/dialogs.py:1325
+#: pyarchinit_mini/desktop_gui/dialogs.py:1548
+#: pyarchinit_mini/desktop_gui/main_window.py:1491
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:88
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:398
+#: web_interface/templates/inventario/form.html:331
+#: web_interface/templates/sites/form.html:49
+#: web_interface/templates/us/form.html:437
+msgid "Cancel"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:80
+#: pyarchinit_mini/desktop_gui/main_window.py:146
+#: pyarchinit_mini/desktop_gui/main_window.py:250
+#: pyarchinit_mini/desktop_gui/main_window.py:368
+#: web_interface/templates/base.html:351
+#: web_interface/templates/dashboard.html:143
+#: web_interface/templates/sites/list.html:9
+msgid "New Site"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:80
+#: web_interface/templates/sites/list.html:113
+msgid "Edit Site"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:93
+#: pyarchinit_mini/desktop_gui/dialogs.py:536
+#: pyarchinit_mini/desktop_gui/dialogs.py:706
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:87
+#: web_interface/templates/sites/form.html:48
+msgid "Save"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:134
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:97
+#: web_interface/templates/us/form.html:29
+msgid "Basic Information"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:156
+msgid "Site Name *:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:161
+#: pyarchinit_mini/pdf_export/pdf_generator.py:163
+msgid "Country:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:166
+#: pyarchinit_mini/pdf_export/pdf_generator.py:162
+msgid "Region:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:171
+#: pyarchinit_mini/pdf_export/pdf_generator.py:160
+msgid "Municipality:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:176
+#: pyarchinit_mini/pdf_export/pdf_generator.py:161
+msgid "Province:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:181
+msgid "Site Definition:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:194
+#: pyarchinit_mini/desktop_gui/main_window.py:448
+#: pyarchinit_mini/pdf_export/pdf_generator.py:273
+#: pyarchinit_mini/pdf_export/pdf_generator.py:351
+#: web_interface/templates/3d_viewer/viewer.html:175
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:403
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:731
+#: web_interface/templates/inventario/form.html:145
+#: web_interface/templates/sites/form.html:43
+#: web_interface/templates/us/list.html:45
+msgid "Description"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:197
+msgid "Site description:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:204
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:438
+#: web_interface/templates/base.html:375
+msgid "Media"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:210
+msgid "Add Media"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:211
+msgid "Remove Selected"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:212
+msgid "Preview"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:215
+msgid "Drag media files here"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:219
+msgid ""
+"Drag media files here\n"
+"(Images, PDF, Video, Audio)"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:483
+#: pyarchinit_mini/desktop_gui/dialogs.py:521
+#: pyarchinit_mini/desktop_gui/dialogs.py:639
+#: pyarchinit_mini/desktop_gui/dialogs.py:643
+#: pyarchinit_mini/desktop_gui/dialogs.py:649
+#: pyarchinit_mini/desktop_gui/dialogs.py:669
+#: pyarchinit_mini/desktop_gui/dialogs.py:691
+#: pyarchinit_mini/desktop_gui/dialogs.py:794
+#: pyarchinit_mini/desktop_gui/dialogs.py:798
+#: pyarchinit_mini/desktop_gui/dialogs.py:804
+#: pyarchinit_mini/desktop_gui/dialogs.py:823
+#: pyarchinit_mini/desktop_gui/dialogs.py:834
+#: pyarchinit_mini/desktop_gui/dialogs.py:856
+#: pyarchinit_mini/desktop_gui/dialogs.py:1006
+#: pyarchinit_mini/desktop_gui/dialogs.py:1268
+#: pyarchinit_mini/desktop_gui/dialogs.py:1277
+#: pyarchinit_mini/desktop_gui/dialogs.py:1292
+#: pyarchinit_mini/desktop_gui/dialogs.py:1310
+#: pyarchinit_mini/desktop_gui/dialogs.py:1417
+#: pyarchinit_mini/desktop_gui/dialogs.py:1529
+#: pyarchinit_mini/desktop_gui/dialogs.py:1537
+#: pyarchinit_mini/desktop_gui/dialogs.py:1733
+#: pyarchinit_mini/desktop_gui/dialogs.py:1735
+#: pyarchinit_mini/desktop_gui/dialogs.py:1738
+#: pyarchinit_mini/desktop_gui/dialogs.py:1752
+#: pyarchinit_mini/desktop_gui/dialogs.py:1757
+#: pyarchinit_mini/desktop_gui/dialogs.py:1778
+#: pyarchinit_mini/desktop_gui/dialogs.py:1789
+#: pyarchinit_mini/desktop_gui/dialogs.py:1802
+#: pyarchinit_mini/desktop_gui/dialogs.py:1917
+#: pyarchinit_mini/desktop_gui/dialogs.py:1984
+#: pyarchinit_mini/desktop_gui/main_window.py:810
+#: pyarchinit_mini/desktop_gui/main_window.py:842
+#: pyarchinit_mini/desktop_gui/main_window.py:873
+#: pyarchinit_mini/web_interface/app.py:2185
+#: pyarchinit_mini/web_interface/app.py:2361
+#: pyarchinit_mini/web_interface/app.py:2403
+#: pyarchinit_mini/web_interface/app.py:2445
+msgid "Error"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:483
+msgid "Site name is required"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:508
+#: pyarchinit_mini/desktop_gui/dialogs.py:512
+#: pyarchinit_mini/desktop_gui/dialogs.py:678
+#: pyarchinit_mini/desktop_gui/dialogs.py:682
+#: pyarchinit_mini/desktop_gui/dialogs.py:843
+#: pyarchinit_mini/desktop_gui/dialogs.py:847
+#: pyarchinit_mini/desktop_gui/dialogs.py:1448
+#: pyarchinit_mini/desktop_gui/dialogs.py:1483
+#: pyarchinit_mini/desktop_gui/dialogs.py:1532
+#: pyarchinit_mini/desktop_gui/dialogs.py:1726
+#: pyarchinit_mini/desktop_gui/dialogs.py:1750
+#: pyarchinit_mini/desktop_gui/dialogs.py:1908
+#: pyarchinit_mini/desktop_gui/main_window.py:808
+#: pyarchinit_mini/desktop_gui/main_window.py:840
+#: pyarchinit_mini/desktop_gui/main_window.py:871
+msgid "Success"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:508
+msgid "Site updated successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:512
+msgid "Site created successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:521
+#: pyarchinit_mini/desktop_gui/dialogs.py:691
+#: pyarchinit_mini/desktop_gui/dialogs.py:856
+#, python-brace-format
+msgid "Error saving: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:527
+#: pyarchinit_mini/desktop_gui/main_window.py:147
+#: pyarchinit_mini/desktop_gui/main_window.py:415
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:48
+#: web_interface/templates/base.html:360
+#: web_interface/templates/dashboard.html:146
+#: web_interface/templates/us/list.html:13
+msgid "New US"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:527
+#: web_interface/templates/us/list.html:90
+msgid "Edit US"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:561
+#: pyarchinit_mini/desktop_gui/dialogs.py:717
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:121
+msgid "Site *:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:567
+#: pyarchinit_mini/desktop_gui/dialogs.py:743
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:126
+msgid "Area:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:573
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:131
+msgid "US Number *:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:579
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:197
+msgid "Stratigraphic Description:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:585
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:202
+msgid "Interpretative Description:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:591
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:151
+msgid "Excavation Year:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:597
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:161
+msgid "Cataloguer:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:603
+msgid "Formation:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:604
+#: pyarchinit_mini/pdf_export/pdf_generator.py:560
+msgid "Natural"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:604
+#: pyarchinit_mini/pdf_export/pdf_generator.py:564
+msgid "Artificial"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:639
+#: pyarchinit_mini/desktop_gui/dialogs.py:794
+msgid "Site is required"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:643
+msgid "US number is required"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:649
+msgid "US number must be an integer"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:669
+msgid "Excavation year must be a number"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:678
+msgid "US updated successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:682
+msgid "US created successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:697
+#: pyarchinit_mini/desktop_gui/main_window.py:148
+#: pyarchinit_mini/desktop_gui/main_window.py:475
+#: web_interface/templates/base.html:369
+#: web_interface/templates/dashboard.html:149
+#: web_interface/templates/inventario/list.html:13
+msgid "New Artifact"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:697
+#: web_interface/templates/inventario/list.html:98
+msgid "Edit Artifact"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:723
+msgid "Inventory Number *:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:729
+msgid "Artifact Type:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:731
+#: pyarchinit_mini/desktop_gui/main_window.py:500
+#: web_interface/templates/inventario/form.html:54
+msgid "Ceramic"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:731
+#: pyarchinit_mini/desktop_gui/main_window.py:500
+msgid "Metal"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:731
+#: pyarchinit_mini/desktop_gui/main_window.py:500
+msgid "Stone"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:731
+#: pyarchinit_mini/desktop_gui/main_window.py:500
+msgid "Bone"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:731
+#: pyarchinit_mini/desktop_gui/main_window.py:500
+msgid "Glass"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:737
+#: pyarchinit_mini/pdf_export/pdf_generator.py:164
+msgid "Definition:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:755
+msgid "Weight (g):"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:761
+#: pyarchinit_mini/desktop_gui/dialogs.py:1845
+msgid "Description:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:798
+msgid "Inventory number is required"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:804
+msgid "Inventory number must be an integer"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:823
+msgid "US must be a number"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:834
+msgid "Weight must be a number"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:843
+msgid "Artifact updated successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:847
+msgid "Artifact created successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:863
+msgid "Harris Matrix Generator"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:873
+#: pyarchinit_mini/desktop_gui/dialogs.py:1813
+#: pyarchinit_mini/desktop_gui/dialogs.py:1930
+msgid "Close"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:885
+#: pyarchinit_mini/desktop_gui/dialogs.py:1330
+msgid "Select Site:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:893
+msgid "Generate Matrix"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:895
+msgid "Advanced Editor"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:897
+#: pyarchinit_mini/desktop_gui/dialogs.py:1325
+#: web_interface/templates/dashboard.html:11
+msgid "Export"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:912
+msgid "Matrix Visualization:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:915
+msgid "Layout:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:960
+msgid ""
+"Select a site and generate the Harris Matrix\n"
+"\n"
+"Controls:\n"
+"• Drag with mouse to pan\n"
+"• Mouse wheel to zoom\n"
+"• Zoom buttons for precise control"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:979
+#: pyarchinit_mini/desktop_gui/dialogs.py:1401
+#: pyarchinit_mini/desktop_gui/main_window.py:787
+#: pyarchinit_mini/desktop_gui/main_window.py:800
+#: pyarchinit_mini/desktop_gui/main_window.py:816
+#: pyarchinit_mini/desktop_gui/main_window.py:832
+#: pyarchinit_mini/desktop_gui/main_window.py:848
+#: pyarchinit_mini/desktop_gui/main_window.py:863
+msgid "Selection"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:979
+#: pyarchinit_mini/desktop_gui/dialogs.py:1401
+msgid "Select a site"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:985
+#, python-brace-format
+msgid "Generating Harris Matrix for {}...\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1003
+msgid "Completed"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1003
+msgid "Harris Matrix generated successfully!"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1006
+#, python-brace-format
+msgid "Error generating matrix: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1012
+#, python-brace-format
+msgid ""
+"HARRIS MATRIX STATISTICS - {}\n"
+"\n"
+"Total US: {}\n"
+"Stratigraphic Relationships: {}\n"
+"Stratigraphic Levels: {}\n"
+"Valid Matrix: {}\n"
+"Isolated US: {}\n"
+"\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1017
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:157
+#: pyarchinit_mini/pdf_export/pdf_generator.py:408
+msgid "Yes"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1017
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:157
+#: pyarchinit_mini/pdf_export/pdf_generator.py:408
+msgid "No"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1022
+msgid "⚠️ WARNING: The matrix contains cycles or logical errors\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1031
+msgid ""
+"\n"
+"STRATIGRAPHIC LEVELS:\n"
+"\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1034
+#, python-brace-format
+msgid "Level {}: US {}\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1042
+msgid ""
+"No data to visualize\n"
+"Generate a Harris Matrix first"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1089
+#, python-brace-format
+msgid "Harris Matrix - {} (Layout: {})"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1097
+msgid ""
+"Error generating image\n"
+"Try the Advanced Editor"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1108
+#, python-brace-format
+msgid ""
+"Visualization error:\n"
+"{}\n"
+"\n"
+"Use the Advanced Editor for more options"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1238
+#: pyarchinit_mini/desktop_gui/main_window.py:879
+msgid "Warning"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1238
+msgid "Generate a matrix first"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1242
+msgid "Select folder for export"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1265
+msgid "Export Completed"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1265
+#, python-brace-format
+msgid ""
+"Matrix exported to:\n"
+"\n"
+"{}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1268
+#, python-brace-format
+msgid "Error during export: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1277
+msgid "Services not available for advanced editor"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1292
+msgid "Database manager not available"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1310
+#, python-brace-format
+msgid "Error opening editor: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1316
+#: pyarchinit_mini/desktop_gui/main_window.py:176
+#: pyarchinit_mini/desktop_gui/main_window.py:418
+#: pyarchinit_mini/desktop_gui/main_window.py:478
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:92
+#: web_interface/templates/inventario/list.html:11
+#: web_interface/templates/sites/list.html:122
+#: web_interface/templates/us/list.html:11
+msgid "Export PDF"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1339
+msgid "Export Type:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1345
+msgid "US Sheets"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1346
+msgid "Inventory Sheets"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1347
+msgid "Complete Site Report"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1350
+msgid "Custom Logo:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1357
+#: pyarchinit_mini/desktop_gui/dialogs.py:1367
+#: pyarchinit_mini/desktop_gui/dialogs.py:1833
+msgid "Browse..."
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1360
+msgid "Output File:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1377
+msgid "Select logo"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1378
+#: pyarchinit_mini/desktop_gui/dialogs.py:1868
+#: pyarchinit_mini/pdf_export/pdf_generator.py:343
+msgid "Images"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1378
+#: pyarchinit_mini/desktop_gui/dialogs.py:1388
+#: pyarchinit_mini/desktop_gui/dialogs.py:1660
+#: pyarchinit_mini/desktop_gui/dialogs.py:1690
+#: pyarchinit_mini/desktop_gui/dialogs.py:1704
+#: pyarchinit_mini/desktop_gui/dialogs.py:1871
+msgid "All files"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1386
+msgid "Save PDF report"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1405
+msgid "Output File"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1405
+msgid "Specify the output file"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1417
+msgid "Site not found"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1425
+#: pyarchinit_mini/desktop_gui/dialogs.py:1454
+msgid "Data"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1425
+#, python-brace-format
+msgid "No US found for site {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1448
+#, python-brace-format
+msgid ""
+"US sheets saved to:\n"
+"{}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1454
+#, python-brace-format
+msgid "No artifacts found for site {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1483
+#, python-brace-format
+msgid ""
+"Inventory sheets saved to:\n"
+"{}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1529
+msgid "Error generating PDF"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1532
+#, python-brace-format
+msgid ""
+"Complete report saved to:\n"
+"{}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1537
+#, python-brace-format
+msgid "Error generating PDF: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1544
+msgid "Database Configuration"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1548
+msgid "Connect"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1554
+msgid "Database Type"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1558
+msgid "SQLite (Local file)"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1561
+msgid "PostgreSQL (Server)"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1566
+msgid "SQLite Configuration"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1569
+msgid "Database File:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1572
+msgid "Browse"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1578
+#: pyarchinit_mini/desktop_gui/dialogs.py:1672
+msgid "Sample Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1580
+#: pyarchinit_mini/desktop_gui/dialogs.py:1698
+msgid "New Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1582
+#: pyarchinit_mini/desktop_gui/dialogs.py:1708
+#: pyarchinit_mini/desktop_gui/main_window.py:154
+msgid "Import Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1588
+msgid "PostgreSQL Configuration"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1592
+msgid "Host:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1597
+msgid "Port:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1602
+msgid "Database:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1607
+msgid "Username:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1612
+msgid "Password:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1617
+msgid "Test Connection"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1623
+msgid "Information"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1626
+msgid ""
+"DATABASE CONFIGURATION\n"
+"\n"
+"SQLite:\n"
+"• Local database stored in a file\n"
+"• Ideal for single user\n"
+"• Easy to transport and share\n"
+"\n"
+"PostgreSQL:\n"
+"• Professional database server\n"
+"• Supports multi-user access\n"
+"• Better performance for large datasets\n"
+"• Requires PostgreSQL server installation\n"
+"\n"
+"NOTE: Changing database will reload the interface\n"
+"and data migrations may be required."
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1659
+msgid "Select SQLite database file"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1673
+msgid ""
+"Sample database loaded!\n"
+"\n"
+"Contents:\n"
+"• 1 Archaeological site\n"
+"• 100 Stratigraphic units\n"
+"• 50 Artifacts\n"
+"• 70+ Stratigraphic relationships"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1680
+msgid "Missing Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1681
+msgid ""
+"The sample database does not exist.\n"
+"Do you want to create it now?"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1688
+msgid "Create new SQLite database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1698
+#, python-brace-format
+msgid "New database created: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1703
+msgid "Import SQLite database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1708
+#, python-brace-format
+msgid "Database imported: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1727
+msgid ""
+"Sample database created successfully!\n"
+"\n"
+"Contents:\n"
+"• 1 Archaeological site\n"
+"• 100 US with relationships\n"
+"• 50 Artifacts"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1733
+#, python-brace-format
+msgid "Database creation error: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1735
+msgid "Database creation script not found"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1738
+#, python-brace-format
+msgid "Error during creation: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1750
+msgid "PostgreSQL connection successful!"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1752
+msgid "PostgreSQL connection failed"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1757
+#, python-brace-format
+msgid "Connection test error: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1768
+msgid "All PostgreSQL fields are required"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1778
+msgid "Specify the SQLite file path"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1789
+msgid "Unable to connect to database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1802
+#, python-brace-format
+msgid "Database configuration error: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1808
+msgid "Media Management"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1822
+msgid "Upload New File"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1826
+msgid "File:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1836
+msgid "Entity Type:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1840
+msgid "Entity ID:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1850
+msgid "Upload File"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1857
+#: pyarchinit_mini/desktop_gui/main_window.py:307
+#: web_interface/templates/dashboard.html:53
+msgid "Media Files"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1861
+msgid "Media file list (in development)"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1866
+msgid "Select file to upload"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1869
+#: pyarchinit_mini/pdf_export/pdf_generator.py:344
+msgid "Documents"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1870
+msgid "Videos"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1885
+#: pyarchinit_mini/desktop_gui/main_window.py:143
+msgid "File"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1885
+msgid "Select a file to upload"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1889
+#: pyarchinit_mini/pdf_export/pdf_generator.py:351
+msgid "Entity"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1889
+msgid "Select the entity type"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1893
+#: pyarchinit_mini/desktop_gui/dialogs.py:1899
+msgid "ID"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1893
+msgid "Enter the entity ID"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1899
+msgid "ID must be a number"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1908
+#: pyarchinit_mini/web_interface/app.py:2037
+msgid "File uploaded successfully!"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1917
+#, python-brace-format
+msgid "Error during upload: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1923
+#: pyarchinit_mini/desktop_gui/main_window.py:178
+msgid "Statistics"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1948
+#: pyarchinit_mini/desktop_gui/main_window.py:251
+msgid "Refresh"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1961
+#, python-brace-format
+msgid ""
+"PYARCHINIT-MINI STATISTICS\n"
+"Date: {}\n"
+"\n"
+"OVERALL TOTALS:\n"
+"• Archaeological Sites: {}\n"
+"• Stratigraphic Units: {}\n"
+"• Catalogued Artifacts: {}\n"
+"\n"
+"DETAILS BY SITE:\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1974
+#, python-brace-format
+msgid "  - US: {}\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1975
+#, python-brace-format
+msgid "  - Artifacts: {}\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1977
+#, python-brace-format
+msgid "  - Municipality: {}\n"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/dialogs.py:1984
+#, python-brace-format
+msgid "Error loading statistics: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:57
+msgid "PyArchInit-Mini - Archaeological Data Management"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:80
+msgid "Ready"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:123
+msgid "Database Error"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:123
+#, python-brace-format
+msgid "Failed to initialize database: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:144
+msgid "New SQLite Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:150
+msgid "Configure Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:151
+msgid "Install PostgreSQL"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:153
+msgid "Load Sample Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:155
+msgid "Export Database"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:157
+msgid "Exit"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:161
+#: web_interface/templates/dashboard.html:96
+msgid "View"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:162
+#: pyarchinit_mini/desktop_gui/main_window.py:267
+#: web_interface/templates/base.html:339 web_interface/templates/base.html:389
+#: web_interface/templates/base.html:458
+msgid "Dashboard"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:163
+#: pyarchinit_mini/desktop_gui/main_window.py:362
+#: web_interface/templates/base.html:346
+msgid "Sites"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:164
+#: pyarchinit_mini/desktop_gui/main_window.py:409
+#: pyarchinit_mini/pdf_export/pdf_generator.py:232
+#: pyarchinit_mini/pdf_export/pdf_generator.py:269
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:649
+msgid "US"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:165
+#: pyarchinit_mini/desktop_gui/main_window.py:469
+#: web_interface/templates/base.html:364
+msgid "Inventory"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:169
+#: web_interface/templates/base.html:373 web_interface/templates/base.html:479
+msgid "Tools"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:170
+#: web_interface/templates/base.html:378
+#: web_interface/templates/harris_matrix/view.html:3
+#: web_interface/templates/harris_matrix/view.html:8
+#: web_interface/templates/harris_matrix/view.html:74
+#: web_interface/templates/sites/list.html:116
+msgid "Harris Matrix"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:171
+msgid "Export GraphML (yEd)"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:173
+msgid "Thesaurus Management"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:175
+msgid "Media Manager"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:177
+msgid "Export/Import Data"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:179
+msgid "Analytics Dashboard"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:183
+msgid "Settings"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:184
+msgid "Language"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:188
+msgid "Help"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:189
+msgid "About"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:190
+msgid "User Guide"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:244
+msgid "Current Site:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:294
+msgid "General Statistics"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:304
+#: web_interface/templates/base.html:463
+#: web_interface/templates/dashboard.html:23
+#: web_interface/templates/sites/list.html:8
+msgid "Archaeological Sites"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:305
+#: web_interface/templates/base.html:355 web_interface/templates/base.html:468
+#: web_interface/templates/dashboard.html:33
+#: web_interface/templates/harris_matrix/view.html:36
+#: web_interface/templates/us/list.html:3
+#: web_interface/templates/us/list.html:8
+msgid "Stratigraphic Units"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:306
+#: web_interface/templates/dashboard.html:43
+msgid "Catalogued Artifacts"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:321
+msgid "Recent Activity"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:326
+#: pyarchinit_mini/desktop_gui/main_window.py:512
+#: pyarchinit_mini/pdf_export/pdf_generator.py:302
+#: pyarchinit_mini/pdf_export/pdf_generator.py:351
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:404
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:650
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:732
+#: web_interface/templates/inventario/form.html:130
+#: web_interface/templates/inventario/list.html:46
+msgid "Type"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:327
+#: web_interface/templates/sites/list.html:30
+msgid "Name"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:328
+msgid "Date"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:369
+#: pyarchinit_mini/desktop_gui/main_window.py:416
+#: pyarchinit_mini/desktop_gui/main_window.py:476
+#: web_interface/templates/inventario/list.html:64
+#: web_interface/templates/sites/list.html:50
+#: web_interface/templates/us/list.html:60
+msgid "Edit"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:370
+#: pyarchinit_mini/desktop_gui/main_window.py:417
+#: pyarchinit_mini/desktop_gui/main_window.py:477
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:91
+msgid "Delete"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:375
+#: pyarchinit_mini/desktop_gui/main_window.py:425
+#: pyarchinit_mini/desktop_gui/main_window.py:483
+msgid "Search:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:387
+#: pyarchinit_mini/pdf_export/pdf_generator.py:197
+#: web_interface/templates/dashboard.html:75
+msgid "Site Name"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:388
+#: pyarchinit_mini/pdf_export/pdf_generator.py:198
+#: web_interface/templates/dashboard.html:76
+#: web_interface/templates/sites/form.html:28
+#: web_interface/templates/sites/list.html:33
+#: web_interface/templates/sites/list.html:104
+msgid "Municipality"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:389
+#: pyarchinit_mini/pdf_export/pdf_generator.py:199
+#: web_interface/templates/dashboard.html:77
+#: web_interface/templates/sites/form.html:33
+msgid "Province"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:390
+#: pyarchinit_mini/pdf_export/pdf_generator.py:201
+#: web_interface/templates/sites/form.html:18
+#: web_interface/templates/sites/list.html:31
+#: web_interface/templates/sites/list.html:96
+msgid "Country"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:419
+msgid "Validate Paradoxes"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:420
+msgid "Fix Relationships"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:434
+#: pyarchinit_mini/desktop_gui/main_window.py:492
+#: pyarchinit_mini/pdf_export/pdf_generator.py:159
+msgid "Site:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:445
+#: pyarchinit_mini/desktop_gui/main_window.py:510
+#: pyarchinit_mini/web_interface/app.py:533
+#: pyarchinit_mini/web_interface/app.py:568
+#: web_interface/templates/3d_viewer/viewer.html:139
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:383
+#: web_interface/templates/inventario/form.html:74
+#: web_interface/templates/inventario/list.html:45
+#: web_interface/templates/sites/form.html:13
+#: web_interface/templates/us/form.html:70
+#: web_interface/templates/us/list.html:43
+msgid "Site"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:446
+#: pyarchinit_mini/pdf_export/pdf_generator.py:232
+#: pyarchinit_mini/pdf_export/pdf_generator.py:269
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:265
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:651
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:734
+#: web_interface/templates/inventario/form.html:158
+#: web_interface/templates/us/form.html:77
+#: web_interface/templates/us/list.html:44
+#: web_interface/templates/us/list.html:76
+msgid "Area"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:449
+#: web_interface/templates/inventario/form.html:105
+#: web_interface/templates/us/list.html:46
+msgid "Year"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:499
+msgid "Type:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:511
+#: pyarchinit_mini/pdf_export/pdf_generator.py:302
+msgid "Inv. No."
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:513
+#: pyarchinit_mini/pdf_export/pdf_generator.py:302
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:653
+#: web_interface/templates/inventario/form.html:126
+#: web_interface/templates/inventario/list.html:47
+#: web_interface/templates/inventario/list.html:84
+msgid "Definition"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:515
+#: pyarchinit_mini/pdf_export/pdf_generator.py:302
+#: web_interface/templates/inventario/form.html:266
+#: web_interface/templates/inventario/list.html:49
+msgid "Weight (g)"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:787
+msgid "Select a site to edit"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:800
+msgid "Select a site to delete"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:803
+#: pyarchinit_mini/desktop_gui/main_window.py:835
+#: pyarchinit_mini/desktop_gui/main_window.py:866
+msgid "Confirm"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:803
+msgid "Are you sure you want to delete the selected site?"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:808
+msgid "Site deleted successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:810
+#: pyarchinit_mini/desktop_gui/main_window.py:842
+#: pyarchinit_mini/desktop_gui/main_window.py:873
+#, python-brace-format
+msgid "Error during deletion: {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:816
+msgid "Select a US to edit"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:832
+msgid "Select a US to delete"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:835
+msgid "Are you sure you want to delete the selected US?"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:840
+msgid "US deleted successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:848
+msgid "Select an artifact to edit"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:863
+msgid "Select an artifact to delete"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:866
+msgid "Are you sure you want to delete the selected artifact?"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:871
+msgid "Artifact deleted successfully"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:879
+msgid "No sites available to generate Harris Matrix"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:1445
+msgid "Language Selection"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:1455
+msgid "Select Language:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:1483
+msgid "Language Changed"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/main_window.py:1484
+msgid ""
+"Language preference saved.\n"
+"Please restart the application for changes to take effect."
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:48
+#, python-brace-format
+msgid "Edit US {}"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:116
+#: web_interface/templates/inventario/form.html:29
+#: web_interface/templates/us/form.html:65
+msgid "Identification"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:136
+msgid "Unit Type:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:146
+#: web_interface/templates/us/form.html:118
+msgid "Excavation Data"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:156
+msgid "Excavated:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:157
+msgid "Partially"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:166
+msgid "Excavation Method:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:168
+msgid "Manual"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:168
+msgid "Mechanical"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:168
+msgid "Mixed"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:172
+msgid "Record Date:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:177
+msgid "Activity:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:194
+#: web_interface/templates/us/form.html:34
+msgid "Descriptions"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:207
+msgid "Interpretation:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:212
+msgid "Observations:"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:219
+#: web_interface/templates/inventario/form.html:44
+#: web_interface/templates/us/form.html:39
+msgid "Physical Characteristics"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:314
+#: web_interface/templates/us/form.html:44
+msgid "Chronology"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:389
+#: web_interface/templates/us/form.html:49
+#: web_interface/templates/us/form.html:368
+msgid "Stratigraphic Relationships"
+msgstr ""
+
+#: pyarchinit_mini/desktop_gui/us_dialog_extended.py:516
+#: web_interface/templates/dashboard.html:169
+#: web_interface/templates/inventario/form.html:64
+#: web_interface/templates/us/form.html:54
+#: web_interface/templates/us/form.html:418
+msgid "Documentation"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:153
+msgid "Archaeological Report"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:153
+#: web_interface/templates/harris_matrix/graphml_export.html:26
+msgid "Archaeological Site"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:181
+msgid "Date:"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:183
+msgid "Generated by PyArchInit-Mini"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:191
+msgid "1. SITE INFORMATION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:194
+msgid "1.1 Location"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:200
+#: web_interface/templates/sites/form.html:23
+#: web_interface/templates/sites/list.html:32
+#: web_interface/templates/sites/list.html:100
+msgid "Region"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:211
+msgid "1.2 Description"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:217
+msgid "1.3 Site Definition"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:226
+msgid "2. STRATIGRAPHIC UNITS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:229
+msgid "2.1 US List"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:232
+#: web_interface/templates/us/form.html:196
+#: web_interface/templates/us/list.html:80
+msgid "Stratigraphic Description"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:232
+#: pyarchinit_mini/pdf_export/pdf_generator.py:277
+#: web_interface/templates/us/form.html:211
+msgid "Interpretation"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:232
+#: web_interface/templates/us/form.html:123
+#: web_interface/templates/us/list.html:84
+msgid "Excavation Year"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:265
+msgid "2.2 Detailed Descriptions"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:286
+msgid "3. MATERIAL INVENTORY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:293
+msgid "3.1 Statistics"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:294
+msgid "Total catalogued artifacts"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:295
+msgid "Ceramic materials"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:296
+msgid "Metal materials"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:300
+msgid "3.2 Artifacts List"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:302
+msgid "Area/US"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:302
+msgid "State"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:335
+msgid "4. PHOTOGRAPHIC DOCUMENTATION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:342
+msgid "Total media files"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:349
+msgid "4.1 Media List"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:351
+msgid "File Name"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:351
+msgid "Author"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:403
+msgid "Matrix Statistics"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:405
+msgid "Total US:"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:406
+msgid "Relationships:"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:407
+msgid "Levels:"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:408
+msgid "Valid Matrix:"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:409
+msgid "Isolated US:"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:424
+msgid "Harris Matrix Diagram"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:553
+msgid "LOCALITY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:554
+msgid "AREA/BUILDING/STRUCTURE"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:555
+#: pyarchinit_mini/pdf_export/pdf_generator.py:667
+msgid "IDENTIFICATION NUMBER/CODE OF STRATIGRAPHIC UNIT"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:560
+#: pyarchinit_mini/pdf_export/pdf_generator.py:563
+#: pyarchinit_mini/pdf_export/pdf_generator.py:566
+msgid "NAT."
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:561
+#: pyarchinit_mini/pdf_export/pdf_generator.py:564
+#: pyarchinit_mini/pdf_export/pdf_generator.py:567
+msgid "ART."
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:570
+msgid "DEFINITION AND POSITION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:570
+msgid "Stratigraphic definition"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:570
+msgid "Interpretative definition"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:573
+msgid "DESCRIPTION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:576
+msgid "INTERPRETATION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:582
+msgid "BONDS TO"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:583
+msgid "EQUAL TO"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:584
+msgid "COVERS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:585
+msgid "COVERED BY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:586
+msgid "CUTS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:587
+msgid "CUT BY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:588
+msgid "FILLS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:589
+msgid "FILLED BY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:590
+#: pyarchinit_mini/pdf_export/pdf_generator.py:684
+msgid "LEANS AGAINST"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:591
+msgid "LEANED AGAINST BY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:594
+msgid "LATER THAN"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:595
+msgid "EARLIER THAN"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:598
+msgid "STATE OF CONSERVATION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:599
+msgid "CONSISTENCY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:600
+msgid "COLOR"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:601
+msgid "INCLUSIONS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:602
+msgid "SAMPLES"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:602
+#: web_interface/templates/us/form.html:408
+msgid "Flotation"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:602
+#: web_interface/templates/us/form.html:412
+msgid "Sieving"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:605
+msgid "ENVIRONMENT"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:606
+#: pyarchinit_mini/pdf_export/pdf_generator.py:617
+msgid "POSITION IN ENVIRONMENT"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:607
+msgid "SECTOR(S)"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:608
+msgid "SQUARE(S)"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:609
+msgid "TRENCH"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:614
+#: pyarchinit_mini/pdf_export/pdf_generator.py:621
+msgid "ELEVATIONS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:614
+msgid "min"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:614
+msgid "max"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:620
+msgid "PLANS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:622
+msgid "SECTIONS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:623
+msgid "PHOTOGRAPHS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:626
+msgid "DISTINCTION CRITERIA"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:627
+msgid "FORMATION MODE"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:630
+msgid "MEASUREMENTS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:633
+#: pyarchinit_mini/pdf_export/pdf_generator.py:672
+msgid "ORGANIC"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:634
+#: pyarchinit_mini/pdf_export/pdf_generator.py:673
+msgid "INORGANIC"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:637
+msgid "DATING"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:645
+msgid "PERIOD OR PHASE"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:645
+msgid "Initial period"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:645
+msgid "Initial phase"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:645
+msgid "Final period"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:645
+msgid "Final phase"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:646
+msgid "ACTIVITY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:649
+msgid "DATING ELEMENTS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:650
+msgid "QUANTITATIVE DATA OF FINDS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:653
+msgid "SAMPLING"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:654
+msgid "FLOTATION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:655
+msgid "SIEVING"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:658
+msgid "STRATIGRAPHIC RELIABILITY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:661
+msgid "SCIENTIFIC SUPERVISOR OF INVESTIGATIONS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:662
+msgid "DATE OF FIELD SURVEY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:663
+msgid "DATE OF ELABORATION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:666
+msgid "RESPONSIBLE ENTITY"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:668
+msgid ""
+"IDENTIFICATION NUMBER/CODE OF STRATIGRAPHIC "
+"TRENCH/BUILDING/STRUCTURE/BURIAL REFERENCE"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:669
+msgid "COMPETENT SUPERINTENDENCE FOR PROTECTION"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:674
+msgid "C<br/>O<br/>M<br/>P<br/>O<br/>N<br/>E<br/>N<br/>T<br/>S"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:677
+msgid "S<br/>T<br/>R<br/>A<br/>T<br/>I<br/>G<br/>R<br/>A<br/>P<br/>H<br/>I<br/>C<br/><br/>S<br/>E<br/>Q<br/>U<br/>E<br/>N<br/>C<br/>E"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:687
+msgid "FIELD COMPILATION SUPERVISOR"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:688
+msgid "ELABORATION SUPERVISOR"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:691
+msgid "OBSERVATIONS"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:692
+msgid "MATERIAL TABLE REFERENCES"
+msgstr ""
+
+#: pyarchinit_mini/pdf_export/pdf_generator.py:961
+msgid "USM sheet generation to be implemented"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:471
+msgid "Error loading dashboard"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:484
+msgid "Error loading analytics"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:533
+#: pyarchinit_mini/web_interface/app.py:729
+#: pyarchinit_mini/web_interface/app.py:1019
+msgid "created successfully"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:537
+msgid "Error creating site"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:568
+#: pyarchinit_mini/web_interface/app.py:838
+#: pyarchinit_mini/web_interface/app.py:1173
+msgid "updated successfully"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:572
+msgid "Error updating site"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:733
+msgid "Error creating US"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:736
+#: pyarchinit_mini/web_interface/app.py:1026
+msgid "Form validation error. Check required fields."
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:842
+msgid "Error updating US"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1019
+#: pyarchinit_mini/web_interface/app.py:1173
+msgid "Artifact"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1023
+msgid "Error creating artifact"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1177
+msgid "Error updating artifact"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1202
+msgid "Error generating Harris Matrix"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1246
+msgid "Error generating Harris Matrix Graphviz"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1622
+msgid "Error during GraphML conversion"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1653
+msgid "Error during GraphML export"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1723
+msgid "Validation error"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1777
+msgid "Error applying fix"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1822
+msgid "Error exporting PDF"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1861
+msgid "Error exporting Harris Matrix PDF"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1900
+#: pyarchinit_mini/web_interface/app.py:1934
+msgid "Error exporting US PDF"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:1973
+#: pyarchinit_mini/web_interface/app.py:2005
+msgid "Error exporting Inventory PDF"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2041
+msgid "Error uploading file"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2124
+#: web_interface/templates/base.html:405
+#: web_interface/templates/dashboard.html:168
+msgid "Database"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2124
+msgid "loaded successfully"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2128
+msgid "Error loading database"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2169
+msgid "Connection error"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2181
+msgid "Connection"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2181
+msgid "added successfully"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2218
+msgid "Error retrieving database info"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2249
+#: pyarchinit_mini/web_interface/app.py:2264
+#: pyarchinit_mini/web_interface/app.py:2279
+msgid "Error exporting Excel"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2293
+#: pyarchinit_mini/web_interface/app.py:2308
+#: pyarchinit_mini/web_interface/app.py:2323
+msgid "Error exporting CSV"
+msgstr ""
+
+#: pyarchinit_mini/web_interface/app.py:2366
+#: pyarchinit_mini/web_interface/app.py:2408
+#: pyarchinit_mini/web_interface/app.py:2450
+msgid "Error importing CSV"
+msgstr ""
+
+#: web_interface/templates/base.html:334
+msgid "Menu"
+msgstr ""
+
+#: web_interface/templates/base.html:337
+msgid "Main Sections"
+msgstr ""
+
+#: web_interface/templates/base.html:342
+msgid "Analytics"
+msgstr ""
+
+#: web_interface/templates/base.html:348
+#: web_interface/templates/sites/list.html:3
+msgid "Sites List"
+msgstr ""
+
+#: web_interface/templates/base.html:357
+msgid "US List"
+msgstr ""
+
+#: web_interface/templates/base.html:366
+msgid "Artifacts List"
+msgstr ""
+
+#: web_interface/templates/base.html:381
+msgid "Export/Import"
+msgstr ""
+
+#: web_interface/templates/base.html:399
+msgid "online"
+msgstr ""
+
+#: web_interface/templates/base.html:411
+msgid "Users"
+msgstr ""
+
+#: web_interface/templates/base.html:417
+#: web_interface/templates/dashboard.html:177
+msgid "API Docs"
+msgstr ""
+
+#: web_interface/templates/base.html:427
+msgid "Logout"
+msgstr ""
+
+#: web_interface/templates/base.html:434
+msgid "Login"
+msgstr ""
+
+#: web_interface/templates/base.html:453
+msgid "Navigation"
+msgstr ""
+
+#: web_interface/templates/base.html:473
+#: web_interface/templates/inventario/list.html:3
+#: web_interface/templates/inventario/list.html:8
+msgid "Material Inventory"
+msgstr ""
+
+#: web_interface/templates/base.html:484
+#: web_interface/templates/dashboard.html:152
+msgid "Upload Media"
+msgstr ""
+
+#: web_interface/templates/base.html:490
+msgid "Administration"
+msgstr ""
+
+#: web_interface/templates/base.html:495
+msgid "Database Management"
+msgstr ""
+
+#: web_interface/templates/base.html:534
+msgid "has connected"
+msgstr ""
+
+#: web_interface/templates/base.html:535
+msgid "has disconnected"
+msgstr ""
+
+#: web_interface/templates/base.html:536
+msgid "created site"
+msgstr ""
+
+#: web_interface/templates/base.html:537
+msgid "modified site"
+msgstr ""
+
+#: web_interface/templates/base.html:538
+msgid "deleted site"
+msgstr ""
+
+#: web_interface/templates/base.html:539
+msgid "created US"
+msgstr ""
+
+#: web_interface/templates/base.html:540
+msgid "modified US"
+msgstr ""
+
+#: web_interface/templates/base.html:541
+msgid "deleted US"
+msgstr ""
+
+#: web_interface/templates/base.html:542
+msgid "created artifact"
+msgstr ""
+
+#: web_interface/templates/base.html:543
+msgid "modified artifact"
+msgstr ""
+
+#: web_interface/templates/base.html:544
+msgid "deleted artifact"
+msgstr ""
+
+#: web_interface/templates/base.html:545
+msgid "Notification"
+msgstr ""
+
+#: web_interface/templates/base.html:546
+msgid "Now"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:7
+msgid "Archaeological Dashboard"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:66
+msgid "Recent Sites"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:78
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:293
+#: web_interface/templates/inventario/list.html:50
+#: web_interface/templates/sites/list.html:34
+#: web_interface/templates/us/list.html:47
+msgid "Actions"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:115
+msgid "View All Sites"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:121
+msgid "No sites found"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:122
+msgid "Start by creating your first archaeological site"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:124
+msgid "Create First Site"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:137
+msgid "Quick Actions"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:162
+msgid "System"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:167
+msgid "Version"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:170
+msgid "Interface"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:194
+msgid "Statistics by Type"
+msgstr ""
+
+#: web_interface/templates/dashboard.html:202
+msgid "Statistics charts available in full version"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:3
+#: web_interface/templates/3d_viewer/viewer.html:90
+msgid "3D Model Viewer"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:83
+msgid "Back to Site"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:92
+msgid "Interactive 3D visualization of archaeological context"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:102
+msgid "3D model of"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:116
+msgid "Click to load 3D model"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:121
+msgid "Reset Camera"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:124
+msgid "Toggle Rotation"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:127
+msgid "Toggle Wireframe"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:135
+msgid "Model Information"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:146
+msgid "Stratigraphic Unit"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:153
+msgid "Format"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:160
+msgid "File Size"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:167
+msgid "Filename"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:182
+msgid "Download Model"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:185
+msgid "Share"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:224
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:279
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:345
+msgid "3D Model"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:225
+msgid "View 3D archaeological model"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:231
+msgid "Link copied to clipboard"
+msgstr ""
+
+#: web_interface/templates/3d_viewer/viewer.html:256
+msgid "Error loading 3D model"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:3
+#: web_interface/templates/harris_matrix/graphml_export.html:7
+msgid "Export Harris Matrix to GraphML (yEd)"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:11
+msgid "GraphML Export"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:12
+msgid ""
+"Export the Harris Matrix in GraphML format compatible with yEd Graph "
+"Editor. This format preserves the structure of archaeological periods and"
+" allows advanced diagram editing."
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:18
+msgid "Export Parameters"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:28
+msgid "Select the archaeological site to generate the Harris Matrix"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:33
+msgid "Diagram Title"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:34
+msgid "Example: Pompeii - Regio VI"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:35
+msgid "Optional header to display in the diagram"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:40
+msgid "Grouping"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:42
+msgid "How to group stratigraphic units in the diagram"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:49
+msgid "Reverse period order"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:51
+msgid ""
+"If selected, Period 1 will correspond to the last excavated epoch "
+"(reverse order)"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:57
+msgid "Export to GraphML"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:67
+msgid "Export s3Dgraphy (Extended Matrix)"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:72
+msgid "Advanced Export with s3Dgraphy"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:73
+msgid ""
+"Export the stratigraphy in s3Dgraphy format compatible with Extended "
+"Matrix Framework. Includes complete metadata, 3D model support, and "
+"advanced analysis."
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:78
+msgid "Select Site for s3Dgraphy Export"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:80
+msgid "-- Select a site --"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:93
+msgid "Export GraphML"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:98
+msgid "Export JSON"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:103
+msgid "Interactive Viewer"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:110
+msgid "s3Dgraphy Export Features:"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:112
+msgid "Complete metadata for each SU"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:113
+msgid "3D model support (GLB/GLTF)"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:114
+msgid "Extended Matrix Framework compliant"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:115
+msgid "Analysis with NetworkX, Gephi, yEd"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:116
+msgid "JSON export for programmatic analysis"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:125
+msgid "How to Use the GraphML File"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:128
+msgid "1. Download yEd Graph Editor"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:130
+msgid "Download yEd for free from:"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:136
+msgid "2. Open the GraphML File"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:138
+msgid ""
+"Once the .graphml file is exported, open it with yEd Graph Editor. The "
+"diagram will appear with all nodes (SU) and stratigraphic relationships."
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:141
+msgid "3. Edit and Layout"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:143
+msgid "Automatic layout:"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:143
+msgid "Layout menu → Hierarchical/Organic to reorganize nodes"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:144
+msgid "Node style:"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:144
+msgid "Customize colors, shapes and sizes of SU"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:145
+msgid "Labels:"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:145
+msgid "Edit texts and add annotations"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:146
+msgid "Periods:"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:146
+msgid "Archaeological periods are grouped in colored tables"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:149
+msgid "4. Export from yEd"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:151
+msgid "Export the final diagram in various formats:"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:163
+msgid "Back to Sites List"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:172
+#: web_interface/templates/harris_matrix/graphml_export.html:181
+msgid "Select a site for export"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/graphml_export.html:190
+msgid "Select a site to view"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:3
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:115
+msgid "Stratigraph Viewer"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:126
+msgid "Nodes"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:130
+msgid "Edges"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:134
+msgid "Periods"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:146
+msgid "Zoom In"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:149
+msgid "Zoom Out"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:152
+#: web_interface/templates/sites/list.html:18
+#: web_interface/templates/us/list.html:30
+msgid "Reset"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:158
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:273
+msgid "Hierarchical"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:161
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:275
+msgid "Force"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:166
+msgid "Export SVG"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:184
+msgid "Extended Matrix Palette"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:188
+msgid "Negative"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:192
+msgid "Deposit"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:196
+msgid "Fill"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:200
+msgid "Layer"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:204
+msgid "Structure/Wall"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:208
+msgid "Floor"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:212
+msgid "Destruction"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:216
+msgid "Construction"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:220
+msgid "Other"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:231
+msgid "Back to Export"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:405
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:264
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:652
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:733
+msgid "Period"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:406
+msgid "Phase"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/stratigraph_viewer.html:407
+#: web_interface/templates/us/form.html:127
+msgid "Excavated"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:14
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:361
+msgid "Back"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:22
+msgid "Matplotlib Visualizer (Simple)"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:23
+msgid "For advanced visualization with groupings and desktop GUI style,"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:25
+msgid "switch to Graphviz"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:44
+msgid "Relationships"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:52
+msgid "Maximum Depth"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:60
+msgid "Levels"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:70
+msgid "Matrix Visualization"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:76
+msgid "No matrix available for this site."
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:85
+msgid "Stratigraphic Sequence"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/view.html:90
+msgid "Level"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:3
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:251
+msgid "3D Harris Matrix Viewer"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:262
+msgid "Group By"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:266
+msgid "Period + Area"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:267
+msgid "None"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:271
+msgid "Layout"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:274
+msgid "Tree"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:281
+msgid "Select model"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:289
+msgid "Upload Model"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:315
+msgid "Synced"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:323
+msgid "Node Details"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:326
+msgid "Properties"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:331
+msgid "Covered By / Cut By / Filled By"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:336
+msgid "Covers / Cuts / Fills"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:346
+msgid "No model loaded"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:349
+msgid "Focused"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:372
+msgid "Upload 3D Model"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:378
+msgid "3D Model File"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:380
+msgid "Upload OBJ, GLTF, or GLB file"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:388
+msgid "US (Optional)"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:389
+msgid "Leave empty for site-level model"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:400
+msgid "Upload"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:655
+msgid "No data available"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:831
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:878
+msgid "Loading"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:882
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:922
+msgid "Error loading model"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:1033
+msgid "Please select a file"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:1058
+msgid "Upload successful"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:1065
+msgid "Upload failed"
+msgstr ""
+
+#: web_interface/templates/harris_matrix/viewer_3d_integrated.html:1070
+msgid "Upload error"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:14
+#: web_interface/templates/us/form.html:14
+msgid "Form errors:"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:34
+msgid "Classification"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:39
+msgid "Context"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:49
+msgid "Conservation"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:59
+#: web_interface/templates/us/form.html:259
+msgid "Measurements"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:81
+msgid "Inventory Number"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:90
+msgid "Artifact No."
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:94
+#: web_interface/templates/us/form.html:142
+msgid "Recorder"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:98
+msgid "Record Date"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:100
+#: web_interface/templates/us/form.html:137
+msgid "Format: YYYY-MM-DD"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:115
+#: web_interface/templates/inventario/list.html:80
+msgid "Artifact Type"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:117
+#: web_interface/templates/inventario/form.html:184
+#: web_interface/templates/inventario/form.html:236
+#: web_interface/templates/inventario/form.html:241
+msgid "Controlled vocabulary from thesaurus"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:120
+msgid "Recording Criteria"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:136
+msgid "Container Type"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:140
+#: web_interface/templates/us/form.html:249
+msgid "Structure"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:154
+msgid "Archaeological Context:"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:154
+msgid "Information about the stratigraphic origin of the artifact"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:162
+msgid "SU"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:167
+msgid "Find Spot"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:169
+msgid "Specify the exact location of the find"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:172
+msgid "Artifact Elements"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:174
+msgid "Describe the constituent elements of the artifact"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:182
+#: web_interface/templates/us/form.html:235
+msgid "Conservation State"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:187
+msgid "Washed"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:193
+msgid "Box No."
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:197
+msgid "Storage Location"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:207
+msgid "Catalogued"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:209
+msgid "Has the artifact been catalogued?"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:212
+msgid "Diagnostic"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:214
+msgid "Is the artifact diagnostic for dating?"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:218
+msgid "Tips"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:220
+msgid "Catalogued:"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:220
+msgid "Indicates if the artifact has been photographically documented"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:221
+msgid "Diagnostic:"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:221
+msgid "Indicates if the artifact is significant for dating the layer"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:230
+msgid "Note:"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:230
+msgid "This tab is specific for ceramic artifacts"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:234
+msgid "Ceramic Body"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:239
+msgid "Coating"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:246
+msgid "Rim Diameter (cm)"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:247
+msgid "e.g. 12.5"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:250
+msgid "Rim EVE"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:251
+msgid "e.g. 0.25"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:252
+msgid "Estimated Vessel Equivalent (preserved fraction 0-1)"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:261
+msgid "Weight and Quantitative Measurements"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:267
+msgid "e.g. 125.5"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:270
+msgid "Total Fragments"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:271
+msgid "e.g. 5"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:276
+msgid "Minimum Forms"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:277
+msgid "e.g. 1"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:278
+msgid "Minimum number of individuals"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:281
+msgid "Maximum Forms"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:282
+msgid "e.g. 3"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:283
+msgid "Maximum number of individuals"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:289
+msgid "Detailed Measurements"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:291
+msgid "Other measurements: length, width, height, thickness, etc."
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:298
+msgid "Artifact Dating"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:300
+msgid "Proposed dating for the artifact"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:303
+msgid "Technologies"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:305
+msgid "Production and processing techniques"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:308
+msgid "Bibliographic References"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:310
+msgid "Bibliographic citations related to the artifact"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:314
+msgid "Photo Negative"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:318
+msgid "Slide"
+msgstr ""
+
+#: web_interface/templates/inventario/form.html:328
+msgid "Save Artifact"
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:22
+#: web_interface/templates/us/list.html:22
+msgid "All sites"
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:29
+msgid "Artifact type"
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:32
+#: web_interface/templates/us/list.html:29
+msgid "Filter"
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:44
+msgid "Inventory No."
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:76
+msgid "Inv."
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:92
+msgid "Weight"
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:104
+#: web_interface/templates/us/list.html:96
+msgid "Total"
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:104
+msgid "artifacts"
+msgstr ""
+
+#: web_interface/templates/inventario/list.html:106
+msgid "No artifacts found."
+msgstr ""
+
+#: web_interface/templates/sites/form.html:38
+msgid "Site Definition"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:15
+msgid "Search site..."
+msgstr ""
+
+#: web_interface/templates/sites/list.html:16
+msgid "Search"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:47
+msgid "Details"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:65
+#: web_interface/templates/sites/list.html:119
+msgid "Validate Relationships"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:66
+msgid "Validate"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:74
+msgid "Site Report"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:77
+msgid "Harris Matrix PDF"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:110
+msgid "View Details"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:131
+msgid "Total sites"
+msgstr ""
+
+#: web_interface/templates/sites/list.html:135
+msgid "No sites found."
+msgstr ""
+
+#: web_interface/templates/sites/list.html:135
+msgid "Create the first site"
+msgstr ""
+
+#: web_interface/templates/us/form.html:81
+msgid "SU Number"
+msgstr ""
+
+#: web_interface/templates/us/form.html:90
+msgid "Unit Type"
+msgstr ""
+
+#: web_interface/templates/us/form.html:94
+msgid "Sector"
+msgstr ""
+
+#: web_interface/templates/us/form.html:98
+msgid "Room"
+msgstr ""
+
+#: web_interface/templates/us/form.html:102
+msgid "Trench"
+msgstr ""
+
+#: web_interface/templates/us/form.html:108
+msgid "Square/Partition"
+msgstr ""
+
+#: web_interface/templates/us/form.html:131
+msgid "Excavation Method"
+msgstr ""
+
+#: web_interface/templates/us/form.html:135
+msgid "Recording Date"
+msgstr ""
+
+#: web_interface/templates/us/form.html:146
+msgid "SU Director"
+msgstr ""
+
+#: web_interface/templates/us/form.html:150
+msgid "SU Supervisor"
+msgstr ""
+
+#: web_interface/templates/us/form.html:156
+msgid "Activity"
+msgstr ""
+
+#: web_interface/templates/us/form.html:166
+msgid "ICCD Cataloguing"
+msgstr ""
+
+#: web_interface/templates/us/form.html:171
+msgid "General Catalogue No."
+msgstr ""
+
+#: web_interface/templates/us/form.html:175
+msgid "Internal Catalogue No."
+msgstr ""
+
+#: web_interface/templates/us/form.html:179
+msgid "International Catalogue No."
+msgstr ""
+
+#: web_interface/templates/us/form.html:185
+msgid "Superintendence"
+msgstr ""
+
+#: web_interface/templates/us/form.html:201
+msgid "Interpretative Description"
+msgstr ""
+
+#: web_interface/templates/us/form.html:206
+msgid "Detailed Description"
+msgstr ""
+
+#: web_interface/templates/us/form.html:216
+msgid "Observations"
+msgstr ""
+
+#: web_interface/templates/us/form.html:226
+msgid "Characteristics"
+msgstr ""
+
+#: web_interface/templates/us/form.html:231
+msgid "Formation"
+msgstr ""
+
+#: web_interface/templates/us/form.html:239
+msgid "Color"
+msgstr ""
+
+#: web_interface/templates/us/form.html:243
+msgid "Consistency"
+msgstr ""
+
+#: web_interface/templates/us/form.html:264
+msgid "Relative Elevation"
+msgstr ""
+
+#: web_interface/templates/us/form.html:265
+msgid "e.g. 10.50"
+msgstr ""
+
+#: web_interface/templates/us/form.html:266
+msgid "Meters"
+msgstr ""
+
+#: web_interface/templates/us/form.html:269
+msgid "Absolute Elevation"
+msgstr ""
+
+#: web_interface/templates/us/form.html:270
+msgid "e.g. 120.50"
+msgstr ""
+
+#: web_interface/templates/us/form.html:271
+msgid "Meters a.s.l."
+msgstr ""
+
+#: web_interface/templates/us/form.html:276
+msgid "Max Length"
+msgstr ""
+
+#: web_interface/templates/us/form.html:277
+msgid "e.g. 250"
+msgstr ""
+
+#: web_interface/templates/us/form.html:278
+#: web_interface/templates/us/form.html:283
+#: web_interface/templates/us/form.html:288
+#: web_interface/templates/us/form.html:295
+#: web_interface/templates/us/form.html:300
+#: web_interface/templates/us/form.html:305
+msgid "cm"
+msgstr ""
+
+#: web_interface/templates/us/form.html:281
+msgid "Average Width"
+msgstr ""
+
+#: web_interface/templates/us/form.html:282
+msgid "e.g. 150"
+msgstr ""
+
+#: web_interface/templates/us/form.html:286
+msgid "Max Height"
+msgstr ""
+
+#: web_interface/templates/us/form.html:287
+msgid "e.g. 50"
+msgstr ""
+
+#: web_interface/templates/us/form.html:293
+msgid "Min Height"
+msgstr ""
+
+#: web_interface/templates/us/form.html:294
+msgid "e.g. 10"
+msgstr ""
+
+#: web_interface/templates/us/form.html:298
+msgid "Max Depth"
+msgstr ""
+
+#: web_interface/templates/us/form.html:299
+msgid "e.g. 80"
+msgstr ""
+
+#: web_interface/templates/us/form.html:303
+msgid "Min Depth"
+msgstr ""
+
+#: web_interface/templates/us/form.html:304
+msgid "e.g. 20"
+msgstr ""
+
+#: web_interface/templates/us/form.html:316
+msgid "Periodization"
+msgstr ""
+
+#: web_interface/templates/us/form.html:321
+msgid "Initial Period"
+msgstr ""
+
+#: web_interface/templates/us/form.html:325
+msgid "Initial Phase"
+msgstr ""
+
+#: web_interface/templates/us/form.html:331
+msgid "Final Period"
+msgstr ""
+
+#: web_interface/templates/us/form.html:335
+msgid "Final Phase"
+msgstr ""
+
+#: web_interface/templates/us/form.html:341
+msgid "Dating"
+msgstr ""
+
+#: web_interface/templates/us/form.html:342
+msgid "e.g. 1st century AD"
+msgstr ""
+
+#: web_interface/templates/us/form.html:345
+msgid "Reliability"
+msgstr ""
+
+#: web_interface/templates/us/form.html:354
+msgid "Tip:"
+msgstr ""
+
+#: web_interface/templates/us/form.html:354
+msgid ""
+"Specifying the initial and final period helps to chronologically "
+"contextualize the stratigraphic unit in the archaeological site."
+msgstr ""
+
+#: web_interface/templates/us/form.html:362
+msgid "Stratigraphic relationships format:"
+msgstr ""
+
+#: web_interface/templates/us/form.html:363
+msgid "Enter relationships in the format:"
+msgstr ""
+
+#: web_interface/templates/us/form.html:363
+msgid "covers 1002, cuts 1005, leans on 1010"
+msgstr ""
+
+#: web_interface/templates/us/form.html:364
+msgid "Relationship types: covers, cuts, leans on, fills, equal to, bonds to"
+msgstr ""
+
+#: web_interface/templates/us/form.html:371
+msgid "Example: \"Covers 1002, Covers 1003, Cuts 1005, Leans on 1010\""
+msgstr ""
+
+#: web_interface/templates/us/form.html:377
+msgid "Harris Matrix Relationships"
+msgstr ""
+
+#: web_interface/templates/us/form.html:382
+msgid ""
+"After saving the SU, it will be possible to view the complete Harris "
+"Matrix of the site in the dedicated section."
+msgstr ""
+
+#: web_interface/templates/us/form.html:386
+msgid ""
+"The system will automatically validate stratigraphic relationships to "
+"identify any paradoxes or cycles."
+msgstr ""
+
+#: web_interface/templates/us/form.html:395
+msgid "Inclusions"
+msgstr ""
+
+#: web_interface/templates/us/form.html:397
+msgid "Materials or elements included in the SU"
+msgstr ""
+
+#: web_interface/templates/us/form.html:401
+msgid "Samples"
+msgstr ""
+
+#: web_interface/templates/us/form.html:403
+msgid "Samples taken from the SU"
+msgstr ""
+
+#: web_interface/templates/us/form.html:420
+msgid "References to photographic, graphic documentation, etc."
+msgstr ""
+
+#: web_interface/templates/us/form.html:424
+msgid "Containers/Contents"
+msgstr ""
+
+#: web_interface/templates/us/form.html:426
+msgid "Containment relationships (e.g. \"Container: SU 1000\")"
+msgstr ""
+
+#: web_interface/templates/us/form.html:434
+msgid "Save US"
+msgstr ""
+
+#: web_interface/templates/us/list.html:98
+msgid "No US found."
+msgstr ""
+
