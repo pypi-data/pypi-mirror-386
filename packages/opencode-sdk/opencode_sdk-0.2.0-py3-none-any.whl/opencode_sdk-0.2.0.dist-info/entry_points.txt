@@ -1,0 +1,3 @@
+[console_scripts]
+oc = opencode_sdk.cli:app
+
