@@ -1,0 +1,32 @@
+[project]
+name = "pgturbo"
+description = "A fast moving zero-boilerplate 2D games framework"
+readme = "README.rst"
+requires-python = ">=3.6"
+dependencies = [
+    "pygame>=2.1",
+    "numpy",
+    "pyfxr",
+]
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://pgturbo.readthedocs.io/"
+Source = "https://github.com/Mambouna/pgturbo"
+
+[project.scripts]
+pgtrun = "pgturbo.runner:main"
+
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "src/pgturbo/_version.py"
+
+[tool.ruff]
+builtins = [
+    "Actor", "Rect", "ZRect", "animate", "clock", "exit", "images", "keyboard", "keymods",
+    "keys", "joysticks", "joy", "joyaxis", "joybutton", "mouse", "music", "screen",
+    "sounds", "storage", "tone"
+]
