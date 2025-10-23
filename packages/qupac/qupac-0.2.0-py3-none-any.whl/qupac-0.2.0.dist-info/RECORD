@@ -1,0 +1,13 @@
+qupac/__init__.py,sha256=PadjH1cEld0JUh94UXMGMDKap2Glt3sYNR6soaRU1Ao,567
+qupac/ai_agent.py,sha256=6M916E7uU_n--Q2eDyxbrV9RL-eDCdjr70I34FQLaJU,763
+qupac/cli.py,sha256=sb0kfeQkfOwPlFWivFCtbrVNWMKCro3BDbAJgxpDjbw,3309
+qupac/executor.py,sha256=wmwBboikzuE7XpyyVjz9MMN5WOpenhRs-0Nxug3IsOA,3776
+qupac/grammar.lark,sha256=6SR0UfiNbRFrri4RCAJDegUAaKcUSteZi94NnDgmAuI,3214
+qupac/parser.py,sha256=0xnujZ1nzSviot7HumsH2Cqcv6pk3hkgvWVzbPPBW4Y,10994
+qupac/transpiler.py,sha256=dI-yBrolpKigF6uXZem_UAksxJ1wVug0vK8A-K4pbCg,19551
+qupac-0.2.0.dist-info/licenses/LICENSE,sha256=Pt_qdpoCOXxKQIbqnXOK0krPMOAqyEEZxjDuPcI4IIA,1079
+qupac-0.2.0.dist-info/METADATA,sha256=gt15dr0uEj-kT5RF222N6ol6kH_cYccaYK8hyRHiU-E,5759
+qupac-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+qupac-0.2.0.dist-info/entry_points.txt,sha256=oEHqLFvcP7iXX9YjkxiDYoJSJa_-K_brig-yPDEnVhs,41
+qupac-0.2.0.dist-info/top_level.txt,sha256=VPDWZI4tIVkJo280tE8rqsMgw8WWvkA1_y5Y1pk8f38,6
+qupac-0.2.0.dist-info/RECORD,,
