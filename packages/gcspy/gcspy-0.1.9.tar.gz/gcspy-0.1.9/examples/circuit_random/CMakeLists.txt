@@ -1,0 +1,4 @@
+add_executable(circuit_random circuit_random.cc)
+target_link_libraries(circuit_random PUBLIC glasgow_constraint_solver)
+
+target_link_libraries(circuit_random LINK_PUBLIC cxxopts)

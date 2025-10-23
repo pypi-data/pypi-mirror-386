@@ -1,0 +1,5 @@
+add_executable(rostering rostering.cc)
+target_link_libraries(rostering PUBLIC glasgow_constraint_solver)
+
+
+target_link_libraries(rostering LINK_PUBLIC cxxopts)
