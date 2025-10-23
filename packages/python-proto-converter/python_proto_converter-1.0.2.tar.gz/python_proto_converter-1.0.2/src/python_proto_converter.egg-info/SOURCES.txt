@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/pyproto/__init__.py
+src/pyproto/converter.py
+src/python_proto_converter.egg-info/PKG-INFO
+src/python_proto_converter.egg-info/SOURCES.txt
+src/python_proto_converter.egg-info/dependency_links.txt
+src/python_proto_converter.egg-info/requires.txt
+src/python_proto_converter.egg-info/top_level.txt
