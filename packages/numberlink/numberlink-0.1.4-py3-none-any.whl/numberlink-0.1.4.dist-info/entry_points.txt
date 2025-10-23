@@ -1,0 +1,7 @@
+[console_scripts]
+numberlink = numberlink.main:main
+numberlink-cli = numberlink.cli:main
+
+[gymnasium.envs]
+NumberLinkRGB-v0 = numberlink.registration:env_creator
+NumberLinkRGBVector-v0 = numberlink.registration:vector_env_creator
