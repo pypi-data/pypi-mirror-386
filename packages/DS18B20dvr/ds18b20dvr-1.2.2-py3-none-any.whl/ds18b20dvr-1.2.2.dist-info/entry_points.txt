@@ -1,0 +1,2 @@
+[console_scripts]
+DS18B20cli = DS18B20dvr.DS18B20:cli
