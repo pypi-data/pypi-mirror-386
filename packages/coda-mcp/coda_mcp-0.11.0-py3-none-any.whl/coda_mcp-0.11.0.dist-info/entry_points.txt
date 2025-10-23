@@ -1,0 +1,4 @@
+[console_scripts]
+coda-mcp = coda_mcp.server:main
+mcp-configure-clients = coda_mcp.cli.configure_clients:main
+mcpctl = coda_mcp.cli.mcpctl:main
