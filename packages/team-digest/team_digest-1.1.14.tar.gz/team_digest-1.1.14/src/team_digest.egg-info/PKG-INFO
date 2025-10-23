@@ -1,0 +1,104 @@
+Metadata-Version: 2.4
+Name: team-digest
+Version: 1.1.14
+Summary: Generate daily/weekly/monthly team digests from Markdown logs; optional Slack posting.
+Author: Anuraj Deol
+License: 
+        MIT License
+        
+        Copyright (c) 2025 Anuraj Deol
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/AnurajDeol1990/team-digest
+Project-URL: Repository, https://github.com/AnurajDeol1990/team-digest
+Project-URL: Issues, https://github.com/AnurajDeol1990/team-digest/issues
+Keywords: digest,email,slack,automation,markdown,teams
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Utilities
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYAML<7,>=6
+Requires-Dist: python-dateutil<3,>=2.8
+Requires-Dist: regex>=2023.0.0
+Requires-Dist: requests<3,>=2.31
+Requires-Dist: tqdm<5,>=4
+Dynamic: license-file
+
+# team-digest
+
+[![PyPI](https://img.shields.io/pypi/v/team-digest.svg)](https://pypi.org/project/team-digest/)
+[![CI](https://github.com/AnurajDeol1990/team-digest/actions/workflows/verify-examples.yml/badge.svg)](https://github.com/AnurajDeol1990/team-digest/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Generate daily/weekly/monthly team email digests from Markdown logs and optionally deliver to Slack.
+
+---
+
+## Installation
+
+```bash
+pip install team-digest
+```
+
+## Quick Start
+
+### Daily digest
+
+```bash
+team-digest daily --logs-dir logs --date 2025-10-17 --output outputs/daily.md --group-actions
+```
+
+### Weekly digest
+
+```bash
+team-digest weekly --logs-dir logs --start 2025-10-13 --end 2025-10-19 --output outputs/weekly.md --group-actions --emit-kpis --owner-breakdown
+```
+
+### Monthly digest
+
+```bash
+team-digest monthly --logs-dir logs --output outputs/monthly.md --group-actions
+```
+
+See [USAGE.md](USAGE.md) for detailed usage.
+
+## Examples
+
+Example logs and configs are bundled with the package:
+
+```python
+import importlib.resources as r
+print(list(r.files("team_digest.examples").rglob("*")))
+```
+
+## License
+
+MIT License.
