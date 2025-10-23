@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "procsight"
+version = "1.0.0"
+description = "Python tool for monitoring and visualizing a running processes usage"
+authors = ["ErikDoytchinov <erik.doytchinov@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+matplotlib = "^3.10.3"
+pandas = "^2.3.0"
+psutil = "^7.0.0"
+ruff = "^0.12.2"
+loguru = "^0.7.3"
+pydantic = "^2.11.7"
+schedule = "^1.2.2"
+keyboard = "^0.13.5"
+seaborn = "^0.13.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^5.0.0"
+pytest-mock = "^3.14.0"
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --disable-warnings --maxfail=1 --cov=procsight --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]
+filterwarnings = [
+	"ignore::UserWarning:matplotlib",
+	"ignore::DeprecationWarning:matplotlib",
+]
+
+[tool.coverage.run]
+source = ["procsight"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+	"pragma: no cover",
+	"if __name__ == .__main__.:",
+]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
