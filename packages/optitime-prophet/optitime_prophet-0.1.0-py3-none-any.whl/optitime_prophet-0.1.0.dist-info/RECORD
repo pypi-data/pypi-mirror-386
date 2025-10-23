@@ -1,0 +1,14 @@
+optitime/__init__.py,sha256=5WvjAjSP-XQmbeXVcMQSfDjzgtuKonyvAqHWetXy5Hg,551
+optitime/diagnostics.py,sha256=sqDUW_716-gHKan818tFgDNd0l8JQ60SJT6u3vkZmLE,2039
+optitime/exceptions.py,sha256=qY-KvqyxJ2TtQVXsw61OD8ELszalDlRaYH9fuiRw5jE,519
+optitime/model.py,sha256=JH-EZnk7ZcVjcmbqrfOMWiAYh-0L_HVVk_TvIsXxPmc,38599
+optitime/utils.py,sha256=9QfHbmmHBM6r3Pakdn3CdjHXOtypgpoPBrTDaT4Gy98,4152
+optitime/datasets/__init__.py,sha256=FbjxWopk22B48td2VlCcypTtJEs-30ekQaf6jobvd5s,2542
+optitime/datasets/air_passengers.csv,sha256=TNwKCdP-O0R1PVWK9lFo87zZ9ahgH9icX0FejMS0kY4,2310
+optitime/datasets/airlines_traffic.csv,sha256=nyjgKEVYWqEdX9yXDE1NJbIyWXxs5P3QbFekCwZIfr8,4545
+optitime/datasets/shampoo_sales.csv,sha256=-2ohgshT2uqspxb7VyPsbNtygJya-36CYGwY-U2ZZbs,654
+optitime/datasets/us_acc_deaths.csv,sha256=QAtSpwxjysezzjvufcxptIeCEW2HoVxasmXGYEAq5-0,1235
+optitime_prophet-0.1.0.dist-info/METADATA,sha256=OJHbFaa-2OZi1JIhN3qYgM3Xm7p4RX38fw2WIZJOW4I,11298
+optitime_prophet-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+optitime_prophet-0.1.0.dist-info/top_level.txt,sha256=WpqN4ZzIIl25yir2UewN6XORRmfFR1X_vG4cjqVlQxA,9
+optitime_prophet-0.1.0.dist-info/RECORD,,
