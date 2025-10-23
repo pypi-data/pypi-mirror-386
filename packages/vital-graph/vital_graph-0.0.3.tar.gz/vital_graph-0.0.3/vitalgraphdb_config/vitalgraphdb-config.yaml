@@ -1,0 +1,32 @@
+
+database:
+  host: host.docker.internal
+  port: 5432
+  database: vitalgraphdb
+  username: postgres
+  password: 
+  
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 3600
+
+# RDF connection pool configuration (psycopg3 pool for direct SQL queries)
+rdf_pool:
+  min_size: 5          # Keep 5 connections always available (was 0!)
+  max_size: 15         # Allow up to 15 concurrent connections
+  timeout: 30          # 30 seconds to get connection from pool (was 5)
+  max_idle: 1800       # 30 minutes idle timeout (was 5 minutes)
+  max_lifetime: 7200   # 2 hours max connection lifetime
+  reconnect_failed: true
+  
+tables:
+  prefix: "vitalgraph2_"
+auth:
+  root_username: "admin"
+  root_password: "admin"
+  
+
+app:
+  log_level: DEBUG
+  
