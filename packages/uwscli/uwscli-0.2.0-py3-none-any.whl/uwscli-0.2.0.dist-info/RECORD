@@ -1,0 +1,17 @@
+uwscli/__init__.py,sha256=gLPRaPRPk57dbppMwaGBHaOQKlMPsaqS7NfP3ir8wdo,154
+uwscli/cli.py,sha256=8b39q2pGBF3OLfn92rYTKLo9wadxIJZtKTIzxJEkCyQ,26339
+uwscli/lcd.py,sha256=eoiIp-U9VdCZj2ujHCOxYqtWW1z5ME9DfTJiBpbXhWA,22901
+uwscli/led.py,sha256=xNUfQ3acRZxpP2VGOMbpgpmv4mVKyDTvvo7_V8RgE9Q,239
+uwscli/logging_utils.py,sha256=JAIPDILP1_fdgqcB8gxYSa4r71W1joyktsJLMb1S3XI,966
+uwscli/structs.py,sha256=6Mz-SCxZqtcfNiAt79nclVix-AXtI5Mfhmqi3fw0O94,3230
+uwscli/system_usb.py,sha256=3v6DPgJ_j19avlzec3EOAFVoZLEtl4oxjFb6jPcGHS4,5170
+uwscli/tinyuz.py,sha256=M_K_Ph2F2EhxsriaBx-iHBobSMtx6ys6qS_bKgq3Lw8,5822
+uwscli/tlcontroller.py,sha256=E0GzWySTGArbsBQQT9A6xHLcSCTWB1pUrdsyoj6k1iM,3949
+uwscli/usbutil.py,sha256=NOLv7Ckk2GluIjcZC0ke8pidjdcz-wekGBJ46QKoNw8,8199
+uwscli/wireless.py,sha256=8WDm18Chq3Cd6y6Mn-uJ1pPqanr1B7CeHCKw8nsedqc,28034
+uwscli-0.2.0.dist-info/licenses/LICENSE,sha256=gQUKWsddC1ZcIJMoFxKrXhp5ezoJh2CqYdjoailytg4,1067
+uwscli-0.2.0.dist-info/METADATA,sha256=F-MGevqGKqrctxD-OynTqlBsZpXTYspHGVPt3YaLvAw,7553
+uwscli-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+uwscli-0.2.0.dist-info/entry_points.txt,sha256=c1XOfeO1zl-kQNaKIUkuomgvlzWAfKjQO29gxiRGT0E,40
+uwscli-0.2.0.dist-info/top_level.txt,sha256=IfLvSjDLQ0e-YCxzWukncrfxINWCmwk_oq4fIJiKL-M,7
+uwscli-0.2.0.dist-info/RECORD,,
