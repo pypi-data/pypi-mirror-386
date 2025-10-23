@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bing-flights-mcp"
+version = "1.0.0"
+description = "MCP server for searching flights on Bing Flights"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+dependencies = [
+    "fastmcp>=0.1.0",
+    "playwright>=1.40.0",
+    "python-dateutil>=2.8.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/bing-flights-mcp"
+
+[project.scripts]
+bing-flights-mcp = "mcp_server:main"
