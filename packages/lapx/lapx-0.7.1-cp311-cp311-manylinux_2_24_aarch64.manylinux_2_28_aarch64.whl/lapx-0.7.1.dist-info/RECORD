@@ -1,0 +1,13 @@
+lap/__init__.py,sha256=DIYRpnyQh-p6GSILpG3961ZSS7mJ9Je5K6KH1O3l4Wc,1755
+lap/_lapjv.cpython-311-aarch64-linux-gnu.so,sha256=zS3Kqjy092JRx2auDbandEw014svg02vo1L3V8fjTIQ,1174288
+lap/_lapjvc.cpython-311-aarch64-linux-gnu.so,sha256=uJF7Sqb1a696YhgjE0wq9RyHoL-6MyRAWKXUrV2G6_A,4898328
+lap/_lapjvs.cpython-311-aarch64-linux-gnu.so,sha256=5TsGMXs4BFnLJAtio-ZhMvERwSD4cAsfbLQRyaLKi9A,557944
+lap/_lapjvx.cpython-311-aarch64-linux-gnu.so,sha256=5dTGbm5V-cwxE2ycOeZzyUB7c4ZONab2tTejlOjuATQ,1153336
+lap/lapjvs.py,sha256=W-bAf8DLd34b7C-aiRfl5RySEXhCw2XU_Iav7td5-5w,5548
+lap/lapmod.py,sha256=dFxMuNSP9ZFksmhNrNcA2YnwhvkaUSznutejHhXtQkg,11388
+lapx-0.7.1.dist-info/METADATA,sha256=21xm0cWbLLx3CzjVkMUn8qu2Ydx3pQ63BZEtANxKYoQ,12385
+lapx-0.7.1.dist-info/WHEEL,sha256=kd1DLlG2bxeAxn5uI-koj2s6omEUi3sgz5Bccpa-idw,154
+lapx-0.7.1.dist-info/top_level.txt,sha256=cVD5apBo6RlT-1nOhXV9r50pqkQTS7FeMilzD84qQjk,4
+lapx-0.7.1.dist-info/RECORD,,
+lapx-0.7.1.dist-info/licenses/LICENSE,sha256=9NhY2nOGFEtXKTRV8Te6UWMYpTIJLKEcV8rydfjJ25w,1085
+lapx-0.7.1.dist-info/licenses/NOTICE,sha256=BhxtGrkI55UlpuUpUrp3j7vF_FVExa-iRZVaPBecWB4,1462
