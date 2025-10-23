@@ -1,0 +1,6 @@
+neo4j>=5.0
+
+[dev]
+pytest>=8.0.0
+build>=1.2.0
+twine>=5.0.0
