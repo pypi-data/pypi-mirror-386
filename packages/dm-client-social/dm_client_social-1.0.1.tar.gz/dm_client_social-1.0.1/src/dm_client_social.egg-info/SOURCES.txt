@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_client/__init__.py
+src/dm_client/social/__init__.py
+src/dm_client/social/apps.py
+src/dm_client/social/service.py
+src/dm_client/social/tests/__init__.py
+src/dm_client_social.egg-info/PKG-INFO
+src/dm_client_social.egg-info/SOURCES.txt
+src/dm_client_social.egg-info/dependency_links.txt
+src/dm_client_social.egg-info/requires.txt
+src/dm_client_social.egg-info/top_level.txt
