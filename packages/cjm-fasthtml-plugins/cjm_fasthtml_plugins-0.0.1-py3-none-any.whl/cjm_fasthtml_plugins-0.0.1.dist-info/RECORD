@@ -1,0 +1,17 @@
+cjm_fasthtml_plugins/__init__.py,sha256=sXLh7g3KC4QCFxcZGBTpG2scR7hmmBsMjq6LqRptkRg,22
+cjm_fasthtml_plugins/_modidx.py,sha256=IUQEvduulg21X3b9RsmpraUfJy3d4uEsZrewJ6qPuCc,16203
+cjm_fasthtml_plugins/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cjm_fasthtml_plugins/core/execution_mode.py,sha256=t3M6x97BMVgVT1DJEGLK1WT1XIjhnp9icQYdwyH3YhQ,2523
+cjm_fasthtml_plugins/core/metadata.py,sha256=XaqWgDtMY5KBsjjAy6Dpx0HKbYhqcgBHleuTdXTF0B8,6417
+cjm_fasthtml_plugins/core/registry.py,sha256=XVxaTDIUvzlw-1tFE8CjmkczI07YUovo0BeXI6-Hc8I,8982
+cjm_fasthtml_plugins/protocols/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cjm_fasthtml_plugins/protocols/cloud_aware.py,sha256=_XYHekX0KOeHukafQZSPDPfFAcZxoh4Idc0q791U2eM,4383
+cjm_fasthtml_plugins/protocols/lifecycle.py,sha256=4Qoy0K-jMiVN68dGc6c4BW8U4jQ2Qg626fjvr3EgFuA,3873
+cjm_fasthtml_plugins/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cjm_fasthtml_plugins/utils/helpers.py,sha256=RCn-pb-SWv_7cQJRDHCCbXmAGwqS9qR-mP-qvzHDp8A,2932
+cjm_fasthtml_plugins-0.0.1.dist-info/licenses/LICENSE,sha256=xV8xoN4VOL0uw9X8RSs2IMuD_Ss_a9yAbtGNeBWZwnw,11337
+cjm_fasthtml_plugins-0.0.1.dist-info/METADATA,sha256=kRm-jpxUEsQK-M8ZUacde9svZbCkz6NEvklYn6ZPQXo,32587
+cjm_fasthtml_plugins-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+cjm_fasthtml_plugins-0.0.1.dist-info/entry_points.txt,sha256=KkoUj5u32w0ASABreTOZaUfYWzl72tUCLU4JYuOdrA4,62
+cjm_fasthtml_plugins-0.0.1.dist-info/top_level.txt,sha256=iV-klFWddCYqHH2DuAjcR6fhr9p5JoOC0zhWxYZHmas,21
+cjm_fasthtml_plugins-0.0.1.dist-info/RECORD,,
