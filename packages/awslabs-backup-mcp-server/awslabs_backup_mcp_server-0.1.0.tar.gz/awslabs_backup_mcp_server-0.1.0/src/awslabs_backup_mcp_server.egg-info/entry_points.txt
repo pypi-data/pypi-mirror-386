@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-backup-mcp-server = awslabs_backup_mcp_server.main:main
