@@ -1,0 +1,97 @@
+Metadata-Version: 2.4
+Name: django-checkbox-normalize
+Version: 0.2.2
+Summary: It's NOT a good design to put label after checkbox for BooleanField widget, so let's make it normal.
+Author: rRR0VrFP
+Maintainer: rRR0VrFP
+License: MIT
+Keywords: django admin extentions,django checkbox normalize
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: requires-dist
+Dynamic: summary
+
+# django-checkbox-normalize
+
+It's NOT a good design to put label after checkbox for BooleanField widget, so let's make it normal.
+
+
+## Install
+
+```shell
+pip install django-checkbox-normalize
+```
+
+## Usage
+
+### Settings
+
+Add django_checkbox_normalize to settings.INSTALLED_APPS.
+
+```python
+INSTALLED_APPS = [
+    ...
+    'django_checkbox_normalize',
+    ...
+]
+```
+
+### Normalize for all model admins
+
+Add `DJANGO_CHECKBOX_NORMALIZE_FOR_ALL = True` in pro/settings.py.
+
+```python
+DJANGO_CHECKBOX_NORMALIZE_FOR_ALL = True
+```
+
+### Normalize for one model admin
+
+Add `DjangoCheckboxNormalizeAdmin` to one modeladmin.
+
+```python
+class MyModelAdmin(DjangoCheckboxNormalizeAdmin, admin.ModelAdmin):
+    pass
+```
+
+## Releases
+
+### v0.1.0
+
+- First release.
+
+### v0.1.1
+
+- Fix BooleanField field style under small screen size.
+
+### v0.1.2
+
+- Add LICENSE file.
+
+### v0.2.0
+
+- Instead of using template rewrite, use js dynamic repairing method.
+- Add DjangoCheckboxNormalizeAdmin to normalize one site.
+- Add `DJANGO_CHECKBOX_NORMALIZE_FOR_ALL = True` to normalize for all modeladmins.
+
+### v0.2.1
+
+- Doc update.
+
+### v0.2.2
+
+- Doc update.
