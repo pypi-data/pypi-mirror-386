@@ -1,0 +1,109 @@
+commit c17e366c05430cb15047b8a57e36da8c4fb39f99
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Oct 16 11:01:26 2025 +0100
+
+    Release 6.10.0
+
+commit de488b2acffe5168d0e3aee0e22d2884e3bf5faf
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Oct 10 16:18:09 2025 +0100
+
+    Updated the build system requirements.
+
+commit d55d3bd0552655b01e2f0e83ef99fe90f3cc2463
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Oct 8 14:40:42 2025 +0100
+
+    Added support for Qt v6.10.
+
+commit 68179e1fcf7ffbdbbdd424b91960a462e103a30f
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jul 8 17:17:07 2025 +0100
+
+    Imported from Mercurial
+
+commit bdbdf25490d5062cf5982ed67e26389d6044f05f
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sat May 24 19:02:24 2025 +0100
+
+    Use PEP 639 licensing.
+    SIP v6.12 is required.
+    Updated the project format.
+
+commit a9c300d433175fa968e9a0905b8122c5f9a55857
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Apr 3 11:20:27 2025 +0100
+
+    Added tag 6.9.0 for changeset 476f3cfad5d5
+
+commit b1ae5213c5a309050ed5562f77a345cdfed04470
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Apr 3 11:20:17 2025 +0100
+
+    Updated the NEWS file.
+
+commit 6d90744cce14e7e98569672b7382ec078c8bc431
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Mar 21 15:30:55 2025 +0000
+
+    Updated for Qt v6.9.0rc.
+
+commit 5f4088f836926fa71fc76adbfe68f0f940153d1e
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Dec 6 14:01:24 2024 +0000
+
+    Added tag 6.8.0 for changeset d840faece602
+
+commit 75306a7aae3b675211c2595d684f660d845909ef
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Dec 4 13:01:52 2024 +0000
+
+    Move the handwritten .sip file to the right place.
+
+commit ce7cbaaf7e8eed3911f187375d49a8c9fe36c69d
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Dec 4 11:18:38 2024 +0000
+
+    Added the sub-class convertor code.
+
+commit dfdbd0a5c45a3f908c65e09d8e42c63b0566ef55
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Nov 28 19:50:28 2024 +0000
+
+    Fixes so the project builds.
+
+commit ac140d1a9560023a868e3ca70c8ed859f99fbcdd
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Nov 28 19:35:11 2024 +0000
+
+    Fixes so that the code is generated.
+
+commit f4ee681e9e91e85247eda28a7ee58c7e2e63211b
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Nov 28 19:03:57 2024 +0000
+
+    Completed the initial QtGraphsWidgets bindings.
+
+commit 82525ac27f353692eca20adc1ab1703c54c17839
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Nov 28 15:51:37 2024 +0000
+
+    Completed the initial wrapping of QtGraphs.
+
+commit 05018d2cadefea4ce570be1ec5174e5f93ec2484
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Oct 28 12:51:25 2024 +0000
+
+    Work in progress.
+
+commit 4d7f36f21809e1a713ac9a719a470da3daf8d348
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Oct 25 17:01:46 2024 +0100
+
+    Work in progress.
+
+commit 9242222962756ad15953ad9eec6baffd5f5d8367
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Oct 24 13:36:41 2024 +0100
+
+    Initial commit of the project.
