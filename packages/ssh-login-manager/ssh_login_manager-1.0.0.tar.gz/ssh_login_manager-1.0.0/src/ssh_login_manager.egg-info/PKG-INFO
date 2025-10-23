@@ -1,0 +1,224 @@
+Metadata-Version: 2.4
+Name: ssh-login-manager
+Version: 1.0.0
+Summary: A Python tool for managing SSH login restrictions and IP-based access control on Linux systems
+Author-email: SSH PAM Manager Team <liumou.site@qq.com>
+License: MIT
+Project-URL: Homepage, https://gitee.com/liumou_site/ssh-pam-management
+Project-URL: Documentation, https://gitee.com/liumou_site/ssh-pam-management#readme
+Project-URL: Repository, https://gitee.com/liumou_site/ssh-pam-management
+Project-URL: Issues, https://gitee.com/liumou_site/ssh-pam-management/issues
+Keywords: ssh,pam,linux,authentication,security
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Security
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# SSH Login Manager
+
+一个专注于SSH登录限制和IP访问控制的Python工具，用于管理Linux系统的SSH登录安全。
+
+## 功能特性
+
+- 🔐 **用户-IP绑定**: 限制用户只能从指定IP登录SSH
+- 🌐 **IP访问控制**: 基于IP地址的访问限制管理
+- 📊 **登录监控**: 实时监控SSH登录失败记录
+- 🚫 **IP封锁**: 自动封锁恶意IP地址
+- 🛡️ **Fail2Ban集成**: 集成Fail2Ban进行动态防护
+- 💾 **自动备份**: 修改前自动备份配置文件
+- 🖥️ **交互界面**: 友好的命令行交互界面
+
+## 安装
+
+### 从源码安装
+
+```bash
+# 克隆仓库
+git clone https://gitee.com/liumou_site/ssh-pam-management.git
+cd ssh-pam-management
+
+# 安装到系统
+pip3 install .
+
+# 或者使用开发模式
+pip3 install -e .
+```
+
+### 从PyPI安装（未来版本）
+
+```bash
+pip3 install ssh-login-manager
+```
+
+## 使用方法
+
+### 交互式界面
+
+```bash
+# 启动交互式界面
+ssh-login-manager
+```
+
+### 主要功能菜单
+
+启动工具后，您将看到以下功能菜单：
+
+1. **查看当前SSH配置** - 显示当前SSH配置文件内容
+2. **添加用户-IP限制** - 限制用户只能从指定IP登录
+3. **移除用户-IP限制** - 移除用户的IP登录限制
+4. **添加IP白名单** - 添加允许访问的IP地址
+5. **查看登录失败记录** - 查看最近的SSH登录失败记录
+6. **封锁恶意IP** - 使用iptables封锁恶意IP
+7. **解除IP封锁** - 解除已封锁的IP地址
+8. **设置Fail2Ban保护** - 配置Fail2Ban进行动态防护
+9. **退出** - 退出程序
+
+### 权限要求
+
+由于需要修改系统配置文件，建议使用root权限运行：
+
+```bash
+sudo ssh-login-manager
+```
+
+## 项目结构
+
+```
+ssh-login-manager/
+├── src/
+│   └── ssh_login_manager/
+│       ├── __init__.py              # 包初始化
+│       ├── main.py                  # 主入口点
+│       ├── ssh_config_manager.py    # SSH配置管理器
+│       ├── ip_access_manager.py     # IP访问控制管理器
+│       ├── login_monitor.py         # 登录监控器
+│       └── ssh_cli_interface.py     # SSH命令行交互界面
+├── pyproject.toml                   # 现代打包配置
+├── setup.py                        # 兼容性打包配置
+├── README.md                       # 项目文档
+└── LICENSE                         # 许可证文件
+```
+
+## 模块说明
+
+### ssh_config_manager.py
+- **SSHConfigManager类**: 负责管理SSH配置文件
+- 读取和修改SSH配置文件（/etc/ssh/sshd_config）
+- 支持用户-IP绑定配置管理
+- 自动备份机制确保操作安全
+
+### ip_access_manager.py  
+- **IPAccessManager类**: 核心IP访问控制功能
+- 管理基于pam_access.so的IP访问限制
+- 支持IP白名单和黑名单管理
+- 处理access.conf配置文件
+
+### login_monitor.py
+- **LoginMonitor类**: 登录失败监控功能
+- 实时监控SSH登录失败记录
+- 统计IP登录失败次数
+- 集成iptables进行IP封锁
+
+### ssh_cli_interface.py
+- **SSHCLIInterface类**: 用户交互界面
+- 提供菜单驱动的命令行操作
+- 集成所有SSH登录管理功能
+
+## 技术实现
+
+### 用户-IP绑定
+通过修改SSH配置文件实现用户与特定IP的绑定：
+
+```bash
+# 在/etc/ssh/sshd_config中添加
+Match User username Address 192.168.1.100
+    PasswordAuthentication yes
+```
+
+### IP访问控制
+使用pam_access.so模块进行IP级别的访问控制：
+
+```bash
+# 在/etc/security/access.conf中添加
++ : username : 192.168.1.100
+- : ALL : ALL
+```
+
+### 登录失败监控
+通过解析系统日志文件监控SSH登录失败：
+
+```bash
+# 监控/var/log/auth.log中的失败记录
+Failed password for username from 192.168.1.100
+```
+
+### IP封锁
+使用iptables封锁恶意IP：
+
+```bash
+# 添加iptables规则封锁IP
+iptables -A INPUT -s 192.168.1.100 -j DROP
+```
+
+## 开发
+
+### 设置开发环境
+
+```bash
+# 克隆项目
+git clone https://gitee.com/liumou_site/ssh-pam-management.git
+cd ssh-pam-management
+
+# 创建虚拟环境
+python3 -m venv venv
+source venv/bin/activate
+
+# 安装开发依赖
+pip install -e .
+```
+
+### 运行测试
+
+```bash
+# 运行基本功能测试
+python -m pytest tests/
+
+# 运行代码风格检查
+flake8 src/
+
+# 运行类型检查
+mypy src/
+```
+
+## 贡献
+
+欢迎提交Issue和Pull Request来改进这个项目。
+
+## 许可证
+
+本项目采用MIT许可证。详见[LICENSE](LICENSE)文件。
+
+## 免责声明
+
+此工具用于系统管理目的。在使用前请确保：
+
+1. 理解SSH配置和IP访问控制的工作原理
+2. 在测试环境中验证配置更改
+3. 备份重要的系统配置文件（/etc/ssh/sshd_config, /etc/security/access.conf等）
+4. 了解修改SSH配置和防火墙规则可能带来的安全影响
+5. 确保有备用的SSH访问方式，以防配置错误导致无法登录
+
+作者对使用此工具造成的任何系统问题不承担责任。

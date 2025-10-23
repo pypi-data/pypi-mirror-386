@@ -1,0 +1,2 @@
+[console_scripts]
+ssh-login-manager = ssh_login_manager.main:main

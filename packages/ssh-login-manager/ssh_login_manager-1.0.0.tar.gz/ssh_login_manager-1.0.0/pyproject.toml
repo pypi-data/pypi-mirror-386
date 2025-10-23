@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ssh-login-manager"
+version = "1.0.0"
+description = "A Python tool for managing SSH login restrictions and IP-based access control on Linux systems"
+readme = "README.md"
+authors = [
+    {name = "SSH PAM Manager Team", email = "liumou.site@qq.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Security",
+]
+keywords = ["ssh", "pam", "linux", "authentication", "security"]
+requires-python = ">=3.7"
+dependencies = []
+
+[project.scripts]
+ssh-login-manager = "ssh_login_manager.main:main"
+
+[project.urls]
+Homepage = "https://gitee.com/liumou_site/ssh-pam-management"
+Documentation = "https://gitee.com/liumou_site/ssh-pam-management#readme"
+Repository = "https://gitee.com/liumou_site/ssh-pam-management"
+Issues = "https://gitee.com/liumou_site/ssh-pam-management/issues"
+
+[tool.setuptools]
+packages = {find = {where = ["src"]}}
+
+[tool.setuptools.package-data]
+"*" = ["*.txt", "*.md"]
