@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "getpybs"
+version = "0.1.0"
+description = "Fetch python-build-standalone binaries easily"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Miguel Liezun", email = "liezun.js@gmail.com"}
+]
+keywords = ["python", "build", "standalone", "download", "binary", "cpython"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Software Distribution",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/mliezun/getpybs"
+Repository = "https://github.com/mliezun/getpybs"
+Issues = "https://github.com/mliezun/getpybs/issues"
+
+[project.scripts]
+getpybs = "getpybs:main"
