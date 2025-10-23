@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: lmp-sdk
+Version: 2.0.1
+Summary: 推理服务 Python SDK
+Home-page: https://github.com/lixiang/lmp-sdk-python
+Author: LMP SDK Team
+Author-email: LMP SDK Team <linayan@example.com>
+Project-URL: Homepage, https://github.com/lixiang/lmp-sdk-python
+Project-URL: Bug Tracker, https://github.com/lixiang/lmp-sdk-python/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.9; extra == "dev"
+Requires-Dist: mypy>=0.900; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
