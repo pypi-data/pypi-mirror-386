@@ -1,0 +1,178 @@
+Metadata-Version: 2.1
+Name: agentic_cache
+Version: 0.1.0
+Summary: Core component for Agent Memory and Task Management
+Home-page: 
+Author: Abinayasankar M
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AgenticCache
+This is a Cache file escpecially for Agentic approaches .
+
+# agent_core
+
+A Python package for advanced memory management and task queuing, designed for agentic systems, AI development, and high-concurrency applications. It includes hierarchical memory, caching mechanisms, and a priority-based task queue to handle complex, stateful workflows efficiently.
+
+## Features
+- **Hierarchical Memory**: Multi-level storage (short-term, working, long-term, context) with prefetching, indexing, and automatic consolidation.
+- **Caching Systems**: LRU cache, FIFO buffers, and TTL-based result caching with background expiration.
+- **Task Queuing**: Priority queue for async coroutines with stats tracking and thread safety.
+- **Thread-Safe**: All operations use reentrant locks for concurrent access.
+- **Configurable**: Extensive config options for capacities, TTLs, thresholds, and more.
+- **Extensible**: Easy to integrate into agent-based systems for memory persistence and event handling.
+
+## Installation
+Install via pip:
+  ``` bash
+   pip install agentic_cache
+  ```
+
+or from source:
+  ``` bash
+  git clone https://github.com/Abinayasankar-co/AgenticCache.git
+  cd agentic_cache
+  python setup.py install
+  ```
+
+
+## Quick Start
+```python
+import logging
+from agent_core import HierarchicalMemory, TaskQueue
+
+# Setup logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Configure and initialize memory
+config = {
+    "short_term_capacity": 200,
+    "history_size": 500,
+    "result_cache_ttl": 7200,
+    "prefetch_enabled": True,
+    "prefetch_patterns": {"user_data": ["profile", "history"]}
+}
+memory = HierarchicalMemory(config)
+
+# Store and retrieve data
+memory.put("user_id", 12345, namespace="working", persistent=True)
+value = memory.get("user_id")  # Returns 12345
+
+# Record an event
+memory.record_event({"type": "login", "timestamp": time.time()})
+
+# Initialize task queue
+queue = TaskQueue(num_workers=3)
+queue.start()
+
+# Submit an async task (example coroutine)
+async def example_coro(x):
+    await asyncio.sleep(1)
+    return x * 2
+
+result = await queue.submit(example_coro, 10)  # Returns 20
+
+# Stop queue when done
+queue.stop()
+
+```
+## Documentation
+See USAGE.md for detailed usage and API reference.
+
+## Contributing
+Pull requests welcome! Please follow standard Python conventions.
+
+## License
+Apache License
+
+# AgenticCache — Usage
+
+This document explains how to install and use the `AgenticCache` package. It includes instructions for the CLI entry point and programmatic usage.
+
+## Install (editable/development)
+
+From the project root (where `setup.py` lives), install in editable mode:
+
+```powershell
+python -m pip install -e .
+```
+
+To build a wheel and sdist:
+
+```powershell
+python -m pip install build; python -m build
+```
+
+## CLI
+
+A console script `agentic-cache` is provided. After installing the package, run:
+
+```powershell
+agentic-cache --help
+```
+
+Examples:
+
+- Put a key into memory:
+
+```powershell
+agentic-cache memory --put name Alice --namespace working
+```
+
+- Get a key from memory:
+
+```powershell
+agentic-cache memory --get name --namespace working
+```
+
+- Submit a simple numeric task to the queue:
+
+```powershell
+agentic-cache queue --submit 5 --priority 2
+```
+
+Notes: the CLI uses the `main()` function in `AgenticCache/cli.py` which instantiates `HierarchicalMemory` and `TaskQueue` using default parameters.
+
+## Programmatic usage
+
+Import and use the classes directly:
+
+```python
+from AgenticCache.memory import HierarchicalMemory
+from AgenticCache.task_queue import TaskQueue
+
+# create memory and queue
+memory = HierarchicalMemory({
+    "short_term_capacity": 100,
+    "history_size": 500,
+    "result_cache_ttl": 3600,
+    "prefetch_enabled": True,
+    "prefetch_patterns": {"user_id": ["profile"]}
+})
+queue = TaskQueue(num_workers=3)
+
+# store and retrieve
+memory.put("key", "value", namespace="working")
+print(memory.get("key", namespace="working"))
+
+# submit a coroutine task
+async def my_task(x):
+    await asyncio.sleep(1)
+    return x * 2
+
+import asyncio
+result = asyncio.run(queue.submit(my_task, 7))
+print(result)
+```
+
+## Notes and caveats
+
+- The package requires Python 3.8+. Ensure your environment meets that requirement.
+- If you installed editable (`-e`), changes in the source are available immediately.
+- The CLI and examples assume default constructors from the package files; tune parameters to your needs.
+
+If you need a pyproject.toml or specific dependency pins, add them to the repo or ask me to create them for you.
