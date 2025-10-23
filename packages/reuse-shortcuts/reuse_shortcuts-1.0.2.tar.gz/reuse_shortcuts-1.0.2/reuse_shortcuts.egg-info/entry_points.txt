@@ -1,0 +1,2 @@
+[console_scripts]
+reuse-shortcuts = reuse_shortcuts:main

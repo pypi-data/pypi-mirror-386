@@ -1,0 +1,132 @@
+# SPDX-FileCopyrightText: 2025 Helmholtz-Zentrum hereon GmbH
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[build-system]
+build-backend = 'setuptools.build_meta'
+requires = ['setuptools >= 61.0', 'versioneer[toml]']
+
+[project]
+name = "reuse-shortcuts"
+dynamic = ["version"]
+description = "Shortcuts Management for reuse license utility"
+
+readme = "README.md"
+keywords = [
+    "reuse",
+    "licenses",
+]
+
+authors = [
+    { name = 'Philipp S. Sommer', email = 'philipp.sommer@hereon.de' },
+]
+maintainers = [
+    { name = 'Philipp S. Sommer', email = 'philipp.sommer@hereon.de' },
+]
+license = { text = 'GPL-3.0-or-later' }
+
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+]
+
+requires-python = '>= 3.9'
+dependencies = [
+    # add your dependencies here
+    "reuse",
+    "PyYAML",
+]
+
+[project.scripts]
+reuse-shortcuts = "reuse_shortcuts:main"
+
+[project.urls]
+Homepage = 'https://codebase.helmholtz.cloud/hcdc/reuse-shortcuts'
+Documentation = "https://reuse-shortcuts.readthedocs.io/en/latest/"
+Source = "https://codebase.helmholtz.cloud/hcdc/reuse-shortcuts"
+Tracker = "https://codebase.helmholtz.cloud/hcdc/reuse-shortcuts/issues/"
+
+
+[project.optional-dependencies]
+testsite = [
+    "tox",
+    "isort==5.12.0",
+    "black==23.1.0",
+    "blackdoc==0.3.8",
+    "flake8==6.0.0",
+    "pre-commit",
+    "mypy",
+    "pytest-cov",
+    "reuse",
+    "cffconvert",
+    "GitPython",
+    "types-PyYAML",
+
+]
+docs = [
+    "autodocsumm",
+    "sphinx-rtd-theme",
+    "hereon-netcdf-sphinxext",
+    "sphinx-design",
+    "myst_parser",
+    "sphinx-click",
+]
+dev = [
+    "reuse-shortcuts[testsite]",
+    "reuse-shortcuts[docs]",
+]
+
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.setuptools]
+zip-safe = false
+license-files = ["LICENSES/*"]
+
+[tool.setuptools.package-data]
+reuse_shortcuts = ["py.typed"]
+
+[tool.setuptools.packages.find]
+namespaces = false
+exclude = [
+    'docs',
+    'tests*',
+    'examples'
+]
+
+[tool.pytest.ini_options]
+addopts = '-v'
+
+[tool.versioneer]
+VCS = 'git'
+style = 'pep440'
+versionfile_source = 'reuse_shortcuts/_version.py'
+versionfile_build = 'reuse_shortcuts/_version.py'
+tag_prefix = 'v'
+parentdir_prefix = 'reuse-shortcuts-'
+
+[tool.isort]
+profile = "black"
+line_length = 79
+src_paths = ["reuse_shortcuts"]
+float_to_top = true
+known_first_party = "reuse_shortcuts"
+
+[tool.black]
+line-length = 79
+target-version = ['py39']
+
+[tool.coverage.run]
+omit = ["reuse_shortcuts/_version.py"]
