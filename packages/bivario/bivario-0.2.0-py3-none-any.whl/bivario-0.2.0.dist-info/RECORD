@@ -1,0 +1,12 @@
+bivario/__init__.py,sha256=Vk0AdRJesa7Cf9XGj9SwBWIm7kbjYWKTvXHgn305UPY,651
+bivario/cmap.py,sha256=MECu9AEMJau5C482mAmlngdieQ6UaDNsiumIzYRqRD0,14494
+bivario/example_data/__init__.py,sha256=AImqi_MMGQ1t_T8T9niQOKMQUwEhSe22Gn7DpH8cnNw,1446
+bivario/example_data/nyc_bike_trips.csv.gz,sha256=NUC7rkTFo2IFuPka8LAwmL1A0C9S9n3Ti-hWPXjXSWQ,77404
+bivario/folium.py,sha256=j9XX-x2cMtnX0qK8BlF_tqu6IT3wSPvC_p2amuQaFjg,17522
+bivario/legend.py,sha256=kCi2o-2saIvFQkM1juHS160Xv0UBbHjcRASRxnkeg2s,4550
+bivario/palettes.py,sha256=iQv8Bd4NYS4b5_WDXIqTwa184_IXJUHfPWjTo10ctoA,5125
+bivario/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bivario/typing.py,sha256=9ut6V-Lg_HnNds8Z88xhPTHD9yrO0gzxGsg4aSOWt1s,454
+bivario-0.2.0.dist-info/WHEEL,sha256=M6du7VZflc4UPsGphmOXHANdgk8zessdJG0DBUuoA-U,78
+bivario-0.2.0.dist-info/METADATA,sha256=qEelEtJNdqFPGOmnJDRqM6y0idCEznzAFP4kK49gxA8,6560
+bivario-0.2.0.dist-info/RECORD,,
