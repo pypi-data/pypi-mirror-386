@@ -1,0 +1,49 @@
+[project]
+name = "mast-table"
+description = "Interact with MAST data products in a table"
+requires-python = ">=3.11"
+authors = [
+    { name = "mast-table developers" },
+]
+dependencies = [
+    "astroquery",
+    "traitlets",
+    "ipypopout",
+    "ipyvuetify",
+    "ipywidgets",
+]
+dynamic = [
+    "version",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest"
+]
+docs = [
+    "sphinx-astropy[confv2]>=1.9.1",
+    "sphinx_design"
+]
+
+[project.readme]
+file = "README.rst"
+content-type = "text/x-rst"
+
+[project.license]
+file = "LICENSE"
+content-type = "text/plain"
+
+[tool.setuptools.packages.find]
+include = ["mast_table"]
+
+[tool.setuptools.package-data]
+mast_table= ["mast_table/data/*.json"]
+
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools_scm"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
