@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-wavelength-mcp-server = awslabs_wavelength_mcp_server.main:main
