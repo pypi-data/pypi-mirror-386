@@ -1,0 +1,36 @@
+[CDF-25976] 😅 Migrate dataset commands (#2100)
+
+# Description
+
+**Context**: This is part of the `alpha` migration tooling in Toolkit,
+for overview [see
+here](https://cognitedata.atlassian.net/wiki/spaces/~170890702/pages/5455773697/Migration+Tooling+in+Toolkit).
+This is a new step between 2 and 3.
+
+Before we can migrate assets/event/files/timeseries/sequences, we need
+to have a destination target space as well as CogniteSourceSystems
+created.
+
+This PR adds the CLI interface for triggering the command introduced in
+#2099
+
+<img width="941" height="278" alt="image"
+src="https://github.com/user-attachments/assets/8eb9a39d-1cdd-4561-abda-17c848c90027"
+/>
+
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Added
+
+- [alpha] This adds `cdf migrate data-sets` which create instance spaces
+from datasets.
+
+## templates
+
+No changes.
