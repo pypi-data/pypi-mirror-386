@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+aun_detection/__init__.py
+aun_detection/operator.py
+aun_detection.egg-info/PKG-INFO
+aun_detection.egg-info/SOURCES.txt
+aun_detection.egg-info/dependency_links.txt
+aun_detection.egg-info/top_level.txt
+tests/test_operator.py
