@@ -1,0 +1,2 @@
+[console_scripts]
+dotenvcheck = envguard.cli:main
