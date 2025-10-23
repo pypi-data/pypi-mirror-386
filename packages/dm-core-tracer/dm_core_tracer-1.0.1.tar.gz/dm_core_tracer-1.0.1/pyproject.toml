@@ -1,0 +1,37 @@
+[build-system]
+requires = ['setuptools==80.9.0']
+build-backend = 'setuptools.build_meta'
+
+[project]
+authors = [
+  { name='Romaan Khadeer', email='romaan@dollarmates.com' },
+]
+classifiers = [
+    'Programming Language :: Python :: 3.10',
+    'Framework :: Django',
+    'Operating System :: OS Independent',
+    'Environment :: Web Environment'
+]
+license-files = [ "LICENSE" ]
+description = 'DM Core Tracer'
+dependencies = [
+    'psycopg2-binary==2.9.10',
+    'jaeger-client==4.8.0',
+    'opentelemetry-api==1.36.0',
+    'opentelemetry-sdk==1.36.0',
+    'opentelemetry-exporter-otlp-proto-grpc==1.36.0',
+    'requests==2.32.4',
+    'dm-core-redis',
+    'dm-core-migrationcd',
+]
+name = 'dm-core-tracer'
+readme = 'README.md'
+requires-python = '==3.12.*'
+version = '1.0.1'
+
+[project.urls]
+Homepage = 'https://www.dollarmates.com'
+Source = 'https://github.com:dollarmates/dm-libs.git'
+
+[tool.setuptools.packages.find]
+where = ['src']

@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: dm-core-tracer
+Version: 1.0.1
+Summary: DM Core Tracer
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: psycopg2-binary==2.9.10
+Requires-Dist: jaeger-client==4.8.0
+Requires-Dist: opentelemetry-api==1.36.0
+Requires-Dist: opentelemetry-sdk==1.36.0
+Requires-Dist: opentelemetry-exporter-otlp-proto-grpc==1.36.0
+Requires-Dist: requests==2.32.4
+Requires-Dist: dm-core-redis
+Requires-Dist: dm-core-migrationcd
+Dynamic: license-file
+
+# DM CORE TRACER
+
+DM Core Tracer library is responsible for the following:
+
+- Provides HTTP Request library to service, so that they can invoke HTTP calls.
+- Trace every inbound HTTP request, in the context of service
+- Trace every outbound HTTP request, in the context of service
+- Trace every outbound RabbitMQ message, in the context of service
+- Trace every inbound RabbitMQ message, in the context of service
+- Trace the calls between functions / methods within the service showing the flow of data
