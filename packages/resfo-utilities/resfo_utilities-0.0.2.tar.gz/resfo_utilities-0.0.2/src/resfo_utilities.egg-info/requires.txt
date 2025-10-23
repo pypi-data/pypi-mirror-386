@@ -1,0 +1,17 @@
+numpy
+resfo
+shapely
+trimesh[easy]
+matplotlib
+
+[dev]
+pytest
+hypothesis
+pre-commit
+mypy
+types-shapely
+pytest-benchmark
+
+[doc]
+sphinx
+sphinx-rtd-theme
