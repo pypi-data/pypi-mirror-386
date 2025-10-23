@@ -1,0 +1,85 @@
+Metadata-Version: 2.4
+Name: pymacgen
+Version: 1.0.0
+Summary: generate mac addresses
+Project-URL: Homepage, https://github.com/nbdy/pymacgen
+Project-URL: Repository, https://github.com/nbdy/pymacgen
+Author-email: Pascal Eberlein <pascal@eberlein.io>
+License: MIT License
+        
+        Copyright (c) 2020 Pascal Eberlein
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: generator,mac,oui
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.9
+Requires-Dist: loguru==0.7.3
+Requires-Dist: pyoui==1.0.1
+Description-Content-Type: text/markdown
+
+## pymacgen
+
+Generate MAC addresses from OUIs or prefixes.
+
+### Installation
+
+- Using pip (PyPI):
+  - pip install pymacgen
+- Using uv:
+  - uv add pymacgen
+
+### CLI
+
+Run the built-in help to see available options:
+
+```sh
+pymacgen --help
+```
+
+### Python usage
+
+```python
+from pymacgen import MACGenerator
+
+# these do not need instantiation of the MACGenerator class
+print(MACGenerator.by_mac(str("EA:7B:EE:FB:01:42")))
+print(MACGenerator.by_prefix("42:06:66"))
+
+# these utilize the pyoui library, so instantiation of the MACGenerator class is needed
+m = MACGenerator("/tmp/oui.txt", True)
+
+# by company name examples
+print(m.by_organization("national security agency"))
+print(m.by_organization("samsung"))
+
+# by country name examples
+print(m.by_country_code("DE"))
+print(m.by_country_code("CN"))
+
+# by country code examples
+print(m.by_country_name("Germany"))
+print(m.by_country_name("China"))
+```

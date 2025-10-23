@@ -1,0 +1,2 @@
+[console_scripts]
+pymacgen = pymacgen.__main__:main
