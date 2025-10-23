@@ -1,0 +1,11 @@
+AUTHORS.md
+LICENSE
+README.md
+setup.py
+zirgagalva/__init__.py
+zirgagalva/module1.py
+zirgagalva.egg-info/PKG-INFO
+zirgagalva.egg-info/SOURCES.txt
+zirgagalva.egg-info/dependency_links.txt
+zirgagalva.egg-info/requires.txt
+zirgagalva.egg-info/top_level.txt
