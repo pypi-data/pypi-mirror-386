@@ -1,0 +1,1 @@
+﻿# Moved: SPEC-TEST-022_filesystem_test_stability.md`n`nThis specification has moved to:`n`n- [domains/test/SPEC-TEST-022_filesystem_test_stability.md](./domains/test/SPEC-TEST-022_filesystem_test_stability.md)`n`nNote: This is a redirect stub to preserve existing links.`n

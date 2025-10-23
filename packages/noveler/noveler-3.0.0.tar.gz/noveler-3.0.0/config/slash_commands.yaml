@@ -1,0 +1,116 @@
+version: 1.0.0
+last_updated: '2025-10-10'
+commands:
+- name: /test
+  script: bin/test
+  args: []
+  description: Run pytest with LLM-friendly output
+  permissions:
+    windows:
+    - Bash(bin/test:*)
+    - Bash(./bin/test:*)
+    wsl:
+    - Bash(bin/test:*)
+    macos:
+    - Bash(bin/test:*)
+  category: testing
+  tags:
+  - testing
+  - pytest
+- name: /test-failed
+  script: bin/test-failed
+  args: []
+  description: Re-run only failed tests from last run
+  permissions:
+    windows:
+    - Bash(bin/test-failed:*)
+    - Bash(./bin/test-failed:*)
+    wsl:
+    - Bash(bin/test-failed:*)
+    macos:
+    - Bash(bin/test-failed:*)
+  category: testing
+  tags:
+  - testing
+  - pytest
+  - failed
+- name: /test-changed
+  script: bin/test-changed
+  args: []
+  description: Run tests for changed files (git diff based)
+  permissions:
+    windows:
+    - Bash(bin/test-changed:*)
+    - Bash(./bin/test-changed:*)
+    wsl:
+    - Bash(bin/test-changed:*)
+    macos:
+    - Bash(bin/test-changed:*)
+  category: testing
+  tags:
+  - testing
+  - pytest
+  - git
+- name: /b20-workflow
+  script: python
+  args:
+  - scripts/workflows/b20_workflow.py
+  - '{phase}'
+  - '{prompt}'
+  description: 'B20 Development Workflow (5 phases: requirements, design, implement, test, review)'
+  permissions:
+    windows:
+    - Bash(python scripts/workflows/b20_workflow.py:*)
+    - Bash(python:*)
+    wsl:
+    - Bash(python scripts/workflows/b20_workflow.py:*)
+    - Bash(python:*)
+    macos:
+    - Bash(python scripts/workflows/b20_workflow.py:*)
+    - Bash(python:*)
+  category: workflow
+  tags:
+  - b20
+  - workflow
+  - development
+- name: /noveler-write
+  type: mcp
+  mcp_tools:
+  - mcp__noveler__enhanced_get_writing_tasks
+  - mcp__noveler__enhanced_execute_writing_step
+  - mcp__noveler__polish_manuscript
+  - mcp__noveler__polish_manuscript_apply
+  description: 'Noveler writing workflow - 18-step system with A28 templates'
+  category: writing
+  tags:
+  - noveler
+  - write
+  - a28
+  - mcp
+- name: /noveler-quality
+  type: mcp
+  mcp_tools:
+  - mcp__noveler__run_quality_checks
+  - mcp__noveler__fix_quality_issues
+  - mcp__noveler__improve_quality_until
+  - mcp__noveler__export_quality_report
+  description: 'Noveler quality checking and auto-fix'
+  category: quality
+  tags:
+  - noveler
+  - quality
+  - check
+  - mcp
+- name: /noveler-polish
+  type: mcp
+  mcp_tools:
+  - mcp__noveler__polish_manuscript
+  - mcp__noveler__polish_manuscript_apply
+  - mcp__noveler__restore_manuscript_from_artifact
+  description: 'Noveler manuscript polishing - A40 integrated workflow'
+  category: writing
+  tags:
+  - noveler
+  - polish
+  - a40
+  - mcp

@@ -1,0 +1,53 @@
+# SOLID原則チェックリスト
+# Generator Retry Policy Phase 1実装の検証結果
+
+version: 1.0.0
+target_feature: "Generator Retry Policy with Delta Prompt"
+implementation_date: "2025-10-01"
+validator: "Claude Code (B20 Workflow)"
+
+# SRP: Single Responsibility Principle (単一責任原則)
+srp:
+  enabled: true
+  max_responsibilities: 1
+  validation_result: pass
+  details:
+    - component: "_extract_failed_tasks()"
+      responsibility: "by_task検証結果から失敗タスクを抽出"
+      responsibility_count: 1
+      status: compliant
+
+    - component: "_compose_delta_prompt()"
+      responsibility: "失敗タスク情報から Markdown 形式のdeltaプロンプトを生成"
+      responsibility_count: 1
+      status: compliant
+
+# OCP: Open/Closed Principle (開放閉鎖原則)
+ocp:
+  enabled: true
+  check_extension_points: true
+  validation_result: pass
+
+# LSP: Liskov Substitution Principle (リスコフの置換原則)
+lsp:
+  enabled: true
+  check_contracts: true
+  validation_result: pass
+
+# ISP: Interface Segregation Principle (インターフェース分離原則)
+isp:
+  enabled: true
+  max_interface_methods: 5
+  validation_result: pass
+
+# DIP: Dependency Inversion Principle (依存性逆転原則)
+dip:
+  enabled: true
+  check_abstractions: true
+  validation_result: pass
+
+# 総合評価
+overall_assessment:
+  all_principles_compliant: true
+  violations_count: 0
+  warnings_count: 0

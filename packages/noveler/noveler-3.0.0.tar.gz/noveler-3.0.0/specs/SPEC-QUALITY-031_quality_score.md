@@ -1,0 +1,1 @@
+﻿# Moved: SPEC-QUALITY-031_quality_score.md`n`nThis specification has moved to:`n`n- [domains/quality/SPEC-QUALITY-031_quality_score.md](./domains/quality/SPEC-QUALITY-031_quality_score.md)`n`nNote: This is a redirect stub to preserve existing links.`n

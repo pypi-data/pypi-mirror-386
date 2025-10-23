@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# File: bin/test-changed
+# Purpose: Run tests affected by git changes. Robustly forwards arguments to the
+#          unified runner; supports --range and RANGE env without brittle parsing.
+set -euo pipefail
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd -- "${SCRIPT_DIR}/.." &> /dev/null && pwd )"
+cd "${ROOT_DIR}"
+
+ARGS=("--changed")
+if [[ -n "${RANGE:-}" ]]; then
+  ARGS+=("--range" "${RANGE}")
+fi
+# Forward all user args verbatim (users may pass their own --range)
+exec python3 scripts/run_pytest.py "${ARGS[@]}" "$@"

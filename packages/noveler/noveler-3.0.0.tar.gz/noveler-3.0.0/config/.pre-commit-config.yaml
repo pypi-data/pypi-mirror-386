@@ -1,0 +1,270 @@
+# .pre-commit-config-unified.yaml
+# 並列処理最適化による包括的品質ゲート統合設定
+# v1.5.0: GNU parallel対応により全品質チェックをpre-commit時に統合
+
+# 並列実行の有効化
+ci:
+  autofix_commit_msg: |
+    [pre-commit] auto fixes from hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_schedule: quarterly
+  autoupdate_commit_msg: '[pre-commit] pre-commit autoupdate'
+
+repos:
+  # ========== STAGE 1: 高速な基本チェック（並列実行） ==========
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        name: 末尾空白の削除
+        stages: [pre-commit]
+      - id: end-of-file-fixer
+        name: ファイル末尾の改行修正
+        stages: [pre-commit]
+      - id: check-yaml
+        name: YAML構文チェック
+        stages: [pre-commit]
+        exclude: '^(templates/.*\\.yaml$|workspace/.*\\.yaml$)'  # テンプレート/ワークスペースは除外
+      - id: check-json
+        name: JSON構文チェック
+        stages: [pre-commit]
+      - id: check-added-large-files
+        name: 大きなファイルのチェック
+        args: ['--maxkb=1000']
+        stages: [pre-commit]
+      - id: check-merge-conflict
+        name: マージコンフリクトチェック
+        stages: [pre-commit]
+      - id: debug-statements
+        name: デバッグステートメントチェック
+        stages: [pre-commit]
+        exclude: '^src/noveler/tests/'  # テストファイルは除外
+
+  # ========== STAGE 2: Ruff統合フォーマット（Black + isort + flake8統合） ==========
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.8
+    hooks:
+      # Ruff linter (flake8, isort, pyupgrade等を統合)
+      - id: ruff
+        name: Ruff統合リンター（flake8 + isort + pyupgrade等）
+        args: [
+          '--fix',
+          '--show-fixes',
+          '--config=pyproject.toml'
+        ]
+        stages: [pre-commit]
+        files: '^src/noveler/.*\.py$'
+
+      # Ruff formatter (Black互換・完全置換)
+      - id: ruff-format
+        name: Ruff統合フォーマッター（Black完全互換）
+        args: ['--config=pyproject.toml']
+        stages: [pre-commit]
+        files: '^src/noveler/.*\.py$'
+
+  # ========== STAGE 3: 型チェック（キャッシュ利用） ==========
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.17.1
+    hooks:
+      - id: mypy
+        language_version: python3.10
+        name: 型チェック（インクリメンタル）
+        additional_dependencies: [
+          'types-PyYAML',
+          'types-requests',
+          'pytest',
+        ]
+        args: [
+          '--incremental',  # インクリメンタルモードで高速化
+          '--cache-dir=.mypy_cache',
+          '--ignore-missing-imports',
+          '--follow-imports=silent',
+          '--show-error-codes',
+          '--no-error-summary',
+          '--config-file=pyproject.toml'
+        ]
+        files: '^src/noveler/(?!tests/).*\.py$'
+        stages: [pre-commit]
+        require_serial: true  # mypyは直列実行
+
+  # ========== STAGE 4: セキュリティチェック（変更ファイルのみ） ==========
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.8.6
+    hooks:
+      - id: bandit
+        name: セキュリティチェック（差分のみ）
+        args: [
+          '-ll',  # 低・中レベルの問題のみ報告
+          '-i',   # 信頼度の低い問題は無視
+          '-q',   # 静かなモード
+        ]
+        files: '^src/noveler/(?!tests/).*\.py$'
+        stages: [pre-commit]  # 並列処理最適化により高速実行可能
+
+  # ========== STAGE 5: ローカルチェック（最小限） ==========
+  - repo: local
+    hooks:
+      # 統合構文エラー自動修正（Phase 3統合版）
+      - id: unified-auto-syntax-fix
+        name: 統合構文エラー自動修正
+        entry: python src/noveler/tools/unified_syntax_fixer.py
+        language: system
+        args: ['--mode', 'normal', 'src/noveler/']
+        files: '^src/noveler/.*\.py$'
+        pass_filenames: false
+        stages: [pre-commit]
+        verbose: false
+
+      # 高精度構文エラーチェック（最優先）- 一時的に無効化
+      # - id: comprehensive-syntax-check
+      #   name: 高精度構文エラーチェック
+      #   entry: python src/noveler/tools/quality_gate_check.py
+      #   language: system
+      #   files: '^src/noveler/.*\.py$'
+      #   pass_filenames: false
+      #   stages: [pre-commit]
+      #   verbose: true
+
+      # 統合インポート管理システムチェック（必須）
+      - id: import-style-check
+        name: 統合インポート管理システムチェック
+        entry: python src/noveler/tools/check_import_style.py
+        language: system
+        files: '^src/noveler/.*\.py$'
+        pass_filenames: false
+        stages: [pre-commit]
+        verbose: true
+
+      # 高速な単体テスト実行（並列処理で高速化）
+      - id: pytest-fast
+        name: 高速テスト実行（変更関連のみ）
+        entry: bash -lc 'timeout 600 python -m pytest tests -m "unit and not slow" -q -n auto --maxfail=1'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: false
+        # 並列実行でテスト高速化
+
+      # 遅延インポート検出（新規追加）
+      - id: delayed-import-check
+        name: 遅延インポート検出チェック
+        entry: bash -lc 'timeout 600 python src/noveler/tools/check_delayed_imports.py'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: true
+
+      # TDD+DDDチェック（厳格モード）- 一時的に無効化
+      # - id: tdd-ddd-strict-check
+      #   name: TDD+DDD厳格チェック
+      #   entry: bash -c 'PYTHONPATH=. python src/noveler/tools/check_tdd_ddd_compliance.py --level=strict --verbose'
+      #   language: system
+      #   files: '^src/noveler/(domain|application|infrastructure)/.*\.py$'
+      #   pass_filenames: false
+      #   stages: [pre-commit]
+      #   # 並列実行無効（キャッシュ競合回避）
+      #   require_serial: true
+
+      # 仕様書参照チェック（新規追加）
+      - id: spec-reference-check
+        name: 仕様書参照チェック
+        entry: bash -lc 'timeout 600 python src/noveler/tools/quality_gate_check.py'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: true
+
+      # Python命名規則チェック（英語）
+      - id: naming-style-check
+        name: Python命名規則チェック（英語）
+        entry: bash -lc 'timeout 600 python src/noveler/tools/check_naming_style.py'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: true
+
+      # B30統合品質チェック＆自動修正（問題発見時の自動修正）
+      - id: b30-quality-auto-fix
+        name: B30統合品質チェック＆自動修正
+        entry: bash -lc 'timeout 600 python src/noveler/tools/unified_syntax_fixer.py --b30-workflow --quality-gate src/noveler/'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: true
+
+      # 品質ゲート（並列処理最適化）
+      - id: quality-gate
+        name: 品質ゲートチェック（最適化版）
+        entry: bash -lc 'timeout 600 python src/noveler/tools/quality_gate_check.py --level MODERATE'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+
+      # CODEMAP自動更新フック（最優先）
+      - id: codemap-auto-update
+        name: CODEMAP共通基盤自動更新
+        entry: bash -lc 'timeout 600 python scripts/tools/update_codemap_foundation.py'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: true
+
+      # CODEMAP動的コンプライアンスチェック（更新後チェック）
+      - id: codemap-dynamic-compliance
+        name: CODEMAP動的コンプライアンスチェック
+        entry: bash -lc 'timeout 600 python -m pytest tests/unit/infrastructure/test_codemap_dynamic_compliance.py::TestCODEMAPDynamicCompliance::test_end_to_end_compliance_check -v --tb=short'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: true
+
+      # CODEMAP同期チェック（変更ファイルのみで高速化）
+      - id: codemap-sync-check
+        name: CODEMAP同期チェック（差分最適化）
+        entry: bash -lc 'timeout 600 python src/noveler/tools/dependency_analyzer.py --output CODEMAP_dependencies.yaml --detect-circular --incremental'
+        language: system
+        files: '^tests/.*\.py$'
+        pass_filenames: false
+        stages: [pre-push]
+        verbose: true
+
+# グローバル設定
+default_language_version:
+  python: python3.10  # システムのPython3.10を明示的に指定
+
+default_stages: [pre-commit]
+default_install_hook_types: [pre-commit, commit-msg, pre-push]
+
+# 除外パターン（最適化）
+exclude: |
+  (?x)^(
+    \.git/|
+    \.mypy_cache/|
+    \.pytest_cache/|
+    \.ruff_cache/|
+    __pycache__/|
+    \.coverage|
+    \.venv/|
+    venv/|
+    build/|
+    dist/|
+    .*\.egg-info/|
+    htmlcov/|
+    logs/|
+    90_アーカイブ/|
+    .*\.(pyc|pyo|pyd|so|dll|exe|bat|sh)$
+  )
+
+# パフォーマンス設定
+fail_fast: true  # エラー時は即座に停止
+minimum_pre_commit_version: 3.5.0

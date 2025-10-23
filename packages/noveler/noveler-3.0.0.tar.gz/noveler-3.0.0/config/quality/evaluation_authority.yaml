@@ -1,0 +1,258 @@
+# 評価権限・AI人間役割分担定義ファイル
+# 作成日: 2025-08-23
+# 目的: AI判定可能項目と人間判定必須項目の明確な分離
+
+metadata:
+  version: "1.0.0"
+  purpose: "評価主体の最適分担によるシステム精度・効率向上"
+  scope: "全品質基準項目のAI/人間判定可能性分類"
+
+# ========================================
+# 評価権限レベル定義
+# ========================================
+authority_levels:
+  ai_autonomous:
+    description: "AIが独立して高精度判定可能"
+    confidence_threshold: 0.90
+    human_oversight: "結果確認のみ"
+    automation_level: "完全自動化"
+
+  ai_primary:
+    description: "AI主判定、人間が最終確認"
+    confidence_threshold: 0.75
+    human_oversight: "判定結果レビュー・承認"
+    automation_level: "準自動化"
+
+  collaborative:
+    description: "AI分析結果を人間が総合判定"
+    confidence_threshold: 0.60
+    human_oversight: "AI分析基盤での人間判定"
+    automation_level: "半自動化"
+
+  human_primary:
+    description: "人間主判定、AI支援分析のみ"
+    confidence_threshold: 0.40
+    human_oversight: "人間による完全判定"
+    automation_level: "手動（AI支援）"
+
+  human_exclusive:
+    description: "人間のみが判定可能"
+    confidence_threshold: 0.20
+    human_oversight: "人間による専門判定"
+    automation_level: "完全手動"
+
+# ========================================
+# プロット品質基準の評価権限分担
+# ========================================
+plot_quality_authority:
+  P01_prerequisite_check:
+    authority_level: "ai_autonomous"
+    rationale: "ファイル存在・完了フラグ確認は完全定型処理"
+    ai_capability: "file_existence_check + yaml_parsing"
+    automation_confidence: 0.98
+
+  P02_concept_clarity:
+    authority_level: "ai_primary"
+    rationale: "文字数・要素数は定量化可能、内容品質は準定量化"
+    ai_capability: "text_analysis + element_extraction + clarity_scoring"
+    human_review_points: ["概念の論理的整合性", "独創性評価"]
+    automation_confidence: 0.82
+
+  P04_turning_points:
+    authority_level: "collaborative"
+    rationale: "数値計算はAI、インパクト適切性は人間判定"
+    ai_capability: "impact_score_calculation + structure_analysis"
+    human_judgment: "ドラマティック効果・読者への影響予測"
+    automation_confidence: 0.68
+    split_ratio:
+      ai_contribution: 0.4  # 構造分析・数値計算
+      human_contribution: 0.6  # 効果・インパクト判定
+
+  P08_emotional_flow:
+    authority_level: "collaborative"
+    rationale: "感情レベル計算はAI、体験設計は人間専門性"
+    ai_capability: "emotion_level_analysis + variance_calculation"
+    human_judgment: "読者感情誘導効果・没入度設計"
+    automation_confidence: 0.65
+
+  P09_foreshadowing_management:
+    authority_level: "ai_primary"
+    rationale: "setup/payoff対応は論理分析、配置効果は一部人間判定"
+    ai_capability: "foreshadowing_mapping + resolution_tracking"
+    human_review_points: ["伏線配置の巧妙さ", "意外性とのバランス"]
+    automation_confidence: 0.78
+
+# ========================================
+# 推敲品質基準の評価権限分担
+# ========================================
+revision_quality_authority:
+  R01_basic_proofreading:
+    authority_level: "ai_autonomous"
+    rationale: "誤字脱字・文法は形態素解析・校正辞書で完全対応"
+    ai_capability: "spell_check + grammar_analysis + punctuation_validation"
+    automation_confidence: 0.95
+
+  R04_opening_hook_strength:
+    authority_level: "ai_primary"
+    rationale: "hook要素は定型パターン、効果予測は部分的に人間要"
+    ai_capability: "hook_element_detection + engagement_scoring"
+    human_review_points: ["読者層との適合性", "ジャンル期待との整合性"]
+    automation_confidence: 0.80
+
+  R06_sensory_balance:
+    authority_level: "ai_autonomous"
+    rationale: "感覚語彙検出・分布計算は完全定量処理"
+    ai_capability: "sensory_keyword_analysis + distribution_calculation"
+    automation_confidence: 0.92
+
+  R07_emotion_concretization:
+    authority_level: "ai_primary"
+    rationale: "抽象/具体判定は高精度、表現効果は部分人間要"
+    ai_capability: "abstract_emotion_detection + physicality_analysis"
+    human_review_points: ["身体表現の自然さ", "感情表現の独創性"]
+    automation_confidence: 0.85
+
+  R11_quality_score_achievement:
+    authority_level: "collaborative"
+    rationale: "個別スコア統合はAI、総合品質感は人間判定"
+    ai_capability: "score_aggregation + threshold_comparison"
+    human_judgment: "作品全体の完成度・調和感"
+    automation_confidence: 0.62
+
+  R12_reader_experience:
+    authority_level: "human_primary"
+    rationale: "読者体験は主観的・文脈依存で人間専門領域"
+    ai_support: "readability_analysis + engagement_pattern_detection"
+    human_judgment: "読者満足度・継続読書意欲・感情移入度"
+    automation_confidence: 0.35
+
+  R13_publication_readiness:
+    authority_level: "human_exclusive"
+    rationale: "商業的判断・市場適合性は人間の専門領域"
+    ai_support: "technical_quality_summary + comparative_analysis"
+    human_judgment: "出版可能性・市場性・芸術的価値・総合判定"
+    automation_confidence: 0.25
+
+# ========================================
+# 企画設計品質基準の評価権限分担
+# ========================================
+concept_design_authority:
+  C01_market_analysis:
+    authority_level: "ai_autonomous"
+    rationale: "分析作品数・データ完全性は完全定量処理"
+    ai_capability: "work_count_analysis + data_completeness_check"
+    automation_confidence: 0.96
+
+  C03_usp_clarity:
+    authority_level: "collaborative"
+    rationale: "独自性分析は一部AI、市場判断は人間専門性"
+    ai_capability: "uniqueness_element_analysis + differentiation_scoring"
+    human_judgment: "市場競争力・商業的魅力・革新性評価"
+    automation_confidence: 0.58
+    split_ratio:
+      ai_contribution: 0.45  # 要素分析・差別化スコアリング
+      human_contribution: 0.55  # 市場性・魅力度判定
+
+  C06_feasibility:
+    authority_level: "human_primary"
+    rationale: "実現可能性は経験・リソース判断で人間領域"
+    ai_support: "resource_analysis + timeline_estimation"
+    human_judgment: "制作能力・スケジュール現実性・リスク評価"
+    automation_confidence: 0.38
+
+  C07_character_appeal:
+    authority_level: "human_primary"
+    rationale: "キャラクター魅力は主観的・読者層依存"
+    ai_support: "character_trait_analysis + appeal_element_detection"
+    human_judgment: "キャラクター愛着度・共感性・魅力度"
+    automation_confidence: 0.42
+
+  C09_integrated_quality:
+    authority_level: "collaborative"
+    rationale: "スコア統合はAI、総合企画力は人間判定"
+    ai_capability: "weighted_score_calculation + balance_analysis"
+    human_judgment: "企画総合力・成功可能性・戦略的価値"
+    automation_confidence: 0.64
+
+# ========================================
+# 信頼度重み付けシステム
+# ========================================
+confidence_weighting:
+  confidence_calculation:
+    data_completeness_weight: 0.25  # 入力データの充足度
+    model_accuracy_weight: 0.35     # AI判定モデル精度
+    historical_performance_weight: 0.25  # 過去判定実績
+    domain_expertise_weight: 0.15   # 領域専門性適合度
+
+  threshold_management:
+    high_confidence: [0.85, 1.0]    # 自動実行・結果採用
+    medium_confidence: [0.65, 0.85] # 人間確認推奨
+    low_confidence: [0.40, 0.65]    # 人間判定必須
+    unreliable: [0.0, 0.40]         # AI判定不適用
+
+  adaptive_adjustment:
+    performance_tracking: "判定精度の継続モニタリング"
+    threshold_refinement: "精度実績による閾値動的調整"
+    domain_specialization: "領域別信頼度パラメータ最適化"
+
+# ========================================
+# 評価プロセス統合フロー
+# ========================================
+integrated_evaluation_flow:
+  stage1_ai_analysis:
+    autonomous_items: "ai_autonomous項目の完全自動処理"
+    primary_items: "ai_primary項目のAI判定実行"
+    support_analysis: "collaborative/human_primary項目の支援分析"
+
+  stage2_confidence_assessment:
+    confidence_scoring: "各判定結果の信頼度算出"
+    threshold_filtering: "閾値による自動/手動判定振り分け"
+    priority_ranking: "人間レビュー優先度設定"
+
+  stage3_human_review:
+    high_priority_items: "低信頼度項目の優先レビュー"
+    collaborative_judgment: "AI分析結果の人間総合判定"
+    quality_assurance: "最終品質保証・承認プロセス"
+
+  stage4_result_integration:
+    weighted_scoring: "AI/人間判定の信頼度重み付け統合"
+    consistency_check: "判定結果の整合性確認"
+    final_recommendation: "総合評価・改善提案生成"
+
+# ========================================
+# パフォーマンス最適化
+# ========================================
+performance_optimization:
+  processing_efficiency:
+    batch_processing: "AI判定項目のバッチ処理による高速化"
+    parallel_execution: "独立項目の並列処理実行"
+    cache_utilization: "繰り返し分析結果のキャッシュ活用"
+
+  resource_allocation:
+    ai_resource_priority: "高信頼度項目への計算リソース集中"
+    human_time_optimization: "専門判断要項目の効率的レビュー順序"
+    quality_time_balance: "品質確保と処理時間の最適バランス"
+
+  scalability_design:
+    load_balancing: "大量処理時の負荷分散"
+    incremental_learning: "判定精度の継続的向上"
+    system_expansion: "新基準追加時の拡張容易性"
+
+# ========================================
+# 品質保証・監査
+# ========================================
+quality_assurance:
+  accuracy_monitoring:
+    ai_human_agreement_rate: "AI/人間判定の一致率測定"
+    false_positive_tracking: "誤判定率の継続監視"
+    improvement_measurement: "判定精度向上の定量評価"
+
+  bias_prevention:
+    evaluation_fairness: "判定の公平性・一貫性確保"
+    diversity_consideration: "表現多様性への配慮"
+    creative_freedom_protection: "創造性阻害の防止"
+
+  audit_process:
+    regular_review: "月次の判定精度・妥当性レビュー"
+    stakeholder_feedback: "ユーザー・専門家フィードバック収集"
+    continuous_improvement: "システム継続改善・最適化"

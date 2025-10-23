@@ -1,0 +1,75 @@
+---
+spec_id: SPEC-DATA-001
+status: draft
+owner: bamboocity
+last_reviewed: 2025-09-17
+category: DATA
+sources: [REQ]
+tags: [json, artifact, pipeline]
+requirements:
+  - REQ-DATA-001
+  - REQ-DATA-002
+  - REQ-DATA-003
+---
+# SPEC-DATA-001: JSON変換・ファイル参照パイプライン仕様書
+
+## 1. 概要
+
+### 1.1 目的
+CLI 結果や MCP ツール出力をファイル参照付き JSON として保存し、再利用できる形で提供するパイプラインを定義する。95% トークン削減・SHA256 参照・バックアップ運用を統合し、REQ-DATA-001〜003 を満たす。
+
+### 1.2 対象コンポーネント（更新）
+- `JSONConversionServer`（FastMCPブート/登録・結果整形・キャッシュ制御）
+- `ToolServiceProvider`（新設: サービス生成と依存注入のハブ）
+- `ToolService` 群（新設: DTO検証・UseCase委譲・例外正規化）
+- `CLIResponseConverter`
+- `FileReferenceManager`
+- `FileIOCache`, `WritingSessionManager`, `ComprehensivePerformanceOptimizer`
+- MCP ツール `convert_cli_to_json`, `validate_json_response`, `get_file_reference_info`, `get_file_by_hash`, `check_file_changes`, `list_files_with_hashes`
+
+## 2. パイプライン構成
+
+```mermaid
+flowchart LR
+    FastMCP[FastMCP Tool Call] --> Services[Tool Service Provider]
+    Services -->|DTO| UseCases[Application UseCases]
+    UseCases --> Domain[Domain]
+    UseCases --> Converter[CLIResponseConverter]
+    Converter -->|StandardResponseModel| JSONServer[JSONConversionServer]
+    JSONServer --> FileRefs[FileReferenceManager]
+    JSONServer --> Cache[FileIOCache]
+    JSONServer --> Optimizer[ComprehensivePerformanceOptimizer]
+    FileRefs --> Artifacts[.noveler/artifacts]
+    JSONServer --> Temp[temp/json_output]
+```
+
+### 2.1 主要責務（更新）
+- `JSONConversionServer`
+  - FastMCP サーバーの起動・ツール登録呼び出し・標準レスポンス整形・キャッシュ制御
+- `ToolServiceProvider`（新設）
+  - ツール毎の `ToolService` を生成/保持し、依存（PathService/RepositoryFactory/UseCase）を注入
+  - 同期処理のオフロード戦略（`asyncio.to_thread`）とタイムアウト方針の既定を提供
+- `ToolService`
+  - 入出力DTOのバリデーション・UseCase委譲・例外 `ToolServiceError` への正規化
+- `CLIResponseConverter`
+  - CLI結果を `StandardResponseModel` / `ErrorResponseModel` に整形
+  - Markdown/YAML/JSONを `FileReferenceManager` で保存し、参照IDを返却
+- `FileReferenceManager`
+  - SHA256 ハッシュ計算・インデックス管理
+  - `.noveler/artifacts/` への永続化と整合性チェック
+- `FileIOCache`
+  - ファイル読み込みキャッシュ（TTL/LRU）
+- `ComprehensivePerformanceOptimizer`
+  - JSON変換サーバーの性能監視／最適化フック
+  - 備考: `psutil` 未導入でも基本動作しますが、I/O/CPU 詳細は `tracemalloc` ベースの簡易計測にフォールバックします。
+
+## 3. ツール仕様
+
+| ツール名 | 機能 | 入力 | 出力 |
+| --- | --- | --- | --- |
+| `convert_cli_to_json` | CLI結果を標準JSONへ変換 | `cli_result: object` | `StandardResponseModel` |
+| `validate_json_response` | JSONレスポンスバリデーション | `json_data: object` | `{ "valid": bool, "errors": list }` |
+| `get_file_reference_info` | ファイル参照詳細取得 | `file_path: string` | `FileReferenceModel` |
+| `get_file_by_hash` | SHA256でファイル取得 | `sha256: string` | `FileReferenceModel` or `null` |
+| `check_file_changes` | ハッシュ差分検知 | `{ "paths": list[string] }` | `ChangedFileSummary` |
+| `list_files_with_hashes` | 管理ファイル列挙 | `project_root?: string` | `{ "files": list[FileReferenceModel] }` |

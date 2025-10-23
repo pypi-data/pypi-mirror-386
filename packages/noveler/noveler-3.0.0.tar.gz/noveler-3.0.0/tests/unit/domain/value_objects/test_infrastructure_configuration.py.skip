@@ -1,0 +1,630 @@
+"""インフラ設定関連の値オブジェクトのテスト
+
+TDD準拠テスト:
+    - ServiceConfiguration
+- PerformanceConfiguration
+- CacheConfiguration
+- SecurityConfiguration
+- MonitoringConfiguration
+- InfrastructureConfiguration
+"""
+
+import pytest
+
+from noveler.domain.entities.infrastructure_integration_aggregate import InfrastructureServiceType
+from noveler.domain.value_objects.infrastructure_configuration import (
+    CacheConfiguration,
+    InfrastructureConfiguration,
+    MonitoringConfiguration,
+    PerformanceConfiguration,
+    SecurityConfiguration,
+    ServiceConfiguration,
+)
+
+
+class TestServiceConfiguration:
+    """ServiceConfiguration値オブジェクトのテストクラス"""
+
+    @pytest.fixture
+    def valid_service_config(self) -> ServiceConfiguration:
+        """有効なサービス設定"""
+        return ServiceConfiguration(
+            service_type=InfrastructureServiceType.QUALITY_CHECKER,
+            name="test_service",
+            adapter_class="TestAdapter",
+            enabled=True,
+            priority=5,
+            timeout=30,
+            retry_count=3,
+            fallback_service="fallback_service",
+            dependencies=["dep1", "dep2"],
+            cache_enabled=True,
+            cache_key_template="test_{id}",
+            batch_size=10,
+            health_check_interval=60,
+        )
+
+    def test_service_configuration_creation_valid(self, valid_service_config: ServiceConfiguration) -> None:
+        """有効なサービス設定作成テスト"""
+        assert valid_service_config.service_type == InfrastructureServiceType.QUALITY_CHECKER
+        assert valid_service_config.name == "test_service"
+        assert valid_service_config.adapter_class == "TestAdapter"
+        assert valid_service_config.enabled is True
+        assert valid_service_config.priority == 5
+        assert valid_service_config.timeout == 30
+        assert valid_service_config.retry_count == 3
+        assert valid_service_config.fallback_service == "fallback_service"
+        assert valid_service_config.dependencies == ["dep1", "dep2"]
+        assert valid_service_config.cache_enabled is True
+        assert valid_service_config.cache_key_template == "test_{id}"
+        assert valid_service_config.batch_size == 10
+        assert valid_service_config.health_check_interval == 60
+
+    def test_service_configuration_creation_minimal(self) -> None:
+        """最小パラメータでのサービス設定作成テスト"""
+        config = ServiceConfiguration(service_type=InfrastructureServiceType.QUALITY_CHECKER, name="minimal_service")
+
+        assert config.service_type == InfrastructureServiceType.QUALITY_CHECKER
+        assert config.name == "minimal_service"
+        assert config.adapter_class is None
+        assert config.enabled is True
+        assert config.priority == 0
+        assert config.timeout == 30
+        assert config.retry_count == 3
+        assert config.fallback_service is None
+        assert config.dependencies == []
+        assert config.cache_enabled is False
+        assert config.cache_key_template is None
+        assert config.batch_size == 1
+        assert config.health_check_interval == 60
+
+    def test_service_configuration_empty_name_error(self) -> None:
+        """空のサービス名エラーテスト"""
+        with pytest.raises(ValueError, match="サービス名は必須です"):
+            ServiceConfiguration(service_type=InfrastructureServiceType.QUALITY_CHECKER, name="")
+
+    def test_service_configuration_negative_priority_error(self) -> None:
+        """負の優先度エラーテスト"""
+        with pytest.raises(ValueError, match="優先度は0以上である必要があります"):
+            ServiceConfiguration(
+                service_type=InfrastructureServiceType.QUALITY_CHECKER, name="test_service", priority=-1
+            )
+
+    def test_service_configuration_zero_or_negative_timeout_error(self) -> None:
+        """0以下のタイムアウトエラーテスト"""
+        with pytest.raises(ValueError, match="タイムアウトは1以上である必要があります"):
+            ServiceConfiguration(service_type=InfrastructureServiceType.QUALITY_CHECKER, name="test_service", timeout=0)
+
+        with pytest.raises(ValueError, match="タイムアウトは1以上である必要があります"):
+            ServiceConfiguration(
+                service_type=InfrastructureServiceType.QUALITY_CHECKER, name="test_service", timeout=-1
+            )
+
+    def test_service_configuration_negative_retry_count_error(self) -> None:
+        """負のリトライ回数エラーテスト"""
+        with pytest.raises(ValueError, match="リトライ回数は0以上である必要があります"):
+            ServiceConfiguration(
+                service_type=InfrastructureServiceType.QUALITY_CHECKER, name="test_service", retry_count=-1
+            )
+
+    def test_service_configuration_zero_or_negative_batch_size_error(self) -> None:
+        """0以下のバッチサイズエラーテスト"""
+        with pytest.raises(ValueError, match="バッチサイズは1以上である必要があります"):
+            ServiceConfiguration(
+                service_type=InfrastructureServiceType.QUALITY_CHECKER, name="test_service", batch_size=0
+            )
+
+        with pytest.raises(ValueError, match="バッチサイズは1以上である必要があります"):
+            ServiceConfiguration(
+                service_type=InfrastructureServiceType.QUALITY_CHECKER, name="test_service", batch_size=-1
+            )
+
+    def test_service_configuration_with_enabled(self, valid_service_config: ServiceConfiguration) -> None:
+        """有効/無効変更テスト"""
+        disabled_config = valid_service_config.with_enabled(False)
+
+        assert disabled_config.enabled is False
+        assert disabled_config.name == valid_service_config.name
+        assert disabled_config.service_type == valid_service_config.service_type
+        assert disabled_config.priority == valid_service_config.priority
+
+        # 元のオブジェクトは変更されない
+        assert valid_service_config.enabled is True
+
+    def test_service_configuration_with_priority(self, valid_service_config: ServiceConfiguration) -> None:
+        """優先度変更テスト"""
+        new_config = valid_service_config.with_priority(10)
+
+        assert new_config.priority == 10
+        assert new_config.name == valid_service_config.name
+        assert new_config.service_type == valid_service_config.service_type
+        assert new_config.enabled == valid_service_config.enabled
+
+        # 元のオブジェクトは変更されない
+        assert valid_service_config.priority == 5
+
+    def test_service_configuration_is_frozen(self, valid_service_config: ServiceConfiguration) -> None:
+        """サービス設定オブジェクトの不変性テスト"""
+        with pytest.raises(AttributeError, match=".*"):
+            valid_service_config.name = "changed"  # type: ignore
+
+
+class TestPerformanceConfiguration:
+    """PerformanceConfiguration値オブジェクトのテストクラス"""
+
+    def test_performance_configuration_creation_default(self) -> None:
+        """デフォルトパラメータでのパフォーマンス設定作成テスト"""
+        config = PerformanceConfiguration()
+
+        assert config.max_concurrent_services == 5
+        assert config.default_timeout == 30
+        assert config.cache_enabled is True
+        assert config.memory_limit_mb == 512
+        assert config.cpu_usage_threshold == 80.0
+        assert config.auto_scaling_enabled is False
+
+    def test_performance_configuration_creation_custom(self) -> None:
+        """カスタムパラメータでのパフォーマンス設定作成テスト"""
+        config = PerformanceConfiguration(
+            max_concurrent_services=10,
+            default_timeout=60,
+            cache_enabled=False,
+            memory_limit_mb=1024,
+            cpu_usage_threshold=90.0,
+            auto_scaling_enabled=True,
+        )
+
+        assert config.max_concurrent_services == 10
+        assert config.default_timeout == 60
+        assert config.cache_enabled is False
+        assert config.memory_limit_mb == 1024
+        assert config.cpu_usage_threshold == 90.0
+        assert config.auto_scaling_enabled is True
+
+    def test_performance_configuration_zero_or_negative_max_concurrent_services_error(self) -> None:
+        """0以下の最大同時実行サービス数エラーテスト"""
+        with pytest.raises(ValueError, match="最大同時実行サービス数は1以上である必要があります"):
+            PerformanceConfiguration(max_concurrent_services=0)
+
+        with pytest.raises(ValueError, match="最大同時実行サービス数は1以上である必要があります"):
+            PerformanceConfiguration(max_concurrent_services=-1)
+
+    def test_performance_configuration_zero_or_negative_default_timeout_error(self) -> None:
+        """0以下のデフォルトタイムアウトエラーテスト"""
+        with pytest.raises(ValueError, match="デフォルトタイムアウトは1以上である必要があります"):
+            PerformanceConfiguration(default_timeout=0)
+
+        with pytest.raises(ValueError, match="デフォルトタイムアウトは1以上である必要があります"):
+            PerformanceConfiguration(default_timeout=-1)
+
+    def test_performance_configuration_zero_or_negative_memory_limit_error(self) -> None:
+        """0以下のメモリ制限エラーテスト"""
+        with pytest.raises(ValueError, match="メモリ制限は1以上である必要があります"):
+            PerformanceConfiguration(memory_limit_mb=0)
+
+        with pytest.raises(ValueError, match="メモリ制限は1以上である必要があります"):
+            PerformanceConfiguration(memory_limit_mb=-1)
+
+    def test_performance_configuration_invalid_cpu_usage_threshold_error(self) -> None:
+        """無効なCPU使用率閾値エラーテスト"""
+        with pytest.raises(ValueError, match="CPU使用率閾値は0-100の範囲である必要があります"):
+            PerformanceConfiguration(cpu_usage_threshold=-0.1)
+
+        with pytest.raises(ValueError, match="CPU使用率閾値は0-100の範囲である必要があります"):
+            PerformanceConfiguration(cpu_usage_threshold=100.1)
+
+    def test_performance_configuration_boundary_cpu_usage_threshold(self) -> None:
+        """CPU使用率閾値境界値テスト"""
+        config_0 = PerformanceConfiguration(cpu_usage_threshold=0.0)
+        assert config_0.cpu_usage_threshold == 0.0
+
+        config_100 = PerformanceConfiguration(cpu_usage_threshold=100.0)
+        assert config_100.cpu_usage_threshold == 100.0
+
+    def test_performance_configuration_is_frozen(self) -> None:
+        """パフォーマンス設定オブジェクトの不変性テスト"""
+        config = PerformanceConfiguration()
+        with pytest.raises(AttributeError, match=".*"):
+            config.max_concurrent_services = 10  # type: ignore
+
+
+class TestCacheConfiguration:
+    """CacheConfiguration値オブジェクトのテストクラス"""
+
+    def test_cache_configuration_creation_default(self) -> None:
+        """デフォルトパラメータでのキャッシュ設定作成テスト"""
+        config = CacheConfiguration()
+
+        assert config.enabled is True
+        assert config.ttl_seconds == 3600
+        assert config.max_size == 1000
+        assert config.storage_type == "memory"
+        assert config.compression_enabled is False
+        assert config.eviction_policy == "lru"
+
+    def test_cache_configuration_creation_custom(self) -> None:
+        """カスタムパラメータでのキャッシュ設定作成テスト"""
+        config = CacheConfiguration(
+            enabled=False,
+            ttl_seconds=7200,
+            max_size=2000,
+            storage_type="redis",
+            compression_enabled=True,
+            eviction_policy="lfu",
+        )
+
+        assert config.enabled is False
+        assert config.ttl_seconds == 7200
+        assert config.max_size == 2000
+        assert config.storage_type == "redis"
+        assert config.compression_enabled is True
+        assert config.eviction_policy == "lfu"
+
+    def test_cache_configuration_zero_or_negative_ttl_error(self) -> None:
+        """0以下のTTLエラーテスト"""
+        with pytest.raises(ValueError, match="TTLは1以上である必要があります"):
+            CacheConfiguration(ttl_seconds=0)
+
+        with pytest.raises(ValueError, match="TTLは1以上である必要があります"):
+            CacheConfiguration(ttl_seconds=-1)
+
+    def test_cache_configuration_zero_or_negative_max_size_error(self) -> None:
+        """0以下の最大サイズエラーテスト"""
+        with pytest.raises(ValueError, match="最大サイズは1以上である必要があります"):
+            CacheConfiguration(max_size=0)
+
+        with pytest.raises(ValueError, match="最大サイズは1以上である必要があります"):
+            CacheConfiguration(max_size=-1)
+
+    def test_cache_configuration_invalid_storage_type_error(self) -> None:
+        """無効なストレージタイプエラーテスト"""
+        with pytest.raises(ValueError, match="ストレージタイプは memory, redis, file のいずれかである必要があります"):
+            CacheConfiguration(storage_type="invalid")
+
+    def test_cache_configuration_valid_storage_types(self) -> None:
+        """有効なストレージタイプテスト"""
+        for storage_type in ["memory", "redis", "file"]:
+            config = CacheConfiguration(storage_type=storage_type)
+            assert config.storage_type == storage_type
+
+    def test_cache_configuration_invalid_eviction_policy_error(self) -> None:
+        """無効な退避ポリシーエラーテスト"""
+        with pytest.raises(ValueError, match="退避ポリシーは lru, lfu, fifo のいずれかである必要があります"):
+            CacheConfiguration(eviction_policy="invalid")
+
+    def test_cache_configuration_valid_eviction_policies(self) -> None:
+        """有効な退避ポリシーテスト"""
+        for eviction_policy in ["lru", "lfu", "fifo"]:
+            config = CacheConfiguration(eviction_policy=eviction_policy)
+            assert config.eviction_policy == eviction_policy
+
+    def test_cache_configuration_is_frozen(self) -> None:
+        """キャッシュ設定オブジェクトの不変性テスト"""
+        config = CacheConfiguration()
+        with pytest.raises(AttributeError, match=".*"):
+            config.enabled = False  # type: ignore
+
+
+class TestSecurityConfiguration:
+    """SecurityConfiguration値オブジェクトのテストクラス"""
+
+    def test_security_configuration_creation_default(self) -> None:
+        """デフォルトパラメータでのセキュリティ設定作成テスト"""
+        config = SecurityConfiguration()
+
+        assert config.encryption_enabled is False
+        assert config.access_control_enabled is True
+        assert config.allowed_operations == []
+        assert config.restricted_paths == []
+        assert config.audit_logging_enabled is True
+
+    def test_security_configuration_creation_custom(self) -> None:
+        """カスタムパラメータでのセキュリティ設定作成テスト"""
+        config = SecurityConfiguration(
+            encryption_enabled=True,
+            access_control_enabled=False,
+            allowed_operations=["read", "write"],
+            restricted_paths=["/secret", "/admin"],
+            audit_logging_enabled=False,
+        )
+
+        assert config.encryption_enabled is True
+        assert config.access_control_enabled is False
+        assert config.allowed_operations == ["read", "write"]
+        assert config.restricted_paths == ["/secret", "/admin"]
+        assert config.audit_logging_enabled is False
+
+    def test_security_configuration_none_lists_default(self) -> None:
+        """Noneリストのデフォルト設定テスト"""
+        config = SecurityConfiguration(allowed_operations=None, restricted_paths=None)
+
+        assert config.allowed_operations == []
+        assert config.restricted_paths == []
+
+    def test_security_configuration_is_frozen(self) -> None:
+        """セキュリティ設定オブジェクトの不変性テスト"""
+        config = SecurityConfiguration()
+        with pytest.raises(AttributeError, match=".*"):
+            config.encryption_enabled = True  # type: ignore
+
+
+class TestMonitoringConfiguration:
+    """MonitoringConfiguration値オブジェクトのテストクラス"""
+
+    def test_monitoring_configuration_creation_default(self) -> None:
+        """デフォルトパラメータでの監視設定作成テスト"""
+        config = MonitoringConfiguration()
+
+        assert config.enabled is True
+        assert config.health_check_interval == 60
+        assert config.metrics_collection_interval == 30
+        assert config.alert_threshold_error_rate == 10.0
+        assert config.alert_threshold_response_time == 5.0
+        assert config.log_level == "INFO"
+
+    def test_monitoring_configuration_creation_custom(self) -> None:
+        """カスタムパラメータでの監視設定作成テスト"""
+        config = MonitoringConfiguration(
+            enabled=False,
+            health_check_interval=120,
+            metrics_collection_interval=60,
+            alert_threshold_error_rate=20.0,
+            alert_threshold_response_time=10.0,
+            log_level="DEBUG",
+        )
+
+        assert config.enabled is False
+        assert config.health_check_interval == 120
+        assert config.metrics_collection_interval == 60
+        assert config.alert_threshold_error_rate == 20.0
+        assert config.alert_threshold_response_time == 10.0
+        assert config.log_level == "DEBUG"
+
+    def test_monitoring_configuration_zero_or_negative_health_check_interval_error(self) -> None:
+        """0以下のヘルスチェック間隔エラーテスト"""
+        with pytest.raises(ValueError, match="ヘルスチェック間隔は1以上である必要があります"):
+            MonitoringConfiguration(health_check_interval=0)
+
+        with pytest.raises(ValueError, match="ヘルスチェック間隔は1以上である必要があります"):
+            MonitoringConfiguration(health_check_interval=-1)
+
+    def test_monitoring_configuration_zero_or_negative_metrics_collection_interval_error(self) -> None:
+        """0以下のメトリクス収集間隔エラーテスト"""
+        with pytest.raises(ValueError, match="メトリクス収集間隔は1以上である必要があります"):
+            MonitoringConfiguration(metrics_collection_interval=0)
+
+        with pytest.raises(ValueError, match="メトリクス収集間隔は1以上である必要があります"):
+            MonitoringConfiguration(metrics_collection_interval=-1)
+
+    def test_monitoring_configuration_invalid_alert_threshold_error_rate_error(self) -> None:
+        """無効なエラー率アラート閾値エラーテスト"""
+        with pytest.raises(ValueError, match="エラー率アラート閾値は0-100の範囲である必要があります"):
+            MonitoringConfiguration(alert_threshold_error_rate=-0.1)
+
+        with pytest.raises(ValueError, match="エラー率アラート閾値は0-100の範囲である必要があります"):
+            MonitoringConfiguration(alert_threshold_error_rate=100.1)
+
+    def test_monitoring_configuration_zero_or_negative_alert_threshold_response_time_error(self) -> None:
+        """0以下のレスポンス時間アラート閾値エラーテスト"""
+        with pytest.raises(ValueError, match="レスポンス時間アラート閾値は1以上である必要があります"):
+            MonitoringConfiguration(alert_threshold_response_time=0)
+
+        with pytest.raises(ValueError, match="レスポンス時間アラート閾値は1以上である必要があります"):
+            MonitoringConfiguration(alert_threshold_response_time=-1)
+
+    def test_monitoring_configuration_invalid_log_level_error(self) -> None:
+        """無効なログレベルエラーテスト"""
+        with pytest.raises(
+            ValueError, match="ログレベルは DEBUG, INFO, WARNING, ERROR, CRITICAL のいずれかである必要があります"
+        ):
+            MonitoringConfiguration(log_level="INVALID")
+
+    def test_monitoring_configuration_valid_log_levels(self) -> None:
+        """有効なログレベルテスト"""
+        for log_level in ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]:
+            config = MonitoringConfiguration(log_level=log_level)
+            assert config.log_level == log_level
+
+    def test_monitoring_configuration_boundary_error_rate(self) -> None:
+        """エラー率アラート閾値境界値テスト"""
+        config_0 = MonitoringConfiguration(alert_threshold_error_rate=0.0)
+        assert config_0.alert_threshold_error_rate == 0.0
+
+        config_100 = MonitoringConfiguration(alert_threshold_error_rate=100.0)
+        assert config_100.alert_threshold_error_rate == 100.0
+
+    def test_monitoring_configuration_is_frozen(self) -> None:
+        """監視設定オブジェクトの不変性テスト"""
+        config = MonitoringConfiguration()
+        with pytest.raises(AttributeError, match=".*"):
+            config.enabled = False  # type: ignore
+
+
+class TestInfrastructureConfiguration:
+    """InfrastructureConfiguration値オブジェクトのテストクラス"""
+
+    @pytest.fixture
+    def valid_infrastructure_config(self) -> InfrastructureConfiguration:
+        """有効なインフラ設定"""
+        performance = PerformanceConfiguration(max_concurrent_services=5)
+        cache = CacheConfiguration(enabled=True)
+        security = SecurityConfiguration(encryption_enabled=True)
+        monitoring = MonitoringConfiguration(enabled=True)
+        services = [
+            ServiceConfiguration(service_type=InfrastructureServiceType.QUALITY_CHECKER, name="analysis_service"),
+            ServiceConfiguration(service_type=InfrastructureServiceType.BACKUP_MANAGER, name="backup_service"),
+        ]
+
+        return InfrastructureConfiguration(
+            performance=performance, cache=cache, security=security, monitoring=monitoring, services=services
+        )
+
+    def test_infrastructure_configuration_creation_valid(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """有効なインフラ設定作成テスト"""
+        assert valid_infrastructure_config.performance.max_concurrent_services == 5
+        assert valid_infrastructure_config.cache.enabled is True
+        assert valid_infrastructure_config.security.encryption_enabled is True
+        assert valid_infrastructure_config.monitoring.enabled is True
+        assert len(valid_infrastructure_config.services) == 2
+        assert valid_infrastructure_config.services[0].name == "analysis_service"
+        assert valid_infrastructure_config.services[1].name == "backup_service"
+
+    def test_infrastructure_configuration_creation_minimal(self) -> None:
+        """最小パラメータでのインフラ設定作成テスト"""
+        performance = PerformanceConfiguration()
+        cache = CacheConfiguration()
+
+        config = InfrastructureConfiguration(performance=performance, cache=cache)
+
+        assert config.performance is not None
+        assert config.cache is not None
+        assert config.security is not None  # デフォルト値
+        assert config.monitoring is not None  # デフォルト値
+        assert config.services == []  # デフォルト値
+
+    def test_infrastructure_configuration_get_service_config_found(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """サービス設定取得(見つかった場合)テスト"""
+        service_config = valid_infrastructure_config.get_service_config("analysis_service")
+
+        assert service_config is not None
+        assert service_config.name == "analysis_service"
+        assert service_config.service_type == InfrastructureServiceType.QUALITY_CHECKER
+
+    def test_infrastructure_configuration_get_service_config_not_found(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """サービス設定取得(見つからなかった場合)テスト"""
+        service_config = valid_infrastructure_config.get_service_config("nonexistent_service")
+
+        assert service_config is None
+
+    def test_infrastructure_configuration_add_service_config(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """サービス設定追加テスト"""
+        new_service = ServiceConfiguration(
+            service_type=InfrastructureServiceType.EPISODE_MANAGER, name="episode_service"
+        )
+
+        new_config = valid_infrastructure_config.add_service_config(new_service)
+
+        assert len(new_config.services) == 3
+        assert new_config.get_service_config("episode_service") is not None
+        assert new_config.get_service_config("episode_service").name == "episode_service"
+
+        # 元のオブジェクトは変更されない
+        assert len(valid_infrastructure_config.services) == 2
+
+    def test_infrastructure_configuration_remove_service_config(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """サービス設定削除テスト"""
+        new_config = valid_infrastructure_config.remove_service_config("analysis_service")
+
+        assert len(new_config.services) == 1
+        assert new_config.get_service_config("analysis_service") is None
+        assert new_config.get_service_config("backup_service") is not None
+
+        # 元のオブジェクトは変更されない
+        assert len(valid_infrastructure_config.services) == 2
+
+    def test_infrastructure_configuration_remove_nonexistent_service_config(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """存在しないサービス設定削除テスト"""
+        new_config = valid_infrastructure_config.remove_service_config("nonexistent_service")
+
+        assert len(new_config.services) == 2
+        assert new_config.get_service_config("analysis_service") is not None
+        assert new_config.get_service_config("backup_service") is not None
+
+    def test_infrastructure_configuration_to_dict(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """辞書変換テスト"""
+        data = valid_infrastructure_config.to_dict()
+
+        assert "performance" in data
+        assert "cache" in data
+        assert "security" in data
+        assert "monitoring" in data
+        assert "services" in data
+
+        assert data["performance"]["max_concurrent_services"] == 5
+        assert data["cache"]["enabled"] is True
+        assert data["security"]["encryption_enabled"] is True
+        assert data["monitoring"]["enabled"] is True
+        assert len(data["services"]) == 2
+        assert data["services"][0]["name"] == "analysis_service"
+        assert data["services"][1]["name"] == "backup_service"
+
+    def test_infrastructure_configuration_from_dict(self) -> None:
+        """辞書からの作成テスト"""
+        data = {
+            "performance": {"max_concurrent_services": 10, "default_timeout": 60},
+            "cache": {"enabled": False, "ttl_seconds": 7200},
+            "security": {"encryption_enabled": True, "access_control_enabled": False},
+            "monitoring": {"enabled": False, "health_check_interval": 120},
+            "services": [
+                {"service_type": "quality_checker", "name": "test_analysis_service", "enabled": True, "priority": 5}
+            ],
+        }
+
+        config = InfrastructureConfiguration.from_dict(data)
+
+        assert config.performance.max_concurrent_services == 10
+        assert config.performance.default_timeout == 60
+        assert config.cache.enabled is False
+        assert config.cache.ttl_seconds == 7200
+        assert config.security.encryption_enabled is True
+        assert config.security.access_control_enabled is False
+        assert config.monitoring.enabled is False
+        assert config.monitoring.health_check_interval == 120
+        assert len(config.services) == 1
+        assert config.services[0].name == "test_analysis_service"
+        assert config.services[0].service_type == InfrastructureServiceType.QUALITY_CHECKER
+        assert config.services[0].enabled is True
+        assert config.services[0].priority == 5
+
+    def test_infrastructure_configuration_from_dict_empty(self) -> None:
+        """空辞書からの作成テスト"""
+        config = InfrastructureConfiguration.from_dict({})
+
+        # デフォルト値が設定される
+        assert config.performance.max_concurrent_services == 5
+        assert config.cache.enabled is True
+        assert config.security.encryption_enabled is False
+        assert config.monitoring.enabled is True
+        assert config.services == []
+
+    def test_infrastructure_configuration_is_frozen(self) -> None:
+        """インフラ設定オブジェクトの不変性テスト"""
+        performance = PerformanceConfiguration()
+        cache = CacheConfiguration()
+        config = InfrastructureConfiguration(performance=performance, cache=cache)
+
+        with pytest.raises(AttributeError, match=".*"):
+            config.performance = PerformanceConfiguration(max_concurrent_services=10)  # type: ignore
+
+    def test_infrastructure_configuration_round_trip_serialization(
+        self, valid_infrastructure_config: InfrastructureConfiguration
+    ) -> None:
+        """シリアライゼーション往復テスト"""
+        data = valid_infrastructure_config.to_dict()
+        restored_config = InfrastructureConfiguration.from_dict(data)
+
+        assert (
+            restored_config.performance.max_concurrent_services
+            == valid_infrastructure_config.performance.max_concurrent_services
+        )
+
+        assert restored_config.cache.enabled == valid_infrastructure_config.cache.enabled
+        assert restored_config.security.encryption_enabled == valid_infrastructure_config.security.encryption_enabled
+        assert restored_config.monitoring.enabled == valid_infrastructure_config.monitoring.enabled
+        assert len(restored_config.services) == len(valid_infrastructure_config.services)
+        assert restored_config.services[0].name == valid_infrastructure_config.services[0].name
+        assert restored_config.services[1].name == valid_infrastructure_config.services[1].name

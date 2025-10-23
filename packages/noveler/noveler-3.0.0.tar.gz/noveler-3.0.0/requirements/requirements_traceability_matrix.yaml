@@ -1,0 +1,272 @@
+# 要件トレーサビリティマトリックス
+# 小説執筆支援システム「Noveler」
+
+metadata:
+  document_version: "2.1.1"
+  creation_date: "2025-09-03"
+  last_updated: "2025-09-18"
+  purpose: "実装済み機能と要件のAs-builtトレーサビリティ"
+  scope: "段階執筆・品質管理・データ連携・LangSmith連携・設計支援・運用"
+  consolidation_notes:
+    - "2025-09-17: 実装確認に基づき要件を6件に再編成"
+    - "2025-09-17: 旧REQ-PLOT/QUALITY体系を廃止し実装中機能に集約"
+    - "2025-09-17: MCPツール追加（TenStage/設計支援/段階的品質/LangSmith/書き込み）を反映"
+    - "2025-09-18: 日本語文の強制改行・行幅警告を全サブコマンドから撤廃（SPEC-A40A41-STAGE1-AUTOFIX を更新）"
+
+traceability_matrix:
+  writing_workflow:
+    summary: "15・18ステップ執筆、MCP段階API、TenStage、設計支援ツール"
+    requirements:
+      REQ-WRITE-CLI-001:
+        title: "18ステップ統合執筆フローをCLI/MCPから提供する"
+        priority: "Critical"
+        implementation:
+          - "src/noveler/presentation/cli/cli_adapter.py"
+          - "src/noveler/application/use_cases/integrated_writing_use_case.py"
+          - "src/noveler/application/use_cases/enhanced_integrated_writing_use_case.py"
+        specs:
+          - "specs/SPEC-WRITE-018_integrated_writing_flow.md"
+        exposed_commands:
+          - "noveler write <episode> [--dry-run]"
+          - "noveler mcp call enhanced_execute_writing_step {...}"
+        tests:
+          - "tests/integration/test_integrated_writing_workflow.py"
+          - "tests/unit/presentation/cli/test_cli_adapter.py"
+      REQ-WRITE-STEPWISE-002:
+        title: "A38準拠15ステップ執筆をユースケースとして実装する"
+        priority: "High"
+        implementation:
+          - "src/noveler/application/use_cases/stepwise_writing_use_case.py"
+          - "src/noveler/domain/services/writing_steps/"
+        supporting_components:
+          - "src/noveler/domain/services/work_file_manager.py"
+          - "templates/"
+        specs:
+          - "specs/SPEC-WRITE-015_stepwise_writing_use_case.md"
+        tests:
+          - "tests/test_stepwise_writing_system.py"
+      REQ-WRITE-MCP-003:
+        title: "MCP経由で段階的執筆タスクと復旧を制御する"
+        priority: "High"
+        implementation:
+          - "src/mcp_servers/noveler/main.py"
+          - "src/noveler/domain/services/progressive_task_manager.py"
+        specs:
+          - "specs/SPEC-MCP-001_mcp-tool-integration-system.md"
+          - "specs/SPEC-MCP-002_mcp-tools-specification.md"
+        tools:
+          - "get_writing_tasks"
+          - "execute_writing_step"
+          - "get_task_status"
+          - "enhanced_get_writing_tasks"
+          - "enhanced_execute_writing_step"
+          - "enhanced_resume_from_partial_failure"
+        tests:
+          - "tests/test_progressive_execution_control.py"
+          - "tests/integration/mcp/test_progressive_check_mcp_tools.py"
+      REQ-WRITE-TEN-004:
+        title: "10段階MCPツールで段階執筆を提供する"
+        priority: "High"
+        implementation:
+          - "src/mcp_servers/noveler/json_conversion_server.py"
+          - "src/noveler/infrastructure/services/ten_stage_session_manager.py"
+        specs:
+          - "specs/SPEC-MCP-001_mcp-tool-integration-system.md"
+          - "specs/SPEC-MCP-002_mcp-tools-specification.md"
+        tools:
+          - "write_step_1"
+          - "write_step_2"
+          - "write_step_3"
+          - "write_step_4"
+          - "write_step_5"
+          - "write_step_6"
+          - "write_step_7"
+          - "write_step_8"
+          - "write_step_9"
+          - "write_step_10"
+          - "write_resume"
+        tests:
+          - "tests/integration/mcp/test_mcp_server_integration.py"
+          - "tests/integration/mcp/test_progressive_check_mcp_tools.py"
+      REQ-WRITE-DESIGN-005:
+        title: "会話/感情/情景/小道具設計ツールを提供する"
+        priority: "Medium"
+        implementation:
+          - "src/mcp_servers/noveler/tools/conversation_design_tool.py"
+          - "src/noveler/domain/services/conversation_design_service.py"
+        specs:
+          - "specs/SPEC-MCP-002_mcp-tools-specification.md"
+        tools:
+          - "design_conversations"
+          - "track_emotions"
+          - "design_scenes"
+          - "design_senses"
+          - "manage_props"
+          - "get_conversation_context"
+          - "export_design_data"
+        tests:
+          - "tests/unit/domain/services/test_conversation_design_service.py"
+          - "tests/integration/mcp/test_mcp_server_integration.py"
+
+  quality_management:
+    summary: "多面品質チェック、自動改善、段階的品質フロー、LangSmith連携、適応評価"
+    requirements:
+      REQ-QUALITY-001:
+        title: "複数アスペクト統合の品質チェックを提供する"
+        priority: "Critical"
+        implementation:
+          - "src/mcp_servers/noveler/tools/run_quality_checks_tool.py"
+          - "src/mcp_servers/noveler/tools/check_rhythm_tool.py"
+          - "src/mcp_servers/noveler/tools/check_readability_tool.py"
+          - "src/mcp_servers/noveler/tools/check_grammar_tool.py"
+          - "src/mcp_servers/noveler/tools/check_style_tool.py"
+        specs:
+          - "specs/SPEC-QUALITY-001_a31-checklist-automatic-fix-system.md"
+          - "specs/SPEC-A40A41-STAGE1-AUTOFIX.md"
+          - "specs/SPEC-A40A41-STAGE23-POLISH.md"
+        tools:
+          - "run_quality_checks"
+          - "check_rhythm"
+          - "check_readability"
+          - "check_grammar"
+          - "check_style"
+        tests:
+          - "tests/e2e/test_quality_workflow_e2e.py"
+          - "tests/integration/mcp/test_progressive_check_mcp_tools.py"
+      REQ-QUALITY-STAGED-004:
+        title: "段階的品質チェックフローをMCPで提供する"
+        priority: "High"
+        implementation:
+          - "src/mcp_servers/noveler/main.py"
+          - "src/noveler/domain/services/progressive_check_manager.py"
+        specs:
+          - "specs/SPEC-QUALITY-110_progressive_check_flow.md"
+          - "specs/SPEC-QUALITY-120_langgraph_workflow_state_management.md"
+        tools:
+          - "get_check_tasks"
+          - "execute_check_step"
+          - "get_check_status"
+          - "get_check_history"
+          - "check_basic"
+        tests:
+          - "tests/integration/mcp/test_progressive_check_mcp_tools.py"
+          - "tests/unit/domain/services/test_progressive_check_manager_compliance.py"
+          - "[TODO] tests/unit/domain/services/test_progressive_check_logging.py"
+      REQ-QUALITY-002:
+        title: "自動改善と品質レポートを生成する"
+        priority: "High"
+        implementation:
+          - "src/mcp_servers/noveler/tools/improve_quality_until_tool.py"
+          - "src/mcp_servers/noveler/tools/fix_quality_issues_tool.py"
+          - "src/mcp_servers/noveler/tools/export_quality_report_tool.py"
+          - "src/mcp_servers/noveler/tools/quality_metadata_tools.py"
+          - "src/mcp_servers/noveler/tools/test_result_analysis_tool.py"
+        specs:
+          - "specs/SPEC-A40A41-STAGE1-AUTOFIX.md"
+          - "specs/SPEC-A40A41-STAGE23-POLISH.md"
+        tools:
+          - "improve_quality_until"
+          - "fix_quality_issues"
+          - "export_quality_report"
+          - "list_quality_presets"
+          - "get_quality_schema"
+          - "test_result_analysis"
+        tests:
+          - "tests/e2e/test_quality_workflow_e2e.py"
+          - "tests/unit/presentation/cli/test_cli_adapter.py"
+      REQ-QUALITY-LANG-005:
+        title: "LangSmith連携によるバグ修正フローを提供する"
+        priority: "Medium"
+        implementation:
+          - "src/mcp_servers/noveler/tools/langsmith_bugfix_tool.py"
+          - "noveler/application/services/langsmith_bugfix_workflow_service.py"
+          - "noveler/infrastructure/services/langsmith_artifact_manager.py"
+        specs:
+          - "specs/SPEC-MCP-002_mcp-tools-specification.md"
+        tools:
+          - "langsmith_generate_artifacts"
+          - "langsmith_apply_patch"
+          - "langsmith_run_verification"
+        tests:
+          - "tests/unit/application/services/test_langsmith_bugfix_workflow_service.py"
+          - "tests/unit/infrastructure/services/test_langsmith_artifact_manager.py"
+          - "tests/unit/tools/test_langsmith_bugfix_helper_cli.py"
+      REQ-QUALITY-003:
+        title: "適応的品質評価をDDD準拠で実装する"
+        priority: "Medium"
+        implementation:
+          - "src/noveler/application/use_cases/adaptive_quality_evaluation_use_case.py"
+        specs:
+          - "specs/SPEC-QUALITY-019_adaptive_quality_evaluation.md"
+        tests:
+          - "tests/test_ddd_compliance_adaptive_quality.py"
+
+  data_management:
+    summary: "JSON変換・ハッシュ管理・アーティファクト保全"
+    requirements:
+      REQ-DATA-001:
+        title: "CLI/MCP結果をファイル参照付きJSONとして保存する"
+        priority: "High"
+        implementation:
+          - "src/noveler/infrastructure/json/mcp/servers/json_conversion_server.py"
+          - "src/noveler/infrastructure/json/converters/cli_response_converter.py"
+        specs:
+          - "specs/SPEC-DATA-001_json_conversion_pipeline.md"
+          - "specs/SPEC-MCP-001_mcp-tool-integration-system.md"
+        tools:
+          - "convert_cli_to_json"
+          - "validate_json_response"
+          - "get_file_reference_info"
+        tests:
+          - "tests/test_json_server_performance.py"
+          - "tests/integration/mcp/test_mcp_server_integration.py"
+      REQ-DATA-002:
+        title: "SHA256ベースのファイル参照と変更検知を提供する"
+        priority: "High"
+        implementation:
+          - "src/mcp_servers/noveler/json_conversion_adapter.py"
+          - "src/noveler/infrastructure/json/file_managers/file_reference_manager.py"
+          - "src/noveler/infrastructure/json/utils/hash_utils.py"
+        specs:
+          - "specs/SPEC-DATA-001_json_conversion_pipeline.md"
+          - "specs/SPEC-ARTIFACT-001-artifact-reference-system.md"
+        tools:
+          - "get_file_by_hash"
+          - "check_file_changes"
+          - "list_files_with_hashes"
+        tests:
+          - "tests/test_hash_functionality.py"
+          - "tests/unit/infrastructure/json/test_hash_file_manager.py"
+      REQ-DATA-003:
+        title: "アーティファクト保管とバックアップ復元を行う"
+        priority: "Medium"
+        implementation:
+          - "src/noveler/domain/services/artifact_store_service.py"
+          - "src/mcp_servers/noveler/main.py"
+        specs:
+          - "specs/SPEC-ARTIFACT-001-artifact-reference-system.md"
+        tools:
+          - "fetch_artifact"
+          - "list_artifacts"
+          - "backup_management"
+        tests:
+          - "tests/e2e/test_quality_workflow_e2e.py"
+          - "tests/integration/mcp/test_mcp_server_integration.py"
+
+  operations_management:
+    summary: "MCP経由の安全なファイル操作と運用支援"
+    requirements:
+      REQ-OPS-WRITE-001:
+        title: "MCPクライアントから安全にファイルを書き込む"
+        priority: "Medium"
+        implementation:
+          - "src/mcp_servers/noveler/main.py"
+          - "noveler/infrastructure/factories/path_service_factory.py"
+        specs:
+          - "specs/SPEC-MCP-001_mcp-tool-integration-system.md"
+        tools:
+          - "write"
+          - "status"
+        tests:
+          - "tests/integration/mcp/test_mcp_server_integration.py"
+          - "tests/integration/mcp/test_mcp_server_compliance.py"

@@ -1,0 +1,64 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "description": "Pythonファイル自動Ruff統合リンター実行",
+        "matcher": {
+          "tool_names": ["Edit", "MultiEdit", "Write"],
+          "file_paths": ["src/noveler/**/*.py"]
+        },
+        "command": "bash scripts/tools/ruff_hook.sh",
+        "run_in_background": false,
+        "continue_on_error": true
+      },
+      {
+        "description": "構文エラー自動修正（統合）",
+        "matcher": {
+          "tool_names": ["Edit", "MultiEdit", "Write"],
+          "file_paths": ["src/noveler/**/*.py"]
+        },
+        "command": "python src/noveler/tools/unified_syntax_fixer.py --mode normal",
+        "run_in_background": false,
+        "continue_on_error": true
+      }
+    ],
+    "PreToolUse": [
+      {
+        "description": "編集前品質チェック通知",
+        "matcher": {
+          "tool_names": ["Edit", "MultiEdit"],
+          "file_paths": ["src/noveler/**/*.py"]
+        },
+        "command": "echo '📝 Pythonファイル編集開始 - 自動品質チェック有効'",
+        "run_in_background": true,
+        "continue_on_error": true
+      }
+    ],
+    "Notification": [
+      {
+        "description": "品質チェック完了通知",
+        "matcher": {},
+        "command": "echo '✨ Claude Code品質チェック完了'",
+        "run_in_background": true,
+        "continue_on_error": true
+      }
+    ]
+  },
+  "settings": {
+    "auto_format_on_save": true,
+    "ruff_auto_fix": true,
+    "show_notifications": true,
+    "quality_gate_integration": true,
+    "description": "小説執筆支援システム用Claude Code自動品質管理設定"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-31",
+    "purpose": "ファイル保存時の自動Ruff統合リンター実行",
+    "compatibility": {
+      "ruff_version": "0.12.8+",
+      "python_version": "3.10+",
+      "claude_code": "latest"
+    }
+  }
+}

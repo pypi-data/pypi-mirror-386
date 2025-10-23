@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# File: bin/check-editorial-status
+# Purpose: Evaluate the editorial 12-step checklist for Gate C status.
+# Context: Parses reports/editorial_checklist.md (or custom path) and reports PASS/NOTE/TODO summary.
+set -euo pipefail
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd -- "${SCRIPT_DIR}/.." &> /dev/null && pwd )"
+
+FILE="reports/editorial_checklist.md"
+FORMAT="text"
+EXTRA_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --file)
+      [[ $# -ge 2 ]] || { echo "Missing value for --file" >&2; exit 1; }
+      FILE="$2"
+      shift 2
+      ;;
+    --file=*)
+      FILE="${1#*=}"
+      shift
+      ;;
+    --format)
+      [[ $# -ge 2 ]] || { echo "Missing value for --format" >&2; exit 1; }
+      FORMAT="$2"
+      shift 2
+      ;;
+    --format=*)
+      FORMAT="${1#*=}"
+      shift
+      ;;
+    --require-all-pass)
+      [[ $# -ge 2 ]] || { echo "Missing value for --require-all-pass" >&2; exit 1; }
+      EXTRA_ARGS+=("--require-all-pass" "$2")
+      shift 2
+      ;;
+    --require-all-pass=*)
+      EXTRA_ARGS+=("--require-all-pass" "${1#*=}")
+      shift
+      ;;
+    --dry-run)
+      echo "DRY-RUN: python3 scripts/tools/editorial_checklist_evaluator.py --file \"$FILE\" --format $FORMAT ${EXTRA_ARGS[*]}"
+      exit 0
+      ;;
+    *)
+      EXTRA_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+cd "${ROOT_DIR}"
+exec python3 scripts/tools/editorial_checklist_evaluator.py --file "$FILE" --format "$FORMAT" "${EXTRA_ARGS[@]}"

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[pre-commit] specs lint..."
+python3 specs/_scripts/specs_lint.py --max-age-days=120
+
+echo "[pre-commit] OK"

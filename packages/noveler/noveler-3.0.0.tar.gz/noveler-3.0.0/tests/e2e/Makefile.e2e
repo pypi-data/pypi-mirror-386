@@ -1,0 +1,228 @@
+# E2Eテスト実行用Makefile
+# 使用方法: make -f Makefile.e2e <target>
+
+.PHONY: help e2e-all e2e-smoke e2e-workflow e2e-quality e2e-performance e2e-stress e2e-critical
+.PHONY: e2e-fast e2e-report e2e-coverage e2e-full-report e2e-clean
+.DEFAULT_GOAL := help
+
+# カラー定義
+BLUE = \033[0;34m
+GREEN = \033[0;32m
+YELLOW = \033[1;33m
+RED = \033[0;31m
+NC = \033[0m # No Color
+
+# 基本設定
+PROJECT_ROOT := $(shell pwd)
+E2E_SCRIPT := $(PROJECT_ROOT)/bin/run_e2e_tests.sh
+REPORT_SCRIPT := $(PROJECT_ROOT)/bin/generate_e2e_report.sh
+COVERAGE_SCRIPT := $(PROJECT_ROOT)/bin/analyze_e2e_coverage.py
+TEMP_DIR := $(PROJECT_ROOT)/temp
+REPORTS_DIR := $(TEMP_DIR)/reports
+
+# Python仮想環境の確認
+VENV_ACTIVE := $(shell echo $$VIRTUAL_ENV)
+ifeq ($(VENV_ACTIVE),)
+    $(warning $(YELLOW)警告: 仮想環境が有効化されていません$(NC))
+endif
+
+help: ## ヘルプ表示
+	@echo "$(BLUE)E2Eテスト実行用Makefile$(NC)"
+	@echo ""
+	@echo "$(GREEN)基本的な使用方法:$(NC)"
+	@echo "  make -f Makefile.e2e <target>"
+	@echo ""
+	@echo "$(GREEN)利用可能なターゲット:$(NC)"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  $(BLUE)%-20s$(NC) %s\n", $$1, $$2}'
+	@echo ""
+	@echo "$(GREEN)実行例:$(NC)"
+	@echo "  make -f Makefile.e2e e2e-smoke     # スモークテストのみ実行"
+	@echo "  make -f Makefile.e2e e2e-workflow  # ワークフロー統合テスト"
+	@echo "  make -f Makefile.e2e e2e-report    # フルレポート生成"
+
+# ディレクトリ作成
+$(TEMP_DIR):
+	@mkdir -p $(TEMP_DIR)
+	@mkdir -p $(REPORTS_DIR)
+
+# 基本E2Eテスト実行
+e2e-all: $(TEMP_DIR) ## 全てのE2Eテストを実行
+	@echo "$(BLUE)全E2Eテスト実行中...$(NC)"
+	@if [ -f "$(E2E_SCRIPT)" ]; then \
+		$(E2E_SCRIPT) --all --verbose; \
+	else \
+		echo "$(RED)エラー: E2Eテストスクリプトが見つかりません: $(E2E_SCRIPT)$(NC)"; \
+		exit 1; \
+	fi
+
+e2e-smoke: $(TEMP_DIR) ## スモークテスト（基本機能確認）を実行
+	@echo "$(BLUE)スモークテスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --smoke --verbose
+
+e2e-workflow: $(TEMP_DIR) ## ワークフロー統合テストを実行
+	@echo "$(BLUE)ワークフロー統合テスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --workflow --verbose
+
+e2e-quality: $(TEMP_DIR) ## 品質保証ワークフローテストを実行
+	@echo "$(BLUE)品質保証ワークフローテスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --quality --verbose
+
+e2e-performance: $(TEMP_DIR) ## パフォーマンステストを実行
+	@echo "$(BLUE)パフォーマンステスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --performance --verbose
+
+e2e-stress: $(TEMP_DIR) ## ストレステストを実行
+	@echo "$(BLUE)ストレステスト実行中...$(NC)"
+	@pytest -c tests/e2e/pytest_e2e.ini -m "stress" tests/e2e/ -v
+
+e2e-critical: $(TEMP_DIR) ## 重要テストのみ実行
+	@echo "$(BLUE)重要テスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --critical --verbose
+
+e2e-fast: $(TEMP_DIR) ## 高速実行（時間のかかるテストをスキップ）
+	@echo "$(BLUE)高速E2Eテスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --fast --verbose
+
+# レポート生成
+e2e-coverage: $(TEMP_DIR) ## カバレッジ分析のみ実行
+	@echo "$(BLUE)E2Eカバレッジ分析実行中...$(NC)"
+	@python3 $(COVERAGE_SCRIPT) $(PROJECT_ROOT)
+
+e2e-report: $(TEMP_DIR) ## テスト実行+レポート生成
+	@echo "$(BLUE)E2E統合レポート生成中...$(NC)"
+	@$(REPORT_SCRIPT) --run-tests --verbose
+
+e2e-full-report: $(TEMP_DIR) ## フル機能レポート生成（テスト+カバレッジ+統合レポート）
+	@echo "$(BLUE)フルE2Eレポート生成中...$(NC)"
+	@$(REPORT_SCRIPT) --full --verbose
+
+# 並列実行（注意: リソース競合の可能性）
+e2e-parallel: $(TEMP_DIR) ## 並列実行（リソース競合注意）
+	@echo "$(YELLOW)並列E2Eテスト実行中（リソース競合に注意）...$(NC)"
+	@$(E2E_SCRIPT) --workflow --parallel --verbose
+
+# デバッグ実行
+e2e-debug: $(TEMP_DIR) ## デバッグモードでE2Eテスト実行
+	@echo "$(BLUE)デバッグモードE2Eテスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --smoke --debug
+
+# 特定のテストファイル実行
+e2e-workflow-integration: $(TEMP_DIR) ## ワークフロー統合テストファイルのみ実行
+	@echo "$(BLUE)ワークフロー統合テストファイル実行中...$(NC)"
+	@pytest -c tests/e2e/pytest_e2e.ini tests/e2e/test_workflow_integration_e2e.py -v
+
+e2e-quality-workflow: $(TEMP_DIR) ## 品質ワークフローテストファイルのみ実行
+	@echo "$(BLUE)品質ワークフローテストファイル実行中...$(NC)"
+	@pytest -c tests/e2e/pytest_e2e.ini tests/e2e/test_quality_workflow_e2e.py -v
+
+e2e-scenario-integration: $(TEMP_DIR) ## シナリオ統合テストファイルのみ実行
+	@echo "$(BLUE)シナリオ統合テストファイル実行中...$(NC)"
+	@pytest -c tests/e2e/pytest_e2e.ini tests/e2e/test_scenario_integration_e2e.py -v
+
+e2e-performance-stress: $(TEMP_DIR) ## パフォーマンス・ストレステストファイルのみ実行
+	@echo "$(BLUE)パフォーマンス・ストレステストファイル実行中...$(NC)"
+	@pytest -c tests/e2e/pytest_e2e.ini tests/e2e/test_performance_stress_e2e.py -v
+
+# CI/CD用実行
+e2e-ci: $(TEMP_DIR) ## CI/CD環境用E2Eテスト実行
+	@echo "$(BLUE)CI/CD用E2Eテスト実行中...$(NC)"
+	@$(E2E_SCRIPT) --critical --fast --report --timeout 600
+
+# クリーンアップ
+e2e-clean: ## E2Eテスト関連の一時ファイルをクリーンアップ
+	@echo "$(BLUE)E2Eテスト関連ファイルのクリーンアップ中...$(NC)"
+	@rm -rf $(TEMP_DIR)/cache/pytest_e2e
+	@rm -rf $(TEMP_DIR)/logs/e2e_test_*
+	@rm -rf $(TEMP_DIR)/reports/e2e_*
+	@find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+	@find . -name "*.pyc" -delete 2>/dev/null || true
+	@echo "$(GREEN)クリーンアップ完了$(NC)"
+
+e2e-clean-all: e2e-clean ## 全ての一時ファイルとキャッシュをクリーンアップ
+	@echo "$(BLUE)全一時ファイルのクリーンアップ中...$(NC)"
+	@rm -rf $(TEMP_DIR)
+	@rm -rf .pytest_cache
+	@rm -rf tests/e2e/.pytest_cache
+	@echo "$(GREEN)完全クリーンアップ完了$(NC)"
+
+# 環境確認
+e2e-env-check: ## E2Eテスト実行環境の確認
+	@echo "$(BLUE)E2Eテスト環境確認中...$(NC)"
+	@echo "プロジェクトルート: $(PROJECT_ROOT)"
+	@echo "Python: $$(python --version 2>&1)"
+	@echo "pytest: $$(pytest --version 2>&1 | head -n 1)"
+	@echo "仮想環境: $${VIRTUAL_ENV:-未設定}"
+	@echo "利用可能メモリ: $$(free -h 2>/dev/null | grep '^Mem:' | awk '{print $$2}' || echo '不明')"
+	@echo "CPU コア数: $$(nproc 2>/dev/null || echo '不明')"
+	@echo "ディスク空き容量: $$(df -h . | tail -1 | awk '{print $$4}')"
+	@echo ""
+	@if [ -f "$(E2E_SCRIPT)" ]; then \
+		echo "$(GREEN)✅ E2Eテストスクリプト: 利用可能$(NC)"; \
+	else \
+		echo "$(RED)❌ E2Eテストスクリプト: 見つかりません$(NC)"; \
+	fi
+	@if [ -d "tests/e2e" ]; then \
+		echo "$(GREEN)✅ E2Eテストディレクトリ: 存在$(NC)"; \
+		echo "   テストファイル数: $$(find tests/e2e -name 'test_*.py' | wc -l)"; \
+	else \
+		echo "$(RED)❌ E2Eテストディレクトリ: 存在しません$(NC)"; \
+	fi
+
+# 依存関係インストール
+e2e-setup: ## E2Eテスト実行に必要な依存関係をインストール
+	@echo "$(BLUE)E2Eテスト依存関係インストール中...$(NC)"
+	@pip install -e .[test]
+	@pip install pytest-html pytest-xdist pytest-timeout psutil
+	@echo "$(GREEN)依存関係インストール完了$(NC)"
+
+# パフォーマンス分析
+e2e-profile: $(TEMP_DIR) ## プロファイリング付きでE2Eテスト実行
+	@echo "$(BLUE)プロファイリング付きE2Eテスト実行中...$(NC)"
+	@python -m cProfile -o $(REPORTS_DIR)/e2e_profile.stats -m pytest -c tests/e2e/pytest_e2e.ini tests/e2e/test_workflow_integration_e2e.py::TestWorkflowIntegrationE2E::test_complete_writing_workflow -v
+	@echo "$(GREEN)プロファイル結果: $(REPORTS_DIR)/e2e_profile.stats$(NC)"
+
+# バッチ実行（全体テスト）
+e2e-batch: $(TEMP_DIR) ## バッチモード（全テストタイプを順次実行）
+	@echo "$(BLUE)E2Eテストバッチ実行開始...$(NC)"
+	@echo "$(YELLOW)1/4: スモークテスト実行中...$(NC)"
+	@$(MAKE) -f Makefile.e2e e2e-smoke || echo "$(YELLOW)スモークテスト一部失敗$(NC)"
+	@echo "$(YELLOW)2/4: ワークフローテスト実行中...$(NC)"
+	@$(MAKE) -f Makefile.e2e e2e-workflow || echo "$(YELLOW)ワークフローテスト一部失敗$(NC)"
+	@echo "$(YELLOW)3/4: 品質テスト実行中...$(NC)"
+	@$(MAKE) -f Makefile.e2e e2e-quality || echo "$(YELLOW)品質テスト一部失敗$(NC)"
+	@echo "$(YELLOW)4/4: レポート生成中...$(NC)"
+	@$(MAKE) -f Makefile.e2e e2e-coverage || echo "$(YELLOW)レポート生成一部失敗$(NC)"
+	@echo "$(GREEN)E2Eテストバッチ実行完了$(NC)"
+
+# 開発用ショートカット
+dev-e2e: e2e-fast ## 開発時用の高速E2Eテスト
+smoke: e2e-smoke ## スモークテストのエイリアス
+workflow: e2e-workflow ## ワークフローテストのエイリアス
+quality: e2e-quality ## 品質テストのエイリアス
+report: e2e-report ## レポート生成のエイリアス
+clean: e2e-clean ## クリーンアップのエイリアス
+
+# 統計情報
+e2e-stats: ## E2Eテストの統計情報表示
+	@echo "$(BLUE)E2Eテスト統計情報:$(NC)"
+	@echo "テストファイル数: $$(find tests/e2e -name 'test_*.py' | wc -l)"
+	@echo "テストメソッド数: $$(grep -r 'def test_' tests/e2e/ | wc -l)"
+	@echo "総行数: $$(find tests/e2e -name '*.py' -exec cat {} \; | wc -l)"
+	@echo "最新レポート:"
+	@ls -la $(REPORTS_DIR)/e2e_* 2>/dev/null | tail -3 || echo "  レポートなし"
+
+# トラブルシューティング
+e2e-troubleshoot: ## E2Eテストのトラブルシューティング
+	@echo "$(BLUE)E2Eテストトラブルシューティング:$(NC)"
+	@echo ""
+	@echo "$(GREEN)1. 環境確認:$(NC)"
+	@$(MAKE) -f Makefile.e2e e2e-env-check
+	@echo ""
+	@echo "$(GREEN)2. 依存関係確認:$(NC)"
+	@pip list | grep -E "(pytest|typer|pyyaml|psutil)" || echo "$(RED)必要な依存関係が不足している可能性があります$(NC)"
+	@echo ""
+	@echo "$(GREEN)3. ファイル権限確認:$(NC)"
+	@ls -la bin/ | grep -E "(run_e2e_tests|generate_e2e_report|analyze_e2e_coverage)"
+	@echo ""
+	@echo "$(GREEN)4. 最近のエラーログ:$(NC)"
+	@find $(TEMP_DIR) -name "*.log" -mtime -1 2>/dev/null | head -3 | xargs tail -n 5 || echo "  最近のログなし"

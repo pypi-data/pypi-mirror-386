@@ -1,0 +1,222 @@
+# 依存関係リスト
+# B20 Phase 1 - 要求整理
+
+version: "3.0.0"
+generated_at: "2025-09-30"
+python_version: ">=3.10"
+
+# メイン依存関係
+main_dependencies:
+  PyYAML:
+    version: ">=6.0"
+    purpose: "設定ファイル管理（YAML読み書き）"
+    criticality: "high"
+    alternatives: ["toml", "json"]
+
+  rich:
+    version: ">=13.0.0"
+    purpose: "MCP美しい出力表示、プログレスバー"
+    criticality: "medium"
+    alternatives: ["colorama", "termcolor"]
+
+  requests:
+    version: ">=2.28.0"
+    purpose: "なろうAPI連携、Web取得"
+    criticality: "high"
+    alternatives: ["httpx", "urllib3"]
+
+  janome:
+    version: ">=0.4.2"
+    purpose: "形態素解析、品質チェック"
+    criticality: "high"
+    alternatives: ["MeCab", "sudachi"]
+
+  deal:
+    version: ">=4.24.0"
+    purpose: "Design by Contract支援"
+    criticality: "low"
+    alternatives: ["icontract"]
+
+  mcp:
+    version: ">=1.13.0"
+    purpose: "Claude Code MCP統合"
+    criticality: "high"
+    alternatives: []
+
+  jinja2:
+    version: ">=3.1.0"
+    purpose: "テンプレート処理"
+    criticality: "medium"
+    alternatives: ["mako", "string.Template"]
+
+  psutil:
+    version: ">=5.9.0"
+    purpose: "ビルド時プロセス管理"
+    criticality: "low"
+    alternatives: []
+
+  ruamel.yaml:
+    version: ">=0.18.0"
+    purpose: "YAML整形・コメント保持"
+    criticality: "medium"
+    alternatives: ["PyYAML"]
+
+  yamllint:
+    version: ">=1.33.0"
+    purpose: "YAML検証"
+    criticality: "low"
+    alternatives: []
+
+  numpy:
+    version: ">=1.26.0"
+    purpose: "ログ分析ユーティリティ"
+    criticality: "low"
+    alternatives: ["pandas"]
+
+# 開発依存関係
+dev_dependencies:
+  # テストフレームワーク
+  pytest:
+    version: ">=8.0.0"
+    purpose: "テスト実行フレームワーク"
+    criticality: "high"
+
+  pytest-cov:
+    version: ">=4.0.0"
+    purpose: "カバレッジ測定"
+    criticality: "high"
+
+  pytest-mock:
+    version: ">=3.0.0"
+    purpose: "モック機能"
+    criticality: "high"
+
+  pytest-asyncio:
+    version: ">=0.23.0"
+    purpose: "非同期テスト"
+    criticality: "medium"
+
+  pytest-xdist:
+    version: ">=3.5.0"
+    purpose: "並列テスト実行"
+    criticality: "medium"
+
+  pytest-timeout:
+    version: ">=2.2.0"
+    purpose: "テストタイムアウト管理"
+    criticality: "medium"
+
+  langgraph:
+    version: ">=0.6.7"
+    purpose: "LLMワークフロー管理"
+    criticality: "low"
+
+  hypothesis:
+    version: ">=6.100.0"
+    purpose: "プロパティベーステスト"
+    criticality: "low"
+
+  # アーキテクチャ検証
+  import-linter:
+    version: ">=2.0"
+    purpose: "レイヤリング検証"
+    criticality: "high"
+
+  pytest-archon:
+    version: ">=0.0.5"
+    purpose: "DDD層検証"
+    criticality: "high"
+
+  # 品質管理
+  mypy:
+    version: ">=1.8.0"
+    purpose: "型チェック"
+    criticality: "high"
+
+  ruff:
+    version: ">=0.1.0"
+    purpose: "リンター・フォーマッター"
+    criticality: "high"
+
+  pre-commit:
+    version: ">=3.5.0"
+    purpose: "コミット前チェック"
+    criticality: "medium"
+
+  # 型スタブ
+  types-PyYAML:
+    version: ">=6.0.0"
+    purpose: "PyYAML型ヒント"
+    criticality: "medium"
+
+  types-requests:
+    version: ">=2.31.0"
+    purpose: "requests型ヒント"
+    criticality: "medium"
+
+# 外部ツール（手動インストール）
+external_tools:
+  gnu_parallel:
+    install:
+      ubuntu: "sudo apt install parallel"
+      macos: "brew install parallel"
+      windows_wsl: "sudo apt install parallel"
+    purpose: "並列品質チェック高速化"
+    criticality: "recommended"
+    performance_gain: "10x speedup for bulk checks"
+
+# システム要件
+system_requirements:
+  os:
+    - "Linux"
+    - "macOS"
+    - "Windows WSL"
+  python_version: ">=3.10"
+  memory: "2GB (推奨4GB)"
+  disk_space: "500MB"
+  git: ">=2.0"
+
+# 互換性情報
+compatibility:
+  python_310: "完全対応"
+  python_311: "完全対応"
+  python_312: "完全対応"
+  python_313: "実験的対応"
+  legacy_cli: "廃止（novel コマンド）"
+  mcp_version: "1.13.0+"
+
+# 依存関係グラフ
+dependency_graph:
+  core:
+    - "PyYAML"
+    - "requests"
+    - "janome"
+    - "mcp"
+
+  quality:
+    - "rich"
+    - "numpy"
+    - "jinja2"
+
+  build:
+    - "psutil"
+    - "ruamel.yaml"
+    - "yamllint"
+
+  testing:
+    - "pytest"
+    - "pytest-cov"
+    - "pytest-xdist"
+    - "import-linter"
+
+  linting:
+    - "mypy"
+    - "ruff"
+    - "pre-commit"
+
+# セキュリティ考慮事項
+security_notes:
+  - "dealパッケージは契約違反時に例外送出（プロダクション影響小）"
+  - "requestsは信頼できるなろうAPI URLのみアクセス"
+  - "mcp統合はローカル環境のみ（外部通信なし）"
+  - "秘密管理はvault方式（.novelerrc.yaml）"

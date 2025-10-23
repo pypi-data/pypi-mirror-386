@@ -1,0 +1,5 @@
+# File: bin/.gitattributes
+# Purpose: Ensure executable wrappers keep POSIX-friendly LF endings regardless of local checkout settings.
+# Context: Prevents /usr/bin/env shebang failures caused by CRLF on Windows.
+
+test text eol=lf

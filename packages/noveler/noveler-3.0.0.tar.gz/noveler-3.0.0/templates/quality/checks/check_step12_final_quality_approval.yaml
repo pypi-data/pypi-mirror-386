@@ -1,0 +1,230 @@
+# STEP 12: 総合品質認定 Schema v2
+
+metadata:
+  step_id: 12
+  step_name: 総合品質認定
+  phase: expression_quality
+  version: 2.0.0
+  last_updated: '2025-09-24'
+  author: noveler system
+  description: 全体的な品質の最終確認と公開可否判定
+  estimated_duration: 8-10分
+llm_config:
+  role_messages:
+    system: |-
+      あなたは品質チェックスペシャリストです。constraints.hard_rules を厳守し、
+      出力は artifacts の仕様に従った JSON のみを返してください。追加の説明文は不要です。
+    user: |-
+      総合品質認定 に関する tasks・acceptance_criteria を順守してください。
+      問題が見つからない場合でも issues.<category>[] は空配列として出力し、summary.evidence に根拠を示してください。
+prompt:
+  main_instruction: |-
+    目的は「総合品質認定」です。inputs・constraints・tasks を満たし、
+    artifacts の仕様に従った JSON をコードブロックなしで出力してください。
+  next_action_instruction: |-
+    ステップ {previous_step_id}「{previous_step_name}」が完了しました。
+
+    最終ステップ {step_id}「{step_name}」を実行してください。
+    全体的な品質の総合評価を行います：
+    1. 全チェック項目の統合結果
+    2. 読者満足度の予測評価
+    3. 公開可否の最終判定
+    4. 今後の改善方向性の提示
+
+    これが最終ステップです。execute_check_step で step_id={step_id} を実行してください。
+inputs:
+  files:
+    - path: '{project_root}/40_原稿/第{episode_number:03d}話*.md'
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: '{project_root}/config/quality_rules.yaml'
+      required: false
+      description: 品質関連の設定があれば参照
+  variables:
+    episode_number:
+      type: int
+      required: true
+    project_root:
+      type: path
+      required: true
+constraints:
+  hard_rules:
+    - summary.overview と metrics.score を必ず出力する
+    - issues は各カテゴリ (issues.*) をキーにもつオブジェクトとして出力する
+    - 各 issue には before_text / after_text / severity / priority を添える
+  soft_targets:
+    - metrics.score は 80 以上を目指す
+    - issues 全体の件数を 5 件以内に抑える（理想値）
+tasks:
+  bullets:
+    - 総合品質認定の観点（総合品質、読者満足度、公開準備度、改善優先度）を俯瞰し、重大度と優先度を判定する
+    - issues.<category>[] に原稿抜粋・修正案・severity・priority・root_cause を含めて整理する
+    - summary.overview に現状と改善方針を200字以内で要約し、summary.evidence に根拠を箇条書きする
+    - metrics.score と metrics.issue_count を更新し、recommendations 
+      に最優先の改善アクションを3件以内で列挙する
+  details:
+    - name: 総合品質
+      items:
+        - id: checks.overall_quality
+          text: '総合品質観点: 全フェーズの品質レベル統合 / 致命的問題の有無確認 / 読者期待値との照合 / 作品としての完成度'
+    - name: 読者満足度
+      items:
+        - id: checks.reader_satisfaction
+          text: '読者満足度観点: ターゲット読者層の満足度予測 / エンターテイメント性の評価 / 感情的な満足感の予測 / 再読価値の判定'
+    - name: 公開準備度
+      items:
+        - id: checks.publication_readiness
+          text: '公開準備度観点: 公開レベルの品質到達 / 恥ずかしくない完成度 / 競合作品との比較 / ブランド価値への影響'
+    - name: 改善優先度
+      items:
+        - id: checks.improvement_priority
+          text: '改善優先度観点: 緊急修正項目の特定 / 推奨改善項目の整理 / 長期改善課題の明確化 / 次回作への活用提案'
+artifacts:
+  format: json
+  path_template: '{project_root}/.noveler/checks/EP{episode_number:04d}/step{step_id:02d}_quality.json'
+  required_fields:
+    - summary
+    - issues
+    - recommendations
+    - metrics
+  example: |-
+    {
+      "summary": {
+        "overview": "総合品質認定の主要な所見をここに記述",
+        "score": 82,
+        "evidence": [
+          "総合品質: 原稿第3段落で誤用を確認"
+        ]
+      },
+      "issues": {
+        "overall_quality": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "全フェーズの品質レベル統合"
+          }
+        ],
+        "reader_satisfaction": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "ターゲット読者層の満足度予測"
+          }
+        ],
+        "publication_readiness": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "公開レベルの品質到達"
+          }
+        ],
+        "improvement_priority": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "緊急修正項目の特定"
+          }
+        ]
+      },
+      "recommendations": [
+        "誤用箇所を修正し、スタイルガイドに合わせる",
+        "再発防止のために該当セクションを校正する"
+      ],
+      "metrics": {
+        "issue_count": 4,
+        "score": 82,
+        "severity_distribution": {
+          "low": 1,
+          "medium": 3,
+          "high": 0
+        }
+      }
+    }
+acceptance_criteria:
+  checklist:
+    - summary.overview と metrics.score を出力している
+    - issues.<category>[] の各要素に before_text / after_text / severity / priority /
+      rationale が含まれている
+  metrics:
+    - name: issue_count
+      target: '>= 0'
+      method: issues.* の総件数
+    - name: score_range
+      target: 0-100
+      method: metrics.score の範囲検証
+next:
+  next_step_id: 12
+  message_template: |-
+    これで品質チェック全工程が完了しました。お疲れさまでした。
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  final_step: true
+  by_task:
+    - id: checks.overall_quality
+      field: issues.overall_quality
+      rule: present
+    - id: checks.reader_satisfaction
+      field: issues.reader_satisfaction
+      rule: present
+    - id: checks.publication_readiness
+      field: issues.publication_readiness
+      rule: present
+    - id: checks.improvement_priority
+      field: issues.improvement_priority
+      rule: present
+check_criteria:
+  overall_quality:
+    - 全フェーズの品質レベル統合
+    - 致命的問題の有無確認
+    - 読者期待値との照合
+    - 作品としての完成度
+  reader_satisfaction:
+    - ターゲット読者層の満足度予測
+    - エンターテイメント性の評価
+    - 感情的な満足感の予測
+    - 再読価値の判定
+  publication_readiness:
+    - 公開レベルの品質到達
+    - 恥ずかしくない完成度
+    - 競合作品との比較
+    - ブランド価値への影響
+  improvement_priority:
+    - 緊急修正項目の特定
+    - 推奨改善項目の整理
+    - 長期改善課題の明確化
+    - 次回作への活用提案
+completion_message: |
+  🎉 品質チェック全工程が完了しました！
+
+  エピソード {episode_number} の12段階品質チェックが正常に完了いたしました。
+  以下の全フェーズが実行されました：
+
+  ✅ 基本品質: 誤字脱字・文法・読みやすさ
+  ✅ ストーリー品質: キャラクター・プロット・世界観
+  ✅ 構造品質: 起承転結・伏線・シーン転換
+  ✅ 表現品質: 文章表現・リズム・総合認定
+
+  最終的な品質評価結果と改善提案をご確認ください。
+  お疲れさまでした！

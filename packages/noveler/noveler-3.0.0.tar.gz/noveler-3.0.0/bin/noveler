@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+小説執筆支援システム統合CLI（本番版）
+Novel Writing Support System Integrated CLI (Production)
+
+本番モード：
+- dist/ディレクトリの安定版コードを使用
+- MCPサーバー専用エントリーポイント
+- プロダクション最適化
+"""
+
+import os
+import sys
+import subprocess
+from pathlib import Path
+
+# Windows環境でのUTF-8出力を確保
+if sys.platform == "win32":
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
+# 本番用フラグを設定
+os.environ["NOVEL_PRODUCTION_MODE"] = "1"
+
+# ガイドルートを特定
+def find_guide_root():
+    """ガイドルート（00_ガイド）を確実に特定"""
+    current_file = Path(__file__).resolve()
+
+    # bin/novelerからの相対パス
+    if current_file.name == "noveler" and current_file.parent.name == "bin":
+        return current_file.parent.parent
+
+    # フォールバック
+    return current_file.parent.parent
+
+BASE_DIR = find_guide_root()
+
+# 本番用ディストリビューションのパス
+DIST_DIR = BASE_DIR / "dist"
+MAIN_SCRIPT = DIST_DIR / "noveler" / "main.py"
+
+# 本番モード表示
+print("🏭 本番モードで実行中 - 安定版コードを使用しています")
+print("")
+
+# dist/パスの設定
+if DIST_DIR.exists():
+    path_sep = ";" if sys.platform == "win32" else ":"
+    current_pythonpath = os.environ.get('PYTHONPATH', '')
+    os.environ["PYTHONPATH"] = f"{str(DIST_DIR)}{path_sep}{current_pythonpath}" if current_pythonpath else str(DIST_DIR)
+    os.environ["GUIDE_ROOT"] = str(BASE_DIR)
+    os.environ["NOVEL_USE_DIST"] = "1"  # dist/ディレクトリ使用フラグ
+
+# 本番用main.pyの実行
+try:
+    result = subprocess.run([sys.executable, str(MAIN_SCRIPT)] + sys.argv[1:])
+    sys.exit(result.returncode)
+except Exception as e:
+    print(f"❌ 本番用novelerコマンド実行エラー: {e}")
+    sys.exit(1)

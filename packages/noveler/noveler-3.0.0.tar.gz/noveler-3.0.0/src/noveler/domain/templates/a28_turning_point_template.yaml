@@ -1,0 +1,396 @@
+# A28 Turning Point Template
+# Based on: docs/drafts/a28_case_study_draft.md
+# Purpose: Accel World型の転機型導入パターンテンプレート
+# Version: 1.0
+# Author: Noveler Development Team
+# Date: 2025-10-10
+
+# このテンプレートは A28 Case Study Draft で定義された
+# 「転機型導入パターン」の構造化データモデルです。
+
+# ====================================================================
+# 基本情報セクション
+# ====================================================================
+metadata:
+  template_version: "1.0"
+  pattern_type: "転機型導入" # 転機型/ミステリー型/日常崩壊型
+  reference_work: "Accel World 第1話"
+  genre: "SF/異能力バトル"
+  target_word_count: 8000  # 推奨文字数
+
+# ====================================================================
+# 転機構造セクション（コアデータ）
+# ====================================================================
+turning_point:
+  # 基本情報
+  title: "運命の出会い - 能力の授与"
+  timing: "第一幕終盤"  # 全体の20-25%地点
+  trigger_event: "黒雪姫との出会いと Brain Burst の授与"
+  catalyst: "主人公を助けたいという黒雪姫の意図"
+
+  # キャラクター変化（before → transformation → after）
+  protagonist:
+    before_state: |
+      いじめられ、逃げるだけの日常。
+      自己評価は最低。
+      居場所がない。
+
+    transformation_moment: |
+      時間停止を初体験するシーン。
+      世界が静止し、初めて「自分だけの時間」を得る。
+      驚きと混乱、そして一瞬の解放感。
+      「これで何かが変わるかもしれない」という決断の芽生え。
+
+    after_state: |
+      加速世界への転移。
+      新しい可能性への期待と不安が混在。
+      Brain Burst の初期使用権を得る。
+
+  # 感情の旅程（3段階）
+  emotional_journey:
+    - stage: "恐怖/不安"
+      emotion_level: 2  # 1-10スケール
+      description: "何が起きたのか分からない混乱"
+      duration_percentage: 30  # 転機シーン内での割合
+
+    - stage: "決意/理解"
+      emotion_level: 6
+      description: "黒雪姫の説明を聞き、可能性を理解"
+      duration_percentage: 40
+
+    - stage: "希望/成長"
+      emotion_level: 8
+      description: "この力で変われるかもしれない、という期待"
+      duration_percentage: 30
+
+  # 構造的機能
+  structural_function:
+    setup_payoff: "第一幕で提示した弱点(いじめ被害)への初回答"
+    conflict_resolution: "逃げるだけの日常からの脱却の糸口"
+    foreshadowing_planted:
+      - "加速世界のルールと危険性"
+      - "黒雪姫の真の目的"
+      - "主人公が助けるべき存在(黒雪姫)の提示"
+
+# ====================================================================
+# 5要素チェックリスト
+# ====================================================================
+five_elements_checklist:
+  # 要素1: 主人公の現状と弱点 (冒頭2-3段落)
+  weakness_presentation:
+    target_scene: "scene_001"
+    importance_rank: "A"
+    estimated_words: 800
+    required_content:
+      - "社会的弱点の明示（いじめ被害者という立場）"
+      - "内的弱点の表現（自己評価の低さ、逃避癖）"
+      - "日常描写による共感獲得"
+    validation_criteria:
+      - "読者が主人公に共感できるか"
+      - "成長の起点が明確か"
+      - "冒頭3段落以内に提示されているか"
+
+  # 要素2: 外的事件の発生 (転換点)
+  turning_point_structure:
+    target_scene: "scene_002"
+    importance_rank: "S"
+    estimated_words: 1200
+    required_content:
+      - "before_state の明示（現状）"
+      - "transformation_moment の描写（体験シーン）"
+      - "after_state の提示（変化後）"
+    validation_criteria:
+      - "三段階構造が明確か"
+      - "感情レベルの変化幅が±2以上か"
+      - "全体の20-25%地点に配置されているか"
+
+  # 要素3: 目的の二重化
+  dual_motivation:
+    target_scene: "scene_003"
+    importance_rank: "A"
+    estimated_words: 600
+    required_content:
+      - "外的目的の明示（いじめからの解放）"
+      - "内的欲求の表明（恩返し、承認欲求）"
+      - "両者の統合（戦う理由）"
+    validation_criteria:
+      - "外的目的が具体的か"
+      - "内的欲求が行動の選択理由として機能しているか"
+      - "両者が矛盾せず相互強化しているか"
+
+  # 要素4: 行動による世界観説明
+  show_dont_tell:
+    target_scenes: ["scene_002", "scene_003"]
+    importance_rank: "A"
+    required_content:
+      - "五感描写による能力体験"
+      - "対話による最小限のルール説明"
+      - "地の文説明の回避"
+    validation_criteria:
+      - "「AはBである」形式の説明文を使っていないか"
+      - "世界観を主人公の体験/五感で説明しているか"
+      - "対話での説明は必要最小限か（1シーン3行以内目安）"
+
+  # 要素5: 感情曲線の設計
+  emotion_curve:
+    overall_pattern: "低→高→中"  # 導入→転機→次への期待
+    target_range: [2, 8, 5]  # [開始, ピーク, 終了]
+    minimum_delta: 2  # 最小変化幅
+    validation_criteria:
+      - "導入(低)→転機(高)→次への期待 の起伏があるか"
+      - "カタルシスの位置が第二幕終盤にあるか"
+      - "最終シーンの emotion_level が5-6(中程度の期待)か"
+
+# ====================================================================
+# シーン構成テンプレート
+# ====================================================================
+scene_structure:
+  scenes:
+    - scene_id: "scene_001"
+      scene_purpose: "主人公の弱点提示と共感獲得"
+      act_position: "act_1_opening"
+      importance_rank: "A"
+      estimated_words: 800
+      key_moments:
+        - "いじめシーンの短い描写(500字以内)"
+        - "逃避行動(ゲームセンター等)への移動"
+        - "内的独白で自己評価の低さを明示"
+      emotional_design:
+        starting_emotion: "絶望/諦め"
+        starting_level: 2
+        ending_emotion: "わずかな期待(次のシーンへの伏線)"
+        ending_level: 3
+      避けるべき表現:
+        - "長々としたいじめの詳細描写（トラウマ配慮）"
+        - "説教的な心理描写"
+
+    - scene_id: "scene_002"
+      scene_purpose: "転機 - 能力授与と世界の転換"
+      act_position: "act_1_turning_point"
+      importance_rank: "S"
+      estimated_words: 1200
+      key_moments:
+        - "運命的出会い（黒雪姫登場）"
+        - "時間停止の体験（視覚・聴覚描写）"
+        - "主人公の混乱と理解"
+      emotional_design:
+        starting_emotion: "諦め"
+        starting_level: 2
+        peak_emotion: "驚き/解放感"
+        peak_level: 8
+        ending_emotion: "期待と不安"
+        ending_level: 5
+      五感トリガー:
+        - trigger_id: "TRIGGER_001"
+          sense_type: "visual + auditory"
+          description: "時間停止の瞬間 - 音が消え、世界が静止"
+          intensity: 9
+          purpose: "Brain Burst の能力を体験で説明"
+      避けるべき表現:
+        - "「AはBである」形式の説明文"
+        - "神の視点的な情報説明"
+
+    - scene_id: "scene_003"
+      scene_purpose: "二重動機の明示と次への引き"
+      act_position: "act_2_opening"
+      importance_rank: "A"
+      estimated_words: 800
+      key_moments:
+        - "外的目的: いじめっ子からの逃走成功(Brain Burst使用)"
+        - "内的欲求: 黒雪姫への感謝と恩返しの決意"
+        - "次のエピソードへの引き（新たな脅威の示唆）"
+      dialogue_highlights:
+        - "「君を...守りたい」(内的欲求の表明)"
+        - "「もう逃げない」(外的目的からの転換)"
+      emotional_design:
+        starting_emotion: "期待と不安"
+        starting_level: 5
+        ending_emotion: "決意"
+        ending_level: 6
+
+    - scene_id: "scene_004"
+      scene_purpose: "加速世界のルール説明（対話）"
+      act_position: "act_2_development"
+      importance_rank: "B"
+      estimated_words: 600
+      dialogue_strategy: "必要最小限のルール説明を対話に織り込む"
+      避けるべき表現:
+        - "一方的な長いルール説明"
+        - "主人公の質問攻めシーン"
+
+    - scene_id: "scene_005"
+      scene_purpose: "次話への引き"
+      act_position: "act_2_cliffhanger"
+      importance_rank: "B"
+      estimated_words: 400
+      key_moments:
+        - "新たな脅威の示唆"
+        - "次の目標提示"
+      emotional_design:
+        ending_emotion: "期待（続きを読みたくなる）"
+        ending_level: 5
+
+# ====================================================================
+# 技術要素との融合（SF/技術系作品用）
+# ====================================================================
+emotion_tech_fusion:
+  enabled: true  # SF作品の場合のみ true
+  peak_moments:
+    - timing: "第二幕クライマックス"
+      emotion_type: "驚き→理解→解放感"
+      tech_concept: "時間加速のメカニズム"
+      synergy_effect: "技術的驚きと感情的カタルシスが重なる"
+      implementation_note: |
+        技術的な「すごさ」と感情的な「嬉しさ」を
+        同じタイミングで読者に届ける。
+        例：時間停止の仕組みを理解した瞬間に、
+        主人公も「これで変われる」と気づく。
+
+# ====================================================================
+# 18-Step Workflow との統合
+# ====================================================================
+eighteen_step_mapping:
+  step_3_character:
+    layer_1_psychological_foundation:
+      root_motivation: "承認欲求 - 誰かに必要とされたい"
+      values: "自分は弱い存在だ"
+      trauma: "過去のいじめ経験"
+      growth_direction: "自己肯定感の獲得"
+    layer_2_appearance_personality:
+      first_impression: "太っていて目立たない、うつむきがち"
+      speech_style: "自信なさげ、謝罪癖"
+
+  step_6_turning_point:
+    placement: "scene_002 終盤(全体の20-25%地点)"
+    structure:
+      before_state: "いじめ被害者、自己評価低"
+      transition: "Brain Burst 授与 (trigger event: 黒雪姫との出会い)"
+      after_state: "加速世界への転移、新しい可能性"
+
+  step_7_dialogue:
+    key_dialogues:
+      - scene: "scene_002"
+        purpose: "Brain Burst の基本ルール(行動説明の一部)"
+      - scene: "scene_003"
+        purpose: "主人公が選ばれた理由(承認欲求への応答)"
+      - scene: "scene_003"
+        purpose: "次の目標提示(外的目的の設定)"
+
+  step_8_emotion_curve:
+    emotions:
+      - trigger_id: "DL001"  # いじめシーン
+        viewpoint: "主人公"
+        target_character: "主人公"
+        observation_type: "内面描写"
+        before_level: 2
+        after_level: 2
+        emotion_type: "絶望/諦め"
+
+      - trigger_id: "DL005"  # 時間停止体験
+        viewpoint: "主人公"
+        target_character: "主人公"
+        observation_type: "内面描写"
+        before_level: 2
+        after_level: 8
+        emotion_type: "驚き/解放感"
+
+      - trigger_id: "DL010"  # 加速世界への転移
+        viewpoint: "主人公"
+        target_character: "主人公"
+        observation_type: "内面描写"
+        before_level: 8
+        after_level: 5
+        emotion_type: "期待と不安"
+
+  step_10_sensory_design:
+    triggers:
+      - trigger_id: "TRIGGER_001"
+        sense_type: "visual + auditory"
+        description: "時間停止の瞬間 - 音が消え、世界が静止"
+        intensity: 9
+        timing: "転機の瞬間"
+        purpose: "Brain Burst の能力を体験で説明"
+        character_reaction: "驚き、混乱、そして理解"
+
+      - trigger_id: "TRIGGER_002"
+        sense_type: "kinesthetic + visual"
+        description: "加速世界への転移 - 体が軽くなる感覚、色彩の変化"
+        intensity: 8
+        timing: "転機直後"
+        purpose: "加速世界のルールを感覚で提示"
+
+  step_11_manuscript:
+    execution_order:
+      - "scene_001: 冒頭3段落で弱点提示"
+      - "scene_002: 転機シーン（時間停止体験 TRIGGER_001）"
+      - "scene_003: 二重動機の明示"
+      - "scene_004: 対話でルール補足（最小限）"
+      - "scene_005: 次話への引き"
+
+# ====================================================================
+# Post-Apply Review チェックリスト
+# ====================================================================
+post_apply_review:
+  gate_w1_five_elements:
+    - element: "弱点提示"
+      check: "scene_001 で明示されているか"
+      pass_criteria: "社会的・内的弱点の両方が冒頭3段落以内に提示されている"
+
+    - element: "転機構造"
+      check: "scene_002 で before_state → transition → after_state が明確か"
+      pass_criteria: "三段階が明確に区別でき、各段階が200字以上で描写されている"
+
+    - element: "二重動機"
+      check: "scene_003 で外的+内的が揃っているか"
+      pass_criteria: "外的目的と内的欲求の両方が対話または内的独白で明示されている"
+
+    - element: "行動説明"
+      check: "地の文説明が最小限か"
+      pass_criteria: "「AはBである」形式の説明文が3回以下"
+
+    - element: "感情曲線"
+      check: "emotion_level の変化幅が±2以上か"
+      pass_criteria: "最低点と最高点の差が6以上(例: 2→8)"
+
+  troubleshooting:
+    - symptom: "転機が弱い"
+      solution: "Step 6 再実行。transformation_moment を五感描写で300字以上に拡張"
+
+    - symptom: "共感できない"
+      solution: "Step 3 再実行。Layer 1 の trauma と root_motivation を再設計"
+
+    - symptom: "説明的"
+      solution: "Step 10 再実行。五感トリガーを追加し、地の文説明を削除"
+
+    - symptom: "感情平坦"
+      solution: "Step 8 再実行。emotion_level の最高点を8以上に設定"
+
+# ====================================================================
+# 使用例
+# ====================================================================
+usage_example:
+  scenario: "SF異能力バトル作品の第1話執筆"
+  steps:
+    1: "このテンプレートを読み込み"
+    2: "turning_point セクションを作品に合わせてカスタマイズ"
+    3: "scene_structure を参考に各シーンを執筆"
+    4: "post_apply_review でセルフチェック"
+    5: "不合格項目があれば該当 Step を再実行"
+
+  customization_points:
+    - "trigger_event: 作品固有のイベントに置き換え"
+    - "emotion_tech_fusion.enabled: 非SF作品は false に設定"
+    - "scene_structure.scenes: シーン数は3-7個で調整可能"
+    - "estimated_words: 作品の文字数要件に合わせて調整"
+
+# ====================================================================
+# メタデータ
+# ====================================================================
+changelog:
+  - version: "1.0"
+    date: "2025-10-10"
+    changes:
+      - "初版作成"
+      - "A28 Case Study Draft の全要素を統合"
+      - "18-Step Workflow との完全マッピング"
+      - "Post-Apply Review チェックリスト追加"

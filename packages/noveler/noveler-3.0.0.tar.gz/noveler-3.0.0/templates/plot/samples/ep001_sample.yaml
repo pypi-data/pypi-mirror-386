@@ -1,0 +1,722 @@
+# A28: 話別プロット作成依頼専用テンプレート サンプル
+# Version: 2.1.0 (Sample)
+# Episode: 第001話 - 最初の出会い
+# Purpose: A28テンプレート利用例として、プログラミング小説の第1話プロットを示す
+
+metadata:
+  version: "2.1.0"
+  last_updated: "2025-10-07"
+  source: "A28_話別プロットプロンプト.md v3.0.0"
+  purpose: "サンプルプロット - プログラミング学園もの第1話"
+  compatibility:
+    - "claude-3"
+    - "claude-4"
+    - "claude-code"
+  target_audience: "AI執筆依頼者"
+  sample_note: "これは実例サンプルです。実際のプロット作成時は内容を置き換えてください"
+
+# Basic Episode Information
+episode_info:
+  episode_number: 1
+  title: "最初の出会い - デバッグの朝"
+  chapter_number: 1
+  theme: "新しい環境への挑戦と、隠された才能の発見"
+  purpose: "主人公の状況設定、魔法学園の世界観提示、ヒロインとの出会い"
+  emotional_core: "不安から希望へ - 小さな成功体験が自信につながる瞬間"
+
+# Viewpoint Information
+viewpoint_info:
+  viewpoint: "三人称限定視点"
+  character: "リュウ（主人公・F級魔法学生）"
+
+# Episode Synopsis
+synopsis: |
+  魔法学園アルカナムに入学したF級魔法使いリュウは、初日から実技授業で失敗を繰り返す。
+  周囲の優秀な学生たちとの差に絶望するが、授業後の魔法陣デバッグ課題で、
+  プログラミング的思考を活かして誰も気づかなかったバグを発見する。
+  その様子を見ていた天才魔法少女エルフィが興味を示し、声をかけてくる。
+  「あなたの魔法の見方、面白いわね」――運命の出会いから、物語が動き始める。
+
+# Key Events
+key_events:
+  - event: "入学式と実力差の痛感"
+    description: |
+      入学式で周囲の華やかな魔法を目の当たりにし、自分のF級魔力では
+      何もできないことを痛感する。教室では誰も話しかけてこず、孤立感を味わう。
+
+  - event: "実技授業での連続失敗"
+    description: |
+      基礎魔法の実技で火魔法の着火すらできず、周囲の嘲笑を買う。
+      教師からは「努力が足りない」と冷たく突き放される。
+
+  - event: "魔法陣デバッグ課題での発見"
+    description: |
+      放課後に出された課題で、不具合のある魔法陣を分析。
+      プログラミングのデバッグ手法を応用し、魔法陣の構造を系統的に検証。
+      誰も気づかなかった「魔力の循環ループバグ」を発見する。
+
+  - event: "エルフィとの出会い"
+    description: |
+      デバッグ作業に没頭するリュウを見ていたエルフィが声をかける。
+      「普通は魔力で押し切るのに、あなたは構造を読んでいるのね」
+      リュウの独自のアプローチに興味を示し、明日も話そうと約束する。
+
+# Story Structure (Three-Act Structure)
+story_structure:
+  emotion_curve: ["medium", "low", "high"]  # 期待→失望→希望
+
+  # Act I: Setup (20%)
+  setup:
+    duration: "入学式〜実技授業開始"
+    purpose: "世界観提示、主人公の状況設定、問題の提示"
+
+    scene_001:
+      title: "魔法学園の朝"
+      location: "アルカナム魔法学園・正門前"
+      time: "早朝、入学式当日"
+      weather: "快晴、春の爽やかな朝"
+
+      opening_description: |
+        石造りの巨大な門をくぐると、中庭では先輩たちが魔法の練習をしている。
+        火の玉、氷の矢、光の盾――様々な魔法が飛び交う光景に、
+        リュウは期待と不安を同時に感じていた。
+
+      character_focus:
+        main_character: "期待と不安が入り混じる心境。F級という劣等感を隠そうとしている"
+        supporting_characters: "周囲の新入生たちは華やかな魔法を披露し合っている"
+        relationships: "まだ誰とも話していない孤立状態"
+
+  # Act II: Development (60%)
+  confrontation:
+    duration: "実技授業〜デバッグ課題着手"
+    purpose: "困難の提示、挫折体験、主人公の強みの発見"
+
+    scene_002:
+      title: "実力差の現実"
+      conflict_type: "内面的葛藤 + 技術的困難"
+      stakes: "このままでは落第し、学園を去ることになる"
+
+      technical_elements:
+        programming_concepts: "魔法陣をコードに見立てた構造理解"
+        magic_system: "魔力の流れ = エネルギーフロー、魔法陣 = プログラム"
+        world_building: "魔力ランク制度（S〜F級）、実技重視の教育システム"
+
+      character_development:
+        growth_moments: "失敗を通じて、自分の強みが「魔力量」ではないことに気づき始める"
+        relationship_changes: "孤立感の深まり"
+        internal_conflicts: "努力しても変わらない現実への絶望"
+
+    scene_003:
+      title: "デバッグの才能"
+      conflict_type: "技術的ブレイクスルー"
+      stakes: "このバグ発見が、自分の価値を証明する唯一のチャンス"
+
+      technical_elements:
+        programming_concepts: "バグ分析、ループ検出、システマティックなデバッグ手法"
+        magic_system: "魔法陣の構造 = データフロー図"
+        world_building: "魔法陣は複雑で、通常は魔力で力押しする文化"
+
+      character_development:
+        growth_moments: "自分の「見る目」が特別であることへの気づき"
+        relationship_changes: "エルフィの注目を集める"
+        internal_conflicts: "魔力がなくても価値があるのか？という問い"
+
+  # Act III: Resolution (20%)
+  resolution:
+    duration: "エルフィとの会話〜翌日への期待"
+    purpose: "小さな成功、関係性の芽生え、次話への引き"
+
+    turning_point:
+      title: "認められた瞬間"
+      timing: "scene_003のクライマックス"
+      duration: "短期集中型"
+
+      turning_point_type:
+        category: "internal_transformation + relationship_shift"
+        trigger_event: "エルフィからの「あなたの魔法の見方、面白いわね」という言葉"
+        catalyst: "他者からの肯定的評価"
+
+      character_transformation:
+        protagonist:
+          before_state: "F級魔力への劣等感、自己否定、孤立"
+          transformation_moment: |
+            エルフィの言葉を聞いた瞬間、リュウの中で何かが変わる。
+            「魔力が弱いこと」ではなく「見方が違うこと」が特徴なのだと。
+          after_state: "小さな自信、新しい可能性への期待"
+          internal_dialogue: |
+            「俺のやり方は、間違ってなかったのかもしれない。
+            魔力じゃない、別の道があるかもしれない」
+          external_manifestation: "表情が明るくなり、姿勢が変わる"
+
+        supporting_characters:
+          reactions: "エルフィは純粋な興味を示し、明日も話したいと言う"
+          relationship_shifts: "孤立→初めての仲間候補"
+          influence_received: "エルフィも「力押しじゃない魔法」に興味を持ち始める"
+
+      technical_breakthrough:
+        programming_concept: "バグ分析手法 = 魔法陣デバッグ"
+        magic_system_evolution: "魔法陣を「構造」として理解する新しいアプローチ"
+        debug_moment: "ループバグ発見の瞬間 - 「ここだ！」"
+        code_metaphor: "魔法陣の欠陥 = 無限ループバグ"
+        educational_value: "系統的デバッグの重要性、構造理解の価値"
+
+      emotional_core:
+        primary_emotion: "希望と自信"
+        emotional_journey:
+          - phase: "転換前"
+            emotion: "despair"
+            description: "何をやってもダメだという絶望感"
+          - phase: "転換中"
+            emotion: "surprise"
+            description: "自分のアプローチが評価されたことへの驚き"
+          - phase: "転換後"
+            emotion: "hope"
+            description: "新しい道が見えた希望"
+
+        reader_impact: "主人公と一緒に小さな成功を喜び、応援したくなる"
+        catharsis_moment: "エルフィの言葉で、読者もリュウの価値を再認識する"
+
+      structural_function:
+        setup_payoff: "入学式での不安 → デバッグ成功で報われる"
+        conflict_resolution: "実力差への絶望 → 別の強みの発見"
+        theme_expression: "魔力がなくても、独自の価値がある"
+        foreshadowing_planted: "エルフィとの関係発展、デバッグ能力の応用展開"
+
+      writing_direction:
+        pacing: "緊張感のあるテンポ（デバッグシーン）"
+        viewpoint_focus: "リュウの視点から、内面の変化を丁寧に"
+        sensory_details: "魔法陣の光、紙の音、教室の静けさ"
+        dialogue_importance: |
+          「あなたの魔法の見方、面白いわね」
+          「明日も、話しましょう？」
+        scene_atmosphere: "夕暮れの教室、静かで集中できる空間"
+
+        technical_writing_notes:
+          - "デバッグ手法を自然に描写し、読者も「なるほど」と思えるように"
+          - "専門用語は比喩で補完（魔力の流れ = 電気回路 等）"
+          - "技術的正確性を保ちつつ、感情描写を優先"
+
+      quality_validation:
+        logical_consistency: "デバッグ手法の論理性、魔法陣の構造の一貫性"
+        character_believability: "リュウの成長が自然で、急激すぎない"
+        emotional_authenticity: "絶望→希望の流れが読者の共感を呼ぶ"
+        technical_accuracy: "デバッグ手法は実際のプログラミングに基づく"
+        reader_engagement: "読者が「次はどうなる？」と期待する引き"
+
+    climax_scene:
+      title: "バグ発見の瞬間"
+      resolution_method: "系統的デバッグによる問題箇所の特定"
+      character_achievements: "初めての成功体験、自分の価値の発見"
+      emotional_payoff: "「やった！」という達成感と、エルフィからの承認"
+
+    ending_scene:
+      title: "新しい明日への期待"
+      loose_ends: "エルフィとの関係はどう発展するのか？デバッグ能力は他にも使えるのか？"
+      foreshadowing: "「明日も話しましょう」→ 第2話での協力関係の芽生え"
+      character_state: "小さな自信を持ち、明日への期待を胸に帰路につく"
+
+# Character Details
+characters:
+  main_character:
+    name: "リュウ・アカシ"
+    starting_state: "F級魔力への劣等感、孤立、自信喪失"
+    arc: "絶望→小さな成功→希望の発見"
+    ending_state: "小さな自信、新しい可能性への期待"
+    key_moments:
+      - "実技授業での連続失敗（挫折）"
+      - "デバッグ課題でのバグ発見（成功体験）"
+      - "エルフィからの肯定的評価（転換点）"
+    dialogue_highlights:
+      - "「俺には魔力がない。でも...何か他の方法があるはずだ」"
+      - "「ここだ！この循環ループが原因だ！」"
+
+  supporting_character:
+    name: "エルフィ・ルナージュ"
+    role: "天才魔法少女、A級魔力保持者"
+    interactions: "リュウのデバッグ能力に興味を示し、声をかける"
+    development: "力押しではない魔法への興味の芽生え"
+
+# Technical Elements
+technical_elements:
+  programming_concepts:
+    - concept: "デバッグ手法（バグの系統的分析）"
+      explanation: "魔法陣を一つずつ検証し、問題箇所を特定"
+      educational_value: "デバッグは魔力ではなく、論理と観察力"
+
+    - concept: "ループ検出"
+      explanation: "魔力が無限に循環してしまう構造的欠陥の発見"
+      educational_value: "無限ループの危険性と検出方法"
+
+  magic_system:
+    spell_types: "基礎魔法（火・水・風・土）、魔法陣構築"
+    mechanics: "魔力ランク制（S〜F級）、魔法陣による発動"
+    innovations: "魔法陣をプログラムとして理解する新アプローチ"
+
+  world_building:
+    locations: "アルカナム魔法学園（教室、中庭、図書館）"
+    society_aspects: "魔力至上主義、実力主義の学園文化"
+    cultural_elements: "魔力が全てという価値観、F級への差別"
+
+# Emotional Elements
+emotional_elements:
+  primary_emotion: "希望の発見"
+  emotional_journey:
+    - stage: "期待と不安"
+      description: "入学初日の緊張感と期待"
+    - stage: "絶望"
+      description: "実力差への絶望、孤立感"
+    - stage: "集中"
+      description: "デバッグ作業への没頭"
+    - stage: "達成感と希望"
+      description: "バグ発見の喜び、エルフィからの承認"
+
+  relationship_dynamics:
+    - relationship: "リュウ ⇔ エルフィ"
+      development: "初対面 → 興味を持たれる → 明日への約束"
+      key_scenes: "デバッグ作業を見られるシーン、声をかけられるシーン"
+
+# Advanced Plot Elements
+
+# Foreshadowing Tracking System
+foreshadowing_tracker:
+  project_wide_tracking: true
+  auto_consistency_check: true
+
+  foreshadowing_elements:
+    - foreshadow_id: "FS001"
+      element: "リュウのデバッグ能力の価値"
+      category: "character_background"
+      status: "planted"
+      planted_episode: 1
+      resolution_episode: 3
+      importance_level: 5
+      dependency: []
+      placement_scene: "scene_003"
+      visual_hints: "魔法陣を凝視する集中力"
+      dialogue_hints: "「あなたの魔法の見方、面白いわね」"
+      internal_monologue: "「これが俺の道なのかもしれない」"
+      reader_clue_level: "moderate"
+
+    - foreshadow_id: "FS002"
+      element: "エルフィの「力押しじゃない魔法」への興味"
+      category: "relationship"
+      status: "planted"
+      planted_episode: 1
+      resolution_episode: 2
+      importance_level: 3
+      dependency: ["FS001"]
+      placement_scene: "ending_scene"
+      visual_hints: "興味深そうな表情"
+      dialogue_hints: "「明日も、話しましょう？」"
+      internal_monologue: ""
+      reader_clue_level: "subtle"
+
+  tracking_validation:
+    unresolved_count_alert: 5
+    dependency_loop_check: true
+    timeline_consistency: true
+    importance_balance_check: true
+
+# Scene Granularity Management
+scene_structure:
+  granularity_management: true
+  word_count_optimization: true
+
+  total_target_words: 6000
+  scene_count_target: 4
+
+  scenes:
+    - scene_id: "scene_001"
+      title: "魔法学園の朝"
+      importance_rank: "A"
+      estimated_words: 1000
+      percentage: 16.7
+      story_function: "hook_and_setup"
+      emotional_weight: "medium"
+      technical_complexity: "low"
+      reader_engagement_level: "high"
+
+    - scene_id: "scene_002"
+      title: "実力差の現実"
+      importance_rank: "S"
+      estimated_words: 1800
+      percentage: 30.0
+      story_function: "plot_advancement"
+      emotional_weight: "high"
+      technical_complexity: "medium"
+      reader_engagement_level: "high"
+
+    - scene_id: "scene_003"
+      title: "デバッグの才能"
+      importance_rank: "S"
+      estimated_words: 2200
+      percentage: 36.7
+      story_function: "climax"
+      emotional_weight: "high"
+      technical_complexity: "high"
+      reader_engagement_level: "high"
+
+    - scene_id: "scene_004"
+      title: "新しい明日への期待"
+      importance_rank: "A"
+      estimated_words: 1000
+      percentage: 16.7
+      story_function: "resolution"
+      emotional_weight: "medium"
+      technical_complexity: "low"
+      reader_engagement_level: "high"
+
+  importance_distribution:
+    S_rank_count: 2
+    A_rank_count: 2
+    B_rank_count: 0
+    C_rank_count: 0
+
+  balance_validation:
+    S_rank_percentage_target: "35-45%"
+    A_rank_percentage_target: "30-40%"
+    B_rank_percentage_target: "15-25%"
+    C_rank_percentage_target: "5-15%"
+    high_engagement_ratio_min: 0.6
+
+# Scene Balance Analysis (Auto-calculated)
+scene_balance_analysis:
+  total_scenes: 4
+  rank_distribution:
+    S: 2
+    A: 2
+    B: 0
+    C: 0
+  tempo_variation: "medium"
+  balance_score: 85
+
+# Emotion × Technology Fusion
+emotion_tech_fusion:
+  fusion_optimization: true
+  programming_novel_specialization: true
+
+  peak_moments:
+    - timing: "scene_003クライマックス"
+      scene_reference: "scene_003"
+      emotion_type: "絶望から希望へ"
+      emotion_intensity: "high"
+      tech_concept: "デバッグ手法・ループ検出"
+      tech_complexity: "beginner"
+      synergy_effect: "技術的発見が感情的カタルシスと重なる"
+      synergy_intensity: "maximum"
+
+      detailed_mapping:
+        emotional_arc:
+          start: "何をやってもダメという絶望"
+          climax: "バグ発見の瞬間の歓喜"
+          resolution: "自分の価値への気づき"
+        technical_arc:
+          problem: "魔法陣の不具合原因がわからない"
+          insight: "循環ループの構造的欠陥への気づき"
+          mastery: "系統的デバッグ手法の有効性実証"
+        fusion_points:
+          - moment: "魔法陣を一つずつ検証していく過程"
+            emotion: "集中から期待へ"
+            technology: "系統的デバッグ"
+            reader_impact: "主人公と一緒に謎を解く楽しさ"
+
+  educational_integration:
+    beginner_friendly: true
+    concept_explanation_method: "魔法陣とプログラムの類比で自然に解説"
+    practical_application: "実際のデバッグ手順を魔法陣検証で示す"
+    learning_curve_consideration: "基礎から段階的に理解"
+
+# Plot Elements (Legacy format)
+plot_elements:
+  foreshadowing:
+    - element: "リュウの独自の「見る目」"
+      placement: "scene_003デバッグシーン"
+      significance: "今後の成長の基盤となる能力"
+
+  themes:
+    - theme: "才能の多様性"
+      expression: "魔力だけが価値ではない"
+      character_connection: "リュウの成長軸"
+
+  mysteries:
+    - mystery: "エルフィが興味を示した理由"
+      clues: "「面白いわね」という言葉"
+      development: "第2話で明らかに"
+
+# Writing Notes
+writing_notes:
+  viewpoint: "リュウの三人称限定視点、内面描写重視"
+  tone: "明るく前向き、挫折からの成長物語"
+  pacing: "前半ゆっくり、デバッグシーンは緊張感あるテンポ"
+
+  technical_accuracy:
+    - "デバッグ手法は実際のプログラミングに準拠"
+    - "魔法陣の構造は一貫性を保つ"
+
+  character_consistency:
+    - "リュウの劣等感と希望のバランス"
+    - "エルフィの天才性と好奇心"
+
+  reader_engagement:
+    - "デバッグシーンで読者も一緒に考えられる工夫"
+    - "感情移入しやすい挫折→成功の流れ"
+
+# Quality Check Points
+quality_checkpoints:
+  story_structure:
+    - "三幕構成のバランス（20%-60%-20%）"
+    - "各シーンの目的が明確"
+    - "自然な流れで次のシーンへ"
+
+  character_development:
+    main_characters:
+      hero:
+        growth_indicators:
+          - "絶望から希望への変化が感じられる"
+          - "内面描写が丁寧で共感できる"
+        relationship_changes:
+          - "エルフィとの関係の芽生え"
+      heroine:
+        growth_indicators:
+          - "好奇心旺盛な性格が伝わる"
+        relationship_changes:
+          - "リュウへの興味の表現"
+
+  technical_integration:
+    - "デバッグ手法が自然に組み込まれている"
+    - "プログラミング初心者でも理解できる説明"
+    - "専門用語は適切に説明"
+
+# Reader Considerations
+reader_considerations:
+  accessibility:
+    - "プログラミング知識がなくても楽しめる"
+    - "魔法陣 = プログラムの類比で直感的理解"
+    - "キャラクターの感情で引き込む"
+
+  engagement:
+    - "主人公の挫折に共感しやすい"
+    - "デバッグ成功の達成感を共有"
+    - "次話への期待（エルフィとの関係）"
+
+# Stage Interconnection
+stage_interconnection:
+  validation_enabled: true
+  auto_consistency_check: true
+
+  stage_dependencies:
+    stage_1_to_2:
+      required_outputs: ["キャラクター設定確定", "世界観設定", "初期状況"]
+      validation_points: ["魔力ランク制度の一貫性", "リュウの性格一貫性"]
+      handoff_checklist:
+        - "魔法学園の基本ルール確認"
+        - "リュウの視点キャラクター確定"
+        - "前向きなトーン設定"
+
+    stage_2_to_3:
+      required_outputs: ["感情導線（絶望→希望）", "技術要素（デバッグ）", "緊張感構築"]
+      validation_points: ["感情変化の自然性", "デバッグ手法の正確性", "読者の引き込み"]
+      handoff_checklist:
+        - "デバッグシーンの技術×感情融合確認"
+        - "シーン重要度配分（S:2, A:2）検証"
+        - "伏線（FS001, FS002）設置確認"
+
+  cross_stage_validation:
+    consistency_items:
+      - "リュウの劣等感と成長のバランス"
+      - "魔法陣 = プログラムの類比一貫性"
+      - "デバッグ手法の技術的正確性"
+      - "絶望→希望の感情遷移の自然さ"
+    quality_gates:
+      - gate: "Stage 2完了時"
+        criteria: ["感情導線80%以上", "技術要素適切配置", "読者理解度確保"]
+      - gate: "Stage 3完了時"
+        criteria: ["シーン構成最適化", "重要度配分適正（S:66.7%, A:33.3%）", "文字数バランス良好"]
+
+# Word Allocation Guide
+word_allocation_guide:
+  three_act_structure: true
+  dynamic_adjustment: true
+
+  act_distribution:
+    act_1_setup:
+      percentage_range: "20-30%"
+      target_percentage: 25
+      estimated_words: 1500
+      function: "状況設定・キャラクター提示・世界観紹介"
+      key_scenes: ["scene_001"]
+
+    act_2_confrontation:
+      percentage_range: "45-55%"
+      target_percentage: 50
+      estimated_words: 3000
+      function: "困難・挫折・成長の発見"
+      key_scenes: ["scene_002", "scene_003"]
+
+    act_3_resolution:
+      percentage_range: "20-30%"
+      target_percentage: 25
+      estimated_words: 1500
+      function: "問題解決・成長確認・次話への引き"
+      key_scenes: ["scene_004"]
+
+  quality_thresholds:
+    minimum_act_1: 1000
+    minimum_act_2: 2500
+    minimum_act_3: 1000
+    balance_tolerance: 0.1
+
+  adaptive_allocation:
+    scene_importance_weighting: true
+    emotional_peak_expansion: true
+    technical_explanation_buffer: true
+
+# Reader Reaction Predictions
+reader_reaction_predictions:
+  prediction_enabled: true
+  risk_assessment: true
+
+  target_reactions:
+    - reaction_type: "興味・関心"
+      target_scenes: ["scene_001", "scene_003"]
+      probability: "high"
+      triggers: ["新しい世界観", "デバッグの謎解き", "キャラの魅力"]
+      desired_intensity: "high"
+
+    - reaction_type: "感情移入・共感"
+      target_scenes: ["scene_002", "scene_003"]
+      probability: "high"
+      triggers: ["主人公の挫折体験", "小さな成功", "自己肯定"]
+      desired_intensity: "high"
+
+    - reaction_type: "学習意欲・好奇心"
+      target_scenes: ["scene_003"]
+      probability: "medium"
+      triggers: ["デバッグ手法解説", "魔法陣 = プログラム", "発見体験"]
+      desired_intensity: "medium"
+
+  risk_factors:
+    - risk_type: "理解困難"
+      probability: "low"
+      impact_level: "medium"
+      mitigation_strategies: ["段階的説明", "魔法陣≒プログラム比喩", "具体例多用"]
+      monitoring_points: ["デバッグ手法説明箇所"]
+
+    - risk_type: "興味離脱"
+      probability: "low"
+      impact_level: "high"
+      mitigation_strategies: ["感情描写優先", "テンポ調整", "キャラ魅力強化"]
+      monitoring_points: ["説明過多回避", "展開停滞回避"]
+
+  improvement_suggestions:
+    - suggestion: "デバッグ手法をリュウの感情と絡める"
+      target_issue: "理解困難・興味離脱"
+      implementation_method: "「これだ！」という発見の瞬間を感情的に描写"
+      expected_effect: "親近感向上・理解促進"
+
+    - suggestion: "魔法陣の視覚的描写を増やす"
+      target_issue: "世界観理解不足"
+      implementation_method: "魔法陣が光る様子、構造の視覚化"
+      expected_effect: "臨場感向上"
+
+# Viewpoint Consistency Check
+viewpoint_consistency_check:
+  consistency_validation: true
+  automatic_detection: true
+
+  viewpoint_settings:
+    primary_viewpoint: "三人称限定視点"
+    viewpoint_character: "リュウ"
+    consistency_level: "strict"
+
+  validation_checkpoints:
+    scene_level_checks:
+      - checkpoint: "情報アクセス制限"
+        description: "リュウ以外の内面・感覚へのアクセス禁止"
+        validation_method: "自動スキャン"
+
+      - checkpoint: "知識制限"
+        description: "リュウが知り得ない情報の記述禁止"
+        validation_method: "コンテキスト分析"
+
+      - checkpoint: "感情・思考一貫性"
+        description: "リュウの感情・思考パターン一貫性"
+        validation_method: "キャラクター分析"
+
+  common_violation_patterns:
+    - violation_type: "他キャラクター内面描写"
+      detection_keywords: ["エルフィは思った", "エルフィの心は"]
+      correction_method: "「エルフィは興味深そうに見つめた」等の外部観察描写"
+
+    - violation_type: "全知視点情報"
+      detection_keywords: ["実際は", "誰も知らないが"]
+      correction_method: "「リュウには〜と見えた」等の推測ベース記述"
+
+  consistency_score_calculation:
+    scoring_factors:
+      - factor: "視点ブレ回数"
+        weight: 0.4
+      - factor: "情報制限遵守"
+        weight: 0.3
+      - factor: "感情一貫性"
+        weight: 0.3
+    target_score: 0.95
+
+  improvement_suggestions_template:
+    - suggestion_type: "描写方法変更"
+      template: "『エルフィは思った』→『エルフィの表情が緩んだ』"
+    - suggestion_type: "情報提示方法変更"
+      template: "『実際は{fact}』→『リュウには{interpretation}と思えた』"
+
+# Next Episode Connection
+next_episode_connection:
+  unresolved_elements: "エルフィとの関係発展、デバッグ能力の応用展開"
+  character_growth_trajectory: "小さな自信→実践での応用→仲間との協力"
+  plot_advancement: "エルフィとの共同課題、デバッグ能力の実戦活用"
+  reader_expectations: "リュウとエルフィの関係は？デバッグ能力はどう活きる？"
+
+  enhanced_connections:
+    foreshadowing_continuity: "FS001（デバッグ能力）の発展、FS002（エルフィの興味）の深化"
+    scene_structure_evolution: "協力シーンの追加、技術要素の複雑化"
+    emotion_tech_advancement: "共同デバッグでの感情×技術融合"
+    quality_improvement_targets: "キャラクター関係性の深化、技術解説の洗練"
+
+# Production Information
+production_info:
+  creation_date: "2025-10-07"
+  last_updated: "2025-10-07"
+  status: "サンプル完成版"
+  word_count_target: 6000
+  estimated_reading_time: "20分"
+  enhancement_implementation: "完了"
+  spec_compliance: "SPEC-A28-001 v1.0.0"
+
+  enhancement_summary:
+    foreshadowing_tracking: "実装済み（FS001, FS002）"
+    scene_granularity: "実装済み（4シーン、balance_score: 85）"
+    emotion_tech_fusion: "実装済み（scene_003クライマックス）"
+    stage_interconnection: "実装済み"
+    word_allocation: "実装済み"
+    reader_prediction: "実装済み"
+    viewpoint_consistency: "実装済み"
+
+# Usage Notes
+usage_notes: |
+  このサンプルは、A28話別プロットテンプレート v2.1.0の実用例です。
+
+  実際のプロット作成時は、以下の手順で進めてください：
+
+  1. episode_infoを自分の作品に合わせて変更
+  2. synopsisで全体の流れを400字程度でまとめる
+  3. key_eventsで主要な出来事を3-5個リストアップ
+  4. story_structureで三幕構成に沿ってシーンを設計
+  5. scene_balance_analysisはスクリプトで自動計算可能
+  6. foreshadowing_trackerで伏線管理
+  7. quality_checkpointsで最終確認
+
+  技術的な注意点：
+  - プログラミング概念は読者のレベルに合わせて調整
+  - 感情描写を優先し、技術解説は補助的に
+  - 視点一貫性を常に意識
+
+  このサンプルを参考に、あなた独自のプロットを作成してください！

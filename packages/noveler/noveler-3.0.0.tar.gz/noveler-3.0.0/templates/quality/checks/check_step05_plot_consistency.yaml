@@ -1,0 +1,216 @@
+# STEP 05: プロット整合性チェック Schema v2
+
+metadata:
+  step_id: 5
+  step_name: プロット整合性チェック
+  phase: story_quality
+  version: 2.0.0
+  last_updated: '2025-09-24'
+  author: noveler system
+  description: 物語の流れ・因果関係・設定の論理的整合性を確認
+  estimated_duration: 12-18分
+llm_config:
+  role_messages:
+    system: |-
+      あなたは品質チェックスペシャリストです。constraints.hard_rules を厳守し、
+      出力は artifacts の仕様に従った JSON のみを返してください。追加の説明文は不要です。
+    user: |-
+      プロット整合性チェック に関する tasks・acceptance_criteria を順守してください。
+      問題が見つからない場合でも issues.<category>[] は空配列として出力し、summary.evidence に根拠を示してください。
+prompt:
+  main_instruction: |-
+    目的は「プロット整合性チェック」です。inputs・constraints・tasks を満たし、
+    artifacts の仕様に従った JSON をコードブロックなしで出力してください。
+  next_action_instruction: |-
+    ステップ {previous_step_id}「{previous_step_name}」が完了しました。
+
+    続いて、ステップ {step_id}「{step_name}」を実行してください。
+    世界観・設定チェックを行います：
+    1. 作品世界のルール・法則の一貫性
+    2. 地理・歴史設定の整合性
+    3. 社会制度・文化設定の矛盾チェック
+    4. 専門用語・固有名詞の統一
+
+    execute_check_step で step_id={step_id} を実行してください。
+inputs:
+  files:
+    - path: '{project_root}/40_原稿/第{episode_number:03d}話*.md'
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: '{project_root}/config/quality_rules.yaml'
+      required: false
+      description: 品質関連の設定があれば参照
+  variables:
+    episode_number:
+      type: int
+      required: true
+    project_root:
+      type: path
+      required: true
+constraints:
+  hard_rules:
+    - summary.overview と metrics.score を必ず出力する
+    - issues は各カテゴリ (issues.*) をキーにもつオブジェクトとして出力する
+    - 各 issue には before_text / after_text / severity / priority を添える
+  soft_targets:
+    - metrics.score は 80 以上を目指す
+    - issues 全体の件数を 5 件以内に抑える（理想値）
+tasks:
+  bullets:
+    - プロット整合性チェックの観点（因果関係、継続性、時系列整合性、設定論理）を俯瞰し、重大度と優先度を判定する
+    - issues.<category>[] に原稿抜粋・修正案・severity・priority・root_cause を含めて整理する
+    - summary.overview に現状と改善方針を200字以内で要約し、summary.evidence に根拠を箇条書きする
+    - metrics.score と metrics.issue_count を更新し、recommendations 
+      に最優先の改善アクションを3件以内で列挙する
+  details:
+    - name: 因果関係
+      items:
+        - id: checks.causality
+          text: '因果関係観点: 出来事の因果関係が論理的 / 動機と結果の整合性 / 偶然の多用を避けている / 伏線と回収の対応'
+    - name: 継続性
+      items:
+        - id: checks.continuity
+          text: '継続性観点: 前エピソードとの内容継続性 / 設定の変更に説明がある / キャラクター状況の引き継ぎ / 未解決問題の管理'
+    - name: 時系列整合性
+      items:
+        - id: checks.timeline
+          text: '時系列整合性観点: 時間経過の明確性 / イベント発生順序の正確性 / 時系列の矛盾がない / 過去の出来事との整合性'
+    - name: 設定論理
+      items:
+        - id: checks.logic
+          text: '設定論理観点: 設定内でのルール遵守 / 非現実要素の一貫性 / 物理法則の扱い / 技術レベルの統一'
+artifacts:
+  format: json
+  path_template: '{project_root}/.noveler/checks/EP{episode_number:04d}/step{step_id:02d}_quality.json'
+  required_fields:
+    - summary
+    - issues
+    - recommendations
+    - metrics
+  example: |-
+    {
+      "summary": {
+        "overview": "プロット整合性チェックの主要な所見をここに記述",
+        "score": 82,
+        "evidence": [
+          "因果関係: 原稿第3段落で誤用を確認"
+        ]
+      },
+      "issues": {
+        "causality": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "出来事の因果関係が論理的"
+          }
+        ],
+        "continuity": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "前エピソードとの内容継続性"
+          }
+        ],
+        "timeline": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "時間経過の明確性"
+          }
+        ],
+        "logic": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "設定内でのルール遵守"
+          }
+        ]
+      },
+      "recommendations": [
+        "誤用箇所を修正し、スタイルガイドに合わせる",
+        "再発防止のために該当セクションを校正する"
+      ],
+      "metrics": {
+        "issue_count": 4,
+        "score": 82,
+        "severity_distribution": {
+          "low": 1,
+          "medium": 3,
+          "high": 0
+        }
+      }
+    }
+acceptance_criteria:
+  checklist:
+    - summary.overview と metrics.score を出力している
+    - issues.<category>[] の各要素に before_text / after_text / severity / priority /
+      rationale が含まれている
+  metrics:
+    - name: issue_count
+      target: '>= 0'
+      method: issues.* の総件数
+    - name: score_range
+      target: 0-100
+      method: metrics.score の範囲検証
+next:
+  next_step_id: 6
+  message_template: |-
+    次のチェックステップは execute_check_step で step_id={next_step_id} を実行してください。
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: checks.causality
+      field: issues.causality
+      rule: present
+    - id: checks.continuity
+      field: issues.continuity
+      rule: present
+    - id: checks.timeline
+      field: issues.timeline
+      rule: present
+    - id: checks.logic
+      field: issues.logic
+      rule: present
+check_criteria:
+  causality:
+    - 出来事の因果関係が論理的
+    - 動機と結果の整合性
+    - 偶然の多用を避けている
+    - 伏線と回収の対応
+  continuity:
+    - 前エピソードとの内容継続性
+    - 設定の変更に説明がある
+    - キャラクター状況の引き継ぎ
+    - 未解決問題の管理
+  timeline:
+    - 時間経過の明確性
+    - イベント発生順序の正確性
+    - 時系列の矛盾がない
+    - 過去の出来事との整合性
+  logic:
+    - 設定内でのルール遵守
+    - 非現実要素の一貫性
+    - 物理法則の扱い
+    - 技術レベルの統一

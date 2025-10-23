@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# File: bin/scan-encoding
+# Purpose: Wrapper to run warn-only encoding scan across docs/src.
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+exec python "${ROOT_DIR}/scripts/scan_encoding.py" "$@"
+

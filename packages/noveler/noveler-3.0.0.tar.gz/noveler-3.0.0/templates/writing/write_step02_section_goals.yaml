@@ -1,0 +1,158 @@
+# STEP 2: 中骨（段階目標）Schema v2
+
+metadata:
+  step_id: 2
+  step_name: "中骨（段階目標）"
+  phase: "structural_design"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "章を4-6セクションに分解し目標/結果/配分を定義"
+  estimated_duration: "15-20分"
+
+llm_config:
+  role_messages:
+    system: |
+      あなたは編集プランナーです。以下を厳守してください:
+
+      【必須ルール】
+      1. constraints.hard_rules を必ず遵守
+      2. 出力形式: 生のYAMLテキストのみ（```yamlなどのコードブロック禁止）
+      3. 追加説明・前置き文・コメント・補足は一切不要
+      4. artifacts.required_fields を必ず含める
+      5. YAMLインデントはスペース2固定、タブ禁止
+      6. 複数行テキストはブロックリテラル（|）を使用
+      7. 数値は比率・文字数の双方を記載
+    user: |
+      STEP1の骨子をセクションに分割し、目標/行動/結果と配分を定義してください。
+
+prompt:
+  main_instruction: |
+    目的は「段階目標の具体化」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step01.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "セクション数 4–6"
+    - "配分: 導入15%/展開70%/転結15% を目安に設定"
+  soft_targets:
+    - "否定→肯定の最小サイクルを各セクション1回以上"
+
+tasks:
+  bullets:
+    - 各セクションの goal/actions/outcome を定義する
+    - word_ratio と planned_words（8000字基準）を付与する
+    - 前後セクションの接続/因果を明記する
+  details:
+    - name: セクション定義
+      items:
+        - id: section.name
+          text: name（導入/展開/転結）と narrative_function（setup/complicate/crisis/resolution）
+        - id: section.goal
+          text: goal（読者に与える効果/到達状態）
+        - id: section.actions
+          text: actions（出来事/意思決定/対立）と conflict_type（internal/external/social）
+        - id: section.outcome
+          text: outcome（状態変化/情報更新）と reader_question_update（読者の仮説更新）
+        - id: section.pov_dialogue
+          text: pov（視点人物）と dialogue_ratio（会話比率 0.4–0.7 推奨）
+        - id: section.beats_target
+          text: beats_target（目標ビート数 3–7）
+        - id: section.words
+          text: word_ratio と planned_words（= ratio×8000）
+    - name: 接続とリズム
+      items:
+        - id: section.links
+          text: link_to_prev/link_to_next（因果/前提）
+        - id: section.tempo
+          text: tempo（fast/normal/slow）
+        - id: section.micro_turn
+          text: micro_turn（否定→肯定の最小サイクル）
+        - id: section.hook
+          text: hook_type（mystery/promise/escalation）と hook 文面の要約
+    - name: リスク回避
+      items:
+        - id: risk.info_dump
+          text: info_dump を避け、必要情報は行動/対話/描写で分散
+        - id: risk.passive_loop
+          text: 受け身展開の連続を避ける（conflict/decision を最低1つ）
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step02.yaml"
+  required_fields: ["sections"]
+  example: |
+    sections:
+      - name: "導入"
+        narrative_function: "setup"
+        pov: "主人公"
+        goal: "読者に状況と目標を明確化"
+        actions: ["登場", "目的提示"]
+        conflict_type: "internal"
+        outcome: "動機が明確になる"
+        reader_question_update: "主人公は成功できるのか?"
+        dialogue_ratio: 0.6
+        beats_target: 4
+        word_ratio: 0.15
+        planned_words: 1200
+        tempo: "normal"
+        micro_turn: true
+        hook_type: "promise"
+        hook: "小さな目標の達成を予告"
+        link_to_prev: null
+        link_to_next: "次セクションの対立へ"
+
+acceptance_criteria:
+  checklist:
+    - "sections が4–6件"
+    - "ratio_sum ≈ 1.0 かつ planned_words 総和≈8000"
+    - "各セクションに pov/dialogue_ratio/beats_target/hook_type がある"
+    - "各セクションに conflict または decision が最低1つ"
+  metrics:
+    - name: "ratio_sum"
+      target: "== 1.0 ± 0.05"
+      method: "word_ratio の合計"
+    - name: "dialogue_ratio_range"
+      target: "0.40–0.70"
+      method: "各セクションの dialogue_ratio が範囲内"
+    - name: "micro_turn_coverage"
+      target: ">= 0.8"
+      method: "micro_turn=true のセクション比率"
+
+next:
+  next_step_id: 3
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=3
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: section.words
+      field: sections
+      rule: nonempty
+    - id: section.pov_dialogue
+      field: sections
+      rule: nonempty
+    - id: section.hook
+      field: sections
+      rule: nonempty

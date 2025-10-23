@@ -1,0 +1,244 @@
+# 構造的品質基準定義ファイル
+# 作成日: 2025-08-23
+# 目的: 例と基準の分離による柔軟な評価システム
+
+metadata:
+  version: "1.0.0"
+  purpose: "構造的パターンによる品質評価・例との分離実現"
+  philosophy: "表現方法は多様性を重視、品質基準は構造的要素で判定"
+
+# ========================================
+# 構造的基準定義の原則
+# ========================================
+structural_principles:
+  pattern_vs_example:
+    pattern_role: "評価の核心となる構造的要素・必須要件"
+    example_role: "理解支援・学習促進のための参考実装"
+    evaluation_basis: "パターン準拠度で判定、例との類似性は不問"
+
+  flexibility_levels:
+    high: "多様な表現方法を許容、構造的要素のみチェック"
+    medium: "一定のガイドライン内での表現多様性"
+    low: "特定のフォーマット・形式での統一要求"
+
+  creative_alternatives:
+    encouragement: "基準を満たす創造的解決策を積極評価"
+    innovation_bonus: 1.1  # 創新的アプローチに10%ボーナス
+    pattern_deviation_allowance: 0.2  # 構造から20%逸脱まで許容
+
+# ========================================
+# 感情表現具体化の構造的基準
+# ========================================
+emotion_concretization_structure:
+  core_principle: "抽象的感情語を身体的・行動的表現に変換"
+
+  structural_requirements:
+    physical_manifestation:
+      pattern: "[内的状態] → [身体反応] + [環境との相互作用]"
+      flexibility_range: "high"
+      mandatory_elements:
+        - "身体部位の具体的反応"
+        - "感情と身体反応の論理的関連性"
+        - "観察可能な外的変化"
+      optional_elements:
+        - "環境への影響描写"
+        - "他者への影響表現"
+        - "時間経過での変化"
+
+    behavioral_expression:
+      pattern: "[感情状態] → [具体的行動] + [その結果・影響]"
+      flexibility_range: "high"
+      mandatory_elements:
+        - "感情と行動の因果関係"
+        - "行動の具体性・観察可能性"
+        - "行動の結果・周囲への影響"
+      optional_elements:
+        - "行動の意図・目的"
+        - "習慣的行動との対比"
+        - "状況に応じた行動変化"
+
+  prohibited_patterns:
+    abstract_only: "「嬉しい」「悲しい」「怒っている」のみの表現"
+    vague_description: "「複雑な気持ち」「言葉にできない」等の逃げ表現"
+    cliche_metaphor: "「心に刺さる」「胸が痛む」等の慣用句のみ"
+
+  evaluation_criteria:
+    physical_specificity: "身体反応の具体性・観察可能性"
+    causal_logic: "感情→身体反応の論理的妥当性"
+    originality: "表現の独創性・新鮮さ"
+    emotional_accuracy: "感情と表現の適合性"
+
+  reference_examples:
+    role: "理解支援のみ。同等品質であれば表現方法は自由"
+    usage_note: "これらは一例であり、基準を満たす他の表現も等しく評価"
+
+    joy_patterns:
+      - structural_type: "身体反応型"
+        example: "頬の筋肉が自然に上がり、目尻に細い線が刻まれた"
+        alternative_note: "笑顔表現であれば、口角・眼輪筋等他部位でも同等"
+      - structural_type: "行動変化型"
+        example: "足取りが軽やか→階段を二段飛ばし→周囲が振り返る"
+        alternative_note: "動作軽快化が表現されれば、歩行以外の動作でも可"
+
+    anger_patterns:
+      - structural_type: "身体反応型"
+        example: "両手が無意識に握られ、指先まで力が行き渡る"
+        alternative_note: "筋緊張表現なら拳・肩・顎等どの部位でも同等評価"
+      - structural_type: "環境作用型"
+        example: "握るペンに力が入りすぎ、芯が折れる音がした"
+        alternative_note: "力の無意識的調整失敗が描写されれば対象物は問わず"
+
+# ========================================
+# 五感描写バランスの構造的基準
+# ========================================
+sensory_balance_structure:
+  core_principle: "複数感覚による立体的・没入的描写実現"
+
+  structural_requirements:
+    multi_sensory_coverage:
+      pattern: "3つ以上の感覚を場面に応じて適切配置"
+      flexibility_range: "medium"
+      mandatory_elements:
+        - "視覚情報（基本描写）"
+        - "聴覚・触覚・嗅覚・味覚から2つ以上"
+        - "各感覚の具体的・特徴的描写"
+      evaluation_focus:
+        - "感覚間の相互作用・相乗効果"
+        - "場面・状況との感覚選択の適合性"
+        - "読者の没入体験への貢献度"
+
+    sensory_integration:
+      pattern: "[主感覚] + [補完感覚] → [総合的印象・体験]"
+      flexibility_range: "high"
+      integration_types:
+        - "同期的統合": 同時に複数感覚が作用
+        - "連鎖的統合": 一つの感覚が別の感覚を誘発
+        - "対比的統合": 異なる感覚情報の対比効果
+
+  prohibited_patterns:
+    visual_only: "視覚描写のみに依存"
+    generic_sensory: "「いい音」「いい匂い」等の抽象的表現"
+    sensory_overload: "無関係な感覚情報の過度な詰め込み"
+
+  evaluation_criteria:
+    coverage_adequacy: "使用感覚数・バランス"
+    contextual_relevance: "場面との感覚選択適合性"
+    descriptive_specificity: "各感覚表現の具体性"
+    immersion_contribution: "読者体験向上への寄与"
+
+  flexible_application:
+    scene_based_adjustment:
+      action_scene: "聴覚・触覚重視許容"
+      emotional_scene: "嗅覚・味覚による記憶誘発効果活用"
+      world_building: "全感覚バランス型推奨"
+
+    genre_consideration:
+      fantasy: "五感+第六感的表現も許容"
+      mystery: "手がかり発見への感覚利用を重視"
+      romance: "感情と感覚の連動を優先"
+
+# ========================================
+# 対話文自然性の構造的基準
+# ========================================
+dialogue_naturalness_structure:
+  core_principle: "キャラクター個性・状況適合性・読みやすさの調和"
+
+  structural_requirements:
+    character_voice_consistency:
+      pattern: "[キャラ設定] → [語彙選択] + [文体パターン] + [反応傾向]"
+      flexibility_range: "medium"
+      consistency_elements:
+        - "語彙レベル・専門用語使用パターン"
+        - "敬語・方言・話し方の癖"
+        - "感情表現の個人的特徴"
+        - "相手・状況に応じた話し方変化"
+
+      validation_approach:
+        - "同一キャラの発言パターン分析"
+        - "設定との整合性確認"
+        - "関係性・状況適応度評価"
+
+    situational_appropriateness:
+      pattern: "[場面設定] + [関係性] → [対話内容] + [話し方調整]"
+      flexibility_range: "high"
+      adaptation_factors:
+        - "正式・非正式場面での口調変化"
+        - "親密度に応じた距離感調整"
+        - "緊急・平常時の表現密度変化"
+        - "感情状態の対話への反映"
+
+  prohibited_patterns:
+    character_collapse: "設定と矛盾する話し方"
+    situation_mismatch: "場面にそぐわない口調・内容"
+    artificial_exposition: "不自然な説明台詞"
+
+  evaluation_criteria:
+    personality_reflection: "キャラ設定の対話での体現度"
+    relationship_dynamics: "相手との関係性表現の適切性"
+    emotional_authenticity: "感情状態の自然な言語化"
+    readability_flow: "読み手の理解しやすさ・テンポ"
+
+# ========================================
+# ターニングポイント設計の構造的基準
+# ========================================
+turning_point_structure:
+  core_principle: "物語進行の決定的変化点での効果的転換実現"
+
+  structural_requirements:
+    impact_escalation:
+      pattern: "[現状認識] → [転換事象] → [新状況認識] + [行動変化]"
+      flexibility_range: "medium"
+      escalation_elements:
+        - "転換前後での状況・認識の明確な変化"
+        - "キャラクターの行動・目標の実質的変更"
+        - "読者の期待・予測の適切な裏切り"
+        - "後続展開への影響力・波及効果"
+
+    causal_connectivity:
+      pattern: "[前段伏線] → [転換点] → [後段展開] の因果関係"
+      flexibility_range: "low"  # 論理性は厳格に要求
+      connectivity_requirements:
+        - "前段階からの必然性・予兆の存在"
+        - "転換点の論理的妥当性"
+        - "後段への影響の明確な描写"
+        - "全体プロット内での位置づけ明確化"
+
+  evaluation_criteria:
+    narrative_necessity: "物語進行上の必要性・必然性"
+    emotional_impact: "読者への感情的インパクト"
+    plot_advancement: "プロット前進への寄与度"
+    surprise_appropriateness: "予想外性と納得感の両立"
+
+# ========================================
+# 適用ガイドライン
+# ========================================
+application_guidelines:
+  pattern_matching_approach:
+    structural_focus: "表面的類似ではなく構造的要素で判定"
+    creative_acceptance: "基準満足なら表現方法の多様性を積極評価"
+    innovation_encouragement: "新しいアプローチの発見・推奨"
+
+  evaluation_process:
+    step1_structural_check: "必須構造的要素の存在確認"
+    step2_quality_assessment: "構造要素の品質・効果測定"
+    step3_creativity_bonus: "創造的アプローチの追加評価"
+    step4_overall_judgment: "総合判定・改善提案生成"
+
+  ai_human_collaboration:
+    ai_role: "構造的要素の客観的分析・パターン認識"
+    human_role: "創造性・芸術性・読者体験の最終判定"
+    collaboration_points: "境界的判定・新パターン発見時の協議"
+
+# ========================================
+# 継続改善メカニズム
+# ========================================
+improvement_mechanism:
+  pattern_learning:
+    new_pattern_discovery: "創造的解決策の構造的パターン化"
+    pattern_refinement: "既存パターンの精度向上・適用範囲拡張"
+    pattern_validation: "パターン有効性の統計的検証"
+
+  flexibility_adjustment:
+    usage_feedback: "ユーザー使用実績による柔軟性レベル調整"
+    creative_trend: "創作トレンドの変化に応じた基準更新"
+    effectiveness_measurement: "基準変更の効果測定・評価"

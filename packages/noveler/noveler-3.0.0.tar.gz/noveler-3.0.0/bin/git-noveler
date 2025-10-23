@@ -1,0 +1,29 @@
+﻿#!/usr/bin/env bash
+# File: bin/git-noveler
+# Purpose: Provide a Git wrapper that enforces the Noveler bare repository context for WSL/Linux shells.
+# Context: Ensures git commands target the shared bare repo and OneDrive worktree without manual exports.
+
+set -euo pipefail
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd -- "${SCRIPT_DIR}/.." &> /dev/null && pwd )"
+
+GIT_DIR="${NOVELER_GIT_DIR:-${NOVELER_GIT_DIR_DEFAULT:-$HOME/.git-noveler}}"
+WORK_TREE="${NOVELER_WORK_TREE:-$ROOT_DIR}"
+
+if [[ ! -d "${GIT_DIR}" ]]; then
+  echo "git-noveler: Git directory not found: ${GIT_DIR}" >&2
+  exit 1
+fi
+
+if [[ ! -d "${WORK_TREE}" ]]; then
+  echo "git-noveler: Work tree directory not found: ${WORK_TREE}" >&2
+  exit 1
+fi
+
+if [[ $# -eq 0 ]]; then
+  set -- status --short
+fi
+
+echo "[git-noveler] --git-dir=${GIT_DIR} --work-tree=${WORK_TREE} $*" >&2
+exec git --git-dir="${GIT_DIR}" --work-tree="${WORK_TREE}" "$@"

@@ -1,0 +1,20 @@
+basic_kpi:
+  word_count_ok: true
+  pov_consistency_ok: true
+  banned_expressions_ok: true
+  narou_ten_commandments_ok: true
+extended_kpi:
+  emotion_variety: 0.92
+  dialogue_goal_rate: 1.00
+  section_balance: 0.88
+  character_consistency: 0.96
+  senses_non_visual_ratio: 0.34
+  world_reveal_rate: 0.90
+  foreshadow_resolution_rate: 0.86
+  world_prop_consistency: 0.98
+  typo_error_rate: 0.0007
+total_score: 0.87
+total_score_percent: 87
+verdict: pass
+suggestions:
+  - "中盤の段落を短くしてテンポを整える"

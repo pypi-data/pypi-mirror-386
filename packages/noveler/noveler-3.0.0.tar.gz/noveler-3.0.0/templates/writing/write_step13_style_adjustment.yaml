@@ -1,0 +1,94 @@
+# STEP 13: 文体・構成最適化 Schema v2
+
+metadata:
+  step_id: 13
+  step_name: "文体・構成最適化"
+  phase: "writing_execution"
+  schema_version: "2.2.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "Phase 1短文統合/文字数/配分/スマホ骨組みを整え、文体を統一"
+  estimated_duration: "30-45分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った Markdown のみ（上書き）。
+    user: |
+      8000字以上を確保しつつ、配分15/70/15%に近づけ、1文60字・1段落2-4行を目安に整形してください。
+
+prompt:
+  main_instruction: |
+    目的は「文体・構成の最適化（上書き）」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った Markdown を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step12.md"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "文字数: 8000字以上"
+    - "視点統一: 1シーン1視点"
+  soft_targets:
+    - "1文≈60字/1段落2-4行"
+    - "会話主導"
+
+tasks:
+  bullets:
+    - 直説説明/感情直書き/重複の削除→行動・描写へ置換
+    - 段落/改行/見出しの整理
+  details:
+    - name: 文字数/配分整合
+      items:
+        - id: adjust.word_count
+          text: unicode_char_count ≥ 8000 を維持
+        - id: adjust.ratio
+          text: 15/70/15% に近づくよう再配分
+    - name: スマホ骨組み
+      items:
+        - id: adjust.sentence_paragraph
+          text: 1文≈60字/1段落2–4行
+        - id: adjust.dialogue_tempo
+          text: 会話主導のテンポ
+
+artifacts:
+  format: md
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step13.md"
+  required_fields: ["body_present"]
+  example: |
+    # 第{episode_number:03d}話
+
+    （本文を上書き）
+
+acceptance_criteria:
+  checklist:
+    - "本文がMarkdownのみ"
+  metrics:
+    - name: "unicode_char_count"
+      target: ">= 8000"
+      method: "本文のUnicode文字数"
+
+next:
+  next_step_id: 14
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=14
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

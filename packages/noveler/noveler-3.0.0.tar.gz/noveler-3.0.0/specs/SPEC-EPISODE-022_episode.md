@@ -1,0 +1,1 @@
+﻿# Moved: SPEC-EPISODE-022_episode.md`n`nThis specification has moved to:`n`n- [domains/episode/SPEC-EPISODE-022_episode.md](./domains/episode/SPEC-EPISODE-022_episode.md)`n`nNote: This is a redirect stub to preserve existing links.`n

@@ -1,0 +1,334 @@
+# E2Eテストマッピング表
+# 仕様ID → テストID の対応関係を管理
+# 最終更新: 2025-01-28
+
+metadata:
+  version: "1.0.1"
+  description: "仕様書とテストの1対1マッピング管理"
+  last_updated: "2025-09-15"
+
+# カテゴリ定義
+categories:
+  EPISODE:
+    description: "エピソード管理関連"
+    prefix: "SPEC-EPISODE"
+    test_prefix: "E2E-EPISODE"
+
+  QUALITY:
+    description: "品質管理・チェック関連"
+    prefix: "SPEC-QUALITY"
+    test_prefix: "E2E-QUALITY"
+
+  PLOT:
+    description: "プロット生成・管理関連"
+    prefix: "SPEC-PLOT"
+    test_prefix: "E2E-PLOT"
+
+  CLAUDE:
+    description: "Claude Code連携関連"
+    prefix: "SPEC-CLAUDE"
+    test_prefix: "E2E-CLAUDE"
+
+  CONFIG:
+    description: "設定管理関連"
+    prefix: "SPEC-CONFIG"
+    test_prefix: "E2E-CONFIG"
+
+  A31:
+    description: "A31品質チェックリスト関連"
+    prefix: "SPEC-A31"
+    test_prefix: "E2E-A31"
+
+  WORKFLOW:
+    description: "ワークフロー・プロセス関連"
+    prefix: "SPEC-WORKFLOW"
+    test_prefix: "E2E-WORKFLOW"
+
+  ARTIFACT:
+    description: "参照アーティファクト関連"
+    prefix: "SPEC-ARTIFACT"
+    test_prefix: "E2E-ARTIFACT"
+
+  ARCH:
+    description: "アーキテクチャ・リファクタリング関連"
+    prefix: "SPEC-901"
+    test_prefix: "E2E-ARCH"
+
+  A40A41:
+    description: "推敲 Stage1 (A40/A41)"
+    prefix: "SPEC-A40A41"
+    test_prefix: "E2E-A40A41"
+
+# E2Eテストマッピング（仕様ID = E2EテストID）
+e2e_mappings:
+  # エピソード管理
+  SPEC-EPISODE-001:
+    spec_name: "episode_entity"
+    test_type: "e2e"
+    e2e_test_id: "E2E-EPISODE-001"
+    test_path: "tests/e2e/test_episode001_complete_generation.py"
+    description: "エピソードのライフサイクル管理（生成〜完了）"
+
+  SPEC-EPISODE-002:
+    spec_name: "episode_creation"
+    test_type: "e2e"
+    e2e_test_id: "E2E-EPISODE-002"
+    test_path: "tests/e2e/test_episode_creation.py"
+    description: "エピソード作成フロー"
+
+  SPEC-EPISODE-003:
+    spec_name: "episode_publishing"
+    test_type: "e2e"
+    e2e_test_id: "E2E-EPISODE-003"
+    test_path: "tests/e2e/test_episode_publishing.py"
+    description: "エピソード公開プロセス"
+
+  # 品質管理
+  SPEC-QUALITY-001:
+    spec_name: "a31_checklist_auto_fix"
+    test_type: "e2e"
+    e2e_test_id: "E2E-QUALITY-001"
+    test_path: "tests/e2e/test_quality_workflow_e2e.py"
+    description: "A31チェックリスト自動修正（品質ワークフロー）"
+
+  SPEC-QUALITY-002:
+    spec_name: "quality_history"
+    test_type: "e2e"
+    e2e_test_id: "E2E-QUALITY-002"
+    test_path: "tests/e2e/test_quality_workflow_e2e.py"
+    description: "品質履歴管理（品質ワークフロー）"
+
+  # プロット生成
+  SPEC-PLOT-001:
+    spec_name: "claude_plot_generation"
+    test_type: "e2e"
+    e2e_test_id: "E2E-PLOT-001"
+    test_path: "tests/e2e/test_episode001_complete_generation.py"
+    description: "プロット生成（エピソード生成シナリオ内）"
+
+  # Claude Code連携
+  SPEC-CLAUDE-001:
+    spec_name: "claude_code_integration_system"
+    test_type: "e2e"
+    e2e_test_id: "E2E-CLAUDE-001"
+    test_path: "tests/e2e/test_check_command_e2e.py"
+    description: "Claude Code統合の基本E2E（checkコマンド）"
+
+  # アーティファクト参照
+  SPEC-ARTIFACT-001:
+    spec_name: "artifact_reference_system"
+    test_type: "e2e"
+    e2e_test_id: "E2E-ARTIFACT-001"
+    test_path: "tests/e2e/test_artifact_reference_workflow.py"
+    description: "参照渡しプロンプト（fetch/list/prepare→write）"
+
+  # Stage1(A40/A41) オートフィクス
+  SPEC-A40A41-STAGE1-AUTOFIX:
+    spec_name: "stage1_technical_polish_autofix"
+    test_type: "e2e"
+    e2e_test_id: "E2E-A40A41-001"
+    test_path: "tests/e2e/test_stage1_autofix_e2e.py"
+    description: "Stage1安全正規化のE2E（適用・書き戻し・内容確認）"
+
+  # Stage2/3(A40/A41) コンテンツ推敲
+  SPEC-A40A41-STAGE23-POLISH:
+    spec_name: "stage23_content_and_experience_polish"
+    test_type: "e2e"
+    e2e_test_id: "E2E-A40A41-002"
+    test_path: "tests/e2e/test_a40_polish_workflow_e2e.py"
+    description: "polish_manuscript_apply(dry_run)の成果物参照と復元検証"
+
+# 補助仕様マッピング（E2Eで表現困難な詳細仕様）
+supplementary_mappings:
+  # エピソード番号バリデーション（境界値テスト）
+  SPEC-EPISODE-001-SUB-001:
+    parent_spec: "SPEC-EPISODE-001"
+    spec_name: "episode_number_validation"
+    test_type: "unit"
+    test_id: "UNIT-EPISODE-001"
+    test_path: "tests/unit/domain/value_objects/test_episode_number.py"
+    description: "エピソード番号の境界値テスト（1-9999）"
+
+  # 品質スコア計算ロジック
+  SPEC-QUALITY-001-SUB-001:
+    parent_spec: "SPEC-QUALITY-001"
+    spec_name: "quality_score_calculation"
+    test_type: "unit"
+    test_id: "UNIT-QUALITY-001"
+    test_path: "tests/unit/domain/services/test_quality_calculator.py"
+    description: "品質スコア計算アルゴリズムの詳細テスト"
+
+  # Stage1(A40/A41) AutoFix 基本ルール
+  SPEC-A40A41-SUB-001:
+    parent_spec: "SPEC-A40A41-STAGE1-AUTOFIX"
+    spec_name: "stage1_autofix_rules"
+    test_type: "unit"
+    test_id: "UNIT-QUALITY-002"
+    test_path: "tests/unit/mcp_servers/tools/test_fix_quality_issues_stage1.py"
+    description: "Stage1の約物/スペース正規化（安全・無害適用）"
+
+  # Stage1(A40/A41) AutoFix E2E
+  SPEC-A40A41-SUB-002:
+    parent_spec: "SPEC-A40A41-STAGE1-AUTOFIX"
+    spec_name: "stage1_autofix_e2e"
+    test_type: "e2e"
+    test_id: "E2E-QUALITY-004"
+    test_path: "tests/e2e/test_stage1_autofix_e2e.py"
+    description: "fix_quality_issuesのE2E（書き戻し/メタデータ含む）"
+
+  # Stage1(A40/A41) Indent ルール
+  SPEC-A40A41-SUB-003:
+    parent_spec: "SPEC-A40A41-STAGE1-AUTOFIX"
+    spec_name: "stage1_indent_rules"
+    test_type: "unit"
+    test_id: "UNIT-QUALITY-003"
+    test_path: "tests/unit/mcp_servers/tools/test_fix_quality_issues_stage1_indent.py"
+    description: "stage1.indent: 見出し/箇条書き/コード/会話行の扱い"
+
+  # Stage2/3(A40/A41) polish promptモード
+  SPEC-A40A41-STAGE23-SUB-PROMPT:
+    parent_spec: "SPEC-A40A41-STAGE23-POLISH"
+    spec_name: "stage23_polish_prompt_mode"
+    test_type: "e2e"
+    test_id: "E2E-A40A41-003"
+    test_path: "tests/e2e/test_polish_prompt_mode.py"
+    description: "polish_manuscriptのプロンプト構造とartifact指示の有無検証"
+
+  # プロットマージロジック
+  SPEC-PLOT-001-SUB-001:
+    parent_spec: "SPEC-PLOT-001"
+    spec_name: "plot_merge_logic"
+    test_type: "integration"
+    test_id: "INT-PLOT-001"
+    test_path: "tests/integration/test_plot_merge.py"
+    description: "複数プロットのマージ処理"
+
+# 統合テストマッピング
+integration_mappings:
+  # DB永続化テスト
+  SPEC-EPISODE-INT-001:
+    spec_name: "episode_persistence"
+    test_type: "integration"
+    test_id: "INT-EPISODE-002"
+    test_path: "tests/integration/test_episode_repository.py"
+    description: "エピソードのDB永続化"
+
+  # MCPサーバー統合
+  SPEC-MCP-INT-001:
+    spec_name: "mcp_server_integration"
+    test_type: "integration"
+    test_id: "INT-MCP-001"
+    test_path: "tests/integration/mcp/test_mcp_server_integration.py"
+    description: "MCPサーバー起動/ツール登録/基本機能"
+
+  # DDDリファクタリング/非同期最適化
+  SPEC-901:
+    spec_name: "ddd_refactoring_and_async_optimization"
+    test_type: "integration"
+    test_id: "INT-ARCH-901"
+    test_path: "tests/integration/test_spec_901_async_mcp_integration.py"
+    description: "MessageBus/Async処理/並列/タイムアウト要件"
+
+  SPEC-901-INT-002:
+    spec_name: "mcp_ddd_integration"
+    test_type: "integration"
+    test_id: "INT-ARCH-901B"
+    test_path: "tests/integration/test_mcp_ddd_integration.py"
+    description: "MCP-MessageBus統合/イベント収集/後方互換性/ポート切替"
+
+# テスト実行グループ
+test_suites:
+  critical:
+    description: "クリティカルパス（必須機能）"
+    tests:
+      - E2E-EPISODE-001
+      - E2E-EPISODE-002
+      - E2E-EPISODE-003
+      - E2E-QUALITY-001
+      - E2E-A40A41-001
+      - E2E-A40A41-002
+
+  full_e2e:
+    description: "全E2Eテスト"
+    pattern: "E2E-*"
+
+  integration_only:
+    description: "統合テストのみ"
+    pattern: "INT-*"
+
+  unit_only:
+    description: "単体テストのみ"
+    pattern: "UNIT-*"
+
+# カバレッジ目標
+coverage_targets:
+  e2e:
+    target: 70  # E2Eテストカバレッジ目標
+    current: 0  # 現在のカバレッジ（要更新）
+
+  integration:
+    target: 80
+    current: 0
+
+  unit:
+    target: 90
+    current: 0
+
+  overall:
+    target: 85
+    current: 0
+
+# 自動化設定
+automation:
+  # 仕様書からテスト生成
+  test_generation:
+    enabled: true
+    template: "tests/templates/e2e_test_template.py"
+    output_dir: "tests/e2e/"
+
+  # テスト実行時の仕様書参照
+  spec_validation:
+    enabled: true
+    strict_mode: false  # true: 仕様書がないテストは失敗
+
+  # マッピング検証
+  mapping_validation:
+    check_orphaned_specs: true  # テストのない仕様書を検出
+    check_orphaned_tests: true  # 仕様書のないテストを検出
+
+# 未実装リスト（今後の作業対象）
+pending_implementations:
+  specs_without_tests:
+    []
+
+  tests_without_specs:
+    []
+
+# 使用方法
+usage_examples:
+  # Python スクリプトから使用
+  python_example: |
+    import yaml
+
+    with open('specs/E2E_TEST_MAPPING.yaml') as f:
+        mapping = yaml.safe_load(f)
+
+    # 仕様IDからテストパスを取得
+    spec_id = "SPEC-EPISODE-001"
+    test_path = mapping['e2e_mappings'][spec_id]['test_path']
+
+    # カテゴリ別にテストを実行
+    category = "EPISODE"
+    tests = [v for k, v in mapping['e2e_mappings'].items()
+             if k.startswith(f"SPEC-{category}")]
+
+  # CLIから使用
+  cli_example: |
+    # 仕様IDに対応するテストを実行
+    python -m pytest --spec-id=SPEC-EPISODE-001
+
+    # カテゴリ別にテスト実行
+    python -m pytest --spec-category=EPISODE
+
+    # マッピング検証
+    python src/noveler/tools/validate_spec_mapping.py

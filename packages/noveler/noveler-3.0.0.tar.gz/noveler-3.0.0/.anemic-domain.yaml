@@ -1,0 +1,51 @@
+# Anemic Domain Model Detection Configuration
+# ============================================
+# このファイルは scripts/hooks/check_anemic_domain.py の動作をカスタマイズします。
+
+# 検知対象のドメインプロパティ
+# Service Logic Smell 検知で使用され、直接チェックされると警告されるプロパティ名
+domain_properties:
+  - episode_number
+  - status
+  - state
+  - title
+  - content
+  - version
+  - priority
+  - type
+  - category
+
+# 除外するクラスサフィックス
+# これらのサフィックスで終わるクラスは Anemic Domain Model の検知対象外
+excluded_suffixes:
+  - Protocol
+  - Request
+  - Response
+  - DTO
+
+# 除外するクラスプレフィックス
+# これらのプレフィックスで始まるクラスは Anemic Domain Model の検知対象外
+excluded_prefixes:
+  - I  # インターフェース命名規則 (例: ILogger, IRepository)
+
+# 検知対象パス（リポジトリルート相対）
+# これらのディレクトリ内のファイルのみが検知対象
+target_paths:
+  - src/noveler/domain/entities
+  - src/noveler/domain/value_objects
+
+# 除外パス（リポジトリルート相対）
+# これらのディレクトリ内のファイルは検知対象外
+excluded_paths:
+  - tests/fixtures/domain
+
+# バリデーションキーワード
+# メソッド名にこれらのキーワードが含まれる場合、バリデーションロジックとみなす
+validation_keywords:
+  - validate
+  - check
+  - verify
+  - __post_init__
+
+# 設定バージョン（後方互換性管理用）
+config_version: "1.0.0"

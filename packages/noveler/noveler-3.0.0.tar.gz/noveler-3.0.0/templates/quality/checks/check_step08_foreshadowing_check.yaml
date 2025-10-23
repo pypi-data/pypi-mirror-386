@@ -1,0 +1,216 @@
+# STEP 08: 伏線・回収チェック Schema v2
+
+metadata:
+  step_id: 8
+  step_name: 伏線・回収チェック
+  phase: structure_quality
+  version: 2.0.0
+  last_updated: '2025-09-24'
+  author: noveler system
+  description: 伏線の設置・回収・読者への謎提示の適切性を確認
+  estimated_duration: 12-15分
+llm_config:
+  role_messages:
+    system: |-
+      あなたは品質チェックスペシャリストです。constraints.hard_rules を厳守し、
+      出力は artifacts の仕様に従った JSON のみを返してください。追加の説明文は不要です。
+    user: |-
+      伏線・回収チェック に関する tasks・acceptance_criteria を順守してください。
+      問題が見つからない場合でも issues.<category>[] は空配列として出力し、summary.evidence に根拠を示してください。
+prompt:
+  main_instruction: |-
+    目的は「伏線・回収チェック」です。inputs・constraints・tasks を満たし、
+    artifacts の仕様に従った JSON をコードブロックなしで出力してください。
+  next_action_instruction: |-
+    ステップ {previous_step_id}「{previous_step_name}」が完了しました。
+
+    続いて、ステップ {step_id}「{step_name}」を実行してください。
+    シーン転換チェックを行います：
+    1. シーン間の接続の自然さ
+    2. 時間・場所の転換の明確性
+    3. 読者の混乱を避ける工夫
+    4. 転換のリズムと効果
+
+    execute_check_step で step_id={step_id} を実行してください。
+inputs:
+  files:
+    - path: '{project_root}/40_原稿/第{episode_number:03d}話*.md'
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: '{project_root}/config/quality_rules.yaml'
+      required: false
+      description: 品質関連の設定があれば参照
+  variables:
+    episode_number:
+      type: int
+      required: true
+    project_root:
+      type: path
+      required: true
+constraints:
+  hard_rules:
+    - summary.overview と metrics.score を必ず出力する
+    - issues は各カテゴリ (issues.*) をキーにもつオブジェクトとして出力する
+    - 各 issue には before_text / after_text / severity / priority を添える
+  soft_targets:
+    - metrics.score は 80 以上を目指す
+    - issues 全体の件数を 5 件以内に抑える（理想値）
+tasks:
+  bullets:
+    - 伏線・回収チェックの観点（伏線設計、回収効果、情報提示、謎管理）を俯瞰し、重大度と優先度を判定する
+    - issues.<category>[] に原稿抜粋・修正案・severity・priority・root_cause を含めて整理する
+    - summary.overview に現状と改善方針を200字以内で要約し、summary.evidence に根拠を箇条書きする
+    - metrics.score と metrics.issue_count を更新し、recommendations 
+      に最優先の改善アクションを3件以内で列挙する
+  details:
+    - name: 伏線設計
+      items:
+        - id: checks.foreshadowing
+          text: '伏線設計観点: 伏線の自然な設置 / 過度に明確・曖昧でない配置 / 複数伏線の管理 / 読者の予想を適度に裏切る'
+    - name: 回収効果
+      items:
+        - id: checks.payoff
+          text: '回収効果観点: 伏線回収のタイミング / 回収時の満足感 / 説明の分かりやすさ / 驚きと納得のバランス'
+    - name: 情報提示
+      items:
+        - id: checks.information
+          text: '情報提示観点: 情報開示のペース / 読者の関心を維持する情報提示 / ネタバレを避けた情報管理 / 疑問と解答のバランス'
+    - name: 謎管理
+      items:
+        - id: checks.mystery
+          text: '謎管理観点: 謎の提示の魅力 / 解決への手がかり / 読者の推理参加 / 未解決謎の適切な管理'
+artifacts:
+  format: json
+  path_template: '{project_root}/.noveler/checks/EP{episode_number:04d}/step{step_id:02d}_quality.json'
+  required_fields:
+    - summary
+    - issues
+    - recommendations
+    - metrics
+  example: |-
+    {
+      "summary": {
+        "overview": "伏線・回収チェックの主要な所見をここに記述",
+        "score": 82,
+        "evidence": [
+          "伏線設計: 原稿第3段落で誤用を確認"
+        ]
+      },
+      "issues": {
+        "foreshadowing": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "伏線の自然な設置"
+          }
+        ],
+        "payoff": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "伏線回収のタイミング"
+          }
+        ],
+        "information": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "情報開示のペース"
+          }
+        ],
+        "mystery": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "謎の提示の魅力"
+          }
+        ]
+      },
+      "recommendations": [
+        "誤用箇所を修正し、スタイルガイドに合わせる",
+        "再発防止のために該当セクションを校正する"
+      ],
+      "metrics": {
+        "issue_count": 4,
+        "score": 82,
+        "severity_distribution": {
+          "low": 1,
+          "medium": 3,
+          "high": 0
+        }
+      }
+    }
+acceptance_criteria:
+  checklist:
+    - summary.overview と metrics.score を出力している
+    - issues.<category>[] の各要素に before_text / after_text / severity / priority /
+      rationale が含まれている
+  metrics:
+    - name: issue_count
+      target: '>= 0'
+      method: issues.* の総件数
+    - name: score_range
+      target: 0-100
+      method: metrics.score の範囲検証
+next:
+  next_step_id: 9
+  message_template: |-
+    次のチェックステップは execute_check_step で step_id={next_step_id} を実行してください。
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: checks.foreshadowing
+      field: issues.foreshadowing
+      rule: present
+    - id: checks.payoff
+      field: issues.payoff
+      rule: present
+    - id: checks.information
+      field: issues.information
+      rule: present
+    - id: checks.mystery
+      field: issues.mystery
+      rule: present
+check_criteria:
+  foreshadowing:
+    - 伏線の自然な設置
+    - 過度に明確・曖昧でない配置
+    - 複数伏線の管理
+    - 読者の予想を適度に裏切る
+  payoff:
+    - 伏線回収のタイミング
+    - 回収時の満足感
+    - 説明の分かりやすさ
+    - 驚きと納得のバランス
+  information:
+    - 情報開示のペース
+    - 読者の関心を維持する情報提示
+    - ネタバレを避けた情報管理
+    - 疑問と解答のバランス
+  mystery:
+    - 謎の提示の魅力
+    - 解決への手がかり
+    - 読者の推理参加
+    - 未解決謎の適切な管理

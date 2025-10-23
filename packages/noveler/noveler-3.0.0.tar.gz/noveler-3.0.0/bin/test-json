@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# File: bin/test-json
+# Purpose: Run pytest via the unified runner and emit only final summary JSON.
+set -euo pipefail
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd -- "${SCRIPT_DIR}/.." &> /dev/null && pwd )"
+cd "${ROOT_DIR}"
+export LLM_SILENT_PROGRESS=${LLM_SILENT_PROGRESS:-1}
+export LLM_FAST_CLEANUP=${LLM_FAST_CLEANUP:-1}
+exec python3 scripts/run_pytest.py --json-only -q "$@"

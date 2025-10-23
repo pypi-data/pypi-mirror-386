@@ -1,0 +1,21 @@
+metadata:
+  name: "構成重点"
+  description: "シーン目的、物語流れ、ペース配分に特化"
+  evaluation_points: 25
+  estimated_time_seconds: 5
+  complexity: "low"
+  categories:
+    - "structural_coherence"
+
+evaluation_criteria:
+  structural_coherence:
+    scene_purpose: "各シーンの存在意義"
+    narrative_flow: "物語の自然な流れ"
+    pacing_balance: "テンポ配分の適切性"
+
+analysis_instructions:
+  - "原稿内容を詳細に読み込み、各評価基準に基づいて客観的に分析する"
+  - "具体的な改善提案を、原文引用と改善例を含めて提示する"
+  - "スコアの根拠を明確に説明し、偏りのない評価を心がける"
+  - "物語構成の論理性と効果性を分析する"
+  - "シーン配置とペース配分の最適化を提案する"

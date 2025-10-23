@@ -1,0 +1,118 @@
+# Stage 5: 品質確認テンプレート
+# A24段階的ワークフロー専用（10-15分で完了）
+
+# 基本情報（Stage1-4から継承・最終確認）
+episode_number: 0
+title: "エピソードタイトル（最終版）"
+chapter: 0
+theme: "エピソードの主要テーマ"
+purpose: "このエピソードの目的・役割"
+
+# 全体整合性確認
+overall_consistency:
+  chapter_plot_alignment: "章プロットとの整合性確認済み"
+  character_setting_consistency: "キャラクター設定との一貫性確認済み"
+  world_setting_consistency: "世界観設定との矛盾なし確認済み"
+
+  consistency_issues:
+    - "発見された整合性問題（なければ「なし」）"
+
+  resolution_actions:
+    - "問題解決のために取った対応（なければ「なし」）"
+
+# 品質指標の手動評価
+quality_metrics:
+  overall_score: 80  # 全体品質（80点以上目標）
+  technical_accuracy: 75  # 技術要素正確性
+  character_consistency: 85  # キャラクター一貫性
+  plot_coherence: 82  # プロット結合性
+  emotional_engagement: 78  # 感情的魅力度
+
+  score_justification:
+    overall: "80点の根拠・評価理由"
+    technical: "技術要素の評価理由"
+    character: "キャラクター評価理由"
+    plot: "プロット評価理由"
+    emotional: "感情的魅力の評価理由"
+
+# 制作指針準拠チェック
+guideline_compliance:
+  scene_five_elements:
+    implemented: true
+    compliance_rate: 100  # %
+    details: "シーン5要素実装状況の詳細"
+
+  emotional_four_stages:
+    implemented: true
+    compliance_rate: 100  # %
+    details: "感情4段階実装状況の詳細"
+
+  technical_three_levels:
+    implemented: true
+    compliance_rate: 100  # %
+    details: "技術3レベル実装状況の詳細"
+
+  guideline_markers:
+    present: true
+    marker_count: 0  # 【指針X対応】マーカー数
+    details: "指針マーカー確認状況"
+
+# 最終仕上げ情報
+finalization:
+  production_info:
+    creation_date: "2025-08-06"
+    completion_date: "2025-08-06"
+    total_work_time: "85分"  # 全5段階の合計時間
+
+  backup_files:
+    stage1_backup: "第XXX話_stage1.yaml"
+    stage2_backup: "第XXX話_stage2.yaml"
+    stage3_backup: "第XXX話_stage3.yaml"
+    stage4_backup: "第XXX話_stage4.yaml"
+
+  final_file_info:
+    filename: "第XXX話_完成版.yaml"
+    estimated_lines: 200  # 推定行数
+    status: "制作完了"
+
+# 段階管理情報（最終）
+stage_progress:
+  current_stage: 5
+  completed_stages: [1, 2, 3, 4, 5]
+  stage_completion_dates:
+    stage_1: "完了日時"
+    stage_2: "完了日時"
+    stage_3: "完了日時"
+    stage_4: "完了日時"
+    stage_5: "完了日時"
+
+  stage_quality_checks:
+    stage_1: true
+    stage_2: true
+    stage_3: true
+    stage_4: true
+    stage_5: true  # 全段階完了
+
+# Stage5完了チェック項目
+completion_check:
+  - "全体品質スコア80+達成"
+  - "制作指針100%準拠"
+  - "整合性問題ゼロ"
+  - "完成版ファイル保存済み（第XXX話_完成版.yaml）"
+  - "バックアップファイル作成済み"
+
+# 今後の活用に向けた記録
+future_reference:
+  lessons_learned:
+    - "この段階的作業で学んだこと・改善点"
+
+  time_efficiency:
+    planned_time: "85分（5段階合計）"
+    actual_time: "実際にかかった時間"
+    efficiency_notes: "時間効率に関する気づき"
+
+  quality_achievements:
+    - "品質面で達成できたこと"
+
+  next_episode_application:
+    - "次回エピソードで活用したいポイント"

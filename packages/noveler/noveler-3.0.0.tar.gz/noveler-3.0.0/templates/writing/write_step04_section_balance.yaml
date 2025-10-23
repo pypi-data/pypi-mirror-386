@@ -1,0 +1,105 @@
+# STEP 4: セクションバランス設計 Schema v2
+
+metadata:
+  step_id: 4
+  step_name: "セクションバランス設計"
+  phase: "structural_design"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "各セクションの配分/緩急/フックを数値化して最適化"
+  estimated_duration: "10-15分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      STEP2のセクション案に対して配分と緩急、フックを具体化してください。
+
+prompt:
+  main_instruction: |
+    目的は「配分と緩急、フックの最適化」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step02.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "導入/展開/転結の比率を明記（合計≈1.0）"
+  soft_targets:
+    - "総文字数の目安: 8000字基準で planned_words を算出"
+    - "各セクション末尾にフックを設置"
+    - "段階開示（示唆→部分→詳細）を保つ"
+
+tasks:
+  bullets:
+    - 各セクションに word_ratio と planned_words を付与する
+    - 緩急（fast/normal/slow）と否定→肯定サイクル有無を記す
+    - hook（次節導線）を記述する
+  details:
+    - name: 配分最適化
+      items:
+        - id: balance.ratio_targets
+          text: 導入/展開/転結の目安（0.15/0.70/0.15）に近づける
+        - id: balance.ratio_sum
+          text: ratio_sum が 1.0±0.05 になるよう調整
+        - id: balance.words_total
+          text: planned_words の総和≈8000
+    - name: フックと段階開示
+      items:
+        - id: balance.hooks
+          text: 各セクション末尾に hook を必ず設置
+        - id: balance.reveal_order
+          text: 示唆→部分開示→詳細開示の順序を維持
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step04.yaml"
+  required_fields: ["sections"]
+  example: |
+    sections:
+      - name: "導入"
+        word_ratio: 0.15
+        planned_words: 1200
+        tempo: "normal"
+        neg_to_pos_cycle: true
+        hook: "…"
+
+acceptance_criteria:
+  checklist:
+    - "全セクションに hook がある"
+  metrics:
+    - name: "ratio_sum"
+      target: "== 1.0 ± 0.05"
+      method: "word_ratio の合計"
+
+next:
+  next_step_id: 5
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=5
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: balance.hooks
+      field: sections
+      rule: nonempty

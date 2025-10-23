@@ -1,0 +1,105 @@
+# STEP 8: 対話設計 Schema v2
+
+metadata:
+  step_id: 8
+  step_name: "対話設計"
+  phase: "content_development"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "目的駆動/サブテキスト/自然化方針で対話を設計"
+  estimated_duration: "15-20分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      説明台詞と感情直書きを避け、行動・暗示・比喩で置換してください。
+
+prompt:
+  main_instruction: |
+    目的は「目的駆動の対話設計」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step05.yaml"
+      required: true
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step07.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "目的駆動（情報/感情/関係の前進）"
+    - "説明台詞/感情直書きの回避"
+  soft_targets:
+    - "会話自然化: 地の文で補助しつつ短尺の応酬を優先"
+    - "セクション配分（STEP2/4）と世界観・伏線（STEP10/11）への整合"
+
+tasks:
+  bullets:
+    - dialogues[] に scene_id/purpose/outline/subtext/sample_lines を定義する
+    - 各対話の位置づけ（導入/展開/転結）と配分への影響を注記する
+  details:
+    - name: 目的の明確化
+      items:
+        - id: dlg.purpose.type
+          text: 種別: 情報/感情/関係のいずれか
+        - id: dlg.purpose.outcome
+          text: 成果: 何が前進したか
+    - name: 構造
+      items:
+        - id: dlg.structure
+          text: opening/turning/closing（短尺）
+        - id: dlg.subtext
+          text: subtext（言外の意図）
+    - name: 自然化
+      items:
+        - id: dlg.natural.info
+          text: 説明台詞→行動/暗示/比喩へ置換
+        - id: dlg.natural.emotion
+          text: 感情直書き→身体反応/間へ置換
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step08.yaml"
+  required_fields: ["dialogues"]
+  example: |
+    dialogues:
+      - scene_id: "SC02"
+        purpose: "関係の前進"
+        outline: "…"
+        subtext: "…"
+        sample_lines: ["…", "…"]
+
+acceptance_criteria:
+  checklist:
+    - "全項目に subtext がある"
+  by_task:
+    - id: dlg.subtext
+      field: dialogues
+      rule: nonempty
+
+next:
+  next_step_id: 9
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=9
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

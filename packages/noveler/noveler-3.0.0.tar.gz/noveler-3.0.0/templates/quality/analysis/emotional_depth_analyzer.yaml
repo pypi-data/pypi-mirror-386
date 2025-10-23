@@ -1,0 +1,66 @@
+metadata:
+  name: "感情表現深度AI分析"
+  description: "5層深度分析と感情表現の定量的品質評価"
+  evaluation_points: 40
+  estimated_time_seconds: 12
+  complexity: "high"
+  categories:
+    - "emotional_analysis"
+    - "depth_measurement"
+    - "show_vs_tell"
+  integration:
+    depth_analysis_system: "推敲品質ガイドの5層深度分析システムと連携"
+    quantitative_supplement: "主観的感情評価を客観的指標で補完"
+
+evaluation_criteria:
+  five_layer_depth_quantification:
+    sensory_layer_analysis: "感覚層（身体感覚描写）の密度・多様性分析"
+    emotional_layer_measurement: "感情層（直接感情表現）の具体化度測定"
+    cognitive_layer_assessment: "思考層（内的独白・思考過程）の深度評価"
+    memory_layer_integration: "記憶層（過去体験との関連付け）の統合度"
+    symbolic_layer_sophistication: "象徴層（比喩・暗喩表現）の洗練度"
+
+  show_vs_tell_ratio_analysis:
+    direct_emotion_statement_ratio: "直接的感情表現（Tell）の比率分析"
+    indirect_emotion_expression_ratio: "間接的感情表現（Show）の比率分析"
+    physical_manifestation_score: "身体感覚による感情表現の割合"
+    behavioral_emotion_indication: "行動・仕草による感情示唆の頻度"
+
+  emotional_transition_coherence:
+    emotion_change_logic: "感情変化の論理性・自然さ評価"
+    emotional_buildup_analysis: "感情の積み上げ・クライマックス構築"
+    emotional_resolution_effectiveness: "感情的解決・カタルシスの効果測定"
+    emotional_consistency_character: "キャラクター固有の感情パターン一貫性"
+
+  sensory_description_balance:
+    visual_description_ratio: "視覚描写の比率（過度な偏重チェック）"
+    auditory_tactile_integration: "聴覚・触覚描写の統合度"
+    olfactory_gustatory_utilization: "嗅覚・味覚描写の活用度"
+    synesthetic_expression_quality: "共感覚的表現の品質"
+
+analysis_instructions:
+  - "内面描写5層深度分析基準に基づき、各層の充実度を定量的に測定する"
+  - "感情表現のShow/Tell比率を統計的に分析し、Tell表現過多を警告する"
+  - "身体感覚を使った感情表現の割合を計測し、具体化推奨箇所を特定する"
+  - "キャラクター固有の感情パターンを学習し、一貫性からの逸脱を検出する"
+  - "五感描写のバランスを定量分析し、視覚偏重を是正する具体的提案を行う"
+  - "感情の変化・積み上げ・解決の流れを構造的に分析し、改善点を特定する"
+  - "各層の具体的強化案を、原文引用と改善例のペアで提示する"
+
+depth_analysis_thresholds:
+  five_layer_targets:
+    sensory_layer_target: "15点以上（20点満点、内面描写品質基準）"
+    emotional_layer_target: "15点以上（20点満点、内面描写品質基準）"
+    cognitive_layer_target: "15点以上（20点満点、内面描写品質基準）"
+    memory_layer_target: "15点以上（20点満点、内面描写品質基準）"
+    symbolic_layer_target: "15点以上（20点満点、内面描写品質基準）"
+    total_inner_description_target: "75点以上（100点満点、内面描写品質基準）"
+
+  show_tell_balance:
+    ideal_show_ratio: "70%以上（Show表現が支配的）"
+    tell_expression_limit: "30%以下（Tell表現は補助的）"
+    physical_emotion_target: "感情表現の50%以上で身体感覚要素含有"
+
+  sensory_balance_targets:
+    visual_description_limit: "全感覚描写の60%以下（過度な偏重回避）"
+    non_visual_senses_minimum: "全感覚描写の40%以上（聴覚・触覚・嗅覚・味覚）"

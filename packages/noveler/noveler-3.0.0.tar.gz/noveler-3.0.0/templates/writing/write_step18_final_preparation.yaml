@@ -1,0 +1,106 @@
+# STEP 18: 最終確認・公開準備 Schema v2
+
+metadata:
+  step_id: 18
+  step_name: "最終確認・公開準備"
+  phase: "quality_assurance"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "全成果物の最終確認と公開用フォーマット準備の完了宣言"
+  estimated_duration: "15-25分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      最終チェックの結果と公開準備の完了可否を明確に宣言してください。
+
+prompt:
+  main_instruction: |
+    目的は「最終確認と公開可否の宣言」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step12.md"
+      required: true
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step17.yaml"
+      required: false
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "公開前チェック（権利/表記/禁止事項）を完了"
+  soft_targets:
+    - "品質KPI合否（STEP16）とリスク対策が反映済み"
+    - "伏線/小道具/世界観の回収・整合最終確認"
+
+tasks:
+  bullets:
+    - final_checklist に必須項目の達成状況を記す
+    - release_decision に pass|hold と理由を記す
+  details:
+    - name: 最終チェックリスト
+      items:
+        - id: final.typos
+          text: 誤字/文法/表記の統一
+        - id: final.pov_time_ban
+          text: 視点/時制/禁止表現の最終確認
+        - id: final.world_foreshadow
+          text: 世界観/小道具/伏線の整合と回収
+        - id: final.kpi_applied
+          text: KPI合否が反映済み
+    - name: 公開可否の宣言
+      items:
+        - id: final.verdict
+          text: verdict=pass|hold と notes
+        - id: final.risk
+          text: リスクと対応策のメモ
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step18.yaml"
+  required_fields: ["final_checklist", "release_decision"]
+  example: |
+    final_checklist:
+      typos_fixed: true
+      style_consistent: true
+      platform_rules_ok: true
+      legal_ok: true
+      kpi_passed: true
+      foreshadow_world_consistency_ok: true
+    release_decision:
+      verdict: "pass"
+      notes: "公開準備完了"
+
+acceptance_criteria:
+  checklist:
+    - "release_decision.verdict が pass|hold"
+  by_task:
+    - id: final.verdict
+      field: release_decision.verdict
+      rule: enum:pass|hold
+
+next:
+  next_step_id: 18
+  message_template: |
+    これで完了です。お疲れさまでした。
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  final_step: true

@@ -1,0 +1,24 @@
+{
+  "$id": "docs/mcp/schemas/execute_check_step.expression.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "execute_check_step.options (expression)",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "style_guide": {
+      "type": "string",
+      "enum": ["plain", "literary"],
+      "description": "表現スタイルの指針（既定 'plain'）"
+    },
+    "enable_metaphor_checks": {
+      "type": "boolean",
+      "description": "比喩検知の有効化"
+    },
+    "max_suggestions_per_sentence": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "1文あたりの提案上限"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+# File: templates/quality/checks/polish_stage2_content.yaml
+# Purpose: Stage2 content refinement prompt wired for polish_manuscript_apply Schema v2 workflows.
+# Context: Loaded by polish_manuscript_apply_tool via quality/checks templates directory; aligns with write系 Schema v2 format for consistency.
+
+metadata:
+  step_id: 26
+  step_name: "Polish Stage2 Content"
+  phase: "content_development"
+  version: "2.0.0"
+  last_updated: "2025-09-24"
+  author: "noveler system"
+  description: "Stage2 content refinement focusing on structure, depiction, dialogue, characters"
+  estimated_duration: "20-25分"
+
+llm_config:
+  role_messages:
+    system: |-
+      あなたはContent Refinerです。constraints.hard_rulesを厳密に守り、
+      artifacts.formatに従ったJSONのみを出力してください。Markdownや追加説明は不要です。
+    user: |-
+      Stage2 推敲では構成最適化・描写深化・会話調整・キャラクター魅力の4領域を強化します。
+      tasks と acceptance_criteria を満たし、改善根拠を improvements[*].rationale に必ず記述してください。
+
+prompt:
+  main_instruction: |-
+    目的は「エピソード{episode_number}のStage2内容的推敲」です。以下を実行してください。
+    1. manuscript を推敲し、構成/描写/会話/キャラクターの改善を適用する。
+    2. improvements 配列に主要改善点を最大5件列挙し、reason と before/after 情報を含める。
+    3. 出力は JSON 形式で artifacts.required_fields を満たす。
+
+inputs:
+  files:
+    - path: "{project_root}/40_原稿/第{episode_number:03d}話*.md"
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: "{project_root}/30_設定集/キャラクター設定.yaml"
+      required: false
+      description: キャラクターの一貫性確認用
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - manuscript は Markdown コードブロック (```markdown) 内に出力する
+    - improvements[*] には field/issue/after_text/rationale を含める
+    - 原稿の長さは target_word_count ±20% 以内を目標とする
+  soft_targets:
+    - 冒頭3段落のフックを強化する記述を含める
+    - 会話比率(会話行/総行数)を 35%-55% に調整する
+
+tasks:
+  bullets:
+    - 各シーンの目的とテンポを最適化し、不要な重複を削除する
+    - 五感描写と具体例を追加して臨場感を高める
+    - 説明的会話を行動や描写へ置き換え、テンポを改善する
+    - キャラクターの感情変化と選択の必然性を明示する
+  details:
+    - name: 構成
+      items:
+        - id: stage2.structure
+          text: シーン目的・ペース配分を最適化し、不要な説明を削除する
+    - name: 描写
+      items:
+        - id: stage2.depiction
+          text: 五感/比喩/固有名詞を活用した具体描写で臨場感を高める
+    - name: 会話
+      items:
+        - id: stage2.dialogue
+          text: 説明口調を抑え、キャラクターらしさとテンポを維持する
+    - name: キャラクター
+      items:
+        - id: stage2.character
+          text: 感情変化・動機・成長が明確になるよう再構成する
+
+artifacts:
+  format: json
+  required_fields: ["manuscript", "improvements", "summary"]
+  path_template: "{project_root}/.noveler/polish/stage2_ep{episode_number:03d}.json"
+  example: |-
+    {
+      "manuscript": """```markdown\n改稿後本文…\n```""",
+      "improvements": [
+        {
+          "field": "structure",
+          "issue": "冒頭の導入が遅い",
+          "after_text": "三段落構成で導入を再構成",
+          "rationale": "stage2.structure を満たすため、目的と対立を前倒し"
+        }
+      ],
+      "summary": {
+        "changed_sections": 3,
+        "notes": "テンポ調整と感情線強化を実施"
+      }
+    }
+
+acceptance_criteria:
+  checklist:
+    - manuscript が ```markdown コードブロックで始まり終わる
+    - improvements が1件以上存在し、各要素に field/issue/after_text/rationale が含まれる
+    - summary.changed_sections >= 1
+  metrics:
+    - name: improvements_max
+      target: "<= 5"
+      method: "len(improvements)"
+  by_task:
+    - id: stage2.structure
+      field: improvements
+      rule: nonempty
+    - id: stage2.depiction
+      field: improvements
+      rule: nonempty
+    - id: stage2.dialogue
+      field: improvements
+      rule: nonempty
+    - id: stage2.character
+      field: improvements
+      rule: nonempty

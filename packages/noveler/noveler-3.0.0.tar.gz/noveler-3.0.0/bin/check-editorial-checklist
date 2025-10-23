@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+# File: bin/check-editorial-checklist
+# Purpose: Generate the editorial 12-step checklist (Tier-2 manual review).
+# Context: Non-destructive; emits a markdown checklist for human review. Supports --dry-run.
+set -euo pipefail
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd -- "${SCRIPT_DIR}/.." &> /dev/null && pwd )"
+
+# Load shared defaults
+eval "$(python3 "${ROOT_DIR}/scripts/tools/quality_gate_defaults.py" --format shell)"
+
+OUT="${EDITORIAL_CHECKLIST_REPORT}"
+WORK=""
+EPISODE="${EPISODE_DEFAULT}"
+DRY_RUN=0
+HAS_EPISODE=0
+EXTRA_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --out)
+      [[ $# -ge 2 ]] || { echo "Missing value for --out" >&2; exit 1; }
+      OUT="$2"
+      shift 2
+      ;;
+    --out=*)
+      OUT="${1#*=}"
+      shift
+      ;;
+    --work)
+      [[ $# -ge 2 ]] || { echo "Missing value for --work" >&2; exit 1; }
+      WORK="$2"
+      shift 2
+      ;;
+    --work=*)
+      WORK="${1#*=}"
+      shift
+      ;;
+    --episode)
+      HAS_EPISODE=1
+      [[ $# -ge 2 ]] || { echo "Missing value for --episode" >&2; exit 1; }
+      EPISODE="$2"
+      shift 2
+      ;;
+    --episode=*)
+      HAS_EPISODE=1
+      EPISODE="${1#*=}"
+      shift
+      ;;
+    --dry-run)
+      DRY_RUN=1
+      shift
+      ;;
+    *)
+      EXTRA_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+CMD=(python3 scripts/tools/editorial_checklist_generator.py)
+
+if [[ -n "$WORK" ]]; then
+  CMD+=(--work "$WORK")
+fi
+
+if [[ -n "$EPISODE" ]]; then
+  CMD+=(--episode "$EPISODE")
+fi
+
+CMD+=(--out "$OUT")
+CMD+=("${EXTRA_ARGS[@]}")
+
+if [[ $DRY_RUN -eq 1 ]]; then
+  printf 'DRY-RUN: '
+  printf '%q ' "${CMD[@]}"
+  printf '\n'
+  exit 0
+fi
+
+cd "${ROOT_DIR}"
+exec "${CMD[@]}"

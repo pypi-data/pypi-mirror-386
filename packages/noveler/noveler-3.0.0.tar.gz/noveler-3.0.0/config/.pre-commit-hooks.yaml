@@ -1,0 +1,35 @@
+# DDD準拠性チェック用 pre-commit hooks設定
+
+repos:
+  - repo: local
+    hooks:
+      - id: ddd-compliance-check
+        name: DDD準拠性チェック
+        entry: python -m scripts.infrastructure.ci.ddd_quality_gate
+        args: [--mode=moderate, --check=all]
+        language: system
+        files: ^scripts/.*\.py$
+        fail_fast: true
+
+      - id: ddd-strict-compliance
+        name: DDD厳格準拠性チェック
+        entry: python -m scripts.infrastructure.ci.ddd_quality_gate
+        args: [--mode=strict, --check=compliance]
+        language: system
+        files: ^scripts/(domain|application)/.*\.py$
+        fail_fast: true
+
+      - id: dependency-direction-check
+        name: 依存関係方向チェック
+        entry: python -m scripts.infrastructure.ci.ddd_quality_gate
+        args: [--check=dependencies]
+        language: system
+        files: ^scripts/.*\.py$
+
+      - id: infrastructure-isolation-check
+        name: インフラ層分離チェック
+        entry: python -m scripts.infrastructure.ci.ddd_quality_gate
+        args: [--check=violations]
+        language: system
+        files: ^scripts/(domain|application|presentation)/.*\.py$
+        fail_fast: true

@@ -1,0 +1,7 @@
+issues:
+  - kind: "causality"
+    scene_id: "SC02"
+    detail: "動機と結果の接続が弱い"
+fix_plan:
+  - action: "SC02の冒頭に原因となる描写を追加"
+    owner: "editing"

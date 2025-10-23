@@ -1,0 +1,216 @@
+# STEP 11: リズム・テンポチェック Schema v2
+
+metadata:
+  step_id: 11
+  step_name: リズム・テンポチェック
+  phase: expression_quality
+  version: 2.0.0
+  last_updated: '2025-09-24'
+  author: noveler system
+  description: 文章のリズム・読書テンポ・緊張感の調整を確認
+  estimated_duration: 10-15分
+llm_config:
+  role_messages:
+    system: |-
+      あなたは品質チェックスペシャリストです。constraints.hard_rules を厳守し、
+      出力は artifacts の仕様に従った JSON のみを返してください。追加の説明文は不要です。
+    user: |-
+      リズム・テンポチェック に関する tasks・acceptance_criteria を順守してください。
+      問題が見つからない場合でも issues.<category>[] は空配列として出力し、summary.evidence に根拠を示してください。
+prompt:
+  main_instruction: |-
+    目的は「リズム・テンポチェック」です。inputs・constraints・tasks を満たし、
+    artifacts の仕様に従った JSON をコードブロックなしで出力してください。
+  next_action_instruction: |-
+    ステップ {previous_step_id}「{previous_step_name}」が完了しました。
+
+    続いて、ステップ {step_id}「{step_name}」を実行してください。
+    総合品質認定を行います：
+    1. 全チェック項目の総合評価
+    2. 読者視点での満足度予測
+    3. 公開レベルの品質判定
+    4. 改善提案の優先度付け
+
+    execute_check_step で step_id={step_id} を実行してください。
+inputs:
+  files:
+    - path: '{project_root}/40_原稿/第{episode_number:03d}話*.md'
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: '{project_root}/config/quality_rules.yaml'
+      required: false
+      description: 品質関連の設定があれば参照
+  variables:
+    episode_number:
+      type: int
+      required: true
+    project_root:
+      type: path
+      required: true
+constraints:
+  hard_rules:
+    - summary.overview と metrics.score を必ず出力する
+    - issues は各カテゴリ (issues.*) をキーにもつオブジェクトとして出力する
+    - 各 issue には before_text / after_text / severity / priority を添える
+  soft_targets:
+    - metrics.score は 80 以上を目指す
+    - issues 全体の件数を 5 件以内に抑える（理想値）
+tasks:
+  bullets:
+    - リズム・テンポチェックの観点（文章リズム、テンポ、緊張感、読者エンゲージメント）を俯瞰し、重大度と優先度を判定する
+    - issues.<category>[] に原稿抜粋・修正案・severity・priority・root_cause を含めて整理する
+    - summary.overview に現状と改善方針を200字以内で要約し、summary.evidence に根拠を箇条書きする
+    - metrics.score と metrics.issue_count を更新し、recommendations 
+      に最優先の改善アクションを3件以内で列挙する
+  details:
+    - name: 文章リズム
+      items:
+        - id: checks.rhythm
+          text: '文章リズム観点: 文章の音律・韻律 / 句読点による呼吸 / 語句の響きの調和 / 文章の歌うような流れ'
+    - name: テンポ
+      items:
+        - id: checks.tempo
+          text: 'テンポ観点: 読書速度の調整 / 情報量と読書負荷 / 展開スピードの適切性 / 読者の疲労度管理'
+    - name: 緊張感
+      items:
+        - id: checks.tension
+          text: '緊張感観点: 緊張感の作り方 / 緩急のメリハリ / クライマックスへの盛り上げ / 読者の期待感操作'
+    - name: 読者エンゲージメント
+      items:
+        - id: checks.engagement
+          text: '読者エンゲージメント観点: 読者の注意維持 / 集中力の持続 / 興味の継続性 / ページをめくる動機'
+artifacts:
+  format: json
+  path_template: '{project_root}/.noveler/checks/EP{episode_number:04d}/step{step_id:02d}_quality.json'
+  required_fields:
+    - summary
+    - issues
+    - recommendations
+    - metrics
+  example: |-
+    {
+      "summary": {
+        "overview": "リズム・テンポチェックの主要な所見をここに記述",
+        "score": 82,
+        "evidence": [
+          "文章リズム: 原稿第3段落で誤用を確認"
+        ]
+      },
+      "issues": {
+        "rhythm": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "文章の音律・韻律"
+          }
+        ],
+        "tempo": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "読書速度の調整"
+          }
+        ],
+        "tension": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "緊張感の作り方"
+          }
+        ],
+        "engagement": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "読者の注意維持"
+          }
+        ]
+      },
+      "recommendations": [
+        "誤用箇所を修正し、スタイルガイドに合わせる",
+        "再発防止のために該当セクションを校正する"
+      ],
+      "metrics": {
+        "issue_count": 4,
+        "score": 82,
+        "severity_distribution": {
+          "low": 1,
+          "medium": 3,
+          "high": 0
+        }
+      }
+    }
+acceptance_criteria:
+  checklist:
+    - summary.overview と metrics.score を出力している
+    - issues.<category>[] の各要素に before_text / after_text / severity / priority /
+      rationale が含まれている
+  metrics:
+    - name: issue_count
+      target: '>= 0'
+      method: issues.* の総件数
+    - name: score_range
+      target: 0-100
+      method: metrics.score の範囲検証
+next:
+  next_step_id: 12
+  message_template: |-
+    次のチェックステップは execute_check_step で step_id={next_step_id} を実行してください。
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: checks.rhythm
+      field: issues.rhythm
+      rule: present
+    - id: checks.tempo
+      field: issues.tempo
+      rule: present
+    - id: checks.tension
+      field: issues.tension
+      rule: present
+    - id: checks.engagement
+      field: issues.engagement
+      rule: present
+check_criteria:
+  rhythm:
+    - 文章の音律・韻律
+    - 句読点による呼吸
+    - 語句の響きの調和
+    - 文章の歌うような流れ
+  tempo:
+    - 読書速度の調整
+    - 情報量と読書負荷
+    - 展開スピードの適切性
+    - 読者の疲労度管理
+  tension:
+    - 緊張感の作り方
+    - 緩急のメリハリ
+    - クライマックスへの盛り上げ
+    - 読者の期待感操作
+  engagement:
+    - 読者の注意維持
+    - 集中力の持続
+    - 興味の継続性
+    - ページをめくる動機

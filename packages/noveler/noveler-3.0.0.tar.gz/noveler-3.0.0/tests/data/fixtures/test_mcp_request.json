@@ -1,0 +1,14 @@
+{
+  "jsonrpc": "2.0",
+  "id": "test-1",
+  "method": "tools/call",
+  "params": {
+    "name": "noveler_write",
+    "arguments": {
+      "episode_number": 1,
+      "dry_run": false,
+      "five_stage": true,
+      "project_root": "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド"
+    }
+  }
+}

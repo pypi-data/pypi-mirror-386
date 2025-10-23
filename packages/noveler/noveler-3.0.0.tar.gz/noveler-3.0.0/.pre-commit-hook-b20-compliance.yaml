@@ -1,0 +1,61 @@
+# B20準拠性 Pre-commit Hook 設定
+# Phase 3: 95%以上の準拠性達成のための自動検証システム
+
+repos:
+  - repo: local
+    hooks:
+      # B20準拠性チェック（必須）
+      - id: b20-compliance-check
+        name: B20_Claude_Code開発作業指示書準拠性チェック
+        entry: python check_tdd_ddd_compliance.py --quick
+        language: system
+        always_run: true
+        fail_fast: true
+        stages: [commit, push]
+
+      # Console直接インスタンス化検出（Critical）
+      - id: console-instantiation-check
+        name: Console()直接インスタンス化検出
+        entry: bash -c 'if grep -r "Console()" src/ --include="*.py"; then echo "❌ Console()直接インスタンス化を検出。shared_utilitiesのconsoleを使用してください"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      # import logging直接使用検出（High）
+      - id: import-logging-check
+        name: import logging直接使用検出
+        entry: bash -c 'if grep -r "^import logging$" src/ --include="*.py"; then echo "❌ import logging直接使用を検出。統一ロギングシステムを使用してください"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      # パスハードコーディング検出（High）
+      - id: path-hardcoding-check
+        name: パスハードコーディング検出
+        entry: bash -c 'if grep -r "40_原稿\|50_管理資料" src/ tests/ --include="*.py" | grep -v "# B20準拠" | grep -v "test_"; then echo "❌ パスハードコーディングを検出。PathServiceを使用してください"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      # B20インポートパス違反検出（Medium）
+      - id: import-path-violation-check
+        name: B20インポートパス違反検出
+        entry: bash -c 'if grep -r "from noveler.presentation.cli.shared_utilities" src/ scripts/ --include="*.py"; then echo "❌ B20違反インポートパスを検出。scripts.presentation.cli.shared_utilitiesを使用してください"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+# 統合品質ゲート設定
+quality_gates:
+  critical_threshold: 0  # Critical違反は0件必須
+  high_threshold: 2      # High違反は2件以内許容
+  overall_compliance: 95 # 全体準拠率95%以上必須
+
+# 自動修正サポート
+auto_fix_enabled:
+  - console_instantiation  # Console()→console置換
+  - import_logging        # import logging→get_unified_logger置換
+  - path_hardcoding      # ハードコードパス→PathService置換
+
+# レポート出力設定
+reporting:
+  format: "json"
+  output_path: "reports/b20_compliance_report.json"
+  include_suggestions: true
+  verbose_mode: true

@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""
+小説執筆支援システム統合CLI（本番版）
+Novel Writing Support System Integrated CLI (Production)
+
+本番モード：
+- dist/ディレクトリの安定版コードを使用
+- MCPサーバー専用エントリーポイント
+- プロダクション最適化
+"""
+
+import os
+import sys
+import subprocess
+from pathlib import Path
+
+# 本番用フラグを設定
+os.environ["NOVEL_PRODUCTION_MODE"] = "1"
+
+# ガイドルートを特定
+def find_guide_root():
+    """ガイドルート（00_ガイド）を確実に特定"""
+    current_file = Path(__file__).resolve()
+
+    # bin/novelerからの相対パス
+    if current_file.name == "noveler" and current_file.parent.name == "bin":
+        return current_file.parent.parent
+
+    # フォールバック
+    return current_file.parent.parent
+
+BASE_DIR = find_guide_root()
+
+# 本番用ディストリビューション/ソースのパス
+DIST_DIR = BASE_DIR / "dist"
+SRC_DIR = BASE_DIR / "src"
+DIST_MAIN = DIST_DIR / "noveler" / "main.py"
+SRC_MAIN = SRC_DIR / "noveler" / "main.py"
+
+import sys as _sys
+
+def _is_dist_outdated(dist_main: Path, src_main: Path) -> bool:
+    try:
+        return dist_main.stat().st_mtime < src_main.stat().st_mtime
+    except Exception:
+        return True
+
+
+# 実行ターゲットの選定（dist優先、なければsrcへフォールバック）
+use_src_fallback = False
+if not DIST_MAIN.exists():
+    use_src_fallback = True
+elif SRC_MAIN.exists() and _is_dist_outdated(DIST_MAIN, SRC_MAIN):
+    use_src_fallback = True
+
+# dist/またはsrc を PYTHONPATH に設定
+os.environ["GUIDE_ROOT"] = str(BASE_DIR)
+if not use_src_fallback and DIST_DIR.exists():
+    os.environ["PYTHONPATH"] = f"{str(DIST_DIR)}:{os.environ.get('PYTHONPATH', '')}"
+    os.environ["NOVEL_USE_DIST"] = "1"
+else:
+    # フォールバック: src を使用
+    os.environ["PYTHONPATH"] = f"{str(SRC_DIR)}:{os.environ.get('PYTHONPATH', '')}"
+    os.environ["NOVEL_USE_DIST"] = "0"
+
+target_script = DIST_MAIN if not use_src_fallback else SRC_MAIN
+
+# 実行モード表示（情報はstderrへ）
+if use_src_fallback:
+    print("⚠️ dist が不在/古いため src をフォールバック使用します", file=_sys.stderr)
+else:
+    print("🏭 本番モードで実行中 - dist を使用しています", file=_sys.stderr)
+print("", file=_sys.stderr)
+
+# 選択した main.py の実行
+try:
+    result = subprocess.run([sys.executable, str(target_script)] + sys.argv[1:])
+    sys.exit(result.returncode)
+except Exception as e:
+    print(f"❌ noveler コマンド実行エラー: {e}")
+    sys.exit(1)

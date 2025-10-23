@@ -1,0 +1,98 @@
+# STEP 10: 雰囲気・世界観描写 Schema v2
+
+metadata:
+  step_id: 10
+  step_name: "雰囲気・世界観描写"
+  phase: "content_development"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "各シーンのムード・五感ミックス・世界観開示を設計"
+  estimated_duration: "15-20分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      視覚以外の感覚比率が30%以上になるよう調整してください。
+
+prompt:
+  main_instruction: |
+    目的は「雰囲気・世界観の描写設計」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step09.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "非視覚感覚比率 ≥ 0.30"
+
+tasks:
+  bullets:
+    - scenes[] に mood/sensory_mix/world_notes を定義する
+  details:
+    - name: ムード設計
+      items:
+        - id: mood.base
+          text: sceneごとの基調（緊張/安堵 等）
+        - id: mood.emotion_align
+          text: emotion_curve との整合
+    - name: 五感ミックス
+      items:
+        - id: sense.sum
+          text: sensory_mix 合計≈1.0
+        - id: sense.non_visual
+          text: 非視覚感覚比率 ≥ 0.30 を満たす
+    - name: 世界観開示
+      items:
+        - id: world.reveal
+          text: 制度/文化/小物の自然な提示
+        - id: world.links
+          text: 伏線/小道具との紐付け
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step10.yaml"
+  required_fields: ["scenes"]
+  example: |
+    scenes:
+      - id: "SC03"
+        mood: "静かな緊張"
+        sensory_mix: { visual: 0.6, auditory: 0.2, tactile: 0.1, olfactory: 0.1, gustatory: 0.0 }
+        world_notes: ["制度○○の暗示", "文化××の小物"]
+
+acceptance_criteria:
+  checklist:
+    - "全シーンで sensory_mix の合計 ≈ 1.0"
+    - "非視覚感覚比率 ≥ 0.30"
+  by_task:
+    - id: sense.non_visual
+      field: scenes
+      rule: nonempty
+
+next:
+  next_step_id: 11
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=11
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

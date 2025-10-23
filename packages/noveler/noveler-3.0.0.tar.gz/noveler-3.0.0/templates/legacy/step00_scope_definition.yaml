@@ -1,0 +1,80 @@
+# STEP 0: スコープ定義プロンプトテンプレート
+# 18ステップ執筆システム - エピソード目的・範囲・文字数目標の明確化
+
+metadata:
+  step_id: 0
+  step_name: "スコープ定義"
+  phase: "structural_design"
+  version: "1.0.0"
+  last_updated: "2025-01-09"
+  author: "noveler system"
+  description: "エピソードの目的・範囲・文字数目標を明確に定義"
+  estimated_duration: "5-10分"
+
+prompt:
+  main_instruction: |
+    【重要】このステップ（STEP {step_id}）のみを実行してください。
+    複数ステップを一括で実行しないでください。
+
+    === 現在のステップ ===
+    STEP {step_id}: {step_name}
+    進捗: {completed_steps}/{total_steps} ステップ完了
+    フェーズ: {phase}
+
+    === 作業内容 ===
+    エピソード{episode_number}のスコープを定義します：
+
+    1. **主要目標の設定**
+       - このエピソードで達成したい物語上の目標
+       - 読者に与えたい感情的体験
+       - キャラクターの成長・変化ポイント
+
+    2. **文字数目標の設定**
+        - 目安: 5000-8000文字
+        - シーン数に応じた配分
+        - 読者の読了時間を考慮（15-20分）
+
+    3. **読者への影響の明確化**
+        - 期待される感情的効果
+        - 次話への期待値設計
+        - シリーズ全体への貢献
+
+  completion_criteria: |
+    以下が完了したら、このステップは完了です：
+    ✓ エピソードの主要目標が具体的に定義されている
+    ✓ 文字数目標が適切に設定されている（5000-8000文字目安）
+    ✓ 読者への期待される影響が明記されている
+    ✓ 次ステップへの準備が整っている
+
+  next_action_instruction: |
+    【次のアクション】
+    このステップが完了したら、以下を行ってください：
+
+    1. **結果の報告**
+       - スコープ定義の内容を整理して報告
+       - 設定した目標の妥当性を確認
+
+    2. **次ステップの準備**
+       - 次のステップは以下のコマンドで実行します：
+       ```
+       execute_writing_step episode_number={episode_number} step_id=1
+       ```
+
+    **⚠️ 重要**:
+    - 次のステップは別途指示があるまで実行しないでください
+    - 複数ステップを一括実行しないでください
+    - このステップの完了を確認してから進んでください
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true      # 厳格な単一ステップ実行
+  require_completion_confirm: true  # 完了確認必須
+  auto_advance_disabled: true   # 自動進行無効化
+  batch_execution_blocked: true # バッチ実行ブロック

@@ -1,0 +1,137 @@
+# 自己トリガー型Claude品質チェックプロンプトテンプレート
+# Phase 4.1: 一気通貫ワークフロー実現のための拡張テンプレート
+
+metadata:
+  template_name: "self_triggering_quality_check"
+  version: "1.0.0"
+  purpose: "一気通貫品質チェック・プロンプト生成システム"
+  next_action: "EXECUTE_QUALITY_CHECK"
+
+# セッション連携情報
+session_info:
+  session_id: "{{ session_id }}"
+  episode_number: "{{ episode_number }}"
+  project_name: "{{ project_name }}"
+  trigger_command: "novel check {{ episode_number }} --claude-execute-from-prompt --session-id={{ session_id }}"
+
+# Claude Code向け実行指示（プロンプト末尾に追加）
+claude_code_instructions: |
+
+  ## 🔄 一気通貫ワークフロー継続指示
+
+  **このプロンプト分析完了後、必ず以下のコマンドを実行してください：**
+
+  ```bash
+  novel check {{ episode_number }} --claude-execute-from-prompt --session-id={{ session_id }}
+  ```
+
+  ### このコマンドの効果：
+  1. **Claude分析結果を自動取得** - あなたの分析内容をシステムが読み取り
+  2. **品質スコア統合計算** - 基本チェック + A31評価 + Claude分析の統合
+  3. **最終改善提案生成** - 全段階の結果を踏まえた包括的提案
+  4. **一気通貫完了** - 手動作業なしで全工程完了
+
+  ### 重要：分析フォーマット指定
+  あなたの分析は以下の構造化フォーマットで出力してください：
+
+  ```yaml
+  claude_analysis_result:
+    session_id: "{{ session_id }}"
+    episode_number: "{{ episode_number }}"
+    total_score: [0-100の数値]
+
+    detailed_scores:
+      narrative_flow: [0-25]
+      character_development: [0-25]
+      dialogue_quality: [0-25]
+      structural_coherence: [0-25]
+
+    improvement_suggestions:
+      - "具体的改善提案1"
+      - "具体的改善提案2"
+      - "具体的改善提案3"
+
+    priority_fixes:
+      high:
+        - "高優先度修正点1"
+        - "高優先度修正点2"
+      medium:
+        - "中優先度修正点1"
+      low:
+        - "低優先度修正点1"
+
+    enhanced_excerpts:
+      - original: "修正前のテキスト"
+        improved: "修正後の提案テキスト"
+        reason: "修正理由"
+  ```
+
+  **🎯 このフォーマットにより、システムが自動的にあなたの分析を取り込み、一気通貫ワークフローが完成します！**
+
+# 基本品質チェックプロンプト本体
+quality_check_prompt: |
+  # 第{{ episode_number }}話 品質チェック・改善分析
+
+  ## 📋 チェック対象
+  **作品名**: {{ project_name }}
+  **エピソード**: 第{{ episode_number }}話
+  **タイトル**: {{ episode_title }}
+  **文字数**: {{ word_count }}文字
+
+  ## 🎯 分析目標
+  以下の4つの観点から詳細分析し、具体的な改善提案を行ってください：
+
+  ### 1. 物語の流れ (narrative_flow) - 25点満点
+  - シーン遷移の自然さ
+  - 情報提示のタイミング
+  - テンポ・リズムの適切性
+  - 読者の関心維持
+
+  ### 2. キャラクター発達 (character_development) - 25点満点
+  - キャラクターの一貫性
+  - 感情表現の深さ
+  - 行動動機の明確性
+  - 成長・変化の描写
+
+  ### 3. 対話品質 (dialogue_quality) - 25点満点
+  - 自然な会話の流れ
+  - キャラクター固有の話し方
+  - 情報伝達の効率性
+  - 感情・関係性の表現
+
+  ### 4. 構成の妥当性 (structural_coherence) - 25点満点
+  - 章全体との整合性
+  - 前話からの継続性
+  - 次話への繋がり
+  - テーマの一貫性
+
+  ## 📝 原稿内容
+  ```
+  {{ manuscript_content }}
+  ```
+
+  ## 🔍 既存の分析結果（参考）
+
+  ### 基本品質チェック結果
+  {{ basic_check_results }}
+
+  ### A31評価結果
+  {{ a31_check_results }}
+
+  ## 📊 分析要求
+
+  1. **総合評価**: 100点満点での採点（上記4観点の合計）
+  2. **観点別詳細分析**: 各25点満点での採点と具体的フィードバック
+  3. **優先順位付き改善提案**: High/Medium/Low別の修正提案
+  4. **改善例示**: 具体的な文章修正例（before/after）
+  5. **次回執筆への提言**: 今後の執筆で注意すべきポイント
+
+  ## ⚠️ 重要な注意事項
+  - **構造化出力必須**: 上記で指定したYAML形式で出力
+  - **具体性重視**: 抽象的でなく、実行可能な提案を
+  - **建設的批判**: 問題指摘だけでなく解決策も提示
+  - **読者視点**: 読者の体験を最優先に考慮
+
+  ---
+
+  **🔄 分析完了後は、上記の継続コマンドを必ず実行して一気通貫ワークフローを完成させてください！**

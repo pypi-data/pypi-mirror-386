@@ -1,0 +1,464 @@
+# ドキュメント索引
+# 最終更新: 2025-08-27 (JSON変換・MCPツール統合システムガイド追加)
+# 用途: CLAUDE.mdからの参照先として、全ドキュメントの体系的な一覧
+
+metadata:
+  version: "1.0.0"
+  purpose: "プロジェクト内の全ドキュメントへの統一的なアクセスポイント"
+  usage: "@~/docs/_index.yaml で参照可能"
+
+categories:
+  # ========================================
+  # 開発者向けドキュメント
+  # ========================================
+  developer_guides:
+    title: "システム開発者向け"
+    priority: 1
+    documents:
+      quick_start:
+        file: "guides/quick_start.md"
+        description: "システム導入・初期設定ガイド"
+        tags: ["入門", "セットアップ"]
+
+      architecture:
+        file: "B00_情報システム開発ガイド.md"
+        description: "アーキテクチャ・テスト・コマンド統合ガイド"
+        tags: ["アーキテクチャ", "DDD", "TDD"]
+        related: ["B20_Claude_Code開発作業指示書.md", "B30_Claude_Code品質作業指示書.md"]
+
+      claude_code_operations:
+        file: "B20_Claude_Code開発作業指示書.md"
+        description: "Claude Code開発標準プロセス"
+        tags: ["Claude Code", "開発プロセス"]
+        importance: "critical"
+
+      quality_management:
+        file: "B30_Claude_Code品質作業指示書.md"
+        description: "品質管理・共通コンポーネント管理"
+        tags: ["品質管理", "コンポーネント"]
+
+      mcp_microservices_design:
+        file: "B31_MCPマイクロサービス設計ガイド.md"
+        description: "MCPツールマイクロサービス設計原則・実装指針"
+        tags: ["MCP", "マイクロサービス", "設計", "アーキテクチャ"]
+        importance: "high"
+        note: "17個のMCPツール設計原則・単一責任・独立実行・拡張指針"
+
+      mcp_tools_integration:
+        file: "B33_MCPツール統合ガイド.md"
+        description: "18個のマイクロサービス型MCPツール統合ガイド（JSON変換・Claude Code統合）"
+        tags: ["MCP", "マイクロサービス", "JSON変換", "Claude Code", "トークン削減", "統合"]
+        importance: "essential"
+        note: "v2.0.0統合版：18個専門ツール・95%トークン削減・チェック→修正→再チェック効率化"
+
+      progressive_check_api:
+        file: "mcp/progressive_check_api.md"
+        description: "Progressive Check API 仕様（段階的品質検査の実行・参照・履歴）"
+        tags: ["MCP", "API", "品質チェック", "progressive"]
+        importance: "high"
+        related: ["B33_MCPツール統合ガイド.md"]
+
+      ddd_compliance_system:
+        file: "memory://DDD準拠性チェック統合改善実装履歴"
+        description: "DDD準拠性チェック統合システム実装詳細"
+        tags: ["DDD", "品質チェック", "キャッシュ", "エラー復旧", "ダッシュボード"]
+        components:
+          - "ddd_compliance_engine.py"
+          - "ddd_compliance_cache.py"
+          - "change_impact_analyzer.py"
+          - "unified_report_manager.py"
+          - "quality_check_recovery.py"
+          - "performance_monitor.py"
+          - "quality_dashboard_generator.py"
+          - "check_tdd_ddd_compliance.py"
+
+      logging_system:
+        file: "B35_統一ロギングシステムガイド.md"
+        description: "ロギング実装標準"
+        tags: ["ログ", "監視"]
+
+      archived_improvements:
+        file: "reports/archived_2025_08_30/B31_システム改善完了報告書.md"
+        description: "システム改善実行履歴（2025-08-26実行分）"
+        tags: ["履歴", "アーカイブ", "改善実績"]
+        importance: "reference"
+        note: "歴史的記録・実装履歴として保存"
+
+      security:
+        file: "B40_セキュリティ基礎・脆弱性対策.md"
+        description: "セキュリティ実装ガイドライン"
+        tags: ["セキュリティ", "脆弱性"]
+
+      operations:
+        file: "B50_システム運用基礎.md"
+        description: "システム運用・保守ガイド"
+        tags: ["運用", "保守"]
+
+      common_issues:
+        file: "04_よくあるエラーと対処法.md"
+        description: "エラー対処・トラブルシューティング"
+        tags: ["エラー", "対処法"]
+
+  # ========================================
+  # 執筆者向けドキュメント
+  # ========================================
+  # ========================================
+  # 番号体系・メタ管理（A0x）
+  # ========================================
+  numbering_system:
+    title: "A番号体系・メタ管理"
+    priority: 1.5
+    documents:
+      numbering_integrated:
+        file: "A02_番号体系定義・運用ガイド.md"
+        description: "A番号体系の基本定義と実践的運用方法統合ガイド"
+        tags: ["番号体系", "定義", "運用", "偶数", "作業ガイド", "統合"]
+        importance: "critical"
+        note: "A01とA02を統合、ペア構造準拠版"
+        version: "v2.0.0"
+
+      numbering_compliance:
+        file: "A03_番号体系準拠チェック.md"
+        description: "番号体系準拠性の包括的検証チェックリスト"
+        tags: ["番号体系", "チェック", "奇数", "品質保証"]
+        importance: "critical"
+        note: "A02運用ルールの実行チェック"
+
+  writer_guides:
+    title: "小説執筆者向け"
+    priority: 2
+    documents:
+      comprehensive_guide:
+        file: "A00_総合実践ガイド.md"
+        description: "実践的使用方法から問題解決まで総合サポート"
+        tags: ["実践", "トラブルシューティング", "総合"]
+        importance: "essential"
+        note: "03_実践的な使用例集.md と 04_よくあるエラーと対処法.md を統合"
+
+      project_init:
+        file: "A16_プロジェクト初期化ガイド.md"
+        description: "新規プロジェクト立ち上げ手順"
+        tags: ["初期化", "セットアップ"]
+      project_init_check:
+        file: "A17_プロジェクト初期化チェック.md"
+        description: "A16完了後の品質チェックリスト"
+        tags: ["チェック", "初期化", "奇数"]
+
+      planning:
+        subcategory: "企画・設計"
+        items:
+          planning_workflow:
+            file: "A10_企画段階ワークフロー.md"
+            description: "企画段階の基本フロー・プロセス定義（x0 - ワークフロー定義）"
+            tags: ["ワークフロー", "企画"]
+
+          market_analysis:
+            file: "A12_市場分析・ジャンル研究ガイド.md"
+            description: "市場調査とジャンル分析の詳細手法"
+            tags: ["市場分析", "ジャンル"]
+
+          concept_design:
+            file: "A14_企画設計・コンセプト策定ガイド.md"
+            description: "企画立案とコンセプト設計（A11→A14リネーム）"
+            tags: ["企画", "コンセプト"]
+            quality_check: "A15_企画品質基準.md"
+            migration_note: "A11→A14リネーム完了。品質基準はA15に分離"
+
+          concept_quality_check:
+            file: "A15_企画品質基準.md"
+            description: "A14企画設計完了後の品質チェック専用基準"
+            tags: ["品質基準", "企画", "チェック"]
+            prerequisite: "A14_企画設計・コンセプト策定ガイド.md完了必須"
+            usage_timing: "A14完了後→A24プロット作成前"
+
+          settings_plot_workflow:
+            file: "A20_設定・プロット段階ワークフロー.md"
+            description: "設定・プロット段階の基本フロー・プロセス定義（x0 - ワークフロー定義）"
+            tags: ["ワークフロー", "設定", "プロット"]
+
+          world_building:
+            file: "A22_世界観構築ガイド.md"
+            description: "世界観設定の体系的構築手法"
+            tags: ["世界観", "設定"]
+          world_building_check:
+            file: "A23_世界観構築チェック.md"
+            description: "A22完了後の品質チェックリスト"
+            tags: ["チェック", "世界観", "奇数"]
+
+          character_design:
+            file: "A24_キャラクター設計ガイド.md"
+            description: "キャラクター造形と設定"
+            tags: ["キャラクター", "設定"]
+          character_design_check:
+            file: "A25_キャラクター設計チェック.md"
+            description: "A24完了後の品質チェックリスト"
+            tags: ["チェック", "キャラクター", "奇数"]
+
+      plot_creation:
+        subcategory: "プロット作成"
+        items:
+          plot_prompts:
+            file: "A28_話別プロットプロンプト.md"
+            description: "Claude Code実行前提：話別プロット作成統合プロンプト（3フェーズシンプル実行）"
+            tags: ["プロット", "Claude Code", "プロンプト", "統合", "3フェーズ", "コピペ実行"]
+            note: "v2.0.0: 使いやすさ重視で全面改良。A30同等のシンプル実行を実現"
+            version: "v2.0.0"
+            improvements:
+              - "300行のコンパクト設計（旧版1743行から83%削減）"
+              - "3フェーズ統合実行（6ステップから50%削減）"
+              - "コピペ可能な統合プロンプト"
+              - "A30_執筆プロンプト.md同等の使いやすさ"
+            archive_note: "v1.x系（6ステップ版）はarchive/A24_legacy/に移動済み"
+
+          plot_quality_standards:
+            file: "A29_話別プロット品質基準.md"
+            description: "プロット品質チェック項目（統合済み）"
+            tags: ["品質基準", "プロット", "統合"]
+            migration_note: "旧A25_プロット作成チェックリスト.yamlはA29_話別プロット品質基準.mdに統合→archive/yaml_legacy/に移動済み"
+
+      writing:
+        subcategory: "執筆・品質管理"
+        items:
+          writing_workflow:
+            file: "A30_執筆ワークフロー.md"
+            description: "原稿作成段階の基本フロー・プロセス定義"
+            tags: ["ワークフロー", "x0", "基本フロー", "判断基準"]
+            version: "v1.0.0"
+            note: "A30→基本ワークフロー定義として番号体系準拠修正"
+            role: "x0 - ワークフロー定義"
+
+          writing_prompt_system:
+            file: "A38_執筆プロンプトガイド.md"
+            description: "AI/人間協創執筆詳細プロンプト統合ガイド"
+            tags: ["AI協創", "執筆プロンプト", "15ステップ", "統合版", "x8"]
+            version: "v5.0.0-unified"
+            note: "A30分割版4ファイルをA38に統合・番号体系準拠"
+            role: "x8 - 作業ガイド（詳細実装）"
+            migration_status: "A30分割版4ファイル統合完了"
+            source_files:
+              - "A30分割版ファイル群（archive/A30_v4_divided_legacy/に移動済み）"
+            optimization_results:
+              token_reduction: "統合版42,746トークン → 分割版4ファイル合計29,300トークン（31%削減）"
+              reference_precision: "@ファイル参照によるSTEP実行時の確実な参照実現"
+              modularity: "機能分離による保守性向上・独立更新可能"
+              accuracy: "Claude処理精度向上（コア実行19,400トークン・参照時4,600トークンで最適化）"
+          writing_prompt_check:
+            file: "A39_執筆プロンプトチェック.md"
+            description: "A38運用結果の品質チェックリスト（STEP 0-17）"
+            tags: ["チェック", "執筆", "奇数"]
+
+          cli_commands:
+            file: "A32_執筆コマンドガイド.md"
+            description: "執筆支援CLIコマンド完全リファレンス（A33統合版・番号体系準拠）"
+            tags: ["CLI", "コマンド", "統合版", "偶数"]
+            note: "A31→A32リナンバー。A33_執筆品質チェックコマンドガイド.mdの内容を統合済み"
+
+          quality_check:
+            file: "A33_執筆品質管理チェック.md"
+            description: "A32執筆コマンドガイドの実行チェックリスト"
+            tags: ["品質", "チェック", "奇数"]
+            note: "A32→A33リナンバー。A32のチェックリスト化"
+
+      workflow:
+        subcategory: "ワークフロー"
+        items:
+          integrated_workflow:
+            file: "A34_一気通貫実践ガイド.md"
+            description: "企画から投稿までの統合ワークフロー"
+            tags: ["ワークフロー", "統合"]
+
+          ai_collaboration:
+            file: "A36_AI協創執筆ガイド.md"
+            description: "AI活用執筆手法（番号体系準拠）"
+            tags: ["AI", "執筆", "偶数"]
+            note: "A35→A36リナンバー。独立ガイドを偶数に変更"
+          ai_collaboration_check:
+            file: "A37_AI協創執筆チェック.md"
+            description: "A36完了後の品質チェックリスト"
+            tags: ["チェック", "AI協創", "奇数"]
+
+      refinement:
+        subcategory: "推敲・改善"
+        items:
+          revision_guide:
+            file: "A40_推敲品質ガイド.md"
+            description: "推敲技法と品質向上"
+            tags: ["推敲", "改善"]
+
+          revision_quality_standards:
+            file: "A40_推敲品質ガイド.md"
+            description: "推敲品質チェック項目（統合済み）"
+            tags: ["品質基準", "推敲", "統合"]
+            migration_note: "旧A41_推敲品質チェックリスト.yamlはA40_推敲品質ガイド.mdに統合→archive/yaml_legacy/に移動済み"
+          revision_check:
+            file: "A41_推敲品質チェック.md"
+            description: "A40完了後の品質チェックリスト（Markdown版）"
+            tags: ["チェック", "推敲", "奇数"]
+
+      publishing:
+        subcategory: "投稿・運営"
+        items:
+          publishing_strategy:
+            file: "A50_投稿戦略・タイミング管理ガイド.md"
+            description: "投稿計画と戦略立案"
+            tags: ["投稿", "戦略"]
+          publishing_strategy_check:
+            file: "A51_投稿戦略チェック.md"
+            description: "A50完了後の運用チェックリスト"
+            tags: ["チェック", "投稿", "奇数"]
+
+          viewpoint_management:
+            file: "A56_視点管理システム統合ガイド.md"
+            description: "視点切り替えと管理"
+            tags: ["視点", "管理"]
+
+          reader_analysis:
+            file: "A60_読者分析・離脱率最適化.md"
+            description: "読者動向分析と改善"
+            tags: ["分析", "最適化"]
+          reader_analysis_check:
+            file: "A61_読者分析チェック.md"
+            description: "A60運用の品質チェックリスト"
+            tags: ["チェック", "分析", "奇数"]
+
+  # ========================================
+  # 実践例・リファレンス
+  # ========================================
+  practical_guides:
+    title: "実践的リファレンス"
+    priority: 3
+    documents:
+      # 注意: 03_実践的な使用例集.md と 04_よくあるエラーと対処法.md は
+      #       A00_総合実践ガイド.md に統合済み（writer_guides セクション参照）
+
+# 統合マスターガイドと重複防止ガイドラインは archive/ へ移動（使用頻度低・情報古い）
+
+      structure_report:
+        file: "00_docs構造最新化報告書.md"
+        description: "ドキュメント構造の最新状況"
+        tags: ["構造", "報告"]
+
+      claude_settings:
+        file: "claude_code/setup_guide.md"
+        description: "Claude Code環境設定"
+        tags: ["設定", "Claude Code"]
+
+  # ========================================
+  # アーカイブ・その他
+  # ========================================
+  archives:
+    title: "アーカイブ・参考資料"
+    priority: 4
+    directories:
+      archive:
+        path: "docs/archive/"
+        description: "過去バージョン・廃止ドキュメント"
+
+      yaml_legacy_archive:
+        path: "docs/archive/yaml_legacy/"
+        description: "廃止されたYAMLチェックリスト（2025-08-23統合により廃止）"
+        files:
+          - "A25_プロット作成チェックリスト.yaml → A29_話別プロット品質基準.md"
+          - "A41_推敲品質チェックリスト.yaml → A40_推敲品質ガイド.md"
+          - "A11_企画設計チェックリスト.yaml → A14_企画設計・コンセプト策定ガイド.md#企画設計品質チェック項目統合"
+
+      reports:
+        path: "docs/reports/"
+        description: "各種レポート・分析結果"
+        files:
+          - "changelog.md"
+          - "spec_mcp_hash_001_completion.md"
+
+      technical:
+        path: "docs/technical/"
+        description: "技術メモ・構成上の補足資料"
+        files:
+          - "plc0415_deferred_imports.md"
+
+      specs:
+        path: "specs/"
+        description: "仕様書・設計書"
+
+      templates:
+        path: "templates/"
+        description: "テンプレート・雛形"
+
+# ========================================
+# クイックアクセス（頻繁に参照されるもの）
+# ========================================
+quick_access:
+  essential_for_development:
+    - "B20_Claude_Code開発作業指示書.md"
+    - "B30_Claude_Code品質作業指示書.md"
+    - "B31_MCPマイクロサービス設計ガイド.md"  # MCPマイクロサービス設計原則
+    - "B33_MCPツール統合ガイド.md"  # 17個MCPツール統合・95%トークン削減システム
+    - "B00_情報システム開発ガイド.md"
+
+  essential_for_numbering:
+    - "A02_番号体系定義・運用ガイド.md"  # 統合版：全Aファイル番号ルール基準＆実践運用方法
+    - "A03_番号体系準拠チェック.md"  # 品質保証チェックリスト
+
+  essential_for_writing:
+    - "A00_総合実践ガイド.md"  # 実践例とトラブルシューティング統合版
+    - "A30_執筆ワークフロー.md"  # 執筆段階基本フロー・プロセス定義
+    - "A38_執筆プロンプトガイド.md"  # AI協創執筆詳細プロンプト統合ガイド（v5.0.0統合版）
+    - "A28_話別プロットプロンプト.md"  # A28統合マスター（全A28ガイド統合版）
+    - "A29_話別プロット品質基準.md"  # A29話別プロット品質基準
+    - "A32_執筆コマンドガイド.md"
+    - "A34_一気通貫実践ガイド.md"  # 統合ワークフロー実装
+    - "A33_執筆品質管理チェック.md"
+    - "A41_推敲品質チェック.md"
+
+  troubleshooting:
+    - "A00_総合実践ガイド.md"  # トラブルシューティング統合版
+    - "B40_セキュリティ基礎・脆弱性対策.md"
+
+# ========================================
+# 検索用タグインデックス
+# ========================================
+tag_index:
+  development:
+    - "アーキテクチャ": ["B00_情報システム開発ガイド.md"]
+    - "品質管理": ["B30_Claude_Code品質作業指示書.md", "A33_執筆品質管理チェック.md"]
+    - "Claude Code": ["B20_Claude_Code開発作業指示書.md", "claude_code/setup_guide.md"]
+    - "MCP": ["B31_MCPマイクロサービス設計ガイド.md", "B33_MCPツール統合ガイド.md"]
+    - "マイクロサービス": ["B31_MCPマイクロサービス設計ガイド.md", "B33_MCPツール統合ガイド.md"]
+    - "JSON変換": ["B33_MCPツール統合ガイド.md"]
+    - "システム統合": ["B33_MCPツール統合ガイド.md"]
+
+  system:
+    - "番号体系": ["A02_番号体系定義・運用ガイド.md", "A03_番号体系準拠チェック.md"]
+
+  writing:
+    - "実践": ["A00_総合実践ガイド.md"]
+    - "プロット": ["A28_話別プロットプロンプト.md", "A29_話別プロット品質基準.md"]  # A28統合マスター＆A29品質基準
+    - "執筆": ["A30_執筆ワークフロー.md", "A38_執筆プロンプトガイド.md"]  # A30基本フロー+A38統合プロンプト（v5.0.0）
+    - "ワークフロー": ["A30_執筆ワークフロー.md", "A34_一気通貫実践ガイド.md", "A36_AI協創執筆ガイド.md"]
+    - "品質": ["A40_推敲品質ガイド.md", "A33_執筆品質管理チェック.md", "A41_推敲品質チェック.md", "A39_執筆プロンプトチェック.md"]
+    - "チェック": ["A17_プロジェクト初期化チェック.md", "A23_世界観構築チェック.md", "A25_キャラクター設計チェック.md", "A33_執筆品質管理チェック.md", "A37_AI協創執筆チェック.md", "A39_執筆プロンプトチェック.md", "A41_推敲品質チェック.md", "A51_投稿戦略チェック.md", "A61_読者分析チェック.md"]
+    - "トラブルシューティング": ["A00_総合実践ガイド.md"]
+
+  operations:
+    - "CLI": ["A32_執筆コマンドガイド.md"]
+
+# ========================================
+# 使用方法
+# ========================================
+usage:
+  reference_from_claude_md: |
+    CLAUDE.mdから以下のように参照:
+    - index: @~/docs/_index.yaml
+
+  direct_file_access: |
+    特定ファイルへの直接アクセス:
+    - @~/docs/B20_Claude_Code開発作業指示書.md
+    - @~/docs/A38_執筆プロンプトガイド.md  # AI協創執筆詳細プロンプト統合ガイド（v5.0.0）
+    - @~/docs/A28_話別プロットプロンプト.md  # A28統合マスター
+    - @~/docs/A29_話別プロット品質基準.md  # A29話別プロット品質基準
+    - @~/docs/A33_執筆品質管理チェック.md
+    - @~/docs/A41_推敲品質チェック.md
+
+  search_by_tag: |
+    タグによる検索:
+    - 品質管理関連: tag_index.development["品質管理"]
+    - プロット関連: tag_index.writing["プロット"]

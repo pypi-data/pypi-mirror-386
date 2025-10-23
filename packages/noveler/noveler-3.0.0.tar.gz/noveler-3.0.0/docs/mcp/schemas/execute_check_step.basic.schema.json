@@ -1,0 +1,28 @@
+{
+  "$id": "docs/mcp/schemas/execute_check_step.basic.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "execute_check_step.options (basic)",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "severity_threshold": {
+      "type": "string",
+      "enum": ["low", "moderate", "high", "critical"],
+      "description": "報告する最小重大度。既定は 'moderate'"
+    },
+    "language": {
+      "type": "string",
+      "description": "対象言語（例: 'ja-JP'）"
+    },
+    "enable_rule_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "明示的に有効化するルールIDのリスト"
+    },
+    "disable_rule_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "無効化するルールIDのリスト"
+    }
+  }
+}

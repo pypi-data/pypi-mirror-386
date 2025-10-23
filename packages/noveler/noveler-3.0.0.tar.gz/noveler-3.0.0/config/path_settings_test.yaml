@@ -1,0 +1,40 @@
+# B20準拠 - テスト用パス設定
+# パスハードコーディング解消のための設定ベースパス管理
+
+paths:
+  # メインディレクトリ
+  manuscripts_dir: "40_原稿"
+  management_dir: "50_管理資料"
+  config_dir: "config"
+  temp_dir: "temp"
+
+  # サブディレクトリ
+  plots_dir: "50_管理資料/plots"
+  quality_dir: "quality"
+  archive_dir: "archive"
+
+  # テスト専用パス
+  test_manuscripts: "test_manuscripts"
+  test_temp: "/tmp/noveler_test"
+
+  # 相対パス指定
+  relative_manuscript: "./manuscripts"
+  relative_plots: "./plots"
+
+# 環境別設定
+environments:
+  test:
+    use_temp_dirs: true
+    cleanup_after_test: true
+    manuscripts_dir: "test_40_原稿"
+    management_dir: "test_50_管理資料"
+
+  development:
+    use_temp_dirs: false
+    manuscripts_dir: "40_原稿"
+    management_dir: "50_管理資料"
+
+  production:
+    use_temp_dirs: false
+    manuscripts_dir: "manuscripts"
+    management_dir: "management"

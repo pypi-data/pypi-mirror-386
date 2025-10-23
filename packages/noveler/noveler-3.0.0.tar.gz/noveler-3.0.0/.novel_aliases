@@ -1,0 +1,11 @@
+#!/bin/bash
+# Noveler Writing System Aliases (Updated for noveler command)
+
+alias ntest="PYTHONPATH=$PWD pytest tests/ -v"
+alias ncheck="python check_tdd_ddd_compliance.py"
+alias ncoverage="python scripts/tools/test_coverage_analyzer.py"
+alias nwrite="noveler write"
+alias nplot="noveler plot"
+alias nquality="ruff check scripts/ && mypy scripts/"
+
+echo "Noveler Writing System aliases loaded. Use ntest, ncheck, ncoverage, etc."

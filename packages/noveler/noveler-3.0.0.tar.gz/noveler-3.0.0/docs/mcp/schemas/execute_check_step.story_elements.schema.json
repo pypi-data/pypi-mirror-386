@@ -1,0 +1,29 @@
+{
+  "$id": "docs/mcp/schemas/execute_check_step.story_elements.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "execute_check_step.options (story_elements)",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "focus_areas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "emotion",
+          "character",
+          "plot",
+          "worldbuilding",
+          "engagement"
+        ]
+      },
+      "description": "重点評価領域の指定"
+    },
+    "max_issues": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "description": "報告する最大件数（既定20）"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# File: config/quality/gate_defaults.yaml
+# Purpose: Central defaults for quality gate tooling (core checks + editorial 12-step checklist).
+# Context: Provides a single source for CLI wrappers, scripts, and docs.
+
+gate_defaults:
+  outputs:
+    core_report: reports/quality.ndjson
+    editorial_checklist_report: reports/editorial_checklist.md
+  thresholds:
+    severity: medium
+    gate_b:
+      rhythm: 80
+      readability: 80
+      grammar: 90
+  episodes:
+    default: 1
+  editorial_checklist:
+    require_all_pass: true

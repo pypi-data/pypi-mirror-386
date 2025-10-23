@@ -1,0 +1,322 @@
+# =============================
+# 小説執筆支援システム統合設定ファイル
+# B20開発作業指示書準拠 - ハードコーディング排除版
+# =============================
+
+# 基本システム設定
+system:
+  # アプリケーション基本情報
+  app_name: "小説執筆支援システム"
+  version: "2.0.0"
+  server_type: "mcp"  # MCP Server統合版
+
+  # 環境設定
+  environment: "production"  # development / staging / production
+  debug: false
+  verbose: false
+
+  # パフォーマンス設定
+  smart_auto_enhancement_timeout_ms: 2000
+  quality_check_timeout_ms: 5000
+  file_watcher_poll_interval: 1.0
+
+  # 国際化設定
+  default_language: "ja"
+  timezone: "Asia/Tokyo"
+  encoding: "utf-8"
+
+# パス設定（プラットフォーム対応）
+paths:
+  # ベースパス（自動検出される項目）
+  guide_root: null  # 実行時に自動検出
+  scripts_dir: null  # 実行時に自動検出
+
+  # 固定ディレクトリ構造（相対パス）
+  directories:
+    config: "config"
+    templates: "templates"
+    cache: "cache"
+    temp: "temp"
+    logs: "logs"
+    backup: "backup"
+    specs: "specs"
+    docs: "docs"
+    scripts: "scripts"
+
+  # プロジェクト関連パス
+  project_paths:
+    manuscript_dir: "40_原稿"
+    plot_dir: "20_プロット"
+    character_dir: "30_設定集"
+    management_dir: "50_管理資料"
+    prompts_dir: "60_プロンプト"
+    quality_dir: "品質記録"
+    backup_dir: "backup"
+
+  # サンプルプロジェクト（テスト・検証時に使用する既定のプロジェクトルート）
+  # GUIDE_ROOT直下でテスト実行する際に、ここで指定した既存プロジェクトを参照します。
+  samples:
+    root: "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/10_Fランク魔法使いはDEBUGログを読む"
+
+  # サブディレクトリ構造設定
+  sub_directories:
+    # 20_プロット配下
+    plot_subdirs:
+      chapter_plots: "章別プロット"
+      episode_plots: "話別プロット"  # 正式：話別プロットは20_プロット配下
+
+    # 30_設定集配下
+    settings_subdirs:
+      writing_records: "執筆記録"
+      character_growth: "キャラクター成長記録"
+      world_expansion: "世界観拡張記録"
+
+    # 50_管理資料配下
+    management_subdirs:
+      quality_records: "品質記録"
+      checklist_records: "A31_チェックリスト"
+      foreshadowing: "伏線管理"
+      important_scenes: "重要シーン"
+      plot_progress: "プロット進捗"
+
+    # 60_プロンプト配下
+    prompt_subdirs:
+      analysis_results: "全話分析結果"
+      quality_checks: "品質チェックプロンプト"
+      generation_logs: "生成履歴"
+
+  # ファイル拡張子設定
+  file_extensions:
+    manuscript: ".md"
+    config: ".yaml"
+    backup: ".backup"
+    log: ".log"
+    temp: ".tmp"
+
+# 環境変数設定
+environment_variables:
+  # 必須環境変数
+  required:
+    - "PYTHONPATH"
+
+  # オプション環境変数
+  optional:
+    PROJECT_ROOT: null
+    NOVEL_DEBUG: "false"
+    NOVEL_VERBOSE: "false"
+
+  # プラットフォーム固有設定
+  platform_specific:
+    windows:
+      path_separator: "\\"
+      line_ending: "\r\n"
+    linux:
+      path_separator: "/"
+      line_ending: "\n"
+    darwin:
+      path_separator: "/"
+      line_ending: "\n"
+
+# デフォルト値設定
+defaults:
+  # 作者情報
+  author:
+    pen_name: "秋田 武史"
+    real_name: null
+    email: null
+
+  # エピソード作成デフォルト
+  episode:
+    default_word_count: 3500
+    quality_threshold: 70.0
+    auto_backup: true
+    viewpoint: "三人称単元視点"
+    genre: "fantasy"
+
+  # プロジェクト作成デフォルト
+  project:
+    initial_episodes: 1
+    create_directories: true
+    initialize_git: true
+    create_readme: true
+
+  # 品質チェックデフォルト
+  quality_check:
+    mode: "smart_auto"  # smart_auto / standard
+    show_detailed_review: true
+    auto_fix: false
+    fix_level: "safe"  # safe / standard / aggressive
+    skip_basic: false
+    skip_a31: false
+    skip_claude: false
+
+# プラットフォーム固有パス（完全パス指定）
+platform_paths:
+  # Windows環境
+  windows:
+    default_project_root: "C:\\Users\\%USERNAME%\\Documents\\9_小説"
+    python_executable: "python.exe"
+    shell: "cmd.exe"
+
+  # Linux/WSL環境
+  linux:
+    default_project_root: "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説"
+    python_executable: "python3"
+    shell: "/bin/bash"
+
+  # macOS環境
+  darwin:
+    default_project_root: "~/Documents/9_小説"
+    python_executable: "python3"
+    shell: "/bin/bash"
+
+# 外部サービス設定
+external_services:
+  # Claude API設定（現在未使用）
+  claude:
+    enabled: false
+    api_key: null
+    model: "claude-3-sonnet-20240229"
+    timeout_seconds: 30
+
+  # Git設定
+  git:
+    auto_commit: false
+    commit_message_template: "feat: {episode_title} - {summary}"
+    pre_commit_hooks: true
+
+  # MCP Server統合設定
+  mcp_server:
+    enabled: true
+    server_command: "noveler mcp-server"
+    transport: "stdio"
+    json_compression: true  # 95%トークン削減
+    timeout_seconds: 600
+    retry_attempts: 3
+    error_handling:
+      auto_retry: true
+      max_retries: 3
+      backoff_seconds: 1
+
+  # なろうAPI設定（将来拡張用）
+  narou:
+    enabled: false
+    user_id: null
+    upload_enabled: false
+
+# ログ設定
+logging:
+  # ログレベル
+  level: "INFO"  # DEBUG / INFO / WARNING / ERROR / CRITICAL
+
+  # ログファイル設定
+  file_logging:
+    enabled: true
+    max_file_size_mb: 10
+    backup_count: 5
+    rotation: "time"  # time / size
+
+  # ログフォーマット
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+  # 個別ログファイル
+  log_files:
+    main: "novel_system.log"
+    quality_check: "quality_check.log"
+    plot_generation: "plot_generation.log"
+    error: "error.log"
+
+# セキュリティ設定
+security:
+  # ファイルアクセス制限
+  file_access:
+    allow_system_files: false
+    restrict_to_project: true
+    max_file_size_mb: 100
+
+  # コマンド実行制限
+  command_execution:
+    allow_shell_commands: false
+    whitelist_commands:
+      - "git"
+      - "python"
+      - "pytest"
+      - "mypy"
+      - "ruff"
+
+  # バックアップセキュリティ
+  backup:
+    encrypt_backups: false
+    compression: true
+    retention_days: 30
+
+# 機能フラグ設定
+features:
+  # 実験的機能
+  experimental:
+    smart_auto_enhancement: true
+    a31_claude_integration: true
+    real_time_quality_check: false
+    auto_plot_generation: true
+
+  # レガシー機能
+  legacy:
+    typer_cli: false  # CLIは廃止、MCPツールに移管
+    argparse_cli: false
+    old_quality_checker: false
+    manual_episode_creation: false
+
+  # 統合機能
+  integration:
+    mcp_tools: true  # 17個のMCPツール統合
+    claude_code_integration: true  # Claude Code連携
+    file_watcher: true
+    git_hooks: true
+    yaml_validation: true
+
+# 開発・デバッグ設定
+development:
+  # テスト設定
+  testing:
+    mock_claude_responses: true
+    skip_time_consuming_tests: false
+    test_data_cleanup: true
+
+  # プロファイリング
+  profiling:
+    enabled: false
+    output_dir: "temp/profiling"
+    max_profile_files: 10
+
+  # デバッグ設定
+  debug:
+    verbose_imports: false
+    trace_function_calls: false
+    log_performance_metrics: false
+
+# キャッシュ設定
+cache:
+  # キャッシュ有効化
+  enabled: true
+
+  # キャッシュディレクトリ
+  cache_dir: "cache"
+
+  # キャッシュ設定
+  settings:
+    max_size_mb: 100
+    ttl_seconds: 3600
+    cleanup_interval_minutes: 60
+
+  # キャッシュタイプ別設定
+  types:
+    claude_prompts:
+      enabled: true
+      ttl_seconds: 7200
+    quality_results:
+      enabled: true
+      ttl_seconds: 1800
+    plot_templates:
+      enabled: true
+      ttl_seconds: 86400

@@ -1,0 +1,61 @@
+defaults:
+  aspects: [rhythm, readability, grammar, style]
+  severity_threshold: low
+  sort_by: line_number
+  sort_order: asc
+  preset: custom
+  thresholds:
+    # 行幅しきい値は撤廃（本プロジェクトでは行幅チェックを提供しません）
+  # weights: 各アスペクトの重み（指定時は重み付き平均で総合スコア算出。未指定時は最小値）
+  # weights:
+  #   rhythm: 0.35
+  #   readability: 0.35
+  #   grammar: 0.2
+  #   style: 0.1
+  # fail_on: CIゲート条件の例
+  # fail_on:
+  #   score_below: 80
+  #   severity_at_least: high
+  #   reason_codes: ["COMMA_OVERUSE","ELLIPSIS_STYLE"]
+  #   max_issue_count: 200
+  # run_quality_checks filters example
+  # filters:
+  #   reason_codes: []
+  #   types: []
+  #   text_contains: ""
+
+# Safe auto-fix tuning for fix_quality_issues
+# 行幅/自動改行に関する設定は撤廃済みです（日本語文に対する強制改行は行いません）。
+
+sentence_split:
+  target_len: 45
+  max_splits_per_line: 2
+  use_pos: ["助詞", "接続詞", "記号"]
+
+sentence_merge:
+  short_len: 10
+  max_merges_per_line: 2
+  skip_dialogue_lines: true
+
+morphology:
+  sentence_split:
+    use_pos: ["助詞", "接続詞"]
+
+# improve_quality_until の reason_codes はリクエスト引数で指定します（このファイルでは管理しません）。
+# 例: { "reason_codes": { "rhythm": ["CONSECUTIVE_LONG_SENTENCES","ELLIPSIS_STYLE"] } }
+
+# Stage1 技術的推敲（A40）自動修正の設定
+stage1:
+  indent:
+    enable: true               # 段落頭の字下げを有効化
+    style: fullwidth           # fullwidth | spaces（spacesは半角×2を1単位として扱う）
+    count: 1                   # 字下げ幅（fullwidthなら全角×count）
+    skip_dialogue: false       # 会話行（「〜」「『〜」）の字下げをスキップするか
+    skip_markdown_blocks: true # ``` で囲まれたコードブロックは変更しない
+  punctuation:
+    exclamation_question_fullwidth_space: true  # ！/？の直後に全角スペースを補う（句読点/閉括弧直前は挿入しない）
+
+# Ignore known/accepted issues (optional)
+ignore:
+  issue_ids: []
+  reason_codes: []

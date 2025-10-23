@@ -1,0 +1,38 @@
+{
+  "mcpServers": {
+    "noveler": {
+      "type": "stdio",
+      "command": "python",
+      "args": [
+        "-u",
+        "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド/dist/mcp_servers/noveler/main.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド/dist:/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド",
+        "PYTHONUNBUFFERED": "1",
+        "NOVEL_PRODUCTION_MODE": "1",
+        "MCP_LIGHTWEIGHT_DEFAULT": "1"
+      },
+      "cwd": "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド",
+      "description": "小説執筆支援システム（Codex/Claude向け 本番設定 / stdio）"
+    },
+    "noveler-dev": {
+      "type": "stdio",
+      "command": "python",
+      "args": [
+        "-u",
+        "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド/src/mcp_servers/noveler/main.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド/src:/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド",
+        "PYTHONUNBUFFERED": "1",
+        "MCP_STRICT_STDOUT": "1",
+        "NOVELER_DEV_MODE": "1",
+        "DEBUG_MCP": "1",
+        "MCP_LIGHTWEIGHT_DEFAULT": "1"
+      },
+      "cwd": "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド",
+      "description": "小説執筆支援（開発・詳細ログ / stdio）"
+    }
+  }
+}

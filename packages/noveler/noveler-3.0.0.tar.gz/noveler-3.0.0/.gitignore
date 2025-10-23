@@ -1,0 +1,155 @@
+# Claude Code Settings
+.claude/settings.local.json
+
+# Temporary files (keep project root clean)
+sample*.md
+sample*.py
+/test_*.py
+*_backup_*.tar.gz
+*_revision_*.md
+/fix_*.py
+
+# Local config files
+app_config.yaml
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+# In case of accidental symlink creation, ignore the symlink file as well
+.hypothesis
+
+.pytest_cache/
+.benchmarks/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log files
+*.log
+logs/
+workspace/logs/
+
+# Test output files
+test_report.md
+dropout_analysis_report.md
+アクセス分析_*.yaml
+
+.mypy_cache/
+.ruff_cache/
+.ruff_cache
+
+*.pyc
+htmlcov/
+
+# Backup folders - Git管理対象外
+backup/
+backups/
+*/backup/
+*/backups/
+archive/
+
+# Temporary files and reports (temp/ folder - 完全除外)
+temp/
+workspace/temp/
+scripts/coverage.json
+
+# Exception: テストデータディレクトリ管理用ドキュメントは含める
+!temp/test_data/README.md
+
+# 一時修正ファイル（厳禁）
+# 注: scripts/内の恒久的なツールは除外
+/fix_*.py
+!scripts/fix_domain_dependencies.py  # Domain層依存修正ツール（恒久的）
+temp_fix_*.py
+syntax_fix_*.py
+repair_*.py
+hotfix_*.py
+
+# Serena MCP本体リポジトリ（開発用）は除外
+serena/
+
+# .serenaフォルダはSerena MCPの設定・メモリで重要なのでgit管理対象
+# ただしcache内のバイナリファイルのみ除外
+.serena/cache/
+reports/current_errors.json
+
+# 大きなエラーレポートファイル
+reports/errors_final.json
+reports/errors_after_fixes.json
+reports/llm_summary.jsonl
+reports/llm_summary.txt
+
+# Project quality records (artifacts, not for VCS)
+50_管理資料/品質記録/
+.noveler/
+reports/quality_fix_final_report.json
+workspace/outputs/
+
+# Git worktrees - 各ブランチの独立した作業領域
+workspace/worktrees/
+.dev/
+stderr.txt
+stdout.txt
+
+# Import Linter cache (sometimes appears as a symlink)
+.import_linter_cache

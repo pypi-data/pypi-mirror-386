@@ -1,0 +1,104 @@
+# STEP 11: 伏線配置 Schema v2
+
+metadata:
+  step_id: 11
+  step_name: "伏線配置"
+  phase: "content_development"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "伏線/小道具/世界観開示を連動配置し回収計画を立案"
+  estimated_duration: "15-25分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      伏線は自然に、回収は演出の山と同期させてください。
+
+prompt:
+  main_instruction: |
+    目的は「伏線/小道具/開示の連動設計と回収計画」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step07.yaml"
+      required: true
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step10.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "露骨な説明の回避/自然な示唆を優先"
+
+tasks:
+  bullets:
+    - foreshadows[] に id/type/scene_id/reveal_step を定義する
+    - props[] に prop_id/symbolic_meaning/appear/reappear/resolve を定義する
+  details:
+    - name: 伏線設計
+      items:
+        - id: foreshadow.type
+          text: type: short_term/long_term を明示
+        - id: foreshadow.reveal
+          text: reveal_step（回収予定ステップ）
+        - id: foreshadow.mislead
+          text: 誘導/ミスリードの仕掛け
+    - name: 小道具/世界観
+      items:
+        - id: props.symbol
+          text: prop_id と象徴意味
+        - id: props.timeline
+          text: appear/reappear/resolve の時系列
+        - id: props.world_consistency
+          text: 世界観設定（制度/文化）との整合
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step11.yaml"
+  required_fields: ["foreshadows", "props"]
+  example: |
+    foreshadows:
+      - id: "F01"
+        type: "long_term"
+        scene_id: "SC02"
+        reveal_step: 14
+    props:
+      - prop_id: "指輪"
+        symbolic_meaning: "誓い"
+        appear: "SC01"
+        reappear: "SC05"
+        resolve: "SC10"
+
+acceptance_criteria:
+  checklist:
+    - "全要素に reveal/resolve の計画がある"
+  by_task:
+    - id: foreshadow.reveal
+      field: foreshadows
+      rule: nonempty
+
+next:
+  next_step_id: 12
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=12
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

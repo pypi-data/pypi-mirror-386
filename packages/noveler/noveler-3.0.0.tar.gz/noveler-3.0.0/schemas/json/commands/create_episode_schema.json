@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "create_episode_schema.json",
+  "title": "CreateEpisodeSchema",
+  "description": "エピソード作成コマンド入力スキーマ",
+  "type": "object",
+  "properties": {
+    "episode_number": {
+      "type": "integer",
+      "description": "エピソード番号",
+      "minimum": 1,
+      "maximum": 9999
+    },
+    "title": {
+      "type": "string",
+      "description": "エピソードタイトル",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "genre": {
+      "type": "string",
+      "description": "ジャンル",
+      "enum": [
+        "fantasy",
+        "mystery",
+        "romance",
+        "sci-fi",
+        "slice-of-life",
+        "adventure",
+        "horror",
+        "comedy",
+        "drama",
+        "historical"
+      ]
+    },
+    "word_count_target": {
+      "type": "integer",
+      "description": "目標文字数",
+      "minimum": 100,
+      "maximum": 50000,
+      "default": 2000
+    },
+    "viewpoint": {
+      "type": "string",
+      "description": "視点（一人称/三人称）",
+      "enum": ["first_person", "third_person"],
+      "default": "third_person"
+    },
+    "viewpoint_character": {
+      "type": "string",
+      "description": "視点キャラクター名",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "custom_requirements": {
+      "type": "array",
+      "description": "カスタム要件リスト",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "maxItems": 10,
+      "uniqueItems": true
+    },
+    "use_ai_generation": {
+      "type": "boolean",
+      "description": "AI生成使用フラグ",
+      "default": true
+    },
+    "previous_episode_context": {
+      "type": "boolean",
+      "description": "前エピソード文脈考慮",
+      "default": true
+    },
+    "character_focus": {
+      "type": "array",
+      "description": "フォーカスキャラクター",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "maxItems": 5,
+      "uniqueItems": true
+    },
+    "theme_keywords": {
+      "type": "array",
+      "description": "テーマキーワード",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      },
+      "maxItems": 10,
+      "uniqueItems": true
+    },
+    "output_format": {
+      "type": "string",
+      "description": "出力形式",
+      "enum": ["markdown", "yaml", "both"],
+      "default": "both"
+    }
+  },
+  "required": ["episode_number", "title", "genre", "viewpoint_character"],
+  "additionalProperties": false
+}

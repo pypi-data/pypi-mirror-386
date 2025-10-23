@@ -1,0 +1,7 @@
+# アーカイブとバックアップフォルダを除外（レガシーコード）
+archive/
+backups/
+temp/
+dist/
+build/
+*.egg-info/

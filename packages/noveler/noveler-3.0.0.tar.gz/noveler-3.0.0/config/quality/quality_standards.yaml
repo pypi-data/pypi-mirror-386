@@ -1,0 +1,292 @@
+# 品質基準設定ファイル
+# 作成日: 2025-08-23
+# 目的: YAMLチェックリスト統合によるMarkdown品質基準の閾値外部化
+
+metadata:
+  version: "1.0.0"
+  purpose: "品質基準の一元管理・閾値外部化によるSingle Source of Truth実現"
+  migration_date: "2025-08-23"
+  migration_note: "A11/A25/A41 YAMLチェックリスト統合により作成"
+
+# ========================================
+# プロット品質基準（旧A25統合）
+# ========================================
+plot_quality:
+  # P-01: 企画設計ガイド完了確認
+  P01_prerequisite_check:
+    minimum_completion_rate: 100.0
+    required_files:
+      - "企画書.yaml"
+      - "世界観.yaml"
+      - "用語集.yaml"
+
+  # P-02: コンセプト明確化確認
+  P02_concept_clarity:
+    minimum_character_count: 50
+    required_elements: ["主人公設定", "世界観要素", "独自要素"]
+    clarity_score_threshold: 80
+
+  # P-03: ジャンル適合性確認
+  P03_genre_compliance:
+    genre_score_threshold: 75
+    competitive_analysis_minimum: 5
+
+  # P-04: ターニングポイント設定
+  P04_turning_points:
+    minimum_count: 5
+    maximum_count: 7
+    minimum_score: 70
+    target_score: 80
+    excellent_score: 90
+    required_fields: ["episode", "description", "impact_level", "cause_effect"]
+
+  # P-05: 主人公成長設計
+  P05_character_development:
+    growth_arc_completeness: 90
+    milestone_minimum: 3
+    consistency_check_threshold: 85
+
+  # P-06: 各章目的明確化
+  P06_chapter_purpose:
+    purpose_description_minimum_chars: 30
+    measurable_objectives: true
+    chapter_goal_clarity_score: 75
+
+  # P-07: 読者想定設計
+  P07_target_reader:
+    persona_completeness: 85
+    appeal_elements_minimum: 3
+    engagement_strategy_defined: true
+
+  # P-08: 感情起伏設計
+  P08_emotional_flow:
+    emotion_scale_range: [1, 10]
+    minimum_variation_points: 5
+    climax_emotion_minimum: 8
+    balance_score_threshold: 70
+
+  # P-09: 伏線管理システム確認
+  P09_foreshadowing_management:
+    setup_payoff_mapping_rate: 100.0
+    foreshadowing_clarity_score: 75
+    resolution_completeness: 90
+
+  # P-10: 執筆準備度評価
+  P10_writing_readiness:
+    detail_level_minimum: 80
+    scene_design_completeness: 85
+    character_interaction_defined: true
+    overall_readiness_score: 85
+
+# ========================================
+# 推敲品質基準（旧A41統合）
+# ========================================
+revision_quality:
+  # R-01: 基本校正チェック
+  R01_basic_proofreading:
+    typo_tolerance: 0
+    grammar_error_tolerance: 0
+    punctuation_accuracy: 100.0
+
+  # R-02: 客観的視点確保
+  R02_objective_perspective:
+    minimum_cooling_period_hours: 24
+    perspective_consistency_score: 85
+    bias_detection_threshold: 0.2
+
+  # R-03: 文章リズム最適化
+  R03_rhythm_optimization:
+    sentence_length_variation: 0.3
+    rhythm_score_minimum: 75
+    monotony_detection_threshold: 0.4
+
+  # R-04: 冒頭フック強度評価
+  R04_opening_hook_strength:
+    hook_score_minimum: 70
+    hook_score_target: 80
+    hook_score_excellent: 90
+    first_lines_analysis: 3
+    required_elements: ["感情語句", "簡潔性", "謎要素"]
+
+  # R-05: 会話文自然性確認
+  R05_dialogue_naturalness:
+    dialogue_ratio_range: [0.25, 0.45]
+    character_voice_consistency: 90
+    speech_pattern_variation: 0.6
+
+  # R-06: 五感描写バランス
+  R06_sensory_balance:
+    minimum_senses_used: 3
+    sensory_distribution_balance: 0.7
+    abstract_expression_limit: 0.1
+    required_senses: ["視覚", "聴覚", "触覚"]
+
+  # R-07: 感情表現具体化
+  R07_emotion_concretization:
+    abstract_emotion_limit: 0.0
+    body_reaction_coverage: 0.8
+    emotion_clarity_score: 85
+    physical_manifestation_required: true
+
+  # R-08: キャラクター一貫性確認
+  R08_character_consistency:
+    personality_consistency_score: 90
+    speech_pattern_consistency: 85
+    behavior_pattern_consistency: 85
+
+  # R-09: 世界観整合性確認
+  R09_world_consistency:
+    setting_consistency_score: 95
+    rule_violation_tolerance: 0
+    internal_logic_integrity: 100.0
+
+  # R-10: テンポ・展開適正化
+  R10_pacing_optimization:
+    scene_transition_smoothness: 80
+    tension_curve_variation: 0.7
+    pacing_score_minimum: 75
+
+  # R-11: 品質スコア達成確認
+  R11_quality_score_achievement:
+    overall_quality_threshold: 80
+    excellence_threshold: 90
+    minimum_passing_score: 70
+
+  # R-12: 読者体験最適化
+  R12_reader_experience:
+    engagement_score_minimum: 75
+    readability_score_minimum: 80
+    continuation_desire_score: 75
+
+  # R-13: 最終公開判定
+  R13_publication_readiness:
+    all_criteria_pass_rate: 95.0
+    critical_issues_tolerance: 0
+    publication_confidence_score: 90
+
+# ========================================
+# 企画設計品質基準（旧A11統合）
+# ========================================
+concept_design_quality:
+  # C-01: 人気作品分析完了確認
+  C01_market_analysis:
+    minimum_analyzed_works: 10
+    analysis_completeness_score: 85
+    competitive_insight_depth: 80
+
+  # C-02: ターゲット読者明確化
+  C02_target_reader_clarity:
+    persona_definition_completeness: 90
+    demographic_specificity: 85
+    psychographic_depth: 80
+
+  # C-03: USP明確化確認
+  C03_usp_clarity:
+    uniqueness_score_minimum: 90
+    differentiation_elements_minimum: 3
+    competitive_advantage_clarity: 85
+    usp_description_minimum_chars: 100
+
+  # C-04: ジャンル適合性評価
+  C04_genre_fitness:
+    genre_convention_adherence: 80
+    innovation_balance_score: 75
+    market_positioning_clarity: 85
+
+  # C-05: 魅力要素設計
+  C05_appeal_elements:
+    appeal_factor_minimum: 5
+    appeal_strength_average: 80
+    reader_hook_effectiveness: 85
+
+  # C-06: 実現可能性評価
+  C06_feasibility:
+    technical_feasibility_score: 90
+    resource_adequacy_score: 85
+    timeline_realism_score: 80
+
+  # C-07: キャラクター魅力度
+  C07_character_appeal:
+    protagonist_likability_score: 80
+    character_depth_score: 85
+    relatability_factor: 75
+
+  # C-08: 世界観構築度
+  C08_worldbuilding:
+    world_complexity_appropriate: true
+    setting_consistency_score: 90
+    world_rules_completeness: 85
+
+  # C-09: 品質スコア統合評価
+  C09_integrated_quality:
+    overall_concept_score_minimum: 80
+    excellence_threshold: 90
+    all_categories_pass_rate: 95.0
+
+# ========================================
+# 共通設定
+# ========================================
+common_settings:
+  # スコア計算設定
+  scoring:
+    excellent_threshold: 90
+    good_threshold: 80
+    acceptable_threshold: 70
+    minimum_passing_score: 60
+
+  # 文字数設定
+  text_analysis:
+    short_description_minimum: 30
+    medium_description_minimum: 50
+    long_description_minimum: 100
+    maximum_sentence_length: 150
+
+  # ファイル検証設定
+  file_validation:
+    required_encoding: "utf-8"
+    maximum_file_size_mb: 10
+    backup_retention_days: 30
+
+  # AI支援設定
+  ai_assistance:
+    confidence_threshold: 0.7
+    suggestion_minimum_score: 75
+    analysis_depth_level: "detailed"
+
+# ========================================
+# 評価基準マッピング
+# ========================================
+evaluation_mapping:
+  # 数値スコアから評価レベル
+  score_levels:
+    excellent: [90, 100]
+    good: [80, 89]
+    acceptable: [70, 79]
+    needs_improvement: [60, 69]
+    inadequate: [0, 59]
+
+  # 評価レベルの説明
+  level_descriptions:
+    excellent: "優秀：基準を大幅に上回る高品質"
+    good: "良好：基準を満たし品質が良い"
+    acceptable: "合格：基準を満たす最低限の品質"
+    needs_improvement: "要改善：基準をわずかに下回る"
+    inadequate: "不適格：基準を大幅に下回る"
+
+# ========================================
+# カスタマイズガイド
+# ========================================
+customization_guide:
+  note: |
+    この設定ファイルは品質基準の閾値をカスタマイズできます。
+    プロジェクトの特性に応じて以下の値を調整してください：
+
+    - minimum_score: 最低合格ライン
+    - target_score: 目標品質レベル
+    - excellent_score: 優秀品質レベル
+
+    変更後は必ずテストを実行して設定の妥当性を確認してください。
+
+  backup_note: |
+    設定変更前には必ずこのファイルをバックアップしてください。
+    不適切な設定により品質チェックが機能しなくなる可能性があります。

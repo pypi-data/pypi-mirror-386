@@ -1,0 +1,179 @@
+# STEP 12: 初稿執筆（Schema v2）
+
+metadata:
+  step_id: 12
+  step_name: "初稿執筆"
+  phase: "writing_execution"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "A38設計を統合し、なろう基準の初稿を作成"
+  estimated_duration: "60-120分"
+
+llm_config:
+  role_messages:
+    system: |
+      あなたは熟練の小説家です。以下を厳守してください:
+
+      【必須ルール】
+      1. constraints.hard_rules を必ず遵守
+      2. 出力形式: Markdownのみ（追加説明不要）
+      3. artifacts.required_fields を必ず含める
+      4. writing_style_examplesの技法を活用
+    user: |
+      STEP 0-11の設計を統合し、禁止表現を避けつつ、8000字以上の初稿を作成してください。
+      inputs/constraints/tasks/artifacts を参照し、writing_style_examplesに従ってください。
+
+prompt:
+  main_instruction: |
+    目的は「エピソード{episode_number}の初稿生成」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った Markdown を出力してください（追加説明は不要）。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step0*.yaml"
+      required: true
+      description: 構造設計一式（STEP0-11）
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "文字数: 8000字以上（日本語Unicode）"
+    - "視点統一: 1シーン1視点"
+    - "禁止表現排除: 直説説明/感情直書き/説明的記述の回避"
+  soft_targets:
+    - "セクション配分: 15/70/15%"
+    - "会話主導のテンポ（地の文は補助）"
+    - "山場/クライマックスは後半2/3に配置"
+  writing_style_examples:
+    - technique: "断定モノローグ"
+      good: "これは罠だ。逃げるしかない。"
+      bad: "これは罠かもしれない。おそらく逃げたほうがいいだろう。"
+      rationale: "迷いを削除し、キャラの決断を明確化"
+    - technique: "1文1動作"
+      good: "彼は立ち上がった。ドアを開けた。廊下へ出た。"
+      bad: "彼は立ち上がってドアを開けて廊下へ出た。"
+      rationale: "短文のリズムでテンポを作る"
+    - technique: "短尺会話"
+      good: "「行くぞ」「ああ」「準備はいいか」「できてる」"
+      bad: "「私たちはこれから行くべきだと思うんだけど、どう思う？」"
+      rationale: "会話は即断即決、説明を削る"
+    - technique: "オチのリズム"
+      good: "彼は笑った。理由は単純だ。もう逃げられない。"
+      bad: "彼は笑った。なぜなら、もう逃げられないという状況に陥っていたからだ。"
+      rationale: "短文で区切り、余韻を作る"
+    - technique: "会話掛け合い"
+      good: "「なぜだ」「理由はない」「嘘をつくな」「本当だ」"
+      bad: "「なぜそうしたのか理由を教えてくれないか」「特に理由はない」"
+      rationale: "台詞は短く、テンポを優先"
+
+tasks:
+  bullets:
+    - 設計（配分/感情曲線/対話/世界観/伏線）を統合する
+    - 感情/状況は行動・身体反応・比喩で表現する
+    - 会話は目的駆動（情報/感情/関係の前進）を満たす
+    - 伏線は自然に埋め込み、回収候補を明示しない
+  details:
+    - name: 統合作業
+      items:
+        - id: integrate.section_balance
+          text: セクション配分どおりの展開
+        - id: integrate.emotion_curve
+          text: emotion_curve に沿った起伏
+        - id: integrate.dialogue_subtext
+          text: dialogue の subtext を保持
+        - id: integrate.world_reveal
+          text: 世界観開示は段階的に
+        - id: integrate.addiction_progression
+          text: |
+            addiction_loopの進行（iteration_number, triggers, outcome）を
+            本文に自然に織り込む。存在しない場合はスキップ。（改善案2対応）
+        - id: integrate.psychological_consistency
+          text: |
+            psychological_markersの数値に基づいて、
+            主人公の行動・思考・会話の一貫性を保つ。
+            例: guilt=1なら開き直った行動、rationality=0なら衝動的判断。
+            存在しない場合はスキップ。（改善案3対応）
+    - name: 表現方針
+      items:
+        - id: style.banned
+          text: 直説説明/感情直書きの回避
+        - id: style.golden
+          text: Golden Sample文体（断定モノローグ/1文1動作/掛け合い/オチ）
+
+artifacts:
+  format: md
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step12.md"
+  required_fields:
+    - "title_heading:# 第{episode_number:03d}話"
+    - "body_present"
+  example: |
+    <!--
+    meta:
+      version: 1
+      by_task: {}
+      metrics: {}
+    -->
+    # 第{episode_number:03d}話
+
+    （本文…最小例、実際は8000字以上）
+
+acceptance_criteria:
+  checklist:
+    - "meta コメント（HTML）を先頭に含める"
+    - "本文がMarkdownのみで出力されている"
+    - "見出しに『# 第{episode_number:03d}話』を含む"
+  metrics:
+    - name: "unicode_char_count"
+      target: ">= 8000"
+      method: "本文のUnicode文字数"
+    - name: "kpi_self_check_present"
+      target: ">= 1"
+      method: "本文末尾にKPI自己チェックの簡易記録がある（任意セクション名でも可）"
+  by_task:
+    integrate.section_balance:
+      rule: "checklist"
+      check: "manuscript_nonempty"
+      target: "セクション配分が15/70/15%に近い構成になっている"
+    integrate.emotion_curve:
+      rule: "checklist"
+      check: "manuscript_nonempty"
+      target: "感情曲線の起伏が山場に向けて適切に配置されている"
+    integrate.dialogue_subtext:
+      rule: "checklist"
+      check: "manuscript_nonempty"
+      target: "会話にサブテキストや含意が織り込まれている"
+    integrate.world_reveal:
+      rule: "checklist"
+      check: "manuscript_nonempty"
+      target: "世界観の開示が段階的に行われている"
+    style.banned:
+      rule: "checklist"
+      check: "manuscript_nonempty"
+      target: "直説説明や感情直書きが回避されている"
+    style.golden:
+      rule: "checklist"
+      check: "manuscript_nonempty"
+      target: "Golden Sample文体（断定モノローグ/1文1動作/掛け合い）が実現されている"
+
+next:
+  next_step_id: 13
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=13
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

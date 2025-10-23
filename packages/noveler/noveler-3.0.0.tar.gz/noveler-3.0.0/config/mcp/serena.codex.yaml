@@ -1,0 +1,25 @@
+# File: config/mcp/serena.codex.yaml
+# Purpose: Codex向けSerena MCPサーバー設定のスナップショット（手動診断用）。
+# Context: Aligns with codex.mcp.json/.codex/mcp.json to support quick verification commands.
+servers:
+  codex:
+    enabled: true
+    endpoint:
+      transport: stdio
+      command: 'C:\Users\bamboocity\AppData\Local\Programs\Python\Python313\Scripts\uvx.exe'
+      args:
+        - '--from'
+        - 'git+https://github.com/oraios/serena'
+        - 'serena-mcp-server'
+        - '--context'
+        - 'ide-assistant'
+        - '--enable-web-dashboard'
+        - 'false'
+        - '--project'
+        - 'C:\Users\bamboocity\OneDrive\Documents\9_小説\00_ガイド'
+      env:
+        PYTHONIOENCODING: 'utf-8'
+        SYSTEMROOT: 'C:\Windows'
+    tools:
+      excluded: []
+      included_optional: []

@@ -1,0 +1,270 @@
+# 章別プロットテンプレート（視点管理拡張版）
+# 身体交換・意識転送・マルチ視点作品対応
+
+# 必須フィールド（CHAPTER_PLOT_SCHEMA準拠）
+chapter_number: 1  # 必須: 章番号（int型）
+title: "第1章　タイトル"  # 必須: 章タイトル（str型）
+summary: "第1章の概要と目的"  # 必須: 章の概要（str型）
+
+# 必須: 主要イベント（list型）
+key_events:
+  - "導入イベント"
+  - "展開イベント"
+  - "転換イベント"
+
+# 必須: 話数構成（list型）
+episodes:
+  - episode_number: 1
+    title: "第1話のタイトル"
+    summary: "第1話の概要"
+  - episode_number: 2
+    title: "第2話のタイトル"
+    summary: "第2話の概要"
+
+# 追加情報
+chapter_info:
+  word_count_target: 20000  # 目標文字数
+  viewpoint: "主人公視点"  # 章全体の視点概要
+  central_theme: "出会いと冒険の始まり"  # 章のテーマ
+  tone: "明るく希望に満ちた"  # 章の雰囲気・トーン
+
+  # 視点管理システム（拡張機能）
+  viewpoint_management:
+    primary_pov_character: "[主要視点キャラクター]"  # メインとなる視点
+    complexity_level: "[低/中/高]"  # 視点の複雑度
+    special_conditions: []  # 身体交換、記憶共有等の特殊状況
+    body_swap_episodes: []  # 身体交換発生話数（該当する場合）
+    memory_share_episodes: []  # 記憶共有発生話数（該当する場合）
+    caution_notes:
+      - "[視点管理で特に注意すべき点]"
+
+episode_breakdown:
+  "[エピソード番号]":
+    title: "[エピソードタイトル]"
+    focus: "[エピソードの焦点]"
+    key_scene: "[重要シーン]"
+
+    # 基本視点情報
+    viewpoint: "[視点の概要説明]"
+    viewpoint_label: "[視点ラベル]"  # 例: "律", "律→カノンBody", "カノン＆律（共有47%）"
+
+    # 詳細視点管理
+    viewpoint_details:
+      consciousness: "[意識の主体]"  # 誰の意識・思考パターンか
+      body: "[身体の所有者]"  # 誰の身体を使用しているか
+      memory_access: "[アクセス可能な記憶範囲]"  # どの記憶にアクセスできるか
+      narrative_focus: "[語りの焦点]"  # 何を中心に語るか
+
+      # 注意点・執筆時のチェックポイント
+      caution_points:
+        - "[代名詞の使い分け注意]"
+        - "[特殊状況での感覚描写]"
+        - "[キャラクターらしさの維持]"
+        - "[読者の混乱防止ポイント]"
+
+      # 身体交換時の詳細設定（該当する場合）
+      body_swap_details:
+        swap_type: "[完全/部分/一時的]"
+        adaptation_level: "[適応度: 0-100%]"
+        sensory_differences: "[感覚の違い]"
+        movement_differences: "[動作の違い]"
+        voice_changes: "[声・話し方の変化]"
+
+      # 記憶共有時の詳細設定（該当する場合）
+      memory_share_details:
+        share_percentage: "[共有率: 0-100%]"
+        accessible_memories: "[アクセス可能な記憶カテゴリ]"
+        restricted_memories: "[制限された記憶]"
+        interference_level: "[記憶干渉レベル]"
+
+# 視点管理のための品質チェック項目
+quality_checkpoints:
+  viewpoint_consistency:
+    - "代名詞の一貫性確認"
+    - "思考パターンの整合性"
+    - "身体感覚描写の適切性"
+    - "記憶アクセス範囲の妥当性"
+
+  reader_comprehension:
+    - "視点切り替えの明確性"
+    - "特殊状況の理解しやすさ"
+    - "混乱を招く表現の回避"
+    - "没入感を損なわない配慮"
+
+# 視点ラベル命名規則
+naming_conventions:
+  standard: "[キャラクター名]"  # 例: "律", "カノン"
+  body_swap: "[意識]→[身体]Body"  # 例: "律→カノンBody"
+  memory_share: "[キャラ1]＆[キャラ2]（共有[%]%）"  # 例: "律＆カノン（共有47%）"
+  perspective_switch: "[キャラ1]/[キャラ2]切り替え"  # 例: "律/カノン切り替え"
+  fragmented: "[キャラクター名]（断片化）"  # 例: "カノン（断片化）"
+  multiple: "[キャラ1]＆[キャラ2]（マルチ）"  # 例: "律＆カノン（マルチ）"
+
+# 使用例とベストプラクティス
+usage_examples:
+  normal_pov: "通常の一人称視点では viewpoint_label: キャラクター名"
+  body_swap: "身体交換時は viewpoint_label: 意識→身体Body の形式"
+  memory_share: "記憶共有時は共有率を明記"
+  multi_pov: "マルチ視点では切り替えポイントを明確に"
+
+# 執筆時の確認事項
+writing_checklist:
+  before_writing:
+    - "viewpoint_labelの確認"
+    - "caution_pointsの確認"
+    - "前話からの視点変更の把握"
+
+  during_writing:
+    - "代名詞の一貫性維持"
+    - "キャラクターらしさの保持"
+    - "身体感覚の適切な描写"
+
+  after_writing:
+    - "視点の一貫性チェック"
+    - "読者の理解度確認"
+    - "次話への視点継続性確認"
+
+# ========================================
+# 範囲表現の配列形式例
+# ========================================
+
+character_development:
+  # 新形式（機械処理対応）
+  main_characters:
+    hero:
+      name: "[主人公名]"
+      role: "主人公"
+      character_type: "hero"
+      growth_stages:
+        stage_01:
+          episodes: [001, 002, 003, 004, 005]
+          description: "第1段階の成長"
+        stage_02:
+          episodes: [006, 007, 008, 009, 010]
+          description: "第2段階の成長"
+
+    heroine:
+      name: "[ヒロイン名]"
+      role: "ヒロイン"
+      character_type: "heroine"
+      growth_stages:
+        stage_01:
+          episodes: [001, 002, 003, 004, 005]
+          description: "第1段階の成長"
+        stage_02:
+          episodes: [006, 007, 008, 009, 010]
+          description: "第2段階の成長"
+
+  # 後方互換性（旧形式）
+  legacy_character_arcs:
+    protagonist:
+      growth_stages:
+        stage_01:
+          episodes: [001, 002, 003, 004, 005]
+          description: "第1段階の成長"
+        stage_02:
+          episodes: [006, 007, 008, 009, 010]
+          description: "第2段階の成長"
+
+technical_progression:
+  skills:
+    stage_01:
+      episodes: [001, 002, 003]
+      description: "基礎技術習得"
+    stage_02:
+      episodes: [004, 005, 006]
+      description: "応用技術習得"
+
+relationship_development:
+  main_relationship:
+    stage_01:
+      episodes: [001, 002]
+      description: "出会いと初期の関係構築"
+    stage_02:
+      episodes: [003, 004, 005]
+      description: "信頼関係の深化"
+
+romantic_development:
+  stage_01:
+    episodes: [001, 002, 003]
+    description: "初期の好意・特別な存在としての認識"
+    phase: "初期認識"
+  stage_02:
+    episodes: [004, 005, 006, 007]
+    description: "心の繋がり・愛情の芽生え自覚"
+    phase: "中期発展"
+  stage_03:
+    episodes: [008, 009, 010]
+    description: "愛情確認と将来への誓い"
+    phase: "関係完成"
+
+# ========================================
+# 章末クライマックス
+# ========================================
+
+chapter_climax:
+  climax_episode:
+    event: "[クライマックスとなる主要イベント]"
+    significance: "[このイベントの物語上の意義]"
+    emotional_impact: "[読者への感情的インパクト]"
+
+  technical_achievements:
+    - "[技術的な達成・突破]"
+    - "[新しい能力・技術の習得]"
+    - "[重要なシステム理解]"
+
+  mysteries_established:
+    - "[新たに提示される謎]"
+    - "[深まる既存の謎]"
+    - "[次章への伏線]"
+
+  relationships_evolved:
+    - "[キャラクター関係の変化]"
+    - "[新しい絆の形成]"
+    - "[信頼関係の深化]"
+
+  next_chapter_setup:
+    - "[次章への布石]"
+    - "[新たな課題の提示]"
+    - "[期待感の醸成]"
+
+# ========================================
+# 伏線管理
+# ========================================
+
+foreshadowing_elements:
+  main_mystery:
+    episode_001: "[伏線1の配置]"
+    episode_003: "[伏線1の発展]"
+    episode_005: "[伏線1の深化]"
+
+  character_secrets:
+    episode_002: "[キャラクター秘密の示唆]"
+    episode_004: "[秘密に関する手がかり]"
+
+  world_building_hints:
+    episode_001: "[世界設定の伏線]"
+    episode_003: "[設定の拡張ヒント]"
+
+# ========================================
+# 主要エピソード詳細
+# ========================================
+
+major_episodes:
+  episode_001:
+    title: "[エピソードタイトル]"
+    purpose: "[エピソードの目的・役割]"
+    key_events:
+      - "[重要イベント1]"
+      - "[重要イベント2]"
+    emotional_beats:
+      - "[感情の動き1]"
+      - "[感情の動き2]"
+    execution_details:
+      setting: "[舞台・場面設定]"
+      character_focus: "[キャラクター焦点]"
+      technical_element: "[技術的要素]"
+      dialogue_highlights:
+        - "[重要な台詞1]"
+        - "[重要な台詞2]"
+      scene_progression: "[シーンの進行]"

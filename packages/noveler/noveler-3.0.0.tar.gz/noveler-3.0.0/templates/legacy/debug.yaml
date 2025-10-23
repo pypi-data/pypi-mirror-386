@@ -1,0 +1,37 @@
+metadata:
+  name: "デバッグ用"
+  description: "開発・テスト用の詳細ロギング付き評価"
+  evaluation_points: 100
+  estimated_time_seconds: 20
+  complexity: "high"
+  categories:
+    - "debug"
+    - "comprehensive"
+
+evaluation_criteria:
+  creative_quality:
+    opening_effectiveness: "冒頭の引きの強さと効果"
+    character_voice: "キャラクター個性と差別化"
+    emotional_embodiment: "感情の身体感覚表現"
+    depth_description: "5層深度の内面描写"
+  reader_experience:
+    engagement_sustainability: "読み続けたくなる魅力"
+    immersion_quality: "物語世界への没入感"
+    smartphone_readability: "スマホでの読みやすさ"
+  structural_coherence:
+    scene_purpose: "各シーンの存在意義"
+    narrative_flow: "物語の自然な流れ"
+    pacing_balance: "テンポ配分の適切性"
+  debug_info:
+    processing_time: "処理時間計測"
+    validation_status: "検証状況"
+    error_detection: "エラー検出"
+
+analysis_instructions:
+  - "原稿内容を詳細に読み込み、各評価基準に基づいて客観的に分析する"
+  - "具体的な改善提案を、原文引用と改善例を含めて提示する"
+  - "スコアの根拠を明確に説明し、偏りのない評価を心がける"
+  - "全カテゴリをバランス良く評価し、総合的な品質判定を行う"
+  - "カテゴリ間の相互関係を考慮した統合的な改善提案を行う"
+  - "詳細なデバッグ情報とログを含める"
+  - "処理ステップの詳細記録を出力する"

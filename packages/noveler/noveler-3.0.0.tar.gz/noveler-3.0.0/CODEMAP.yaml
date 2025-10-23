@@ -1,0 +1,308 @@
+project_structure:
+  name: "小説執筆支援システム Noveler"
+  architecture: "DDD + Clean Architecture"
+  version: 1.0.0
+  last_updated: '2025-08-30'
+  commit: 0ddb977b
+  description: "なろう系Web小説執筆支援システム - Python標準構造準拠版"
+
+  # Python標準プロジェクト構造（2025年8月30日標準化）
+  structure:
+    root_directories:
+      - "bin/"              # 実行ファイル（novel, noveler等）
+      - "src/"              # プログラムソースコード
+      - "tests/"            # テストコード（src外へ移動済み）
+      - "scripts/"          # 各種スクリプト・環境設定
+      - "templates/"        # テンプレートファイル
+      - "docs/"             # ドキュメント・ガイド類
+      - "specs/"            # 仕様書
+      - "temp/"             # 一時ファイル・キャッシュ
+
+    src_structure:
+      - "src/noveler/"                    # メインパッケージ
+      - "src/noveler/domain/"             # ドメイン層
+      - "src/noveler/application/"        # アプリケーション層
+      - "src/noveler/infrastructure/"     # インフラストラクチャ層
+      - "src/noveler/presentation/"       # プレゼンテーション層
+
+    removed_directories:
+      - "src/noveler/main/"        # 空フォルダ削除済み
+      - "src/noveler/templates/"   # templates/ に移動済み
+      - "src/noveler/setup/"       # scripts/setup/ に移動済み
+      - "src/noveler/tests/"       # tests/ に移動済み
+
+    scripts_structure:
+      - "scripts/presentation/"    # ユーザー向けCLI・スクリプト
+      - "scripts/setup/"          # 環境設定スクリプト
+      - "scripts/tools/"          # 開発・運用ツール
+
+  layers:
+    - name: "presentation"
+      path: "src/noveler/presentation/"
+      description: "CLI・UI層"
+    - name: "application"
+      path: "src/noveler/application/"
+      description: "ユースケース・サービス層"
+    - name: "domain"
+      path: "src/noveler/domain/"
+      description: "ドメインロジック・エンティティ"
+    - name: "infrastructure"
+      path: "src/noveler/infrastructure/"
+      description: "外部サービス・アダプター"
+
+# 新規追加ユースケース（2025-08-30 テストエラー修正時に追加）
+recent_additions:
+  date: "2025-08-30"
+  purpose: "テストインポートエラー修復によるユースケース実装"
+  added_components:
+    - name: "CheckItemInput"
+      path: "src/noveler/application/use_cases/pre_writing_check_use_case.py"
+      type: "dataclass"
+      description: "執筆前チェック項目入力データクラス"
+
+    - name: "PreWritingCheckUseCase"
+      path: "src/noveler/application/use_cases/pre_writing_check_use_case.py"
+      type: "use_case"
+      description: "執筆開始前の事前チェック処理ユースケース"
+
+    - name: "CheckManuscriptStatusUseCase"
+      path: "src/noveler/application/use_cases/plot_version_use_cases.py"
+      type: "use_case"
+      description: "原稿状態とプロットバージョン整合性チェック"
+
+    - name: "ViewpointAwareQualityCheckUseCase"
+      path: "src/noveler/application/use_cases/viewpoint_aware_quality_check.py"
+      type: "use_case"
+      description: "視点依存品質チェックユースケース"
+
+# MCPコマンドサジェスター機能（2025-01-20追加）
+mcp_command_suggester:
+  date: "2025-01-20"
+  purpose: "スラッシュコマンドの認識精度向上"
+  components:
+    - name: "MCPCommandSuggester"
+      path: "src/noveler/domain/services/mcp_command_suggester.py"
+      type: "domain_service"
+      description: "自然言語入力からMCPコマンドへの変換・提案サービス"
+      features:
+        - "パターンマッチングによる意図推測"
+        - "エピソード番号の自動抽出"
+        - "コマンドパラメータ検証"
+        - "使用ヒントの自動生成"
+
+    - name: "CommandSuggestion"
+      path: "src/noveler/domain/services/mcp_command_suggester.py"
+      type: "dataclass"
+      description: "コマンド提案情報を保持するデータクラス"
+
+    - name: "MCPProtocolAdapter統合"
+      path: "src/noveler/presentation/mcp/adapters/mcp_protocol_adapter.py"
+      type: "adapter"
+      description: "MCPプロトコルアダプターへのサジェスター統合"
+      integration_points:
+        - "コマンド検証時の自動提案"
+        - "エラー時の使用ヒント生成"
+        - "類似コマンドの提示"
+      type: "use_case"
+      description: "視点管理を考慮した品質チェック"
+
+    - name: "AutoSceneGenerationUseCase"
+      path: "src/noveler/application/use_cases/auto_scene_generation_use_case.py"
+      type: "use_case"
+      description: "AI活用自動シーン生成処理"
+
+    - name: "create_episode_from_template"
+      path: "src/noveler/application/use_cases/create_episode_use_case.py"
+      type: "function"
+      description: "テンプレートからエピソード作成関数"
+
+  # SPEC-901 MessageBus・DDD実装コンポーネント（2025-09-22追加）
+  messagebus_components:
+    - name: "MessageBus"
+      path: "src/noveler/application/simple_message_bus.py"
+      type: "core_service"
+      description: "軽量MessageBus（文字列名ベース）CQRS/Event Sourcing対応"
+      features:
+        - "コマンド/イベント非同期処理"
+        - "Outbox Pattern永続化"
+        - "Idempotency重複防止"
+        - "Dead Letter Queue"
+        - "P95 <1ms パフォーマンス達成"
+
+    - name: "UseCaseBusAdapter"
+      path: "src/noveler/application/adapters/usecase_bus_adapter.py"
+      type: "adapter"
+      description: "既存UseCase→MessageBus統合アダプター"
+      features:
+        - "DI注入による段階的移行"
+        - "UseCaseリクエスト/レスポンス変換"
+        - "イベント自動発行"
+
+    - name: "BusCompatibilityBridge"
+      path: "src/noveler/application/adapters/bus_compatibility_bridge.py"
+      type: "bridge"
+      description: "TypedBus↔SimpleBus互換性ブリッジ"
+      features:
+        - "型付き↔文字列ベース変換"
+        - "移行期間中の共存支援"
+        - "統一APIによる透明な切り替え"
+
+    - name: "BusSchemas"
+      path: "src/noveler/application/schemas.py"
+      type: "validation"
+      description: "コマンド/イベントPydanticスキーマ定義"
+      features:
+        - "CommandType/EventType列挙"
+        - "名前空間付きイベント（episode.*, quality.*, plot.*）"
+        - "入力検証とエラーハンドリング"
+circular_import_solutions:
+  resolved_issues: []
+b20_compliance:
+  ddd_layer_separation: {}
+  import_management: {}
+  shared_components: {}
+
+# 共通基盤コンポーネント定義（2025-09-09 追加）
+# CODEMAPベースの動的コンプライアンス検証システム
+common_foundation:
+  version: "1.0.0"
+  last_updated: "2025-09-09"
+  description: "B20/B30品質基準準拠の共通基盤コンポーネント定義"
+
+  # 必須共通コンポーネント
+  components:
+    console:
+      primary_module: "noveler.presentation.shared.shared_utilities"
+      primary_function: "_get_console"
+      singleton: true
+      description: "統一Consoleインスタンス（B30準拠・DI対応）"
+      usage_pattern: "console = _get_console()"
+      alternatives:
+        - module: "noveler.presentation.cli.shared_utilities"
+          function: "console"
+          description: "グローバルConsoleインスタンス"
+        - module: "scripts.presentation.cli.shared_utilities"
+          function: "console"
+          description: "scriptsパッケージ共通Console"
+
+    logger:
+      primary_module: "noveler.infrastructure.logging.unified_logger"
+      primary_function: "get_logger"
+      description: "統一ログシステム（JSON対応・構造化ログ）"
+      usage_pattern: "logger = get_logger(__name__)"
+      alternatives:
+        - module: "noveler.presentation.shared.shared_utilities"
+          function: "get_logger"
+          description: "CLI用簡易ロガー"
+        - module: "scripts.presentation.cli.shared_utilities"
+          function: "get_unified_logger"
+          description: "scriptsパッケージ統一ロガー"
+
+    path_service:
+      primary_module: "noveler.infrastructure.factories.path_service_factory"
+      primary_function: "create_path_service"
+      description: "パス管理サービス（ハードコーディング回避）"
+      usage_pattern: "path_service = create_path_service(project_root)"
+      alternatives:
+        - module: "noveler.presentation.cli.shared_utilities"
+          function: "get_common_path_service"
+          description: "CLI用パスサービス"
+
+    error_handler:
+      primary_module: "noveler.presentation.cli.shared_utilities"
+      primary_function: "handle_error"
+      description: "統一エラーハンドリング（B30準拠）"
+      usage_pattern: "handle_error(exception, context)"
+      alternatives: []
+
+  # 禁止パターンと例外管理
+  forbidden_patterns:
+    console:
+      - pattern: "from rich.console import Console"
+        severity: "critical"
+        message: "Rich Console直接インポート禁止"
+        exceptions:
+          - "shared_utilities.py"
+          - "unified_logger.py"
+          - "di_container.py"
+        suggested_fix: "from noveler.presentation.shared.shared_utilities import _get_console"
+
+      - pattern: "console = Console()"
+        severity: "critical"
+        message: "Console重複作成禁止"
+        exceptions:
+          - "_get_console"
+          - "di_container.py"
+        suggested_fix: "console = _get_console()"
+
+      - pattern: "Console()"
+        severity: "critical"
+        message: "Console直接インスタンス化禁止"
+        exceptions:
+          - "_get_console"
+          - "unified_logger.py"
+        suggested_fix: "_get_console()を使用"
+
+    logger:
+      - pattern: "import logging"
+        severity: "critical"
+        message: "レガシーlogging使用禁止"
+        exceptions:
+          - "unified_logger.py"
+          - "logger.py"
+          - "conftest.py"
+        suggested_fix: "from noveler.infrastructure.logging.unified_logger import get_logger"
+
+      - pattern: "logging.getLogger"
+        severity: "critical"
+        message: "logging.getLogger直接使用禁止"
+        exceptions:
+          - "unified_logger.py"
+          - "logger_adapter.py"
+        suggested_fix: "get_logger(__name__)を使用"
+
+    paths:
+      - pattern: '/ "40_原稿"'
+        severity: "critical"
+        message: "原稿パスハードコーディング禁止"
+        exceptions: []
+        suggested_fix: "path_service.get_manuscript_dir()を使用"
+
+      - pattern: '/ "30_プロット"'
+        severity: "critical"
+        message: "プロットパスハードコーディング禁止"
+        exceptions: []
+        suggested_fix: "path_service.get_plot_dir()を使用"
+
+      - pattern: 'Path("40_原稿")'
+        severity: "critical"
+        message: "原稿Path直接指定禁止"
+        exceptions: []
+        suggested_fix: "path_service.get_manuscript_dir()を使用"
+
+  # コンプライアンス基準
+  compliance_thresholds:
+    console_shared_usage_rate: 0.85  # 85%以上が共通Console使用
+    logger_unified_usage_rate: 0.80  # 80%以上が統一Logger使用
+    path_service_usage_rate: 0.70    # 70%以上がPathService使用
+    error_handling_unified_rate: 0.60 # 60%以上が統一エラーハンドリング使用
+
+    # 絶対禁止（0件）
+    console_duplication_max: 0
+    legacy_logging_max: 0
+    path_hardcoding_max: 0
+
+  # MCPサーバー専用基準（緩い基準）
+  mcp_server_exceptions:
+    path: "src/mcp_servers"
+    relaxed_thresholds:
+      console_shared_usage_rate: 0.60  # MCPは60%以上
+      logger_unified_usage_rate: 0.50  # MCPは50%以上
+    allowed_patterns:
+      - "import logging"  # MCPサーバーでは許可
+      - "logging.getLogger"  # MCPサーバーでは許可
+
+quality_prevention_integration:
+  architecture_linter: {}
+  hardcoding_detector: {}
+  automated_prevention: {}

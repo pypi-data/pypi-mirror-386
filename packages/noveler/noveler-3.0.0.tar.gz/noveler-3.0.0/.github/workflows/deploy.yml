@@ -1,0 +1,183 @@
+name: Deploy to PyPI & Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # マッチ例: v3.0.0, v3.0.1, v3.1.0-2025-10-22
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  PYTHON_VERSION: '3.10'
+
+jobs:
+  build:
+    name: Build Distribution
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # CHANGELOG抽出用にfull history取得
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build
+
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          TAG_NAME="${{ github.ref }}"
+          VERSION="${TAG_NAME#refs/tags/}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "📦 Building version: ${VERSION}"
+
+      - name: Build distribution (wheel + sdist)
+        run: python -m build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 5
+
+  publish-pypi:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/noveler/
+    permissions:
+      id-token: write
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          print-hash: true
+
+  create-release:
+    name: Create GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          TAG_NAME="${{ github.ref }}"
+          VERSION="${TAG_NAME#refs/tags/}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Extract release notes from CHANGELOG.md
+        id: changelog
+        run: |
+          python << 'EOF'
+          import re
+
+          version = "${{ steps.extract_version.outputs.version }}"
+
+          # タグから v プレフィックスを除去（v3.0.0 → 3.0.0）
+          version_no_prefix = version.lstrip('v')
+
+          with open('CHANGELOG.md', 'r', encoding='utf-8') as f:
+              content = f.read()
+
+          # バージョンセクションを抽出
+          # マッチパターン: ## [3.0.0] - YYYY-MM-DD または ## [Unreleased]
+          pattern = rf'## \[{re.escape(version_no_prefix)}\].*?(?=##|\Z)'
+          match = re.search(pattern, content, re.DOTALL)
+
+          if match:
+              release_notes = match.group(0)
+              print(f"✅ Release notes extracted for v{version_no_prefix}")
+          else:
+              # セクションが見つからない場合は、デフォルトメッセージを使用
+              release_notes = f"See [CHANGELOG.md](CHANGELOG.md) for details on v{version_no_prefix}"
+              print(f"⚠️  Version section not found for v{version_no_prefix}, using default message")
+
+          # 出力ファイルに書き込み
+          with open('release_notes.md', 'w', encoding='utf-8') as f:
+              f.write(release_notes)
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify-deployment:
+    name: Notify Deployment Success
+    needs: [publish-pypi, create-release]
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          TAG_NAME="${{ github.ref }}"
+          VERSION="${TAG_NAME#refs/tags/}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Log deployment success
+        run: |
+          echo "✅ Deployment successful!"
+          echo "📦 Published: https://pypi.org/project/noveler/${{ steps.extract_version.outputs.version }}/"
+          echo "🔗 Release: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ steps.extract_version.outputs.version }}"
+
+  notify-deployment-failure:
+    name: Notify Deployment Failure
+    needs: [publish-pypi, create-release]
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          TAG_NAME="${{ github.ref }}"
+          VERSION="${TAG_NAME#refs/tags/}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Log deployment failure
+        run: |
+          echo "❌ Deployment failed!"
+          echo "Version: ${{ steps.extract_version.outputs.version }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

@@ -1,0 +1,173 @@
+# STEP 02: 文法・表記統一チェック Schema v2
+
+metadata:
+  step_id: 2
+  step_name: 文法・表記統一チェック
+  phase: basic_quality
+  version: 2.0.0
+  last_updated: '2025-09-24'
+  author: noveler system
+  description: 文法の正確性と表記の一貫性を確認
+  estimated_duration: 5-8分
+llm_config:
+  role_messages:
+    system: |-
+      あなたは品質チェックスペシャリストです。constraints.hard_rules を厳守し、
+      出力は artifacts の仕様に従った JSON のみを返してください。追加の説明文は不要です。
+    user: |-
+      文法・表記統一チェック に関する tasks・acceptance_criteria を順守してください。
+      問題が見つからない場合でも issues.<category>[] は空配列として出力し、summary.evidence に根拠を示してください。
+prompt:
+  main_instruction: |-
+    目的は「文法・表記統一チェック」です。inputs・constraints・tasks を満たし、
+    artifacts の仕様に従った JSON をコードブロックなしで出力してください。
+  next_action_instruction: |-
+    ステップ {previous_step_id}「{previous_step_name}」が完了しました。
+
+    続いて、ステップ {step_id}「{step_name}」を実行してください。
+    読みやすさの基礎チェックを行います：
+    1. 文の長さが適切か（目安：40-80文字）
+    2. 難解な語彙の頻度確認
+    3. 改行・段落の適切性
+    4. 文章のリズムと流れ
+
+    execute_check_step で step_id={step_id} を実行してください。
+inputs:
+  files:
+    - path: '{project_root}/40_原稿/第{episode_number:03d}話*.md'
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: '{project_root}/config/quality_rules.yaml'
+      required: false
+      description: 品質関連の設定があれば参照
+  variables:
+    episode_number:
+      type: int
+      required: true
+    project_root:
+      type: path
+      required: true
+constraints:
+  hard_rules:
+    - summary.overview と metrics.score を必ず出力する
+    - issues は各カテゴリ (issues.*) をキーにもつオブジェクトとして出力する
+    - 各 issue には before_text / after_text / severity / priority を添える
+  soft_targets:
+    - metrics.score は 80 以上を目指す
+    - issues 全体の件数を 5 件以内に抑える（理想値）
+tasks:
+  bullets:
+    - 文法・表記統一チェックの観点（文法精度、表記統一）を俯瞰し、重大度と優先度を判定する
+    - issues.<category>[] に原稿抜粋・修正案・severity・priority・root_cause を含めて整理する
+    - summary.overview に現状と改善方針を200字以内で要約し、summary.evidence に根拠を箇条書きする
+    - metrics.score と metrics.issue_count を更新し、recommendations 
+      に最優先の改善アクションを3件以内で列挙する
+  details:
+    - name: 文法精度
+      items:
+        - id: checks.grammar
+          text: '文法精度観点: 助詞の正確な使用（は・が・を・に・で・と・から・まで等） / 敬語・丁寧語・謙譲語の一貫性 / 時制の統一性 /
+            主述の対応関係'
+    - name: 表記統一
+      items:
+        - id: checks.notation
+          text: '表記統一観点: 数字表記の統一（全角・半角） / 記号・符号の表記統一 / 句読点の適切な配置 / カギ括弧・感嘆符の使い方'
+artifacts:
+  format: json
+  path_template: '{project_root}/.noveler/checks/EP{episode_number:04d}/step{step_id:02d}_quality.json'
+  required_fields:
+    - summary
+    - issues
+    - recommendations
+    - metrics
+  example: |-
+    {
+      "summary": {
+        "overview": "文法・表記統一チェックの主要な所見をここに記述",
+        "score": 82,
+        "evidence": [
+          "文法精度: 原稿第3段落で誤用を確認"
+        ]
+      },
+      "issues": {
+        "grammar": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "助詞の正確な使用（は・が・を・に・で・と・から・まで等）"
+          }
+        ],
+        "notation": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "数字表記の統一（全角・半角）"
+          }
+        ]
+      },
+      "recommendations": [
+        "誤用箇所を修正し、スタイルガイドに合わせる",
+        "再発防止のために該当セクションを校正する"
+      ],
+      "metrics": {
+        "issue_count": 2,
+        "score": 82,
+        "severity_distribution": {
+          "low": 1,
+          "medium": 1,
+          "high": 0
+        }
+      }
+    }
+acceptance_criteria:
+  checklist:
+    - summary.overview と metrics.score を出力している
+    - issues.<category>[] の各要素に before_text / after_text / severity / priority /
+      rationale が含まれている
+  metrics:
+    - name: issue_count
+      target: '>= 0'
+      method: issues.* の総件数
+    - name: score_range
+      target: 0-100
+      method: metrics.score の範囲検証
+next:
+  next_step_id: 3
+  message_template: |-
+    次のチェックステップは execute_check_step で step_id={next_step_id} を実行してください。
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: checks.grammar
+      field: issues.grammar
+      rule: present
+    - id: checks.notation
+      field: issues.notation
+      rule: present
+check_criteria:
+  grammar:
+    - 助詞の正確な使用（は・が・を・に・で・と・から・まで等）
+    - 敬語・丁寧語・謙譲語の一貫性
+    - 時制の統一性
+    - 主述の対応関係
+  notation:
+    - 数字表記の統一（全角・半角）
+    - 記号・符号の表記統一
+    - 句読点の適切な配置
+    - カギ括弧・感嘆符の使い方

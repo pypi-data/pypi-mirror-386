@@ -1,0 +1,48 @@
+# 章プロットテンプレート
+# このテンプレートは章別プロット作成時に使用されます
+
+chapter_number: null  # 章番号（必須）
+title: ""            # 章タイトル（必須）
+summary: ""          # 章の概要（必須）
+
+# 主要イベント（必須）
+key_events: []
+
+# エピソード構成（必須）
+episodes: []
+
+# キャラクターアーク（推奨）
+character_development:
+  # 新形式（機械処理対応）
+  main_characters:
+    hero:
+      name: "[主人公名]"
+      role: "主人公"
+      character_type: "hero"
+    heroine:
+      name: "[ヒロイン名]"
+      role: "ヒロイン"
+      character_type: "heroine"
+  # 後方互換性
+  legacy_character_arcs: {}
+
+# 伏線要素（推奨）
+foreshadowing: {}
+
+# 章の設定情報
+settings:
+  location: ""       # 主要舞台
+  time_period: ""    # 時期・期間
+  mood: ""          # 章の雰囲気
+
+# 執筆メモ
+writing_notes:
+  goals: []         # 章の目標
+  themes: []        # テーマ
+  conflicts: []     # 葛藤要素
+
+# メタデータ
+metadata:
+  created_at: null
+  version: "1.0"
+  template_type: "chapter_plot"

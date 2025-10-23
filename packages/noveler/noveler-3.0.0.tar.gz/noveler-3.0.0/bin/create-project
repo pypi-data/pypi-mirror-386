@@ -1,0 +1,173 @@
+#!/bin/bash
+# 新規小説プロジェクト作成スクリプト
+#
+# 使用方法:
+#   ./create_project.sh "プロジェクト名"
+#   例: ./create_project.sh "08_時空の図書館"
+
+set -e  # エラーで停止
+
+# 色付き出力
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# 引数チェック
+if [ $# -eq 0 ]; then
+    echo -e "${RED}エラー: プロジェクト名を指定してください${NC}"
+    echo "使用方法: $0 プロジェクト名"
+    echo "例: $0 08_時空の図書館"
+    exit 1
+fi
+
+PROJECT_NAME="$1"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GUIDE_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# 環境変数 NOVEL_ROOT が設定されていればそれを使用
+if [ -n "$NOVEL_ROOT" ]; then
+    NOVEL_ROOT="$NOVEL_ROOT"
+else
+    NOVEL_ROOT="$(dirname "$GUIDE_ROOT")"
+fi
+
+echo -e "${GREEN}=== 新規小説プロジェクト作成 ===${NC}"
+echo "プロジェクト名: $PROJECT_NAME"
+echo "作成場所: $NOVEL_ROOT/$PROJECT_NAME"
+
+# 既存チェック
+if [ -d "$NOVEL_ROOT/$PROJECT_NAME" ]; then
+    echo -e "${YELLOW}警告: ディレクトリが既に存在します${NC}"
+    # CI/CD環境では対話的な入力ができないため、環境変数で制御
+    if [ -n "$CI" ] || [ -n "$PYTEST_CURRENT_TEST" ] || [ -n "$NOVEL_FORCE_YES" ]; then
+        echo "自動テスト環境のため、既存ディレクトリを使用します"
+    else
+        read -p "続行しますか？ (y/N): " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
+    fi
+fi
+
+# ディレクトリ作成
+echo -e "\n${GREEN}1. ディレクトリ構造を作成${NC}"
+mkdir -p "$NOVEL_ROOT/$PROJECT_NAME"
+cd "$NOVEL_ROOT/$PROJECT_NAME"
+
+# 基本ディレクトリ
+mkdir -p {10_企画,20_プロット/章別プロット,30_設定集,40_原稿,50_管理資料/執筆記録,90_アーカイブ}
+
+# プロジェクト設定.yamlの作成
+echo -e "\n${GREEN}2. プロジェクト設定.yamlを作成${NC}"
+if [ -f "$GUIDE_ROOT/templates/プロジェクト設定テンプレート.yaml" ]; then
+    cp "$GUIDE_ROOT/templates/プロジェクト設定テンプレート.yaml" ./プロジェクト設定.yaml
+
+    # 基本情報を自動設定
+    sed -i "s|/path/to/your/小説プロジェクト|$NOVEL_ROOT/$PROJECT_NAME|g" プロジェクト設定.yaml
+
+    # プロジェクト名から番号を除去してタイトルを推測
+    TITLE=$(echo "$PROJECT_NAME" | sed 's/^[0-9]*_//')
+    sed -i "s|作品タイトル|$TITLE|g" プロジェクト設定.yaml
+
+    # 日付を設定
+    TODAY=$(date +%Y-%m-%d)
+    sed -i "s|2024-01-01|$TODAY|g" プロジェクト設定.yaml
+
+    echo "✅ プロジェクト設定.yamlを作成しました"
+else
+    echo -e "${YELLOW}警告: テンプレートが見つかりません${NC}"
+    # 最小限の設定を作成
+    cat > プロジェクト設定.yaml << EOF
+paths:
+  project_root: "$NOVEL_ROOT/$PROJECT_NAME"
+
+project:
+  name: "$TITLE"
+  genre: "ファンタジー"
+  status: "planning"
+  created_date: "$TODAY"
+
+author:
+  pen_name: "ペンネーム"
+EOF
+fi
+
+# 初期ファイルの作成
+echo -e "\n${GREEN}3. 初期ファイルを作成${NC}"
+
+# README.mdの作成
+cat > README.md << EOF
+# $TITLE
+
+作成日: $TODAY
+
+## 概要
+
+[作品の概要をここに記載]
+
+## 進捗状況
+
+- [ ] 企画・設計
+- [ ] プロット作成
+- [ ] 設定集作成
+- [ ] 執筆開始
+- [ ] 第1話完成
+
+## ディレクトリ構成
+
+\`\`\`
+$PROJECT_NAME/
+├── 10_企画/          # 企画書・市場調査
+├── 20_プロット/      # マスタープロット・章別プロット
+├── 30_設定集/        # キャラクター・世界観設定
+├── 40_原稿/          # 各話の原稿
+├── 50_管理資料/      # 進捗管理・品質記録
+└── 90_アーカイブ/    # 旧バージョン保管
+\`\`\`
+EOF
+
+# .gitignoreの作成
+cat > .gitignore << EOF
+# 一時ファイル
+*.tmp
+*.bak
+*~
+
+# ログファイル
+*.log
+
+# 個人設定
+.env
+personal_notes.md
+
+# 実行時生成ファイル
+dropout_analysis_report.md
+アクセス分析_*.yaml
+EOF
+
+# 環境変数の確認
+echo -e "\n${GREEN}4. 環境変数の確認${NC}"
+cd "$NOVEL_ROOT/$PROJECT_NAME"
+export PROJECT_ROOT="$NOVEL_ROOT/$PROJECT_NAME"
+export GUIDE_ROOT="$GUIDE_ROOT"
+
+echo "PROJECT_ROOT: $PROJECT_ROOT"
+echo "GUIDE_ROOT: $GUIDE_ROOT"
+
+# 完了メッセージ
+echo -e "\n${GREEN}=== プロジェクト作成完了 ===${NC}"
+echo "作成場所: $NOVEL_ROOT/$PROJECT_NAME"
+echo ""
+echo "次のステップ:"
+echo "1. プロジェクト設定.yamlを編集"
+echo "   $ cd '$NOVEL_ROOT/$PROJECT_NAME'"
+echo "   $ nano プロジェクト設定.yaml"
+echo ""
+echo "2. 環境変数を設定（.bashrcが設定済みの場合は自動）"
+echo "   $ cd '$NOVEL_ROOT/$PROJECT_NAME'"
+echo "   $ setup_novel_env"
+echo ""
+echo "3. 企画書の作成"
+echo "   $ cp \"\$GUIDE_ROOT/templates/企画書テンプレート.md\" ./10_企画/企画書.md"

@@ -1,0 +1,216 @@
+[
+  {
+    "spec_id": "SPEC-EPISODE-001",
+    "file": "SPEC-EPISODE-001_episode_management.md",
+    "category": "EPISODE",
+    "tags": "[episode]",
+    "sources": [
+      "E2E"
+    ],
+    "title": "エピソード管理システム仕様",
+    "headings": [
+      "エピソード管理システム仕様",
+      "SPEC-EPISODE-001: エピソード作成機能",
+      "第001話　タイトル",
+      "新規エピソード作成",
+      "タイトル指定",
+      "テンプレート使用",
+      "SPEC-EPISODE-002: エピソード編集機能",
+      "SPEC-EPISODE-003: エピソードステータス管理",
+      "SPEC-EPISODE-004: エピソード完了処理",
+      "エピソード完了処理",
+      "ステータス指定",
+      "品質チェックスキップ"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# エピソード管理システム仕様  ## SPEC-EPISODE-001: エピソード作成機能  ### 概要 新規エピソードの作成と初期設定を行う機能。  ### 要件 - REQ-1.1.1: 自動的に話数を割り当てる - REQ-1.1.2: テンプレートから初期コンテンツを生成 - REQ-1.1.3: メタデータを初期化  ### 機能仕様  #### 1. 話数管理 - 既存エピソードから自動的に次の番号を決定 - フォーマット: `第XXX話_タイトル.md` - 番号は3桁ゼロパディング  #### 2. テンプレート機能 ```markdown # 第001話　タイトル  　[本文をここに記述]  --- 文字数: 0 ```  #### 3. メタデータ ```yaml episode:   number: 1   title: \"タイトル\"   status: \"draft\"   created_at: \"2025-01-24T12:00:00\"   target_words: 3000 ```  ### テストケース - `tests/unit/domain/e"
+  },
+  {
+    "spec_id": "SPEC-PLOT-001",
+    "file": "SPEC-PLOT-001_claude-code-integration-plot-generation.md",
+    "category": "PLOT",
+    "tags": "[plot]",
+    "sources": [
+      "E2E",
+      "REQ"
+    ],
+    "title": "SPEC-PLOT-001: Claude Code連携プロット生成システム",
+    "headings": [
+      "SPEC-PLOT-001: Claude Code連携プロット生成システム",
+      "要件トレーサビリティ",
+      "概要",
+      "背景",
+      "要件",
+      "アーキテクチャ設計",
+      "実装仕様",
+      "テスト仕様",
+      "成功基準",
+      "リスク・制約",
+      "実装優先度",
+      "関連仕様書"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# SPEC-PLOT-001: Claude Code連携プロット生成システム  ## 要件トレーサビリティ  **要件ID**: REQ-PLOT-001〜008 (プロット管理機能群)  **主要要件**: - REQ-PLOT-001: 階層的プロット構造作成 - REQ-PLOT-002: プロット品質評価・改善提案 - REQ-PLOT-003: プロット整合性検証機能 - REQ-PLOT-004: インタラクティブプロット編集 - REQ-PLOT-005: プロットバージョン管理 - REQ-PLOT-006: 章別プロット自動推論機能 - REQ-PLOT-007: プロット要素抽出・分析 - REQ-PLOT-008: プロット進捗管理機能  **実装状況**: ✅実装済み **テストカバレッジ**: tests/integration/test_interactive_writing_system.py **関連仕様書**: SPEC-WRITE-INTERACTIVE-001-v2.md  ## 概要 `novel plot episode X` コマンド実行"
+  },
+  {
+    "spec_id": "SPEC-QUALITY-001",
+    "file": "SPEC-QUALITY-001_a31-checklist-automatic-fix-system.md",
+    "category": "QUALITY",
+    "tags": "[quality]",
+    "sources": [
+      "E2E",
+      "REQ"
+    ],
+    "title": "SPEC-QUALITY-001: A31原稿執筆チェックリスト自動修正システム",
+    "headings": [
+      "SPEC-QUALITY-001: A31原稿執筆チェックリスト自動修正システム",
+      "仕様書メタデータ",
+      "概要",
+      "仕様変更（v1.2）",
+      "背景・動機",
+      "機能要件",
+      "閾値設定例",
+      "完全自動修正（安全な修正のみ）",
+      "パターンベース修正（中精度修正含む）",
+      "対話式修正（人的確認付き）",
+      "特定項目のみ修正",
+      "アーキテクチャ設計"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# SPEC-QUALITY-001: A31原稿執筆チェックリスト自動修正システム  ## 仕様書メタデータ  - **仕様書ID**: SPEC-QUALITY-001 - **タイトル**: A31原稿執筆チェックリスト自動修正システム - **作成日**: 2025-07-28 - **最終更新**: 2025-09-04 - **バージョン**: 1.3 - **ステータス**: 実装済み - **関連ドメイン**: QUALITY (品質管理) - **実装優先度**: HIGH - **要件ID**: REQ-QUALITY-001 (A31品質チェック68項目実装)  ## 概要  A31_原稿執筆チェックリスト.yamlの68項目に対して、「評価→閾値判定→自動修正」のワークフローを提供する統合自動修正システム。各話毎のチェック結果をテンプレートから生成し、プロジェクトの50_管理資料フォルダに保存。手動チェックの負担を軽減し、執筆品質の継続的改善を支援する。  ## 仕様変更（v1.2）  ### チェック結果保存方式の変更 - **テンプレート**: `$GUID"
+  },
+  {
+    "spec_id": "SPEC-QUALITY-002",
+    "file": "SPEC-QUALITY-002_history-management.md",
+    "category": "QUALITY",
+    "tags": "[quality]",
+    "sources": [
+      "E2E",
+      "REQ"
+    ],
+    "title": "SPEC-QUALITY-002: 品質履歴管理システム",
+    "headings": [
+      "SPEC-QUALITY-002: 品質履歴管理システム",
+      "要件トレーサビリティ",
+      "概要",
+      "要求仕様",
+      "DDD設計",
+      "テストケース",
+      "実装"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# SPEC-QUALITY-002: 品質履歴管理システム  ## 要件トレーサビリティ  **要件ID**: REQ-QUALITY-006, REQ-QUALITY-007, REQ-QUALITY-008 (用語統一・表記・読みやすさ最適化)  **主要要件**: - REQ-QUALITY-006: 用語統一チェック - REQ-QUALITY-007: 表記揺れ自動修正 - REQ-QUALITY-008: 読みやすさ最適化  **実装状況**: ✅実装済み **テストカバレッジ**: tests/unit/test_quality_history_management.py **関連仕様書**: SPEC-QUALITY-001_a31-checklist-automatic-fix-system.md  ## 概要  エピソードの品質チェック履歴を時系列で管理し、品質向上のトレンド分析と学習データ蓄積を行うドメインサービス。品質スコアの変遷、改善パターンの識別、個人の執筆成長を支援する。  ## 要求仕様  ### 機能要求  1. **品質履歴記録管理**    - "
+  },
+  {
+    "spec_id": "SPEC-CLAUDE-001",
+    "file": "SPEC-CLAUDE-001_claude_code_integration_system.md",
+    "category": "CLAUDE",
+    "tags": "[claude]",
+    "sources": [
+      "REQ"
+    ],
+    "title": "SPEC-CLAUDE-001: Claude Code連携システム仕様書",
+    "headings": [
+      "SPEC-CLAUDE-001: Claude Code連携システム仕様書",
+      "📋 基本情報",
+      "🎯 概要",
+      "🏗️ DDD設計",
+      "ClaudeIntegrationSession",
+      "ClaudeSessionId",
+      "ErrorExportFormat",
+      "IntegrationStatus",
+      "ClaudeCodeFormatService",
+      "ExportErrorsForClaudeUseCase",
+      "JsonClaudeExportRepository",
+      "MarkdownSuggestionRepository"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# SPEC-CLAUDE-001: Claude Code連携システム仕様書  > ステータス: Deprecated（MCP移行により後継仕様へ集約） > 後継: SPEC-CLAUDE-CODE-001 / SPEC-CLAUDE-CODE-002 / SPEC-MCP-001 > 備考: 本仕様のCLI操作例は歴史的記述。現行はMCPツール経由の実行に置き換え。  ## 📋 基本情報  - **仕様ID**: SPEC-CLAUDE-001 - **作成日**: 2025-01-27 - **更新日**: 2025-01-27 - **対象**: Claude Code連携システム - **実装優先度**: 高 - **ブランチ**: feature/SPEC-CLAUDE-001-claude-code-integration  ## 🎯 概要  リアルタイム監視システムで検出されたコードエラーをClaude Codeで効率的に修正できるようにする統合システム。  ### ビジネス価値 - **開発効率向上**: エラー修正時間の50%短縮 - **学習促進**: エラーパタ"
+  },
+  {
+    "spec_id": "SPEC-MCP-001",
+    "file": "SPEC-MCP-001_mcp-tool-integration-system.md",
+    "category": "MCP",
+    "tags": "[mcp]",
+    "sources": [
+      "REQ"
+    ],
+    "title": "SPEC-MCP-001: MCPツール統合システム仕様書",
+    "headings": [
+      "SPEC-MCP-001: MCPツール統合システム仕様書",
+      "要件トレーサビリティ",
+      "1. 概要",
+      "2. システムアーキテクチャ",
+      "3. 17個のMCPツール詳細仕様",
+      "4. 自律実行機能仕様",
+      "5. ツール仕様詳細",
+      "6. Claude Code統合インターフェース（REQ-MCP-016〜018）",
+      "7. パフォーマンス・可用性要件（REQ-MCP-026〜030）",
+      "8. 技術実装要件",
+      "9. 使用シナリオ",
+      "1. 完全品質チェック実行"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# SPEC-MCP-001: MCPツール統合システム仕様書  ## 要件トレーサビリティ  **要件ID**: REQ-MCP-001A, 002〜005, 016〜018, 026〜030 (MCPツール統合システム機能群) **注記**: REQ-MCP-006〜015, 019〜025は将来拡張用に予約  **実装済み要件**: - REQ-MCP-001A: MCPツールスキーマ定義 - REQ-MCP-002: 10段階執筆MCPツール - REQ-MCP-003: 品質チェックMCPツール - REQ-MCP-004: プロット関連MCPツール - REQ-MCP-005: システム管理MCPツール - REQ-MCP-016: JSON変換MCPツール - REQ-MCP-017: 対話型実行フロー - REQ-MCP-018: Claude Code統合エラー処理 - REQ-MCP-026: MCPツール性能要件 - REQ-MCP-027: 並列処理制御 - REQ-MCP-028: 状態永続化 - REQ-MCP-029: デバッグ支援機能 - REQ-MCP"
+  },
+  {
+    "spec_id": "SPEC-PLOT-002",
+    "file": "SPEC-PLOT-002_chapter_plot_consistency_orchestrator.md",
+    "category": "PLOT",
+    "tags": "[plot]",
+    "sources": [
+      "REQ"
+    ],
+    "title": "SPEC-PLOT-002: 章別プロット整合性オーケストレータ仕様書",
+    "headings": [
+      "SPEC-PLOT-002: 章別プロット整合性オーケストレータ仕様書",
+      "要件トレーサビリティ",
+      "概要",
+      "クラス設計",
+      "データ構造",
+      "パブリックメソッド",
+      "プライベートメソッド",
+      "処理分岐ロジック",
+      "依存サービス",
+      "設計原則遵守",
+      "使用例",
+      "依存サービスの準備"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# SPEC-PLOT-002: 章別プロット整合性オーケストレータ仕様書  ## 要件トレーサビリティ  **要件ID**: REQ-PLOT-003, REQ-PLOT-006, REQ-PLOT-008 (プロット整合性・推論・進捗管理)  **主要要件**: - REQ-PLOT-003: プロット整合性検証機能 - REQ-PLOT-006: 章別プロット自動推論機能 - REQ-PLOT-008: プロット進捗管理機能  **実装状況**: ✅実装済み **テストカバレッジ**: tests/unit/test_chapter_plot_consistency_orchestrator.py **関連仕様書**: SPEC-PLOT-001_claude-code-integration-plot-generation.md  ## 概要 `ChapterPlotConsistencyOrchestrator`は、マイナーバージョンアップ時の章固有影響を管理するオーケストレータです。章別プロットの変更に伴う話数管理、伏線管理の整合性維持を自動化し、必要なレビューポイントを特"
+  },
+  {
+    "spec_id": "SPEC-QUALITY-003",
+    "file": "SPEC-QUALITY-003_manual-improvement-process.md",
+    "category": "QUALITY",
+    "tags": "[quality]",
+    "sources": [
+      "REQ"
+    ],
+    "title": "SPEC-QUALITY-003: 大規模リンターエラー手動修正プロセス",
+    "headings": [
+      "SPEC-QUALITY-003: 大規模リンターエラー手動修正プロセス",
+      "仕様書情報",
+      "1. 概要",
+      "2. 手動修正プロセス",
+      "エラー総数の確認",
+      "エラータイプ別統計",
+      "修正前",
+      "修正後",
+      "修正前",
+      "修正後",
+      "修正前",
+      "修正後"
+    ],
+    "owner": "bamboocity",
+    "last_reviewed": "2025-09-13",
+    "preview": "# SPEC-QUALITY-003: 大規模リンターエラー手動修正プロセス  ## 仕様書情報  - **仕様書ID**: SPEC-QUALITY-003 - **タイトル**: 大規模リンターエラー手動修正プロセス - **作成日**: 2025-01-28 - **最終更新**: 2025-01-28 - **ステータス**: 実装済み・実証済み - **優先度**: 高  ## 1. 概要  ### 1.1 目的 大規模なPythonプロジェクトにおける数千のリンターエラーを効率的に修正するための系統的アプローチを文書化し、今後の品質改善作業の指針とする。  ### 1.2 背景 - 初期状態：4,530のruffリンターエラー - 自動修正の限界：ruff --fixでは59エラーのみ修正可能 - 手動修正の必要性：97%以上のエラーが文脈理解を要する複雑なエラー  ### 1.3 実績 - **修正前**: 4,530エラー - **修正後**: 2,410エラー（47%削減） - **手動修正**: 約2,000エラー以上 - **自動修正**: 59エラー（全体の3%"
+  }
+]

@@ -1,0 +1,1506 @@
+{
+  "ddd-refactoring": {
+    "canonical": {
+      "path": "specs/SPEC-901-DDD-REFACTORING.md",
+      "category": "901",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "話別プロット生成機能拡張仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-A28-001_話別プロット生成機能拡張仕様書.md",
+      "category": "A28",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "stepwise-001_段階的a30ガイド読み込み機能": {
+    "canonical": {
+      "path": "specs/SPEC-A30-STEPWISE-001_段階的A30ガイド読み込み機能.md",
+      "category": "A30",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "a31自動評価エンジン仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-A31-001_A31自動評価エンジン仕様書.md",
+      "category": "A31",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "basic_proofread": {
+    "canonical": {
+      "path": "specs/SPEC-A31-031_basic_proofread.md",
+      "category": "A31",
+      "number": 31
+    },
+    "duplicates": []
+  },
+  "terminology_check": {
+    "canonical": {
+      "path": "specs/SPEC-A31-044_terminology_check.md",
+      "category": "A31",
+      "number": 44
+    },
+    "duplicates": []
+  },
+  "complete-001_complete-68-items-auto-check-system": {
+    "canonical": {
+      "path": "specs/SPEC-A31-COMPLETE-001_complete-68-items-auto-check-system.md",
+      "category": "A31",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "det-001": {
+    "canonical": {
+      "path": "specs/SPEC-A31-DET-001.md",
+      "category": "A31",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "ext-001-priority-extraction": {
+    "canonical": {
+      "path": "specs/SPEC-A31-EXT-001-priority-extraction.md",
+      "category": "A31",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "session-001-in-session-analysis": {
+    "canonical": {
+      "path": "specs/SPEC-A31-SESSION-001-in-session-analysis.md",
+      "category": "A31",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "session-002-test-specifications": {
+    "canonical": {
+      "path": "specs/SPEC-A31-SESSION-002-test-specifications.md",
+      "category": "A31",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "emotion-001": {
+    "canonical": {
+      "path": "specs/SPEC-A38-EMOTION-001.md",
+      "category": "A38",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "cli_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-ADAPTER-001_cli_adapter.md",
+      "category": "ADAPTER",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "config_loader_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-ADAPTER-002_config_loader_adapter.md",
+      "category": "ADAPTER",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "unified_infrastructure_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-ADAPTER-013_unified_infrastructure_adapter.md",
+      "category": "ADAPTER",
+      "number": 13
+    },
+    "duplicates": []
+  },
+  "infrastructure_services": {
+    "canonical": {
+      "path": "specs/SPEC-API-001_infrastructure_services.md",
+      "category": "API",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "mcp_tool_api_specification": {
+    "canonical": {
+      "path": "specs/SPEC-API-101_MCP_Tool_API_Specification.md",
+      "category": "API",
+      "number": 101
+    },
+    "duplicates": []
+  },
+  "cli_json_mcp_architecture": {
+    "canonical": {
+      "path": "specs/SPEC-ARCH-001_CLI_JSON_MCP_Architecture.md",
+      "category": "ARCH",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "spec-arch-002": {
+    "canonical": {
+      "path": "specs/SPEC-ARCH-002.md",
+      "category": "ARCH",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "artifact-reference-system": {
+    "canonical": {
+      "path": "specs/SPEC-ARTIFACT-001-artifact-reference-system.md",
+      "category": "ARTIFACT",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "spec-circ-001": {
+    "canonical": {
+      "path": "specs/SPEC-CIRC-001.md",
+      "category": "CIRC",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "import-detection-001_循環インポート予防システム強化仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-CIRCULAR-IMPORT-DETECTION-001_循環インポート予防システム強化仕様書.md",
+      "category": "CIRCULAR",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "claude_code_integration_system": {
+    "canonical": {
+      "path": "specs/SPEC-CLAUDE-001_claude_code_integration_system.md",
+      "category": "CLAUDE",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "claude_export_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-CLAUDE-002_claude_export_use_case.md",
+      "category": "CLAUDE",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "file_watcher_integration": {
+    "canonical": {
+      "path": "specs/SPEC-CLAUDE-003_file_watcher_integration.md",
+      "category": "CLAUDE",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "code-001_claude_code統合サービス仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-CLAUDE-CODE-001_Claude_Code統合サービス仕様書.md",
+      "category": "CLAUDE",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "code-002_汎用プロンプト実行共通サービス仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-CLAUDE-CODE-002_汎用プロンプト実行共通サービス仕様書.md",
+      "category": "CLAUDE",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "cli_json_technical_specification": {
+    "canonical": {
+      "path": "specs/SPEC-CLI-002_CLI_JSON_Technical_Specification.md",
+      "category": "CLI",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "enhanced_cli_controller": {
+    "canonical": {
+      "path": "specs/SPEC-CLI-004_enhanced_cli_controller.md",
+      "category": "CLI",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "cli_episode_number_integration": {
+    "canonical": {
+      "path": "specs/SPEC-CLI-007_cli_episode_number_integration.md",
+      "category": "CLI",
+      "number": 7
+    },
+    "duplicates": []
+  },
+  "novel_cli_integrated": {
+    "canonical": {
+      "path": "specs/SPEC-CLI-010_novel_cli_integrated.md",
+      "category": "CLI",
+      "number": 10
+    },
+    "duplicates": []
+  },
+  "cli_json_implementation_guide": {
+    "canonical": {
+      "path": "specs/SPEC-CLI-101_CLI_JSON_Implementation_Guide.md",
+      "category": "CLI",
+      "number": 101
+    },
+    "duplicates": []
+  },
+  "cli_ux_integration": {
+    "canonical": {
+      "path": "specs/SPEC-CLI-102_cli_ux_integration.md",
+      "category": "CLI",
+      "number": 102
+    },
+    "duplicates": []
+  },
+  "auto-update-001_codemap自動更新システム仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-CODEMAP-AUTO-UPDATE-001_CODEMAP自動更新システム仕様書.md",
+      "category": "CODEMAP",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "hierarchical_config_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-CONFIG-101_hierarchical_config_adapter.md",
+      "category": "CONFIG",
+      "number": 101
+    },
+    "duplicates": []
+  },
+  "統合設定管理システム仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-CONFIG-102_統合設定管理システム仕様書.md",
+      "category": "CONFIG",
+      "number": 102
+    },
+    "duplicates": []
+  },
+  "unified_settings_management": {
+    "canonical": {
+      "path": "specs/SPEC-CONFIGURATION-001_unified_settings_management.md",
+      "category": "CONFIGURATION",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "spec-count-001": {
+    "canonical": {
+      "path": "specs/SPEC-COUNT-001.md",
+      "category": "COUNT",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "data_management_system": {
+    "canonical": {
+      "path": "specs/SPEC-DATA-001_data_management_system.md",
+      "category": "DATA",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "learning_session_entity": {
+    "canonical": {
+      "path": "specs/SPEC-ENTITY-004_learning_session_entity.md",
+      "category": "ENTITY",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "scene_entity": {
+    "canonical": {
+      "path": "specs/SPEC-ENTITY-007_scene_entity.md",
+      "category": "ENTITY",
+      "number": 7
+    },
+    "duplicates": []
+  },
+  "validation_result": {
+    "canonical": {
+      "path": "specs/SPEC-ENTITY-008_validation_result.md",
+      "category": "ENTITY",
+      "number": 8
+    },
+    "duplicates": []
+  },
+  "word_count": {
+    "canonical": {
+      "path": "specs/SPEC-ENTITY-009_word_count.md",
+      "category": "ENTITY",
+      "number": 9
+    },
+    "duplicates": []
+  },
+  "writing_phase": {
+    "canonical": {
+      "path": "specs/SPEC-ENTITY-010_writing_phase.md",
+      "category": "ENTITY",
+      "number": 10
+    },
+    "duplicates": []
+  },
+  "episode_management": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-001_episode_management.md",
+      "category": "EPISODE",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "metadata-management": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-004_metadata-management.md",
+      "category": "EPISODE",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "check_episode_quality": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-006_check_episode_quality.md",
+      "category": "EPISODE",
+      "number": 6
+    },
+    "duplicates": []
+  },
+  "complete_episode": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-008_complete_episode.md",
+      "category": "EPISODE",
+      "number": 8
+    },
+    "duplicates": []
+  },
+  "complete_episode_improvements": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-009_complete_episode_improvements.md",
+      "category": "EPISODE",
+      "number": 9
+    },
+    "duplicates": []
+  },
+  "complete_episode_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-010_complete_episode_use_case.md",
+      "category": "EPISODE",
+      "number": 10
+    },
+    "duplicates": []
+  },
+  "episode": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-011_episode.md",
+      "category": "EPISODE",
+      "number": 11
+    },
+    "duplicates": []
+  },
+  "episode_completion": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-012_episode_completion.md",
+      "category": "EPISODE",
+      "number": 12
+    },
+    "duplicates": []
+  },
+  "episode_completion_entity": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-013_episode_completion_entity.md",
+      "category": "EPISODE",
+      "number": 13
+    },
+    "duplicates": []
+  },
+  "episode_list_management_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-014_episode_list_management_use_case.md",
+      "category": "EPISODE",
+      "number": 14
+    },
+    "duplicates": []
+  },
+  "episode_management_sync": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-015_episode_management_sync.md",
+      "category": "EPISODE",
+      "number": 15
+    },
+    "duplicates": []
+  },
+  "episode_title": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-018_episode_title.md",
+      "category": "EPISODE",
+      "number": 18
+    },
+    "duplicates": []
+  },
+  "episode_transition_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-019_episode_transition_use_case.md",
+      "category": "EPISODE",
+      "number": 19
+    },
+    "duplicates": []
+  },
+  "write_episode_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-039_write_episode_use_case.md",
+      "category": "EPISODE",
+      "number": 39
+    },
+    "duplicates": []
+  },
+  "create_episode_from_plot": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-101_create_episode_from_plot.md",
+      "category": "EPISODE",
+      "number": 101
+    },
+    "duplicates": []
+  },
+  "create_episode_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-102_create_episode_use_case.md",
+      "category": "EPISODE",
+      "number": 102
+    },
+    "duplicates": []
+  },
+  "enhanced_check_episode_quality": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-103_enhanced_check_episode_quality.md",
+      "category": "EPISODE",
+      "number": 103
+    },
+    "duplicates": []
+  },
+  "enhanced_complete_episode": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-104_enhanced_complete_episode.md",
+      "category": "EPISODE",
+      "number": 104
+    },
+    "duplicates": []
+  },
+  "感情重視執筆システム仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-EPISODE-105_感情重視執筆システム仕様書.md",
+      "category": "EPISODE",
+      "number": 105
+    },
+    "duplicates": []
+  },
+  "unified_error_handling": {
+    "canonical": {
+      "path": "specs/SPEC-ERR-001_unified_error_handling.md",
+      "category": "ERR",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "monitor_error_detection_and_auto_fix": {
+    "canonical": {
+      "path": "specs/SPEC-ERROR-MONITOR_error_detection_and_auto_fix.md",
+      "category": "ERROR",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "stage-session-002_セッション分離実行システム仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-FIVE-STAGE-SESSION-002_セッション分離実行システム仕様書.md",
+      "category": "FIVE",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "automated-detection-system": {
+    "canonical": {
+      "path": "specs/SPEC-FORESHADOWING-001_automated-detection-system.md",
+      "category": "FORESHADOWING",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "auto_scene_generation_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-001_auto_scene_generation_use_case.md",
+      "category": "GENERAL",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "backup_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-002_backup_use_case.md",
+      "category": "GENERAL",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "bidirectional_interactive_confirmation": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-003_bidirectional_interactive_confirmation.md",
+      "category": "GENERAL",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "chapter_consistency_interactive_confirmation": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-004_chapter_consistency_interactive_confirmation.md",
+      "category": "GENERAL",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "error_handler_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-007_error_handler_adapter.md",
+      "category": "GENERAL",
+      "number": 7
+    },
+    "duplicates": []
+  },
+  "expanded_transition_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-008_expanded_transition_use_case.md",
+      "category": "GENERAL",
+      "number": 8
+    },
+    "duplicates": []
+  },
+  "file_management_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-009_file_management_use_case.md",
+      "category": "GENERAL",
+      "number": 9
+    },
+    "duplicates": []
+  },
+  "foreshadowing": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-010_foreshadowing.md",
+      "category": "GENERAL",
+      "number": 10
+    },
+    "duplicates": []
+  },
+  "foreshadowing_design_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-011_foreshadowing_design_use_case.md",
+      "category": "GENERAL",
+      "number": 11
+    },
+    "duplicates": []
+  },
+  "genre_type": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-012_genre_type.md",
+      "category": "GENERAL",
+      "number": 12
+    },
+    "duplicates": []
+  },
+  "import_management_system": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-015_import_management_system.md",
+      "category": "GENERAL",
+      "number": 15
+    },
+    "duplicates": []
+  },
+  "improvement_suggestion": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-016_improvement_suggestion.md",
+      "category": "GENERAL",
+      "number": 16
+    },
+    "duplicates": []
+  },
+  "initial_assessment_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-017_initial_assessment_use_case.md",
+      "category": "GENERAL",
+      "number": 17
+    },
+    "duplicates": []
+  },
+  "learning_data_accumulator": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-018_learning_data_accumulator.md",
+      "category": "GENERAL",
+      "number": 18
+    },
+    "duplicates": []
+  },
+  "management_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-024_management_use_case.md",
+      "category": "GENERAL",
+      "number": 24
+    },
+    "duplicates": []
+  },
+  "message_service_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-025_message_service_adapter.md",
+      "category": "GENERAL",
+      "number": 25
+    },
+    "duplicates": []
+  },
+  "multi_project_manager": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-026_multi_project_manager.md",
+      "category": "GENERAL",
+      "number": 26
+    },
+    "duplicates": []
+  },
+  "name_list_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-027_name_list_use_case.md",
+      "category": "GENERAL",
+      "number": 27
+    },
+    "duplicates": []
+  },
+  "path_manager_system": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-029_path_manager_system.md",
+      "category": "GENERAL",
+      "number": 29
+    },
+    "duplicates": []
+  },
+  "progress_status": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-030_progress_status.md",
+      "category": "GENERAL",
+      "number": 30
+    },
+    "duplicates": []
+  },
+  "project_export_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-031_project_export_use_case.md",
+      "category": "GENERAL",
+      "number": 31
+    },
+    "duplicates": []
+  },
+  "project_info": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-032_project_info.md",
+      "category": "GENERAL",
+      "number": 32
+    },
+    "duplicates": []
+  },
+  "publish_preparation_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-033_publish_preparation_use_case.md",
+      "category": "GENERAL",
+      "number": 33
+    },
+    "duplicates": []
+  },
+  "retry_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-034_retry_adapter.md",
+      "category": "GENERAL",
+      "number": 34
+    },
+    "duplicates": []
+  },
+  "scene_management_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-036_scene_management_use_case.md",
+      "category": "GENERAL",
+      "number": 36
+    },
+    "duplicates": []
+  },
+  "smart_auto_enhancement": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-037_smart_auto_enhancement.md",
+      "category": "GENERAL",
+      "number": 37
+    },
+    "duplicates": []
+  },
+  "dependency_analyzer": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-102_dependency_analyzer.md",
+      "category": "GENERAL",
+      "number": 102
+    },
+    "duplicates": []
+  },
+  "deploy_scripts_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-103_deploy_scripts_use_case.md",
+      "category": "GENERAL",
+      "number": 103
+    },
+    "duplicates": []
+  },
+  "dropout_analysis_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-GENERAL-104_dropout_analysis_use_case.md",
+      "category": "GENERAL",
+      "number": 104
+    },
+    "duplicates": []
+  },
+  "external_system_integration": {
+    "canonical": {
+      "path": "specs/SPEC-INTEGRATION-001_external_system_integration.md",
+      "category": "INTEGRATION",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "spec-json-001": {
+    "canonical": {
+      "path": "specs/SPEC-JSON-001.md",
+      "category": "JSON",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "mcp-tool-integration-system": {
+    "canonical": {
+      "path": "specs/SPEC-MCP-001_mcp-tool-integration-system.md",
+      "category": "MCP",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "hash-001": {
+    "canonical": {
+      "path": "specs/SPEC-MCP-HASH-001.md",
+      "category": "MCP",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "non_functional_requirements": {
+    "canonical": {
+      "path": "specs/SPEC-NFR-001_non_functional_requirements.md",
+      "category": "NFR",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "prevention-codemap-001_nih症候群防止とcodemap連携システム仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-NIH-PREVENTION-CODEMAP-001_NIH症候群防止とCODEMAP連携システム仕様書.md",
+      "category": "NIH",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "consistency_update_orchestrator": {
+    "canonical": {
+      "path": "specs/SPEC-ORCHESTRATOR-001_consistency_update_orchestrator.md",
+      "category": "ORCHESTRATOR",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "enhance_consistency_update_orchestrator": {
+    "canonical": {
+      "path": "specs/SPEC-ORCHESTRATOR-002_enhance_consistency_update_orchestrator.md",
+      "category": "ORCHESTRATOR",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "user_guidance_orchestrator": {
+    "canonical": {
+      "path": "specs/SPEC-ORCHESTRATOR-003_user_guidance_orchestrator.md",
+      "category": "ORCHESTRATOR",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "subfolder-001_統合設定管理システム_サブフォルダ構造": {
+    "canonical": {
+      "path": "specs/SPEC-PATH-SUBFOLDER-001_統合設定管理システム_サブフォルダ構造.md",
+      "category": "PATH",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "claude-code-integration-plot-generation": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-001_claude-code-integration-plot-generation.md",
+      "category": "PLOT",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "chapter_plot_consistency_orchestrator": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-002_chapter_plot_consistency_orchestrator.md",
+      "category": "PLOT",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "claude-code-integration": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-003-Claude-Code-Integration.md",
+      "category": "PLOT",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "plot_compression_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-004_plot_compression_use_case.md",
+      "category": "PLOT",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "plot_creation_task_entity": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-005_plot_creation_task_entity.md",
+      "category": "PLOT",
+      "number": 5
+    },
+    "duplicates": []
+  },
+  "plot_element_extraction": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-006_plot_element_extraction.md",
+      "category": "PLOT",
+      "number": 6
+    },
+    "duplicates": []
+  },
+  "plot_progress_service": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-007_plot_progress_service.md",
+      "category": "PLOT",
+      "number": 7
+    },
+    "duplicates": []
+  },
+  "chapter_plot_with_scenes_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-013_chapter_plot_with_scenes_use_case.md",
+      "category": "PLOT",
+      "number": 13
+    },
+    "duplicates": []
+  },
+  "enhanced-episode-plot-entity-claude-code-integration": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-101_enhanced-episode-plot-entity-claude-code-integration.md",
+      "category": "PLOT",
+      "number": 101
+    },
+    "duplicates": []
+  },
+  "integration_yaml_plot_repository": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-102_integration_yaml_plot_repository.md",
+      "category": "PLOT",
+      "number": 102
+    },
+    "duplicates": []
+  },
+  "master_plot_integration_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-103_master_plot_integration_use_case.md",
+      "category": "PLOT",
+      "number": 103
+    },
+    "duplicates": []
+  },
+  "adherence-001": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-ADHERENCE-001.md",
+      "category": "PLOT",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "manuscript-001": {
+    "canonical": {
+      "path": "specs/SPEC-PLOT-MANUSCRIPT-001.md",
+      "category": "PLOT",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "commit-gate-001_pre-commit統合品質ゲート仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-PRE-COMMIT-GATE-001_pre-commit統合品質ゲート仕様書.md",
+      "category": "PRE",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "external_prompt_templates": {
+    "canonical": {
+      "path": "specs/SPEC-PROMPT-001_external_prompt_templates.md",
+      "category": "PROMPT",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "template-loading-tests": {
+    "canonical": {
+      "path": "specs/SPEC-PROMPT-002-template-loading-tests.md",
+      "category": "PROMPT",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "必須要件自動修正システム仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-QRC-002_必須要件自動修正システム仕様書.md",
+      "category": "QRC",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "a31-checklist-automatic-fix-system": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-001_a31-checklist-automatic-fix-system.md",
+      "category": "QUALITY",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "history-management": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-002_history-management.md",
+      "category": "QUALITY",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "manual-improvement-process": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-003_manual-improvement-process.md",
+      "category": "QUALITY",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "pre_writing_check_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-012_pre_writing_check_use_case.md",
+      "category": "QUALITY",
+      "number": 12
+    },
+    "duplicates": []
+  },
+  "quality_check_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-013_quality_check_use_case.md",
+      "category": "QUALITY",
+      "number": 13
+    },
+    "duplicates": []
+  },
+  "quality_config_auto_update": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-014_quality_config_auto_update.md",
+      "category": "QUALITY",
+      "number": 14
+    },
+    "duplicates": []
+  },
+  "quality_record_enhancement": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-015_quality_record_enhancement.md",
+      "category": "QUALITY",
+      "number": 15
+    },
+    "duplicates": []
+  },
+  "quality_record_entity": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-016_quality_record_entity.md",
+      "category": "QUALITY",
+      "number": 16
+    },
+    "duplicates": []
+  },
+  "quality_score": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-017_quality_score.md",
+      "category": "QUALITY",
+      "number": 17
+    },
+    "duplicates": []
+  },
+  "quality_threshold": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-018_quality_threshold.md",
+      "category": "QUALITY",
+      "number": 18
+    },
+    "duplicates": []
+  },
+  "adaptive_quality_evaluation": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-019_adaptive_quality_evaluation.md",
+      "category": "QUALITY",
+      "number": 19
+    },
+    "duplicates": []
+  },
+  "bulk_quality_check": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-020_bulk_quality_check.md",
+      "category": "QUALITY",
+      "number": 20
+    },
+    "duplicates": []
+  },
+  "bulk_quality_check_entity": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-021_bulk_quality_check_entity.md",
+      "category": "QUALITY",
+      "number": 21
+    },
+    "duplicates": []
+  },
+  "narrative_depth_evaluation": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-025_narrative_depth_evaluation.md",
+      "category": "QUALITY",
+      "number": 25
+    },
+    "duplicates": []
+  },
+  "content_quality_enhancer": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-101_content_quality_enhancer.md",
+      "category": "QUALITY",
+      "number": 101
+    },
+    "duplicates": []
+  },
+  "integrated_quality_check_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-102_integrated_quality_check_use_case.md",
+      "category": "QUALITY",
+      "number": 102
+    },
+    "duplicates": []
+  },
+  "integrated_quality_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-QUALITY-103_integrated_quality_use_case.md",
+      "category": "QUALITY",
+      "number": 103
+    },
+    "duplicates": []
+  },
+  "b30準拠リファクタリング仕様書": {
+    "canonical": {
+      "path": "specs/SPEC-REF-001_B30準拠リファクタリング仕様書.md",
+      "category": "REF",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "standard-structure": {
+    "canonical": {
+      "path": "specs/SPEC-REF-002-standard-structure.md",
+      "category": "REF",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "configuration_repository": {
+    "canonical": {
+      "path": "specs/SPEC-REPOSITORY-001_configuration_repository.md",
+      "category": "REPOSITORY",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "git_hook_repository": {
+    "canonical": {
+      "path": "specs/SPEC-REPOSITORY-002_git_hook_repository.md",
+      "category": "REPOSITORY",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "local_file_system_repository": {
+    "canonical": {
+      "path": "specs/SPEC-REPOSITORY-003_local_file_system_repository.md",
+      "category": "REPOSITORY",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "scene_management_repository": {
+    "canonical": {
+      "path": "specs/SPEC-REPOSITORY-004_scene_management_repository.md",
+      "category": "REPOSITORY",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "scene_auto_generation": {
+    "canonical": {
+      "path": "specs/SPEC-SCENE-001_scene_auto_generation.md",
+      "category": "SCENE",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "git_service": {
+    "canonical": {
+      "path": "specs/SPEC-SERVICE-001_git_service.md",
+      "category": "SERVICE",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "enhanced_git_service": {
+    "canonical": {
+      "path": "specs/SPEC-SERVICE-002_enhanced_git_service.md",
+      "category": "SERVICE",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "smart_error_handler_service": {
+    "canonical": {
+      "path": "specs/SPEC-SERVICE-003_smart_error_handler_service.md",
+      "category": "SERVICE",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "user_guidance_service": {
+    "canonical": {
+      "path": "specs/SPEC-SERVICE-004_user_guidance_service.md",
+      "category": "SERVICE",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "test_cleanup_manager": {
+    "canonical": {
+      "path": "specs/SPEC-SYSTEM-009_test_cleanup_manager.md",
+      "category": "SYSTEM",
+      "number": 9
+    },
+    "duplicates": []
+  },
+  "quality_check_system": {
+    "canonical": {
+      "path": "specs/SPEC-SYSTEM-010_quality_check_system.md",
+      "category": "SYSTEM",
+      "number": 10
+    },
+    "duplicates": []
+  },
+  "specification_traceability": {
+    "canonical": {
+      "path": "specs/SPEC-SYSTEM-011_specification_traceability.md",
+      "category": "SYSTEM",
+      "number": 11
+    },
+    "duplicates": []
+  },
+  "auto_check_system": {
+    "canonical": {
+      "path": "specs/SPEC-SYSTEM-012_auto_check_system.md",
+      "category": "SYSTEM",
+      "number": 12
+    },
+    "duplicates": []
+  },
+  "system_diagnosis_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-USECASE-014_system_diagnosis_use_case.md",
+      "category": "USECASE",
+      "number": 14
+    },
+    "duplicates": []
+  },
+  "test_execution_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-USECASE-015_test_execution_use_case.md",
+      "category": "USECASE",
+      "number": 15
+    },
+    "duplicates": []
+  },
+  "text_analysis_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-USECASE-016_text_analysis_use_case.md",
+      "category": "USECASE",
+      "number": 16
+    },
+    "duplicates": []
+  },
+  "track_writing_progress": {
+    "canonical": {
+      "path": "specs/SPEC-USECASE-017_track_writing_progress.md",
+      "category": "USECASE",
+      "number": 17
+    },
+    "duplicates": []
+  },
+  "watch_mode_use_case": {
+    "canonical": {
+      "path": "specs/SPEC-USECASE-018_watch_mode_use_case.md",
+      "category": "USECASE",
+      "number": 18
+    },
+    "duplicates": []
+  },
+  "project-structure-validation": {
+    "canonical": {
+      "path": "specs/SPEC-WORKFLOW-001_project-structure-validation.md",
+      "category": "WORKFLOW",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "legacy-module-migration": {
+    "canonical": {
+      "path": "specs/SPEC-WORKFLOW-002_legacy-module-migration.md",
+      "category": "WORKFLOW",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "enhanced-coding-standards-automation": {
+    "canonical": {
+      "path": "specs/SPEC-WORKFLOW-003_enhanced-coding-standards-automation.md",
+      "category": "WORKFLOW",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "integrated_writing_workflow": {
+    "canonical": {
+      "path": "specs/SPEC-WORKFLOW-005_integrated_writing_workflow.md",
+      "category": "WORKFLOW",
+      "number": 5
+    },
+    "duplicates": []
+  },
+  "a_10-stage-algorithms-specification": {
+    "canonical": {
+      "path": "specs/SPEC-WRITE-001A_10-stage-algorithms-specification.md",
+      "category": "WRITE",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "interactive-001-v2": {
+    "canonical": {
+      "path": "specs/SPEC-WRITE-INTERACTIVE-001-v2.md",
+      "category": "WRITE",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "stage-001": {
+    "canonical": {
+      "path": "specs/SPEC-WRITE-STAGE-001.md",
+      "category": "WRITE",
+      "number": null
+    },
+    "duplicates": []
+  },
+  "ddd-compliant-yaml-processing-foundation": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-001_ddd-compliant-yaml-processing-foundation.md",
+      "category": "YAML",
+      "number": 1
+    },
+    "duplicates": []
+  },
+  "yaml_auto_format": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-002_yaml_auto_format.md",
+      "category": "YAML",
+      "number": 2
+    },
+    "duplicates": []
+  },
+  "yaml_configuration_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-003_yaml_configuration_repository.md",
+      "category": "YAML",
+      "number": 3
+    },
+    "duplicates": []
+  },
+  "yaml_episode_management_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-004_yaml_episode_management_repository.md",
+      "category": "YAML",
+      "number": 4
+    },
+    "duplicates": []
+  },
+  "yaml_episode_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-005_yaml_episode_repository.md",
+      "category": "YAML",
+      "number": 5
+    },
+    "duplicates": []
+  },
+  "yaml_foreshadowing_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-006_yaml_foreshadowing_repository.md",
+      "category": "YAML",
+      "number": 6
+    },
+    "duplicates": []
+  },
+  "yaml_infrastructure_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-007_yaml_infrastructure_repository.md",
+      "category": "YAML",
+      "number": 7
+    },
+    "duplicates": []
+  },
+  "yaml_plot_data_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-008_yaml_plot_data_repository.md",
+      "category": "YAML",
+      "number": 8
+    },
+    "duplicates": []
+  },
+  "yaml_plot_progress_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-009_yaml_plot_progress_repository.md",
+      "category": "YAML",
+      "number": 9
+    },
+    "duplicates": []
+  },
+  "yaml_plot_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-010_yaml_plot_repository.md",
+      "category": "YAML",
+      "number": 10
+    },
+    "duplicates": []
+  },
+  "yaml_project_info_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-011_yaml_project_info_repository.md",
+      "category": "YAML",
+      "number": 11
+    },
+    "duplicates": []
+  },
+  "yaml_project_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-012_yaml_project_repository.md",
+      "category": "YAML",
+      "number": 12
+    },
+    "duplicates": []
+  },
+  "yaml_quality_check_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-013_yaml_quality_check_repository.md",
+      "category": "YAML",
+      "number": 13
+    },
+    "duplicates": []
+  },
+  "yaml_quality_config_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-014_yaml_quality_config_repository.md",
+      "category": "YAML",
+      "number": 14
+    },
+    "duplicates": []
+  },
+  "yaml_quality_record_enhancement_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-015_yaml_quality_record_enhancement_repository.md",
+      "category": "YAML",
+      "number": 15
+    },
+    "duplicates": []
+  },
+  "yaml_quality_record_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-016_yaml_quality_record_repository.md",
+      "category": "YAML",
+      "number": 16
+    },
+    "duplicates": []
+  },
+  "yaml_quality_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-017_yaml_quality_repository.md",
+      "category": "YAML",
+      "number": 17
+    },
+    "duplicates": []
+  },
+  "yaml_repository_interface": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-018_yaml_repository_interface.md",
+      "category": "YAML",
+      "number": 18
+    },
+    "duplicates": []
+  },
+  "yaml_scene_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-019_yaml_scene_repository.md",
+      "category": "YAML",
+      "number": 19
+    },
+    "duplicates": []
+  },
+  "yaml_validator_adapter": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-020_yaml_validator_adapter.md",
+      "category": "YAML",
+      "number": 20
+    },
+    "duplicates": []
+  },
+  "simple_yaml_episode_repository": {
+    "canonical": {
+      "path": "specs/SPEC-YAML-022_simple_yaml_episode_repository.md",
+      "category": "YAML",
+      "number": 22
+    },
+    "duplicates": []
+  }
+}

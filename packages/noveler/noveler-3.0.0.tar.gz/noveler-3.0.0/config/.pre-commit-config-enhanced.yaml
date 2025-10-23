@@ -1,0 +1,99 @@
+# Enhanced pre-commit configuration with strict TDD+DDD checks
+# TDD+DDD準拠を確実にするための強化版設定
+
+repos:
+  # ========== STAGE 1: 基本チェック ==========
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+
+  # ========== STAGE 2: TDD+DDD準拠チェック（最優先） ==========
+  - repo: local
+    hooks:
+      # リファクタリング専用ファイル検出
+      - id: no-refactored-files
+        name: リファクタリング専用ファイル禁止
+        entry: bash -c 'find scripts -name "*_refactored.py" -type f | grep -q . && echo "❌ _refactoredファイルは禁止です" && exit 1 || exit 0'
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      # TDD+DDD準拠チェック（必須）
+      - id: tdd-ddd-compliance
+        name: TDD+DDD準拠チェック（必須）
+        entry: python scripts/tools/check_tdd_ddd_compliance.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        fail_fast: true
+
+      # 強化版チェック
+      - id: enhanced-tdd-ddd-check
+        name: TDD+DDD準拠チェック強化版
+        entry: python scripts/tools/enhance_tdd_ddd_check.py
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      # テストファースト確認
+      - id: test-first-check
+        name: テストファースト確認
+        entry: bash -c 'echo "🧪 テストを先に書きましたか？ (y/n)" && read -n 1 -r && echo && [[ $REPLY =~ ^[Yy]$ ]] || (echo "❌ テストを先に書いてください！" && exit 1)'
+        language: system
+        pass_filenames: false
+        types: [python]
+        files: '^scripts/(domain|application|infrastructure)/.*\.py$'
+
+  # ========== STAGE 3: Ruffチェック ==========
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.0
+    hooks:
+      - id: ruff
+        args: ['--fix', '--config=pyproject.toml']
+      - id: ruff-format
+        args: ['--config=pyproject.toml']
+
+  # ========== STAGE 4: テスト実行 ==========
+  - repo: local
+    hooks:
+      # 変更に関連するテストを実行
+      - id: run-tests
+        name: 関連テスト実行
+        entry: bash -c 'pytest scripts/tests/unit -x --lf --ff || (echo "❌ テストが失敗しました" && exit 1)'
+        language: system
+        pass_filenames: false
+        types: [python]
+
+      # カバレッジチェック
+      - id: coverage-check
+        name: カバレッジチェック
+        entry: bash -c 'pytest scripts/tests --cov=scripts --cov-fail-under=60 -q || (echo "❌ カバレッジが60%未満です" && exit 1)'
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+
+# 設定
+default_language_version:
+  python: python3.10
+
+fail_fast: true  # エラー時は即座に停止
+
+# 除外パターン
+exclude: |
+  (?x)^(
+    \.git/|
+    \.mypy_cache/|
+    \.pytest_cache/|
+    __pycache__/|
+    \.coverage|
+    htmlcov/|
+    logs/|
+    90_アーカイブ/
+  )

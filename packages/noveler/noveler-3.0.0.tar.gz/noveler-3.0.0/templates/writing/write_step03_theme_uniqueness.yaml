@@ -1,0 +1,128 @@
+# STEP 3: テーマ性・独自性検証（Schema v2）
+
+metadata:
+  step_id: 3
+  step_name: "テーマ性・独自性検証"
+  phase: "structural_design"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "テーマの明確化とGolden Sample比較で差別化を定義"
+  estimated_duration: "10-15分"
+
+llm_config:
+  role_messages:
+    system: |
+      あなたは編集プランナーです。constraints.hard_rules を遵守し、
+      出力は artifacts の仕様どおりに YAML のみを返してください。
+    user: |
+      STEP0-2の結果とプロジェクト設定の golden_samples を参照し、
+      テーマの明確化と比較マトリクス、USPを定義してください。
+
+prompt:
+  main_instruction: |
+    目的は「テーマ性・独自性の明確化」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step00.yaml"
+      required: true
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step01.yaml"
+      required: true
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step02.yaml"
+      required: true
+    - path: "{project_root}/プロジェクト設定.yaml"
+      required: false
+      description: golden_samples を参照
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "比較軸: キャラ/世界観/展開/文体/読者体験"
+  soft_targets:
+    - "USPは読者価値（感情/知的/継続）に言及する"
+
+tasks:
+  bullets:
+    - テーマのコアメッセージを1-2行で定義する
+    - Golden Sample比較マトリクスを作る（共通点/差分/当作の強み）
+    - 読者価値のUSPを明文化し、実装点を示す
+  details:
+    - name: テーマの明確化
+      items:
+        - id: theme.core_message
+          text: core_message を1–2行で記述
+        - id: theme.alignment_examples
+          text: 行動/選択とテーマの一致例（3件）
+    - name: Golden Sample 比較
+      items:
+        - id: uniq.axes
+          text: 比較軸: キャラ/世界観/展開/文体/読者体験（最低3軸以上）
+        - id: uniq.matrix
+          text: 各軸の共通点/差分/当作の強みを表で整理
+    - name: USP（読者価値）
+      items:
+        - id: usp.statement
+          text: 読者が得る独自体験（感情/知的/継続）
+        - id: usp.impl_points
+          text: 実装ポイント（scene_id/台詞IDなどの参照）
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step03.yaml"
+  required_fields: ["theme", "uniqueness", "usp"]
+  example: |
+    theme:
+      core_message: "○○という選択が△△を生む"
+      evidence_examples: ["シーン例1", "シーン例2"]
+    uniqueness:
+      matrix:
+        - axis: "文体"
+          common: "断定口調"
+          difference: "会話主導のテンポ"
+          strength: "短文+比喩でスピード感"
+    usp:
+      statement: "読者に○○の高揚と△△の余韻を提供"
+      implementation_points: ["SC01-DL003", "SC05-DL010"]
+
+acceptance_criteria:
+  checklist:
+    - "required_fields がすべて存在する"
+    - "theme.core_message が1-2行で定義されている"
+  metrics:
+    - name: "matrix_axes_coverage"
+      target: ">= 3"
+      method: "比較軸の網羅数"
+
+next:
+  next_step_id: 4
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=4
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: theme.core_message
+      field: theme.core_message
+      rule: present
+    - id: uniq.matrix
+      field: uniqueness.matrix
+      rule: nonempty
+    - id: usp.statement
+      field: usp.statement
+      rule: present

@@ -1,0 +1,389 @@
+---
+spec_id: SPEC-STEPWISE-WRITING-001
+title: 段階的執筆システム統合仕様
+version: "1.0.0"
+created: 2025-08-30
+author: "Claude Code"
+status: "draft"
+
+# 概要
+description: |
+  執筆プロンプトガイドの15ステップを段階的に実行し、
+  正規表現による柔軟なステップ選択と再実行時の継続的改善を実現する統合システム
+
+# ビジネス要件
+business_requirements:
+  primary_goal: "高品質な小説エピソードの段階的執筆支援"
+  target_users:
+    - 小説執筆者
+    - なろう投稿者
+  quality_targets:
+    - エピソード品質スコア: 75点以上
+    - 文字数: 8000字以上
+    - 読者離脱率: 20%以下
+  performance_requirements:
+    - ステップ実行時間: 各ステップ30秒以内
+    - 再実行改善率: 前回比10%以上向上
+
+# アーキテクチャ設計
+architecture:
+  pattern: "FC/IS（Functional Core / Imperative Shell）"
+  layers:
+    domain:
+      - "純粋関数による執筆ロジック"
+      - "ステップ実行サービス群"
+      - "品質評価・改善サービス"
+    application:
+      - "統合ユースケース"
+      - "ワークフロー調整"
+    infrastructure:
+      - "ファイルI/O"
+      - "外部AI API連携"
+    presentation:
+      - "CLIコマンド"
+
+# コンポーネント仕様
+components:
+
+  # ========================================
+  # コアサービス
+  # ========================================
+
+  step_selector_service:
+    name: "StepSelectorService"
+    responsibility: "正規表現によるステップ選択"
+    location: "src/noveler/domain/services/step_selector_service.py"
+    inputs:
+      step_pattern:
+        type: str
+        description: "実行ステップパターン（正規表現対応）"
+        examples:
+          - "0-3"          # 範囲指定
+          - "structure"    # グループエイリアス
+          - "scope|story"  # 複数選択
+          - ".*optimizer"  # 正規表現
+    outputs:
+      selected_steps:
+        type: List[int]
+        description: "実行対象ステップリスト（0-15）"
+    aliases:
+      # グループエイリアス
+      structure: "0-9"      # 構造設計フェーズ
+      writing: "10-15"      # 執筆実装フェーズ
+      quality: "5-9,13-14"  # 品質関連
+      # 個別エイリアス
+      scope: "0"           # スコープ定義
+      story: "1"           # 物語構造
+      manuscript: "10"     # 原稿生成
+      gate: "13"          # 品質ゲート
+
+  work_file_manager:
+    name: "WorkFileManager"
+    responsibility: "作業ファイルのバージョン管理"
+    location: "src/noveler/domain/services/work_file_manager.py"
+    features:
+      - "バージョン番号自動付与"
+      - "既存ファイル検出・読み込み"
+      - "メタデータ自動追加"
+    file_patterns:
+      work_file: "episode{episode:03d}_step{step:02d}_v{version}.yaml"
+      backup_file: "episode{episode:03d}_step{step:02d}_v{version}_backup.yaml"
+    metadata_fields:
+      - version: バージョン番号
+      - created_at: 作成日時
+      - improvement_mode: 改善モードフラグ
+      - previous_version: 前バージョン番号
+      - quality_score: 品質スコア
+
+  writing_improvement_service:
+    name: "WritingImprovementService"
+    responsibility: "前回結果の分析と改善提案生成"
+    location: "src/noveler/domain/services/writing_improvement_service.py"
+    analysis_targets:
+      - 文字数不足・過多
+      - 品質スコア低下箇所
+      - 論理的整合性
+      - キャラクター一貫性
+      - 読者体験の問題
+    improvement_types:
+      expand: "内容拡張（描写・内面追加）"
+      compress: "内容圧縮（冗長表現削除）"
+      quality: "品質向上（表現・構成改善）"
+      consistency: "一貫性修正（設定・キャラ）"
+
+  # ========================================
+  # 執筆ステップサービス群（0-15）
+  # ========================================
+
+  writing_step_services:
+    base_location: "src/noveler/domain/services/writing_steps/"
+
+    step_00_scope_definer:
+      name: "ScopeDefinerService"
+      responsibility: "エピソードスコープ定義"
+      outputs: "スコープ定義YAML"
+
+    step_01_story_structure_designer:
+      name: "StoryStructureDesignerService"
+      responsibility: "物語構造設計"
+      outputs: "大骨構造YAML"
+
+    step_02_phase_structure_designer:
+      name: "PhaseStructureDesignerService"
+      responsibility: "段階構造設計（4-6フェーズ）"
+      outputs: "フェーズ構造YAML"
+
+    step_03_section_balance_optimizer:
+      name: "SectionBalanceOptimizerService"
+      responsibility: "セクション最適化（6セクション）"
+      outputs: "セクションバランス設計YAML"
+
+    step_04_scene_beat_designer:
+      name: "SceneBeatDesignerService"
+      responsibility: "シーン・ビート設計"
+      outputs: "シーン設計YAML"
+
+    step_05_logic_validator:
+      name: "LogicValidatorService"
+      responsibility: "論理検証（因果関係・動機）"
+      outputs: "論理検証結果YAML"
+
+    step_06_character_consistency:
+      name: "CharacterConsistencyService"
+      responsibility: "キャラクター一貫性検証"
+      outputs: "キャラクター検証結果YAML"
+
+    step_07_dialogue_designer:
+      name: "DialogueDesignerService"
+      responsibility: "会話設計（目的駆動）"
+      outputs: "会話設計YAML"
+
+    step_08_emotion_curve_designer:
+      name: "EmotionCurveDesignerService"
+      responsibility: "感情曲線設計"
+      outputs: "感情曲線設計YAML"
+
+    step_09_world_building:
+      name: "WorldBuildingService"
+      responsibility: "世界観構築（段階開示）"
+      outputs: "世界観構築YAML"
+
+    step_10_manuscript_generator:
+      name: "ManuscriptGeneratorService"
+      responsibility: "初稿生成（品質優先）"
+      outputs: "原稿Markdown"
+
+    step_11_text_length_optimizer:
+      name: "TextLengthOptimizerService"
+      responsibility: "文字数最適化（8000字以上）"
+      outputs: "最適化済み原稿Markdown"
+
+    step_12_readability_optimizer:
+      name: "ReadabilityOptimizerService"
+      responsibility: "可読性最適化（なろう対応）"
+      outputs: "可読性最適化原稿Markdown"
+
+    step_13_quality_gate:
+      name: "QualityGateService"
+      responsibility: "品質ゲート（KPI判定）"
+      outputs: "品質評価レポートYAML"
+
+    step_14_quality_certification:
+      name: "QualityCertificationService"
+      responsibility: "最終品質認定"
+      outputs: "品質認定書YAML"
+
+    step_15_publishing_preparation:
+      name: "PublishingPreparationService"
+      responsibility: "公開準備（メタデータ生成）"
+      outputs: "公開用データYAML"
+
+  # ========================================
+  # 統合ユースケース
+  # ========================================
+
+  stepwise_writing_use_case:
+    name: "StepwiseWritingUseCase"
+    responsibility: "段階的執筆ワークフロー統合管理"
+    location: "src/noveler/application/use_cases/stepwise_writing_use_case.py"
+    features:
+      - "ステップ選択・実行"
+      - "改善モード判定"
+      - "バージョン管理"
+      - "品質追跡"
+    execution_modes:
+      initial: "新規実行モード"
+      improvement: "改善実行モード"
+      force: "強制新規実行モード"
+
+# データ仕様
+data_specifications:
+
+  work_file_structure:
+    format: "YAML"
+    encoding: "UTF-8"
+    metadata_section:
+      _metadata:
+        version: int
+        created_at: ISO8601
+        improvement_mode: bool
+        previous_version: int | null
+        quality_score: float | null
+        execution_time: float
+
+  step_input_output:
+    step_00:
+      input: ["episode_number", "previous_episode_data"]
+      output: "scope_definition"
+    step_01:
+      input: ["scope_definition", "character_data", "plot_data"]
+      output: "story_structure"
+    step_10:
+      input: ["構造設計結果（step_00-09）"]
+      output: "initial_manuscript"
+    # ... 他ステップ仕様
+
+  quality_metrics:
+    basic_kpi:
+      word_count: "文字数（8000字以上）"
+      readability_score: "可読性スコア（70点以上）"
+      character_consistency: "キャラ一貫性（80点以上）"
+      story_flow: "物語の流れ（75点以上）"
+    total_score: "統合品質スコア（100点満点）"
+    pass_threshold: 75
+
+# インターフェース仕様
+interfaces:
+
+  cli_commands:
+    base_command: "/noveler write <episode_number>"
+    options:
+      steps:
+        description: "実行ステップパターン"
+        type: str
+        default: "0-15"
+        examples:
+          - "--steps=structure"      # 構造設計全体
+          - "--steps=0-3,10"        # 部分実行
+          - "--steps=.*optimizer"    # 正規表現
+      mode:
+        description: "実行モード"
+        type: str
+        choices: ["initial", "improvement", "force"]
+        default: "auto"
+      dry_run:
+        description: "ドライラン実行"
+        type: bool
+        default: false
+
+  response_format:
+    success_response:
+      success: bool
+      episode_number: int
+      executed_steps: List[int]
+      execution_mode: str
+      quality_score: float
+      results_summary: Dict[str, Any]
+    error_response:
+      success: false
+      error_message: str
+      failed_step: int | null
+      recovery_suggestions: List[str]
+
+# 品質基準
+quality_criteria:
+
+  functional_requirements:
+    - "全15ステップが正常実行できること"
+    - "正規表現パターンが正しく解釈されること"
+    - "再実行時に前回結果を適切に改善できること"
+    - "バージョン管理が適切に動作すること"
+
+  non_functional_requirements:
+    performance:
+      - "各ステップ30秒以内で完了"
+      - "メモリ使用量1GB以下"
+    reliability:
+      - "エラー時の適切な復旧"
+      - "中断された実行の再開可能"
+    usability:
+      - "直感的なステップ選択"
+      - "わかりやすいエラーメッセージ"
+
+  test_coverage:
+    unit_tests: "90%以上"
+    integration_tests: "主要パス網羅"
+    e2e_tests: "全実行モード検証"
+
+# 実装制約
+constraints:
+
+  technical_constraints:
+    - "Python 3.11+対応"
+    - "CLAUDE.md準拠（DDD/TDD）"
+    - "scripts.プレフィックス強制"
+    - "相対インポート禁止"
+
+  business_constraints:
+    - "既存の執筆ワークフロー互換性維持"
+    - "A38プロンプトガイド完全準拠"
+    - "なろう投稿フォーマット対応"
+
+# リスク評価
+risks:
+  high_risk:
+    - "AI API制限による実行失敗"
+    - "大量ファイル生成によるストレージ圧迫"
+  medium_risk:
+    - "正規表現パターンの解釈ミス"
+    - "バージョン管理の複雑化"
+  mitigation:
+    - "適切なエラーハンドリング実装"
+    - "ファイルサイズ制限・自動クリーンアップ"
+    - "パターン検証機能強化"
+
+# 実装計画
+implementation_plan:
+
+  phase_1_core: "1日"
+    - StepSelectorService
+    - WorkFileManager
+    - WritingImprovementService
+
+  phase_2_steps: "3日"
+    - 執筆ステップサービス群（0-15）
+    - 基本実行ロジック
+
+  phase_3_integration: "2日"
+    - StepwiseWritingUseCase
+    - ユニット・統合テスト
+
+  phase_4_cli: "1日"
+    - CLI統合
+    - E2Eテスト・検証
+
+# 検証計画
+verification_plan:
+
+  unit_testing:
+    - 各サービスの単体動作
+    - 正規表現パーサーの精度
+    - バージョン管理の正確性
+
+  integration_testing:
+    - ステップ間連携
+    - ファイル入出力
+    - 改善メカニズム
+
+  e2e_testing:
+    - 全ステップ通し実行
+    - 部分実行パターン
+    - 再実行改善効果
+
+# 成功基準
+success_criteria:
+  - "15ステップすべてが安定動作"
+  - "正規表現選択が期待通り動作"
+  - "再実行で品質向上を確認"
+  - "CLI操作性が向上"
+  - "既存機能を破壊しない"

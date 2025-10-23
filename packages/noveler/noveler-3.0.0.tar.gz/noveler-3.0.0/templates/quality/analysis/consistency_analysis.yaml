@@ -1,0 +1,60 @@
+metadata:
+  name: "AI特化一貫性分析"
+  description: "人間が見落としやすい微細な不整合・パターンをAIが系統的に検出"
+  evaluation_points: 50
+  estimated_time_seconds: 10
+  complexity: "high"
+  categories:
+    - "consistency_check"
+    - "pattern_analysis"
+  ai_specialization:
+    unique_value: "人間の主観的評価では困難な微細パターン検出"
+    complement_human: "人間の手動チェックを定量データで補完"
+    automation_level: "高度自動化可能項目に特化"
+
+evaluation_criteria:
+  character_consistency_micro_analysis:
+    speech_pattern_drift: "キャラクター口調の微細な変化・ドリフト検出"
+    personality_expression_consistency: "性格表現の一貫性（語彙選択・反応パターン）"
+    emotional_response_patterns: "感情表現パターンの個体差維持"
+    character_knowledge_consistency: "キャラクターが知っている情報の整合性"
+
+  temporal_spatial_consistency:
+    timeline_contradiction_detection: "時系列の矛盾・不整合検出"
+    location_transition_logic: "場所移動の論理性・物理的妥当性"
+    time_passage_consistency: "時間経過の描写一貫性"
+    seasonal_environmental_coherence: "季節・環境描写の整合性"
+
+  linguistic_style_consistency:
+    tense_usage_uniformity: "時制使用の統一性（過去形・現在形混在検出）"
+    viewpoint_consistency_strict: "視点人物の厳密な一貫性（知覚範囲チェック）"
+    narrative_voice_stability: "語り手の文体・語調安定性"
+    register_appropriateness: "敬語レベル・丁寧度の場面適切性"
+
+  world_building_consistency:
+    setting_detail_coherence: "世界設定詳細の一貫性"
+    magic_system_rule_consistency: "魔法・能力システムのルール整合性"
+    social_hierarchy_consistency: "社会階層・組織構造の一貫性"
+    terminology_definition_stability: "専門用語・固有名詞の定義安定性"
+
+analysis_instructions:
+  - "人間の手動チェックでは困難な、微細なパターン変化・不整合を系統的に検出し定量化する"
+  - "キャラクター口調の統計的分析（語彙頻度・文体パターン・語尾使用率）を実施する"
+  - "時系列・空間配置の論理的整合性を客観的基準で検証し、矛盾箇所を特定する"
+  - "人間の主観では見落としやすい、文体・視点・敬語レベルの微細な揺れを検出する"
+  - "世界設定・専門用語の使用一貫性を辞書的に管理し、定義変化を警告する"
+  - "具体的な箇所指摘（行番号・文章引用）と定量データ（頻度・比率・偏差）を提供する"
+  - "修正優先度を客観的基準（影響度・頻度・読者混乱リスク）で評価し提示する"
+
+consistency_check_thresholds:
+  character_speech_analysis:
+    vocabulary_deviation_threshold: "個人語彙使用パターンから25%以上の偏差で警告"
+    speech_style_consistency_score: "85%以上の一貫性維持が目標"
+
+  temporal_coherence:
+    timeline_gap_detection: "1時間以上の不明確な時間経過で警告"
+    sequence_logic_score: "時系列論理整合性90%以上が目標"
+
+  linguistic_uniformity:
+    tense_mixing_tolerance: "同一段落内での時制混在は0件が目標"
+    viewpoint_breach_detection: "視点外情報への言及0件が目標"

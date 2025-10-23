@@ -1,0 +1,22 @@
+metadata:
+  name: "簡易チェック"
+  description: "基本的な品質項目のみを高速評価"
+  evaluation_points: 50
+  estimated_time_seconds: 3
+  complexity: "low"
+  categories:
+    - "basic_quality"
+
+evaluation_criteria:
+  basic_quality:
+    readability: "基本的な読みやすさ"
+    grammar_check: "文法・表記の正確性"
+    consistency: "文体・表現の一貫性"
+    flow: "基本的な物語の流れ"
+
+analysis_instructions:
+  - "原稿内容を詳細に読み込み、各評価基準に基づいて客観的に分析する"
+  - "具体的な改善提案を、原文引用と改善例を含めて提示する"
+  - "スコアの根拠を明確に説明し、偏りのない評価を心がける"
+  - "重要な問題点を効率的に特定する"
+  - "最小限の修正で最大の効果を得る改善を提案する"

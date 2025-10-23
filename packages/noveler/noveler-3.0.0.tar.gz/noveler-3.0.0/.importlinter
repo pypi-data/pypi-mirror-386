@@ -1,0 +1,75 @@
+[importlinter]
+root_package = noveler
+include_external_packages = true
+
+# DDD Clean Architecture 依存関係ルール
+# CLI -> Application -> Domain <- Infrastructure
+# 逆参照・循環依存を厳格に禁止
+
+[importlinter:contract:presentation_to_application]
+name = Presentation層は Application層のみ依存可能
+type = forbidden
+source_modules =
+    noveler.presentation
+forbidden_modules =
+    noveler.domain
+    noveler.infrastructure
+allow_indirect_imports = false
+
+[importlinter:contract:application_to_domain]
+name = Application層は Domain層のみ依存可能
+type = forbidden
+source_modules =
+    noveler.application
+forbidden_modules =
+    noveler.infrastructure
+    noveler.presentation
+allow_indirect_imports = false
+
+[importlinter:contract:infrastructure_to_domain_only]
+name = Infrastructure層は Domain層のみ依存可能
+type = forbidden
+source_modules =
+    noveler.infrastructure
+forbidden_modules =
+    noveler.application
+    noveler.presentation
+allow_indirect_imports = false
+
+[importlinter:contract:domain_independence]
+name = Domain層は他の層に依存してはならない（完全独立）
+type = forbidden
+source_modules =
+    noveler.domain
+forbidden_modules =
+    noveler.application
+    noveler.infrastructure
+    noveler.presentation
+allow_indirect_imports = false
+
+[importlinter:contract:no_circular_dependencies]
+name = 循環依存の完全禁止
+type = independence
+modules =
+    noveler.domain
+    noveler.application
+    noveler.infrastructure
+    noveler.presentation
+
+[importlinter:contract:noveler_domain_no_rich]
+name = Noveler Domain層でのrich使用禁止（統一ロギング準拠）
+type = forbidden
+source_modules =
+    noveler.domain
+forbidden_modules =
+    rich
+allow_indirect_imports = false
+
+[importlinter:contract:simple_message_bus_boundaries]
+name = SimpleBus should only depend on domain and basic infrastructure
+type = forbidden
+source_modules =
+    noveler.application.simple_message_bus
+forbidden_modules =
+    noveler.presentation
+allow_indirect_imports = false

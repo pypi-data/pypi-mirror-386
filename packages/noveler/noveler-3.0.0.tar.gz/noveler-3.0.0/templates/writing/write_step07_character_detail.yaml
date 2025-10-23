@@ -1,0 +1,110 @@
+# STEP 7: キャラクター設定詳細化 Schema v2
+
+metadata:
+  step_id: 7
+  step_name: "キャラクター設定詳細化"
+  phase: "content_development"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "背景/動機/口調/Do&Don't/成長を構造化し一貫性を保証"
+  estimated_duration: "15-20分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      主要キャラクターの口調テンプレと台詞例3つを含めてください。
+
+prompt:
+  main_instruction: |
+    目的は「キャラクター一貫性の確立」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step06.yaml"
+      required: false
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "口調/性格→行動/台詞の整合を保つ"
+
+tasks:
+  bullets:
+    - characters[] に motive/speech_style/do_dont/growth を定義する
+    - speech_style.examples に台詞例を3つ挙げる
+  details:
+    - name: 背景/動機
+      items:
+        - id: char.background
+          text: 出自/経歴/価値観
+        - id: char.motive
+          text: 現在の目標と内的葛藤
+    - name: 口調テンプレ
+      items:
+        - id: char.speech.tone
+          text: tone（断定/穏やか 等）/リズム（短文/長文）
+        - id: char.speech.honorific
+          text: 敬語レベル（対上/対同輩/対目下）
+        - id: char.speech.examples
+          text: よく使う語彙/口癖（examples×3）
+    - name: Do & Don't
+      items:
+        - id: char.do
+          text: すること（積極性/受動性 等）
+        - id: char.dont
+          text: しないこと（禁則）
+    - name: 成長
+      items:
+        - id: char.growth.now
+          text: 今話の変化目標
+        - id: char.growth.next
+          text: 次話への持ち越し
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step07.yaml"
+  required_fields: ["characters"]
+  example: |
+    characters:
+      - name: "主人公"
+        motive: "…"
+        speech_style:
+          tone: "断定的/軽妙"
+          honorific: "同輩=ため口/目上=丁寧"
+          examples: ["…", "…", "…"]
+        do_dont: { do: ["…"], dont: ["…"] }
+        growth: "…"
+
+acceptance_criteria:
+  checklist:
+    - "各キャラに台詞例が3つある"
+  by_task:
+    - id: char.speech.examples
+      field: characters
+      rule: nonempty
+
+next:
+  next_step_id: 8
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=8
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

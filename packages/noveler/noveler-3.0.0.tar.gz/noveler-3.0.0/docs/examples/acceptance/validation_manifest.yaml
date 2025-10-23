@@ -1,0 +1,9 @@
+entries:
+  - name: step06_logic_verification
+    template: templates/writing/write_step06_logic_verification.yaml
+    artifact: examples/acceptance/write_step06_logic_verification.yaml
+    variables: {}
+  - name: step16_quality_check
+    template: templates/writing/write_step16_quality_check.yaml
+    artifact: examples/acceptance/write_step16_quality_check.yaml
+    variables: {}

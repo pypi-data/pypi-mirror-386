@@ -1,0 +1,121 @@
+# File: templates/quality/checks/polish_stage3_reader.yaml
+# Purpose: Stage3 reader experience optimization prompt for polish_manuscript_apply Schema v2 workflows.
+# Context: Loaded by polish_manuscript_apply_tool from quality/checks templates; mirrors write系 Schema v2 layout for reader experience refinement.
+
+metadata:
+  step_id: 27
+  step_name: "Polish Stage3 Reader"
+  phase: "quality_assurance"
+  version: "2.0.0"
+  last_updated: "2025-09-24"
+  author: "noveler system"
+  description: "Stage3 reader experience optimization focusing on immersion and pacing"
+  estimated_duration: "15-20分"
+
+llm_config:
+  role_messages:
+    system: |-
+      あなたはReader Experience Designerです。constraints.hard_rulesを厳守し、
+      artifacts.formatに従うJSONのみを出力してください。余剰テキストは含めないでください。
+    user: |-
+      Stage3 推敲では没入感・感情移入・ページターン率の最大化に集中します。
+      tasks と acceptance_criteria を順守し、改善根拠を summary.evidence に記録してください。
+
+prompt:
+  main_instruction: |-
+    目的は「エピソード{episode_number}のStage3読者体験最適化」です。以下を実行してください。
+    1. Stage2 推敲済み manuscript を読者体験視点で調整する。
+    2. improvements 配列に没入感・リズム改善点を最大5件挙げ、type と impact を記録する。
+    3. 出力は JSON 形式で artifacts.required_fields を満たす。
+
+inputs:
+  files:
+    - path: "{project_root}/.noveler/polish/stage2_ep{episode_number:03d}.json"
+      required: false
+      description: Stage2結果（存在すれば参照）
+    - path: "{project_root}/40_原稿/第{episode_number:03d}話*.md"
+      required: true
+      description: 対象エピソード原稿
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - manuscript は ```markdown コードブロック内で出力する
+    - improvements[*] には type/impact/after_text/rationale を含める
+    - summary.page_turn_score を 0-100 の整数で返す
+  soft_targets:
+    - 読点密度を平均0.8-1.6個/文に調整する
+    - 章末のフックを type(question/reversal/reveal/time_bomb/decision) から選択して設計
+
+tasks:
+  bullets:
+    - スマホ読みやすさ（段落長・改行）を最適化する
+    - 没入感を阻害するメタ要素や説明を削除する
+    - 感情カーブと緊張と緩和のリズムを調整する
+    - 章末の引き（クリフハンガー）を設計し読者の期待を継続させる
+  details:
+    - name: 没入感
+      items:
+        - id: stage3.immersion
+          text: メタ表現・説明過多を削除し、内面描写の層を追加する
+    - name: リズム
+      items:
+        - id: stage3.rhythm
+          text: 読点・文長・段落構成を最適化して読みやすさを確保する
+    - name: 感情線
+      items:
+        - id: stage3.emotion_curve
+          text: 緊張と緩和の波を整え、感情移入を高める
+    - name: フック
+      items:
+        - id: stage3.hook
+          text: 章末の引きを再設計し、次章への期待を残す
+
+artifacts:
+  format: json
+  required_fields: ["manuscript", "improvements", "summary"]
+  path_template: "{project_root}/.noveler/polish/stage3_ep{episode_number:03d}.json"
+  example: |-
+    {
+      "manuscript": """```markdown\n改稿後本文…\n```""",
+      "improvements": [
+        {
+          "type": "immersion",
+          "impact": "high",
+          "after_text": "内面描写を追加して緊張感を持続",
+          "rationale": "stage3.immersion を満たすためメタ表現を削除"
+        }
+      ],
+      "summary": {
+        "page_turn_score": 88,
+        "hook_type": "question",
+        "evidence": [
+          "章末に未解決の問いを提示し、次章への期待を形成"
+        ]
+      }
+    }
+
+acceptance_criteria:
+  checklist:
+    - manuscript のコードブロックが存在し空でない
+    - improvements が1件以上存在し、type/impact/after_text/rationale を含む
+    - summary.page_turn_score が 60 以上
+  metrics:
+    - name: hook_type_valid
+      target: "enum:question|reversal|reveal|time_bomb|decision"
+      method: "summary.hook_type の列挙検証"
+  by_task:
+    - id: stage3.immersion
+      field: improvements
+      rule: nonempty
+    - id: stage3.rhythm
+      field: improvements
+      rule: nonempty
+    - id: stage3.emotion_curve
+      field: improvements
+      rule: nonempty
+    - id: stage3.hook
+      field: improvements
+      rule: nonempty

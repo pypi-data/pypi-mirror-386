@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# File: bin/diff-gate
+# Purpose: Run the diff gate script with an optional diff range (defaults to origin/main...HEAD).
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+DIFF_SCRIPT="${ROOT_DIR}/scripts/ci/diff_gate.sh"
+if [ ! -f "${DIFF_SCRIPT}" ]; then
+  echo "diff gate script not found: ${DIFF_SCRIPT}" >&2
+  exit 1
+fi
+TMP_SCRIPT="$(cd "${ROOT_DIR}/scripts/ci" && mktemp diff_gate.XXXXXX.sh)"
+trap 'rm -f "${TMP_SCRIPT}"' EXIT
+tr -d '\r' < "${DIFF_SCRIPT}" > "${TMP_SCRIPT}"
+chmod +x "${TMP_SCRIPT}"
+if [ $# -gt 0 ]; then
+  (cd "${ROOT_DIR}" && bash "${TMP_SCRIPT}" "$@")
+else
+  (cd "${ROOT_DIR}" && bash "${TMP_SCRIPT}" "origin/main...HEAD")
+fi
+status=$?
+exit $status

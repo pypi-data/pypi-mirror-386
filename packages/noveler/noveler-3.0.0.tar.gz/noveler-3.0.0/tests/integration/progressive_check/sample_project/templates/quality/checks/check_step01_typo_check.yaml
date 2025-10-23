@@ -1,0 +1,6 @@
+prompt:
+  main_instruction: |
+    CHECK STEP {step_id}: {step_name}
+    Episode {episode_number} ({session_id})
+control_settings:
+  strict_single_step: true

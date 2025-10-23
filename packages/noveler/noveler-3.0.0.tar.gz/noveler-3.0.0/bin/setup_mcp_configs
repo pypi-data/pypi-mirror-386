@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""
+Wrapper: Update Codex/Claude MCP configs with safe backups.
+
+Usage:
+  ./bin/setup_mcp_configs                 # update codex.mcp.json, .mcp/config.json, and Claude config
+  ./bin/setup_mcp_configs --codex         # only codex.mcp.json
+  ./bin/setup_mcp_configs --project       # only .mcp/config.json
+  ./bin/setup_mcp_configs --claude        # only Claude Code config
+  ./bin/setup_mcp_configs --dry-run       # show changes only
+  ./bin/setup_mcp_configs --name "Noveler MCP" --description "Writing/quality tools"  # customize entry
+
+Notes:
+  - Existing files are backed up with a timestamped suffix before writing.
+  - Server key can be changed via --server-key (default: noveler).
+"""
+
+import os
+import sys
+from pathlib import Path
+
+
+def main() -> int:
+    repo_root = Path(__file__).resolve().parent.parent
+    script = repo_root / "scripts" / "setup" / "update_mcp_configs.py"
+    if not script.exists():
+        print(f"❌ Script not found: {script}")
+        return 1
+
+    argv = [sys.executable, str(script)] + sys.argv[1:]
+    # Ensure project root is preferable working directory
+    os.chdir(repo_root)
+    return os.spawnv(os.P_WAIT, sys.executable, argv)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

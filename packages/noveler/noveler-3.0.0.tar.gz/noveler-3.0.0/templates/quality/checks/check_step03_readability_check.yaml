@@ -1,0 +1,194 @@
+# STEP 03: 読みやすさ基礎チェック Schema v2
+
+metadata:
+  step_id: 3
+  step_name: 読みやすさ基礎チェック
+  phase: basic_quality
+  version: 2.0.0
+  last_updated: '2025-09-24'
+  author: noveler system
+  description: 文の長さ・語彙の難易度・改行位置の基礎的チェック
+  estimated_duration: 8-10分
+llm_config:
+  role_messages:
+    system: |-
+      あなたは品質チェックスペシャリストです。constraints.hard_rules を厳守し、
+      出力は artifacts の仕様に従った JSON のみを返してください。追加の説明文は不要です。
+    user: |-
+      読みやすさ基礎チェック に関する tasks・acceptance_criteria を順守してください。
+      問題が見つからない場合でも issues.<category>[] は空配列として出力し、summary.evidence に根拠を示してください。
+prompt:
+  main_instruction: |-
+    目的は「読みやすさ基礎チェック」です。inputs・constraints・tasks を満たし、
+    artifacts の仕様に従った JSON をコードブロックなしで出力してください。
+  next_action_instruction: |-
+    ステップ {previous_step_id}「{previous_step_name}」が完了しました。
+
+    続いて、ステップ {step_id}「{step_name}」を実行してください。
+    キャラクター一貫性チェックを行います：
+    1. 各キャラクターの性格設定との整合性
+    2. 前エピソードとの行動パターン一貫性
+    3. 発言・口調の特徴維持
+    4. 関係性の変化の自然さ
+
+    execute_check_step で step_id={step_id} を実行してください。
+inputs:
+  files:
+    - path: '{project_root}/40_原稿/第{episode_number:03d}話*.md'
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: '{project_root}/config/quality_rules.yaml'
+      required: false
+      description: 品質関連の設定があれば参照
+  variables:
+    episode_number:
+      type: int
+      required: true
+    project_root:
+      type: path
+      required: true
+constraints:
+  hard_rules:
+    - summary.overview と metrics.score を必ず出力する
+    - issues は各カテゴリ (issues.*) をキーにもつオブジェクトとして出力する
+    - 各 issue には before_text / after_text / severity / priority を添える
+  soft_targets:
+    - metrics.score は 80 以上を目指す
+    - issues 全体の件数を 5 件以内に抑える（理想値）
+tasks:
+  bullets:
+    - 読みやすさ基礎チェックの観点（文長バランス、語彙コントロール、段落整形）を俯瞰し、重大度と優先度を判定する
+    - issues.<category>[] に原稿抜粋・修正案・severity・priority・root_cause を含めて整理する
+    - summary.overview に現状と改善方針を200字以内で要約し、summary.evidence に根拠を箇条書きする
+    - metrics.score と metrics.issue_count を更新し、recommendations 
+      に最優先の改善アクションを3件以内で列挙する
+  details:
+    - name: 文長バランス
+      items:
+        - id: checks.sentence_length
+          text: '文長バランス観点: 一文の長さが40-80文字の範囲内 / 長すぎる文の分割提案 / 短すぎる文の結合提案 / 文章の呼吸と読みやすさ'
+    - name: 語彙コントロール
+      items:
+        - id: checks.vocabulary
+          text: '語彙コントロール観点: 難解語彙の使用頻度 / 専門用語の説明必要性 / 読者層に適した語彙選択 / 同じ語彙の過度な繰り返し'
+    - name: 段落整形
+      items:
+        - id: checks.formatting
+          text: '段落整形観点: 段落分けの適切性 / 改行位置の自然さ / 会話文の分かりやすさ / 視覚的な読みやすさ'
+artifacts:
+  format: json
+  path_template: '{project_root}/.noveler/checks/EP{episode_number:04d}/step{step_id:02d}_quality.json'
+  required_fields:
+    - summary
+    - issues
+    - recommendations
+    - metrics
+  example: |-
+    {
+      "summary": {
+        "overview": "読みやすさ基礎チェックの主要な所見をここに記述",
+        "score": 82,
+        "evidence": [
+          "文長バランス: 原稿第3段落で誤用を確認"
+        ]
+      },
+      "issues": {
+        "sentence_length": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "一文の長さが40-80文字の範囲内"
+          }
+        ],
+        "vocabulary": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "難解語彙の使用頻度"
+          }
+        ],
+        "formatting": [
+          {
+            "location": "line 42",
+            "before_text": "誤った表現",
+            "after_text": "修正案",
+            "severity": "medium",
+            "priority": "high",
+            "rationale": "段落分けの適切性"
+          }
+        ]
+      },
+      "recommendations": [
+        "誤用箇所を修正し、スタイルガイドに合わせる",
+        "再発防止のために該当セクションを校正する"
+      ],
+      "metrics": {
+        "issue_count": 3,
+        "score": 82,
+        "severity_distribution": {
+          "low": 1,
+          "medium": 2,
+          "high": 0
+        }
+      }
+    }
+acceptance_criteria:
+  checklist:
+    - summary.overview と metrics.score を出力している
+    - issues.<category>[] の各要素に before_text / after_text / severity / priority /
+      rationale が含まれている
+  metrics:
+    - name: issue_count
+      target: '>= 0'
+      method: issues.* の総件数
+    - name: score_range
+      target: 0-100
+      method: metrics.score の範囲検証
+next:
+  next_step_id: 4
+  message_template: |-
+    次のチェックステップは execute_check_step で step_id={next_step_id} を実行してください。
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: checks.sentence_length
+      field: issues.sentence_length
+      rule: present
+    - id: checks.vocabulary
+      field: issues.vocabulary
+      rule: present
+    - id: checks.formatting
+      field: issues.formatting
+      rule: present
+check_criteria:
+  sentence_length:
+    - 一文の長さが40-80文字の範囲内
+    - 長すぎる文の分割提案
+    - 短すぎる文の結合提案
+    - 文章の呼吸と読みやすさ
+  vocabulary:
+    - 難解語彙の使用頻度
+    - 専門用語の説明必要性
+    - 読者層に適した語彙選択
+    - 同じ語彙の過度な繰り返し
+  formatting:
+    - 段落分けの適切性
+    - 改行位置の自然さ
+    - 会話文の分かりやすさ
+    - 視覚的な読みやすさ

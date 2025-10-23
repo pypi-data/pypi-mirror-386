@@ -1,0 +1,4296 @@
+{
+  "summary": {
+    "total_specifications": 282,
+    "total_requirements": 246,
+    "analysis_date": "2025-09-03",
+    "average_complexity": 6.365177304964539
+  },
+  "specifications": [
+    {
+      "file_path": "specs/README.md",
+      "title": "仕様書ディレクトリ",
+      "category": "その他",
+      "complexity_score": 2.97,
+      "size_lines": 107,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-A30-STEPWISE-001_段階的A30ガイド読み込み機能.md",
+      "title": "SPEC-A30-STEPWISE-001: 段階的A30ガイド読み込み機能",
+      "category": "その他",
+      "complexity_score": 3.61,
+      "size_lines": 121,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-A31-001_A31自動評価エンジン仕様書.md",
+      "title": "SPEC-A31-001: A31自動評価エンジン仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.95,
+      "size_lines": 510,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-A31-031_basic_proofread.md",
+      "title": "SPEC-A31-031: 誤字脱字基本チェック自動修正機能",
+      "category": "品質管理",
+      "complexity_score": 1.79,
+      "size_lines": 59,
+      "keywords_count": 7
+    },
+    {
+      "file_path": "specs/SPEC-A31-044_terminology_check.md",
+      "title": "SPEC-A31-044: 固有名詞表記統一自動修正機能",
+      "category": "品質管理",
+      "complexity_score": 2.06,
+      "size_lines": 71,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-A31-COMPLETE-001_complete-68-items-auto-check-system.md",
+      "title": "SPEC-A31-COMPLETE-001: A31完全68項目自動チェックシステム",
+      "category": "品質管理",
+      "complexity_score": 5.97,
+      "size_lines": 267,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-A31-DET-001.md",
+      "title": "SPEC-A31-DET-001: A31詳細評価システム",
+      "category": "品質管理",
+      "complexity_score": 2.41,
+      "size_lines": 101,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-A31-EXT-001-priority-extraction.md",
+      "title": "SPEC-A31-EXT-001: A31重点項目抽出エンティティ仕様",
+      "category": "品質管理",
+      "complexity_score": 1.81,
+      "size_lines": 61,
+      "keywords_count": 11
+    },
+    {
+      "file_path": "specs/SPEC-A31-SESSION-001-in-session-analysis.md",
+      "title": "SPEC-A31-SESSION-001: Claude Code セッション内分析システム仕様",
+      "category": "AI協創執筆",
+      "complexity_score": 2.11,
+      "size_lines": 71,
+      "keywords_count": 14
+    },
+    {
+      "file_path": "specs/SPEC-A31-SESSION-002-test-specifications.md",
+      "title": "SPEC-A31-SESSION-002: セッション内分析システム テスト仕様書",
+      "category": "品質管理",
+      "complexity_score": 6.04,
+      "size_lines": 249,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-ADAPTER-001_cli_adapter.md",
+      "title": "CLIアダプター仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 8.23,
+      "size_lines": 473,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-ADAPTER-002_config_loader_adapter.md",
+      "title": "コンフィグローダーアダプター仕様書",
+      "category": "設定管理",
+      "complexity_score": 9.7,
+      "size_lines": 674,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-ADAPTER-003_error_handler_adapter.md",
+      "title": "ErrorHandlerAdapter 仕様書",
+      "category": "統合・連携",
+      "complexity_score": 7.02,
+      "size_lines": 322,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-ADAPTER-004_hierarchical_config_adapter.md",
+      "title": "階層設定アダプター仕様書",
+      "category": "設定管理",
+      "complexity_score": 9.55,
+      "size_lines": 1088,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-ADAPTER-011_message_service_adapter.md",
+      "title": "メッセージサービスアダプター仕様書",
+      "category": "統合・連携",
+      "complexity_score": 8.6,
+      "size_lines": 887,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-ADAPTER-012_retry_adapter.md",
+      "title": "リトライアダプター仕様書",
+      "category": "統合・連携",
+      "complexity_score": 9.05,
+      "size_lines": 961,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-ADAPTER-013_unified_infrastructure_adapter.md",
+      "title": "統合インフラストラクチャアダプター仕様書",
+      "category": "統合・連携",
+      "complexity_score": 8.55,
+      "size_lines": 1063,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/SPEC-API-001_infrastructure_services.md",
+      "title": "SPEC-API-001: インフラストラクチャサービスのDDD実装",
+      "category": "設定管理",
+      "complexity_score": 4.64,
+      "size_lines": 204,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-API-101_MCP_Tool_API_Specification.md",
+      "title": "SPEC-API-101: MCP Tool API 仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 9.45,
+      "size_lines": 1031,
+      "keywords_count": 39
+    },
+    {
+      "file_path": "specs/SPEC-ARCH-001_CLI_JSON_MCP_Architecture.md",
+      "title": "SPEC-ARCH-001: CLI JSON化・MCPツール化 アーキテクチャ仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 9.55,
+      "size_lines": 546,
+      "keywords_count": 36
+    },
+    {
+      "file_path": "specs/SPEC-ARCH-002.md",
+      "title": "SPEC-ARCH-002: FC/IS契約テストフレームワーク実装",
+      "category": "その他",
+      "complexity_score": 3.79,
+      "size_lines": 174,
+      "keywords_count": 14
+    },
+    {
+      "file_path": "specs/SPEC-CIRC-001.md",
+      "title": "SPEC-CIRC-001: 循環インポート解消とアーキテクチャ修正",
+      "category": "その他",
+      "complexity_score": 4.53,
+      "size_lines": 148,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-CIRCULAR-IMPORT-DETECTION-001_循環インポート予防システム強化仕様書.md",
+      "title": "SPEC-CIRCULAR-IMPORT-DETECTION-001: 循環インポート予防システム強化仕様書",
+      "category": "システム管理",
+      "complexity_score": 4.93,
+      "size_lines": 193,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-CLAUDE-001_claude_code_integration_system.md",
+      "title": "SPEC-CLAUDE-001: Claude Code連携システム仕様書",
+      "category": "統合・連携",
+      "complexity_score": 6.26,
+      "size_lines": 261,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-CLAUDE-002_claude_export_use_case.md",
+      "title": "SPEC-CLAUDE-002: Claude Codeエクスポートユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 4.69,
+      "size_lines": 149,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-CLAUDE-003_file_watcher_integration.md",
+      "title": "SPEC-CLAUDE-003: ファイル保存監視統合システム",
+      "category": "統合・連携",
+      "complexity_score": 4.96,
+      "size_lines": 176,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-CLAUDE-CODE-001_Claude_Code統合サービス仕様書.md",
+      "title": "SPEC-CLAUDE-CODE-001: Claude Code統合サービス仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 5.49,
+      "size_lines": 204,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-CLAUDE-CODE-002_汎用プロンプト実行共通サービス仕様書.md",
+      "title": "SPEC-CLAUDE-CODE-002: 汎用プロンプト実行共通サービス仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 5.48,
+      "size_lines": 208,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/SPEC-CLI-001_cli_adapter.md",
+      "title": "SPEC-CLI-001: CLIアダプター仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 8.23,
+      "size_lines": 473,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-CLI-002_CLI_JSON_Technical_Specification.md",
+      "title": "SPEC-CLI-002: CLI JSON化 技術仕様詳細書",
+      "category": "CLI・UI",
+      "complexity_score": 9.4,
+      "size_lines": 1347,
+      "keywords_count": 34
+    },
+    {
+      "file_path": "specs/SPEC-CLI-003_cli_ux_utils.md",
+      "title": "SPEC-CLI-003: CLI UXユーティリティ仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 8.75,
+      "size_lines": 654,
+      "keywords_count": 33
+    },
+    {
+      "file_path": "specs/SPEC-CLI-004_enhanced_cli_controller.md",
+      "title": "SPEC-CLI-001: EnhancedCLIController 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 9.2,
+      "size_lines": 717,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/SPEC-CLI-005_novel_cli_integrated.md",
+      "title": "SPEC-CLI-002: 統合CLIコマンド 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 7.62,
+      "size_lines": 392,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-CLI-006_novel_cli_ux.md",
+      "title": "SPEC-CLI-003: Novel CLI UX 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 8.22,
+      "size_lines": 462,
+      "keywords_count": 36
+    },
+    {
+      "file_path": "specs/SPEC-CLI-007_cli_episode_number_integration.md",
+      "title": "CLIエピソード番号統合 仕様書",
+      "category": "統合・連携",
+      "complexity_score": 1.89,
+      "size_lines": 69,
+      "keywords_count": 13
+    },
+    {
+      "file_path": "specs/SPEC-CLI-008_cli_ux_integration.md",
+      "title": "CLIUXIntegration 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 9.2,
+      "size_lines": 847,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-CLI-009_cli_ux_utils.md",
+      "title": "CLI UXユーティリティ仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 8.75,
+      "size_lines": 654,
+      "keywords_count": 33
+    },
+    {
+      "file_path": "specs/SPEC-CLI-010_novel_cli_integrated.md",
+      "title": "統合CLIコマンド 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 7.62,
+      "size_lines": 392,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-CLI-011_novel_cli_ux.md",
+      "title": "Novel CLI UX 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 8.22,
+      "size_lines": 462,
+      "keywords_count": 36
+    },
+    {
+      "file_path": "specs/SPEC-CLI-101_CLI_JSON_Implementation_Guide.md",
+      "title": "SPEC-CLI-101: CLI JSON化 実装ガイド",
+      "category": "CLI・UI",
+      "complexity_score": 10.0,
+      "size_lines": 1495,
+      "keywords_count": 40
+    },
+    {
+      "file_path": "specs/SPEC-CLI-102_cli_ux_integration.md",
+      "title": "SPEC-CLI-102: CLIUXIntegration 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 9.2,
+      "size_lines": 847,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-CODEMAP-AUTO-UPDATE-001_CODEMAP自動更新システム仕様書.md",
+      "title": "SPEC-CODEMAP-AUTO-UPDATE-001: CODEMAP自動更新システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 5.51,
+      "size_lines": 201,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-CONFIG-001_configuration_repository.md",
+      "title": "SPEC-CONFIG-001: ConfigurationRepository 仕様書",
+      "category": "設定管理",
+      "complexity_score": 9.2,
+      "size_lines": 557,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-CONFIG-002_config_loader_adapter.md",
+      "title": "SPEC-CONFIG-002: コンフィグローダーアダプター仕様書",
+      "category": "設定管理",
+      "complexity_score": 9.7,
+      "size_lines": 674,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-CONFIG-101_hierarchical_config_adapter.md",
+      "title": "SPEC-CONFIG-101: 階層設定アダプター仕様書",
+      "category": "設定管理",
+      "complexity_score": 9.55,
+      "size_lines": 1088,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-CONFIG-102_統合設定管理システム仕様書.md",
+      "title": "SPEC-CONFIG-102: 統合設定管理システム",
+      "category": "設定管理",
+      "complexity_score": 0.68,
+      "size_lines": 28,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-CONFIGURATION-001_unified_settings_management.md",
+      "title": "SPEC-CONFIGURATION-001: 統一設定管理システム",
+      "category": "設定管理",
+      "complexity_score": 6.94,
+      "size_lines": 314,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-CONTROLLER-001_enhanced_cli_controller.md",
+      "title": "EnhancedCLIController 仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 9.2,
+      "size_lines": 717,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/SPEC-COUNT-001.md",
+      "title": "SPEC-COUNT-001: Unicode文字数詳細分析機能",
+      "category": "その他",
+      "complexity_score": 6.03,
+      "size_lines": 268,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-DOMAIN-001_learning_session_entity.md",
+      "title": "SPEC-DOMAIN-001: LearningSession エンティティ仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 5.97,
+      "size_lines": 292,
+      "keywords_count": 14
+    },
+    {
+      "file_path": "specs/SPEC-DOMAIN-002_scene_entity.md",
+      "title": "SPEC-DOMAIN-002: Scene エンティティ仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 6.54,
+      "size_lines": 344,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-001_foreshadowing.md",
+      "title": "Foreshadowing 値オブジェクト群仕様書",
+      "category": "プロット管理",
+      "complexity_score": 3.54,
+      "size_lines": 144,
+      "keywords_count": 10
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-002_genre_type.md",
+      "title": "GenreType 値オブジェクト仕様書",
+      "category": "その他",
+      "complexity_score": 1.41,
+      "size_lines": 51,
+      "keywords_count": 4
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-003_improvement_suggestion.md",
+      "title": "ImprovementSuggestion 値オブジェクト仕様書",
+      "category": "品質管理",
+      "complexity_score": 1.68,
+      "size_lines": 78,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-004_learning_session_entity.md",
+      "title": "LearningSession エンティティ仕様書",
+      "category": "その他",
+      "complexity_score": 5.97,
+      "size_lines": 292,
+      "keywords_count": 14
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-005_progress_status.md",
+      "title": "ProgressStatus 値オブジェクト群仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 1.63,
+      "size_lines": 73,
+      "keywords_count": 12
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-006_project_info.md",
+      "title": "ProjectInfo 値オブジェクト仕様書",
+      "category": "その他",
+      "complexity_score": 1.69,
+      "size_lines": 69,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-007_scene_entity.md",
+      "title": "Scene エンティティ仕様書",
+      "category": "その他",
+      "complexity_score": 6.54,
+      "size_lines": 344,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-008_validation_result.md",
+      "title": "ValidationResult 値オブジェクト仕様書",
+      "category": "品質管理",
+      "complexity_score": 2.15,
+      "size_lines": 95,
+      "keywords_count": 8
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-009_word_count.md",
+      "title": "word_count 仕様書",
+      "category": "その他",
+      "complexity_score": 2.66,
+      "size_lines": 111,
+      "keywords_count": 10
+    },
+    {
+      "file_path": "specs/SPEC-ENTITY-010_writing_phase.md",
+      "title": "WritingPhase 列挙型仕様書",
+      "category": "その他",
+      "complexity_score": 1.15,
+      "size_lines": 45,
+      "keywords_count": 7
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-001_episode_management.md",
+      "title": "エピソード管理システム仕様",
+      "category": "データ管理",
+      "complexity_score": 5.21,
+      "size_lines": 206,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-004_metadata-management.md",
+      "title": "SPEC-EPISODE-004: エピソードメタデータ管理システム",
+      "category": "データ管理",
+      "complexity_score": 4.62,
+      "size_lines": 182,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-006_check_episode_quality.md",
+      "title": "SPEC-EPISODE-006: エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 5.93,
+      "size_lines": 283,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-007_cli_episode_number_integration.md",
+      "title": "SPEC-EPISODE-007: CLIエピソード番号統合 仕様書",
+      "category": "統合・連携",
+      "complexity_score": 1.89,
+      "size_lines": 69,
+      "keywords_count": 13
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-008_complete_episode.md",
+      "title": "SPEC-EPISODE-008: 執筆完了処理 仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 5.24,
+      "size_lines": 204,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-009_complete_episode_improvements.md",
+      "title": "SPEC-EPISODE-009: complete-episode改善 仕様書",
+      "category": "その他",
+      "complexity_score": 1.96,
+      "size_lines": 76,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-010_complete_episode_use_case.md",
+      "title": "SPEC-EPISODE-010: 執筆完了ユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 6.22,
+      "size_lines": 282,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-011_episode.md",
+      "title": "SPEC-EPISODE-011: episode 仕様書",
+      "category": "その他",
+      "complexity_score": 2.97,
+      "size_lines": 152,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-012_episode_completion.md",
+      "title": "SPEC-EPISODE-012: EpisodeCompletion 値オブジェクト群仕様書",
+      "category": "その他",
+      "complexity_score": 2.67,
+      "size_lines": 97,
+      "keywords_count": 10
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-013_episode_completion_entity.md",
+      "title": "SPEC-EPISODE-013: EpisodeCompletion Entity Specification",
+      "category": "AI協創執筆",
+      "complexity_score": 3.44,
+      "size_lines": 124,
+      "keywords_count": 11
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-014_episode_list_management_use_case.md",
+      "title": "SPEC-EPISODE-014: エピソードリスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.3,
+      "size_lines": 620,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-015_episode_management_sync.md",
+      "title": "SPEC-EPISODE-015: 話数管理.yaml自動同期機能 仕様書",
+      "category": "データ管理",
+      "complexity_score": 2.31,
+      "size_lines": 91,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-018_episode_title.md",
+      "title": "SPEC-EPISODE-018: episode_title 仕様書",
+      "category": "その他",
+      "complexity_score": 2.32,
+      "size_lines": 97,
+      "keywords_count": 10
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-019_episode_transition_use_case.md",
+      "title": "SPEC-EPISODE-019: エピソード遷移管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.3,
+      "size_lines": 566,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-021_simple_yaml_episode_repository.md",
+      "title": "SPEC-EPISODE-021: シンプルYAMLエピソードリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.85,
+      "size_lines": 564,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-022_episode.md",
+      "title": "episode 仕様書",
+      "category": "その他",
+      "complexity_score": 2.97,
+      "size_lines": 152,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-023_episode_completion.md",
+      "title": "EpisodeCompletion 値オブジェクト群仕様書",
+      "category": "その他",
+      "complexity_score": 2.67,
+      "size_lines": 97,
+      "keywords_count": 10
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-024_episode_completion_entity.md",
+      "title": "EpisodeCompletion Entity Specification",
+      "category": "AI協創執筆",
+      "complexity_score": 3.44,
+      "size_lines": 124,
+      "keywords_count": 11
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-025_episode_list_management_use_case.md",
+      "title": "エピソードリスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.3,
+      "size_lines": 620,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-026_episode_management_sync.md",
+      "title": "話数管理.yaml自動同期機能 仕様書",
+      "category": "データ管理",
+      "complexity_score": 2.31,
+      "size_lines": 91,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-027_episode_number.md",
+      "title": "SPEC-EPISODE-027: episode_number 仕様書",
+      "category": "その他",
+      "complexity_score": 2.46,
+      "size_lines": 101,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-028_episode_number_resolver.md",
+      "title": "SPEC-EPISODE-028: エピソード番号解決機能 仕様書",
+      "category": "その他",
+      "complexity_score": 2.34,
+      "size_lines": 79,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-029_episode_title.md",
+      "title": "episode_title 仕様書",
+      "category": "その他",
+      "complexity_score": 2.32,
+      "size_lines": 97,
+      "keywords_count": 10
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-030_episode_transition_use_case.md",
+      "title": "エピソード遷移管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.3,
+      "size_lines": 566,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-031_complete_episode.md",
+      "title": "執筆完了処理 仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 5.24,
+      "size_lines": 204,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-032_complete_episode_improvements.md",
+      "title": "complete-episode改善 仕様書",
+      "category": "その他",
+      "complexity_score": 1.96,
+      "size_lines": 76,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-033_complete_episode_use_case.md",
+      "title": "執筆完了ユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 6.22,
+      "size_lines": 282,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-034_check_episode_quality.md",
+      "title": "エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 5.93,
+      "size_lines": 283,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-035_enhanced_check_episode_quality.md",
+      "title": "拡張エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 6.35,
+      "size_lines": 330,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-036_enhanced_complete_episode.md",
+      "title": "拡張エピソード完了ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.73,
+      "size_lines": 348,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-037_create_episode_from_plot.md",
+      "title": "プロットからエピソード作成ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 7.52,
+      "size_lines": 437,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-038_create_episode_use_case.md",
+      "title": "エピソード作成ユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 7.07,
+      "size_lines": 382,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-039_write_episode_use_case.md",
+      "title": "エピソード執筆ユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 9.3,
+      "size_lines": 662,
+      "keywords_count": 34
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-101_create_episode_from_plot.md",
+      "title": "SPEC-EPISODE-101: プロットからエピソード作成ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 7.52,
+      "size_lines": 437,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-102_create_episode_use_case.md",
+      "title": "SPEC-EPISODE-102: エピソード作成ユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 7.07,
+      "size_lines": 382,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-103_enhanced_check_episode_quality.md",
+      "title": "SPEC-EPISODE-103: 拡張エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 6.35,
+      "size_lines": 330,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-104_enhanced_complete_episode.md",
+      "title": "SPEC-EPISODE-104: 拡張エピソード完了ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.73,
+      "size_lines": 348,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-EPISODE-105_感情重視執筆システム仕様書.md",
+      "title": "SPEC-EPISODE-105: 感情重視執筆システム仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 6.14,
+      "size_lines": 264,
+      "keywords_count": 13
+    },
+    {
+      "file_path": "specs/SPEC-ERR-001_unified_error_handling.md",
+      "title": "SPEC-ERR-001: 統一エラーハンドリングシステム",
+      "category": "システム管理",
+      "complexity_score": 1.92,
+      "size_lines": 77,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-ERROR-MONITOR_error_detection_and_auto_fix.md",
+      "title": "SPEC-ERROR-MONITOR: エラー自動検知・修正システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 5.55,
+      "size_lines": 245,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-FIVE-STAGE-SESSION-002_セッション分離実行システム仕様書.md",
+      "title": "SPEC-FIVE-STAGE-SESSION-002: セッション分離実行システム",
+      "category": "システム管理",
+      "complexity_score": 5.16,
+      "size_lines": 221,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-FORESHADOWING-001_automated-detection-system.md",
+      "title": "SPEC-FORESHADOWING-001: 伏線自動検知システム",
+      "category": "システム管理",
+      "complexity_score": 5.26,
+      "size_lines": 211,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-001_auto_scene_generation_use_case.md",
+      "title": "SPEC-GENERAL-001: シーン自動生成ユースケース仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 5.22,
+      "size_lines": 252,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-002_backup_use_case.md",
+      "title": "SPEC-GENERAL-002: バックアップユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 5.88,
+      "size_lines": 268,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-003_bidirectional_interactive_confirmation.md",
+      "title": "SPEC-GENERAL-003: 双方向対話確認ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.3,
+      "size_lines": 546,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-004_chapter_consistency_interactive_confirmation.md",
+      "title": "SPEC-GENERAL-004: 章別整合性対話確認ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.25,
+      "size_lines": 565,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-005_enhanced_git_service.md",
+      "title": "SPEC-GENERAL-005: 強化Gitサービス仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.9,
+      "size_lines": 944,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-006_enhance_consistency_update_orchestrator.md",
+      "title": "SPEC-GENERAL-006: 拡張整合性更新オーケストレータ仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 8.55,
+      "size_lines": 574,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-007_error_handler_adapter.md",
+      "title": "SPEC-GENERAL-007: ErrorHandlerAdapter 仕様書",
+      "category": "統合・連携",
+      "complexity_score": 7.02,
+      "size_lines": 322,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-008_expanded_transition_use_case.md",
+      "title": "SPEC-GENERAL-008: 拡張遷移管理ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.3,
+      "size_lines": 626,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-009_file_management_use_case.md",
+      "title": "SPEC-GENERAL-009: ファイル管理ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.5,
+      "size_lines": 573,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-010_foreshadowing.md",
+      "title": "SPEC-GENERAL-010: Foreshadowing 値オブジェクト群仕様書",
+      "category": "プロット管理",
+      "complexity_score": 3.54,
+      "size_lines": 144,
+      "keywords_count": 10
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-011_foreshadowing_design_use_case.md",
+      "title": "SPEC-GENERAL-011: 伏線設計ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.79,
+      "size_lines": 434,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-012_genre_type.md",
+      "title": "SPEC-GENERAL-012: GenreType 値オブジェクト仕様書",
+      "category": "その他",
+      "complexity_score": 1.41,
+      "size_lines": 51,
+      "keywords_count": 4
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-013_git_hook_repository.md",
+      "title": "SPEC-GENERAL-013: GitHookRepository 仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.15,
+      "size_lines": 776,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-014_git_service.md",
+      "title": "SPEC-GENERAL-014: Gitサービス仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.9,
+      "size_lines": 986,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-015_import_management_system.md",
+      "title": "SPEC-GENERAL-015: 統合インポート管理システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 8.55,
+      "size_lines": 978,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-016_improvement_suggestion.md",
+      "title": "SPEC-GENERAL-016: ImprovementSuggestion 値オブジェクト仕様書",
+      "category": "品質管理",
+      "complexity_score": 1.68,
+      "size_lines": 78,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-017_initial_assessment_use_case.md",
+      "title": "SPEC-GENERAL-017: 初期評価ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.45,
+      "size_lines": 588,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-018_learning_data_accumulator.md",
+      "title": "SPEC-GENERAL-018: 学習データ蓄積ユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 8.45,
+      "size_lines": 623,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-023_local_file_system_repository.md",
+      "title": "SPEC-GENERAL-023: ローカルファイルシステムリポジトリ仕様書",
+      "category": "システム管理",
+      "complexity_score": 8.85,
+      "size_lines": 735,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-024_management_use_case.md",
+      "title": "SPEC-GENERAL-024: 小説プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.71,
+      "size_lines": 486,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-025_message_service_adapter.md",
+      "title": "SPEC-GENERAL-025: メッセージサービスアダプター仕様書",
+      "category": "統合・連携",
+      "complexity_score": 8.6,
+      "size_lines": 887,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-026_multi_project_manager.md",
+      "title": "SPEC-GENERAL-026: 複数プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.1,
+      "size_lines": 540,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-027_name_list_use_case.md",
+      "title": "SPEC-GENERAL-027: 名前リスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.0,
+      "size_lines": 556,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-028_narrative_depth_evaluation.md",
+      "title": "SPEC-GENERAL-028: 物語深度評価ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.4,
+      "size_lines": 648,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-029_path_manager_system.md",
+      "title": "SPEC-GENERAL-029: PathManager統一パス管理システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 6.14,
+      "size_lines": 309,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-030_progress_status.md",
+      "title": "SPEC-GENERAL-030: ProgressStatus 値オブジェクト群仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 1.63,
+      "size_lines": 73,
+      "keywords_count": 12
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-031_project_export_use_case.md",
+      "title": "SPEC-GENERAL-031: プロジェクトエクスポートユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 8.45,
+      "size_lines": 846,
+      "keywords_count": 33
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-032_project_info.md",
+      "title": "SPEC-GENERAL-032: ProjectInfo 値オブジェクト仕様書",
+      "category": "その他",
+      "complexity_score": 1.69,
+      "size_lines": 69,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-033_publish_preparation_use_case.md",
+      "title": "SPEC-GENERAL-033: 公開準備ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 6.68,
+      "size_lines": 343,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-034_retry_adapter.md",
+      "title": "SPEC-GENERAL-034: リトライアダプター仕様書",
+      "category": "統合・連携",
+      "complexity_score": 9.05,
+      "size_lines": 961,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-035_scene_management_repository.md",
+      "title": "SPEC-GENERAL-035: SceneManagementRepository 仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.18,
+      "size_lines": 458,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-036_scene_management_use_case.md",
+      "title": "SPEC-GENERAL-036: シーン管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.76,
+      "size_lines": 461,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-037_smart_auto_enhancement.md",
+      "title": "SPEC-GENERAL-037: Smart Auto-Enhancement システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 5.45,
+      "size_lines": 220,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-038_smart_error_handler_service.md",
+      "title": "SPEC-GENERAL-038: SmartErrorHandlerService 仕様書",
+      "category": "品質管理",
+      "complexity_score": 7.27,
+      "size_lines": 397,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-101_consistency_update_orchestrator.md",
+      "title": "SPEC-GENERAL-101: 整合性更新オーケストレータ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.6,
+      "size_lines": 539,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-102_dependency_analyzer.md",
+      "title": "SPEC-GENERAL-102: 依存関係分析ツール（dependency_analyzer.py）仕様書",
+      "category": "その他",
+      "complexity_score": 5.15,
+      "size_lines": 205,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-103_deploy_scripts_use_case.md",
+      "title": "SPEC-GENERAL-103: スクリプトデプロイユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 8.5,
+      "size_lines": 614,
+      "keywords_count": 31
+    },
+    {
+      "file_path": "specs/SPEC-GENERAL-104_dropout_analysis_use_case.md",
+      "title": "SPEC-GENERAL-104: 離脱率分析ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.01,
+      "size_lines": 381,
+      "keywords_count": 12
+    },
+    {
+      "file_path": "specs/SPEC-JSON-001.md",
+      "title": "SPEC-JSON-001: 差分更新システム仕様書（RFC6902 JSON Patch × Unified Diff）",
+      "category": "システム管理",
+      "complexity_score": 7.07,
+      "size_lines": 312,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-MCP-001-autonomous-tools.md",
+      "title": "SPEC-MCP-001: MCPツール自律実行機能",
+      "category": "AI協創執筆",
+      "complexity_score": 5.05,
+      "size_lines": 200,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-MCP-001_microservice-architecture.md",
+      "title": "SPEC-MCP-001_microservice-architecture: MCP Server Granular Microservice Architecture + Global Command Integration",
+      "category": "AI協創執筆",
+      "complexity_score": 8.35,
+      "size_lines": 534,
+      "keywords_count": 34
+    },
+    {
+      "file_path": "specs/SPEC-MCP-BACKUP.md",
+      "title": "SPEC-MCP-BACKUP: MCPバックアップツール仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 5.01,
+      "size_lines": 206,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-NIH-PREVENTION-CODEMAP-001_NIH症候群防止とCODEMAP連携システム仕様書.md",
+      "title": "SPEC-NIH-PREVENTION-CODEMAP-001: NIH症候群防止とCODEMAP連携システム仕様書",
+      "category": "統合・連携",
+      "complexity_score": 5.44,
+      "size_lines": 234,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-ORCHESTRATOR-001_consistency_update_orchestrator.md",
+      "title": "整合性更新オーケストレータ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.6,
+      "size_lines": 539,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-ORCHESTRATOR-002_enhance_consistency_update_orchestrator.md",
+      "title": "拡張整合性更新オーケストレータ仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 8.55,
+      "size_lines": 574,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-ORCHESTRATOR-003_user_guidance_orchestrator.md",
+      "title": "ユーザーガイダンスオーケストレーター仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 9.05,
+      "size_lines": 595,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-PATH-SUBFOLDER-001_統合設定管理システム_サブフォルダ構造.md",
+      "title": "SPEC-PATH-SUBFOLDER-001: 統合設定管理システム サブフォルダ構造",
+      "category": "プロット管理",
+      "complexity_score": 4.8,
+      "size_lines": 160,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-001_claude-code-integration-plot-generation.md",
+      "title": "SPEC-PLOT-001: Claude Code連携プロット生成システム",
+      "category": "プロット管理",
+      "complexity_score": 4.9,
+      "size_lines": 170,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-002_chapter_plot_consistency_orchestrator.md",
+      "title": "SPEC-PLOT-002: 章別プロット整合性オーケストレータ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.72,
+      "size_lines": 342,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-003-Claude-Code-Integration.md",
+      "title": "SPEC-PLOT-003: Claude Code統合プロット生成機能",
+      "category": "プロット管理",
+      "complexity_score": 3.85,
+      "size_lines": 150,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-003_chapter_plot_with_scenes_use_case.md",
+      "title": "SPEC-PLOT-003: 章別プロット・シーン統合ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.4,
+      "size_lines": 599,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-004_plot_compression_use_case.md",
+      "title": "SPEC-PLOT-004: プロット圧縮・最適化ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.35,
+      "size_lines": 649,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-005_plot_creation_task_entity.md",
+      "title": "SPEC-PLOT-005: PlotCreationTask エンティティ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 5.55,
+      "size_lines": 240,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-006_plot_element_extraction.md",
+      "title": "SPEC-PLOT-006: プロット要素抽出ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.5,
+      "size_lines": 750,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-007_plot_progress_service.md",
+      "title": "SPEC-PLOT-007: PlotProgressService 仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.78,
+      "size_lines": 368,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-008_plot_compression_use_case.md",
+      "title": "プロット圧縮・最適化ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.35,
+      "size_lines": 649,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-009_plot_creation_task_entity.md",
+      "title": "PlotCreationTask エンティティ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 5.55,
+      "size_lines": 240,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-010_plot_element_extraction.md",
+      "title": "プロット要素抽出ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.5,
+      "size_lines": 750,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-011_plot_progress_service.md",
+      "title": "PlotProgressService 仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.78,
+      "size_lines": 368,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-012_chapter_plot_consistency_orchestrator.md",
+      "title": "章別プロット整合性オーケストレータ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.72,
+      "size_lines": 342,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-013_chapter_plot_with_scenes_use_case.md",
+      "title": "章別プロット・シーン統合ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.4,
+      "size_lines": 599,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-014_master_plot_integration_use_case.md",
+      "title": "全体構成統合ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.79,
+      "size_lines": 344,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-101_enhanced-episode-plot-entity-claude-code-integration.md",
+      "title": "SPEC-PLOT-101: Enhanced Episode Plot Entity Claude Code統合実装仕様書",
+      "category": "統合・連携",
+      "complexity_score": 4.22,
+      "size_lines": 167,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-102_integration_yaml_plot_repository.md",
+      "title": "SPEC-PLOT-102: IntegrationYamlPlotRepository 仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.9,
+      "size_lines": 962,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-103_master_plot_integration_use_case.md",
+      "title": "SPEC-PLOT-103: 全体構成統合ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 6.79,
+      "size_lines": 344,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-PLOT-ADHERENCE-001.md",
+      "title": "SPEC-PLOT-ADHERENCE-001: プロット準拠検証機能仕様書",
+      "category": "プロット管理",
+      "complexity_score": 5.6,
+      "size_lines": 255,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-PRE-COMMIT-GATE-001_pre-commit統合品質ゲート仕様書.md",
+      "title": "SPEC-PRE-COMMIT-GATE-001: pre-commit統合品質ゲート仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.0,
+      "size_lines": 405,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-QRC-002_必須要件自動修正システム仕様書.md",
+      "title": "SPEC-QRC-002: 必須要件自動修正システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 5.09,
+      "size_lines": 204,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-001_a31-checklist-automatic-fix-system.md",
+      "title": "SPEC-QUALITY-001: A31原稿執筆チェックリスト自動修正システム",
+      "category": "品質管理",
+      "complexity_score": 9.15,
+      "size_lines": 531,
+      "keywords_count": 33
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-002_history-management.md",
+      "title": "SPEC-QUALITY-002: 品質履歴管理システム",
+      "category": "品質管理",
+      "complexity_score": 4.64,
+      "size_lines": 189,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-003_manual-improvement-process.md",
+      "title": "SPEC-QUALITY-003: 大規模リンターエラー手動修正プロセス",
+      "category": "品質管理",
+      "complexity_score": 4.99,
+      "size_lines": 199,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-007_adaptive_quality_evaluation.md",
+      "title": "SPEC-QUALITY-007: 適応的品質評価ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 3.76,
+      "size_lines": 166,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-008_bulk_quality_check.md",
+      "title": "SPEC-QUALITY-008: 全話品質チェック機能 仕様書",
+      "category": "品質管理",
+      "complexity_score": 4.81,
+      "size_lines": 216,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-009_bulk_quality_check_entity.md",
+      "title": "SPEC-QUALITY-009: BulkQualityCheck Entity Specification",
+      "category": "品質管理",
+      "complexity_score": 2.57,
+      "size_lines": 77,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-012_pre_writing_check_use_case.md",
+      "title": "SPEC-QUALITY-012: 事前執筆チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.35,
+      "size_lines": 643,
+      "keywords_count": 31
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-013_quality_check_use_case.md",
+      "title": "SPEC-QUALITY-013: 品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 5.58,
+      "size_lines": 288,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-014_quality_config_auto_update.md",
+      "title": "SPEC-QUALITY-014: 品質チェック設定自動更新機能 仕様書",
+      "category": "品質管理",
+      "complexity_score": 3.46,
+      "size_lines": 116,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-015_quality_record_enhancement.md",
+      "title": "SPEC-QUALITY-015: 品質記録活用システム 仕様書",
+      "category": "品質管理",
+      "complexity_score": 7.1,
+      "size_lines": 385,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-016_quality_record_entity.md",
+      "title": "SPEC-QUALITY-016: QualityRecord Entity Specification",
+      "category": "品質管理",
+      "complexity_score": 2.94,
+      "size_lines": 94,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-017_quality_score.md",
+      "title": "SPEC-QUALITY-017: quality_score 仕様書",
+      "category": "品質管理",
+      "complexity_score": 2.25,
+      "size_lines": 90,
+      "keywords_count": 11
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-018_quality_threshold.md",
+      "title": "SPEC-QUALITY-018: QualityThreshold 値オブジェクト仕様書",
+      "category": "品質管理",
+      "complexity_score": 1.64,
+      "size_lines": 74,
+      "keywords_count": 6
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-019_adaptive_quality_evaluation.md",
+      "title": "適応的品質評価ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 3.76,
+      "size_lines": 166,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-020_bulk_quality_check.md",
+      "title": "全話品質チェック機能 仕様書",
+      "category": "品質管理",
+      "complexity_score": 4.81,
+      "size_lines": 216,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-021_bulk_quality_check_entity.md",
+      "title": "BulkQualityCheck Entity Specification",
+      "category": "品質管理",
+      "complexity_score": 2.57,
+      "size_lines": 77,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-022_content_quality_enhancer.md",
+      "title": "content_quality_enhancer 仕様書",
+      "category": "品質管理",
+      "complexity_score": 5.53,
+      "size_lines": 238,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-023_integrated_quality_check_use_case.md",
+      "title": "IntegratedQualityCheckUseCase 仕様書（v2.0 執筆品質強化版）",
+      "category": "品質管理",
+      "complexity_score": 6.09,
+      "size_lines": 289,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-024_integrated_quality_use_case.md",
+      "title": "統合品質管理ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.3,
+      "size_lines": 647,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-025_narrative_depth_evaluation.md",
+      "title": "物語深度評価ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.4,
+      "size_lines": 648,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-026_pre_writing_check_use_case.md",
+      "title": "事前執筆チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.35,
+      "size_lines": 643,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-027_quality_check_use_case.md",
+      "title": "品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 5.58,
+      "size_lines": 288,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-028_quality_config_auto_update.md",
+      "title": "品質チェック設定自動更新機能 仕様書",
+      "category": "品質管理",
+      "complexity_score": 3.46,
+      "size_lines": 116,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-029_quality_record_enhancement.md",
+      "title": "品質記録活用システム 仕様書",
+      "category": "品質管理",
+      "complexity_score": 7.1,
+      "size_lines": 385,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-030_quality_record_entity.md",
+      "title": "QualityRecord Entity Specification",
+      "category": "品質管理",
+      "complexity_score": 2.94,
+      "size_lines": 94,
+      "keywords_count": 9
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-031_quality_score.md",
+      "title": "quality_score 仕様書",
+      "category": "品質管理",
+      "complexity_score": 2.25,
+      "size_lines": 90,
+      "keywords_count": 11
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-032_quality_threshold.md",
+      "title": "QualityThreshold 値オブジェクト仕様書",
+      "category": "品質管理",
+      "complexity_score": 1.64,
+      "size_lines": 74,
+      "keywords_count": 6
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-033_update_quality_records_use_case.md",
+      "title": "品質記録更新ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.85,
+      "size_lines": 510,
+      "keywords_count": 31
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-034_viewpoint_aware_quality_check.md",
+      "title": "視点連動品質チェック仕様書",
+      "category": "品質管理",
+      "complexity_score": 9.15,
+      "size_lines": 641,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-035_legacy_quality_checker_adapter.md",
+      "title": "レガシー品質チェッカーアダプター仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.7,
+      "size_lines": 1496,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-036_legacy_quality_checker_ddd_adapter.md",
+      "title": "レガシー品質チェッカーDDDアダプター仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.4,
+      "size_lines": 554,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-101_content_quality_enhancer.md",
+      "title": "SPEC-QUALITY-101: content_quality_enhancer 仕様書",
+      "category": "品質管理",
+      "complexity_score": 5.53,
+      "size_lines": 238,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-102_integrated_quality_check_use_case.md",
+      "title": "SPEC-QUALITY-102: IntegratedQualityCheckUseCase 仕様書",
+      "category": "品質管理",
+      "complexity_score": 5.47,
+      "size_lines": 227,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-QUALITY-103_integrated_quality_use_case.md",
+      "title": "SPEC-QUALITY-103: 統合品質管理ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.3,
+      "size_lines": 647,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-REF-001_B30準拠リファクタリング仕様書.md",
+      "title": "SPEC-REF-001: B30準拠システム全体リファクタリング仕様書",
+      "category": "システム管理",
+      "complexity_score": 3.86,
+      "size_lines": 146,
+      "keywords_count": 11
+    },
+    {
+      "file_path": "specs/SPEC-REF-002-standard-structure.md",
+      "title": "SPEC-REF-002: 標準プロジェクト構造移行仕様",
+      "category": "プロット管理",
+      "complexity_score": 3.32,
+      "size_lines": 127,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-REPOSITORY-001_configuration_repository.md",
+      "title": "ConfigurationRepository 仕様書",
+      "category": "設定管理",
+      "complexity_score": 9.2,
+      "size_lines": 557,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-REPOSITORY-002_git_hook_repository.md",
+      "title": "GitHookRepository 仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.15,
+      "size_lines": 776,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-REPOSITORY-003_local_file_system_repository.md",
+      "title": "ローカルファイルシステムリポジトリ仕様書",
+      "category": "システム管理",
+      "complexity_score": 8.85,
+      "size_lines": 735,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-REPOSITORY-004_scene_management_repository.md",
+      "title": "SceneManagementRepository 仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.18,
+      "size_lines": 458,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-SCENE-001_scene_auto_generation.md",
+      "title": "シーン自動生成機能仕様書",
+      "category": "プロット管理",
+      "complexity_score": 4.48,
+      "size_lines": 148,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-SERVICE-001_git_service.md",
+      "title": "Gitサービス仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.9,
+      "size_lines": 986,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-SERVICE-002_enhanced_git_service.md",
+      "title": "強化Gitサービス仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.9,
+      "size_lines": 944,
+      "keywords_count": 27
+    },
+    {
+      "file_path": "specs/SPEC-SERVICE-003_smart_error_handler_service.md",
+      "title": "SmartErrorHandlerService 仕様書",
+      "category": "品質管理",
+      "complexity_score": 7.27,
+      "size_lines": 397,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-SERVICE-004_user_guidance_service.md",
+      "title": "UserGuidanceService 仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 6.63,
+      "size_lines": 323,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-001_bidirectional_interactive_confirmation.md",
+      "title": "双方向対話確認ユースケース仕様書",
+      "category": "システム管理",
+      "complexity_score": 8.3,
+      "size_lines": 546,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-002_chapter_consistency_interactive_confirmation.md",
+      "title": "章別整合性対話確認ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.25,
+      "size_lines": 565,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-003_dependency_analyzer.md",
+      "title": "依存関係分析ツール（dependency_analyzer.py）仕様書",
+      "category": "システム管理",
+      "complexity_score": 5.15,
+      "size_lines": 205,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-004_import_management_system.md",
+      "title": "統合インポート管理システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 8.55,
+      "size_lines": 978,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-005_learning_data_accumulator.md",
+      "title": "学習データ蓄積ユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 8.45,
+      "size_lines": 623,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-006_multi_project_manager.md",
+      "title": "複数プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.1,
+      "size_lines": 540,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-007_path_manager_system.md",
+      "title": "PathManager統一パス管理システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 6.14,
+      "size_lines": 309,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-008_smart_auto_enhancement.md",
+      "title": "Smart Auto-Enhancement システム仕様書",
+      "category": "システム管理",
+      "complexity_score": 5.45,
+      "size_lines": 220,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-009_test_cleanup_manager.md",
+      "title": "テスト後自動クリーンアップシステム仕様書",
+      "category": "システム管理",
+      "complexity_score": 7.97,
+      "size_lines": 382,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-010_quality_check_system.md",
+      "title": "品質チェックシステム仕様",
+      "category": "品質管理",
+      "complexity_score": 5.01,
+      "size_lines": 186,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-011_specification_traceability.md",
+      "title": "仕様書トレーサビリティシステム",
+      "category": "システム管理",
+      "complexity_score": 4.83,
+      "size_lines": 178,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-SYSTEM-012_auto_check_system.md",
+      "title": "自動チェックシステム仕様書",
+      "category": "品質管理",
+      "complexity_score": 9.85,
+      "size_lines": 740,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-001_auto_scene_generation_use_case.md",
+      "title": "シーン自動生成ユースケース仕様書",
+      "category": "CLI・UI",
+      "complexity_score": 5.22,
+      "size_lines": 252,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-002_backup_use_case.md",
+      "title": "バックアップユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 5.88,
+      "size_lines": 268,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-003_deploy_scripts_use_case.md",
+      "title": "スクリプトデプロイユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 8.5,
+      "size_lines": 614,
+      "keywords_count": 31
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-004_dropout_analysis_use_case.md",
+      "title": "離脱率分析ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.01,
+      "size_lines": 381,
+      "keywords_count": 12
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-005_expanded_transition_use_case.md",
+      "title": "拡張遷移管理ユースケース仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.3,
+      "size_lines": 626,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-006_file_management_use_case.md",
+      "title": "ファイル管理ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.5,
+      "size_lines": 573,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-007_foreshadowing_design_use_case.md",
+      "title": "伏線設計ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.79,
+      "size_lines": 434,
+      "keywords_count": 19
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-008_initial_assessment_use_case.md",
+      "title": "初期評価ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.45,
+      "size_lines": 588,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-009_management_use_case.md",
+      "title": "小説プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.71,
+      "size_lines": 486,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-010_name_list_use_case.md",
+      "title": "名前リスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.0,
+      "size_lines": 556,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-011_project_export_use_case.md",
+      "title": "プロジェクトエクスポートユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 8.45,
+      "size_lines": 846,
+      "keywords_count": 33
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-012_publish_preparation_use_case.md",
+      "title": "公開準備ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 6.68,
+      "size_lines": 343,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-013_scene_management_use_case.md",
+      "title": "シーン管理ユースケース仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.76,
+      "size_lines": 461,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-014_system_diagnosis_use_case.md",
+      "title": "システム診断ユースケース仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.6,
+      "size_lines": 542,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-015_test_execution_use_case.md",
+      "title": "テスト実行ユースケース仕様書",
+      "category": "統合・連携",
+      "complexity_score": 8.75,
+      "size_lines": 549,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-016_text_analysis_use_case.md",
+      "title": "テキスト分析ユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 9.25,
+      "size_lines": 505,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-017_track_writing_progress.md",
+      "title": "執筆進捗トラッキングユースケース仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 9.05,
+      "size_lines": 641,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-USECASE-018_watch_mode_use_case.md",
+      "title": "ウォッチモードユースケース仕様書",
+      "category": "その他",
+      "complexity_score": 9.25,
+      "size_lines": 602,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-WORKFLOW-001_project-structure-validation.md",
+      "title": "SPEC-WORKFLOW-001: プロジェクト構造検証システム",
+      "category": "ワークフロー",
+      "complexity_score": 5.04,
+      "size_lines": 204,
+      "keywords_count": 22
+    },
+    {
+      "file_path": "specs/SPEC-WORKFLOW-002_legacy-module-migration.md",
+      "title": "SPEC-WORKFLOW-002: レガシーモジュールTDD+DDD移行",
+      "category": "ワークフロー",
+      "complexity_score": 3.37,
+      "size_lines": 107,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-WORKFLOW-003_enhanced-coding-standards-automation.md",
+      "title": "SPEC-WORKFLOW-003: 拡張コーディング規約自動化システム",
+      "category": "ワークフロー",
+      "complexity_score": 9.2,
+      "size_lines": 607,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPEC-WORKFLOW-004_integrated_writing_workflow.md",
+      "title": "SPEC-WORKFLOW-004: SPEC-IWW-001: 統合執筆ワークフロー仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 1.43,
+      "size_lines": 53,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-WORKFLOW-005_integrated_writing_workflow.md",
+      "title": "SPEC-IWW-001: 統合執筆ワークフロー仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 1.43,
+      "size_lines": 53,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/SPEC-WRITE-STAGE-001.md",
+      "title": "SPEC-WRITE-STAGE-001: 段階別執筆MCPツール仕様書",
+      "category": "AI協創執筆",
+      "complexity_score": 5.68,
+      "size_lines": 243,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/SPEC-YAML-001_ddd-compliant-yaml-processing-foundation.md",
+      "title": "SPEC-YAML-001: DDD準拠YAML処理統合基盤仕様書",
+      "category": "ワークフロー",
+      "complexity_score": 5.51,
+      "size_lines": 226,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-YAML-002_yaml_auto_format.md",
+      "title": "YAML自動整形・検証機能仕様書",
+      "category": "データ管理",
+      "complexity_score": 6.74,
+      "size_lines": 304,
+      "keywords_count": 18
+    },
+    {
+      "file_path": "specs/SPEC-YAML-003_yaml_configuration_repository.md",
+      "title": "YAML設定管理リポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 10.0,
+      "size_lines": 743,
+      "keywords_count": 41
+    },
+    {
+      "file_path": "specs/SPEC-YAML-004_yaml_episode_management_repository.md",
+      "title": "YAMLエピソード管理リポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.65,
+      "size_lines": 988,
+      "keywords_count": 38
+    },
+    {
+      "file_path": "specs/SPEC-YAML-005_yaml_episode_repository.md",
+      "title": "YAMLエピソードリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.1,
+      "size_lines": 360,
+      "keywords_count": 20
+    },
+    {
+      "file_path": "specs/SPEC-YAML-006_yaml_foreshadowing_repository.md",
+      "title": "YAML伏線データリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 7.79,
+      "size_lines": 429,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-YAML-007_yaml_infrastructure_repository.md",
+      "title": "YAMLインフラストラクチャーリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.15,
+      "size_lines": 622,
+      "keywords_count": 34
+    },
+    {
+      "file_path": "specs/SPEC-YAML-008_yaml_plot_data_repository.md",
+      "title": "プロットデータYAMLリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.9,
+      "size_lines": 595,
+      "keywords_count": 33
+    },
+    {
+      "file_path": "specs/SPEC-YAML-009_yaml_plot_progress_repository.md",
+      "title": "プロット進捗追跡リポジトリ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.6,
+      "size_lines": 601,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-YAML-010_yaml_plot_repository.md",
+      "title": "YAMLプロットリポジトリ仕様書",
+      "category": "プロット管理",
+      "complexity_score": 8.9,
+      "size_lines": 560,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-YAML-011_yaml_project_info_repository.md",
+      "title": "YAMLプロジェクト情報リポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.9,
+      "size_lines": 618,
+      "keywords_count": 31
+    },
+    {
+      "file_path": "specs/SPEC-YAML-012_yaml_project_repository.md",
+      "title": "YAMLプロジェクトリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.9,
+      "size_lines": 673,
+      "keywords_count": 31
+    },
+    {
+      "file_path": "specs/SPEC-YAML-013_yaml_quality_check_repository.md",
+      "title": "YAML品質チェックリポジトリ仕様書",
+      "category": "品質管理",
+      "complexity_score": 7.67,
+      "size_lines": 417,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/SPEC-YAML-014_yaml_quality_config_repository.md",
+      "title": "YAML品質設定リポジトリ仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.9,
+      "size_lines": 554,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-YAML-015_yaml_quality_record_enhancement_repository.md",
+      "title": "YAML品質記録強化リポジトリ仕様書",
+      "category": "品質管理",
+      "complexity_score": 8.95,
+      "size_lines": 593,
+      "keywords_count": 29
+    },
+    {
+      "file_path": "specs/SPEC-YAML-016_yaml_quality_record_repository.md",
+      "title": "YAML品質記録リポジトリ仕様書",
+      "category": "品質管理",
+      "complexity_score": 9.0,
+      "size_lines": 570,
+      "keywords_count": 31
+    },
+    {
+      "file_path": "specs/SPEC-YAML-017_yaml_quality_repository.md",
+      "title": "YAML品質データリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.2,
+      "size_lines": 605,
+      "keywords_count": 30
+    },
+    {
+      "file_path": "specs/SPEC-YAML-018_yaml_repository_interface.md",
+      "title": "YAMLリポジトリインターフェース 仕様書",
+      "category": "データ管理",
+      "complexity_score": 4.31,
+      "size_lines": 166,
+      "keywords_count": 17
+    },
+    {
+      "file_path": "specs/SPEC-YAML-019_yaml_scene_repository.md",
+      "title": "YAMLシーンリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.75,
+      "size_lines": 633,
+      "keywords_count": 28
+    },
+    {
+      "file_path": "specs/SPEC-YAML-020_yaml_validator_adapter.md",
+      "title": "YAML検証アダプター仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.4,
+      "size_lines": 1231,
+      "keywords_count": 26
+    },
+    {
+      "file_path": "specs/SPEC-YAML-021_integration_yaml_plot_repository.md",
+      "title": "IntegrationYamlPlotRepository 仕様書",
+      "category": "データ管理",
+      "complexity_score": 9.9,
+      "size_lines": 962,
+      "keywords_count": 24
+    },
+    {
+      "file_path": "specs/SPEC-YAML-022_simple_yaml_episode_repository.md",
+      "title": "シンプルYAMLエピソードリポジトリ仕様書",
+      "category": "データ管理",
+      "complexity_score": 8.85,
+      "size_lines": 564,
+      "keywords_count": 32
+    },
+    {
+      "file_path": "specs/SPECS_FROM_DOCS.md",
+      "title": "docs/specs から移動したファイル一覧",
+      "category": "その他",
+      "complexity_score": 1.1,
+      "size_lines": 35,
+      "keywords_count": 8
+    },
+    {
+      "file_path": "specs/SPEC_INTEGRATION_REPORT.md",
+      "title": "SPEC番号重複統合作業 完了報告書",
+      "category": "統合・連携",
+      "complexity_score": 3.51,
+      "size_lines": 116,
+      "keywords_count": 21
+    },
+    {
+      "file_path": "specs/SPEC_NUMBERING_REPORT.md",
+      "title": "SPEC番号付与・文書構造標準化作業報告書",
+      "category": "プロット管理",
+      "complexity_score": 2.47,
+      "size_lines": 82,
+      "keywords_count": 14
+    },
+    {
+      "file_path": "specs/SPEC_TEST_UPDATE_REPORT.md",
+      "title": "SPEC番号変更に伴うテストケース更新完了報告書",
+      "category": "その他",
+      "complexity_score": 3.78,
+      "size_lines": 138,
+      "keywords_count": 15
+    },
+    {
+      "file_path": "specs/TEMPLATE_STANDARD_SPEC.md",
+      "title": "SPEC-{CATEGORY}-{NUMBER}: {機能名}",
+      "category": "データ管理",
+      "complexity_score": 5.8,
+      "size_lines": 240,
+      "keywords_count": 23
+    },
+    {
+      "file_path": "specs/design/SDD-PROMPT-GENERATION-001.md",
+      "title": "SDD: A24プロンプト生成機能 - Software Design Document",
+      "category": "AI協創執筆",
+      "complexity_score": 5.46,
+      "size_lines": 201,
+      "keywords_count": 25
+    },
+    {
+      "file_path": "specs/functional/SPEC-PROMPT-SAVE-001.md",
+      "title": "SPEC-PROMPT-SAVE-001: プロンプト保存機能仕様書",
+      "category": "プロット管理",
+      "complexity_score": 2.6,
+      "size_lines": 70,
+      "keywords_count": 16
+    },
+    {
+      "file_path": "specs/functional/SPEC-STAGE5-SEPARATION.md",
+      "title": "SPEC-STAGE5-SEPARATION: Stage5分離とClaude Code品質チェック実装仕様",
+      "category": "品質管理",
+      "complexity_score": 4.37,
+      "size_lines": 132,
+      "keywords_count": 22
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-その他-001",
+      "title": "テスト機能",
+      "category": "その他",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-002",
+      "title": "SPEC-A30-STEPWISE-001: 段階的A30ガイド読み込み機能",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-003",
+      "title": "SPEC-ARCH-002: FC/IS契約テストフレームワーク実装",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-004",
+      "title": "SPEC-CIRC-001: 循環インポート解消とアーキテクチャ修正",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-005",
+      "title": "SPEC-COUNT-001: Unicode文字数詳細分析機能",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-006",
+      "title": "LearningSession エンティティ仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-007",
+      "title": "Scene エンティティ仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-008",
+      "title": "エピソード作成ユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-009",
+      "title": "SPEC-EPISODE-102: エピソード作成ユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-010",
+      "title": "SPEC-GENERAL-002: バックアップユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-011",
+      "title": "SPEC-GENERAL-031: プロジェクトエクスポートユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-012",
+      "title": "SPEC-GENERAL-102: 依存関係分析ツール（dependency_analyzer.py）仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-013",
+      "title": "バックアップユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-014",
+      "title": "プロジェクトエクスポートユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-015",
+      "title": "テキスト分析ユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-016",
+      "title": "ウォッチモードユースケース仕様書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-その他-017",
+      "title": "SPEC番号変更に伴うテストケース更新完了報告書",
+      "category": "その他",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-018",
+      "title": "品質機能",
+      "category": "品質管理",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-019",
+      "title": "SPEC-A31-001: A31自動評価エンジン仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-020",
+      "title": "SPEC-A31-COMPLETE-001: A31完全68項目自動チェックシステム",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-021",
+      "title": "SPEC-A31-SESSION-002: セッション内分析システム テスト仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-022",
+      "title": "SPEC-EPISODE-006: エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-023",
+      "title": "エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-024",
+      "title": "拡張エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-025",
+      "title": "SPEC-EPISODE-103: 拡張エピソード品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-026",
+      "title": "SPEC-GENERAL-005: 強化Gitサービス仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-027",
+      "title": "SPEC-GENERAL-009: ファイル管理ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-028",
+      "title": "SPEC-GENERAL-017: 初期評価ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-029",
+      "title": "SPEC-GENERAL-028: 物語深度評価ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-030",
+      "title": "SPEC-GENERAL-033: 公開準備ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-031",
+      "title": "SPEC-GENERAL-038: SmartErrorHandlerService 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-032",
+      "title": "SPEC-PRE-COMMIT-GATE-001: pre-commit統合品質ゲート仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-033",
+      "title": "SPEC-QUALITY-001: A31原稿執筆チェックリスト自動修正システム",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-034",
+      "title": "SPEC-QUALITY-002: 品質履歴管理システム",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-035",
+      "title": "SPEC-QUALITY-003: 大規模リンターエラー手動修正プロセス",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-036",
+      "title": "SPEC-QUALITY-007: 適応的品質評価ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-037",
+      "title": "SPEC-QUALITY-008: 全話品質チェック機能 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-038",
+      "title": "SPEC-QUALITY-012: 事前執筆チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-039",
+      "title": "SPEC-QUALITY-013: 品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-040",
+      "title": "SPEC-QUALITY-014: 品質チェック設定自動更新機能 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-041",
+      "title": "SPEC-QUALITY-015: 品質記録活用システム 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-042",
+      "title": "適応的品質評価ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-043",
+      "title": "全話品質チェック機能 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-044",
+      "title": "content_quality_enhancer 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-045",
+      "title": "IntegratedQualityCheckUseCase 仕様書（v2.0 執筆品質強化版）",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-046",
+      "title": "統合品質管理ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-047",
+      "title": "物語深度評価ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-048",
+      "title": "事前執筆チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-049",
+      "title": "品質チェックユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-050",
+      "title": "品質チェック設定自動更新機能 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-051",
+      "title": "品質記録活用システム 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-052",
+      "title": "品質記録更新ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-053",
+      "title": "視点連動品質チェック仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-054",
+      "title": "レガシー品質チェッカーアダプター仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-055",
+      "title": "レガシー品質チェッカーDDDアダプター仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-056",
+      "title": "SPEC-QUALITY-101: content_quality_enhancer 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-057",
+      "title": "SPEC-QUALITY-102: IntegratedQualityCheckUseCase 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-058",
+      "title": "SPEC-QUALITY-103: 統合品質管理ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-059",
+      "title": "強化Gitサービス仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-060",
+      "title": "SmartErrorHandlerService 仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-061",
+      "title": "品質チェックシステム仕様",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-062",
+      "title": "自動チェックシステム仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-063",
+      "title": "ファイル管理ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-064",
+      "title": "初期評価ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-065",
+      "title": "公開準備ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-066",
+      "title": "システム診断ユースケース仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-067",
+      "title": "YAML品質チェックリポジトリ仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-068",
+      "title": "YAML品質設定リポジトリ仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-069",
+      "title": "YAML品質記録強化リポジトリ仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-070",
+      "title": "YAML品質記録リポジトリ仕様書",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-品質管理-071",
+      "title": "SPEC-STAGE5-SEPARATION: Stage5分離とClaude Code品質チェック実装仕様",
+      "category": "品質管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-072",
+      "title": "品質機能",
+      "category": "AI協創執筆",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-073",
+      "title": "SPEC-API-101: MCP Tool API 仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-074",
+      "title": "SPEC-ARCH-001: CLI JSON化・MCPツール化 アーキテクチャ仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-075",
+      "title": "SPEC-CLAUDE-002: Claude Codeエクスポートユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-076",
+      "title": "SPEC-CLAUDE-CODE-001: Claude Code統合サービス仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-077",
+      "title": "SPEC-CLAUDE-CODE-002: 汎用プロンプト実行共通サービス仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-078",
+      "title": "SPEC-DOMAIN-001: LearningSession エンティティ仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-079",
+      "title": "SPEC-DOMAIN-002: Scene エンティティ仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-080",
+      "title": "SPEC-EPISODE-008: 執筆完了処理 仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-081",
+      "title": "SPEC-EPISODE-010: 執筆完了ユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-082",
+      "title": "SPEC-EPISODE-013: EpisodeCompletion Entity Specification",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-083",
+      "title": "EpisodeCompletion Entity Specification",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-084",
+      "title": "執筆完了処理 仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-085",
+      "title": "執筆完了ユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-086",
+      "title": "エピソード執筆ユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-087",
+      "title": "SPEC-EPISODE-105: 感情重視執筆システム仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-088",
+      "title": "SPEC-GENERAL-018: 学習データ蓄積ユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-089",
+      "title": "SPEC-GENERAL-103: スクリプトデプロイユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-090",
+      "title": "SPEC-MCP-001: MCPツール自律実行機能",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-091",
+      "title": "SPEC-MCP-001_microservice-architecture: MCP Server Granular Microservice Architecture + Global Command Integration",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-092",
+      "title": "SPEC-MCP-BACKUP: MCPバックアップツール仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-093",
+      "title": "学習データ蓄積ユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-094",
+      "title": "スクリプトデプロイユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-095",
+      "title": "執筆進捗トラッキングユースケース仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-096",
+      "title": "SPEC-WRITE-STAGE-001: 段階別執筆MCPツール仕様書",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-AI協創-097",
+      "title": "SDD: A24プロンプト生成機能 - Software Design Document",
+      "category": "AI協創執筆",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-098",
+      "title": "テスト機能",
+      "category": "CLI・UI",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-099",
+      "title": "CLIアダプター仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-100",
+      "title": "SPEC-CLI-001: CLIアダプター仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-101",
+      "title": "SPEC-CLI-002: CLI JSON化 技術仕様詳細書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-102",
+      "title": "SPEC-CLI-003: CLI UXユーティリティ仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-103",
+      "title": "SPEC-CLI-001: EnhancedCLIController 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-104",
+      "title": "SPEC-CLI-002: 統合CLIコマンド 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-105",
+      "title": "SPEC-CLI-003: Novel CLI UX 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-106",
+      "title": "CLIUXIntegration 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-107",
+      "title": "CLI UXユーティリティ仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-108",
+      "title": "統合CLIコマンド 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-109",
+      "title": "Novel CLI UX 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-110",
+      "title": "SPEC-CLI-101: CLI JSON化 実装ガイド",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-111",
+      "title": "SPEC-CLI-102: CLIUXIntegration 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-112",
+      "title": "EnhancedCLIController 仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-113",
+      "title": "SPEC-GENERAL-001: シーン自動生成ユースケース仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-CLI・-114",
+      "title": "シーン自動生成ユースケース仕様書",
+      "category": "CLI・UI",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-115",
+      "title": "統合機能",
+      "category": "設定管理",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-116",
+      "title": "コンフィグローダーアダプター仕様書",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-117",
+      "title": "階層設定アダプター仕様書",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-118",
+      "title": "SPEC-API-001: インフラストラクチャサービスのDDD実装",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-119",
+      "title": "SPEC-CONFIG-001: ConfigurationRepository 仕様書",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-120",
+      "title": "SPEC-CONFIG-002: コンフィグローダーアダプター仕様書",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-121",
+      "title": "SPEC-CONFIG-101: 階層設定アダプター仕様書",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-122",
+      "title": "SPEC-CONFIGURATION-001: 統一設定管理システム",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-設定管理-123",
+      "title": "ConfigurationRepository 仕様書",
+      "category": "設定管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-124",
+      "title": "テスト機能",
+      "category": "統合・連携",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-125",
+      "title": "ErrorHandlerAdapter 仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-126",
+      "title": "メッセージサービスアダプター仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-127",
+      "title": "リトライアダプター仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-128",
+      "title": "統合インフラストラクチャアダプター仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-129",
+      "title": "SPEC-CLAUDE-001: Claude Code連携システム仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-130",
+      "title": "SPEC-CLAUDE-003: ファイル保存監視統合システム",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-131",
+      "title": "SPEC-GENERAL-007: ErrorHandlerAdapter 仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-132",
+      "title": "SPEC-GENERAL-025: メッセージサービスアダプター仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-133",
+      "title": "SPEC-GENERAL-034: リトライアダプター仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-134",
+      "title": "SPEC-NIH-PREVENTION-CODEMAP-001: NIH症候群防止とCODEMAP連携システム仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-135",
+      "title": "SPEC-PLOT-101: Enhanced Episode Plot Entity Claude Code統合実装仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-136",
+      "title": "テスト実行ユースケース仕様書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-統合・連-137",
+      "title": "SPEC番号重複統合作業 完了報告書",
+      "category": "統合・連携",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-138",
+      "title": "python機能",
+      "category": "システム管理",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-139",
+      "title": "SPEC-CIRCULAR-IMPORT-DETECTION-001: 循環インポート予防システム強化仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-140",
+      "title": "SPEC-CODEMAP-AUTO-UPDATE-001: CODEMAP自動更新システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-141",
+      "title": "SPEC-ERROR-MONITOR: エラー自動検知・修正システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-142",
+      "title": "SPEC-FIVE-STAGE-SESSION-002: セッション分離実行システム",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-143",
+      "title": "SPEC-FORESHADOWING-001: 伏線自動検知システム",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-144",
+      "title": "SPEC-GENERAL-015: 統合インポート管理システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-145",
+      "title": "SPEC-GENERAL-023: ローカルファイルシステムリポジトリ仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-146",
+      "title": "SPEC-GENERAL-029: PathManager統一パス管理システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-147",
+      "title": "SPEC-GENERAL-037: Smart Auto-Enhancement システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-148",
+      "title": "SPEC-JSON-001: 差分更新システム仕様書（RFC6902 JSON Patch × Unified Diff）",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-149",
+      "title": "SPEC-QRC-002: 必須要件自動修正システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-150",
+      "title": "SPEC-REF-001: B30準拠システム全体リファクタリング仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-151",
+      "title": "ローカルファイルシステムリポジトリ仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-152",
+      "title": "双方向対話確認ユースケース仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-153",
+      "title": "依存関係分析ツール（dependency_analyzer.py）仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-154",
+      "title": "統合インポート管理システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-155",
+      "title": "PathManager統一パス管理システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-156",
+      "title": "Smart Auto-Enhancement システム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-157",
+      "title": "テスト後自動クリーンアップシステム仕様書",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-システム-158",
+      "title": "仕様書トレーサビリティシステム",
+      "category": "システム管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-159",
+      "title": "テスト機能",
+      "category": "プロット管理",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-160",
+      "title": "Foreshadowing 値オブジェクト群仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-161",
+      "title": "拡張エピソード完了ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-162",
+      "title": "プロットからエピソード作成ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-163",
+      "title": "SPEC-EPISODE-101: プロットからエピソード作成ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-164",
+      "title": "SPEC-EPISODE-104: 拡張エピソード完了ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-165",
+      "title": "SPEC-GENERAL-003: 双方向対話確認ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-166",
+      "title": "SPEC-GENERAL-004: 章別整合性対話確認ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-167",
+      "title": "SPEC-GENERAL-008: 拡張遷移管理ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-168",
+      "title": "SPEC-GENERAL-010: Foreshadowing 値オブジェクト群仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-169",
+      "title": "SPEC-GENERAL-101: 整合性更新オーケストレータ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-170",
+      "title": "整合性更新オーケストレータ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-171",
+      "title": "SPEC-PATH-SUBFOLDER-001: 統合設定管理システム サブフォルダ構造",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-172",
+      "title": "SPEC-PLOT-001: Claude Code連携プロット生成システム",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-173",
+      "title": "SPEC-PLOT-002: 章別プロット整合性オーケストレータ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-174",
+      "title": "SPEC-PLOT-003: Claude Code統合プロット生成機能",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-175",
+      "title": "SPEC-PLOT-003: 章別プロット・シーン統合ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-176",
+      "title": "SPEC-PLOT-004: プロット圧縮・最適化ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-177",
+      "title": "SPEC-PLOT-005: PlotCreationTask エンティティ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-178",
+      "title": "SPEC-PLOT-006: プロット要素抽出ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-179",
+      "title": "SPEC-PLOT-007: PlotProgressService 仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-180",
+      "title": "プロット圧縮・最適化ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-181",
+      "title": "PlotCreationTask エンティティ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-182",
+      "title": "プロット要素抽出ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-183",
+      "title": "PlotProgressService 仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-184",
+      "title": "章別プロット整合性オーケストレータ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-185",
+      "title": "章別プロット・シーン統合ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-186",
+      "title": "全体構成統合ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-187",
+      "title": "SPEC-PLOT-103: 全体構成統合ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-188",
+      "title": "SPEC-PLOT-ADHERENCE-001: プロット準拠検証機能仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-189",
+      "title": "SPEC-REF-002: 標準プロジェクト構造移行仕様",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-190",
+      "title": "シーン自動生成機能仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-191",
+      "title": "章別整合性対話確認ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-192",
+      "title": "拡張遷移管理ユースケース仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-193",
+      "title": "プロット進捗追跡リポジトリ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-プロット-194",
+      "title": "YAMLプロットリポジトリ仕様書",
+      "category": "プロット管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-195",
+      "title": "テスト機能",
+      "category": "ワークフロー",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-196",
+      "title": "SPEC-GENERAL-006: 拡張整合性更新オーケストレータ仕様書",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-197",
+      "title": "拡張整合性更新オーケストレータ仕様書",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-198",
+      "title": "ユーザーガイダンスオーケストレーター仕様書",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-199",
+      "title": "UserGuidanceService 仕様書",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-200",
+      "title": "SPEC-WORKFLOW-001: プロジェクト構造検証システム",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-201",
+      "title": "SPEC-WORKFLOW-002: レガシーモジュールTDD+DDD移行",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 3,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-202",
+      "title": "SPEC-WORKFLOW-003: 拡張コーディング規約自動化システム",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-ワークフ-203",
+      "title": "SPEC-YAML-001: DDD準拠YAML処理統合基盤仕様書",
+      "category": "ワークフロー",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-204",
+      "title": "テスト機能",
+      "category": "データ管理",
+      "priority": "Critical",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-205",
+      "title": "エピソード管理システム仕様",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-206",
+      "title": "SPEC-EPISODE-004: エピソードメタデータ管理システム",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-207",
+      "title": "SPEC-EPISODE-014: エピソードリスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-208",
+      "title": "SPEC-EPISODE-019: エピソード遷移管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-209",
+      "title": "SPEC-EPISODE-021: シンプルYAMLエピソードリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-210",
+      "title": "エピソードリスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-211",
+      "title": "エピソード遷移管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-212",
+      "title": "SPEC-GENERAL-011: 伏線設計ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-213",
+      "title": "SPEC-GENERAL-013: GitHookRepository 仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-214",
+      "title": "SPEC-GENERAL-014: Gitサービス仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-215",
+      "title": "SPEC-GENERAL-024: 小説プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-216",
+      "title": "SPEC-GENERAL-026: 複数プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-217",
+      "title": "SPEC-GENERAL-027: 名前リスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-218",
+      "title": "SPEC-GENERAL-035: SceneManagementRepository 仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-219",
+      "title": "SPEC-GENERAL-036: シーン管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-220",
+      "title": "SPEC-GENERAL-104: 離脱率分析ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-221",
+      "title": "SPEC-PLOT-102: IntegrationYamlPlotRepository 仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-222",
+      "title": "GitHookRepository 仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-223",
+      "title": "SceneManagementRepository 仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-224",
+      "title": "Gitサービス仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-225",
+      "title": "複数プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-226",
+      "title": "離脱率分析ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-227",
+      "title": "伏線設計ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-228",
+      "title": "小説プロジェクト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-229",
+      "title": "名前リスト管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-230",
+      "title": "シーン管理ユースケース仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-231",
+      "title": "YAML自動整形・検証機能仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-232",
+      "title": "YAML設定管理リポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-233",
+      "title": "YAMLエピソード管理リポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-234",
+      "title": "YAMLエピソードリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-235",
+      "title": "YAML伏線データリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-236",
+      "title": "YAMLインフラストラクチャーリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-237",
+      "title": "プロットデータYAMLリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-238",
+      "title": "YAMLプロジェクト情報リポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-239",
+      "title": "YAMLプロジェクトリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-240",
+      "title": "YAML品質データリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-241",
+      "title": "YAMLリポジトリインターフェース 仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 4,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-242",
+      "title": "YAMLシーンリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-243",
+      "title": "YAML検証アダプター仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-244",
+      "title": "IntegrationYamlPlotRepository 仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-245",
+      "title": "シンプルYAMLエピソードリポジトリ仕様書",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    },
+    {
+      "id": "REQ-データ管-246",
+      "title": "SPEC-{CATEGORY}-{NUMBER}: {機能名}",
+      "category": "データ管理",
+      "priority": "Low",
+      "complexity": 5,
+      "specifications_count": 0
+    }
+  ],
+  "statistics": {
+    "category_distribution": {
+      "その他": 34,
+      "品質管理": 68,
+      "AI協創執筆": 26,
+      "CLI・UI": 16,
+      "設定管理": 9,
+      "統合・連携": 15,
+      "システム管理": 21,
+      "プロット管理": 37,
+      "ワークフロー": 12,
+      "データ管理": 44
+    },
+    "requirement_stats": {
+      "total": 246,
+      "by_category": {
+        "その他": 17,
+        "品質管理": 54,
+        "AI協創執筆": 26,
+        "CLI・UI": 17,
+        "設定管理": 9,
+        "統合・連携": 14,
+        "システム管理": 21,
+        "プロット管理": 36,
+        "ワークフロー": 9,
+        "データ管理": 43
+      },
+      "by_priority": {
+        "Critical": 10,
+        "Low": 236
+      }
+    },
+    "keyword_frequency": {
+      "テスト": 268,
+      "品質": 256,
+      "python": 255,
+      "管理": 235,
+      "チェック": 234,
+      "統合": 232,
+      "ai": 232,
+      "データ": 210,
+      "構造": 208,
+      "data": 203,
+      "設定": 194,
+      "yaml": 192,
+      "システム": 190,
+      "ddd": 185,
+      "quality": 179,
+      "repository": 159,
+      "check": 157,
+      "test": 143,
+      "ui": 139,
+      "執筆": 125
+    },
+    "complexity_distribution": {
+      "low": 22,
+      "medium": 40,
+      "high": 220
+    }
+  }
+}

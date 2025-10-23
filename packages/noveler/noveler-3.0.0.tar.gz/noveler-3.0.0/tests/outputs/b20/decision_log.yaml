@@ -1,0 +1,348 @@
+# B20 Decision Log
+# Generator Retry Policy Phase 1 実装判断記録
+
+version: 1.0.0
+project: noveler
+feature: "Generator Retry Policy with Delta Prompt"
+implementation_phase: "Phase 1"
+log_period:
+  start_date: "2025-10-01"
+  end_date: "2025-10-01"
+
+decisions:
+  - id: "DEC-001"
+    timestamp: "2025-10-01T20:30:00Z"
+    decision_type: "architecture"
+    title: "Delta Prompt生成の責任分離"
+    description: |
+      by_task検証失敗時のリトライロジックを、失敗抽出とプロンプト生成の
+      2つのメソッドに分離する設計判断。
+    rationale: |
+      - 単一責任原則（SRP）の遵守
+      - テスタビリティの向上（各メソッドを独立してテスト可能）
+      - 将来的な拡張性（テンプレートエンジン統合など）
+    alternatives_considered:
+      - alternative_1:
+          name: "単一メソッドで全処理"
+          pros:
+            - コード行数が少なくなる
+            - 呼び出しがシンプル
+          cons:
+            - SRP違反
+            - テストが困難
+            - 保守性が低い
+          reason_rejected: "SOLID原則違反、保守性低下"
+      
+      - alternative_2:
+          name: "外部テンプレートエンジン使用"
+          pros:
+            - 高度なテンプレート機能
+            - プロンプト編集の柔軟性
+          cons:
+            - 外部依存追加
+            - オーバーエンジニアリング
+            - Phase 1には不要
+          reason_rejected: "Phase 1のスコープ外、YAGNI原則"
+    
+    selected_approach: "2つのメソッドに責任分離"
+    impact_assessment:
+      complexity: "低"
+      maintainability: "高"
+      testability: "高"
+      performance: "影響なし"
+      dependencies: "なし"
+    
+    stakeholders:
+      - role: "implementation"
+        name: "Claude Code"
+      - role: "review"
+        name: "B20 Workflow"
+    
+    tags:
+      - architecture
+      - solid
+      - srp
+
+  - id: "DEC-002"
+    timestamp: "2025-10-01T20:35:00Z"
+    decision_type: "implementation"
+    title: "リトライフローの統合位置"
+    description: |
+      deltaプロンプトによる自動リトライを_execute_step_with_recovery_async()
+      内に統合し、既存のrecoveryロジックの前に配置する判断。
+    rationale: |
+      - 既存のリカバリーフローを変更せず拡張（OCP遵守）
+      - deltaプロンプトリトライが失敗した場合のフォールバック確保
+      - 段階的な障害対応（自動リトライ→手動リカバリー）
+    alternatives_considered:
+      - alternative_1:
+          name: "別メソッドとして分離"
+          pros:
+            - 完全な独立性
+          cons:
+            - 呼び出し側の複雑化
+            - フォールバック処理の重複
+          reason_rejected: "実装の複雑化、DRY原則違反"
+      
+      - alternative_2:
+          name: "既存recoveryロジックを置き換え"
+          pros:
+            - コードが単純化
+          cons:
+            - 既存機能の削除（後方互換性喪失）
+            - OCP違反
+          reason_rejected: "開放閉鎖原則違反"
+    
+    selected_approach: "既存メソッド内に拡張として統合"
+    impact_assessment:
+      complexity: "中"
+      maintainability: "高"
+      testability: "中"
+      performance: "リトライ分の遅延（想定内）"
+      dependencies: "既存recoveryロジックに依存"
+    
+    tags:
+      - implementation
+      - ocp
+      - integration
+
+  - id: "DEC-003"
+    timestamp: "2025-10-01T20:40:00Z"
+    decision_type: "testing"
+    title: "ユニットテストのモック戦略"
+    description: |
+      ProgressiveWriteManagerのテストで、ProgressiveWriteRuntimeDepsを
+      MagicMockでモック化し、最小限の依存注入でテストする判断。
+    rationale: |
+      - テストの独立性確保
+      - 実行速度の向上
+      - 外部依存（ファイルシステム、LLM）の排除
+    alternatives_considered:
+      - alternative_1:
+          name: "実際の依存を使用"
+          pros:
+            - 統合テストに近い
+          cons:
+            - テストが遅い
+            - 環境依存が発生
+            - ユニットテストの原則違反
+          reason_rejected: "ユニットテストの独立性違反"
+      
+      - alternative_2:
+          name: "専用テストダブル作成"
+          pros:
+            - 型安全性
+          cons:
+            - 実装コスト増加
+            - Phase 1には過剰
+          reason_rejected: "YAGNI原則、コスト過大"
+    
+    selected_approach: "MagicMockによるモック化"
+    impact_assessment:
+      complexity: "低"
+      maintainability: "高"
+      testability: "高"
+      performance: "高速（< 20秒）"
+      dependencies: "unittest.mock"
+    
+    tags:
+      - testing
+      - unit_test
+      - mocking
+
+  - id: "DEC-004"
+    timestamp: "2025-10-01T20:42:00Z"
+    decision_type: "threshold"
+    title: "MAX_RETRIES = 3 の選定"
+    description: |
+      by_task検証失敗時の最大リトライ回数を3回に設定する判断。
+    rationale: |
+      - 既存のMAX_RETRIES定数を再利用（一貫性）
+      - 実用上十分な回数（1回目:初回、2-3回目:改善試行）
+      - 無限ループ防止
+    alternatives_considered:
+      - alternative_1:
+          name: "MAX_RETRIES = 5"
+          pros:
+            - より多くの改善機会
+          cons:
+            - 実行時間の増加
+            - LLMコスト増加
+            - 改善見込みが低い回数まで試行
+          reason_rejected: "コストパフォーマンス低下"
+      
+      - alternative_2:
+          name: "MAX_RETRIES = 1"
+          pros:
+            - 実行時間が短い
+          cons:
+            - 改善機会が少なすぎる
+          reason_rejected: "改善機会不足"
+    
+    selected_approach: "MAX_RETRIES = 3（既存値を維持）"
+    impact_assessment:
+      complexity: "低"
+      maintainability: "高"
+      testability: "高"
+      performance: "最大3倍の実行時間（想定内）"
+      dependencies: "既存のMAX_RETRIES定数"
+    
+    tags:
+      - threshold
+      - configuration
+      - performance
+
+  - id: "DEC-005"
+    timestamp: "2025-10-01T20:45:00Z"
+    decision_type: "tool_selection"
+    title: "Markdown形式でのdeltaプロンプト生成"
+    description: |
+      deltaプロンプトをMarkdown形式で生成し、構造化された
+      見出しとリストを使用する判断。
+    rationale: |
+      - LLMの読みやすさ向上
+      - 階層構造の明確化（##見出し、リスト）
+      - 既存のプロンプト形式との一貫性
+    alternatives_considered:
+      - alternative_1:
+          name: "プレーンテキスト"
+          pros:
+            - 実装がシンプル
+          cons:
+            - 構造が不明確
+            - LLMの理解が困難
+          reason_rejected: "可読性・理解性低下"
+      
+      - alternative_2:
+          name: "YAML形式"
+          pros:
+            - 構造化データ
+          cons:
+            - LLMには過剰
+            - 人間の可読性低下
+          reason_rejected: "オーバーエンジニアリング"
+    
+    selected_approach: "Markdown形式"
+    impact_assessment:
+      complexity: "低"
+      maintainability: "高"
+      testability: "高"
+      performance: "影響なし"
+      dependencies: "なし"
+    
+    tags:
+      - format
+      - llm
+      - usability
+
+  - id: "DEC-006"
+    timestamp: "2025-10-03T01:35:00Z"
+    decision_type: "dependency_management"
+    title: "aiofiles依存関係の明示的追加"
+    description: |
+      AsyncFileProcessorがaiofilesに依存しているが、pyproject.tomlに
+      明記されていなかった問題を、必須依存に追加して解決する判断。
+    rationale: |
+      - AsyncFileProcessorはパフォーマンス最適化に必須
+      - 条件付きインポートは保守性が低下
+      - テスト実行が阻害されている（Phase 4で検出）
+      - CI/CDパイプラインへの影響
+    alternatives_considered:
+      - alternative_1:
+          name: "条件付きインポート (try-except)"
+          pros:
+            - aiofilesが無くても動作可能
+            - 段階的な導入が可能
+          cons:
+            - エラーハンドリングが複雑化
+            - 保守性低下
+            - パフォーマンス最適化が無効化される可能性
+          reason_rejected: "保守性低下、最適化無効化リスク"
+
+      - alternative_2:
+          name: "AsyncFileProcessor をoptional dependency化"
+          pros:
+            - コア機能への影響なし
+          cons:
+            - 既に複数箇所で使用されている
+            - リファクタリングコスト大
+            - Phase 4範囲外
+          reason_rejected: "既存使用箇所多数、Phase 4スコープ外"
+
+      - alternative_3:
+          name: "aiofiles を必須依存に昇格"
+          pros:
+            - 依存関係が明示的
+            - テストが正常実行可能
+            - AsyncFileProcessorの性能を保証
+          cons:
+            - 依存パッケージ数が増加
+          reason_rejected: "採用（メリットがデメリットを上回る）"
+
+    selected_approach: "aiofiles>=23.0.0 を必須依存に追加"
+    impact_assessment:
+      complexity: "低"
+      maintainability: "高（依存関係が明示的）"
+      testability: "高（テスト実行可能に）"
+      performance: "影響なし（既存機能を維持）"
+      dependencies: "aiofiles>=23.0.0 追加"
+
+    affected_components:
+      - "noveler.infrastructure.performance.async_file_processor"
+      - "noveler.infrastructure.performance.comprehensive_performance_optimizer"
+      - "noveler.infrastructure.json.mcp.servers.json_conversion_server"
+      - "noveler.infrastructure.repositories.yaml_a31_checklist_repository"
+
+    test_impact:
+      failed_tests: 5
+      test_files:
+        - "tests/e2e/test_artifact_reference_workflow.py"
+        - "tests/integration/mcp/test_artifact_mcp_tools.py"
+        - "tests/integration/test_a31_auto_fix_integration.py"
+        - "tests/unit/infrastructure/repositories/test_yaml_a31_checklist_repository.py"
+        - "tests/unit/infrastructure/test_yaml_a31_checklist_repository_extended.py"
+
+    stakeholders:
+      - role: "implementation"
+        name: "Claude Code"
+      - role: "review"
+        name: "B20 Workflow Phase 4"
+      - role: "codex_review"
+        name: "Codex Quality Assurance"
+
+    tags:
+      - dependency_management
+      - testing
+      - phase4
+      - bug_fix
+
+# メタ情報
+metadata:
+  total_decisions: 6
+  decision_types:
+    architecture: 1
+    implementation: 1
+    testing: 1
+    threshold: 1
+    tool_selection: 1
+    dependency_management: 1
+  
+  impact_summary:
+    low_complexity: 5
+    medium_complexity: 1
+    high_maintainability: 6
+    high_testability: 6
+  
+  solid_compliance:
+    srp: true
+    ocp: true
+    lsp: true
+    isp: true
+    dip: true
+
+# レビュー履歴
+review_history:
+  - timestamp: "2025-10-01T20:50:00Z"
+    reviewer: "B20 Workflow Phase 5"
+    status: "approved"
+    notes: "全判断に明確な根拠あり。代替案検討が適切。"

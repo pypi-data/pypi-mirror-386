@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "noveler": {
+      "name": "Noveler MCP",
+      "description": "Novel writing support tools (quality checks, writing workflow)",
+      "command": "python",
+      "args": [
+        "src/mcp_servers/noveler/main.py"
+      ],
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "NOVEL_PRODUCTION_MODE": "1",
+        "MCP_STDIO_SAFE": "1"
+      },
+      "cwd": "."
+    }
+  }
+}
+

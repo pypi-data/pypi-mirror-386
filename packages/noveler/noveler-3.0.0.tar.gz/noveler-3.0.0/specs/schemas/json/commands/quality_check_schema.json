@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "quality_check_schema.json",
+  "title": "QualityCheckSchema",
+  "description": "品質チェックコマンド入力スキーマ",
+  "type": "object",
+  "properties": {
+    "target_files": {
+      "type": "array",
+      "description": "チェック対象ファイルパス一覧",
+      "items": {
+        "type": "string",
+        "pattern": "^[^/].*\\.(md|yaml|json)$",
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "check_types": {
+      "type": "array",
+      "description": "チェック種別",
+      "items": {
+        "type": "string",
+        "enum": [
+          "grammar",
+          "consistency",
+          "plot_coherence",
+          "character_development",
+          "pacing",
+          "style",
+          "technical_validation",
+          "spelling",
+          "punctuation",
+          "formatting",
+          "structure",
+          "continuity"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 12,
+      "uniqueItems": true
+    },
+    "severity_threshold": {
+      "type": "string",
+      "description": "重要度しきい値",
+      "enum": ["low", "medium", "high", "critical"],
+      "default": "medium"
+    },
+    "include_suggestions": {
+      "type": "boolean",
+      "description": "改善提案含む",
+      "default": true
+    },
+    "output_format": {
+      "type": "string",
+      "description": "出力形式",
+      "enum": ["detailed", "summary", "actionable", "json"],
+      "default": "detailed"
+    },
+    "max_issues_per_file": {
+      "type": "integer",
+      "description": "ファイル毎の最大問題報告数",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 20
+    },
+    "ignore_patterns": {
+      "type": "array",
+      "description": "無視するパターン（正規表現）",
+      "items": {
+        "type": "string",
+        "maxLength": 200
+      },
+      "maxItems": 10
+    },
+    "language": {
+      "type": "string",
+      "description": "検証対象言語",
+      "enum": ["ja", "en", "auto"],
+      "default": "ja"
+    },
+    "parallel_processing": {
+      "type": "boolean",
+      "description": "並列処理実行",
+      "default": true
+    }
+  },
+  "required": ["check_types"],
+  "additionalProperties": false
+}

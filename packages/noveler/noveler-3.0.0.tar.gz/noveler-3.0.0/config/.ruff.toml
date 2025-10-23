@@ -1,0 +1,157 @@
+target-version = "py310"
+line-length = 120
+
+exclude = [
+    "backup/**",
+    "temp/**",
+    "__pycache__/**",
+    ".git/**",
+    ".mypy_cache/**",
+    ".pytest_cache/**",
+    ".ruff_cache/**",
+    ".venv/**",
+]
+
+[lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "ARG", # flake8-unused-arguments
+    "SIM", # flake8-simplify
+    "RET", # flake8-return
+    "PTH", # flake8-use-pathlib
+    "PL",  # pylint
+    "TRY", # tryceratops
+    "RUF", # Ruff-specific rules
+    "PIE", # flake8-pie
+    "N",   # pep8-naming
+    "ANN", # flake8-annotations
+    "ASYNC", # flake8-async
+    "S",   # flake8-bandit (security)
+    "BLE", # flake8-blind-except
+    "A",   # flake8-builtins
+    "C90", # mccabe complexity
+    "DTZ", # flake8-datetimez
+    "EM",  # flake8-errmsg
+    "ERA", # eradicate (commented-out code)
+    "EXE", # flake8-executable
+    "ICN", # flake8-import-conventions
+    "LOG", # flake8-logging
+    "G",   # flake8-logging-format
+    "INP", # flake8-no-pep420
+    "PT",  # flake8-pytest-style
+    "Q",   # flake8-quotes
+    "RSE", # flake8-raise
+    "T10", # flake8-debugger
+    "T20", # flake8-print
+    "TID", # flake8-tidy-imports
+    "TCH", # flake8-type-checking
+    "PERF", # perflint
+    "D",   # pydocstyle (docstring checks)
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "B008",  # do not perform function calls in argument defaults
+    "COM812", # trailing comma (conflicts with formatter)
+    "S101",   # use of assert (OK in tests)
+    "PLR0913", # too many arguments (sometimes necessary)
+    # "T201",   # print found - REMOVED: now will warn about print() usage
+    "ERA001", # commented-out code (OK for explanatory comments)
+    "N806",   # non-lowercase variable in function (OK for constants)
+    "SIM102", # nested if statements (sometimes clearer)
+    "UP017",  # Python 3.10: datetime.UTC not available
+    "TRY300", # Consider moving to else block (often less readable)
+    "TRY301", # Abstract raise to inner function (often less readable)
+    "PERF203", # try-except in loop (sometimes necessary)
+    "S311",   # pseudo-random generators (OK for non-crypto use)
+    "S603",   # subprocess call (OK with trusted input)
+    "S607",   # partial executable path (OK in controlled environment)
+    "S112",   # try-except-continue (OK with proper logging)
+    "BLE001", # blind except (OK with proper handling)
+    "E402",   # module level import not at top (OK for conditional imports)
+    "ANN201", # missing return type annotation (gradual typing)
+    "D102",   # missing docstring in public method (gradual documentation)
+    "TC001",  # move into type-checking block (performance vs readability tradeoff)
+    "PTH108", # os.unlink vs Path.unlink (compatibility)
+    # 日本語プロジェクト用の除外設定
+    "RUF001", # ambiguous unicode character in string (日本語文字列)
+    "RUF002", # ambiguous unicode character in docstring (日本語ドキュメント)
+    "RUF003", # ambiguous unicode character in comment (日本語コメント)
+    "PLC2401", # non-ascii name (日本語変数名)
+    "PLR2004", # magic value comparison (固定値比較は頻繁に使用)
+    # Docstring rules to ignore (practical approach)
+    "D105",   # missing docstring in magic method
+    "D107",   # missing docstring in __init__
+    "D200",   # one-line docstring should fit on one line (formatter handles)
+    "D202",   # no blank lines allowed after function docstring (formatter handles)
+    "D204",   # 1 blank line required after class docstring (formatter handles)
+    "D205",   # 1 blank line required between summary and description
+    "D212",   # multi-line docstring summary should start at the first line
+    "D400",   # first line should end with a period (too strict for Japanese)
+    "D401",   # first line should be in imperative mood (English-centric)
+    "D403",   # first word of first line should be capitalized (English-centric)
+    "D413",   # missing blank line after last section
+    "D415",   # first line should end with punctuation (too strict for Japanese)
+]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[lint.pydocstyle]
+convention = "google"  # Google docstring style
+
+[lint.per-file-ignores]
+# テストファイルはdocstring不要
+"scripts/tests/**/*.py" = ["D100", "D101", "D102", "D103", "D104"]
+"tests/**/*.py" = ["D100", "D101", "D102", "D103", "D104"]
+# __init__.pyもdocstring不要
+"**/__init__.py" = ["D104"]
+# print()使用許可ファイル（レガシーCLIツール・デバッグ用）
+"src/noveler/tools/console_migration_tool.py" = ["T201"]  # 自身はprint()を使用
+"scripts/legacy/**/*.py" = ["T201"]   # レガシーファイルはprint()使用可
+"debug/**/*.py" = ["T201"]            # デバッグファイルはprint()使用可
+# 開発ツールは関数内インポート許可
+"scripts/tools/**/*.py" = ["PLC0415"]
+# DIコンテナやファクトリーパターンでは関数内インポート許可
+"scripts/infrastructure/di/**/*.py" = ["PLC0415"]
+"scripts/**/factory*.py" = ["PLC0415"]
+"scripts/**/adapter*.py" = ["PLC0415"]
+# DDD準拠の遅延初期化パターンを保護
+"src/noveler/application/use_cases/**/*.py" = ["PLC0415"]
+"src/noveler/application/services/**/*service*.py" = ["PLC0415"]
+"src/noveler/domain/services/**/*service*.py" = ["PLC0415"]
+"src/noveler/infrastructure/adapters/**/*adapter*.py" = ["PLC0415"]
+"src/noveler/infrastructure/factories/**/*factory*.py" = ["PLC0415"]
+# MCPサーバー関連の遅延初期化パターン保護（print()使用も許可）
+"src/mcp_servers/**/*.py" = ["PLC0415", "T201"]
+# Protocol定義でのAny型使用許可（仕様上必須）
+"src/noveler/domain/protocols/**/*.py" = ["ANN401"]
+"src/noveler/infrastructure/patterns/lazy_proxy.py" = ["ANN401"]
+# 既存コードの段階的品質改善（docstring不足・ANN401除外）
+"src/noveler/application/checkers/**/*.py" = ["D100"]
+"src/noveler/application/infrastructure_services/**/*.py" = ["D100", "ANN401"]
+"src/noveler/application/services/**/*.py" = ["ANN401"]
+"src/noveler/infrastructure/**/*.py" = ["D100", "ANN401", "PLC0415"]
+"src/noveler/application/use_cases/integrated_writing_use_case.py" = [
+    "D100",  # module docstring（段階的改善対象）
+    "D417",  # docstring 引数説明不足
+    "ANN003", # missing **kwargs annotation
+    "ARG002", # unused arg (private helperで許容)
+    "C901",   # complexity（将来の分割リファクタ対象）
+    "PLR0911", # too many returns
+    "PLR0912", # too many branches
+    "PLR0915", # too many statements
+]
+"src/noveler/domain/services/writing_steps/manuscript_generator_service.py" = [
+    "D100",   # module docstring（段階的改善対象）
+    "ANN401", # Any許容（DI/拡張性のため）
+    "ASYNC230", # async内でのopen使用（後続で非同期I/Oへ移行予定）
+]

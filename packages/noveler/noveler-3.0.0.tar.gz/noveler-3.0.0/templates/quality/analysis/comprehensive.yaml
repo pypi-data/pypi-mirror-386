@@ -1,0 +1,46 @@
+metadata:
+  name: "AI特化総合品質チェック"
+  description: "AIの客観性・一貫性を活かした定量的品質評価"
+  evaluation_points: 100
+  estimated_time_seconds: 15
+  complexity: "high"
+  categories:
+    - "ai_specialized"
+    - "quantitative_analysis"
+    - "consistency_check"
+  differentiation:
+    human_evaluation_complement: "人間の主観的品質判断を定量データで補完"
+    ai_strengths: "客観性・一貫性・パターン認識・統計分析"
+    focus_areas: "人間が見落としやすい微細な不整合・定量的品質指標"
+
+evaluation_criteria:
+  ai_specialized_consistency:
+    character_voice_micro_analysis: "キャラクター口調の微細な変化検出"
+    tense_viewpoint_consistency: "時制・視点の混在箇所特定"
+    terminology_uniformity: "固有名詞・専門用語の表記統一性"
+    punctuation_pattern_analysis: "句読点・記号使用の一貫性"
+  quantitative_writing_quality:
+    sentence_rhythm_analysis: "文章リズム・文末パターン多様性"
+    paragraph_length_optimization: "段落長バランス（スマホ読書対応）"
+    dialogue_narrative_ratio: "会話文と地の文の比率分析"
+    sensory_description_balance: "五感描写の配分バランス"
+  emotional_depth_metrics:
+    show_vs_tell_ratio: "Show表現とTell表現の比率"
+    physical_emotion_expression: "身体感覚による感情表現の割合"
+    inner_description_depth: "内面描写の深度分析（感覚・感情・思考・記憶・象徴の5層構造）"
+    emotional_transition_coherence: "感情変化の自然さ・説得力"
+  narou_reader_experience:
+    smartphone_readability_score: "スマホ読書最適化度"
+    opening_hook_strength: "冒頭フックの引きの強さ（定量分析）"
+    cliffhanger_effectiveness: "章末引きの効果測定"
+    continuation_desire_index: "読み続けたくなる魅力指数"
+
+analysis_instructions:
+  - "人間の手動チェックでは困難な、AI特化領域に集中して評価する"
+  - "定量的指標と統計的分析を用いて客観的な品質評価を実施する"
+  - "人間が見落としやすい微細な不整合・パターンを検出し報告する"
+  - "具体的な数値データ（比率・頻度・分布）を含む改善提案を提示する"
+  - "原文の具体的箇所を引用し、改善前後の対比例を明示する"
+  - "なろう系読者・スマホ読書環境に特化した最適化提案を行う"
+  - "感情表現を感覚層・感情層・思考層・記憶層・象徴層の5層で分析し、各層の強化ポイントを指摘する"
+  - "文章リズム・テンポの定量分析結果に基づく改善案を提供する"

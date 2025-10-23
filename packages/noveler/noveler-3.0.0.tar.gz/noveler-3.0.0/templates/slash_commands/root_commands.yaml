@@ -1,0 +1,54 @@
+# File: templates/slash_commands/root_commands.yaml
+# Purpose: Repository-level default slash command templates to hydrate config/slash_commands.yaml
+# Context: SPEC-CLI-050 mandates config/slash_commands.yaml as SSOT. This template is used
+#          to pre-populate or refresh the SSOT via scripts/setup/hydrate_slash_commands.py.
+
+version: "1.0.0"
+last_updated: "TEMPLATE"
+
+commands:
+  - name: /test
+    script: bin/test
+    args: []
+    description: "Run pytest with LLM-friendly output"
+    permissions:
+      windows:
+        - "Bash(bin/test:*)"
+        - "Bash(./bin/test:*)"
+      wsl:
+        - "Bash(bin/test:*)"
+      macos:
+        - "Bash(bin/test:*)"
+    category: testing
+    tags: ["testing", "pytest"]
+
+  - name: /test-failed
+    script: bin/test-failed
+    args: []
+    description: "Re-run only failed tests from last run"
+    permissions:
+      windows:
+        - "Bash(bin/test-failed:*)"
+        - "Bash(./bin/test-failed:*)"
+      wsl:
+        - "Bash(bin/test-failed:*)"
+      macos:
+        - "Bash(bin/test-failed:*)"
+    category: testing
+    tags: ["testing", "pytest", "failed"]
+
+  - name: /test-changed
+    script: bin/test-changed
+    args: []
+    description: "Run tests for changed files (git diff based)"
+    permissions:
+      windows:
+        - "Bash(bin/test-changed:*)"
+        - "Bash(./bin/test-changed:*)"
+      wsl:
+        - "Bash(bin/test-changed:*)"
+      macos:
+        - "Bash(bin/test-changed:*)"
+    category: testing
+    tags: ["testing", "pytest", "git"]
+

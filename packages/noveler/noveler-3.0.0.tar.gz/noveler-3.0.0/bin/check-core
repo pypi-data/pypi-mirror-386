@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+# File: bin/check-core
+# Purpose: Run automated core quality checks (Tier-0/1) and emit NDJSON to reports.
+# Context: Thin wrapper around scripts/ci/run_quality_checks_ndjson.py; supports --dry-run.
+set -euo pipefail
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd -- "${SCRIPT_DIR}/.." &> /dev/null && pwd )"
+
+# Load defaults from config (reports paths, thresholds, etc.)
+eval "$(python3 "${ROOT_DIR}/scripts/tools/quality_gate_defaults.py" --format shell)"
+
+OUT="${CORE_REPORT}"
+SEVERITY_DEFAULT="${SEVERITY_THRESHOLD}"
+FAIL_ON_SCORE_DEFAULT="${GATE_B_RHYTHM}"
+for candidate in "${GATE_B_READABILITY}" "${GATE_B_GRAMMAR}"; do
+  if [[ "$candidate" =~ ^[0-9]+$ ]] && [[ "$FAIL_ON_SCORE_DEFAULT" =~ ^[0-9]+$ ]]; then
+    if (( candidate < FAIL_ON_SCORE_DEFAULT )); then
+      FAIL_ON_SCORE_DEFAULT="$candidate"
+    fi
+  fi
+done
+EPISODE_DEFAULT="${EPISODE_DEFAULT}"
+
+DRY_RUN=0
+HAS_SEVERITY=0
+HAS_FAIL_ON_SCORE=0
+HAS_EPISODE=0
+HAS_FILE_PATH=0
+EXTRA_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --out)
+      [[ $# -ge 2 ]] || { echo "Missing value for --out" >&2; exit 1; }
+      OUT="$2"
+      shift 2
+      ;;
+    --out=*)
+      OUT="${1#*=}"
+      shift
+      ;;
+    --severity-threshold)
+      HAS_SEVERITY=1
+      [[ $# -ge 2 ]] || { echo "Missing value for --severity-threshold" >&2; exit 1; }
+      EXTRA_ARGS+=("$1" "$2")
+      shift 2
+      ;;
+    --severity-threshold=*)
+      HAS_SEVERITY=1
+      EXTRA_ARGS+=("$1")
+      shift
+      ;;
+    --fail-on-score-below)
+      HAS_FAIL_ON_SCORE=1
+      [[ $# -ge 2 ]] || { echo "Missing value for --fail-on-score-below" >&2; exit 1; }
+      EXTRA_ARGS+=("$1" "$2")
+      shift 2
+      ;;
+    --fail-on-score-below=*)
+      HAS_FAIL_ON_SCORE=1
+      EXTRA_ARGS+=("$1")
+      shift
+      ;;
+    --episode)
+      HAS_EPISODE=1
+      [[ $# -ge 2 ]] || { echo "Missing value for --episode" >&2; exit 1; }
+      EXTRA_ARGS+=("$1" "$2")
+      shift 2
+      ;;
+    --episode=*)
+      HAS_EPISODE=1
+      EXTRA_ARGS+=("$1")
+      shift
+      ;;
+    --file-path)
+      HAS_FILE_PATH=1
+      [[ $# -ge 2 ]] || { echo "Missing value for --file-path" >&2; exit 1; }
+      EXTRA_ARGS+=("$1" "$2")
+      shift 2
+      ;;
+    --file-path=*)
+      HAS_FILE_PATH=1
+      EXTRA_ARGS+=("$1")
+      shift
+      ;;
+    --dry-run)
+      DRY_RUN=1
+      shift
+      ;;
+    *)
+      EXTRA_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+CMD=(python3 scripts/ci/run_quality_checks_ndjson.py)
+
+if [[ $HAS_FILE_PATH -eq 0 ]]; then
+  if [[ $HAS_EPISODE -eq 0 ]]; then
+    CMD+=(--episode "$EPISODE_DEFAULT")
+  fi
+else
+  # When file-path is provided, pass through any user-specified episode args only.
+  if [[ $HAS_EPISODE -eq 0 ]]; then
+    : # no default episode alongside file-path
+  fi
+fi
+
+CMD+=(--out "$OUT")
+
+if [[ $HAS_SEVERITY -eq 0 ]]; then
+  CMD+=(--severity-threshold "$SEVERITY_DEFAULT")
+fi
+
+if [[ $HAS_FAIL_ON_SCORE -eq 0 ]]; then
+  CMD+=(--fail-on-score-below "$FAIL_ON_SCORE_DEFAULT")
+fi
+
+CMD+=("${EXTRA_ARGS[@]}")
+
+if [[ $DRY_RUN -eq 1 ]]; then
+  printf 'DRY-RUN: '
+  printf '%q ' "${CMD[@]}"
+  printf '\n'
+  exit 0
+fi
+
+cd "${ROOT_DIR}"
+exec "${CMD[@]}"

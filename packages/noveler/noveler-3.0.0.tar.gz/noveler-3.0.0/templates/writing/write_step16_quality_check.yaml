@@ -1,0 +1,136 @@
+# STEP 16: 品質チェック（Schema v2）
+
+metadata:
+  step_id: 16
+  step_name: "品質チェック"
+  phase: "quality_assurance"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "A38のKPI準拠で品質を数値判定"
+  estimated_duration: "20-30分"
+
+llm_config:
+  role_messages:
+    system: |
+      あなたは品質審査者です。以下を厳守してください:
+
+      【必須ルール】
+      1. constraints.hard_rules を必ず遵守
+      2. 出力形式: 生のYAMLテキストのみ（```yamlなどのコードブロック禁止）
+      3. 追加説明・前置き文・コメント・補足は一切不要
+      4. artifacts.required_fields を必ず含める
+      5. YAMLインデントはスペース2固定、タブ禁止
+      6. 複数行テキストはブロックリテラル（|）を使用
+    user: |
+      初稿以降の原稿に対してA38のKPIを用いた品質チェックを実施し、合否（80%基準）を判定してください。
+
+prompt:
+  main_instruction: |
+    目的は「品質チェック（合否判定）」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step12.md"
+      required: true
+      description: 最終レビュー対象原稿
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "基本KPI: 8000字以上/視点統一/禁止表現ゼロ/なろう10箇条遵守"
+  soft_targets:
+    - "拡張KPI: 感情多様性/目的駆動会話/セクションバランス/一貫性/五感≥30%/開示率≥90%"
+
+tasks:
+  bullets:
+    - 基本KPIの合否を数値で判定する
+    - 拡張KPI6項目を定量評価して総合点を算出する
+    - 合格ライン（80%）未満なら改善提案を列挙する
+  details:
+    - name: 基本KPI
+      items:
+        - id: kpi.basic
+          text: 文字数≥8000/視点統一/禁止表現ゼロ/なろう10箇条
+    - name: 拡張KPI
+      items:
+        - id: kpi.extended
+          text: 感情多様性/会話目的駆動率/セクションバランス
+        - id: kpi.extended2
+          text: キャラ一貫性/非視覚感覚比率/世界観開示率
+        - id: kpi.extended3
+          text: 伏線回収率/世界観・小道具整合
+        - id: kpi.typo_rate
+          text: 誤字率（typo_error_rate）<= 0.5%（≒ 0.005）
+          measurement: "誤字数 / 総文字数（8000字で40字以内）"
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step16.yaml"
+  required_fields: ["basic_kpi", "extended_kpi", "total_score", "verdict", "suggestions"]
+  example: |
+    basic_kpi:
+      word_count_ok: true
+      pov_consistency_ok: true
+      banned_expressions_ok: true
+      narou_ten_commandments_ok: true
+    extended_kpi:
+      emotion_variety: 0.85
+      dialogue_goal_rate: 1.00
+      section_balance: 0.90
+      character_consistency: 1.00
+      senses_non_visual_ratio: 0.35
+      world_reveal_rate: 0.92
+      foreshadow_resolution_rate: 0.85
+      world_prop_consistency: 1.00
+      typo_error_rate: 0.0025
+    total_score: 0.88
+    total_score_percent: 88
+    verdict: pass
+    suggestions:
+      - "中盤の段落を短縮しテンポ改善"
+
+acceptance_criteria:
+  checklist:
+    - "required_fields がすべて存在する"
+    - "verdict が pass|fail のいずれか"
+  metrics:
+    - name: "total_score_threshold"
+      target: ">= 0.80"
+      method: "extended/basicを統合した総合点"
+    - name: "typo_error_rate_threshold"
+      target: "<= 0.005"
+      method: "誤字率（0.5%以下、8000字で40字以内）"
+  by_task:
+    - id: kpi.basic
+      field: basic_kpi
+      rule: present
+    - id: kpi.extended
+      field: extended_kpi
+      rule: present
+    - id: kpi.typo_rate
+      field: extended_kpi.typo_error_rate
+      range: 0-0.005
+
+next:
+  next_step_id: 17
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=17
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

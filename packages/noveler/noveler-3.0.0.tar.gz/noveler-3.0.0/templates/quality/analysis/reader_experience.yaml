@@ -1,0 +1,48 @@
+metadata:
+  name: "なろう系読者体験特化"
+  description: "スマホ読書・なろう系読者特有のニーズに特化したAI評価"
+  evaluation_points: 35
+  estimated_time_seconds: 6
+  complexity: "medium"
+  categories:
+    - "narou_specialized"
+    - "smartphone_optimized"
+  ai_focus:
+    complement_human_evaluation: "人間の主観的評価を定量データで補完"
+    quantitative_metrics: "段落長・漢字密度・文章リズムの定量分析"
+
+evaluation_criteria:
+  smartphone_reading_optimization:
+    paragraph_length_score: "段落長のスマホ読書最適化度（3-4行以内率）"
+    kanji_density_balance: "漢字密度の適正度（読みやすさ指標）"
+    line_break_optimization: "会話文・シーン転換の改行最適化"
+    visual_fatigue_reduction: "視覚的疲労軽減度（長文回避等）"
+  narou_engagement_metrics:
+    hook_distribution_analysis: "フック要素の適切な配置分析"
+    cliffhanger_timing_score: "章末引きのタイミング精度"
+    continuation_motivation: "次話への継続意欲度測定"
+    binge_reading_suitability: "連続読み適性度"
+  immersion_quality_quantification:
+    meta_comment_detection: "メタ発言・作者コメントの検出率"
+    fourth_wall_break_score: "第四の壁破壊リスク評価"
+    world_consistency_check: "設定不整合・矛盾検出"
+    emotional_flow_continuity: "感情の流れの連続性分析"
+
+analysis_instructions:
+  - "スマホ読書環境での実際の表示を想定し、段落長・改行・漢字密度を定量分析する"
+  - "なろう系読者の特有ニーズ（テンポ・展開・キャラ設定）を考慮した評価を実施する"
+  - "フック・クリフハンガーの配置タイミングを定量的に分析し、最適化提案を行う"
+  - "没入感を阻害する要素（メタ発言・設定不整合）を系統的に検出する"
+  - "具体的な数値データ（段落あたり文字数・漢字率・フック頻度）を含む改善提案を提供する"
+  - "連続読み適性や離脱リスクポイントを定量的に特定し、対策を提示する"
+
+quantitative_thresholds:
+  paragraph_optimization:
+    target_lines_per_paragraph: "3-4行以内"
+    max_characters_per_line: "25-30文字（スマホ表示基準）"
+  readability_metrics:
+    kanji_ratio_range: "25-35%（適正範囲）"
+    average_sentence_length: "20-40文字（標準範囲）"
+  engagement_benchmarks:
+    hook_frequency: "概算1000文字あたり1-2箇所"
+    cliffhanger_strength: "章末の85%以上で引き要素あり"

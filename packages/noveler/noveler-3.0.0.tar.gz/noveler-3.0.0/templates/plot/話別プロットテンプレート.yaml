@@ -1,0 +1,691 @@
+# A28: 話別プロット作成依頼専用テンプレート（拡張版）
+# Version: 2.0.0
+# Last Updated: 2025-01-06
+# A28_話別プロットプロンプト.md v3.0.0 対応
+
+metadata:
+  version: "2.0.0"
+  last_updated: "2025-01-06"
+  source: "A28_話別プロットプロンプト.md v3.0.0"
+  purpose: "Claude Code執筆依頼専用（拡張機能統合）"
+  compatibility: ["claude-3", "claude-4", "claude-code"]
+  target_audience: "AI執筆依頼者"
+  enhancements:
+    - "伏線追跡システム"
+    - "シーン粒度管理"
+    - "感情×技術融合"
+    - "ステージ間連携強化"
+    - "文字数配分ガイドライン"
+    - "読者反応予測"
+    - "視点一貫性チェック"
+
+# Basic Episode Information - 基本情報
+episode_info:
+  episode_number: 1                       # Required: Episode number (int) - 必須: エピソード番号（int型）
+  title: "エピソードタイトル"             # Required: Episode title (str) - 必須: エピソードタイトル（str型）
+  chapter_number: 1                       # Required: Chapter number (int) - 必須: 所属章番号（int型）
+  theme: "エピソードのテーマ"             # Required: Main theme (str) - 必須: エピソードの主要テーマ（str型）
+  purpose: "このエピソードの目的・役割"   # Required: Role in overall story (str) - 必須: 物語全体での役割（str型）
+  emotional_core: "感情的な核となる要素"  # Required: Emotional impact for readers (str) - 必須: 読者に与える感情的インパクト（str型）
+
+# Viewpoint Information - 視点情報
+viewpoint_info:
+  viewpoint: "三人称単元視点"              # Third-person limited viewpoint - 三人称単元視点
+  character: "話の視点となるキャラクター"   # POV character - 話の視点となるキャラクター
+
+# Episode Synopsis - 概要
+synopsis: |
+  エピソードの概要を400字程度で記述。      # Episode summary in about 400 characters
+  主要な出来事、キャラクターの変化、物語の進展について簡潔に整理。  # Concise summary of main events, character changes, story progression
+  前後話と連続性があり、読者が理解できるように記述。              # Describe with continuity from previous/next episodes for reader understanding
+  展開（起承転結）を挿入。                                        # Include story development (introduction-development-twist-conclusion)
+
+# Key Events - 主要イベント
+key_events:
+  - event: "第一のイベント"                    # First event - 第一のイベント
+    description: |
+      イベントの詳細な描写。                  # Detailed description of the event
+      キャラクターの行動、心情の変化、技術的要素など具体的に記述。  # Describe character actions, emotional changes, technical elements specifically
+
+  - event: "第二のイベント"                    # Second event - 第二のイベント
+    description: |
+      続くイベントの詳細。                    # Details of the following event
+      前のイベントからの流れや関連性も含めて記述。  # Describe flow and connections from previous event
+
+# Story Structure (Three-Act Structure) - 物語構造（三幕構成）
+story_structure:
+  # ======== Act I: Setup and Problem Presentation (20%) - 第一幕：日常と問題提示（20%）========
+  setup:
+    duration: "冒頭～問題発生まで"            # From opening to problem occurrence - 冒頭～問題発生まで
+    purpose: "状況設定・キャラクター提示"     # Situation setup and character presentation - 状況設定・キャラクター提示
+
+    scene_001:
+      title: "導入シーン"                    # Opening scene - 導入シーン
+      location: "場所の詳細"                 # Location details - 場所の詳細
+      time: "時間設定"                       # Time setting - 時間設定
+      weather: "天候・雰囲気"                # Weather and atmosphere - 天候・雰囲気
+
+      opening_description: |
+        シーンの開始描写。                   # Opening scene description
+        雰囲気作りや状況説明を含む。         # Include atmosphere building and situation explanation
+
+      character_focus:
+        main_character: "主人公の状態・心境"           # Main character's state and mindset - 主人公の状態・心境
+        supporting_characters: "その他キャラクターの状況"  # Other characters' situations - その他キャラクターの状況
+        relationships: "キャラクター間の関係性"         # Character relationships - キャラクター間の関係性
+
+  # ======== Act II: Development and Conflict (60%) - 第二幕：展開と困難（60%）========
+  confrontation:
+    duration: "問題発生～クライマックス手前まで"    # From problem occurrence to before climax - 問題発生～クライマックス手前まで
+    purpose: "困難・対立・成長プロセス"            # Difficulties, conflicts, growth process - 困難・対立・成長プロセス
+
+    scene_002:
+      title: "展開シーン"                          # Development scene - 展開シーン
+      conflict_type: "技術的困難 / 人間関係 / 内面的葛藤 など"  # Technical difficulties / interpersonal / internal conflicts etc - 技術的困難/人間関係/内面的葛藤など
+      stakes: "失敗した場合の結果"                  # Consequences of failure - 失敗した場合の結果
+
+      technical_elements:
+        programming_concepts: "使用するプログラミング概念"  # Programming concepts to use - 使用するプログラミング概念
+        magic_system: "魔法システムの詳細"               # Magic system details - 魔法システムの詳細
+        world_building: "世界観の拡張要素"               # World-building expansion elements - 世界観の拡張要素
+
+      character_development:
+        growth_moments: "キャラクターの成長機会"          # Character growth opportunities - キャラクターの成長機会
+        relationship_changes: "関係性の変化"             # Relationship changes - 関係性の変化
+        internal_conflicts: "内面的な葛藤"               # Internal conflicts - 内面的な葛藤
+
+  # ======== Act III: Resolution and Conclusion (20%) - 第三幕：解決と結末（20%）========
+  resolution:
+    duration: "クライマックス～エピソード終了"       # From climax to episode end - クライマックス～エピソード終了
+    purpose: "問題解決・成長の確認・次話への布石"    # Problem resolution, growth confirmation, setup for next episode - 問題解決・成長の確認・次話への布石
+
+    turning_point:
+      # Basic Information - 基本情報
+      title: "転換点のタイトル"                        # Turning point title - 転換点のタイトル
+      timing: "第二幕終盤〜第三幕開始"                  # Position in story - 第二幕終盤〜第三幕開始
+      duration: "短期集中型 / 段階的変化型"             # Type: short intensive / gradual change - 短期集中型/段階的変化型
+
+      # Nature and Type of Transformation - 転換の性質と種類
+      turning_point_type:
+        category: "internal_transformation / external_situation_change / relationship_shift / technical_breakthrough"  # Category - カテゴリ
+        trigger_event: "転換を引き起こす具体的出来事"    # Specific event that triggers the turning point - 転換を引き起こす具体的出来事
+        catalyst: "変化のきっかけとなる要因（人物・発見・決断等）"  # Catalyst for change (person, discovery, decision, etc.) - 変化のきっかけとなる要因
+
+      # Character Transformation - キャラクター変化
+      character_transformation:
+        protagonist:
+          before_state: "転換前の主人公の状態・心境・能力"        # Protagonist's state/mindset/abilities before transformation - 転換前の主人公の状態・心境・能力
+          transformation_moment: "変化の瞬間の詳細描写"         # Detailed description of the transformation moment - 変化の瞬間の詳細描写
+          after_state: "転換後の新しい状態・心境・能力"          # New state/mindset/abilities after transformation - 転換後の新しい状態・心境・能力
+          internal_dialogue: "転換時の主人公の内面描写"          # Protagonist's internal dialogue during transformation - 転換時の主人公の内面描写
+          external_manifestation: "変化が外部に現れる方法"       # How the change manifests externally - 変化が外部に現れる方法
+
+        supporting_characters:
+          reactions: "他キャラクターの反応・驚き・理解"           # Other characters' reactions, surprise, understanding - 他キャラクターの反応・驚き・理解
+          relationship_shifts: "関係性の変化・再定義"            # Relationship changes and redefinition - 関係性の変化・再定義
+          influence_received: "転換点が他キャラに与える影響"      # Influence of turning point on other characters - 転換点が他キャラに与える影響
+
+      # Technical/Magical Elements (Programming Novel Specialization) - 技術・魔法要素（プログラミング小説特化）
+      technical_breakthrough:
+        programming_concept: "関連するプログラミング概念"          # Related programming concept - 関連するプログラミング概念
+        magic_system_evolution: "魔法システムの発展・理解深化"     # Magic system development and deeper understanding - 魔法システムの発展・理解深化
+        debug_moment: "問題解決・バグ発見の瞬間"                 # Problem-solving and bug discovery moment - 問題解決・バグ発見の瞬間
+        code_metaphor: "プログラミングと転換点の比喩表現"         # Metaphorical expression connecting programming and turning point - プログラミングと転換点の比喩表現
+        educational_value: "読者が学べる技術的洞察"              # Technical insights readers can learn - 読者が学べる技術的洞察
+
+      # Emotional Impact - 感情的インパクト
+      emotional_core:
+        primary_emotion: "転換点で表現する主要感情"              # Primary emotion expressed at turning point - 転換点で表現する主要感情
+        emotional_journey:
+          - phase: "感情変化の段階1"                           # Emotional change phase 1 - 感情変化の段階1
+            emotion: "fear / anxiety / confusion"             # fear/anxiety/confusion - 恐怖/不安/混乱
+            description: "転換前の感情状態"                    # Emotional state before transformation - 転換前の感情状態
+          - phase: "感情変化の段階2"                           # Emotional change phase 2 - 感情変化の段階2
+            emotion: "determination / resolve / understanding" # determination/resolve/understanding - 決意/決心/理解
+            description: "転換中の感情変化"                    # Emotional change during transformation - 転換中の感情変化
+          - phase: "感情変化の段階3"                           # Emotional change phase 3 - 感情変化の段階3
+            emotion: "hope / confidence / growth"             # hope/confidence/growth - 希望/自信/成長
+            description: "転換後の新しい感情状態"              # New emotional state after transformation - 転換後の新しい感情状態
+
+        reader_impact: "読者に与えるべき感情的効果"             # Emotional effect to give readers - 読者に与えるべき感情的効果
+        catharsis_moment: "感情的カタルシスの描写方法"          # Method of depicting emotional catharsis - 感情的カタルシスの描写方法
+
+      # Integration with Story Structure - 物語構造との統合
+      structural_function:
+        setup_payoff: "第一幕で仕込んだ要素の回収"               # Payoff of elements set up in Act I - 第一幕で仕込んだ要素の回収
+        conflict_resolution: "第二幕の対立・困難の解決方法"      # Resolution method for Act II conflicts and difficulties - 第二幕の対立・困難の解決方法
+        theme_expression: "エピソードテーマの集約表現"          # Concentrated expression of episode theme - エピソードテーマの集約表現
+        foreshadowing_planted: "次話以降への伏線設置"           # Foreshadowing setup for future episodes - 次話以降への伏線設置
+
+      # Writing Direction Guidelines - 執筆方向性ガイドライン
+      writing_direction:
+        pacing: "緊張感のあるテンポ / ゆっくりとした内省"         # Tense pacing / slow introspection - 緊張感のあるテンポ/ゆっくりとした内省
+        viewpoint_focus: "誰の視点から転換点を描くか"           # From whose perspective to depict the turning point - 誰の視点から転換点を描くか
+        sensory_details: "五感を使った臨場感の演出"             # Creating realism using the five senses - 五感を使った臨場感の演出
+        dialogue_importance: "重要な台詞・決定的な言葉"         # Important dialogue and decisive words - 重要な台詞・決定的な言葉
+        scene_atmosphere: "シーンの雰囲気・環境描写"           # Scene atmosphere and environmental description - シーンの雰囲気・環境描写
+
+        technical_writing_notes:
+          - "プログラミング概念の自然な組み込み方"              # Natural integration of programming concepts - プログラミング概念の自然な組み込み方
+          - "専門用語の読者理解への配慮"                      # Consideration for reader understanding of technical terms - 専門用語の読者理解への配慮
+          - "技術的正確性と物語性のバランス"                   # Balance between technical accuracy and storytelling - 技術的正確性と物語性のバランス
+
+      # Quality Validation Points - 品質検証ポイント
+      quality_validation:
+        logical_consistency: "転換の論理的妥当性チェック"         # Check logical validity of transformation - 転換の論理的妥当性チェック
+        character_believability: "キャラクターの行動・変化の自然さ" # Naturalness of character actions and changes - キャラクターの行動・変化の自然さ
+        emotional_authenticity: "感情表現の真実性・説得力"        # Authenticity and persuasiveness of emotional expression - 感情表現の真実性・説得力
+        technical_accuracy: "プログラミング要素の正確性"          # Accuracy of programming elements - プログラミング要素の正確性
+        reader_engagement: "読者の感情移入・興味維持"             # Reader emotional involvement and interest maintenance - 読者の感情移入・興味維持
+
+    climax_scene:
+      title: "クライマックス"                                   # Climax - クライマックス
+      resolution_method: "問題解決の方法"                       # Method of problem resolution - 問題解決の方法
+      character_achievements: "キャラクターの達成・成長"         # Character achievements and growth - キャラクターの達成・成長
+      emotional_payoff: "感情的なカタルシス"                    # Emotional catharsis - 感情的なカタルシス
+
+    ending_scene:
+      title: "結末・次話への布石"                               # Ending and setup for next episode - 結末・次話への布石
+      loose_ends: "残された謎・課題"                            # Remaining mysteries and challenges - 残された謎・課題
+      foreshadowing: "将来への伏線"                             # Foreshadowing for the future - 将来への伏線
+      character_state: "エピソード終了時のキャラクター状態"      # Character state at episode end - エピソード終了時のキャラクター状態
+
+# Character Details - キャラクター詳細
+characters:
+  main_character:
+    name: "主人公名"                                            # Protagonist name - 主人公名
+    starting_state: "エピソード開始時の状態"                    # State at episode start - エピソード開始時の状態
+    arc: "このエピソードでの変化・成長"                         # Change and growth in this episode - このエピソードでの変化・成長
+    ending_state: "エピソード終了時の状態"                      # State at episode end - エピソード終了時の状態
+    key_moments:
+      - "重要な行動・決断のシーン"                              # Important action/decision scenes - 重要な行動・決断のシーン
+      - "成長を示すシーン"                                      # Scenes showing growth - 成長を示すシーン
+    dialogue_highlights:
+      - "印象的なセリフ1"                                       # Memorable dialogue 1 - 印象的なセリフ1
+      - "印象的なセリフ2"                                       # Memorable dialogue 2 - 印象的なセリフ2
+
+  supporting_character:
+    name: "サポートキャラクター名"                              # Supporting character name - サポートキャラクター名
+    role: "このエピソードでの役割"                              # Role in this episode - このエピソードでの役割
+    interactions: "主人公との関わり方"                          # Interactions with protagonist - 主人公との関わり方
+    development: "キャラクターの変化・貢献"                     # Character change and contribution - キャラクターの変化・貢献
+
+# Technical Elements - 技術的要素
+technical_elements:
+  programming_concepts:
+    - concept: "使用するプログラミング概念1"              # Programming concept to use 1 - 使用するプログラミング概念1
+      explanation: "どのように物語に組み込むか"          # How to integrate into the story - どのように物語に組み込むか
+      educational_value: "読者が学べる内容"             # Content readers can learn - 読者が学べる内容
+
+  magic_system:
+    spell_types: "使用される魔法の種類"                  # Types of magic used - 使用される魔法の種類
+    mechanics: "魔法の仕組み・制限"                      # Magic system mechanics and limitations - 魔法の仕組み・制限
+    innovations: "新しい技術・アプローチ"                # New techniques and approaches - 新しい技術・アプローチ
+
+  world_building:
+    locations: "新しく登場する場所"                      # New locations appearing - 新しく登場する場所
+    society_aspects: "社会システムの描写"                # Society system description - 社会システムの描写
+    cultural_elements: "文化的背景・慣習"                # Cultural background and customs - 文化的背景・慣習
+
+# Emotional Elements - 感情的要素
+emotional_elements:
+  primary_emotion: "読者に与える主要な感情"                   # Primary emotion to give readers - 読者に与える主要な感情
+  emotional_journey:
+    - stage: "感情の変遷1"                                   # Emotional transition 1 - 感情の変遷1
+      description: "どのような感情をどう描くか"              # What emotion and how to depict it - どのような感情をどう描くか
+    - stage: "感情の変遷2"                                   # Emotional transition 2 - 感情の変遷2
+      description: "感情の発展・変化"                        # Emotional development and change - 感情の発展・変化
+
+  relationship_dynamics:
+    - relationship: "キャラクター間の関係"                    # Character relationships - キャラクター間の関係
+      development: "関係性の変化・深化"                      # Relationship change and deepening - 関係性の変化・深化
+      key_scenes: "関係性が分かるシーン"                     # Scenes that show the relationship - 関係性が分かるシーン
+
+# Advanced Plot Elements - 拡張プロット要素
+
+# === A28 Enhancement 1: Foreshadowing Tracking System - 伏線追跡システム ===
+foreshadowing_tracker:
+  project_wide_tracking: true                              # プロジェクト全体での伏線管理
+  auto_consistency_check: true                             # 自動整合性チェック
+
+  foreshadowing_elements:
+    - foreshadow_id: "FS001"                              # 伏線一意識別子（FSxxx形式）
+      element: "主人公の過去の傷跡についての言及"            # 伏線要素の説明
+      category: "character_background"                     # カテゴリ：character_background/world_building/plot_device/mystery
+      status: "planted"                                   # 状態：planted/referenced/resolved
+      planted_episode: 1                                   # 設置エピソード番号
+      resolution_episode: 5                                # 予定回収エピソード番号
+      importance_level: 3                                  # 重要度レベル（1-5）
+      dependency: ["FS002", "FS003"]                      # 依存関係（他の伏線ID）
+      placement_scene: "scene_001"                         # 設置予定シーン
+      visual_hints: "表情の変化、無意識の動作"               # 視覚的ヒント
+      dialogue_hints: "遠回しな発言、意味深な沈黙"          # 台詞でのヒント
+      internal_monologue: "過去への言及、感情の揺れ"        # 内面描写でのヒント
+      reader_clue_level: "subtle"                         # 読者への提示レベル：obvious/moderate/subtle/hidden
+
+    - foreshadow_id: "FS002"
+      element: "古い魔法書に記された禁術の予兆"
+      category: "world_building"
+      status: "planned"
+      planted_episode: 1
+      resolution_episode: 8
+      importance_level: 4
+      dependency: []
+      placement_scene: "scene_002"
+      visual_hints: "本の装丁、ページの焼け跡"
+      dialogue_hints: "図書館員の警告"
+      internal_monologue: "不吉な予感、興味と恐れ"
+      reader_clue_level: "moderate"
+
+  tracking_validation:
+    unresolved_count_alert: 5                              # 未回収伏線数の警告閾値
+    dependency_loop_check: true                            # 循環依存チェック
+    timeline_consistency: true                             # 時系列整合性チェック
+    importance_balance_check: true                         # 重要度バランスチェック
+
+# === A28 Enhancement 2: Scene Granularity Management - シーン粒度管理システム ===
+scene_structure:
+  granularity_management: true                            # シーン粒度管理有効化
+  word_count_optimization: true                           # 文字数最適化
+
+  total_target_words: 6000                               # 総目標文字数
+  scene_count_target: 8                                  # 目標シーン数
+
+  scenes:
+    - scene_id: "scene_001"                              # シーン識別子
+      title: "導入・状況設定"                             # シーンタイトル
+      importance_rank: "S"                               # 重要度ランク：S(最重要)/A(重要)/B(標準)/C(補完)
+      estimated_words: 800                                # 推定文字数
+      percentage: 13.3                                    # 全体に占める割合(%)
+      story_function: "hook_and_setup"                   # 物語機能：hook_and_setup/character_development/plot_advancement/climax/resolution
+      emotional_weight: "medium"                          # 感情的重み：high/medium/low
+      technical_complexity: "low"                        # 技術的複雑さ：high/medium/low
+      reader_engagement_level: "high"                    # 読者引き込み度：high/medium/low
+
+    - scene_id: "scene_002"
+      title: "問題発生・困難提示"
+      importance_rank: "A"
+      estimated_words: 900
+      percentage: 15.0
+      story_function: "plot_advancement"
+      emotional_weight: "high"
+      technical_complexity: "medium"
+      reader_engagement_level: "high"
+
+    - scene_id: "scene_003"
+      title: "技術的課題への挑戦"
+      importance_rank: "S"
+      estimated_words: 1200
+      percentage: 20.0
+      story_function: "character_development"
+      emotional_weight: "high"
+      technical_complexity: "high"
+      reader_engagement_level: "high"
+
+  importance_distribution:
+    S_rank_count: 2                                       # S級シーン数
+    A_rank_count: 3                                       # A級シーン数
+    B_rank_count: 2                                       # B級シーン数
+    C_rank_count: 1                                       # C級シーン数
+
+  balance_validation:
+    S_rank_percentage_target: "35-45%"                   # S級シーン文字数割合目標
+    A_rank_percentage_target: "30-40%"                   # A級シーン文字数割合目標
+    B_rank_percentage_target: "15-25%"                   # B級シーン文字数割合目標
+    C_rank_percentage_target: "5-15%"                    # C級シーン文字数割合目標
+    high_engagement_ratio_min: 0.6                       # 高引き込み度シーン最小割合
+
+# === A28 Enhancement 3: Emotion × Technology Fusion - 感情×技術融合システム ===
+emotion_tech_fusion:
+  fusion_optimization: true                               # 融合最適化有効化
+  programming_novel_specialization: true                  # プログラミング小説特化
+
+  peak_moments:
+    - timing: "第二幕クライマックス"                        # タイミング
+      scene_reference: "scene_003"                        # 対応シーン
+      emotion_type: "絶望から希望へ"                       # 感情変化タイプ
+      emotion_intensity: "high"                           # 感情強度：high/medium/low
+      tech_concept: "再帰アルゴリズムの理解"                # 技術概念
+      tech_complexity: "intermediate"                     # 技術複雑度：beginner/intermediate/advanced
+      synergy_effect: "技術的突破が感情的カタルシスと重なる" # シナジー効果
+      synergy_intensity: "maximum"                        # シナジー強度：maximum/high/medium
+
+      detailed_mapping:
+        emotional_arc:
+          start: "技術的困難への絶望感"                     # 開始感情
+          climax: "理解の瞬間の歓喜"                        # クライマックス感情
+          resolution: "自信と達成感"                        # 解決時感情
+        technical_arc:
+          problem: "無限ループの概念理解"                   # 技術的問題
+          insight: "再帰の美しさへの気づき"                 # 技術的洞察
+          mastery: "実装成功と応用展開"                     # 技術的習得
+        fusion_points:
+          - moment: "デバッグ作業中の気づき"
+            emotion: "集中から興奮へ"
+            technology: "バックトレース理解"
+            reader_impact: "学習への動機向上"
+
+  educational_integration:
+    beginner_friendly: true                               # 初心者配慮
+    concept_explanation_method: "物語内自然解説"          # 概念説明手法
+    practical_application: "実際のコード例示"             # 実践的応用
+    learning_curve_consideration: "段階的理解促進"        # 学習曲線配慮
+
+# Plot Elements - 伏線・テーマ要素（従来形式も保持）
+plot_elements:
+  foreshadowing:
+    - element: "将来への伏線1"                            # Foreshadowing for the future 1 - 将来への伏線1
+      placement: "どのシーンで提示するか"                # In which scene to present it - どのシーンで提示するか
+      significance: "物語全体での意味"                   # Meaning in the overall story - 物語全体での意味
+
+  themes:
+    - theme: "扱うテーマ1"                               # Theme to handle 1 - 扱うテーマ1
+      expression: "どのように表現するか"                 # How to express it - どのように表現するか
+      character_connection: "キャラクターとの関連"        # Connection with characters - キャラクターとの関連
+
+  mysteries:
+    - mystery: "提示される謎"                            # Mystery presented - 提示される謎
+      clues: "与えられる手がかり"                        # Clues provided - 与えられる手がかり
+      development: "謎の発展・深化"                      # Mystery development and deepening - 謎の発展・深化
+
+# Writing Notes - 執筆メモ
+writing_notes:
+  viewpoint: "視点人物・語り方"                          # Viewpoint character and narrative style - 視点人物・語り方
+  tone: "エピソード全体のトーン・雰囲気"                  # Overall tone and atmosphere of the episode - エピソード全体のトーン・雰囲気
+  pacing: "テンポ・リズムの注意点"                        # Pacing and rhythm considerations - テンポ・リズムの注意点
+
+  technical_accuracy:
+    - "プログラミング概念の正確性チェック"                # Check accuracy of programming concepts - プログラミング概念の正確性チェック
+    - "魔法システムの一貫性確認"                          # Confirm magic system consistency - 魔法システムの一貫性確認
+
+  character_consistency:
+    - "キャラクターの言動の一貫性"                        # Consistency of character words and actions - キャラクターの言動の一貫性
+    - "前話からの成長の自然さ"                            # Naturalness of growth from previous episode - 前話からの成長の自然さ
+
+  reader_engagement:
+    - "読者の興味を引く要素"                              # Elements that draw reader interest - 読者の興味を引く要素
+    - "感情移入しやすい描写"                              # Descriptions that facilitate emotional involvement - 感情移入しやすい描写
+
+# Quality Check Points - 品質チェック項目
+quality_checkpoints:
+  story_structure:
+    - "三幕構成の適切なバランス"                          # Appropriate balance of three-act structure - 三幕構成の適切なバランス
+    - "各シーンの目的明確化"                              # Clear purpose for each scene - 各シーンの目的明確化
+    - "シーン間の自然な流れ"                              # Natural flow between scenes - シーン間の自然な流れ
+
+  character_development:
+    # New format (machine processing compatible) - 新形式（機械処理対応）
+    main_characters:
+      hero:
+        growth_indicators:
+          - "主人公の成長が感じられる"                    # Hero's growth can be felt - 主人公の成長が感じられる
+          - "内面描写の深度適切"                          # Appropriate depth of inner description - 内面描写の深度適切
+        relationship_changes:
+          - "ヒロインとの関係性発展"                      # Relationship development with heroine - ヒロインとの関係性発展
+          - "仲間との信頼関係構築"                        # Building trust with companions - 仲間との信頼関係構築
+      heroine:
+        growth_indicators:
+          - "ヒロインの成長が感じられる"                  # Heroine's growth can be felt - ヒロインの成長が感じられる
+          - "自立性・積極性の向上"                        # Improvement in independence and proactiveness - 自立性・積極性の向上
+        relationship_changes:
+          - "主人公との相互理解深化"                      # Deepening mutual understanding with protagonist - 主人公との相互理解深化
+          - "自信獲得と表現力向上"                        # Gaining confidence and improved expression - 自信獲得と表現力向上
+
+  technical_integration:
+    - "プログラミング要素の自然な組み込み"                # Natural integration of programming elements - プログラミング要素の自然な組み込み
+    - "教育的価値の提供"                                  # Providing educational value - 教育的価値の提供
+    - "専門用語の適切な説明"                              # Appropriate explanation of technical terms - 専門用語の適切な説明
+
+# Reader Considerations - 想定読者層への配慮
+reader_considerations:
+  accessibility:
+    - "プログラミング初心者への配慮"                        # Consideration for programming beginners - プログラミング初心者への配慮
+    - "専門用語の適切な解説"                                # Appropriate explanation of technical terms - 専門用語の適切な解説
+    - "技術以外の魅力要素"                                  # Appeal elements beyond technology - 技術以外の魅力要素
+
+  engagement:
+    - "キャラクターへの共感しやすさ"                        # Easy empathy with characters - キャラクターへの共感しやすさ
+    - "ストーリーの分かりやすさ"                            # Story clarity - ストーリーの分かりやすさ
+    - "次話への期待感醸成"                                  # Building anticipation for next episode - 次話への期待感醸成
+
+# === A28 Enhancement 4: Stage Interconnection - ステージ間連携強化 ===
+stage_interconnection:
+  validation_enabled: true                                # 連携検証有効化
+  auto_consistency_check: true                           # 自動整合性チェック
+
+  stage_dependencies:
+    stage_1_to_2:
+      required_outputs: ["基本設定確定", "キャラクター配置", "初期状況"]
+      validation_points: ["設定整合性", "キャラ一貫性", "雰囲気統一"]
+      handoff_checklist:
+        - "世界観設定の完全性確認"
+        - "視点キャラクターの確定"
+        - "基本トーンの設定"
+
+    stage_2_to_3:
+      required_outputs: ["感情導線設計", "技術要素配置", "緊張感構築"]
+      validation_points: ["感情自然性", "技術正確性", "読者引き込み"]
+      handoff_checklist:
+        - "感情×技術融合ポイント確認"
+        - "シーン重要度配分検証"
+        - "伏線設置状況確認"
+
+  cross_stage_validation:
+    consistency_items:
+      - "キャラクター性格一貫性"
+      - "世界観ルール統一性"
+      - "技術概念正確性"
+      - "感情変遷自然性"
+    quality_gates:
+      - gate: "Stage 2完了時"
+        criteria: ["感情導線80%以上", "技術要素適切配置", "読者理解度確保"]
+      - gate: "Stage 3完了時"
+        criteria: ["シーン構成最適化", "重要度配分適正", "文字数バランス良好"]
+
+# === A28 Enhancement 5: Word Count Allocation Guidelines - 文字数配分ガイドライン ===
+word_allocation_guide:
+  three_act_structure: true                              # 三幕構成準拠
+  dynamic_adjustment: true                               # 動的調整機能
+
+  act_distribution:
+    act_1_setup:
+      percentage_range: "20-30%"                         # 第一幕割合範囲
+      target_percentage: 25                              # 目標割合
+      estimated_words: 1500                              # 推定文字数
+      function: "状況設定・キャラクター提示・問題導入"        # 機能
+      key_scenes: ["scene_001", "scene_002"]
+
+    act_2_confrontation:
+      percentage_range: "45-55%"                         # 第二幕割合範囲
+      target_percentage: 50                              # 目標割合
+      estimated_words: 3000                              # 推定文字数
+      function: "困難・対立・成長プロセス・技術的挑戦"       # 機能
+      key_scenes: ["scene_003", "scene_004", "scene_005", "scene_006"]
+
+    act_3_resolution:
+      percentage_range: "20-30%"                         # 第三幕割合範囲
+      target_percentage: 25                              # 目標割合
+      estimated_words: 1500                              # 推定文字数
+      function: "問題解決・成長確認・次話布石"               # 機能
+      key_scenes: ["scene_007", "scene_008"]
+
+  quality_thresholds:
+    minimum_act_1: 1000                                  # 第一幕最小文字数
+    minimum_act_2: 2500                                  # 第二幕最小文字数
+    minimum_act_3: 1000                                  # 第三幕最小文字数
+    balance_tolerance: 0.1                               # バランス許容誤差
+
+  adaptive_allocation:
+    scene_importance_weighting: true                     # シーン重要度による重み付け
+    emotional_peak_expansion: true                       # 感情ピーク部分の拡張
+    technical_explanation_buffer: true                   # 技術説明用バッファ
+
+# === A28 Enhancement 6: Reader Reaction Prediction - 読者反応予測システム ===
+reader_reaction_predictions:
+  prediction_enabled: true                               # 予測機能有効化
+  risk_assessment: true                                  # リスク評価
+
+  target_reactions:
+    - reaction_type: "興味・関心"                         # 反応タイプ
+      target_scenes: ["scene_001", "scene_003"]
+      probability: "high"                                # 発生確率：high/medium/low
+      triggers: ["謎の提示", "技術的課題", "キャラの魅力"]
+      desired_intensity: "medium"                        # 望ましい強度
+
+    - reaction_type: "感情移入・共感"
+      target_scenes: ["scene_003", "scene_005"]
+      probability: "high"
+      triggers: ["挫折体験", "成長実感", "関係性深化"]
+      desired_intensity: "high"
+
+    - reaction_type: "学習意欲・好奇心"
+      target_scenes: ["scene_003", "scene_004"]
+      probability: "medium"
+      triggers: ["技術解説", "実践応用", "発見体験"]
+      desired_intensity: "high"
+
+  risk_factors:
+    - risk_type: "理解困難"                             # リスクタイプ
+      probability: "medium"                              # 発生確率
+      impact_level: "high"                              # 影響レベル
+      mitigation_strategies: ["段階的説明", "比喩活用", "具体例提示"]
+      monitoring_points: ["技術説明部分", "専門用語使用箇所"]
+
+    - risk_type: "興味離脱"
+      probability: "low"
+      impact_level: "high"
+      mitigation_strategies: ["テンポ調整", "サスペンス要素", "キャラ魅力強化"]
+      monitoring_points: ["説明過多箇所", "展開停滞部分"]
+
+  improvement_suggestions:
+    - suggestion: "技術説明にキャラクターの感情を絡める"
+      target_issue: "理解困難・興味離脱"
+      implementation_method: "内面描写での技術理解過程描写"
+      expected_effect: "親近感向上・理解促進"
+
+    - suggestion: "実際のコード例を物語に自然統合"
+      target_issue: "学習効果薄弱"
+      implementation_method: "キャラクターの実装作業シーン"
+      expected_effect: "実践的学習効果向上"
+
+# === A28 Enhancement 7: Viewpoint Consistency Check - 視点一貫性チェック ===
+viewpoint_consistency_check:
+  consistency_validation: true                           # 一貫性検証有効化
+  automatic_detection: true                              # 自動検出機能
+
+  viewpoint_settings:
+    primary_viewpoint: "三人称限定視点"                   # 主要視点
+    viewpoint_character: "主人公"                        # 視点キャラクター
+    consistency_level: "strict"                          # 一貫性レベル：strict/moderate/flexible
+
+  validation_checkpoints:
+    scene_level_checks:
+      - checkpoint: "情報アクセス制限"
+        description: "視点キャラクター以外の内面・感覚へのアクセス禁止"
+        validation_method: "自動スキャン"
+
+      - checkpoint: "知識制限"
+        description: "視点キャラクターが知り得ない情報の記述禁止"
+        validation_method: "コンテキスト分析"
+
+      - checkpoint: "感情・思考一貫性"
+        description: "視点キャラクターの感情・思考パターン一貫性"
+        validation_method: "キャラクター分析"
+
+  common_violation_patterns:
+    - violation_type: "他キャラクター内面描写"
+      detection_keywords: ["〇〇は思った", "〇〇の心は", "〇〇は感じていた"]
+      correction_method: "外部観察描写への変換"
+
+    - violation_type: "全知視点情報"
+      detection_keywords: ["実際は", "真実は", "誰も知らないが"]
+      correction_method: "推測・観察ベース記述への変換"
+
+  consistency_score_calculation:
+    scoring_factors:
+      - factor: "視点ブレ回数"
+        weight: 0.4
+      - factor: "情報制限遵守"
+        weight: 0.3
+      - factor: "感情一貫性"
+        weight: 0.3
+    target_score: 0.9                                    # 目標スコア（0.0-1.0）
+
+  improvement_suggestions_template:
+    - suggestion_type: "描写方法変更"
+      template: "『{character}は思った』→『{character}の表情が曇った』"
+    - suggestion_type: "情報提示方法変更"
+      template: "『実際は{fact}』→『{viewpoint_char}には{interpretation}と見えた』"
+
+# Next Episode Connection - 次話への連携（従来形式も保持）
+next_episode_connection:
+  unresolved_elements: "次話に持ち越す要素"                 # Elements carried over to next episode - 次話に持ち越す要素
+  character_growth_trajectory: "キャラクター成長の方向性"   # Character growth trajectory - キャラクター成長の方向性
+  plot_advancement: "物語進行の次のステップ"               # Next step in plot advancement - 物語進行の次のステップ
+  reader_expectations: "読者に与える期待・疑問"            # Expectations and questions to give readers - 読者に与える期待・疑問
+
+  # 拡張連携情報
+  enhanced_connections:
+    foreshadowing_continuity: "次話での伏線継続・発展計画"   # Foreshadowing continuity plan
+    scene_structure_evolution: "シーン構成発展方向"         # Scene structure evolution direction
+    emotion_tech_advancement: "感情×技術融合の次段階"       # Next stage of emotion-tech fusion
+    quality_improvement_targets: "次話での品質向上目標"      # Quality improvement targets for next episode
+
+# Production Information - 制作情報
+production_info:
+  creation_date: "2025-08-04"                # Creation date - 作成日
+  last_updated: "2025-01-06"                 # Last updated - 最終更新日
+  status: "拡張テンプレート v2.0.0"          # Production status - 制作状況
+  word_count_target: 6000                    # Target word count - 目標文字数
+  estimated_reading_time: "20分"             # Estimated reading time - 推定読了時間
+  enhancement_implementation: "完了"          # Enhancement implementation status - 拡張機能実装状況
+  spec_compliance: "SPEC-A28-001 v1.0.0"    # Specification compliance - 仕様準拠
+
+  enhancement_summary:
+    foreshadowing_tracking: "実装済み"         # Foreshadowing tracking implementation
+    scene_granularity: "実装済み"              # Scene granularity implementation
+    emotion_tech_fusion: "実装済み"            # Emotion-tech fusion implementation
+    stage_interconnection: "実装済み"          # Stage interconnection implementation
+    word_allocation: "実装済み"                # Word allocation implementation
+    reader_prediction: "実装済み"              # Reader prediction implementation
+    viewpoint_consistency: "実装済み"          # Viewpoint consistency implementation
+
+# Usage Notes - 使用方法・注意事項（v2.0.0拡張版）
+usage_notes: |
+  === 基本使用手順（従来と同じ） ===
+  1. 基本情報を先に埋める                        # Fill in basic information first - 基本情報を先に埋める
+  2. 物語構造を三幕構成で整理                    # Organize story structure with three-act structure - 物語構造を三幕構成で整理
+  3. キャラクター中心の展開を心がける            # Focus on character-centered development - キャラクター中心の展開を心がける
+  4. 技術要素は物語に自然に組み込む              # Naturally integrate technical elements into the story - 技術要素は物語に自然に組み込む
+  5. 読者の感情に訴える要素を重視                # Emphasize elements that appeal to readers' emotions - 読者の感情に訴える要素を重視
+
+  === 拡張機能活用手順（A28 v3.0.0対応） ===
+  6. 伏線追跡システムで一貫性確保                # Ensure consistency with foreshadowing tracking system
+  7. シーン粒度管理で文字数配分最適化            # Optimize word allocation with scene granularity management
+  8. 感情×技術融合ポイントで読者体験向上        # Improve reader experience with emotion-tech fusion points
+  9. ステージ間連携で品質保証                    # Ensure quality with stage interconnection
+  10. 読者反応予測でリスク軽減                   # Mitigate risks with reader reaction prediction
+  11. 視点一貫性チェックで品質向上               # Improve quality with viewpoint consistency check
+
+  === 注意点（拡張版） ===
+
+  【従来の注意点】
+  - プログラミング知識がない読者も楽しめるように  # Make it enjoyable for readers without programming knowledge
+  - キャラクター間の関係性を丁寧に描写          # Carefully depict relationships between characters
+  - 次話への興味を持続させる終わり方            # End in a way that maintains interest in the next episode
+  - 世界観の一貫性を保持                        # Maintain consistency of world view
+
+  【拡張機能特有の注意点】
+  - 伏線IDは必ず一意性を保つ（FSxxx形式厳守）    # Maintain uniqueness of foreshadowing IDs (strict FSxxx format)
+  - シーン重要度ランクは全体バランスを考慮        # Consider overall balance for scene importance ranks
+  - 感情×技術融合は無理に詰め込まず自然に統合    # Naturally integrate emotion-tech fusion without forcing
+  - 視点一貫性チェックは執筆中も意識             # Be conscious of viewpoint consistency during writing
+  - 品質チェック項目は段階的に確認              # Check quality items step by step
+
+  【推奨ワークフロー】
+  Phase 1: 基本情報 + 伏線計画
+  Phase 2: シーン構造設計 + 重要度配分
+  Phase 3: 感情導線 + 技術要素配置
+  Phase 4: ステージ間連携チェック
+  Phase 5: 読者反応予測 + リスク対策
+  Phase 6: 視点一貫性最終チェック

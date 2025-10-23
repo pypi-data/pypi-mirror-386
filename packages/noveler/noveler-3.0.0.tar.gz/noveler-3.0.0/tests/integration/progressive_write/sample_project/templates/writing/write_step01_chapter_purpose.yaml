@@ -1,0 +1,7 @@
+prompt:
+  main_instruction: |
+    STEP {step_id}: {step_name}
+    Episode {episode_number} progress {completed_steps}/{total_steps}
+  next_action_instruction: "Proceed with the scheduled writing step."
+control_settings:
+  strict_single_step: true

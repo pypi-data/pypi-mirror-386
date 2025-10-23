@@ -1,0 +1,1 @@
+﻿# Moved: SPEC-ENTITY-009_word_count.md`n`nThis specification has moved to:`n`n- [domains/entity/SPEC-ENTITY-009_word_count.md](./domains/entity/SPEC-ENTITY-009_word_count.md)`n`nNote: This is a redirect stub to preserve existing links.`n

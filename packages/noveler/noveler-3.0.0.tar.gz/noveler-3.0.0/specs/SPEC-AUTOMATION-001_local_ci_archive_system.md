@@ -1,0 +1,1 @@
+﻿# Moved: SPEC-AUTOMATION-001_local_ci_archive_system.md`n`nThis specification has moved to:`n`n- [domains/automation/SPEC-AUTOMATION-001_local_ci_archive_system.md](./domains/automation/SPEC-AUTOMATION-001_local_ci_archive_system.md)`n`nNote: This is a redirect stub to preserve existing links.`n

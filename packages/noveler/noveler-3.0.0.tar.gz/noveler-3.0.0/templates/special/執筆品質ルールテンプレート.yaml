@@ -1,0 +1,213 @@
+# 執筆品質ルールテンプレート
+# A30準拠10段階執筆用品質基準設定
+# 30_設定集/執筆品質ルール.yaml として使用
+
+metadata:
+  template_name: "執筆品質ルールテンプレート"
+  version: "1.0"
+  purpose: "A30準拠執筆時の定量的品質基準管理"
+  created_from: "/noveler writeコマンド品質改善提案"
+  reference_files:
+    - "./キャラクター口調辞書.yaml"
+    - "./キャラクター.yaml"
+  integration_targets:
+    - "FiveStagePromptTemplateFactory"
+    - "A30_執筆プロンプト"
+  last_updated: "2025-08-29"
+
+# ==================================================
+# ジャンル横断品質ルール
+# ==================================================
+genre_crossing_rules:
+  # 感情表現の三層構造ルール
+  emotional_expression:
+    name: "感情三層表現"
+    description: "身体反応+比喩+内面独白をセットで表現"
+    minimum_count_per_episode: 3
+    components:
+      - "身体反応描写（汗、震え、心拍等）"
+      - "比喩表現（自然現象、動物等との比較）"
+      - "内面独白（キャラクターの心理状態）"
+    examples:
+      set1:
+        body: "手が震えた"
+        metaphor: "まるで嵐の前の小鳥のように"
+        inner: "（こんなに緊張するなんて）"
+      set2:
+        body: "胸が高鳴った"
+        metaphor: "太鼓を叩くような勢いで"
+        inner: "（この気持ちは何だ？）"
+
+  # 会話とモノローグの比率管理
+  dialogue_ratio:
+    name: "会話・独白比率"
+    description: "読者の興味維持のための会話バランス"
+    target_ratios:
+      dialogue: 60  # 会話・対話
+      monologue: 40  # 独白・地の文
+    monitoring_method: "文字数ベースでの計測"
+    adjustment_notes: "ジャンルにより±10%の調整可"
+
+  # 説明と演出のバランス
+  explanation_balance:
+    name: "説明制限ルール"
+    description: "情報過多防止のための説明文制限"
+    rules:
+      max_consecutive_sentences: 2
+      required_follow_up: "キャラクターの反応または会話"
+      exceptions:
+        - "世界観の重要な初出設定"
+        - "技術システムの基礎説明"
+    enforcement: "必須"
+
+# ==================================================
+# キャラクター中心化ルール
+# ==================================================
+character_focused_rules:
+  # サブキャラクター強制登場
+  sub_character_appearance:
+    name: "サブキャラ能動登場"
+    description: "主要サブキャラの積極的関与確保"
+    minimum_scenes_per_episode: 2
+    interaction_type: "能動的関与"  # 単なる観客ではなく
+    tracking_method: "シーン別登場回数カウント"
+
+  # 関係性を示す雑談
+  relationship_dialogue:
+    name: "関係性雑談"
+    description: "キャラクター間の関係性強化会話"
+    minimum_count_per_episode: 3
+    purpose: "無目的ではなく関係性構築目的"
+    examples:
+      - "共通の思い出への言及"
+      - "相手の変化への気づき"
+      - "今後の約束や計画"
+
+# ==================================================
+# 定量的品質チェック項目
+# ==================================================
+quantitative_checks:
+  # 必須要素カウント
+  mandatory_elements:
+    emotion_three_layer:
+      target: 3
+      unit: "回/話"
+      check_method: "自動パターンマッチング"
+
+    active_sub_character_scenes:
+      target: 2
+      unit: "シーン/話"
+      check_method: "キャラクター登場回数分析"
+
+    relationship_conversations:
+      target: 3
+      unit: "回/話"
+      check_method: "会話内容分析"
+
+    explanation_length:
+      target: 300
+      unit: "文字以内/連続説明"
+      check_method: "文字数カウント"
+
+  # 比率チェック
+  ratio_checks:
+    dialogue_ratio:
+      target: "60%±10%"
+      measurement: "全体文字数に対する割合"
+
+    action_to_explanation:
+      target: "70:30"
+      measurement: "行動描写：説明文"
+
+# ==================================================
+# 読者体験最適化ルール
+# ==================================================
+reader_experience_rules:
+  # スマホ読書最適化
+  mobile_reading:
+    name: "モバイル読書最適化"
+    rules:
+      max_paragraph_length: 200  # 文字
+      max_continuous_dialogue: 150  # 文字
+      line_break_frequency: "感情変化時必須"
+
+  # 話別読後感設定
+  episode_impression:
+    name: "読後感規定"
+    required_emotions:
+      - target: "笑い・ユーモア"
+        minimum_scenes: 1
+      - target: "驚き・発見"
+        minimum_scenes: 1
+      - target: "感動・共感"
+        minimum_scenes: 1
+
+  # キャラクター好感度積み上げ
+  character_affection:
+    name: "好感度積み上げ"
+    description: "主要キャラの好感度を段階的に向上"
+    tracking_method: "正のキャラクター描写回数"
+    target_per_episode: 2  # 好感度向上要素
+
+# ==================================================
+# 品質スコア算出
+# ==================================================
+quality_scoring:
+  scoring_method:
+    emotion_expression: 25  # 25点満点
+    dialogue_balance: 20    # 20点満点
+    character_focus: 25     # 25点満点
+    reader_experience: 20   # 20点満点
+    technical_quality: 10   # 10点満点
+    total: 100             # 100点満点
+
+  grade_thresholds:
+    S: 95  # 優秀
+    A: 85  # 良好
+    B: 75  # 標準
+    C: 65  # 要改善
+    D: 50  # 大幅改善必要
+
+# ==================================================
+# A30プロンプト連携設定
+# ==================================================
+prompt_integration:
+  stage1_data_collection:
+    inject_variables:
+      - "character_voice_patterns"
+      - "quality_rules_summary"
+
+  stage4_manuscript_writing:
+    inject_variables:
+      - "emotion_expression_rules"
+      - "dialogue_ratio_targets"
+      - "character_interaction_requirements"
+      - "explanation_limits"
+
+  stage5_quality_check:
+    inject_variables:
+      - "quantitative_check_criteria"
+      - "quality_scoring_rubric"
+
+# ==================================================
+# 使用方法とメモ
+# ==================================================
+usage_instructions: |
+  1. 執筆プロジェクト開始時に本設定を30_設定集/にコピー
+  2. プロジェクト固有の調整を実施
+  3. FiveStageWritingUseCaseが自動参照
+  4. Stage 4（原稿執筆）で品質ルール自動適用
+  5. Stage 5（品質チェック）で定量評価実行
+
+customization_notes: |
+  - ジャンル特性に応じて比率調整可能
+  - キャラクター数に応じてサブキャラ登場回数調整
+  - 文字数目標に応じて各要素の回数調整
+  - 読者層に応じて表現レベル調整
+
+validation_method: |
+  本設定ファイルの効果測定：
+  1. 執筆品質スコア90点以上維持
+  2. 読者継続率向上（離脱率低下）
+  3. キャラクター差別化認識率向上
+  4. ジャンル固有期待値充足率向上

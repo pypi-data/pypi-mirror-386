@@ -1,0 +1,320 @@
+# CODEMAPツリー - 小説執筆支援システム (noveler)
+
+## アーキテクチャ概要
+
+```
+noveler/
+├── domain/                      # ドメイン層（ビジネスロジック）
+│   ├── entities/               # エンティティ（IDを持つオブジェクト）
+│   ├── value_objects/          # 値オブジェクト（不変オブジェクト）
+│   ├── services/               # ドメインサービス（純粋関数）
+│   └── utils/                  # ドメインユーティリティ
+│
+├── application/                # アプリケーション層（ユースケース）
+│   ├── use_cases/             # ユースケース実装
+│   │   ├── initialization/    # プロジェクト初期化
+│   │   ├── learning/          # 学習・適応機能
+│   │   └── step_processors/   # ステップ処理（18ステップ）
+│   ├── services/              # アプリケーションサービス
+│   ├── mcp_services/          # MCP統合サービス
+│   ├── adapters/              # アダプター（外部連携）
+│   ├── handlers/              # コマンド/イベントハンドラー
+│   ├── orchestrators/         # オーケストレーター
+│   ├── support/               # サポートサービス
+│   ├── interfaces/            # インターフェース定義
+│   ├── dto/                   # データ転送オブジェクト
+│   └── message_bus.py         # MessageBus (SPEC-901)
+│
+├── infrastructure/            # インフラストラクチャ層（外部システム）
+│   ├── adapters/             # 外部サービスアダプター
+│   ├── repositories/         # データ永続化
+│   ├── external/             # 外部API連携
+│   ├── file_operations/      # ファイル操作
+│   ├── logging/              # ロギング
+│   ├── config/               # 設定管理
+│   └── factories/            # ファクトリー（DI）
+│
+├── presentation/             # プレゼンテーション層（UI/CLI）
+│   ├── cli/                  # CLIインターフェース
+│   ├── commands/             # コマンド定義
+│   └── formatters/           # 出力フォーマッター
+│
+└── tools/                    # MCPツール実装
+    ├── writing/              # 執筆ツール群
+    ├── quality/              # 品質チェックツール群
+    ├── polish/               # 推敲ツール群
+    └── artifacts/            # アーティファクト管理
+```
+
+## 詳細コンポーネント構造
+
+### 1. Domain層 (ビジネスロジック)
+
+```
+domain/
+├── entities/
+│   ├── episode.py                    # エピソードエンティティ
+│   ├── plot.py                       # プロットエンティティ
+│   ├── manuscript.py                 # 原稿エンティティ
+│   ├── quality_record.py             # 品質記録エンティティ
+│   ├── character.py                  # キャラクターエンティティ
+│   └── project.py                    # プロジェクトエンティティ
+│
+├── value_objects/
+│   ├── episode_number.py             # エピソード番号
+│   ├── quality_score.py              # 品質スコア
+│   ├── file_path.py                  # ファイルパス
+│   ├── aspect_score.py               # アスペクト別スコア
+│   └── timestamp.py                  # タイムスタンプ
+│
+├── services/
+│   ├── quality/                      # 品質評価サービス群
+│   │   ├── rhythm_checker.py        # リズムチェック
+│   │   ├── readability_checker.py   # 読みやすさチェック
+│   │   ├── grammar_checker.py       # 文法チェック
+│   │   └── style_checker.py         # スタイルチェック
+│   ├── writing/                      # 執筆サービス群
+│   │   ├── step_executor.py         # ステップ実行
+│   │   ├── prompt_generator.py      # プロンプト生成
+│   │   └── manuscript_validator.py  # 原稿検証
+│   └── polish/                       # 推敲サービス群
+│       ├── stage2_processor.py      # Stage2（内容推敲）
+│       └── stage3_processor.py      # Stage3（読者体験）
+│
+└── utils/
+    ├── domain_console.py             # ドメイン用コンソール
+    ├── text_analyzer.py              # テキスト解析
+    └── validation.py                 # バリデーション
+```
+
+### 2. Application層 (ユースケース)
+
+```
+application/
+├── use_cases/
+│   ├── initialization/
+│   │   └── interactive_project_initializer.py  # プロジェクト初期化
+│   ├── learning/
+│   │   └── adaptive_quality_evaluator.py       # 適応的品質評価
+│   ├── step_processors/
+│   │   ├── base_step_processor.py              # ベースプロセッサ
+│   │   ├── step_processor_factory.py           # プロセッサファクトリー
+│   │   └── theme_uniqueness_step_processor.py  # テーマ独自性処理
+│   ├── b18_eighteen_step_writing_use_case.py   # 18ステップ執筆
+│   ├── check_episode_quality.py                # エピソード品質チェック
+│   ├── create_episode_use_case.py              # エピソード作成
+│   ├── enhanced_writing_use_case.py            # 拡張執筆
+│   ├── integrated_quality_check_use_case.py    # 統合品質チェック
+│   ├── plot_generation_use_case.py             # プロット生成
+│   └── publish_preparation_use_case.py         # 公開準備
+│
+├── services/
+│   ├── a30_compatibility_adapter.py            # A30互換アダプター
+│   ├── differential_update_service.py          # 差分更新
+│   ├── error_handling_service.py               # エラーハンドリング
+│   ├── langsmith_bugfix_workflow_service.py    # LangSmithバグ修正
+│   ├── quality_gate_processor.py               # 品質ゲート処理
+│   ├── scene_checklist_service.py              # シーンチェックリスト
+│   └── yaml_processing_service.py              # YAML処理
+│
+├── mcp_services/
+│   ├── base.py                                 # MCPベースサービス
+│   ├── writing.py                              # 執筆MCPサービス
+│   ├── quality.py                              # 品質MCPサービス
+│   ├── plot.py                                 # プロットMCPサービス
+│   └── provider.py                             # サービスプロバイダー
+│
+├── adapters/
+│   ├── bus_compatibility_bridge.py             # Busブリッジ
+│   ├── quality_check_adapter.py                # 品質チェックアダプター
+│   └── usecase_bus_adapter.py                  # UseCaseBusアダプター
+│
+├── handlers/
+│   ├── plot_command_handlers.py                # プロットコマンドハンドラー
+│   └── plot_event_handlers.py                  # プロットイベントハンドラー
+│
+├── orchestrators/
+│   ├── error_handling_orchestrator.py          # エラーハンドリング
+│   └── plot_generation_orchestrator.py         # プロット生成
+│
+├── support/
+│   ├── default_console_service.py              # デフォルトコンソール
+│   ├── default_logger_service.py               # デフォルトロガー
+│   └── default_path_service.py                 # デフォルトパス
+│
+├── interfaces/
+│   ├── quality_service_interface.py            # 品質サービスIF
+│   └── session_manager_interface.py            # セッションマネージャーIF
+│
+├── dto/
+│   └── scene_management_dto.py                 # シーン管理DTO
+│
+├── message_bus.py                              # MessageBus実装
+└── simple_message_bus.py                       # シンプルMessageBus
+```
+
+### 3. Infrastructure層 (外部システム)
+
+```
+infrastructure/
+├── adapters/
+│   ├── ai/
+│   │   └── claude_adapter.py                   # Claude API連携
+│   ├── narou/
+│   │   └── narou_api_adapter.py                # なろうAPI連携
+│   └── file/
+│       └── file_system_adapter.py              # ファイルシステム
+│
+├── repositories/
+│   ├── episode_repository.py                   # エピソードリポジトリ
+│   ├── plot_repository.py                      # プロットリポジトリ
+│   ├── quality_repository.py                   # 品質記録リポジトリ
+│   └── project_repository.py                   # プロジェクトリポジトリ
+│
+├── external/
+│   ├── api_client.py                           # APIクライアント
+│   └── web_scraper.py                          # Webスクレイピング
+│
+├── file_operations/
+│   ├── path_service.py                         # パスサービス (IPathService)
+│   ├── file_reader.py                          # ファイル読み込み
+│   └── file_writer.py                          # ファイル書き込み
+│
+├── logging/
+│   ├── logger_service.py                       # ロガーサービス (ILoggerService)
+│   └── log_formatter.py                        # ログフォーマッター
+│
+├── config/
+│   ├── configuration_manager.py                # 設定マネージャー
+│   ├── yaml_config_loader.py                   # YAML設定ローダー
+│   └── environment_config.py                   # 環境設定
+│
+└── factories/
+    ├── service_factory.py                      # サービスファクトリー
+    └── repository_factory.py                   # リポジトリファクトリー
+```
+
+### 4. Presentation層 (UI/CLI)
+
+```
+presentation/
+├── cli/
+│   ├── novel_cli.py                            # メインCLI
+│   ├── command_dispatcher.py                   # コマンドディスパッチャー
+│   └── shared_utilities/
+│       ├── console.py                          # コンソールユーティリティ
+│       └── progress.py                         # プログレスバー
+│
+├── commands/
+│   ├── write_command.py                        # 執筆コマンド
+│   ├── check_command.py                        # 品質チェックコマンド
+│   ├── polish_command.py                       # 推敲コマンド
+│   └── publish_command.py                      # 公開準備コマンド
+│
+└── formatters/
+    ├── json_formatter.py                       # JSON出力
+    ├── yaml_formatter.py                       # YAML出力
+    ├── ndjson_formatter.py                     # NDJSON出力
+    └── markdown_formatter.py                   # Markdown出力
+```
+
+### 5. Tools層 (MCPツール)
+
+```
+tools/
+├── writing/
+│   ├── get_writing_tasks.py                   # タスクリスト取得
+│   ├── execute_writing_step.py                # ステップ実行
+│   ├── get_task_status.py                     # ステータス取得
+│   └── resume_from_failure.py                 # 復旧実行
+│
+├── quality/
+│   ├── run_quality_checks.py                  # 統合品質チェック
+│   ├── check_rhythm.py                        # リズムチェック
+│   ├── check_readability.py                   # 読みやすさチェック
+│   ├── check_grammar.py                       # 文法チェック
+│   ├── check_style.py                         # スタイルチェック
+│   ├── fix_quality_issues.py                  # 自動修正
+│   ├── improve_quality_until.py               # 反復改善
+│   └── export_quality_report.py               # レポート出力
+│
+├── polish/
+│   ├── polish_manuscript.py                   # 推敲プロンプト生成
+│   ├── polish_manuscript_apply.py             # 推敲一気通貫適用
+│   ├── restore_manuscript_from_artifact.py    # ロールバック
+│   └── polish.py                              # 推敲エイリアス
+│
+└── artifacts/
+    ├── list_artifacts.py                      # アーティファクト一覧
+    ├── fetch_artifact.py                      # アーティファクト取得
+    └── backup_management.py                   # バックアップ管理
+```
+
+## 依存関係グラフ
+
+```
+┌──────────────────────────────────────────────┐
+│  Presentation Layer (CLI/UI)                 │
+│  - CLIコマンド                                │
+│  - 出力フォーマッター                          │
+└───────────────┬──────────────────────────────┘
+                ↓
+┌──────────────────────────────────────────────┐
+│  Application Layer (Use Cases)               │
+│  - 18ステップ執筆                             │
+│  - 統合品質チェック                           │
+│  - MessageBus (SPEC-901)                     │
+└───────────────┬──────────────────────────────┘
+                ↓
+┌──────────────────────────────────────────────┐
+│  Domain Layer (Business Logic)               │
+│  - エンティティ（Episode, Plot, Quality）    │
+│  - ドメインサービス（純粋関数）                │
+│  - 値オブジェクト                             │
+└──────────────────────────────────────────────┘
+                ↑
+┌──────────────────────────────────────────────┐
+│  Infrastructure Layer (External Systems)     │
+│  - パス管理 (IPathService)                   │
+│  - ロギング (ILoggerService)                 │
+│  - ファイルI/O                                │
+│  - API連携 (Claude, なろう)                  │
+└──────────────────────────────────────────────┘
+```
+
+## レイヤリング原則 (importlinter検証)
+
+### 依存方向
+
+```
+Domain層: 他層に依存しない（純粋関数）
+  ↑
+Application層: Domain層のみに依存
+  ↑
+Infrastructure層: Domain, Application層に依存可能
+  ↑
+Presentation層: すべての層に依存可能
+```
+
+### 禁止事項
+
+```
+❌ Domain → Presentation (静的import禁止)
+❌ Domain → Infrastructure (静的import禁止)
+❌ Application → Presentation (推奨されない)
+```
+
+### 許可事項
+
+```
+✅ Domain → Domain (内部依存)
+✅ Application → Domain (ドメイン利用)
+✅ Infrastructure → Domain (実装)
+✅ Presentation → すべて (エントリポイント)
+```
+
+---
+
+**生成日:** 2025-09-30
+**B20 Phase 2 - CODEMAP作成**
+**次ステップ:** YAML責務定義の生成

@@ -1,0 +1,149 @@
+# File: .task_categories.yaml
+# Purpose: Define pattern-based rules for automatic CHANGELOG category inference.
+# Context: Used by scripts/category_mapper.py to classify completed tasks.
+
+# Category Mapping Rules
+# Each rule contains:
+#   - pattern: Regular expression to match task title or commit message (case-insensitive)
+#   - category: Target CHANGELOG category
+#   - description: Human-readable explanation of the rule
+
+rules:
+  # Fixes: Bug fixes, hotfixes, corrections
+  - pattern: "^(fix|bugfix|hotfix|修正|バグ修正|エラー修正):"
+    category: Fixes
+    description: "Bug fixes and error corrections"
+
+  - pattern: "\\b(fix|repair|correct|resolve)\\s+(bug|issue|error|problem)"
+    category: Fixes
+    description: "Phrases indicating bug resolution"
+
+  # Features: New functionality, additions
+  - pattern: "^(feat|feature|add|new|追加|新規|実装):"
+    category: Features
+    description: "New features and functionality"
+
+  - pattern: "\\b(add|implement|introduce|create)\\s+(feature|functionality|capability)"
+    category: Features
+    description: "Phrases indicating new features"
+
+  # Refactoring: Code improvements without behavior change
+  - pattern: "^(refactor|cleanup|整理|リファクタリング|改善):"
+    category: Refactoring
+    description: "Code refactoring and cleanup"
+
+  - pattern: "\\b(refactor|restructure|reorganize|simplify|clean\\s*up)"
+    category: Refactoring
+    description: "Code improvement keywords"
+
+  # Testing: Test additions, improvements
+  - pattern: "^(test|testing|テスト):"
+    category: Testing
+    description: "Test-related changes"
+
+  - pattern: "\\b(add|improve|fix)\\s+(test|tests|testing|coverage)"
+    category: Testing
+    description: "Test improvement phrases"
+
+  # Documentation: Documentation updates
+  - pattern: "^(docs|doc|documentation|ドキュメント):"
+    category: Documentation
+    description: "Documentation updates"
+
+  - pattern: "\\b(update|improve|add)\\s+(docs|documentation|readme|guide)"
+    category: Documentation
+    description: "Documentation-related phrases"
+
+  # Performance: Performance optimizations
+  - pattern: "^(perf|performance|optimize|最適化|パフォーマンス):"
+    category: Performance
+    description: "Performance improvements"
+
+  - pattern: "\\b(optimize|improve|speed\\s*up|reduce)\\s+(performance|latency|memory)"
+    category: Performance
+    description: "Performance optimization keywords"
+
+  # Security: Security-related changes
+  - pattern: "^(security|sec|セキュリティ):"
+    category: Security
+    description: "Security improvements"
+
+  - pattern: "\\b(fix|patch|improve)\\s+(security|vulnerability|cve)"
+    category: Security
+    description: "Security fix keywords"
+
+  # Build/CI: Build system, CI/CD changes
+  - pattern: "^(build|ci|cd|pipeline):"
+    category: Build
+    description: "Build and CI/CD changes"
+
+  - pattern: "\\b(update|fix|improve)\\s+(build|ci|pipeline|workflow)"
+    category: Build
+    description: "Build/CI keywords"
+
+  # Chore: Maintenance tasks
+  - pattern: "^(chore|maintenance|maint):"
+    category: Chore
+    description: "Maintenance and chores"
+
+# Default category when no rules match
+default_category: Refactoring
+
+# Fallback strategy
+# Options: "default", "prompt", "commit_analysis"
+#   - default: Use default_category
+#   - prompt: Ask user for category (CLI mode only)
+#   - commit_analysis: Analyze commit message for hints
+fallback_strategy: commit_analysis
+
+# Commit message prefixes (Conventional Commits format)
+# Used in commit_analysis fallback strategy
+conventional_commits:
+  feat: Features
+  fix: Fixes
+  refactor: Refactoring
+  test: Testing
+  docs: Documentation
+  perf: Performance
+  style: Refactoring
+  build: Build
+  ci: Build
+  chore: Chore
+  security: Security
+
+# Advanced options
+options:
+  # Case sensitivity for pattern matching
+  case_sensitive: false
+
+  # Check commit messages if title doesn't match
+  check_commit_messages: true
+
+  # Maximum number of commits to analyze for category inference
+  max_commits_to_analyze: 3
+
+  # Minimum confidence threshold (0.0-1.0)
+  # If multiple patterns match, require this confidence level
+  min_confidence: 0.5
+
+# Examples (for documentation purposes)
+examples:
+  - title: "fix: authentication bug in JWT validation"
+    expected_category: Fixes
+    matched_rule: "^(fix|bugfix|hotfix):"
+
+  - title: "feat: add user dashboard with charts"
+    expected_category: Features
+    matched_rule: "^(feat|feature|add):"
+
+  - title: "refactor: simplify database query logic"
+    expected_category: Refactoring
+    matched_rule: "^(refactor|cleanup):"
+
+  - title: "test: add integration tests for API endpoints"
+    expected_category: Testing
+    matched_rule: "^(test|testing):"
+
+  - title: "docs: update README with installation guide"
+    expected_category: Documentation
+    matched_rule: "^(docs|doc|documentation):"

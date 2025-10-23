@@ -1,0 +1,138 @@
+#!/usr/bin/env bash
+# File: bin/check-all
+# Purpose: Run automated core checks and generate the editorial 12-step checklist.
+# Context: One-stop entry. Supports --dry-run to show underlying commands.
+set -euo pipefail
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd -- "${SCRIPT_DIR}/.." &> /dev/null && pwd )"
+
+eval "$(python3 "${ROOT_DIR}/scripts/tools/quality_gate_defaults.py" --format shell)"
+
+CORE_OUT="${CORE_REPORT}"
+CHECKLIST_OUT="${EDITORIAL_CHECKLIST_REPORT}"
+WORK=""
+EPISODE="${EPISODE_DEFAULT}"
+DRY_RUN=0
+CORE_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --core-out)
+      [[ $# -ge 2 ]] || { echo "Missing value for --core-out" >&2; exit 1; }
+      CORE_OUT="$2"
+      shift 2
+      ;;
+    --core-out=*)
+      CORE_OUT="${1#*=}"
+      shift
+      ;;
+    --editorial-out|--checklist-out)
+      [[ $# -ge 2 ]] || { echo "Missing value for $1" >&2; exit 1; }
+      CHECKLIST_OUT="$2"
+      shift 2
+      ;;
+    --editorial-out=*|--checklist-out=*)
+      CHECKLIST_OUT="${1#*=}"
+      shift
+      ;;
+    --l12-out)
+      echo "[warning] --l12-out is deprecated; use --editorial-out" >&2
+      [[ $# -ge 2 ]] || { echo "Missing value for --l12-out" >&2; exit 1; }
+      CHECKLIST_OUT="$2"
+      shift 2
+      ;;
+    --l12-out=*)
+      echo "[warning] --l12-out is deprecated; use --editorial-out" >&2
+      CHECKLIST_OUT="${1#*=}"
+      shift
+      ;;
+    --work)
+      [[ $# -ge 2 ]] || { echo "Missing value for --work" >&2; exit 1; }
+      WORK="$2"
+      shift 2
+      ;;
+    --work=*)
+      WORK="${1#*=}"
+      shift
+      ;;
+    --episode)
+      [[ $# -ge 2 ]] || { echo "Missing value for --episode" >&2; exit 1; }
+      EPISODE="$2"
+      shift 2
+      ;;
+    --episode=*)
+      EPISODE="${1#*=}"
+      shift
+      ;;
+    --dry-run)
+      DRY_RUN=1
+      shift
+      ;;
+    --)
+      shift
+      CORE_ARGS+=("$@")
+      break
+      ;;
+    *)
+      CORE_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+CORE_CMD=(bin/check-core --out "$CORE_OUT")
+CORE_CMD+=("${CORE_ARGS[@]}")
+
+CHECKLIST_CMD=(bin/check-editorial-checklist --out "$CHECKLIST_OUT")
+if [[ -n "$WORK" ]]; then
+  CHECKLIST_CMD+=(--work "$WORK")
+fi
+if [[ -n "$EPISODE" ]]; then
+  CHECKLIST_CMD+=(--episode "$EPISODE")
+fi
+
+if [[ $DRY_RUN -eq 1 ]]; then
+  printf 'DRY-RUN: '
+  printf '%q ' "${CORE_CMD[@]}"
+  printf '\n'
+  printf 'DRY-RUN: '
+  printf '%q ' "${CHECKLIST_CMD[@]}"
+  printf '\n'
+  exit 0
+fi
+
+cd "${ROOT_DIR}"
+
+# Run core checks (Gate B)
+CORE_EXIT=0
+"${CORE_CMD[@]}" || CORE_EXIT=$?
+
+# Generate editorial checklist
+CHECKLIST_EXIT=0
+"${CHECKLIST_CMD[@]}" || CHECKLIST_EXIT=$?
+
+echo "Core report: $CORE_OUT"
+echo "Editorial checklist: $CHECKLIST_OUT"
+
+# Evaluate Gate C if checklist exists
+GATE_C_EXIT=0
+if [[ -f "$CHECKLIST_OUT" ]]; then
+  echo "Evaluating Gate C (editorial checklist)..."
+  python3 "${ROOT_DIR}/scripts/tools/editorial_checklist_evaluator.py" \
+    --file "$CHECKLIST_OUT" \
+    --format text || GATE_C_EXIT=$?
+fi
+
+# Return non-zero if any check failed
+FINAL_EXIT=0
+if [[ $CORE_EXIT -ne 0 ]]; then
+  echo "Gate B failed (core checks)" >&2
+  FINAL_EXIT=$CORE_EXIT
+fi
+if [[ $GATE_C_EXIT -ne 0 ]]; then
+  echo "Gate C failed (editorial checklist)" >&2
+  FINAL_EXIT=$GATE_C_EXIT
+fi
+
+exit $FINAL_EXIT

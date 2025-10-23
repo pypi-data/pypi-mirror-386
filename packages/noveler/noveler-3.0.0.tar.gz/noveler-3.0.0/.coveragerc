@@ -1,0 +1,28 @@
+[run]
+data_file = temp/coverage/.coverage
+branch = True
+source =
+    src/noveler
+    src/mcp_servers
+omit =
+    */tests/*
+    */test_*
+    */__pycache__/*
+    */conftest.py
+    backup/*
+    temp/*
+    */sitecustomize.py
+
+[report]
+precision = 2
+show_missing = True
+skip_covered = False
+
+[html]
+directory = temp/coverage/htmlcov
+
+[xml]
+output = temp/coverage/coverage.xml
+
+[json]
+output = temp/coverage/coverage.json

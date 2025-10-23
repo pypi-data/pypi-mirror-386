@@ -1,0 +1,12 @@
+from noveler.presentation.shared.shared_utilities import console
+'テスト用ファイル'
+
+def test_function():
+    console.print('これはprint()のテストです')
+    message = 'Hello World'
+    console.print(message)
+    console.print(f'Format: {message}')
+    console.print('これはconsole_service.print_()のテストです')
+    console.print(f'Format: {message}')
+if __name__ == '__main__':
+    test_function()

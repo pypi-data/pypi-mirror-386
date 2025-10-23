@@ -1,0 +1,129 @@
+{
+  "generated_at": "2025-09-15T22:12:19",
+  "root": "/mnt/c/Users/bamboocity/OneDrive/Documents/9_小説/00_ガイド/specs",
+  "entries": [
+    {
+      "spec_id": "SPEC-901",
+      "file": "SPEC-901-DDD-REFACTORING.md",
+      "category": "UNKNOWN",
+      "number": "—",
+      "status": "canonical",
+      "sources": []
+    },
+    {
+      "spec_id": "SPEC-A40A41-STAGE1-AUTOFIX",
+      "file": "SPEC-A40A41-STAGE1-AUTOFIX.md",
+      "category": "QUALITY",
+      "number": "—",
+      "status": "canonical",
+      "sources": [
+        "E2E"
+      ]
+    },
+    {
+      "spec_id": "SPEC-A40A41-STAGE23-POLISH",
+      "file": "SPEC-A40A41-STAGE23-POLISH.md",
+      "category": "QUALITY",
+      "number": "—",
+      "status": "canonical",
+      "sources": [
+        "E2E"
+      ]
+    },
+    {
+      "spec_id": "SPEC-ARTIFACT-001",
+      "file": "SPEC-ARTIFACT-001-artifact-reference-system.md",
+      "category": "ARTIFACT",
+      "number": "001",
+      "status": "canonical",
+      "sources": [
+        "E2E",
+        "REQ"
+      ]
+    },
+    {
+      "spec_id": "SPEC-CLAUDE-001",
+      "file": "SPEC-CLAUDE-001_claude_code_integration_system.md",
+      "category": "CLAUDE",
+      "number": "001",
+      "status": "canonical",
+      "sources": [
+        "E2E",
+        "REQ"
+      ]
+    },
+    {
+      "spec_id": "SPEC-EPISODE-001",
+      "file": "SPEC-EPISODE-001_episode_management.md",
+      "category": "EPISODE",
+      "number": "001",
+      "status": "canonical",
+      "sources": [
+        "E2E"
+      ]
+    },
+    {
+      "spec_id": "SPEC-PLOT-001",
+      "file": "SPEC-PLOT-001_claude-code-integration-plot-generation.md",
+      "category": "PLOT",
+      "number": "001",
+      "status": "canonical",
+      "sources": [
+        "E2E",
+        "REQ"
+      ]
+    },
+    {
+      "spec_id": "SPEC-QUALITY-001",
+      "file": "SPEC-QUALITY-001_a31-checklist-automatic-fix-system.md",
+      "category": "QUALITY",
+      "number": "001",
+      "status": "canonical",
+      "sources": [
+        "E2E",
+        "REQ"
+      ]
+    },
+    {
+      "spec_id": "SPEC-QUALITY-002",
+      "file": "SPEC-QUALITY-002_history-management.md",
+      "category": "QUALITY",
+      "number": "002",
+      "status": "canonical",
+      "sources": [
+        "E2E",
+        "REQ"
+      ]
+    },
+    {
+      "spec_id": "SPEC-MCP-001",
+      "file": "SPEC-MCP-001_mcp-tool-integration-system.md",
+      "category": "MCP",
+      "number": "001",
+      "status": "canonical",
+      "sources": [
+        "REQ"
+      ]
+    },
+    {
+      "spec_id": "SPEC-PLOT-002",
+      "file": "SPEC-PLOT-002_chapter_plot_consistency_orchestrator.md",
+      "category": "PLOT",
+      "number": "002",
+      "status": "canonical",
+      "sources": [
+        "REQ"
+      ]
+    },
+    {
+      "spec_id": "SPEC-QUALITY-003",
+      "file": "SPEC-QUALITY-003_manual-improvement-process.md",
+      "category": "QUALITY",
+      "number": "003",
+      "status": "canonical",
+      "sources": [
+        "REQ"
+      ]
+    }
+  ]
+}

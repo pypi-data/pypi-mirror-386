@@ -1,0 +1,2141 @@
+dependency_map:
+  version: 1.0.0
+  generated_at: '2025-08-28'
+  generation_tool: scripts/tools/dependency_analyzer.py
+  core_dependencies:
+    noveler.application.use_cases.a31_auto_fix_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.a31_checklist_item.A31ChecklistItem
+      - noveler.domain.entities.auto_fix_session.AutoFixSession
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.a31_checklist_repository.A31ChecklistRepository
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.services.a31_auto_fix_service.A31AutoFixService
+      - noveler.domain.services.a31_evaluation_service.A31EvaluationService
+      - noveler.domain.value_objects.a31_evaluation_result.EvaluationResult
+      - noveler.domain.value_objects.a31_fix_level.FixLevel
+      - noveler.domain.value_objects.a31_session_id.SessionId
+      imported_by: []
+    noveler.application.use_cases.a31_batch_auto_fix_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.application.use_cases.a31_complete_check_use_case.A31CompleteCheckUseCase
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31CompleteCheckRequest
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31CompleteCheckResponse
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31EvaluationCategory
+      - noveler.domain.repositories.a31_checklist_repository.A31ChecklistRepository
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      imported_by: []
+    noveler.application.use_cases.a31_complete_check_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.application.use_cases.session_based_analysis_use_case.SessionAnalysisRequest
+      - noveler.application.use_cases.session_based_analysis_use_case.SessionBasedAnalysisUseCase
+      - noveler.domain.entities.a31_checklist_item.A31ChecklistItem
+      - noveler.domain.entities.a31_checklist_item.ChecklistItemType
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31CompleteCheckRequest
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31CompleteCheckResponse
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31CompleteEvaluationEngine
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31EvaluationBatch
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31EvaluationCategory
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.a31_checklist_repository.A31ChecklistRepository
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.services.a31_auto_fix_service.A31AutoFixService
+      - noveler.domain.services.a31_priority_extractor_service.A31PriorityExtractorService
+      - noveler.domain.services.a31_result_integrator.A31ResultIntegrator
+      - noveler.domain.services.claude_code_evaluation_service.ClaudeCodeEvaluationService
+      - noveler.domain.services.in_session_claude_analyzer.InSessionClaudeAnalyzer
+      - noveler.domain.value_objects.a31_fix_level.FixLevel
+      - noveler.domain.value_objects.session_analysis_response.SessionAnalysisResponse
+      - noveler.domain.value_objects.session_analysis_result.SessionAnalysisResult
+      imported_by: []
+    noveler.application.use_cases.a31_detailed_evaluation_use_case:
+      imports:
+      - noveler.domain.entities.detailed_evaluation_session.DetailedEvaluationSession
+      - noveler.domain.repositories.a31_checklist_repository.A31ChecklistRepository
+      - noveler.domain.repositories.detailed_evaluation_repository.DetailedEvaluationRepository
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.services.detailed_analysis_engine.AnalysisContext
+      - noveler.domain.services.detailed_analysis_engine.DetailedAnalysisEngine
+      - noveler.domain.services.detailed_analysis_engine.DetailedAnalysisResult
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      imported_by: []
+    noveler.application.use_cases.adaptive_quality_evaluation:
+      imports:
+      - noveler.domain.quality.entities.AdaptiveQualityEvaluator
+      - noveler.domain.quality.services.QualityAdaptationService
+      - noveler.domain.quality.value_objects.EvaluationContext
+      - noveler.domain.quality.value_objects.QualityScore
+      imported_by: []
+    noveler.application.use_cases.adaptive_quality_evaluation_use_case:
+      imports:
+      - noveler.domain.exceptions.base.DomainException
+      - noveler.domain.interfaces.settings_repository.ISettingsRepositoryFactory
+      - noveler.domain.services.quality_standard_factory.QualityStandardFactory
+      - noveler.domain.services.writer_level_service.WriterLevelService
+      - noveler.domain.value_objects.quality_standards.Genre
+      - noveler.domain.value_objects.quality_standards.QualityStandard
+      - noveler.domain.value_objects.quality_standards.WriterLevel
+      - noveler.infrastructure.adapters.settings_repository_adapter.get_settings_repository_factory
+      imported_by: []
+    noveler.application.use_cases.analyze_dropout_rate_use_case:
+      imports:
+      - noveler.domain.entities.dropout_analysis_session.DropoutAnalysisResult
+      - noveler.domain.entities.dropout_analysis_session.DropoutAnalysisSession
+      - noveler.domain.repositories.access_data_repository.AccessDataRepository
+      - noveler.domain.repositories.analysis_result_repository.AnalysisResult
+      - noveler.domain.value_objects.analysis_id.AnalysisId
+      - noveler.domain.value_objects.dropout_metrics.AccessData
+      imported_by: []
+    noveler.application.use_cases.auto_chaining_plot_generation_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.application.use_cases.previous_episode_analysis_use_case.PreviousEpisodeAnalysisRequest
+      - noveler.application.use_cases.previous_episode_analysis_use_case.PreviousEpisodeAnalysisUseCase
+      - noveler.domain.entities.auto_chaining_stage.AutoChainingStage
+      - noveler.domain.entities.auto_chaining_stage.ChainStage
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      imported_by: []
+    noveler.application.use_cases.auto_scene_generation_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.auto_scene_generator.AutoSceneGenerator
+      - noveler.domain.exceptions.BusinessRuleViolationError
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.project_info_repository.ProjectInfoRepository
+      - noveler.domain.services.project_info_service.ProjectInfoService
+      - noveler.domain.value_objects.generation_options.GenerationOptions
+      - noveler.domain.value_objects.project_context.ProjectContext
+      - noveler.domain.value_objects.scene_template.SceneTemplate
+      imported_by: []
+    noveler.application.use_cases.b20_pre_implementation_check_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.application.use_cases.codemap_auto_update_use_case.CodeMapAutoUpdateUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.services.b20_pre_implementation_check_service.B20PreImplementationCheckService
+      imported_by: []
+    noveler.application.use_cases.backup_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.project.Project
+      - noveler.domain.repositories.file_backup_repository.FileBackupRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.application.use_cases.chapter_plot_with_scenes_use_case:
+      imports:
+      - noveler.application.use_cases.plot_creation_orchestrator.PlotCreationOrchestrator
+      - noveler.domain.repositories.foreshadowing_repository.ForeshadowingRepository
+      - noveler.domain.repositories.plot_repository.PlotRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.repositories.scene_repository.SceneRepository
+      - noveler.domain.services.chapter_plot_services.ChapterPlotContextService
+      - noveler.domain.services.chapter_plot_services.ChapterPlotCreationService
+      - noveler.domain.services.chapter_plot_services.ChapterPlotResponseBuilderService
+      - noveler.domain.services.chapter_plot_services.ForeshadowingExtractionService
+      - noveler.domain.services.chapter_plot_services.PlotFileExtractionService
+      - noveler.domain.services.chapter_plot_services.ProjectValidationService
+      - noveler.domain.services.chapter_plot_services.SceneExtractionService
+      - noveler.domain.services.foreshadowing_extractor.ForeshadowingExtractor
+      - noveler.domain.services.scene_extractor.SceneExtractor
+      imported_by: []
+    noveler.application.use_cases.check_character_consistency_use_case:
+      imports:
+      - noveler.domain.entities.character_consistency_session.CharacterConsistencySession
+      - noveler.domain.entities.character_consistency_session.ConsistencySummary
+      - noveler.domain.entities.episode.Episode
+      - noveler.domain.entities.project.Project
+      - noveler.domain.repositories.character_repository.CharacterRepository
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.services.character_consistency_service.CharacterConsistencyService
+      - noveler.domain.value_objects.character_profile.CharacterProfile
+      - noveler.domain.value_objects.consistency_check_result.ConsistencyCheckResult
+      - noveler.domain.value_objects.consistency_violation.CorrectionSuggestion
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.session_id.SessionId
+      imported_by: []
+    noveler.application.use_cases.check_episode_quality:
+      imports:
+      - noveler.domain.interfaces.quality_checker.QualityChecker
+      - noveler.domain.quality.entities.QualityReport
+      - noveler.domain.quality.repositories.QualityReportRepository
+      - noveler.domain.quality.services.QualityReportGenerator
+      imported_by: []
+    noveler.application.use_cases.circular_import_analysis_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.services.circular_import_prevention_service.CircularImportPreventionService
+      - noveler.domain.services.circular_import_prevention_service.PreventionAnalysisRequest
+      - noveler.domain.services.circular_import_prevention_service.PreventionAnalysisResult
+      imported_by: []
+    noveler.application.use_cases.claude_analysis_request_generation_use_case:
+      imports:
+      - noveler.domain.entities.a31_priority_item.A31PriorityItem
+      - noveler.domain.services.a31_priority_extractor_service.A31ChecklistData
+      - noveler.domain.services.a31_priority_extractor_service.A31PriorityExtractorService
+      - noveler.domain.services.a31_priority_extractor_service.ExtractionStrategy
+      - noveler.domain.services.a31_priority_extractor_service.PriorityExtractionCriteria
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      imported_by: []
+    noveler.application.use_cases.claude_code_management_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.claude_code_environment_manager.get_current_integration_config
+      - noveler.infrastructure.claude_code_environment_manager.get_environment_manager
+      - noveler.infrastructure.claude_code_session_integration.ClaudeCodeSessionInterface
+      imported_by: []
+    noveler.application.use_cases.claude_quality_check_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.claude_quality_check_session.ClaudeQualityCheckSession
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.claude_quality_prompt_repository.ClaudeQualityPromptRepository
+      - noveler.domain.repositories.claude_quality_prompt_repository.ClaudeQualityResultRepository
+      - noveler.domain.services.claude_quality_analyzer.ClaudeQualityAnalyzer
+      - noveler.domain.value_objects.claude_quality_check_request.ClaudeQualityCheckRequest
+      - noveler.domain.value_objects.claude_quality_check_request.ClaudeQualityCheckResult
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      imported_by: []
+    noveler.application.use_cases.codemap_auto_update_use_case:
+      imports:
+      - noveler.domain.entities.codemap_entity.CodeMapEntity
+      - noveler.domain.services.codemap_synchronization_service.CodeMapSynchronizationService
+      - noveler.domain.value_objects.commit_information.CommitInformation
+      imported_by: []
+    noveler.application.use_cases.complete_episode:
+      imports:
+      - noveler.application.use_cases.check_episode_quality.CheckEpisodeQualityCommand
+      - noveler.application.use_cases.check_episode_quality.CheckEpisodeQualityUseCase
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.writing_record_repository.WritingRecordRepository
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.writing.entities.Episode
+      - noveler.domain.writing.entities.WritingRecord
+      - noveler.domain.writing.value_objects.WritingPhase
+      imported_by: []
+    noveler.application.use_cases.complete_episode_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.episode_completion.CompletedEpisode
+      - noveler.domain.exceptions.EpisodeCompletionError
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.console_service_protocol.NullConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.interfaces.path_service_protocol.SimplePathService
+      - noveler.domain.repositories.episode_completion_repository.ChapterPlotRepository
+      - noveler.domain.repositories.episode_completion_repository.CharacterGrowthRepository
+      - noveler.domain.repositories.episode_completion_repository.CompletionTransactionManager
+      - noveler.domain.repositories.episode_completion_repository.EpisodeManagementRepository
+      - noveler.domain.repositories.episode_completion_repository.ForeshadowingRepository
+      - noveler.domain.repositories.episode_completion_repository.ImportantSceneRepository
+      - noveler.domain.repositories.episode_completion_repository.RevisionHistoryRepository
+      - noveler.domain.value_objects.episode_completion.CharacterGrowthEvent
+      - noveler.domain.value_objects.episode_completion.EpisodeCompletionEvent
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.di.simple_di_container.get_container
+      - noveler.infrastructure.repositories.simple_yaml_episode_completion_repository.SimpleYamlCompletionTransactionManager
+      imported_by: []
+    noveler.application.use_cases.create_episode_from_plot:
+      imports:
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.writing_record_repository.WritingRecordRepository
+      - noveler.domain.writing.entities.Episode
+      - noveler.domain.writing.entities.EpisodeStatus
+      - noveler.domain.writing.value_objects.EpisodeNumber
+      - noveler.domain.writing.value_objects.EpisodeTitle
+      - noveler.domain.writing.value_objects.WordCount
+      imported_by: []
+    noveler.application.use_cases.dependency_analysis_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.services.dependency_analysis.CircularDependencyAnalysisCommand
+      - noveler.domain.services.dependency_analysis.DependencyAnalysisService
+      - noveler.domain.services.dependency_analysis.ExternalDependencyAnalysisCommand
+      - noveler.domain.services.dependency_analysis.LayerViolationAnalysisCommand
+      imported_by: []
+    noveler.application.use_cases.deploy_scripts_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.deployment.entities.Deployment
+      - noveler.domain.deployment.entities.DeploymentMode
+      - noveler.domain.deployment.entities.DeploymentStatus
+      - noveler.domain.deployment.entities.DeploymentTarget
+      - noveler.domain.deployment.repositories.DeploymentRepository
+      - noveler.domain.deployment.services.DeploymentService
+      - noveler.domain.deployment.services.VersionControlService
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.deployment.git_deployment_synchronizer.GitDeploymentSynchronizer
+      imported_by: []
+    noveler.application.use_cases.dropout_analysis_use_case:
+      imports:
+      - noveler.domain.services.dropout_analysis_service.DataValidationService
+      - noveler.domain.services.dropout_analysis_service.DropoutAnalysisService
+      - noveler.domain.services.dropout_analysis_services.DropoutAnalysisExecutionService
+      - noveler.domain.services.dropout_analysis_services.DropoutAnalysisRequest
+      - noveler.domain.services.dropout_analysis_services.DropoutAnalysisResponse
+      - noveler.domain.services.dropout_analysis_services.DropoutBulkAnalysisService
+      - noveler.domain.services.dropout_analysis_services.DropoutDataAcquisitionService
+      - noveler.domain.services.dropout_analysis_services.DropoutPeriodComparisonService
+      - noveler.domain.services.dropout_analysis_services.DropoutReportGenerationService
+      - noveler.domain.services.dropout_analysis_services.DropoutSessionManagementService
+      - noveler.domain.services.dropout_analysis_services.KasasagiClient
+      - noveler.domain.services.dropout_analysis_services.ReportGenerator
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      imported_by: []
+    noveler.application.use_cases.enhanced_integrated_writing_use_case:
+      imports:
+      - noveler.application.orchestrators.integrated_writing_orchestrator.IntegratedWritingOrchestrator
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.application.use_cases.integrated_writing_use_case.IntegratedWritingRequest
+      - noveler.application.use_cases.integrated_writing_use_case.IntegratedWritingResponse
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.plot_repository.PlotRepository
+      - noveler.domain.repositories.yaml_prompt_repository.YamlPromptRepository
+      - noveler.domain.services.claude_code_execution_service.ClaudeCodeExecutionService
+      - noveler.domain.services.manuscript_processing_service.ManuscriptProcessingService
+      - noveler.domain.value_objects.claude_code_execution.ClaudeCodeExecutionResponse
+      imported_by: []
+    noveler.application.use_cases.enhanced_plot_generation_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.chapter_plot.ChapterPlot
+      - noveler.domain.entities.contextual_plot_generation.ContextualPlotResult
+      - noveler.domain.entities.contextual_plot_generation.PlotGenerationConfig
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.repository_factory.IRepositoryFactory
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.services.enhanced_plot_generation_service.EnhancedPlotGenerationService
+      - noveler.domain.value_objects.chapter_number.ChapterNumber
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      imported_by: []
+    noveler.application.use_cases.enhanced_plot_generation_use_case_factory:
+      imports:
+      - noveler.application.use_cases.enhanced_plot_generation_use_case.EnhancedPlotGenerationResult
+      - noveler.application.use_cases.universal_claude_code_use_case.UniversalClaudeCodeUseCase
+      - noveler.application.use_cases.universal_claude_code_use_case_factory.UniversalClaudeCodeUseCaseFactory
+      - noveler.application.use_cases.universal_prompt_request.UniversalPromptRequest
+      - noveler.application.use_cases.universal_prompt_response.UniversalPromptResponse
+      - noveler.domain.value_objects.universal_prompt_execution.ProjectContext
+      - noveler.domain.value_objects.universal_prompt_execution.PromptType
+      - noveler.domain.value_objects.universal_prompt_execution.UniversalPromptRequest
+      imported_by: []
+    noveler.application.use_cases.episode_management_sync_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.services.episode_management_sync_service.EpisodeManagementSyncService
+      - noveler.domain.value_objects.episode_completion_data.EpisodeCompletionData
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.sync_result.SyncResult
+      - noveler.infrastructure.di.container.container
+      imported_by: []
+    noveler.application.use_cases.episode_prompt_save_use_case:
+      imports:
+      - noveler.application.orchestrators.error_handling_orchestrator.ErrorHandlingOrchestrator
+      - noveler.application.orchestrators.error_handling_orchestrator.ErrorHandlingRequest
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.episode_prompt.EpisodePrompt
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.episode_prompt_repository.EpisodePromptRepository
+      - noveler.domain.services.error_classification_service.ErrorClassificationService
+      - noveler.domain.services.error_recovery_service.ErrorRecoveryService
+      - noveler.domain.services.error_reporting_service.ErrorReportingService
+      - noveler.domain.value_objects.error_response.ErrorResponse
+      - noveler.domain.value_objects.prompt_save_result.PromptSaveResult
+      - noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      - noveler.infrastructure.repositories.episode_prompt_repository.EpisodePromptRepository
+      imported_by: []
+    noveler.application.use_cases.export_errors_for_claude_use_case:
+      imports:
+      - noveler.domain.repositories.file_quality_check_session_repository.FileQualityCheckSessionRepository
+      - noveler.domain.services.claude_code_format_service.ClaudeCodeFormatService
+      - noveler.domain.value_objects.error_export_format.ErrorExportFormat
+      - noveler.domain.value_objects.file_path.FilePath
+      imported_by: []
+    noveler.application.use_cases.five_stage_writing_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.value_objects.five_stage_writing_execution.FiveStageWritingRequest
+      - noveler.domain.value_objects.five_stage_writing_execution.FiveStageWritingResponse
+      - noveler.domain.value_objects.five_stage_writing_execution.StageResult
+      - noveler.infrastructure.integrations.claude_code_integration_service.ClaudeCodeIntegrationService
+      imported_by: []
+    noveler.application.use_cases.foreshadowing_design_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.foreshadowing_repository.ForeshadowingRepository
+      - noveler.domain.repositories.plot_repository.PlotRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.services.foreshadowing_extractor.ForeshadowingExtractor
+      - noveler.domain.value_objects.foreshadowing.Foreshadowing
+      - noveler.domain.value_objects.foreshadowing.ForeshadowingId
+      imported_by: []
+    noveler.application.use_cases.generate_episode_plot_use_case:
+      imports:
+      - noveler.domain.entities.generated_episode_plot.GeneratedEpisodePlot
+      - noveler.domain.interfaces.logger_service.ILoggerService
+      - noveler.domain.interfaces.logger_service.NullLoggerService
+      - noveler.domain.repositories.chapter_plot_repository.ChapterPlotNotFoundError
+      - noveler.domain.repositories.chapter_plot_repository.ChapterPlotRepository
+      - noveler.domain.services.claude_plot_generation_service.ClaudePlotGenerationService
+      - noveler.domain.services.claude_plot_generation_service.PlotGenerationError
+      - noveler.infrastructure.di.simple_di_container.get_container
+      - noveler.infrastructure.repositories.simple_yaml_chapter_plot_repository.SimpleYamlChapterPlotRepository
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.generate_traceability_report_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.repositories.specification_repository.SpecificationRepository
+      - noveler.domain.repositories.test_repository.TestRepository
+      - noveler.domain.services.traceability_service.TraceabilityService
+      - noveler.domain.specification.entities.SpecificationId
+      - noveler.domain.specification.value_objects.TraceabilityReport
+      imported_by: []
+    noveler.application.use_cases.git_hook_management_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.repositories.git_hook_repository.GitHookRepository
+      imported_by: []
+    noveler.application.use_cases.infrastructure_integration_use_case:
+      imports:
+      - noveler.application.infrastructure_services.infrastructure_configuration.CacheConfiguration
+      - noveler.application.infrastructure_services.infrastructure_configuration.InfrastructureConfiguration
+      - noveler.application.infrastructure_services.infrastructure_configuration.PerformanceConfiguration
+      - noveler.application.infrastructure_services.infrastructure_coordination_service.InfrastructureCoordinationService
+      - noveler.application.infrastructure_services.infrastructure_integration_aggregate.InfrastructureIntegrationAggregate
+      - noveler.application.infrastructure_services.infrastructure_integration_aggregate.ServiceHealthStatus
+      - noveler.application.infrastructure_services.infrastructure_integration_services.BatchExecutionRequest
+      - noveler.application.infrastructure_services.infrastructure_integration_services.BatchExecutionResponse
+      - noveler.application.infrastructure_services.infrastructure_integration_services.ExecuteServiceRequest
+      - noveler.application.infrastructure_services.infrastructure_integration_services.ExecuteServiceResponse
+      - noveler.application.infrastructure_services.infrastructure_integration_services.HealthCheckRequest
+      - noveler.application.infrastructure_services.infrastructure_integration_services.HealthCheckResponse
+      - noveler.application.infrastructure_services.infrastructure_integration_services.InfrastructureAggregateManagementService
+      - noveler.application.infrastructure_services.infrastructure_integration_services.InfrastructureBatchExecutionService
+      - noveler.application.infrastructure_services.infrastructure_integration_services.InfrastructureConfigurationService
+      - noveler.application.infrastructure_services.infrastructure_integration_services.InfrastructureHealthCheckService
+      - noveler.application.infrastructure_services.infrastructure_integration_services.InfrastructureServiceExecutionService
+      - noveler.application.infrastructure_services.infrastructure_integration_services.InfrastructureServiceRegistrationService
+      - noveler.application.infrastructure_services.infrastructure_integration_services.InfrastructureStatisticsService
+      - noveler.application.infrastructure_services.infrastructure_integration_services.RegisterServiceRequest
+      - noveler.application.infrastructure_services.infrastructure_integration_services.RegisterServiceResponse
+      imported_by: []
+    noveler.application.use_cases.initialize_quality_config_use_case:
+      imports:
+      - noveler.domain.services.quality_config_initialization_service.QualityConfigInitializationService
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.integrated_quality_check_use_case:
+      imports:
+      - noveler.application.checkers.foreshadowing_checker.ForeshadowingChecker
+      - noveler.domain.entities.quality_check_session.CheckType
+      - noveler.domain.entities.quality_check_session.QualityCheckResult
+      - noveler.domain.entities.quality_check_session.QualityCheckSession
+      - noveler.domain.entities.quality_check_session.QualityIssue
+      - noveler.domain.entities.quality_check_session.QualityScore
+      - noveler.domain.entities.quality_check_session.Severity
+      - noveler.domain.services.foreshadowing_validation_service.ForeshadowingValidationService
+      - noveler.domain.services.quality_evaluation_service.QualityEvaluationService
+      - noveler.domain.value_objects.file_content.FileContent
+      - noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      - noveler.infrastructure.repositories.yaml_foreshadowing_repository.YamlForeshadowingRepository
+      imported_by: []
+    noveler.application.use_cases.integrated_writing_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.integrated_writing_session.IntegratedWritingSession
+      - noveler.domain.entities.integrated_writing_session.WritingWorkflowType
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.plot_repository.PlotRepository
+      - noveler.domain.repositories.yaml_prompt_repository.YamlPromptRepository
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.yaml_prompt_content.YamlPromptContent
+      - noveler.domain.value_objects.yaml_prompt_content.YamlPromptMetadata
+      imported_by: []
+    noveler.application.use_cases.interactive_plot_improvement_use_case:
+      imports:
+      - noveler.application.orchestrators.error_handling_orchestrator.ErrorHandlingOrchestrator
+      - noveler.application.orchestrators.error_handling_orchestrator.ErrorHandlingRequest
+      - noveler.application.orchestrators.plot_generation_orchestrator.PlotGenerationOrchestrator
+      - noveler.application.orchestrators.plot_generation_orchestrator.PlotGenerationWorkflowRequest
+      - noveler.domain.entities.generated_episode_plot.GeneratedEpisodePlot
+      - noveler.domain.services.error_classification_service.ErrorClassificationService
+      - noveler.domain.services.error_recovery_service.ErrorRecoveryService
+      - noveler.domain.services.error_reporting_service.ErrorReportingService
+      - noveler.domain.services.plot_quality_service.PlotQualityService
+      - noveler.domain.services.plot_structure_service.PlotStructureService
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.interactive_version_creator:
+      imports:
+      - noveler.domain.versioning.value_objects.VersionCalculator
+      imported_by: []
+    noveler.application.use_cases.learning_data_accumulator:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.repositories.learning_model_repository.LearningModelRepository
+      - noveler.domain.services.correlation_analyzer.CorrelationAnalyzer
+      - noveler.domain.services.style_analysis_service.StyleAnalysisService
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.application.use_cases.load_configuration_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.novel_configuration.NovelConfiguration
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.repositories.configuration_repository.ConfigurationRepository
+      imported_by: []
+    noveler.application.use_cases.master_plot_integration_use_case:
+      imports:
+      - noveler.application.use_cases.foreshadowing_design_use_case.ForeshadowingDesignRequest
+      - noveler.application.use_cases.foreshadowing_design_use_case.ForeshadowingDesignStatus
+      - noveler.application.use_cases.foreshadowing_design_use_case.ForeshadowingDesignUseCase
+      - noveler.application.use_cases.plot_creation_orchestrator.PlotCreationOrchestrator
+      - noveler.application.use_cases.plot_creation_orchestrator.PlotCreationRequest
+      - noveler.application.use_cases.scene_extraction_use_case.SceneExtractionRequest
+      - noveler.application.use_cases.scene_extraction_use_case.SceneExtractionStatus
+      - noveler.application.use_cases.scene_extraction_use_case.SceneExtractionUseCase
+      - noveler.domain.repositories.foreshadowing_repository.ForeshadowingRepository
+      - noveler.domain.repositories.plot_repository.PlotRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.repositories.scene_repository.SceneRepository
+      - noveler.domain.services.foreshadowing_extractor.ForeshadowingExtractor
+      - noveler.domain.services.scene_extractor.SceneExtractor
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      imported_by: []
+    noveler.application.use_cases.narrative_depth_evaluation:
+      imports:
+      - noveler.domain.repositories.analysis_result_repository.AnalysisResultRepository
+      - noveler.domain.repositories.manuscript_repository.ManuscriptRepository
+      - noveler.domain.repositories.plot_repository.PlotRepository
+      - noveler.domain.services.narrative_depth_analyzer.NarrativeDepthAnalyzer
+      - noveler.domain.services.viewpoint_evaluator.ViewpointEvaluator
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.application.use_cases.nih_prevention_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.services.similar_function_detection_service.NIHPreventionResult
+      - noveler.domain.services.similar_function_detection_service.SimilarFunctionDetectionRequest
+      - noveler.domain.services.similar_function_detection_service.SimilarFunctionDetectionService
+      - noveler.domain.value_objects.function_signature.FunctionSignature
+      imported_by: []
+    noveler.application.use_cases.plot_commit_version_proposer:
+      imports:
+      - noveler.domain.versioning.value_objects.VersionCalculator
+      imported_by: []
+    noveler.application.use_cases.plot_creation_orchestrator:
+      imports:
+      - noveler.domain.entities.plot_creation_task.PlotCreationTask
+      - noveler.domain.services.plot_creation_service.PlotCreationService
+      - noveler.domain.services.plot_merge_service.PlotMergeService
+      - noveler.domain.value_objects.merge_strategy.MergeStrategy
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      - noveler.infrastructure.persistence.file_system_project_file_repository.FileSystemProjectFileRepository
+      - noveler.infrastructure.persistence.yaml_template_repository.YamlTemplateRepository
+      imported_by: []
+    noveler.application.use_cases.plot_quality_assurance_use_case:
+      imports:
+      - noveler.application.orchestrators.error_handling_orchestrator.ErrorHandlingOrchestrator
+      - noveler.application.orchestrators.error_handling_orchestrator.ErrorHandlingRequest
+      - noveler.application.orchestrators.plot_generation_orchestrator.PlotGenerationOrchestrator
+      - noveler.application.orchestrators.plot_generation_orchestrator.PlotGenerationWorkflowRequest
+      - noveler.domain.entities.generated_episode_plot.GeneratedEpisodePlot
+      - noveler.domain.services.error_classification_service.ErrorClassificationService
+      - noveler.domain.services.error_recovery_service.ErrorRecoveryService
+      - noveler.domain.services.error_reporting_service.ErrorReportingService
+      - noveler.domain.services.plot_quality_service.PlotQualityService
+      - noveler.domain.services.plot_structure_service.PlotStructureService
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.plot_version_use_cases:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.plot_version_entities.ManuscriptPlotLink
+      - noveler.domain.entities.plot_version_entities.PlotChangeSet
+      - noveler.domain.entities.plot_version_entities.PlotVersion
+      - noveler.domain.exceptions.PlotNotFoundError
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.repositories.PlotVersionRepository
+      - noveler.domain.repositories.manuscript_plot_link_repository.ManuscriptPlotLinkRepository
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.application.use_cases.previous_episode_analysis_use_case:
+      imports:
+      - noveler.domain.entities.chapter_plot.ChapterPlot
+      - noveler.domain.entities.previous_episode_context.PreviousEpisodeContext
+      - noveler.domain.entities.staged_prompt.StagedPrompt
+      - noveler.domain.services.contextual_inference_engine.ContextualInferenceEngine
+      - noveler.domain.services.contextual_inference_engine.DynamicPromptContext
+      - noveler.domain.services.previous_episode_extraction_service.PreviousEpisodeExtractionService
+      - noveler.domain.services.staged_prompt_generation_service.PromptGenerationResult
+      - noveler.domain.services.staged_prompt_generation_service.StagedPromptTemplateRepository
+      - noveler.domain.services.staged_prompt_generation_service.ValidationResult
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.prompt_stage.PromptStage
+      - noveler.domain.value_objects.prompt_stage.get_stage_by_number
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.application.use_cases.pre_writing_check_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.pre_writing_check.CheckItemType
+      - noveler.domain.entities.pre_writing_check.PreWritingCheck
+      - noveler.domain.entities.pre_writing_check.PreWritingCheckFactory
+      - noveler.domain.exceptions.DomainException
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.application.use_cases.prompt_generation_use_case:
+      imports:
+      - noveler.domain.entities.prompt_generation.OptimizationTarget
+      - noveler.domain.entities.prompt_generation.PromptGenerationSession
+      - noveler.domain.services.prompt_generation_service.PromptGenerationService
+      imported_by: []
+    noveler.application.use_cases.proper_noun_auto_update_use_case:
+      imports:
+      - noveler.domain.entities.file_change_event.FileChangeEvent
+      - noveler.domain.entities.settings_file_watcher.SettingsFileWatcher
+      - noveler.domain.repositories.proper_noun_cache_repository.ProperNounCacheRepository
+      - noveler.domain.repositories.settings_file_repository.SettingsFileRepository
+      - noveler.domain.services.auto_extraction_service.AutoExtractionService
+      - noveler.domain.services.auto_extraction_service.ExtractionResult
+      imported_by: []
+    noveler.application.use_cases.publish_preparation_use_case:
+      imports:
+      - noveler.application.use_cases.backup_use_case.BackupRequest
+      - noveler.application.use_cases.backup_use_case.BackupType
+      - noveler.application.use_cases.backup_use_case.BackupUseCase
+      - noveler.domain.entities.episode.Episode
+      - noveler.domain.entities.episode.EpisodeStatus
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.quality_check_command_use_case:
+      imports:
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.quality_check_repository.QualityCheckRepository
+      - noveler.domain.repositories.quality_record_repository.QualityRecordRepository
+      - noveler.domain.value_objects.completion_status.QualityCheckResult
+      imported_by: []
+    noveler.application.use_cases.quality_check_prompt_use_case:
+      imports:
+      - noveler.domain.entities.enhanced_episode_plot.EnhancedEpisodePlot
+      - noveler.domain.entities.quality_check_prompt.PlotValidationResult
+      - noveler.domain.entities.quality_check_prompt.QualityCheckPromptGenerator
+      - noveler.domain.entities.quality_check_prompt.QualityCheckPromptId
+      - noveler.domain.repositories.quality_check_prompt_repository.QualityCheckPromptRepository
+      - noveler.domain.value_objects.quality_check_level.QualityCheckLevel
+      - noveler.domain.value_objects.quality_check_level.QualityCheckRequest
+      - noveler.domain.value_objects.quality_check_level.QualityCriterion
+      - noveler.infrastructure.repositories.quality_check_prompt_repository.FileSystemQualityCheckPromptRepository
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.quality_record_enhancement_use_case:
+      imports:
+      - noveler.domain.entities.learning_session.LearningSession
+      - noveler.domain.entities.quality_record_enhancement.QualityRecordEnhancement
+      - noveler.domain.exceptions.BusinessRuleViolationError
+      - noveler.domain.exceptions.InsufficientDataError
+      - noveler.domain.services.improvement_suggestion_service.ImprovementSuggestionService
+      - noveler.domain.services.learning_data_integration_service.LearningDataIntegrationService
+      - noveler.domain.services.quality_trend_analysis_service.QualityTrendAnalysisService
+      - noveler.domain.value_objects.improvement_suggestion.ImprovementSuggestion
+      - noveler.domain.value_objects.learning_metrics.LearningMetrics
+      - noveler.domain.value_objects.quality_trend_data.QualityTrendData
+      imported_by: []
+    noveler.application.use_cases.scene_extraction_use_case:
+      imports:
+      - noveler.domain.repositories.foreshadowing_repository.ForeshadowingRepository
+      - noveler.domain.repositories.plot_repository.PlotRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.repositories.scene_repository.SceneRepository
+      - noveler.domain.services.scene_extractor.ExtractedScene
+      - noveler.domain.services.scene_extractor.SceneExtractor
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.scene_management_use_case:
+      imports:
+      - noveler.domain.entities.auto_scene_generator.AutoSceneGenerator
+      - noveler.domain.entities.scene_entity.SceneCategory
+      - noveler.domain.repositories.scene_management_repository.SceneManagementRepository
+      - noveler.domain.services.scene_validator.SceneValidator
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.application.use_cases.scene_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.scene_entity.ImportanceLevel
+      - noveler.domain.entities.scene_entity.Scene
+      - noveler.domain.entities.scene_entity.SceneCategory
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.domain.repositories.scene_repository.SceneRepository
+      - noveler.domain.value_objects.scene_direction.SceneDirection
+      - noveler.domain.value_objects.scene_setting.SceneSetting
+      imported_by: []
+    noveler.application.use_cases.session_based_analysis_use_case:
+      imports:
+      - noveler.domain.entities.a31_priority_item.A31PriorityItem
+      - noveler.domain.entities.session_analysis_result.SessionAnalysisResult
+      - noveler.domain.services.a31_priority_extractor_service.A31PriorityExtractorService
+      - noveler.domain.services.a31_priority_extractor_service.ExtractionStrategy
+      - noveler.domain.services.a31_priority_extractor_service.PriorityExtractionCriteria
+      - noveler.domain.services.in_session_claude_analyzer.AnalysisContext
+      - noveler.domain.services.in_session_claude_analyzer.InSessionClaudeAnalyzer
+      - noveler.domain.value_objects.a31_checklist_data.A31ChecklistData
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      imported_by: []
+    noveler.application.use_cases.smart_auto_enhancement_use_case:
+      imports:
+      - noveler.domain.entities.smart_auto_enhancement.EnhancementMode
+      - noveler.domain.entities.smart_auto_enhancement.EnhancementRequest
+      - noveler.domain.entities.smart_auto_enhancement.EnhancementStage
+      - noveler.domain.entities.smart_auto_enhancement.SmartAutoEnhancement
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.services.smart_auto_enhancement_service.SmartAutoEnhancementService
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.project_info.ProjectInfo
+      imported_by: []
+    noveler.application.use_cases.staged_prompt_generation_use_case:
+      imports:
+      - noveler.domain.entities.staged_prompt.StageTransitionError
+      - noveler.domain.entities.staged_prompt.StagedPrompt
+      - noveler.domain.services.staged_prompt_generation_service.PromptGenerationResult
+      - noveler.domain.services.staged_prompt_generation_service.StagedPromptGenerationService
+      - noveler.domain.services.staged_prompt_generation_service.ValidationResult
+      - noveler.domain.value_objects.prompt_stage.PromptStage
+      - noveler.domain.value_objects.prompt_stage.get_stage_by_number
+      - noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      imported_by: []
+    noveler.application.use_cases.start_file_watching_use_case:
+      imports:
+      - noveler.application.use_cases.export_errors_for_claude_use_case.ExportErrorsForClaudeUseCase
+      - noveler.application.use_cases.export_errors_for_claude_use_case.ExportErrorsRequest
+      - noveler.domain.entities.file_change_event.ChangeType
+      - noveler.domain.entities.file_change_event.FileChangeEvent
+      - noveler.domain.entities.file_change_event.FilePattern
+      - noveler.domain.entities.file_change_event.WatchMode
+      - noveler.domain.services.claude_code_format_service.ClaudeCodeFormatService
+      - noveler.domain.value_objects.error_export_format.ErrorExportFormat
+      - noveler.domain.value_objects.error_export_format.ExportFormatType
+      - noveler.domain.value_objects.file_path.FilePath
+      - noveler.infrastructure.tools.ruff_auto_formatter.RuffAutoFormatter
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.application.use_cases.stepwise_a30_loading_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.a30_guide_content.A30GuideContent
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.services.stepwise_a30_guide_loader.StepwiseA30GuideLoader
+      - noveler.domain.value_objects.writing_phase.WritingPhase
+      imported_by: []
+    noveler.application.use_cases.system_diagnosis_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      imported_by: []
+    noveler.application.use_cases.system_repair_use_case:
+      imports:
+      - noveler.application.use_cases.system_doctor_use_case.SystemDoctorRequest
+      - noveler.application.use_cases.system_doctor_use_case.SystemDoctorUseCase
+      - noveler.domain.repositories.project_repository.ProjectRepository
+      - noveler.domain.services.configuration_repair_service.ConfigurationRepairService
+      - noveler.domain.services.dependency_repair_service.DependencyRepairService
+      - noveler.domain.services.repair_report_service.RepairReportService
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.application.use_cases.track_writing_progress:
+      imports:
+      - noveler.domain.repositories.episode_repository.EpisodeRepository
+      - noveler.domain.repositories.writing_record_repository.WritingRecordRepository
+      - noveler.domain.writing.entities.EpisodeStatus
+      imported_by: []
+    noveler.application.use_cases.unified_context_analysis_use_case:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.entities.holistic_analysis_result.HolisticAnalysisResult
+      - noveler.domain.entities.unified_analysis_context.ProjectContext
+      - noveler.domain.entities.unified_analysis_context.UnifiedAnalysisContext
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.services.unified_context_analyzer.UnifiedContextAnalyzer
+      - noveler.domain.value_objects.analysis_scope.AnalysisScope
+      imported_by: []
+    noveler.application.use_cases.universal_claude_code_use_case:
+      imports:
+      - noveler.domain.value_objects.universal_prompt_execution.PromptType
+      - noveler.domain.value_objects.universal_prompt_execution.UniversalPromptRequest
+      - noveler.domain.value_objects.universal_prompt_execution.UniversalPromptResponse
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.application.use_cases.universal_claude_code_use_case_factory:
+      imports:
+      - noveler.application.use_cases.universal_claude_code_use_case.UniversalClaudeCodeUseCase
+      - noveler.infrastructure.integrations.universal_claude_code_service.UniversalClaudeCodeIService
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.application.use_cases.update_quality_records_use_case:
+      imports:
+      - noveler.domain.entities.quality_record.QualityRecord
+      - noveler.domain.exceptions.QualityRecordError
+      - noveler.domain.repositories.episode_management_repository.EpisodeManagementRepository
+      - noveler.domain.repositories.quality_record_repository.QualityRecordRepository
+      - noveler.domain.value_objects.quality_check_result.QualityCheckResult
+      imported_by: []
+    noveler.application.use_cases.user_guidance_orchestrator:
+      imports:
+      - noveler.domain.entities.error_context.ErrorContext
+      - noveler.domain.entities.error_context.ErrorSeverity
+      - noveler.domain.entities.progress_report.ProgressReport
+      - noveler.domain.services.plot_progress_service.PlotProgressService
+      - noveler.domain.services.smart_error_handler_service.SmartErrorHandlerService
+      - noveler.domain.services.user_guidance_service.UserGuidanceService
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      - noveler.infrastructure.repositories.yaml_plot_progress_repository.YamlPlotProgressRepository
+      imported_by: []
+    noveler.application.use_cases.viewpoint_aware_quality_check:
+      imports:
+      - noveler.application.use_cases.AbstractUseCase
+      - noveler.domain.exceptions.viewpoint_exceptions.ViewpointDataInvalidError
+      - noveler.domain.exceptions.viewpoint_exceptions.ViewpointError
+      - noveler.domain.exceptions.viewpoint_exceptions.ViewpointRepositoryError
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.quality.value_objects.QualityScore
+      - noveler.domain.quality.viewpoint_entities.ViewpointBasedQualityEvaluator
+      - noveler.domain.quality.viewpoint_entities.ViewpointInfo
+      imported_by: []
+    noveler.application.use_cases:
+      imports:
+      - noveler.domain.interfaces.IConfigurationService
+      - noveler.domain.interfaces.IRepositoryFactory
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.domain.interfaces.path_service_protocol.IPathService
+      - noveler.domain.interfaces.unit_of_work_protocol.IUnitOfWork
+      - noveler.infrastructure.adapters.console_service_adapter.ConsoleServiceAdapter
+      - noveler.infrastructure.adapters.domain_logger_adapter.DomainLoggerAdapter
+      - noveler.infrastructure.adapters.path_service_adapter.create_path_service
+      - noveler.infrastructure.adapters.unit_of_work_adapter.UnitOfWorkAdapter
+      - noveler.infrastructure.di.container.resolve_service
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.factories.unified_repository_factory.UnifiedRepositoryFactory
+      imported_by: []
+    noveler.application.use_cases.initialization.interactive_project_initializer:
+      imports:
+      - noveler.domain.initialization.entities.ProjectInitialization
+      - noveler.domain.initialization.repositories.ProjectInitializationRepository
+      - noveler.domain.initialization.repositories.ProjectTemplateRepository
+      - noveler.domain.initialization.services.ProjectSetupService
+      - noveler.domain.initialization.services.QualityStandardConfigService
+      - noveler.domain.initialization.services.TemplateSelectionService
+      - noveler.domain.initialization.value_objects.Genre
+      - noveler.domain.initialization.value_objects.InitializationConfig
+      - noveler.domain.initialization.value_objects.UpdateFrequency
+      - noveler.domain.initialization.value_objects.WritingStyle
+      imported_by: []
+    noveler.application.use_cases.learning.adaptive_quality_evaluator:
+      imports:
+      - noveler.domain.learning.entities.LearningQualityEvaluator
+      - noveler.domain.learning.repositories.EpisodeAnalysisRepository
+      - noveler.domain.learning.repositories.LearningEvaluatorRepository
+      - noveler.domain.learning.repositories.QualityLearningRepository
+      - noveler.domain.learning.repositories.ReaderFeedbackRepository
+      - noveler.domain.learning.repositories.WritingStyleProfileRepository
+      - noveler.domain.learning.services.AdaptiveQualityService
+      - noveler.domain.learning.services.CorrelationAnalysisService
+      - noveler.domain.learning.services.StyleLearningService
+      - noveler.domain.learning.value_objects.EvaluationResult
+      - noveler.domain.learning.value_objects.QualityMetric
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.a30_guide_content:
+      imports:
+      - noveler.domain.value_objects.writing_phase.WritingPhase
+      imported_by: []
+    noveler.domain.entities.a31_auto_fix_session:
+      imports:
+      - noveler.domain.value_objects.a31_fix_level.FixLevel
+      - noveler.domain.value_objects.a31_fix_result.FixResult
+      - noveler.domain.value_objects.a31_session_id.SessionId
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.a31_checklist_item:
+      imports:
+      - noveler.domain.value_objects.a31_auto_fix_strategy.AutoFixStrategy
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      - noveler.domain.value_objects.a31_threshold.Threshold
+      imported_by: []
+    noveler.domain.entities.a31_complete_evaluation_engine:
+      imports:
+      - noveler.domain.entities.a31_checklist_item.A31ChecklistItem
+      - noveler.domain.entities.a31_checklist_item.ChecklistItemType
+      - noveler.domain.services.claude_code_evaluation_service.ClaudeCodeEvaluationRequest
+      - noveler.domain.services.claude_code_evaluation_service.ClaudeCodeEvaluationService
+      - noveler.domain.value_objects.a31_threshold.Threshold
+      - noveler.domain.value_objects.file_path.FilePath
+      imported_by: []
+    noveler.domain.entities.a31_priority_item:
+      imports:
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      imported_by: []
+    noveler.domain.entities.auto_chaining_stage:
+      imports:
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      imported_by: []
+    noveler.domain.entities.auto_fix_session:
+      imports:
+      - noveler.domain.value_objects.a31_fix_level.FixLevel
+      - noveler.domain.value_objects.a31_fix_result.FixResult
+      - noveler.domain.value_objects.a31_session_id.SessionId
+      imported_by: []
+    noveler.domain.entities.auto_scene_generator:
+      imports:
+      - noveler.domain.exceptions.BusinessRuleViolationError
+      - noveler.domain.value_objects.generated_scene.GeneratedScene
+      - noveler.domain.value_objects.generation_options.GenerationOptions
+      - noveler.domain.value_objects.project_context.ProjectContext
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.scene_template.SceneTemplate
+      imported_by: []
+    noveler.domain.entities.bulk_quality_check:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.category_analysis_result:
+      imports:
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      - noveler.domain.value_objects.improvement_suggestion.ImprovementSuggestion
+      imported_by: []
+    noveler.domain.entities.chapter_plot:
+      imports:
+      - noveler.domain.value_objects.chapter_number.ChapterNumber
+      imported_by: []
+    noveler.domain.entities.character_consistency_session:
+      imports:
+      - noveler.domain.entities.episode.Episode
+      - noveler.domain.entities.project.Project
+      - noveler.domain.services.attribute_checker_factory.AttributeCheckerFactory
+      - noveler.domain.services.character_consistency_service.CharacterConsistencyService
+      - noveler.domain.value_objects.check_context.CheckContext
+      - noveler.domain.value_objects.consistency_check_result.ConsistencyCheckResult
+      - noveler.domain.value_objects.consistency_violation.ConsistencyViolation
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.session_id.SessionId
+      imported_by: []
+    noveler.domain.entities.circular_import_detector:
+      imports:
+      - noveler.domain.interfaces.logger_service.ILoggerService
+      - noveler.domain.value_objects.dependency_graph.CircularPath
+      - noveler.domain.value_objects.dependency_graph.DependencyGraph
+      imported_by: []
+    noveler.domain.entities.claude_integration_session:
+      imports:
+      - noveler.domain.value_objects.claude_session_id.ClaudeSessionId
+      - noveler.domain.value_objects.error_export_format.ErrorExportFormat
+      - noveler.domain.value_objects.integration_status.IntegrationStatus
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.claude_quality_check_session:
+      imports:
+      - noveler.domain.value_objects.claude_quality_check_request.ClaudeQualityCheckRequest
+      - noveler.domain.value_objects.claude_quality_check_request.ClaudeQualityCheckResult
+      - noveler.domain.value_objects.session_id.SessionId
+      imported_by: []
+    noveler.domain.entities.codemap_entity:
+      imports:
+      - noveler.domain.value_objects.commit_information.CommitInformation
+      imported_by: []
+    noveler.domain.entities.contextual_plot_generation:
+      imports:
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.detailed_evaluation_session:
+      imports:
+      - noveler.domain.entities.category_analysis_result.CategoryAnalysisResult
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.line_specific_feedback.LineSpecificFeedback
+      imported_by: []
+    noveler.domain.entities.dropout_analysis_session:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.enhanced_episode_plot:
+      imports:
+      - noveler.domain.entities.enhanced_episode_plot.AccessibilityFactors
+      - noveler.domain.entities.enhanced_episode_plot.ActStructure
+      - noveler.domain.entities.enhanced_episode_plot.CharacterArc
+      - noveler.domain.entities.enhanced_episode_plot.CharacterDevelopment
+      - noveler.domain.entities.enhanced_episode_plot.ContinuityManagement
+      - noveler.domain.entities.enhanced_episode_plot.EmotionalFramework
+      - noveler.domain.entities.enhanced_episode_plot.MetadataTracking
+      - noveler.domain.entities.enhanced_episode_plot.PlotManagement
+      - noveler.domain.entities.enhanced_episode_plot.QualityAssurance
+      - noveler.domain.entities.enhanced_episode_plot.TechnicalIntegration
+      - noveler.domain.entities.enhanced_episode_plot.ThreeActStructure
+      - noveler.domain.entities.enhanced_episode_plot.WritingGuidance
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.episode:
+      imports:
+      - noveler.domain.exceptions.DomainException
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.episode_title.EpisodeTitle
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.quality_score.QualityScore
+      - noveler.domain.value_objects.word_count.WordCount
+      imported_by: []
+    noveler.domain.entities.episode_completion:
+      imports:
+      - noveler.domain.entities.scene_entity.Scene
+      - noveler.domain.exceptions.EpisodeCompletionError
+      - noveler.domain.value_objects.episode_completion.CharacterGrowthEvent
+      - noveler.domain.value_objects.episode_completion.EpisodeCompletionEvent
+      - noveler.domain.value_objects.episode_completion.ForeshadowingStatus
+      - noveler.domain.value_objects.episode_completion.GrowthType
+      - noveler.domain.value_objects.episode_completion.ImportantScene
+      - noveler.domain.value_objects.episode_completion.SceneType
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.episode_completion_session:
+      imports:
+      - noveler.domain.value_objects.completion_status.CompletionStatusType
+      - noveler.domain.value_objects.completion_status.QualityCheckResult
+      - noveler.domain.value_objects.completion_status.WritingPhase
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.quality_score.QualityScore
+      imported_by: []
+    noveler.domain.entities.episode_metadata:
+      imports:
+      - noveler.domain.interfaces.logger_service.ILoggerService
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.episode_prompt:
+      imports:
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.prompt_file_name.PromptFileName
+      imported_by: []
+    noveler.domain.entities.episode_publisher:
+      imports:
+      - noveler.domain.interfaces.logger_service.ILoggerService
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.episode_quality:
+      imports:
+      - noveler.domain.interfaces.logger_service.ILoggerService
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.error_context:
+      imports:
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      imported_by: []
+    noveler.domain.entities.file_change_event:
+      imports:
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.file_quality_check_session:
+      imports:
+      - noveler.domain.value_objects.file_path.FilePath
+      imported_by: []
+    noveler.domain.entities.foreshadowing_validation_session:
+      imports:
+      - noveler.domain.value_objects.foreshadowing.Foreshadowing
+      - noveler.domain.value_objects.foreshadowing_issue.ForeshadowingDetectionResult
+      - noveler.domain.value_objects.foreshadowing_issue.ForeshadowingIssue
+      - noveler.domain.value_objects.foreshadowing_issue.ForeshadowingIssueType
+      - noveler.domain.value_objects.foreshadowing_issue.ForeshadowingSeverity
+      - noveler.domain.value_objects.foreshadowing_issue.ForeshadowingValidationConfig
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.generated_episode_plot:
+      imports:
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.holistic_analysis_result:
+      imports:
+      - noveler.domain.value_objects.holistic_score.HolisticScore
+      imported_by: []
+    noveler.domain.entities.integrated_writing_session:
+      imports:
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.yaml_prompt_content.YamlPromptContent
+      imported_by: []
+    noveler.domain.entities.learning_session:
+      imports:
+      - noveler.domain.exceptions.BusinessRuleViolationError
+      - noveler.domain.value_objects.learning_metrics.LearningMetrics
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.manuscript_plot_link:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.novel_configuration:
+      imports:
+      - noveler.domain.value_objects.configuration_section.ConfigurationSection
+      imported_by: []
+    noveler.domain.entities.plot_creation_task:
+      imports:
+      - noveler.domain.value_objects.merge_strategy.MergeStrategy
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      imported_by: []
+    noveler.domain.entities.plot_version:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.plot_version_entities:
+      imports:
+      - noveler.domain.exceptions.InvalidVersionError
+      imported_by: []
+    noveler.domain.entities.plot_workflow:
+      imports:
+      - noveler.domain.entities.workflow_stage.WorkflowStage
+      - noveler.domain.value_objects.prerequisite_rule.PrerequisiteRule
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      imported_by: []
+    noveler.domain.entities.previous_episode_context:
+      imports:
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      imported_by: []
+    noveler.domain.entities.pre_writing_check:
+      imports:
+      - noveler.domain.exceptions.DomainException
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.progress_report:
+      imports:
+      - noveler.domain.value_objects.progress_status.NextAction
+      - noveler.domain.value_objects.progress_status.ProgressStatus
+      - noveler.domain.value_objects.time_estimation.TimeEstimation
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      imported_by: []
+    noveler.domain.entities.prompt_generation:
+      imports:
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.quality_checker_strategy:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.quality_issue.IssueCategory
+      - noveler.domain.value_objects.quality_issue.IssueSeverity
+      - noveler.domain.value_objects.quality_issue.QualityIssue
+      - noveler.domain.value_objects.session_id.SessionId
+      imported_by: []
+    noveler.domain.entities.quality_check_aggregate:
+      imports:
+      - noveler.domain.exceptions.DomainException
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.quality_threshold.QualityThreshold
+      imported_by: []
+    noveler.domain.entities.quality_check_prompt:
+      imports:
+      - noveler.domain.entities.enhanced_episode_plot.EnhancedEpisodePlot
+      - noveler.domain.value_objects.quality_check_level.QualityCheckLevel
+      - noveler.domain.value_objects.quality_check_level.QualityCheckRequest
+      - noveler.domain.value_objects.quality_check_level.QualityCriterion
+      - noveler.domain.value_objects.quality_check_level.get_claude_optimized_criteria
+      - noveler.domain.value_objects.quality_check_level.get_standard_quality_criteria
+      imported_by: []
+    noveler.domain.entities.quality_check_prompt_record:
+      imports:
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      - noveler.domain.value_objects.execution_result.ExecutionResult
+      imported_by: []
+    noveler.domain.entities.quality_check_session:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.quality_record:
+      imports:
+      - noveler.domain.exceptions.QualityRecordError
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.quality_check_result.QualityCheckResult
+      - noveler.domain.value_objects.quality_check_result.QualityScore
+      imported_by: []
+    noveler.domain.entities.quality_record_enhancement:
+      imports:
+      - noveler.domain.exceptions.BusinessRuleViolationError
+      - noveler.domain.value_objects.learning_metrics.LearningMetrics
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.scene_entity:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectDateTime
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.domain.value_objects.scene_direction.SceneDirection
+      - noveler.domain.value_objects.scene_setting.SceneSetting
+      imported_by: []
+    noveler.domain.entities.session_analysis_result:
+      imports:
+      - noveler.domain.entities.a31_priority_item.A31PriorityItem
+      imported_by: []
+    noveler.domain.entities.settings_file_watcher:
+      imports:
+      - noveler.domain.entities.file_change_event.FileChangeEvent
+      - noveler.domain.entities.file_change_event.FileChangeType
+      - noveler.domain.exceptions.DomainException
+      - noveler.domain.repositories.file_system_repository.FileSystemRepository
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.domain.entities.similarity_analyzer:
+      imports:
+      - noveler.domain.interfaces.logger_service.ILoggerService
+      - noveler.domain.value_objects.function_signature.FunctionSignature
+      - noveler.domain.value_objects.function_signature.FunctionSimilarityMatch
+      imported_by: []
+    noveler.domain.entities.smart_auto_enhancement:
+      imports:
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.project_info.ProjectInfo
+      - noveler.domain.value_objects.quality_score.QualityScore
+      imported_by: []
+    noveler.domain.entities.staged_prompt:
+      imports:
+      - noveler.domain.value_objects.prompt_stage.PromptStage
+      - noveler.domain.value_objects.prompt_stage.get_stage_by_number
+      imported_by: []
+    noveler.domain.entities.unified_analysis_context:
+      imports:
+      - noveler.domain.value_objects.analysis_scope.AnalysisScope
+      imported_by: []
+    noveler.domain.entities.user_guidance:
+      imports:
+      - noveler.domain.value_objects.time_estimation.TimeEstimation
+      - noveler.domain.value_objects.workflow_stage_type.WorkflowStageType
+      imported_by: []
+    noveler.domain.entities.workflow_stage:
+      imports:
+      - noveler.domain.value_objects.prerequisite_rule.PrerequisiteRule
+      imported_by: []
+    noveler.domain.entities:
+      imports:
+      - noveler.domain.entities.scene_entity.ImportanceLevel
+      - noveler.domain.entities.scene_entity.Scene
+      - noveler.domain.entities.scene_entity.SceneCategory
+      imported_by: []
+    noveler.infrastructure.adapters.ast_analysis_adapter:
+      imports:
+      - noveler.domain.value_objects.import_statement.ImportScope
+      - noveler.domain.value_objects.import_statement.ImportStatement
+      - noveler.domain.value_objects.import_statement.ImportType
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.claude_code_adapter:
+      imports:
+      - noveler.domain.entities.file_quality_check_session.FileQualityCheckSession
+      - noveler.domain.value_objects.project_time.project_now
+      imported_by: []
+    noveler.infrastructure.adapters.claude_plot_adapter:
+      imports:
+      - noveler.domain.services.claude_code_evaluation_service.ClaudeCodeEvaluationService
+      imported_by: []
+    noveler.infrastructure.adapters.claude_quality_check_adapter:
+      imports:
+      - noveler.application.use_cases.claude_quality_check_use_case.ClaudeQualityCheckUseCase
+      - noveler.domain.services.claude_quality_analyzer.ClaudeQualityAnalyzer
+      - noveler.infrastructure.adapters.path_service_adapter.create_path_service
+      - noveler.infrastructure.config.environment_manager.get_environment_manager
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.repositories.yaml_claude_quality_prompt_repository.YamlClaudeQualityPromptRepository
+      - noveler.infrastructure.repositories.yaml_claude_quality_prompt_repository.YamlClaudeQualityResultRepository
+      imported_by: []
+    noveler.infrastructure.adapters.cli_adapter:
+      imports:
+      - noveler.application.services.scene_statistics_service.SceneStatisticsService
+      - noveler.application.use_cases.analyze_dropout_rate_use_case.AnalyzeDropoutRateUseCase
+      - noveler.application.use_cases.analyze_dropout_rate_use_case.DropoutAnalysisRequest
+      - noveler.application.use_cases.check_character_consistency_use_case.CharacterConsistencyRequest
+      - noveler.application.use_cases.check_character_consistency_use_case.CheckCharacterConsistencyUseCase
+      - noveler.application.use_cases.complete_episode_use_case.CompleteEpisodeDependencies
+      - noveler.application.use_cases.complete_episode_use_case.CompleteEpisodeRequest
+      - noveler.application.use_cases.complete_episode_use_case.CompleteEpisodeUseCase
+      - noveler.application.use_cases.quality_check_use_case.QualityCheckRequest
+      - noveler.application.use_cases.quality_check_use_case.QualityCheckUseCase
+      - noveler.domain.quality.services.QualityReportGenerator
+      - noveler.domain.writing.value_objects.EpisodeNumber
+      - noveler.infrastructure.persistence.file_episode_repository.FileEpisodeRepository
+      - noveler.infrastructure.persistence.file_proper_noun_repository.FileProperNounRepository
+      - noveler.infrastructure.repositories.yaml_episode_repository.YamlEpisodeRepository
+      - noveler.infrastructure.repositories.yaml_plot_repository.YamlPlotRepository
+      - noveler.infrastructure.repositories.yaml_project_repository.YamlProjectRepository
+      imported_by: []
+    noveler.infrastructure.adapters.configuration_service_adapter:
+      imports:
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      imported_by: []
+    noveler.infrastructure.adapters.config_loader_adapter:
+      imports:
+      - noveler.infrastructure.repositories.configuration_repository.ConfigurationRepository
+      imported_by: []
+    noveler.infrastructure.adapters.console_service_adapter:
+      imports:
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.infrastructure.adapters.domain_event_publisher_adapter:
+      imports:
+      - noveler.domain.interfaces.event_publisher_protocol.DomainEvent
+      - noveler.domain.interfaces.event_publisher_protocol.EventLevel
+      - noveler.domain.interfaces.event_publisher_protocol.IDomainEventPublisher
+      - noveler.domain.interfaces.event_publisher_protocol.ProgressEvent
+      - noveler.domain.interfaces.event_publisher_protocol.ValidationEvent
+      imported_by: []
+    noveler.infrastructure.adapters.domain_logger_adapter:
+      imports:
+      - noveler.domain.interfaces.logger.ILogger
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.enhanced_git_service:
+      imports:
+      - noveler.infrastructure.adapters.git_service.GitService
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.error_handler_adapter:
+      imports:
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      - noveler.infrastructure.shared.error_handling_service.ConfigError
+      - noveler.infrastructure.shared.error_handling_service.DependencyError
+      - noveler.infrastructure.shared.error_handling_service.ErrorContext
+      - noveler.infrastructure.shared.error_handling_service.ErrorHandlingService
+      - noveler.infrastructure.shared.error_handling_service.FileAccessError
+      - noveler.infrastructure.shared.error_handling_service.NovelSystemError
+      - noveler.infrastructure.shared.error_handling_service.ValidationError
+      imported_by: []
+    noveler.infrastructure.adapters.error_logging_adapter:
+      imports:
+      - noveler.domain.services.error_classification_service.ErrorCategory
+      - noveler.domain.services.error_classification_service.ErrorSeverity
+      - noveler.domain.services.error_reporting_service.ErrorContext
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.git_information_adapter:
+      imports:
+      - noveler.domain.value_objects.commit_information.CommitInformation
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.infrastructure.adapters.git_service:
+      imports:
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.hierarchical_config_adapter:
+      imports:
+      - noveler.domain.value_objects.configuration_value.ConfigurationHierarchy
+      - noveler.domain.value_objects.configuration_value.ConfigurationLevel
+      - noveler.domain.value_objects.configuration_value.DefaultConfiguration
+      - noveler.domain.value_objects.configuration_value.EnvironmentConfiguration
+      imported_by: []
+    noveler.infrastructure.adapters.logger_service_adapter:
+      imports:
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.message_service_adapter:
+      imports:
+      - noveler.application.services.message_service.MessageService
+      - noveler.application.services.message_service.MessageType
+      imported_by: []
+    noveler.infrastructure.adapters.path_service_adapter:
+      imports:
+      - noveler.infrastructure.config.project_detector.detect_project_root
+      imported_by: []
+    noveler.infrastructure.adapters.prompt_generation_adapter:
+      imports:
+      - noveler.application.use_cases.prompt_generation_use_case.PromptGenerationUseCase
+      - noveler.domain.services.prompt_generation_service.PromptGenerationService
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.repositories.file_a24_guide_repository.FileA24GuideRepository
+      - noveler.infrastructure.repositories.yaml_project_context_repository.YamlProjectContextRepository
+      - noveler.infrastructure.services.claude_code_prompt_optimizer.ClaudeCodePromptOptimizer
+      imported_by: []
+    noveler.infrastructure.adapters.retry_adapter:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.settings_repository_adapter:
+      imports:
+      - noveler.domain.interfaces.settings_repository.IProjectSettingsRepository
+      - noveler.domain.interfaces.settings_repository.ISettingsRepositoryFactory
+      - noveler.domain.interfaces.settings_repository.IWriterProgressRepository
+      - noveler.domain.value_objects.quality_standards.Genre
+      - noveler.domain.value_objects.quality_standards.QualityStandard
+      - noveler.domain.value_objects.quality_standards.WriterLevel
+      - noveler.infrastructure.yaml_project_settings_repository.YamlProjectSettingsRepository
+      - noveler.infrastructure.yaml_writer_progress_repository.YamlWriterProgressRepository
+      imported_by: []
+    noveler.infrastructure.adapters.shell_service_adapter:
+      imports:
+      - noveler.domain.interfaces.console_service_protocol.IConsoleService
+      - noveler.domain.interfaces.logger_service_protocol.ILoggerService
+      - noveler.tests.contracts.functional_core_contract.FunctionalCoreContract
+      imported_by: []
+    noveler.infrastructure.adapters.similarity_calculation_adapter:
+      imports:
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.infrastructure.adapters.smart_auto_enhancement_adapter:
+      imports:
+      - noveler.application.use_cases.smart_auto_enhancement_use_case.SmartAutoEnhancementUseCase
+      - noveler.domain.services.smart_auto_enhancement_service.A31Evaluator
+      - noveler.domain.services.smart_auto_enhancement_service.BasicQualityChecker
+      - noveler.domain.services.smart_auto_enhancement_service.ClaudeAnalyzer
+      - noveler.domain.services.smart_auto_enhancement_service.SmartAutoEnhancementService
+      - noveler.domain.value_objects.quality_score.QualityScore
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.repositories.yaml_episode_repository.YamlEpisodeRepository
+      imported_by: []
+    noveler.infrastructure.adapters.yaml_handler_adapter:
+      imports:
+      - noveler.domain.interfaces.yaml_handler.IYamlHandler
+      - noveler.infrastructure.utils.yaml_utils.YAMLHandler
+      imported_by: []
+    noveler.infrastructure.adapters.yaml_processor_adapter:
+      imports:
+      - noveler.domain.interfaces.yaml_processor.IYamlContentProcessor
+      - noveler.domain.interfaces.yaml_processor.IYamlProcessor
+      - noveler.infrastructure.utils.yaml_utils.YAMLHandler
+      - noveler.infrastructure.utils.yaml_utils.YAMLMultilineString
+      imported_by: []
+    noveler.infrastructure.adapters.yaml_validator_adapter:
+      imports:
+      - noveler.domain.quality.entities.QualityReport
+      - noveler.domain.quality.entities.QualityViolation
+      - noveler.domain.quality.value_objects.ErrorContext
+      - noveler.domain.quality.value_objects.ErrorSeverity
+      - noveler.domain.quality.value_objects.LineNumber
+      - noveler.domain.quality.value_objects.RuleCategory
+      - noveler.infrastructure.exceptions.YAMLParseException
+      - noveler.infrastructure.utils.YAMLHandler
+      imported_by: []
+    noveler.infrastructure.adapters:
+      imports:
+      - noveler.infrastructure.adapters.cli_adapter.CLIAdapter
+      - noveler.infrastructure.adapters.yaml_validator_adapter.YAMLValidatorAdapter
+      imported_by: []
+    noveler.presentation.cli.accumulate_learning_data:
+      imports:
+      - noveler.application.use_cases.learning_data_accumulator.BatchLearningDataProcessor
+      - noveler.application.use_cases.learning_data_accumulator.LearningDataAccumulator
+      - noveler.domain.learning.repositories.LearningDataRepositoryInterface
+      - noveler.domain.learning.services.QualityCorrelationAnalyzer
+      - noveler.domain.learning.services.StyleLearningService
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.config_cli:
+      imports:
+      - noveler.infrastructure.adapters.hierarchical_config_adapter.HierarchicalConfig
+      imported_by: []
+    noveler.presentation.cli.environment_setup:
+      imports:
+      - noveler.infrastructure.config.project_detector.detect_project_root
+      - noveler.infrastructure.di.container.auto_setup_container
+      - noveler.presentation.cli.guide_root_finder.find_guide_root
+      imported_by: []
+    noveler.presentation.cli.logging_options:
+      imports:
+      - noveler.infrastructure.logging.unified_logger.LogFormat
+      - noveler.infrastructure.logging.unified_logger.UnifiedLogger
+      - noveler.infrastructure.logging.unified_logger.configure_logging
+      - noveler.infrastructure.logging.unified_logger.get_logger
+      imported_by: []
+    noveler.presentation.cli.main:
+      imports:
+      - noveler.presentation.cli.novel_cli.cli_main
+      imported_by: []
+    noveler.presentation.cli.novel_cli:
+      imports:
+      - noveler.application.use_cases.complete_episode_use_case.CompleteEpisodeDependencies
+      - noveler.application.use_cases.complete_episode_use_case.CompleteEpisodeRequest
+      - noveler.application.use_cases.complete_episode_use_case.CompleteEpisodeUseCase
+      - noveler.application.use_cases.smart_auto_enhancement_use_case.SmartAutoEnhancementUseCaseRequest
+      - noveler.application.use_cases.start_file_watching_use_case.FileWatchRequest
+      - noveler.application.use_cases.start_file_watching_use_case.StartFileWatchingUseCase
+      - noveler.application.use_cases.start_file_watching_use_case.WatchMode
+      - noveler.domain.entities.file_change_event.FilePattern
+      - noveler.domain.entities.smart_auto_enhancement.EnhancementStage
+      - noveler.infrastructure.adapters.smart_auto_enhancement_adapter.SmartAutoEnhancementServiceFactory
+      - noveler.infrastructure.config.environment_manager.setup_environment
+      - noveler.infrastructure.di.simple_di_container.configure_dependencies
+      - noveler.infrastructure.repositories.memory_file_quality_check_session_repository.MemoryFileQualityCheckSessionRepository
+      - noveler.infrastructure.repositories.yaml_episode_repository.YamlEpisodeRepository
+      - noveler.infrastructure.repositories.yaml_plot_repository.YamlPlotRepository
+      - noveler.infrastructure.repositories.yaml_project_repository.YamlProjectRepository
+      - noveler.presentation.cli.commands.ACTIVE_COMMAND_REGISTRY
+      - noveler.presentation.cli.commands.QUALITY_SUBCOMMAND_REGISTRY
+      - noveler.presentation.cli.commands.STANDALONE_COMMANDS
+      - noveler.presentation.cli.commands.codemap_commands.codemap_group
+      - noveler.presentation.cli.commands.core_commands._execute_claude_feedback_integration
+      - noveler.presentation.cli.commands.core_commands._execute_claude_quality_prompt_analysis
+      - noveler.presentation.cli.commands.core_commands.check
+      - noveler.presentation.cli.commands.core_commands.detailed_check
+      - noveler.presentation.cli.commands.core_commands.write
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_app_state
+      - noveler.presentation.cli.shared_utilities.get_project_handler
+      - noveler.presentation.cli.shared_utilities.handle_command_error
+      imported_by: []
+    noveler.presentation.cli.novel_init_cli:
+      imports:
+      - noveler.application.use_cases.initialization.interactive_project_initializer.InteractiveProjectInitializerUseCase
+      - noveler.application.use_cases.initialization.interactive_project_initializer.ProjectInitializationOrchestrator
+      - noveler.domain.initialization.services.ProjectSetupService
+      - noveler.domain.initialization.services.QualityStandardConfigService
+      - noveler.domain.initialization.services.TemplateSelectionService
+      - noveler.infrastructure.persistence.file_project_initialization_repository.FileProjectInitializationRepository
+      - noveler.infrastructure.persistence.initialization.file_project_template_repository.FileProjectTemplateRepository
+      imported_by: []
+    noveler.presentation.cli.plot_commands:
+      imports:
+      - noveler.application.use_cases.plot_creation_orchestrator.PlotCreationOrchestrator
+      - noveler.infrastructure.logging.logger.setup_logger
+      - noveler.infrastructure.shared.error_handling_service.ErrorHandlingService
+      imported_by: []
+    noveler.presentation.cli.plot_creator_cli:
+      imports:
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.config.unified_config_manager.get_configuration_manager
+      - noveler.infrastructure.services.episode_title_service.get_episode_title_service
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.plot_workflow_cli:
+      imports:
+      - noveler.domain.value_objects.project_time.ProjectTimezone
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.config.unified_config_manager.get_configuration_manager
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.project_commands:
+      imports:
+      - noveler.infrastructure.logging.logger.setup_logger
+      - noveler.infrastructure.shared.error_handling_service.ErrorHandlingService
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.prompt_record_commands:
+      imports:
+      - noveler.domain.repositories.prompt_record_repository.PromptRecordQueryService
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      - noveler.infrastructure.repositories.yaml_prompt_record_repository.YamlPromptRecordRepository
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.presentation.cli.quality_commands:
+      imports:
+      - noveler.infrastructure.logging.logger.setup_logger
+      - noveler.infrastructure.repositories.yaml_a31_checklist_repository.YamlA31ChecklistRepository
+      - noveler.infrastructure.shared.error_handling_service.ErrorHandlingService
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.shared_utilities:
+      imports:
+      - noveler.domain.value_objects.project_paths.ProjectPaths
+      - noveler.infrastructure.config.project_detector.detect_project_root
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.presentation.cli.environment_setup.initialize_environment
+      - noveler.presentation.cli.guide_root_finder.find_guide_root
+      - noveler.presentation.cli.plot_commands.PlotCommandHandler
+      - noveler.presentation.cli.project_commands.ProjectCommandHandler
+      - noveler.presentation.cli.quality_commands.QualityCommandHandler
+      - noveler.presentation.cli.writing_commands.WritingCommandHandler
+      imported_by: []
+    noveler.presentation.cli.ui_enhancements:
+      imports:
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.presentation.cli.writing_commands:
+      imports:
+      - noveler.application.use_cases.create_episode_use_case.CreateEpisodeRequest
+      - noveler.application.use_cases.create_episode_use_case.CreateEpisodeUseCase
+      - noveler.application.use_cases.enhanced_integrated_writing_use_case.EnhancedIntegratedWritingRequest
+      - noveler.application.use_cases.enhanced_integrated_writing_use_case.EnhancedIntegratedWritingUseCase
+      - noveler.application.use_cases.integrated_writing_use_case.IntegratedWritingRequest
+      - noveler.application.use_cases.integrated_writing_use_case.IntegratedWritingUseCase
+      - noveler.domain.value_objects.writing_phase.WritingPhase
+      - noveler.infrastructure.adapters.config_loader_adapter.get_config
+      - noveler.infrastructure.integrations.claude_code_integration_service.ClaudeCodeIntegrationService
+      - noveler.infrastructure.repositories.ruamel_yaml_prompt_repository.RuamelYamlPromptRepository
+      - noveler.infrastructure.repositories.yaml_episode_repository.YamlEpisodeRepository
+      - noveler.infrastructure.repositories.yaml_plot_repository.YamlPlotRepository
+      - noveler.infrastructure.repositories.yaml_project_repository.YamlProjectRepository
+      - noveler.infrastructure.shared.error_handling_service.ErrorHandlingService
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.commands.a31_claude_integration_commands:
+      imports:
+      - noveler.application.use_cases.claude_analysis_request_generation_use_case.ClaudeAnalysisRequestGenerationUseCase
+      - noveler.application.use_cases.claude_analysis_request_generation_use_case.GenerateClaudeAnalysisRequest
+      - noveler.domain.services.a31_priority_extractor_service.A31PriorityExtractorService
+      - noveler.presentation.cli.commands.core_commands.check
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.commands.a31_command:
+      imports:
+      - noveler.application.use_cases.a31_batch_auto_fix_use_case.A31BatchAutoFixUseCase
+      - noveler.application.use_cases.a31_batch_auto_fix_use_case.A31BatchRequest
+      - noveler.application.use_cases.a31_complete_check_use_case.A31CompleteCheckUseCase
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31CompleteCheckRequest
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31EvaluationCategory
+      - noveler.infrastructure.config.environment_manager.get_environment_manager
+      - noveler.infrastructure.config.project_detector.get_current_project_name
+      - noveler.infrastructure.config.project_detector.validate_project_name
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.repositories.yaml_a31_checklist_repository.YamlA31ChecklistRepository
+      - noveler.infrastructure.repositories.yaml_episode_repository.YamlEpisodeRepository
+      - noveler.infrastructure.repositories.yaml_project_repository.YamlProjectRepository
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      - noveler.presentation.cli.shared_utilities.handle_command_error
+      imported_by: []
+    noveler.presentation.cli.commands.a31_command_integration:
+      imports:
+      - noveler.application.use_cases.a31_auto_fix_use_case.A31AutoFixUseCase
+      - noveler.application.use_cases.a31_claude_code_evaluation_use_case.A31ClaudeCodeEvaluationRequest
+      - noveler.application.use_cases.a31_claude_code_evaluation_use_case.A31ClaudeCodeEvaluationUseCase
+      - noveler.application.use_cases.complete_episode_use_case.CompleteEpisodeUseCase
+      - noveler.application.use_cases.integrated_quality_check_use_case.IntegratedQualityCheckUseCase
+      - noveler.domain.value_objects.a31_fix_level.FixLevel
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.presentation.cli.commands.codemap_commands:
+      imports:
+      - noveler.application.use_cases.b20_pre_implementation_check_use_case.B20PreImplementationCheckRequest
+      - noveler.application.use_cases.b20_pre_implementation_check_use_case.B20PreImplementationCheckUseCase
+      - noveler.application.use_cases.codemap_auto_update_use_case.CodeMapAutoUpdateRequest
+      - noveler.application.use_cases.codemap_auto_update_use_case.CodeMapAutoUpdateUseCase
+      - noveler.domain.services.b20_pre_implementation_check_service.B20PreImplementationCheckService
+      - noveler.domain.services.codemap_synchronization_service.CodeMapSynchronizationService
+      - noveler.infrastructure.adapters.git_information_adapter.GitInformationAdapter
+      - noveler.infrastructure.git.hooks.codemap_post_commit_hook.CodeMapPostCommitHook
+      - noveler.infrastructure.git.hooks.codemap_post_commit_hook.install_codemap_post_commit_hook
+      - noveler.infrastructure.repositories.yaml_codemap_repository.YamlCodeMapRepository
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.presentation.cli.commands.core_commands:
+      imports:
+      - noveler.application.use_cases.a31_complete_check_use_case.A31CompleteCheckUseCase
+      - noveler.application.use_cases.a31_detailed_evaluation_use_case.A31DetailedEvaluationRequest
+      - noveler.application.use_cases.a31_detailed_evaluation_use_case.A31DetailedEvaluationUseCase
+      - noveler.application.use_cases.claude_quality_check_use_case.ClaudeQualityCheckUseCaseRequest
+      - noveler.application.use_cases.five_stage_writing_use_case.FiveStageWritingUseCase
+      - noveler.domain.entities.a31_complete_evaluation_engine.A31CompleteCheckRequest
+      - noveler.domain.services.a31_result_integrator.A31ResultIntegrator
+      - noveler.domain.services.in_session_claude_analyzer.InSessionClaudeAnalyzer
+      - noveler.domain.services.text_rhythm_analysis_service.TextRhythmAnalysisService
+      - noveler.domain.services.text_rhythm_visualizer.TextRhythmVisualizer
+      - noveler.domain.value_objects.a31_evaluation_category.A31EvaluationCategory
+      - noveler.domain.value_objects.five_stage_writing_execution.FiveStageWritingRequest
+      - noveler.infrastructure.adapters.claude_quality_check_adapter.ClaudeQualityCheckServiceFactory
+      - noveler.infrastructure.config.environment_manager.get_environment_manager
+      - noveler.infrastructure.config.project_detector.get_current_project_name
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.repositories.yaml_a31_checklist_repository.YamlA31ChecklistRepository
+      - noveler.infrastructure.repositories.yaml_detailed_evaluation_repository.YamlDetailedEvaluationRepository
+      - noveler.infrastructure.repositories.yaml_episode_repository.YamlEpisodeRepository
+      - noveler.infrastructure.repositories.yaml_project_repository.YamlProjectRepository
+      - noveler.presentation.cli.logging_options.setup_logging_from_options
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_app_state
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      - noveler.presentation.cli.shared_utilities.get_writing_handler
+      - noveler.presentation.cli.shared_utilities.handle_command_error
+      - noveler.presentation.cli.shared_utilities.show_success_summary
+      imported_by: []
+    noveler.presentation.cli.commands.enhanced_plot_commands:
+      imports:
+      - noveler.application.use_cases.previous_episode_analysis_use_case.EnhancedPromptGenerationRequest
+      - noveler.application.use_cases.previous_episode_analysis_use_case.PreviousEpisodeAnalysisRequest
+      - noveler.application.use_cases.previous_episode_analysis_use_case.PreviousEpisodeAnalysisUseCase
+      - noveler.domain.entities.chapter_plot.ChapterPlot
+      - noveler.presentation.cli.logging_options.setup_logging_from_options
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.commands.error_monitor_command:
+      imports:
+      - noveler.infrastructure.mcp.error_detection_server.ErrorDetectionServer
+      imported_by: []
+    noveler.presentation.cli.commands.five_stage_help_commands:
+      imports:
+      - noveler.application.use_cases.five_stage_writing_use_case.FiveStageWritingUseCase
+      - noveler.infrastructure.integrations.claude_code_integration_service.ClaudeCodeIntegrationConfig
+      - noveler.infrastructure.user_interaction.five_stage_feedback_system.create_feedback_system
+      - noveler.presentation.cli.shared_utilities.console
+      imported_by: []
+    noveler.presentation.cli.commands.fix_syntax_command:
+      imports:
+      - noveler.infrastructure.tools.syntax_fixer.FixMode
+      - noveler.infrastructure.tools.syntax_fixer.SyntaxFixer
+      imported_by: []
+    noveler.presentation.cli.commands.health_backup_commands:
+      imports:
+      - noveler.application.use_cases.claude_code_management_use_case.ClaudeCodeManagementUseCase
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_app_state
+      - noveler.presentation.cli.shared_utilities.handle_command_error
+      - noveler.presentation.cli.shared_utilities.show_success_summary
+      imported_by: []
+    noveler.presentation.cli.commands.health_command:
+      imports:
+      - noveler.application.use_cases.system_doctor_use_case.SystemDoctorRequest
+      - noveler.application.use_cases.system_doctor_use_case.SystemDoctorUseCase
+      - noveler.application.use_cases.system_repair_use_case.SystemRepairRequest
+      - noveler.application.use_cases.system_repair_use_case.SystemRepairUseCase
+      - noveler.infrastructure.mcp.error_detection_server.ErrorDetectionServer
+      - noveler.infrastructure.repositories.yaml_project_repository.YamlProjectRepository
+      imported_by: []
+    noveler.presentation.cli.commands.plot_scene_commands:
+      imports:
+      - noveler.application.use_cases.enhanced_plot_generation_use_case.EnhancedPlotGenerationUseCase
+      - noveler.application.use_cases.enhanced_plot_generation_use_case_factory.EnhancedPlotGenerationUseCaseFactory
+      - noveler.application.use_cases.interactive_plot_improvement_use_case.InteractivePlotImprovementUseCase
+      - noveler.application.use_cases.plot_generation_use_case.PlotGenerationUseCase
+      - noveler.application.use_cases.plot_quality_assurance_use_case.PlotQualityAssuranceUseCase
+      - noveler.application.use_cases.previous_episode_analysis_use_case.BidirectionalEnhancedPromptGenerationRequest
+      - noveler.application.use_cases.previous_episode_analysis_use_case.EnhancedPromptGenerationRequest
+      - noveler.application.use_cases.previous_episode_analysis_use_case.PreviousEpisodeAnalysisRequest
+      - noveler.application.use_cases.previous_episode_analysis_use_case.PreviousEpisodeAnalysisUseCase
+      - noveler.application.use_cases.prompt_generation_use_case.OptimizationTarget
+      - noveler.application.use_cases.prompt_generation_use_case.PromptGenerationUseCaseRequest
+      - noveler.domain.entities.contextual_plot_generation.PlotGenerationConfig
+      - noveler.domain.services.chapter_plot_inference_service.ChapterPlotInferenceService
+      - noveler.domain.value_objects.episode_number.EpisodeNumber
+      - noveler.domain.value_objects.project_time.project_now
+      - noveler.infrastructure.adapters.prompt_generation_adapter.PromptGenerationAdapterFactory
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.integrations.claude_code_session_interface.is_claude_code_environment
+      - noveler.infrastructure.services.episode_title_service.get_episode_title_service
+      - noveler.infrastructure.utils.yaml_utils.get_unified_yaml_service
+      - noveler.presentation.cli.plot_creator_cli.PlotCreatorCLI
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_app_state
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      - noveler.presentation.cli.shared_utilities.handle_command_error
+      - noveler.presentation.cli.shared_utilities.show_success_summary
+      imported_by: []
+    noveler.presentation.cli.commands.prompt_commands:
+      imports:
+      - noveler.application.use_cases.episode_prompt_save_use_case.EpisodePromptSaveUseCase
+      - noveler.application.use_cases.episode_prompt_save_use_case.PromptSaveRequest
+      - noveler.domain.entities.chapter_plot.ChapterPlot
+      - noveler.domain.services.enhanced_prompt_template_service.EnhancedPromptContext
+      - noveler.domain.services.enhanced_prompt_template_service.EnhancedPromptTemplateService
+      - noveler.domain.services.episode_title_retrieval_service.EpisodeTitleRetrievalService
+      - noveler.domain.value_objects.chapter_number.ChapterNumber
+      - noveler.domain.value_objects.writing_phase.WritingPhase
+      - noveler.infrastructure.factories.a30_guide_service_factory.A30GuideServiceFactory
+      - noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      - noveler.infrastructure.repositories.episode_prompt_repository.EpisodePromptRepository
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      - noveler.tools.prompt_validation_tool.PromptValidationTool
+      imported_by: []
+    noveler.presentation.cli.commands.quality_check_commands:
+      imports:
+      - noveler.application.use_cases.quality_check_prompt_use_case.QualityCheckPromptGenerationRequest
+      - noveler.application.use_cases.quality_check_prompt_use_case.QualityCheckPromptUseCaseFactory
+      - noveler.domain.value_objects.quality_check_level.QualityCheckLevel
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.commands.quality_commands:
+      imports:
+      - noveler.application.use_cases.export_errors_for_claude_use_case.ExportErrorsForClaudeUseCase
+      - noveler.application.use_cases.export_errors_for_claude_use_case.ExportErrorsRequest
+      - noveler.domain.services.claude_code_format_service.ClaudeCodeFormatService
+      - noveler.domain.value_objects.file_path.FilePath
+      - noveler.infrastructure.adapters.claude_code_adapter.ClaudeCodeAdapter
+      - noveler.infrastructure.repositories.memory_file_quality_check_session_repository.MemoryFileQualityCheckSessionRepository
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_app_state
+      - noveler.presentation.cli.shared_utilities.get_quality_handler
+      imported_by: []
+    noveler.presentation.cli.commands.staged_prompt_generation_commands:
+      imports:
+      - noveler.application.use_cases.staged_prompt_generation_use_case.StageAdvanceRequest
+      - noveler.application.use_cases.staged_prompt_generation_use_case.StagedPromptGenerationRequest
+      - noveler.application.use_cases.staged_prompt_generation_use_case.StagedPromptGenerationUseCase
+      - noveler.domain.services.staged_prompt_generation_service.StagedPromptGenerationService
+      - noveler.infrastructure.repositories.staged_prompt_template_repository.YamlStagedPromptTemplateRepository
+      - noveler.infrastructure.services.stage_quality_validator.A31IntegratedStageQualityValidator
+      - noveler.presentation.cli.shared_utilities.console
+      - noveler.presentation.cli.shared_utilities.get_common_path_service
+      imported_by: []
+    noveler.presentation.cli.commands:
+      imports:
+      - noveler.presentation.cli.commands.a31_claude_integration_commands.a31_claude_app
+      - noveler.presentation.cli.commands.a31_command.app
+      - noveler.presentation.cli.commands.core_commands.core_app
+      - noveler.presentation.cli.commands.health_backup_commands.backup_app
+      - noveler.presentation.cli.commands.health_backup_commands.health_app
+      - noveler.presentation.cli.commands.plot_scene_commands.plot_app
+      - noveler.presentation.cli.commands.plot_scene_commands.scene_app
+      - noveler.presentation.cli.commands.prompt_commands.prompt_app
+      - noveler.presentation.cli.commands.quality_check_commands.quality_check_app
+      - noveler.presentation.cli.commands.quality_commands.claude_export
+      - noveler.presentation.cli.commands.quality_commands.quality_app
+      - noveler.presentation.cli.commands.staged_prompt_generation_commands.staged_prompt_app
+      - noveler.presentation.cli.commands.test_commands.test_app
+      - noveler.presentation.cli.prompt_record_commands.prompt_record_app
+      imported_by: []
+  dependency_statistics:
+    total_modules: 605
+    max_dependency_depth: 2
+    circular_dependencies_found: 0
+    most_imported_modules:
+    - module: noveler.domain.value_objects.project_time.project_now
+      import_count: 113
+    - module: noveler.domain.value_objects.project_time.ProjectTimezone
+      import_count: 83
+    - module: noveler.infrastructure.logging.unified_logger.get_logger
+      import_count: 52
+    - module: noveler.domain.value_objects.episode_number.EpisodeNumber
+      import_count: 40
+    - module: noveler.infrastructure.adapters.path_service_adapter.create_path_service
+      import_count: 38
+    high_coupling: []
+  dependency_issues:
+    high_coupling: []
+    layer_violations:
+    - from: noveler.application.checkers.foreshadowing_checker
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.handlers.slash_command_handler
+      to: noveler.infrastructure.repositories.yaml_quality_record_repository.YamlQualityRecordRepository
+      violation: application -> infrastructure
+    - from: noveler.application.handlers.slash_command_handler
+      to: noveler.infrastructure.repositories.yaml_episode_repository.YamlEpisodeRepository
+      violation: application -> infrastructure
+    - from: noveler.application.handlers.slash_command_handler
+      to: noveler.infrastructure.adapters.path_service_adapter.create_path_service
+      violation: application -> infrastructure
+    - from: noveler.application.orchestrators.integrated_writing_orchestrator
+      to: noveler.infrastructure.logging.unified_logger.get_logger
+      violation: application -> infrastructure
+    - from: noveler.application.services.error_handling_service
+      to: noveler.infrastructure.logging.unified_logger.get_logger
+      violation: application -> infrastructure
+    - from: noveler.application.services.message_service
+      to: noveler.infrastructure.logging.unified_logger.get_logger
+      violation: application -> infrastructure
+    - from: noveler.application.services.path_helper_service
+      to: noveler.infrastructure.logging.unified_logger.get_logger
+      violation: application -> infrastructure
+    - from: noveler.application.services.scene_checklist_service
+      to: noveler.infrastructure.logging.unified_logger.get_logger
+      violation: application -> infrastructure
+    - from: noveler.application.services.scene_statistics_service
+      to: noveler.infrastructure.logging.unified_logger.get_logger
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.adaptive_quality_evaluation_use_case
+      to: noveler.infrastructure.adapters.settings_repository_adapter.get_settings_repository_factory
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.claude_code_management_use_case
+      to: noveler.infrastructure.claude_code_session_integration.ClaudeCodeSessionInterface
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.claude_code_management_use_case
+      to: noveler.infrastructure.claude_code_environment_manager.get_current_integration_config
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.claude_code_management_use_case
+      to: noveler.infrastructure.claude_code_environment_manager.get_environment_manager
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.complete_episode_use_case
+      to: noveler.infrastructure.di.simple_di_container.get_container
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.complete_episode_use_case
+      to: noveler.infrastructure.repositories.simple_yaml_episode_completion_repository.SimpleYamlCompletionTransactionManager
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.deploy_scripts_use_case
+      to: noveler.infrastructure.deployment.git_deployment_synchronizer.GitDeploymentSynchronizer
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.episode_management_sync_use_case
+      to: noveler.infrastructure.di.container.container
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.episode_prompt_save_use_case
+      to: noveler.infrastructure.repositories.episode_prompt_repository.EpisodePromptRepository
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.episode_prompt_save_use_case
+      to: noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.five_stage_writing_use_case
+      to: noveler.infrastructure.integrations.claude_code_integration_service.ClaudeCodeIntegrationService
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.generate_episode_plot_use_case
+      to: noveler.infrastructure.repositories.simple_yaml_chapter_plot_repository.SimpleYamlChapterPlotRepository
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.generate_episode_plot_use_case
+      to: noveler.infrastructure.di.simple_di_container.get_container
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.generate_episode_plot_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.initialize_quality_config_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.integrated_quality_check_use_case
+      to: noveler.infrastructure.repositories.yaml_foreshadowing_repository.YamlForeshadowingRepository
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.integrated_quality_check_use_case
+      to: noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.interactive_plot_improvement_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.interactive_plot_improvement_use_case
+      to: noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.plot_creation_orchestrator
+      to: noveler.infrastructure.persistence.yaml_template_repository.YamlTemplateRepository
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.plot_creation_orchestrator
+      to: noveler.infrastructure.persistence.file_system_project_file_repository.FileSystemProjectFileRepository
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.plot_quality_assurance_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.plot_quality_assurance_use_case
+      to: noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.previous_episode_analysis_use_case
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: application -> presentation
+    - from: noveler.application.use_cases.publish_preparation_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.quality_check_prompt_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.quality_check_prompt_use_case
+      to: noveler.infrastructure.repositories.quality_check_prompt_repository.FileSystemQualityCheckPromptRepository
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.scene_extraction_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.scene_management_use_case
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: application -> presentation
+    - from: noveler.application.use_cases.staged_prompt_generation_use_case
+      to: noveler.infrastructure.di.unified_repository_factory.UnifiedRepositoryFactory
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.start_file_watching_use_case
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: application -> presentation
+    - from: noveler.application.use_cases.start_file_watching_use_case
+      to: noveler.infrastructure.tools.ruff_auto_formatter.RuffAutoFormatter
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.universal_claude_code_use_case
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: application -> presentation
+    - from: noveler.application.use_cases.universal_claude_code_use_case_factory
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: application -> presentation
+    - from: noveler.application.use_cases.universal_claude_code_use_case_factory
+      to: noveler.infrastructure.integrations.universal_claude_code_service.UniversalClaudeCodeIService
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases.user_guidance_orchestrator
+      to: noveler.infrastructure.repositories.yaml_plot_progress_repository.YamlPlotProgressRepository
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases
+      to: noveler.infrastructure.factories.configuration_service_factory.get_configuration_manager
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases
+      to: noveler.infrastructure.adapters.unit_of_work_adapter.UnitOfWorkAdapter
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases
+      to: noveler.infrastructure.factories.unified_repository_factory.UnifiedRepositoryFactory
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases
+      to: noveler.infrastructure.di.container.resolve_service
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases
+      to: noveler.infrastructure.adapters.path_service_adapter.create_path_service
+      violation: application -> infrastructure
+    - from: noveler.application.use_cases
+      to: noveler.infrastructure.adapters.console_service_adapter.ConsoleServiceAdapter
+      violation: application -> infrastructure
+    - from: noveler.infrastructure.yaml_project_settings_repository
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.adapters.console_service_adapter
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.adapters.domain_logger_adapter
+      to: noveler.infrastructure.logging.unified_logger.get_logger
+      violation: domain -> infrastructure
+    - from: noveler.infrastructure.adapters.git_information_adapter
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.ci.ddd_quality_gate
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.di.domain_di_container_factory
+      to: noveler.infrastructure.di.simple_di_container.get_container
+      violation: domain -> infrastructure
+    - from: noveler.infrastructure.di.repository_factory
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.logging.unified_logger
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.repositories.yaml_codemap_repository
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.services.codemap_async_service
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.services.codemap_cache_service
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.services.codemap_parallel_processor
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.services.codemap_websocket_service
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.services.five_stage_execution_service
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.services.five_stage_execution_service
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.services.independent_session_executor
+      to: noveler.presentation.cli.shared_utilities.console
+      violation: infrastructure -> presentation
+    - from: noveler.infrastructure.utils.codemap_loader
+      to: noveler.presentation.cli.shared_utilities.get_common_path_service
+      violation: infrastructure -> presentation
+    unused_imports: []
+quality_metrics:
+  version: 1.0.0
+  generated_at: '2025-08-28'
+  generation_tools:
+    coverage: pytest-cov
+    lint: ruff
+    complexity: radon
+    type_check: mypy
+  test_coverage:
+    overall:
+      line_coverage: 0
+      branch_coverage: 0
+      function_coverage: 0
+    by_layer: {}
+  lint_scores:
+    overall_score: 100
+    issues_by_severity:
+      critical: 0
+      high: 0
+      medium: 0
+      low: 0
+  type_checking:
+    mypy_score: 0
+    files_checked: 0
+    files_with_errors: 0
+automation_config:
+  update_schedule: 0 0 * * *
+  dependency_map_generation:
+    tool: scripts/tools/dependency_analyzer.py
+    options:
+    - --include-tests
+    - --detect-circular
+    - --export-graphviz
+  quality_metrics_generation:
+    coverage:
+      command: pytest --cov=scripts --cov-report=json
+      output: .coverage.json
+    lint:
+      command: ruff check scripts --format=json
+      output: .ruff.json

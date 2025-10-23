@@ -1,0 +1,107 @@
+# STEP 6: 論理検証 Schema v2
+
+metadata:
+  step_id: 6
+  step_name: "論理検証"
+  phase: "structural_design"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "因果/動機/設定の矛盾を検出し修正方針を提示"
+  estimated_duration: "15-20分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      STEP5のシーン設計に対して論理検証を実施し、指摘と修正方針を出してください。
+
+prompt:
+  main_instruction: |
+    目的は「論理検証と修正方針の提示」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step05.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "1シーン1視点/時制統一を維持"
+    - "直説説明/感情直書きは避ける"
+  soft_targets:
+    - "セクション配分（STEP2/4）との整合を確認"
+    - "世界観/小道具/伏線（STEP10/11）との整合を確認"
+
+tasks:
+  bullets:
+    - 因果/動機/設定の矛盾を issues[] に列挙する
+    - fix_plan に修正方針を記す
+    - 配分/世界観/小道具/伏線の整合差分があれば補正案を記す
+  details:
+    - name: 検証観点
+      items:
+        - id: audit.causality
+          text: 因果（原因→結果の自然さ）
+        - id: audit.motivation
+          text: 動機（性格/状況と整合）
+        - id: audit.world_rules
+          text: 設定/世界観（ルールの一貫適用）
+        - id: audit.pov_time_ban
+          text: 視点/時制/禁止表現の逸脱
+    - name: 修正方針
+      items:
+        - id: fix.plan
+          text: どのシーン/ビートをどう変更するか
+        - id: fix.impact
+          text: 影響範囲（前後セクション/伏線）
+        - id: fix.alternative
+          text: 代替案の可否
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step06.yaml"
+  required_fields: ["issues", "fix_plan"]
+  example: |
+    issues:
+      - kind: "causality"
+        scene_id: "SC02"
+        detail: "…"
+    fix_plan:
+      - action: "SC02の前提台詞を追加"
+
+acceptance_criteria:
+  checklist:
+    - "issues または fix_plan のいずれかが1件以上"
+  by_task:
+    - id: audit.causality
+      field: issues
+      rule: present
+    - id: fix.plan
+      field: fix_plan
+      rule: present
+
+next:
+  next_step_id: 7
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=7
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

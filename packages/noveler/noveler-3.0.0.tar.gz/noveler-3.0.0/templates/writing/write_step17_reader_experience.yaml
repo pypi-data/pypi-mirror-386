@@ -1,0 +1,106 @@
+# STEP 17: 読者体験最適化・公開準備 Schema v2
+
+metadata:
+  step_id: 17
+  step_name: "読者体験最適化"
+  phase: "quality_assurance"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "感情曲線/緩急/フックを最適化し、公開準備を整える"
+  estimated_duration: "20-30分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      なろう公開準拠（タイトル/タグ/形式/予約）を踏まえ、最終的な読者体験を最適化してください。
+
+prompt:
+  main_instruction: |
+    目的は「読者体験の最適化と公開準備」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step16.yaml"
+      required: false
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step12.md"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "プラットフォーム形式準拠（改行/字下げ/禁止文字）"
+  soft_targets:
+    - "セクション配分/山場位置の最終確認"
+    - "品質KPI（STEP16）合格の記録"
+
+tasks:
+  bullets:
+    - reader_experience に感情/緩急/フックの最終方針を記述
+    - publication にタイトル/タグ/予約/最終校正チェックを記述
+    - KPI合格/改善項目の有無を記録
+  details:
+    - name: 体験最適化
+      items:
+        - id: rx.emotion_curve
+          text: 感情曲線の再確認と山場の強化
+        - id: rx.pacing
+          text: 中だるみ除去・冒頭の引き込み調整
+        - id: rx.hook_next
+          text: 次話への引き（クリフ/予告）
+    - name: 公開準備
+      items:
+        - id: pub.title_tags
+          text: タイトル/禁止文字/タグの最終確認
+        - id: pub.schedule
+          text: 予約時刻/読者層に合わせた配信設計
+        - id: pub.proof
+          text: 最終校正（誤字/固有名詞/法的確認）
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step17.yaml"
+  required_fields: ["reader_experience", "publication"]
+  example: |
+    reader_experience:
+      hooks: ["…"]
+      pacing: "…"
+      emotional_curve_summary: "…"
+    publication:
+      title_check: true
+      tags: ["…"]
+      schedule: "YYYY-MM-DD hh:mm"
+      final_proofreading: true
+
+acceptance_criteria:
+  checklist:
+    - "title_check と final_proofreading が true"
+  by_task:
+    - id: pub.title_tags
+      field: publication.title_check
+      rule: present
+
+next:
+  next_step_id: 18
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=18
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

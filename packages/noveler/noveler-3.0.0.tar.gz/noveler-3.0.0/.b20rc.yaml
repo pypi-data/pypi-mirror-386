@@ -1,0 +1,152 @@
+﻿# B20 Workflow Configuration
+# B20_Claude_Code開発作業指示書に基づく設定
+
+version: 1.0.0
+guide_reference: "docs/B20_CL~1.MD"
+
+# 数値閾値設定（§3参照）
+thresholds:
+  file_max_lines: 300          # ファイル最大行数
+  class_max_methods: 10         # クラス最大メソッド数
+  function_max_lines: 50        # 関数最大行数
+  method_complexity: 10         # サイクロマティック複雑度上限
+  nesting_depth: 4              # ネスト深さ上限
+
+# SOLID原則チェック設定（§4参照）
+solid_validation:
+  srp:
+    enabled: true
+    max_responsibilities: 1      # 単一責任原則
+  ocp:
+    enabled: true
+    check_extension_points: true  # 拡張ポイント確認
+  lsp:
+    enabled: true
+    check_contracts: true         # 契約確認
+  isp:
+    enabled: true
+    max_interface_methods: 5      # インターフェース最大メソッド数
+  dip:
+    enabled: true
+    check_abstractions: true      # 抽象化確認
+
+# 設定管理戦略（§5参照）
+configuration:
+  tool: "Dynaconf"               # 選定ツール
+  priority:                      # 優先順位
+    - environment_variables
+    - config_file
+    - defaults
+  secret_management: "vault"     # 秘密管理方式
+
+# テスト戦略（§8.2参照）
+testing:
+  required_coverage: 80          # 最小カバレッジ率
+  contract_tests: true           # 契約テスト必須
+  test_types:
+    - unit
+    - integration
+    - contract
+  detect_violations:             # 契約違反検出項目
+    - return_type_change
+    - parameter_removal
+    - exception_type_change
+    - precondition_strengthening
+    - postcondition_weakening
+
+# 出力契約（§8.4参照）
+output_contract:
+  must_keys:                     # 必須出力
+    - codemap_tree
+    - codemap_yaml
+    - function_specs
+    - test_code
+    - solid_checklist
+    - decision_log
+  optional_keys:                 # 任意出力
+    - architecture_diagram
+    - sequence_diagram
+    - performance_report
+
+# ワークフローフェーズ設定（§2参照）
+workflow:
+  phases:
+    requirements:
+      tasks:
+        - extract_objectives
+        - document_scenarios
+        - list_dependencies
+        - summarize_nfr
+      output_format: markdown
+
+    design:
+      tasks:
+        - create_tree_structure
+        - generate_yaml
+        - apply_solid_check
+        - define_config_structure
+      output_format: yaml
+
+    implementation:
+      tasks:
+        - apply_must_rules
+        - abstract_io
+        - maintain_pure_functions
+        - record_decisions
+      validation: strict
+
+    testing:
+      tasks:
+        - create_contract_tests
+        - implement_unit_tests
+        - verify_solid
+        - check_violations
+      min_coverage: 80
+
+    review:
+      tasks:
+        - generate_deliverables
+        - validate_checklist
+        - document_deviations
+      output_dir: "./b20-outputs"
+
+# 判断ログ設定（§7.2参照）
+decision_log:
+  format: yaml
+  required_fields:
+    - timestamp
+    - decision_type
+    - rationale
+    - alternatives_considered
+    - impact_assessment
+  auto_record:
+    - threshold_changes
+    - rule_exceptions
+    - tool_selections
+
+# CI/CD統合設定（§10参照）
+ci_integration:
+  enabled: true
+  hooks:
+    pre_commit:
+      - lint_check
+      - format_check
+    pre_push:
+      - test_execution
+      - coverage_check
+    post_merge:
+      - documentation_update
+      - metrics_collection
+
+# 運用モード
+operation_mode:
+  strict: false                  # Should違反でも続行
+  dry_run: false                 # 実行前確認モード
+  verbose: true                  # 詳細ログ出力
+  auto_fix: false                # 自動修正無効（安全重視）
+
+# Minimal gates for Phase B
+gates:
+  enabled:
+    - collect
+  stop_on_fail: true

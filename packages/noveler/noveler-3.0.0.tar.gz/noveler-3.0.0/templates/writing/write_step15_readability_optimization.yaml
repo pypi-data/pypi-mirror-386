@@ -1,0 +1,102 @@
+# STEP 15: 読みやすさ最適化 Schema v2
+
+metadata:
+  step_id: 15
+  step_name: "読みやすさ最適化"
+  phase: "writing_execution"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "スマホ可読性（段落/改行/会話比率）を最適化"
+  estimated_duration: "20-30分"
+
+llm_config:
+  role_messages:
+    system: |
+      あなたは可読性最適化専門家です。以下を厳守してください:
+
+      【必須ルール】
+      1. constraints.hard_rules を必ず遵守
+      2. 出力形式: Markdownのみ（追加説明不要）
+      3. STEP 12の原稿を読み込み、段落/改行/会話比率を最適化して上書き
+      4. 視点統一と8000字以上を維持
+    user: |
+      STEP 12の原稿を最適化し、スマホ可読性を向上させてください。
+      段落/改行/会話比率を調整し、Markdown形式で出力してください。
+
+prompt:
+  main_instruction: |
+    目的は「スマホ可読性の最適化（上書き）」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った Markdown を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step12.md"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "視点統一を維持"
+    - "文字数8000字以上維持"
+  soft_targets:
+    - "会話:地の文 ≈ 6:4〜7:3"
+
+tasks:
+  bullets:
+    - 長段落を分割し、1段落2-4行を目安に調整
+    - 会話主導のテンポを維持
+  details:
+    - name: 構成
+      items:
+        - id: phone.layout
+          text: 改行・段落分けの最適化
+        - id: phone.dialogue_ratio
+          text: 会話:地の文 ≈ 6:4〜7:3
+    - name: 制約維持
+      items:
+        - id: phone.constraints
+          text: 視点統一/8000字以上の維持
+
+artifacts:
+  format: md
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step15.md"
+  required_fields: ["body_present"]
+  description: |
+    STEP 12の原稿を読み込み、最適化して同じファイルに上書き。
+    段落を2-4行に分割、会話比率6:4～7:3を維持。
+  example: |
+    # 第{episode_number:03d}話
+
+    （最適化後本文…8000字以上）
+
+acceptance_criteria:
+  checklist:
+    - "本文がMarkdownのみで出力されている"
+    - "見出しに『# 第{episode_number:03d}話』を含む"
+  metrics:
+    - name: "unicode_char_count"
+      target: ">= 8000"
+      method: "本文のUnicode文字数"
+
+next:
+  next_step_id: 16
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=16
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

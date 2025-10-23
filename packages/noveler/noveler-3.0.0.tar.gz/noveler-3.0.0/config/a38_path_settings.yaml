@@ -1,0 +1,99 @@
+# A38準拠統一パス設定ファイル
+# A38_執筆プロンプトガイド.md仕様完全準拠
+
+# メタデータ
+metadata:
+  version: "1.0.0"
+  specification: "A38_執筆プロンプトガイド.md"
+  purpose: "A38準拠パス統一・ハードコーディング解消"
+  last_updated: "2025-09-07"
+
+# A38準拠パス定義
+paths:
+  # A38準拠ディレクトリ構造
+  plots_dir: "20_プロット"
+  episode_plots_subdir: "話別プロット"
+  chapter_plots_subdir: "章別プロット"
+  settings_dir: "30_設定集"
+  manuscripts_dir: "40_原稿"
+  management_dir: "50_管理資料"
+  work_files_dir: "60_作業ファイル"
+  config_dir: "config"
+  temp_dir: "temp"
+
+# A38準拠命名パターン
+naming_patterns:
+  # A38仕様: ep{episode_number:03d}.yaml
+  episode_plot: "ep{episode:03d}.yaml"
+
+  # A38仕様: ch{chapter_number:02d}.yaml
+  chapter_plot: "ch{chapter:02d}.yaml"
+
+  # A38仕様: EP{episode_number:03d}_step{step_number:02d}.{ext}
+  work_file: "EP{episode:03d}_step{step:02d}.{ext}"
+
+  # 原稿命名パターン（A38参照）
+  manuscript: "第{episode:03d}話_*.md"
+
+# A38準拠設定ファイル命名
+settings_files:
+  character_settings: "キャラクター.yaml"
+  character_growth_history: "キャラクター成長履歴.yaml"
+  worldview_settings: "世界観.yaml"
+
+# 環境別設定
+environments:
+  development:
+    # 開発環境ではA38標準パスを使用
+    use_standard_paths: true
+
+  test:
+    # テスト環境専用パス（干渉防止）
+    plots_dir: "test_20_プロット"
+    episode_plots_subdir: "話別プロット"
+    work_files_dir: "test_60_作業ファイル"
+    manuscripts_dir: "test_40_原稿"
+    settings_dir: "test_30_設定集"
+    temp_dir: "/tmp/noveler_test"
+
+  production:
+    # 本番環境での追加制約
+    read_only_dirs: ["30_設定集"]
+    backup_required: true
+
+# 移行設定
+migration:
+  # レガシーパターンマッピング
+  legacy_patterns:
+    old_plot_pattern: "第{episode:03d}話_*.md"
+    old_work_pattern: "episode{episode:03d}_step{step:02d}_*.yaml"
+
+  # 移行ルール
+  rules:
+    - name: "plot_files_to_a38"
+      description: "プロットファイルをA38形式に移行"
+      source_pattern: "20_プロット/第{episode:03d}話_*.md"
+      target_pattern: "20_プロット/話別プロット/ep{episode:03d}.yaml"
+
+    - name: "work_files_to_a38"
+      description: "作業ファイルをA38形式に移行"
+      source_pattern: "temp/episode{episode:03d}_*.yaml"
+      target_pattern: "60_作業ファイル/EP{episode:03d}_step{step:02d}.yaml"
+
+# 品質チェック設定
+quality_checks:
+  path_validation:
+    enforce_a38_compliance: true
+    warn_on_hardcoded_paths: true
+    require_centralized_access: true
+
+  naming_validation:
+    enforce_naming_patterns: true
+    case_sensitive: true
+    encoding: "utf-8"
+
+# ログ設定
+logging:
+  path_access_tracking: false  # パス取得のトラッキング
+  migration_logging: true      # 移行ログ出力
+  error_reporting: true        # エラー詳細報告

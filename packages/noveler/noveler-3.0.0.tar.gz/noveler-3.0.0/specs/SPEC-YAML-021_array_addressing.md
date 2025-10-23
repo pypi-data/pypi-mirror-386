@@ -1,0 +1,1 @@
+﻿# Moved: SPEC-YAML-021_array_addressing.md`n`nThis specification has moved to:`n`n- [domains/yaml/SPEC-YAML-021_array_addressing.md](./domains/yaml/SPEC-YAML-021_array_addressing.md)`n`nNote: This is a redirect stub to preserve existing links.`n

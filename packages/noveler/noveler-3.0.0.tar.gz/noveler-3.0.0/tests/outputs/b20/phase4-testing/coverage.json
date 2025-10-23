@@ -1,0 +1,43 @@
+{
+  "phase": "Phase 4 - Testing",
+  "timestamp": "2025-10-03T00:00:00Z",
+  "overall_coverage": {
+    "percent": 0.96,
+    "statements_total": 123282,
+    "statements_covered": 1356,
+    "statements_missing": 121926,
+    "note": "テスト対象を統合レイヤーに限定しているため、全体カバレッジは低い"
+  },
+  "target_modules": {
+    "note": "今回のバグ修正対象モジュールのみをテスト",
+    "modules": [
+      {
+        "name": "ClaudeCodeIntegrationService",
+        "path": "src/noveler/infrastructure/integrations/claude_code_integration_service.py",
+        "tests": 5,
+        "purpose": "LLM実行とJSON解析の統合テスト"
+      },
+      {
+        "name": "PolishManuscriptApplyTool",
+        "path": "src/mcp_servers/noveler/tools/polish_manuscript_apply_tool.py",
+        "tests": 2,
+        "purpose": "全レイヤー通しの統合テスト"
+      }
+    ]
+  },
+  "test_execution": {
+    "total_tests": 7,
+    "passed": 7,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 0.18
+  },
+  "b20_compliance": {
+    "must_requirements": {
+      "contract_tests": "PASS",
+      "solid_validation": "PASS",
+      "zero_contract_violations": "PASS"
+    },
+    "overall_status": "PASS"
+  }
+}

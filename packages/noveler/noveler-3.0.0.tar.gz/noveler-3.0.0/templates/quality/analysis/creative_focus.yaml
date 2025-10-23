@@ -1,0 +1,22 @@
+metadata:
+  name: "創作品質重点"
+  description: "冒頭効果、キャラクター個性、感情表現に特化"
+  evaluation_points: 40
+  estimated_time_seconds: 8
+  complexity: "medium"
+  categories:
+    - "creative_quality"
+
+evaluation_criteria:
+  creative_quality:
+    opening_effectiveness: "冒頭の引きの強さと効果"
+    character_voice: "キャラクター個性と差別化"
+    emotional_embodiment: "感情の身体感覚表現"
+    depth_description: "5層深度の内面描写"
+
+analysis_instructions:
+  - "原稿内容を詳細に読み込み、各評価基準に基づいて客観的に分析する"
+  - "具体的な改善提案を、原文引用と改善例を含めて提示する"
+  - "スコアの根拠を明確に説明し、偏りのない評価を心がける"
+  - "創作技法の専門的観点から詳細に分析する"
+  - "感情表現と内面描写の巧拙を重点的に評価する"

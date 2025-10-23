@@ -1,0 +1,94 @@
+# STEP 9: 感情カーブ設計 Schema v2
+
+metadata:
+  step_id: 9
+  step_name: "感情カーブ設計"
+  phase: "content_development"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "シーン別の感情推移を数値化（-5〜+5）して設計"
+  estimated_duration: "12-18分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML のみ。
+    user: |
+      感情値の根拠（台詞/行動/描写）を technique として記載してください。
+
+prompt:
+  main_instruction: |
+    目的は「感情カーブの数値化と設計」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step08.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "感情値レンジ: -5〜+5"
+  soft_targets:
+    - "カタルシス直前に最大振幅"
+
+tasks:
+  bullets:
+    - emotion_curve[] に before/after/delta/technique を定義する
+  details:
+    - name: 数値化
+      items:
+        - id: emo.range
+          text: before/after は -5〜+5 の範囲
+        - id: emo.delta
+          text: delta = after - before を検算
+    - name: 根拠付け
+      items:
+        - id: emo.technique
+          text: technique に対話/行動/描写の具体を記載
+        - id: emo.catharsis
+          text: カタルシス直前で最大振幅となるよう配置
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step09.yaml"
+  required_fields: ["emotion_curve"]
+  example: |
+    emotion_curve:
+      - scene_id: "SC02"
+        before: 0
+        after: 2
+        delta: 2
+        technique: "対話で暗示→身体反応描写"
+
+acceptance_criteria:
+  checklist:
+    - "delta = after - before が全て整合"
+  by_task:
+    - id: emo.delta
+      field: emotion_curve
+      rule: nonempty
+
+next:
+  next_step_id: 10
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=10
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

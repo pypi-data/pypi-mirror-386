@@ -1,0 +1,274 @@
+# 品質基準算出方法定義ファイル
+# 作成日: 2025-08-23
+# 目的: 評価方法の明示化による判定透明性向上
+
+metadata:
+  version: "1.0.0"
+  purpose: "品質基準の算出方法・判定ロジックの透明化"
+  scope: "プロット品質・推敲品質・企画設計品質の全算出方法"
+
+# ========================================
+# プロット品質基準 算出方法
+# ========================================
+plot_quality_calculations:
+  # P-04: ターニングポイント設定
+  P04_turning_points:
+    formula: "weighted_average(impact_scores) where impact_scores = [point.impact_level for point in turning_points]"
+    measurement_unit: "score (1-10 scale)"
+    data_source: "20_プロット/全体構成.yaml:turning_points"
+    threshold_basis: "商業作品分析：平均7.2点、上位10%が8.5点以上"
+    calculation_steps:
+      1: "turning_points配列からimpact_levelを抽出"
+      2: "各ポイントの重要度で重み付け（climax=2.0, rising_action=1.5, resolution=1.2）"
+      3: "weighted_average = sum(impact_level * weight) / sum(weights)"
+      4: "結果を1-10スケールで正規化"
+
+    pass_conditions:
+      minimum: 7.0
+      target: 8.0
+      excellent: 9.0
+
+    fail_conditions:
+      insufficient_count: "turning_points.length < 5"
+      low_impact: "weighted_average < 7.0"
+      missing_fields: "required_fields [episode, description, impact_level] が未入力"
+
+  # P-08: 感情起伏設計
+  P08_emotional_flow:
+    formula: "emotional_variance_score * peak_intensity_bonus * balance_factor"
+    measurement_unit: "composite_score (0-100)"
+    data_source: "20_プロット/章別プロット/*.yaml:emotional_flow"
+    threshold_basis: "読者アンケート相関分析：満足度80%以上作品の平均値"
+
+    calculation_steps:
+      1: "各章のemotion_levelを時系列で抽出"
+      2: "emotional_variance = standard_deviation(emotion_levels)"
+      3: "peak_intensity = max(emotion_levels)"
+      4: "balance_factor = 1 - abs(mean - 5.5) / 4.5"  # 5.5が理想的平均
+      5: "composite_score = variance * 10 + peak_intensity * 8 + balance_factor * 20"
+
+    pass_conditions:
+      minimum: 70.0
+      target: 80.0
+      excellent: 90.0
+
+    validation_rules:
+      peak_minimum: "max(emotion_levels) >= 8"
+      valley_maximum: "min(emotion_levels) <= 3"
+      variation_minimum: "standard_deviation >= 2.0"
+
+  # P-09: 伏線管理システム確認
+  P09_foreshadowing_management:
+    formula: "(resolved_count / total_count) * 100 * completeness_weight"
+    measurement_unit: "percentage (0-100%)"
+    data_source: "50_管理資料/伏線管理.yaml"
+    threshold_basis: "プロット完成度指標：A級作品90%以上の解決率"
+
+    calculation_steps:
+      1: "伏線管理.yamlからforeshadowing_listを読込"
+      2: "setup_episode AND payoff_episodeが両方設定済みの項目をカウント"
+      3: "completeness_weight = avg(detail_completeness_scores) / 10"
+      4: "resolution_rate = mapped_count / total_count * 100"
+      5: "final_score = resolution_rate * completeness_weight"
+
+    pass_conditions:
+      minimum: 85.0
+      target: 95.0
+      excellent: 100.0
+
+    detail_requirements:
+      setup_episode: "1以上の整数値"
+      payoff_episode: "setup_episode以降の整数値"
+      description: "20文字以上の具体的説明"
+      impact_level: "1-10の重要度スコア"
+
+# ========================================
+# 推敲品質基準 算出方法
+# ========================================
+revision_quality_calculations:
+  # R-04: 冒頭フック強度評価
+  R04_opening_hook_strength:
+    formula: "hook_elements_score * brevity_bonus * engagement_multiplier"
+    measurement_unit: "composite_score (0-100)"
+    data_source: "40_原稿/第001話*.md:first_three_lines"
+    threshold_basis: "読者離脱率分析：3行以内での継続率85%以上作品"
+
+    calculation_steps:
+      1: "first_three_lines = 原稿の最初の3行を抽出"
+      2: "hook_elements = count_hook_elements(lines)"
+      3: "brevity_score = calculate_brevity_score(lines)"
+      4: "engagement_score = analyze_engagement_factors(lines)"
+      5: "composite = hook_elements * 25 + brevity_score * 15 + engagement_score * 60"
+
+    hook_elements_scoring:
+      emotion_words: 10  # 感情語句（驚、疑、謎など）
+      sensory_details: 8  # 五感描写
+      dialogue: 12  # 会話文での開始
+      mystery_elements: 15  # 謎・疑問の提示
+      action_start: 10  # 動作・行動での開始
+      system_elements: 5  # 特殊設定要素
+
+    pass_conditions:
+      minimum: 70.0
+      target: 80.0
+      excellent: 90.0
+
+  # R-06: 五感描写バランス
+  R06_sensory_balance:
+    formula: "used_senses_bonus * distribution_score * intensity_factor"
+    measurement_unit: "composite_score (0-100)"
+    data_source: "40_原稿/*.md:full_text"
+    threshold_basis: "読者没入度調査：高評価作品の五感使用パターン"
+
+    calculation_steps:
+      1: "sensory_counts = extract_sensory_expressions(full_text)"
+      2: "used_senses_count = count_nonzero_senses(sensory_counts)"
+      3: "distribution_score = calculate_gini_coefficient(sensory_counts)"
+      4: "intensity_factor = avg_sensory_intensity / max_possible_intensity"
+      5: "composite = used_senses_count * 20 + (1 - gini) * 40 + intensity * 40"
+
+    sensory_keywords:
+      visual: ["見る", "光", "色", "影", "輝", "暗", "明", "眺", "凝視"]
+      auditory: ["聞こえる", "音", "声", "響", "静寂", "騒音", "囁", "叫"]
+      tactile: ["触れる", "熱", "冷", "痛", "柔らか", "硬", "滑", "粗"]
+      olfactory: ["匂い", "香り", "臭い", "芳", "腐敗", "甘い香"]
+      gustatory: ["味", "甘", "苦", "酸", "塩", "辛", "旨味"]
+
+    pass_conditions:
+      minimum_senses: 3
+      minimum_score: 60.0
+      target_score: 75.0
+      excellent_score: 85.0
+
+  # R-07: 感情表現具体化
+  R07_emotion_concretization:
+    formula: "(physical_expressions / total_emotions) * 100 * specificity_bonus"
+    measurement_unit: "concretization_rate (0-100%)"
+    data_source: "40_原稿/*.md:emotion_expressions"
+    threshold_basis: "読者共感度調査：身体表現90%以上で共感度大幅向上"
+
+    calculation_steps:
+      1: "abstract_emotions = extract_abstract_emotions(text)"
+      2: "physical_expressions = count_physical_manifestations(text)"
+      3: "specificity_scores = rate_expression_specificity(physical_expressions)"
+      4: "concretization_rate = physical_count / total_emotions * 100"
+      5: "final_score = concretization_rate * avg(specificity_scores)"
+
+    abstract_emotion_patterns:
+      prohibited: ["嬉しい", "悲しい", "怒る", "驚く", "恐れる", "嫌悪"]
+      acceptable_if_physical: ["胸が躍る", "心が沈む", "血が逆流する"]
+
+    physical_expression_examples:
+      joy: ["頬が緩む", "足取りが軽い", "胸が躍る"]
+      sadness: ["肩を落とす", "目を伏せる", "声が震える"]
+      anger: ["拳を握る", "眉間に皺", "歯を食いしばる"]
+      surprise: ["目を見開く", "息を呑む", "後ずさり"]
+
+    pass_conditions:
+      minimum_rate: 80.0
+      target_rate: 90.0
+      excellent_rate: 95.0
+
+# ========================================
+# 企画設計品質基準 算出方法
+# ========================================
+concept_design_calculations:
+  # C-03: USP明確化確認
+  C03_usp_clarity:
+    formula: "uniqueness_score * differentiation_factor * clarity_bonus"
+    measurement_unit: "composite_score (0-100)"
+    data_source: "10_企画/企画書.yaml:unique_selling_points"
+    threshold_basis: "市場分析：差別化成功作品の共通要素"
+
+    calculation_steps:
+      1: "usp_elements = extract_usp_elements(企画書)"
+      2: "uniqueness = analyze_market_differentiation(usp_elements)"
+      3: "differentiation = count_competitive_advantages(usp_elements)"
+      4: "clarity = evaluate_description_clarity(usp_elements)"
+      5: "composite = uniqueness * 0.4 + differentiation * 0.3 + clarity * 0.3"
+
+    evaluation_criteria:
+      uniqueness_factors:
+        - "既存作品との差別化要素数"
+        - "独自設定・世界観の革新性"
+        - "キャラクター特性の独創性"
+        - "ストーリー構造の新規性"
+
+      differentiation_scoring:
+        revolutionary: 100  # 業界初の革新的要素
+        highly_unique: 85   # 極めて独特
+        moderately_unique: 70  # 適度に独自
+        slight_variation: 55   # 軽微な変化
+        conventional: 30       # 一般的
+
+    pass_conditions:
+      minimum: 75.0
+      target: 85.0
+      excellent: 95.0
+
+  # C-09: 品質スコア統合評価
+  C09_integrated_quality:
+    formula: "weighted_average(all_category_scores) * completion_bonus"
+    measurement_unit: "integrated_score (0-100)"
+    data_source: "全企画設計品質項目の統合"
+    threshold_basis: "成功作品分析：全カテゴリバランス型が高評価"
+
+    calculation_steps:
+      1: "category_scores = [C01 to C08の全スコア]"
+      2: "weights = [market:0.15, target:0.12, usp:0.20, genre:0.13, appeal:0.15, feasibility:0.10, character:0.08, world:0.07]"
+      3: "weighted_avg = sum(score * weight for score, weight in zip(scores, weights))"
+      4: "completion_bonus = 1.0 if all_categories >= 60 else 0.8"
+      5: "final_score = weighted_avg * completion_bonus"
+
+    category_weights:
+      C01_market_analysis: 0.15      # 市場調査
+      C02_target_reader: 0.12        # ターゲット読者
+      C03_usp_clarity: 0.20          # USP（最重要）
+      C04_genre_fitness: 0.13        # ジャンル適合性
+      C05_appeal_elements: 0.15      # 魅力要素
+      C06_feasibility: 0.10          # 実現可能性
+      C07_character_appeal: 0.08     # キャラクター魅力
+      C08_worldbuilding: 0.07        # 世界観構築
+
+    pass_conditions:
+      minimum: 75.0
+      target: 85.0
+      excellent: 92.0
+
+# ========================================
+# 共通算出ユーティリティ
+# ========================================
+common_utilities:
+  text_analysis:
+    character_count_jp: "日本語文字数（全角1文字、半角0.5文字）"
+    sentence_boundary: "。！？での文分割"
+    paragraph_detection: "改行2つ以上でパラグラフ区切り"
+
+  scoring_normalization:
+    linear_scale: "min-max正規化で0-100スケール"
+    sigmoid_curve: "急激な変化を滑らかにする非線形変換"
+    percentile_rank: "分布における相対位置での評価"
+
+  confidence_calculation:
+    data_completeness: "(入力データ充足度 / 必要データ項目数) * 100"
+    measurement_accuracy: "算出結果の信頼性（0.0-1.0）"
+    historical_correlation: "過去の判定結果との一貫性"
+
+# ========================================
+# 使用方法・注意事項
+# ========================================
+usage_guidelines:
+  implementation_notes: |
+    - 全ての算出は deterministic（同じ入力→同じ出力）を保証
+    - エラーハンドリング：データ不足時はconfidence_levelを下げる
+    - バージョン管理：算出方法変更時は互換性を考慮
+
+  validation_requirements: |
+    - 新算出方法追加時は必ずテストケース作成
+    - 閾値変更は統計的根拠を必須とする
+    - パフォーマンス：大規模テキストでも5秒以内での算出完了
+
+  maintenance_policy: |
+    - 3ヶ月に1回、算出結果と実際評価の相関分析実施
+    - 年1回、閾値の妥当性見直し
+    - ユーザーフィードバックによる継続改善

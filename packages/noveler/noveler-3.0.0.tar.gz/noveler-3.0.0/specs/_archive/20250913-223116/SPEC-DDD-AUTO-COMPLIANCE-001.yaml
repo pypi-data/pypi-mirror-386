@@ -1,0 +1,292 @@
+DDD_AUTO_COMPLIANCE_SYSTEM_SPEC:
+  spec_id: SPEC-DDD-AUTO-COMPLIANCE-001
+  version: 1.0
+  title: "DDD準拠性自動チェック機能完全実装"
+  created_date: 2025-08-13
+  priority: HIGH
+  target_completion: 2025-08-20
+
+OVERVIEW:
+  purpose: |
+    DDD原則違反の自動検出・継続監視システムの構築。
+    リアルタイム検証による100%DDD準拠保証を実現する。
+
+  scope:
+    - DDD準拠性リアルタイム検証システム拡張
+    - 依存関係方向チェック自動化
+    - インフラ層直接依存検出アラート実装
+    - CI/CDパイプラインへのDDD品質ゲート統合
+
+ARCHITECTURE:
+  main_components:
+    - name: "DDDComplianceEngine"
+      responsibility: "包括的DDD準拠性検証エンジン"
+      location: "scripts/infrastructure/services/ddd_compliance_engine.py"
+
+    - name: "ArchitectureDependencyAnalyzer"
+      responsibility: "依存関係方向の自動分析"
+      location: "scripts/domain/services/architecture_dependency_analyzer.py"
+
+    - name: "LayerViolationDetector"
+      responsibility: "層間違反の検出とアラート"
+      location: "scripts/infrastructure/analyzers/layer_violation_detector.py"
+
+    - name: "DDDQualityGate"
+      responsibility: "CI/CDパイプライン統合用品質ゲート"
+      location: "scripts/infrastructure/ci/ddd_quality_gate.py"
+
+DDD_COMPLIANCE_RULES:
+  layer_dependency_rules:
+    domain_layer:
+      allowed_dependencies:
+        - "typing"
+        - "dataclasses"
+        - "abc"
+        - "enum"
+        - "pathlib"
+        - "scripts.domain.*"
+      forbidden_dependencies:
+        - "scripts.application.*"
+        - "scripts.infrastructure.*"
+        - "scripts.presentation.*"
+        - "scripts.tools.*"
+        - "scripts.utilities.*"
+
+    application_layer:
+      allowed_dependencies:
+        - "scripts.domain.*"
+        - typing_libraries
+      forbidden_dependencies:
+        - "scripts.infrastructure.*" # インターフェース経由のみ許可
+        - "scripts.presentation.*"
+        - "scripts.tools.*"
+
+    infrastructure_layer:
+      allowed_dependencies:
+        - "scripts.domain.*"
+        - "scripts.application.*"
+        - external_libraries
+      forbidden_dependencies:
+        - "scripts.presentation.*" # 逆転させる
+
+    presentation_layer:
+      allowed_dependencies:
+        - "scripts.application.*"
+        - "scripts.domain.*" # インターフェースのみ
+        - "scripts.infrastructure.factories.*" # DIコンテナのみ
+      forbidden_dependencies:
+        - "scripts.infrastructure.services.*" # 直接依存禁止
+
+  interface_compliance_rules:
+    required_interfaces:
+      - path: "scripts/domain/interfaces/repository_protocol.py"
+        description: "リポジトリ抽象化インターフェース"
+      - path: "scripts/domain/interfaces/event_publisher_protocol.py"
+        description: "イベント発行者インターフェース"
+      - path: "scripts/domain/interfaces/path_service_protocol.py"
+        description: "パスサービス抽象化"
+
+    adapter_requirements:
+      - interface: "IRepository"
+        adapter_location: "scripts/infrastructure/adapters/"
+        naming_pattern: "*_repository_adapter.py"
+      - interface: "IEventPublisher"
+        adapter_location: "scripts/infrastructure/adapters/"
+        naming_pattern: "*_event_publisher_adapter.py"
+
+VALIDATION_LEVELS:
+  STRICT:
+    checks:
+      - layer_dependency_validation
+      - interface_abstraction_compliance
+      - adapter_implementation_verification
+      - di_container_usage_validation
+      - domain_model_isolation_check
+      - application_service_purity_check
+      - infrastructure_adapter_compliance
+      - presentation_layer_dependency_check
+    error_tolerance: 0
+
+  MODERATE:
+    checks:
+      - layer_dependency_validation
+      - interface_abstraction_compliance
+      - major_di_violations
+    error_tolerance: 5
+
+  BASIC:
+    checks:
+      - critical_layer_violations
+      - missing_core_interfaces
+    error_tolerance: 10
+
+IMPLEMENTATION_PLAN:
+  phase_1_core_engine:
+    tasks:
+      - name: "DDDComplianceEngine実装"
+        description: "包括的検証エンジンの実装"
+        estimated_hours: 6
+        dependencies: []
+
+      - name: "ArchitectureDependencyAnalyzer実装"
+        description: "依存関係分析器の実装"
+        estimated_hours: 4
+        dependencies: ["DDDComplianceEngine実装"]
+
+  phase_2_violation_detection:
+    tasks:
+      - name: "LayerViolationDetector実装"
+        description: "層間違反検出器の実装"
+        estimated_hours: 4
+        dependencies: ["ArchitectureDependencyAnalyzer実装"]
+
+      - name: "リアルタイム監視システム"
+        description: "ファイル変更監視とリアルタイム検証"
+        estimated_hours: 3
+        dependencies: ["LayerViolationDetector実装"]
+
+  phase_3_ci_integration:
+    tasks:
+      - name: "DDDQualityGate実装"
+        description: "CI/CD品質ゲートの実装"
+        estimated_hours: 3
+        dependencies: ["リアルタイム監視システム"]
+
+      - name: "Git Hooks統合"
+        description: "pre-commit hookとの統合"
+        estimated_hours: 2
+        dependencies: ["DDDQualityGate実装"]
+
+AUTOMATED_CHECKS:
+  dependency_direction_checks:
+    - check_name: "domain_independence"
+      description: "ドメイン層の独立性確認"
+      violation_severity: "CRITICAL"
+
+    - check_name: "application_infrastructure_coupling"
+      description: "アプリケーション層のインフラ直接依存検出"
+      violation_severity: "HIGH"
+
+    - check_name: "presentation_infrastructure_bypass"
+      description: "プレゼンテーション層のインフラ直接アクセス検出"
+      violation_severity: "HIGH"
+
+  interface_compliance_checks:
+    - check_name: "missing_domain_interfaces"
+      description: "必須ドメインインターフェースの存在確認"
+      violation_severity: "MEDIUM"
+
+    - check_name: "adapter_implementation_gaps"
+      description: "インターフェースに対応するアダプターの実装確認"
+      violation_severity: "MEDIUM"
+
+  di_container_checks:
+    - check_name: "factory_pattern_compliance"
+      description: "ファクトリーパターンの正しい使用確認"
+      violation_severity: "MEDIUM"
+
+    - check_name: "global_instance_detection"
+      description: "グローバルインスタンスの検出"
+      violation_severity: "HIGH"
+
+ALERT_SYSTEM:
+  real_time_notifications:
+    channels:
+      - console_output
+      - log_file
+      - ide_integration
+
+    alert_levels:
+      CRITICAL:
+        immediate_block: true
+        notification_sound: true
+        color_coding: "red"
+      HIGH:
+        immediate_block: false
+        notification_sound: true
+        color_coding: "orange"
+      MEDIUM:
+        immediate_block: false
+        notification_sound: false
+        color_coding: "yellow"
+
+CI_CD_INTEGRATION:
+  pre_commit_hooks:
+    - hook_name: "ddd-compliance-check"
+      command: "python -m scripts.infrastructure.ci.ddd_quality_gate --mode=strict"
+      fail_on_error: true
+
+    - hook_name: "dependency-direction-validation"
+      command: "python -m scripts.infrastructure.ci.ddd_quality_gate --check=dependencies"
+      fail_on_error: true
+
+  github_actions:
+    workflow_file: ".github/workflows/ddd-compliance.yml"
+    triggers:
+      - push
+      - pull_request
+    steps:
+      - name: "DDD準拠性チェック"
+        run: "python -m scripts.infrastructure.ci.ddd_quality_gate --mode=ci"
+      - name: "アーキテクチャ健全性レポート"
+        run: "python -m scripts.infrastructure.ci.ddd_quality_gate --report"
+
+METRICS_AND_REPORTING:
+  compliance_metrics:
+    - metric_name: "ddd_compliance_percentage"
+      description: "全体のDDD準拠率"
+      target_value: 100
+
+    - metric_name: "layer_violation_count"
+      description: "層間違反の総数"
+      target_value: 0
+
+    - metric_name: "interface_coverage_percentage"
+      description: "インターフェース抽象化カバレッジ"
+      target_value: 95
+
+  reporting_features:
+    - daily_compliance_report
+    - violation_trend_analysis
+    - architecture_health_dashboard
+    - team_compliance_scorecard
+
+EXPECTED_OUTCOMES:
+  immediate_benefits:
+    - "DDD準拠度100%維持"
+    - "リアルタイム違反検出"
+    - "自動品質ゲート統合"
+
+  long_term_benefits:
+    - "アーキテクチャ負債の予防"
+    - "継続的品質改善サイクル確立"
+    - "開発チームのDDD理解向上"
+    - "コードベース健全性の可視化"
+
+TESTING_STRATEGY:
+  unit_tests:
+    coverage_target: 95
+    test_files:
+      - "test_ddd_compliance_engine.py"
+      - "test_architecture_dependency_analyzer.py"
+      - "test_layer_violation_detector.py"
+
+  integration_tests:
+    - "CI/CDパイプライン統合テスト"
+    - "リアルタイム監視システムテスト"
+    - "アラートシステム統合テスト"
+
+  e2e_tests:
+    - "完全なプロジェクト分析テスト"
+    - "違反修正ワークフローテスト"
+
+MAINTENANCE_PLAN:
+  monitoring:
+    - "検証ルールの定期見直し"
+    - "新しいDDDパターンへの対応"
+    - "パフォーマンス最適化"
+
+  updates:
+    - "月次ルールアップデート"
+    - "四半期システム改善"
+    - "年次大規模リファクタリング対応"

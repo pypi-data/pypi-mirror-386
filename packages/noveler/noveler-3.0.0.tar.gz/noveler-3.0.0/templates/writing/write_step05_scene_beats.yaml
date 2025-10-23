@@ -1,0 +1,121 @@
+# STEP 5: 小骨（シーン/ビート）Schema v2
+
+metadata:
+  step_id: 5
+  step_name: "小骨（シーン/ビート）"
+  phase: "structural_design"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "シーンID/POV/三分構造/ビート列/フックを定義"
+  estimated_duration: "20-30分"
+
+llm_config:
+  role_messages:
+    system: |
+      あなたはシーン設計者です。以下を厳守してください:
+
+      【必須ルール】
+      1. constraints.hard_rules を必ず遵守
+      2. 出力形式: 生のYAMLテキストのみ（```yamlなどのコードブロック禁止）
+      3. 追加説明・前置き文・コメント・補足は一切不要
+      4. artifacts.required_fields を必ず含める
+      5. YAMLインデントはスペース2固定、タブ禁止
+      6. 複数行テキストはブロックリテラル（|）を使用
+    user: |
+      各シーンに目的・行動・結果とビート列、フックを付与してください。
+
+prompt:
+  main_instruction: |
+    目的は「シーン/ビート設計」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った YAML を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step04.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "1シーン1視点（pov）"
+  soft_targets:
+    - "否定→肯定サイクルを1回以上/シーン"
+
+tasks:
+  bullets:
+    - scene_id（SC01..）/pov/goal を定義する
+    - beats[] に感情/情報/関係の変化を記述する
+    - hook を記述する
+  details:
+    - name: シーン骨格
+      items:
+        - id: scene.pov
+          text: scene_id と pov（一人称/三人称/視点名）
+        - id: scene.goal
+          text: goal（読者効果/物語上の目的）
+        - id: scene.structure
+          text: entry（導入）/beats（展開）/exit（締め）の三分構造
+    - name: ビート設計
+      items:
+        - id: beats.change
+          text: change 種別（emotion/info/relationship）
+        - id: beats.ca_effect
+          text: cause（きっかけ）と effect（結果）
+        - id: beats.balance
+          text: 対話/行動/地の文のバランス
+    - name: フック
+      items:
+        - id: scene.hook
+          text: 次シーンへの疑問/予兆/未解決の提示
+
+artifacts:
+  format: yaml
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step05.yaml"
+  required_fields: ["scenes"]
+  example: |
+    scenes:
+      - id: "SC01"
+        pov: "主人公"
+        goal: "…"
+        beats:
+          - change: "emotion"
+            detail: "…"
+        hook: "…"
+
+acceptance_criteria:
+  checklist:
+    - "すべてのシーンに pov と hook がある"
+  metrics:
+    - name: "beats_avg"
+      target: ">= 3"
+      method: "beats の平均個数"
+
+next:
+  next_step_id: 6
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=6
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: scene.pov
+      field: scenes
+      rule: nonempty
+    - id: scene.hook
+      field: scenes
+      rule: nonempty

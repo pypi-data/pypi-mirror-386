@@ -1,0 +1,244 @@
+# STEP 8: 対話設計 Schema v2
+
+metadata:
+  step_id: 8
+  step_name: "対話設計"
+  phase: "content_development"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "語り機能付与/3パターン/短文削除基準（Phase 0C v2.3-v2.4準拠）"
+  estimated_duration: "15-20分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った YAML と Markdown を両方出力。
+    user: |
+      説明台詞と感情直書きを避け、行動・暗示・比喩で置換してください。
+      対話設計の構造データ（YAML）と、会話文のみの原稿（Markdown）を両方生成してください。
+
+      ## 執筆ルール（A38準拠）
+
+      ### 禁止表現リスト（会話でも厳守）
+      ❌ 〜と思った → ⭕ 表情・仕草で表現
+      ❌ 〜という気持ち → ⭕ 身体反応で表現
+      ❌ 〜を感じた → ⭕ 具体的な感覚描写
+      ❌ 〜だった → ⭕ 行動・会話で示す
+      ❌ なんとなく/だいたい → ⭕ 具体的な表現
+
+      ### Golden Sample文体パターン（会話向け）
+      ⭕ 即断即決シーン: 「『税率を下げろ』『し、しかし収入が……』『余計な贅沢を削ればいいだけだ。』」（短い会話で意思決定）
+      ⭕ 会話掛け合い: 主人公の真意と周囲の解釈のズレでコメディ効果とテンポ創出
+      ⭕ 1文短く、動詞強め、断定形でテンポ演出
+
+      ### なろう執筆10箇条（会話関連）
+      - 視点統一: 1シーン1視点の完全維持
+      - スマホ最適化: 会話の改行・段落分けの最適化
+      - 内外ギャップ: 内心と外面の差を活用
+
+      ### Phase 0C: 会話文への語り機能付与（v2.3-v2.4準拠）
+      **根本原則**: golden_sampleの会話は「対話の再現」ではなく**物語技法**
+
+      #### 会話機能分類（必須）
+      - 観察・経緯の語り: 20-30%（現0% → 新規作成）
+      - 分析・推測の語り: 5-10%（現0% → 新規作成）
+      - 端的な応答: 60-70%（リズム用のみ）
+
+      #### 3つの語り機能パターン
+      **パターンA: 観察・経緯の語り（60-120文字）**
+      - 「いつから」「どこで」「誰が言ってた」を含める
+      - 例: 「最近すごく疲れてるみたいで、先週からずっと顔色が悪くて、昨日なんか廊下で壁にもたれかかってるところを見かけて...」
+
+      **パターンB: 分析・推測の語り（80-150文字）**
+      - 「〜みたいな」「〜だと思う」「〜ってこと」で分析を語る
+      - 例: 「診察中の顔見てたら分かるんです、現実じゃないどこか別の場所にいるみたいな顔してて、顔に書いてあるから、我慢しすぎて壊れかけてる人の顔」
+
+      **パターンC: 過去・回想の語り（100-200文字）**
+      - 「あの時」「〜してたじゃない」「以前から」で過去を物語的に語る
+      - 例: 「半年前に初めて来た時、先生がずいぶん長く診察室にいて、出てきた時に妙に疲れた顔してたじゃない。私、あの時からちょっと気になってた」
+
+      #### 短文会話の削除基準（v2.4厳格版）
+      **保持対象（リズム用のみ）**:
+      - 感嘆符付き: 「え！」「まさか！」
+      - 沈黙表現: 「……」
+      - 強い感情: 「違います！」「やめて！」
+
+      **削除対象（語りに統合または地の文化）**:
+      - 質疑応答の再現: 「そうですか」「大丈夫ですか」
+      - 相槌・返答: 「はい」「ええ」
+      - 躊躇表現: 「でも……」「それは……」
+
+      #### 目標数値（golden準拠）
+      - 平均文長: 75-85文字
+      - 短文（0-19文字）: 15-20%（リズム用のみ）
+      - 長文（100文字以上）: 15-20%
+      - 語り機能付与率: 20-30%
+
+prompt:
+  main_instruction: |
+    目的は「目的駆動の対話設計とMarkdown会話原稿の生成」です。
+    inputs/constraints/tasks を満たし、A38執筆ルール（禁止表現リスト・Golden Sample文体）を厳守し、
+    artifacts の仕様に従った YAML と Markdown を両方出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step05.yaml"
+      required: true
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step07.yaml"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "目的駆動（情報/感情/関係の前進）"
+    - "説明台詞/感情直書きの回避"
+    - "語り機能付与: 観察・経緯20-30%、分析・推測5-10%"
+    - "短文削除: 0-19文字は15-20%のみ（リズム用のみ保持）"
+  soft_targets:
+    - "会話機能の3パターン配置（観察・経緯/分析・推測/過去・回想）"
+    - "平均文長75-85文字、長文会話（100文字以上）15-20%"
+    - "セクション配分（STEP2/4）と世界観・伏線（STEP10/11）への整合"
+
+tasks:
+  bullets:
+    - dialogues[] に scene_id/purpose/outline/subtext/dialogue_id を定義する（YAML出力）
+    - 会話文のみのMarkdown原稿を生成する（Markdown出力）
+    - 各対話の位置づけ（導入/展開/転結）と配分への影響を注記する
+  details:
+    - name: YAML出力（構造データ）
+      items:
+        - id: yaml.purpose.type
+          text: 種別: 情報/感情/関係のいずれか
+        - id: yaml.purpose.outcome
+          text: 成果: 何が前進したか
+        - id: yaml.structure
+          text: opening/turning/closing（短尺）
+        - id: yaml.subtext
+          text: subtext（言外の意図）
+        - id: yaml.dialogue_id
+          text: dialogue_id を付与（DLG01, DLG02...）
+        - id: yaml.narrative_function
+          text: "narrative_function: 会話機能（observation/analysis/past/simple）"
+        - id: yaml.target_length
+          text: "target_length: 目標文字数（パターンA:60-120, B:80-150, C:100-200）"
+    - name: Markdown出力（会話文原稿）
+      items:
+        - id: md.dialogue_only
+          text: 会話文のみを出力（地の文は最小限）
+        - id: md.dialogue_id_comment
+          text: 各対話の前に <!-- DLG01 --> 形式でIDを記載
+        - id: md.natural.info
+          text: 説明台詞→行動/暗示/比喩へ置換
+        - id: md.natural.emotion
+          text: 感情直書き→身体反応/間へ置換
+
+artifacts:
+  - format: yaml
+    path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step08.yaml"
+    required_fields: ["dialogues"]
+    description: "対話構造データ（STEP 9-11で参照）"
+    example: |
+      dialogues:
+        - scene_id: "SC02"
+          purpose: "関係の前進"
+          outline: "少女との初対話"
+          subtext: "警戒と好奇心"
+          dialogue_id: "DLG01"
+          narrative_function: "simple"
+          target_length: "10-20"
+
+        - scene_id: "SC03"
+          purpose: "情報の開示"
+          outline: "患者の観察・分析"
+          subtext: "主人公の異変への気づき"
+          dialogue_id: "DLG02"
+          narrative_function: "observation"
+          target_length: "60-120"
+
+        - scene_id: "SC03"
+          purpose: "情報の開示"
+          outline: "主人公の状態分析"
+          subtext: "深刻な懸念"
+          dialogue_id: "DLG03"
+          narrative_function: "analysis"
+          target_length: "80-150"
+
+  - format: md
+    path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step08.md"
+    required_fields: ["dialogue_only"]
+    description: "会話文のみの原稿（STEP 12で地文挿入に使用）"
+    example: |
+      # 第{episode_number:03d}話（対話のみ）
+
+      <!-- DLG01 -->
+      「……ここは、どこ？」
+
+      「目が覚めたんですね。よかった」
+
+      <!-- DLG02 -->
+      「あなた、倒れていたんですよ。大丈夫ですか？」
+
+      「俺が……倒れてた？」
+
+      少女の言葉に、俺は記憶を辿ろうとした。
+
+acceptance_criteria:
+  checklist:
+    - "YAML出力: 全項目に subtext がある"
+    - "YAML出力: 全項目に narrative_function がある"
+    - "YAML出力: 全項目に target_length がある"
+    - "Markdown出力: 会話文のみで構成されている"
+    - "Markdown出力: 各対話に <!-- DLG0X --> 形式のIDコメントがある"
+    - "数値目標: 平均文長75-85文字、語り機能20-30%、短文15-20%"
+  by_task:
+    - id: dlg.subtext
+      field: dialogues
+      rule: nonempty
+      target: yaml
+    - id: dlg.narrative_function
+      field: dialogues
+      rule: contains_narrative_function
+      target: yaml
+    - id: dlg.target_length
+      field: dialogues
+      rule: contains_target_length
+      target: yaml
+    - id: md.dialogue_id_comment
+      field: body
+      rule: contains_dialogue_id_comments
+      target: md
+    - id: md.average_length
+      field: markdown
+      rule: average_75_85_chars
+      target: md
+    - id: md.narrative_ratio
+      field: markdown
+      rule: narrative_function_20_30_percent
+      target: md
+    - id: md.short_ratio
+      field: markdown
+      rule: short_dialogue_15_20_percent
+      target: md
+
+next:
+  next_step_id: 9
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=9
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

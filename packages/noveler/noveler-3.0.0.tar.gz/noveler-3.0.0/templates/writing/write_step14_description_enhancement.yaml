@@ -1,0 +1,92 @@
+# STEP 14: 文体・可読性パス Schema v2
+
+metadata:
+  step_id: 14
+  step_name: "文体・可読性パス"
+  phase: "writing_execution"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "五感KPI・禁止表現回避・Golden Sample整合で読みやすさを強化"
+  estimated_duration: "25-35分"
+
+llm_config:
+  role_messages:
+    system: |
+      出力は artifacts の仕様に従った Markdown のみ（上書き）。
+    user: |
+      視覚以外の感覚≥30%、禁止表現は描写に置換、Golden Sample文体に整合させてください。
+
+prompt:
+  main_instruction: |
+    目的は「可読性・文体の最終調整（上書き）」です。inputs/constraints/tasks を満たし、
+    artifacts の仕様に従った Markdown を出力してください。
+
+inputs:
+  files:
+    - path: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step12.md"
+      required: true
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+
+constraints:
+  hard_rules:
+    - "非視覚感覚比率 ≥ 0.30"
+    - "禁止表現を描写・行動で置換"
+    - "ゼロ許容: 誤字脱字/助詞誤用/文法エラー/敬語混在/時制不一致/視点ブレ"
+
+tasks:
+  bullets:
+    - 五感比率の調整（視覚以外≥30%）
+    - 文末/敬語/時制/用語の統一
+  details:
+    - name: 五感強化
+      items:
+        - id: read.senses
+          text: 視覚以外（聴/触/嗅/味）を合計≥0.30に
+        - id: read.rhythm
+          text: 音読の流暢性/リズム最適化
+    - name: ゼロ許容の確認
+      items:
+        - id: read.zero_tolerance_1
+          text: 誤字脱字/助詞誤用/文法エラーなし
+        - id: read.zero_tolerance_2
+          text: 敬語混在/時制不一致/視点ブレなし
+
+artifacts:
+  format: md
+  path_template: "{project_root}/60_作業ファイル/EP{episode_number:03d}_step14.md"
+  required_fields: ["body_present"]
+  example: |
+    # 第{episode_number:03d}話
+
+    （本文を上書き）
+
+acceptance_criteria:
+  checklist:
+    - "本文がMarkdownのみ"
+  metrics:
+    - name: "non_visual_sense_ratio"
+      target: ">= 0.30"
+      method: "五感描写の割合（推定）"
+
+next:
+  next_step_id: 15
+  message_template: |
+    次のステップは以下で実行:
+    execute_writing_step episode_number={episode_number} step_id=15
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true

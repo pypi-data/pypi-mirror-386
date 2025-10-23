@@ -1,0 +1,138 @@
+# File: templates/character/character_book.yaml
+# Purpose: Canonical placeholder template matching the A24 character schema.
+# Context: Used by initialization pipeline and tooling as the base structure.
+
+character_book:
+  version: "0.1.0"
+  last_updated: ""
+  default_logging:
+    root: "<log_root>"
+    log_file_pattern_by_character: "<log_root>/<character_id>/<YYYYMMDD>_<scene>.md"
+    template_ref: "docs/log_templates/character_scene_log.md"
+  characters:
+    main:
+      - character_id: "<protagonist_id>"
+        display_name: "<protagonist name>"
+        status:
+          lifecycle: "active"
+          last_reviewed: ""
+          reviewer: ""
+        layers:
+          layer1_psychology:
+            role: "<role>"
+            hook_summary: "<one-line hook>"
+            values: []
+            core_motivations:
+              primary: ""
+              secondary: []
+            character_goals:
+              external: ""
+              internal: ""
+              integration_type: "synergy"  # synergy/conflict/evolution
+              # Validation workflow: docs/A25_キャラクター設計チェック.md
+              synergy_description: ""
+              conflict_description: ""
+              evolution_stages: []
+            enduring_fears: []
+            traumas: []
+            psychological_models:
+              primary:
+                framework: ""
+                type: ""
+                rationale: ""
+              secondary: []
+              psychological_exceptions: []
+              summary_bullets: []
+              decision_flow:
+                decision_step_perception: ""
+                decision_step_evaluation: ""
+                decision_step_action: ""
+                decision_step_emotional_aftermath: ""
+            traits_positive: []
+            traits_negative: []
+            emotional_patterns:
+              likes: []
+              dislikes: []
+              momentary_fears: []
+            inner_conflicts: []
+            conflict_arcs:
+              short_term: []
+              long_term: []
+            growth_vector:
+              current_arc: ""
+              future_hook: ""
+              short_term_arc: ""
+              long_term_arc: ""
+          layer2_physical:
+            appearance:
+              height: ""
+              build: ""
+              hair: ""
+              eyes: ""
+            distinguishing_features: []
+            attire:
+              typical: ""
+              variants: []
+            symbolic_features: []
+          layer3_capabilities_skills:
+            combat_skills: []
+            non_combat_skills: []
+            magical_abilities: []
+            technical_assets:
+              tools: []
+            limitations: []
+          layer4_social_network:
+            affiliations: []
+            relationships: []
+            social_position:
+              public_image: ""
+              hidden_value: ""
+          layer5_expression_behavior:
+            speech_profile:
+              baseline_tone: ""
+              modes: {}
+              voice_drift_rules: []
+              sentence_endings: {}
+              personal_pronouns: {}
+              catchphrases: {}
+            behavioral_patterns:
+              work_style: ""
+              coping_mechanisms: []
+        narrative_notes:
+          foreshadowing_hooks: []
+          unresolved_questions: []
+        llm_prompt_profile:
+          default_scene_goal: ""
+          inputs_template:
+            scene_role_and_goal: ""
+            psych_summary: []
+            emotional_state: ""
+            constraints: []
+            deliberate_voice_drift: ""
+            output_format_mode: ""
+            response_style_hint: ""
+          post_review_checklist:
+            last_run: ""
+            reviewer: ""
+            items:
+              values_motivation_alignment: { status: "pending", notes: "" }
+              speech_rule_compliance: { status: "pending", notes: "" }
+              deliberate_voice_drift_alignment: { status: "pending", notes: "" }
+              emotional_flow_alignment: { status: "pending", notes: "" }
+              decision_flow_trace_present: { status: "pending", notes: "" }
+            summary: ""
+        logging:
+          character_log_directory: "<log_root>/<character_id>/"
+          guidance: "命名: <YYYYMMDD>_<scene>.md"
+          last_entry: ""
+        lite_profile_hint:
+          use_lite: false
+          minimal_fields:
+            lite_scene_goal_copy: ""
+            lite_values_copy: []
+            lite_speech_tone_copy: ""
+            lite_banned_phrases_copy: []
+        episode_snapshots: []
+    supporting: []
+    antagonists: []
+    background: []

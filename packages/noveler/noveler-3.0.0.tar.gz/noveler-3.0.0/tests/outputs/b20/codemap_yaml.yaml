@@ -1,0 +1,424 @@
+# CODEMAP YAML - 小説執筆支援システム (noveler)
+# B20 Phase 2 - コンポーネント責務とインターフェース定義
+
+version: "3.0.0"
+generated_at: "2025-09-30"
+architecture_style: "DDD (Domain-Driven Design) with Clean Architecture"
+
+# アーキテクチャ概要
+architecture:
+  style: "5-layer DDD + Clean Architecture"
+  layers:
+    - name: "Domain"
+      responsibility: "ビジネスロジック・ドメインルール（他層に依存しない）"
+      dependencies: []
+    - name: "Application"
+      responsibility: "ユースケース実装・オーケストレーション"
+      dependencies: ["Domain"]
+    - name: "Infrastructure"
+      responsibility: "外部システム連携・永続化"
+      dependencies: ["Domain", "Application"]
+    - name: "Presentation"
+      responsibility: "UI/CLI・ユーザー入力処理"
+      dependencies: ["Domain", "Application", "Infrastructure"]
+    - name: "Tools"
+      responsibility: "MCPツール実装"
+      dependencies: ["Application"]
+
+# レイヤリング原則
+layering_rules:
+  forbidden:
+    - from: "Domain"
+      to: ["Presentation", "Infrastructure"]
+      reason: "ドメイン純粋性維持（importlinter検証）"
+    - from: "Application"
+      to: ["Presentation"]
+      reason: "アプリケーション層はUIに依存しない"
+
+  allowed:
+    - from: "Application"
+      to: ["Domain"]
+    - from: "Infrastructure"
+      to: ["Domain", "Application"]
+    - from: "Presentation"
+      to: ["Domain", "Application", "Infrastructure"]
+    - from: "Tools"
+      to: ["Application"]
+
+# コンポーネント詳細定義
+components:
+
+  # ========================================
+  # 1. Domain層
+  # ========================================
+  domain:
+    responsibility: |
+      ビジネスロジックの純粋実装。外部システムに依存せず、
+      執筆・品質評価・推敲のドメインルールを定義。
+
+    subcomponents:
+
+      entities:
+        responsibility: "IDを持つビジネスオブジェクト"
+        public_interfaces:
+          - Episode: "エピソードエンティティ（ID, 番号, タイトル, 内容）"
+          - Plot: "プロットエンティティ（構造, キャラクター設定）"
+          - Manuscript: "原稿エンティティ（テキスト, メタデータ）"
+          - QualityRecord: "品質記録エンティティ（スコア, タイムスタンプ）"
+          - Character: "キャラクターエンティティ（名前, 設定）"
+          - Project: "プロジェクトエンティティ（設定, パス）"
+        extension_points:
+          - "新しいエンティティタイプの追加"
+          - "エンティティ検証ロジックのカスタマイズ"
+
+      value_objects:
+        responsibility: "不変値オブジェクト（等価性判定）"
+        public_interfaces:
+          - EpisodeNumber: "エピソード番号（1以上の整数）"
+          - QualityScore: "品質スコア（0-100点）"
+          - FilePath: "ファイルパス（検証済み）"
+          - AspectScore: "アスペクト別スコア（rhythm/readability/grammar/style）"
+          - Timestamp: "タイムスタンプ（ISO8601形式）"
+        constraints:
+          - "不変性保証（イミュータブル）"
+          - "値の妥当性検証（コンストラクタで実施）"
+
+      services:
+        responsibility: "純粋関数によるドメインサービス"
+
+        quality:
+          responsibility: "品質評価の純粋ロジック"
+          public_interfaces:
+            - RhythmChecker.check_rhythm(): "リズムチェック（文長連続/会話比率/語尾/読点）"
+            - ReadabilityChecker.check_readability(): "読みやすさチェック（文長/語彙複雑度）"
+            - GrammarChecker.check_grammar(): "文法チェック（誤字脱字/助詞/表記）"
+            - StyleChecker.check_style(): "スタイルチェック（空行/スペース/括弧）"
+          dependencies: []
+          extension_points:
+            - "新しいチェック観点の追加"
+            - "チェック閾値のカスタマイズ"
+
+        writing:
+          responsibility: "執筆支援の純粋ロジック"
+          public_interfaces:
+            - StepExecutor.execute_step(): "ステップ実行ロジック"
+            - PromptGenerator.generate_prompt(): "プロンプト生成"
+            - ManuscriptValidator.validate(): "原稿検証"
+          dependencies: []
+
+        polish:
+          responsibility: "推敲処理の純粋ロジック"
+          public_interfaces:
+            - Stage2Processor.process(): "Stage2（内容推敲）"
+            - Stage3Processor.process(): "Stage3（読者体験推敲）"
+          dependencies: []
+
+      utils:
+        responsibility: "ドメイン用ユーティリティ"
+        public_interfaces:
+          - domain_console.get_console(): "ドメイン専用Console取得"
+          - TextAnalyzer.analyze(): "テキスト解析（形態素解析）"
+          - Validation.validate_episode_number(): "エピソード番号検証"
+
+  # ========================================
+  # 2. Application層
+  # ========================================
+  application:
+    responsibility: |
+      ユースケース実装とオーケストレーション。
+      ドメインロジックを組み合わせてビジネス要求を実現。
+
+    subcomponents:
+
+      use_cases:
+        responsibility: "ビジネスユースケースの実装"
+
+        writing:
+          public_interfaces:
+            - B18EighteenStepWritingUseCase.execute(): "18ステップ執筆ワークフロー"
+            - CreateEpisodeUseCase.execute(): "エピソード作成"
+            - EnhancedWritingUseCase.execute(): "拡張執筆（エラーハンドリング統合）"
+          dependencies: ["domain.services.writing", "domain.entities"]
+
+        quality:
+          public_interfaces:
+            - IntegratedQualityCheckUseCase.execute(): "統合品質チェック（4観点）"
+            - CheckEpisodeQualityUseCase.execute(): "エピソード品質チェック"
+          dependencies: ["domain.services.quality", "domain.entities"]
+
+        polish:
+          public_interfaces:
+            - PolishManuscriptUseCase.execute(): "推敲実行"
+          dependencies: ["domain.services.polish", "domain.entities"]
+
+        initialization:
+          public_interfaces:
+            - InteractiveProjectInitializer.initialize(): "対話的プロジェクト初期化"
+          dependencies: ["domain.entities.Project"]
+
+        learning:
+          public_interfaces:
+            - AdaptiveQualityEvaluator.evaluate(): "適応的品質評価"
+          dependencies: ["domain.services.quality"]
+
+      services:
+        responsibility: "アプリケーションサービス（複数ユースケース共通処理）"
+        public_interfaces:
+          - A30CompatibilityAdapter: "A30互換アダプター"
+          - DifferentialUpdateService.update(): "差分更新"
+          - ErrorHandlingService.handle(): "エラーハンドリング"
+          - QualityGateProcessor.process(): "品質ゲート処理"
+          - YamlProcessingService.process(): "YAML処理"
+        dependencies: ["domain"]
+
+      mcp_services:
+        responsibility: "MCP統合サービス（Claude Code連携）"
+        public_interfaces:
+          - WritingMcpService: "執筆MCPサービス"
+          - QualityMcpService: "品質MCPサービス"
+          - PlotMcpService: "プロットMCPサービス"
+          - ProviderService: "サービスプロバイダー"
+        dependencies: ["application.use_cases"]
+
+      message_bus:
+        responsibility: "MessageBus実装（SPEC-901: P95 < 1ms）"
+        public_interfaces:
+          - MessageBus.send_command(): "コマンド送信"
+          - MessageBus.publish_event(): "イベント発行"
+          - MessageBus.subscribe(): "イベント購読"
+        performance:
+          p95_latency: "<1ms"
+          throughput: "50 req/sec"
+        dependencies: ["domain.commands", "domain.events"]
+
+      adapters:
+        responsibility: "外部システムアダプター"
+        public_interfaces:
+          - BusCompatibilityBridge: "Busブリッジ"
+          - QualityCheckAdapter: "品質チェックアダプター"
+          - UseCaseBusAdapter: "UseCaseBusアダプター"
+        dependencies: ["application.message_bus"]
+
+      orchestrators:
+        responsibility: "複雑なワークフローオーケストレーション"
+        public_interfaces:
+          - ErrorHandlingOrchestrator.orchestrate(): "エラーハンドリング"
+          - PlotGenerationOrchestrator.orchestrate(): "プロット生成"
+        dependencies: ["application.use_cases"]
+
+  # ========================================
+  # 3. Infrastructure層
+  # ========================================
+  infrastructure:
+    responsibility: |
+      外部システム連携・永続化・I/O処理。
+      抽象化されたインターフェースを実装。
+
+    subcomponents:
+
+      adapters:
+        responsibility: "外部サービスアダプター"
+
+        ai:
+          public_interfaces:
+            - ClaudeAdapter.call_api(): "Claude API連携"
+          dependencies: ["requests"]
+
+        narou:
+          public_interfaces:
+            - NarouApiAdapter.fetch(): "なろうAPI連携"
+          dependencies: ["requests"]
+
+        file:
+          public_interfaces:
+            - FileSystemAdapter.read(): "ファイルシステム操作"
+          dependencies: []
+
+      repositories:
+        responsibility: "データ永続化リポジトリ"
+        public_interfaces:
+          - EpisodeRepository.save(): "エピソード保存・取得"
+          - PlotRepository.save(): "プロット保存・取得"
+          - QualityRepository.save(): "品質記録保存・取得"
+          - ProjectRepository.save(): "プロジェクト設定保存・取得"
+        storage: ".noveler/ ディレクトリ（YAML/JSON形式）"
+        dependencies: ["domain.entities"]
+
+      file_operations:
+        responsibility: "ファイル操作抽象化"
+        public_interfaces:
+          - IPathService.resolve_path(): "パス解決（抽象化）"
+          - FileReader.read(): "ファイル読み込み"
+          - FileWriter.write(): "ファイル書き込み"
+        constraints:
+          - "strict モード時はフォールバック禁止"
+          - "パストラバーサル防止"
+
+      logging:
+        responsibility: "ロギング抽象化"
+        public_interfaces:
+          - ILoggerService.log(): "ロガーサービス（抽象化）"
+          - LogFormatter.format(): "ログフォーマッター"
+        output:
+          - "stdout: MCP統合時"
+          - "reports/: ファイル出力"
+          - "reports/stream/: NDJSONストリーム"
+
+      config:
+        responsibility: "設定管理（SSOT: Single Source of Truth）"
+        public_interfaces:
+          - ConfigurationManager.get(): "設定取得"
+          - YamlConfigLoader.load(): "YAML設定ローダー"
+          - EnvironmentConfig.get(): "環境変数取得"
+        ssot: ".novelerrc.yaml"
+        dependencies: ["PyYAML", "ruamel.yaml"]
+
+      factories:
+        responsibility: "依存性注入ファクトリー"
+        public_interfaces:
+          - ServiceFactory.create(): "サービス生成"
+          - RepositoryFactory.create(): "リポジトリ生成"
+        dependencies: ["すべての層"]
+
+  # ========================================
+  # 4. Presentation層
+  # ========================================
+  presentation:
+    responsibility: |
+      ユーザーインターフェース（CLI/UI）とコマンド処理。
+      すべての層に依存可能。
+
+    subcomponents:
+
+      cli:
+        responsibility: "CLIインターフェース"
+        public_interfaces:
+          - NovelCli.main(): "メインCLIエントリポイント"
+          - CommandDispatcher.dispatch(): "コマンドディスパッチ"
+        dependencies: ["application.use_cases", "infrastructure"]
+
+      commands:
+        responsibility: "CLIコマンド定義"
+        public_interfaces:
+          - WriteCommand.execute(): "執筆コマンド"
+          - CheckCommand.execute(): "品質チェックコマンド"
+          - PolishCommand.execute(): "推敲コマンド"
+          - PublishCommand.execute(): "公開準備コマンド"
+        dependencies: ["application.use_cases"]
+
+      formatters:
+        responsibility: "出力フォーマッター"
+        public_interfaces:
+          - JsonFormatter.format(): "JSON出力"
+          - YamlFormatter.format(): "YAML出力"
+          - NdjsonFormatter.format(): "NDJSON出力（ストリーミング）"
+          - MarkdownFormatter.format(): "Markdown出力"
+        dependencies: ["domain.entities"]
+
+  # ========================================
+  # 5. Tools層
+  # ========================================
+  tools:
+    responsibility: |
+      MCPツール実装（Claude Code統合）。
+      Application層のユースケースを呼び出し。
+
+    subcomponents:
+
+      writing:
+        responsibility: "執筆ツール群"
+        mcp_tools:
+          - get_writing_tasks: "タスクリスト取得"
+          - execute_writing_step: "ステップ実行"
+          - get_task_status: "ステータス取得"
+          - resume_from_failure: "復旧実行"
+        dependencies: ["application.use_cases.writing"]
+
+      quality:
+        responsibility: "品質チェックツール群"
+        mcp_tools:
+          - run_quality_checks: "統合品質チェック"
+          - check_rhythm: "リズムチェック"
+          - check_readability: "読みやすさチェック"
+          - check_grammar: "文法チェック"
+          - check_style: "スタイルチェック"
+          - fix_quality_issues: "自動修正"
+          - improve_quality_until: "反復改善"
+          - export_quality_report: "レポート出力"
+        dependencies: ["application.use_cases.quality"]
+
+      polish:
+        responsibility: "推敲ツール群"
+        mcp_tools:
+          - polish_manuscript: "推敲プロンプト生成"
+          - polish_manuscript_apply: "推敲一気通貫適用"
+          - restore_manuscript_from_artifact: "ロールバック"
+          - polish: "推敲エイリアス"
+        dependencies: ["application.use_cases.polish"]
+
+      artifacts:
+        responsibility: "アーティファクト管理"
+        mcp_tools:
+          - list_artifacts: "アーティファクト一覧"
+          - fetch_artifact: "アーティファクト取得"
+          - backup_management: "バックアップ管理"
+        storage: ".noveler/artifacts/ (SHA256ハッシュ)"
+        dependencies: ["infrastructure.repositories"]
+
+# 拡張ポイント
+extension_points:
+
+  new_quality_aspect:
+    layer: "Domain"
+    location: "domain/services/quality/"
+    steps:
+      - "新しいCheckerクラスを作成（純粋関数）"
+      - "IntegratedQualityCheckUseCaseに統合"
+      - "MCPツールに新しいcheck_xxxを追加"
+
+  new_writing_step:
+    layer: "Domain"
+    location: "domain/services/writing/"
+    steps:
+      - "新しいStepProcessorを作成"
+      - "StepProcessorFactoryに登録"
+      - "B18EighteenStepWritingUseCaseに統合"
+
+  new_mcp_tool:
+    layer: "Tools"
+    location: "tools/<category>/"
+    steps:
+      - "新しいツール関数を定義"
+      - "mcp_servicesにマッピング"
+      - "codex.mcp.jsonに登録"
+
+# パフォーマンス要件
+performance:
+  single_quality_check: "3秒以内"
+  mcp_tool_p95: "<1ms"
+  smart_auto_enhancement: "1,250ms以内"
+  parallel_quality_check: "10秒以内（10話）"
+  message_bus_throughput: "50 req/sec"
+
+# 品質要件
+quality:
+  test_coverage: "80%以上"
+  file_max_lines: 300
+  class_max_methods: 10
+  function_max_lines: 50
+  method_complexity: 10
+  nesting_depth: 4
+  type_safety: "mypy strict合格"
+
+# セキュリティ要件
+security:
+  path_validation: "IPathService必須（strict モード）"
+  secret_management: "vault方式（.novelerrc.yaml）"
+  input_validation: "スキーマバリデーション"
+  dependency_scan: "GitHub Dependabot"
+
+---
+
+# 承認
+approved_by: "B20 Phase 2 - CODEMAP作成"
+next_step: "solid_validation.md 生成"

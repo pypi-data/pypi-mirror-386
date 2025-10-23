@@ -1,0 +1,13 @@
+metadata:
+  title: 段階的執筆プロンプト: 第001話.md
+  project: noveler
+  episode_file: 第001話.md
+  genre: fantasy
+  word_count: 4000
+  viewpoint: 三人称単元視点
+  viewpoint_character: 主人公
+  detail_level: stepwise
+  methodology: A30準拠10段階構造化執筆プロセス（詳細分割方式）
+  generated_at: 2025-10-22 13:04:50
+task_definition:
+  - Draft the manuscript according to A30 guidelines.

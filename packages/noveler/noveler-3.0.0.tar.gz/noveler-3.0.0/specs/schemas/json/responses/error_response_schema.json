@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "error_response_schema.json",
+  "title": "ErrorResponseSchema",
+  "description": "CLI実行失敗時のエラーレスポンススキーマ",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "実行成功フラグ（常にfalse）",
+      "const": false
+    },
+    "error": {
+      "type": "object",
+      "description": "エラー詳細情報",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "エラーコード",
+          "pattern": "^[A-Z_]+$",
+          "enum": [
+            "FILE_NOT_FOUND",
+            "FILE_READ_ERROR",
+            "FILE_WRITE_ERROR",
+            "FILE_INTEGRITY_ERROR",
+            "VALIDATION_ERROR",
+            "SCHEMA_VIOLATION",
+            "PYDANTIC_ERROR",
+            "CONVERSION_ERROR",
+            "JSON_PARSE_ERROR",
+            "ENCODING_ERROR",
+            "SYSTEM_ERROR",
+            "PERMISSION_DENIED",
+            "RESOURCE_EXHAUSTED",
+            "CLI_EXECUTION_ERROR",
+            "CLI_TIMEOUT_ERROR",
+            "TOOL_EXECUTION_ERROR",
+            "TOOL_VALIDATION_ERROR",
+            "MCP_SERVER_ERROR",
+            "UNEXPECTED_ERROR"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "description": "エラーメッセージ（日本語）",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "hint": {
+          "type": "string",
+          "description": "解決方法ヒント（日本語）",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "details": {
+          "type": "object",
+          "description": "詳細情報",
+          "properties": {
+            "file_path": {"type": "string"},
+            "error_type": {"type": "string"},
+            "validation_errors": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "return_code": {"type": "integer"},
+            "stderr": {"type": "string"},
+            "stdout": {"type": "string"},
+            "timeout_seconds": {"type": "number"},
+            "command": {"type": "string"},
+            "original_data_keys": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          },
+          "additionalProperties": true
+        },
+        "stack_trace": {
+          "type": "string",
+          "description": "スタックトレース（開発時のみ）"
+        }
+      },
+      "required": ["code", "message", "hint"],
+      "additionalProperties": false
+    },
+    "command": {
+      "type": "string",
+      "description": "実行されたコマンド",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "エラー発生時刻（ISO 8601）",
+      "format": "date-time"
+    },
+    "operation_id": {
+      "type": "string",
+      "description": "操作識別子（UUID）",
+      "format": "uuid"
+    }
+  },
+  "required": ["success", "error", "command", "timestamp"],
+  "additionalProperties": false
+}

@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem"
+      ]
+    },
+    "noveler": {
+      "type": "stdio",
+      "command": "C:\\Users\\bamboocity\\OneDrive\\Documents\\9_小説\\00_ガイド\\.venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\bamboocity\\OneDrive\\Documents\\9_小説\\00_ガイド\\dist\\mcp_servers\\noveler\\main.py"
+      ],
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "NOVELER_PRODUCTION_MODE": "1",
+        "MCP_LIGHTWEIGHT_DEFAULT": "1"
+      },
+      "cwd": "C:\\Users\\bamboocity\\OneDrive\\Documents\\9_小説\\00_ガイド",
+      "description": "Noveler MCP server"
+    },
+    "serena": {
+      "type": "stdio",
+      "command": "C:\\Users\\bamboocity\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\uvx.exe",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--enable-web-dashboard",
+        "false",
+        "--project",
+        "C:\\Users\\bamboocity\\OneDrive\\Documents\\9_小説\\00_ガイド"
+      ],
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "SYSTEMROOT": "C:\\Windows"
+      }
+    }
+  }
+}

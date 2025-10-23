@@ -1,0 +1,184 @@
+# STEP 26: Polish Stage2 Content Schema v2
+
+metadata:
+  step_id: 26
+  step_name: "Polish Stage2 Content"
+  phase: "content_development"
+  schema_version: "2.1.0"
+  last_updated: "2025-10-20"
+  author: "noveler system"
+  description: "Stage2 content refinement focusing on structure, depiction, dialogue, characters"
+  estimated_duration: "20-25分"
+
+llm_config:
+  role_messages:
+    system: |
+      あなたはContent Refinerです。以下を厳守してください:
+
+      【必須ルール】
+      1. constraints.hard_rules を必ず遵守
+      2. 出力形式: 生のYAMLテキストのみ（```yamlなどのコードブロック禁止）
+      3. 追加説明・前置き文・コメント・補足は一切不要
+      4. artifacts.required_fields を必ず含める
+      5. YAMLインデントはスペース2固定、タブ禁止
+      6. 本文はmanuscriptフィールドにブロックリテラル（|）で格納
+    user: |-
+      Stage2 推敲では構成最適化・描写深化・会話調整・キャラクター魅力の4領域を強化します。
+      tasks と acceptance_criteria を満たし、改善根拠は improvements[*].rationale に必ず記録してください。
+
+prompt:
+  main_instruction: |-
+    目的は「エピソード{episode_number}のStage2内容的推敲」です。以下を実施してください。
+    1. manuscript を推敲し、構成/描写/会話/キャラクターの改善を適用する。
+    2. improvements 配列に主要改善点を最大5件列挙し、field・issue・after_text・rationale を含める。
+    3. artifacts.required_fields を満たす JSON をコードブロックなしで出力する。
+
+inputs:
+  files:
+    - path: "{project_root}/40_原稿/第{episode_number:03d}話*.md"
+      required: true
+      description: 対象エピソード原稿（最新稿）
+    - path: "{project_root}/30_設定集/キャラクター設定.yaml"
+      required: false
+      description: キャラクター一貫性確認用
+  variables:
+    episode_number: { type: int, required: true }
+    project_root: { type: path, required: true }
+    target_word_count: { type: int, required: false }
+
+constraints:
+  hard_rules:
+    - manuscript はブロックリテラル（|）形式で出力する
+    - improvements[] には field/issue/after_text/rationale を含める
+    - summary.changed_sections を整数で記載する
+  soft_targets:
+    - target_word_count ±20% 以内を目指す
+    - 冒頭3段落にフックを設ける記述を追加する
+
+
+tasks:
+  bullets:
+    - 各シーンの目的とテンポを最適化し、冗長な説明を削除する
+    - 五感描写と固有名詞を追加して臨場感を高める
+    - 説明的会話を行動や描写に置き換えてテンポを改善する
+    - キャラクターの感情変化と選択の必然性を明確化する
+  details:
+    - name: 構成
+      items:
+        - id: stage2.structure
+          text: シーン目的・ペース配分を最適化し、情報提示の順序を整理する
+    - name: 描写
+      items:
+        - id: stage2.depiction
+          text: 五感・比喩を活用し、具体的な情景や身体反応を追加する
+    - name: 会話
+      items:
+        - id: stage2.dialogue
+          text: 説明口調を削減し、個性とテンポを維持する
+    - name: キャラクター
+      items:
+        - id: stage2.character
+          text: 感情と動機が読み取れるよう内面と行動を再構成する
+
+artifacts:
+  format: yaml
+  required_fields: ["manuscript", "improvements", "summary"]
+  path_template: "{project_root}/.noveler/polish/stage2_ep{episode_number:03d}.yaml"
+  schema_reference: |
+    manuscript: string (必須、ブロックリテラル形式)
+    improvements: array (必須)
+      - field: string (structure/depiction/dialogue/character)
+        issue: string
+        after_text: string
+        rationale: string
+    summary:
+      changed_sections: integer
+      notes: string
+  example: |
+    manuscript: |
+      # 第{episode_number:03d}話
+
+      （改稿後本文…）
+
+    improvements:
+      - field: "structure"
+        issue: "導入が冗長で緊張感が弱い"
+        after_text: "冒頭3段落を再構成し、事件発生を前倒し"
+        rationale: "stage2.structure を満たすため重要情報を先出し"
+      - field: "dialogue"
+        issue: "説明的な台詞が多い"
+        after_text: "台詞を短縮し、行動で補完"
+        rationale: "stage2.dialogue を満たすためテンポ重視"
+    summary:
+      changed_sections: 3
+      notes: "構成の前倒しと会話の圧縮を実施"
+
+acceptance_criteria:
+  checklist:
+    - manuscriptフィールドが存在し、ブロックリテラル形式で改稿後本文が含まれている
+    - improvements が1件以上あり、各要素に field/issue/after_text/rationale が存在する
+    - summary.changed_sections >= 1
+  metrics:
+    - name: improvements_count
+      target: "<= 5"
+      method: "len(improvements)"
+  by_task:
+    - id: stage2.structure
+      field: improvements
+      rule: nonempty
+    - id: stage2.depiction
+      field: improvements
+      rule: nonempty
+    - id: stage2.dialogue
+      field: improvements
+      rule: nonempty
+    - id: stage2.character
+      field: improvements
+      rule: nonempty
+
+next:
+  next_step_id: 27
+  message_template: |
+    次は Stage3（読者体験最適化）を実行してください。テンプレート: polish_stage3_reader
+
+variables:
+  - step_id
+  - step_name
+  - episode_number
+  - completed_steps
+  - total_steps
+  - phase
+  - target_word_count
+
+control_settings:
+  strict_single_step: true
+  require_completion_confirm: true
+  auto_advance_disabled: true
+  batch_execution_blocked: true
+  by_task:
+    - id: stage2.structure
+      field: improvements
+      rule: nonempty
+    - id: stage2.depiction
+      field: improvements
+      rule: nonempty
+    - id: stage2.dialogue
+      field: improvements
+      rule: nonempty
+    - id: stage2.character
+      field: improvements
+      rule: nonempty
+
+check_criteria:
+  structure:
+    - シーンごとの目的が明確で冗長さがない
+    - 読者の期待を高める展開順になっている
+  depiction:
+    - 五感描写が各クライマックスに盛り込まれている
+    - 比喩が作品トーンと一致している
+  dialogue:
+    - キャラクターらしい口調とテンポを維持している
+    - 説明台詞が行動や描写に置換されている
+  character:
+    - 感情変化と意思決定が描写されている
+    - 成長や葛藤の根拠が示されている
