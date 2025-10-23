@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_core/__init__.py
+src/dm_core/qdrant/__init__.py
+src/dm_core/qdrant/service.py
+src/dm_core/qdrant/tests/__init__.py
+src/dm_core_qdrant.egg-info/PKG-INFO
+src/dm_core_qdrant.egg-info/SOURCES.txt
+src/dm_core_qdrant.egg-info/dependency_links.txt
+src/dm_core_qdrant.egg-info/requires.txt
+src/dm_core_qdrant.egg-info/top_level.txt

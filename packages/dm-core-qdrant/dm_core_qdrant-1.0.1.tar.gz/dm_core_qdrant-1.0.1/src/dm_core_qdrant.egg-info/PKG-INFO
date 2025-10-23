@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: dm-core-qdrant
+Version: 1.0.1
+Summary: DM Core QDrant
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy==2.2.4
+Requires-Dist: qdrant-client==1.13.3
+Requires-Dist: sentence-transformers==4.0.2
+Requires-Dist: Django==5.2.5
+Requires-Dist: dm-core-redis
+Dynamic: license-file
+
+# DM CORE QDRANT

@@ -1,0 +1,35 @@
+[build-system]
+requires = ['setuptools==80.9.0']
+build-backend = 'setuptools.build_meta'
+
+
+[project]
+authors = [
+  { name='Romaan Khadeer', email='romaan@dollarmates.com' },
+]
+classifiers = [
+    'Programming Language :: Python :: 3.10',
+    'Framework :: Django',
+    'Operating System :: OS Independent',
+    'Environment :: Web Environment'
+]
+license-files = [ "LICENSE" ]
+description = 'DM Core QDrant'
+dependencies = [
+  'numpy==2.2.4',
+  'qdrant-client==1.13.3',
+  'sentence-transformers==4.0.2',
+  'Django==5.2.5',
+  'dm-core-redis',
+]
+name = 'dm-core-qdrant'
+readme = 'README.md'
+requires-python = '==3.12.*'
+version = '1.0.1'
+
+[project.urls]
+Homepage = 'https://www.dollarmates.com'
+Source = 'https://github.com:dollarmates/dm-libs.git'
+
+[tool.setuptools.packages.find]
+where = ['src']
