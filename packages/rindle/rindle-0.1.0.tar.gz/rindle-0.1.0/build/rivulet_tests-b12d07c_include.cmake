@@ -1,0 +1,5 @@
+if(EXISTS "/Users/eric/CLionProjects/rivulet/build/rivulet_tests-b12d07c_tests.cmake")
+  include("/Users/eric/CLionProjects/rivulet/build/rivulet_tests-b12d07c_tests.cmake")
+else()
+  add_test(rivulet_tests_NOT_BUILT-b12d07c rivulet_tests_NOT_BUILT-b12d07c)
+endif()

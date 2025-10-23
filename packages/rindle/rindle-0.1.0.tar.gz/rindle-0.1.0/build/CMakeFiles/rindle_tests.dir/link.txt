@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/rindle_tests.dir/tests/engine_basic_tests.cpp.o -o rindle_tests  librindle.a _deps/catch2-build/src/libCatch2Main.a _deps/catch2-build/src/libCatch2.a

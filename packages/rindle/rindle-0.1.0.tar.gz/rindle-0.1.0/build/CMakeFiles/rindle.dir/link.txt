@@ -1,0 +1,2 @@
+/usr/bin/ar qc librindle.a CMakeFiles/rindle.dir/src/scaler.cpp.o CMakeFiles/rindle.dir/src/csv_io.cpp.o CMakeFiles/rindle.dir/src/manifest.cpp.o CMakeFiles/rindle.dir/src/window_maker.cpp.o CMakeFiles/rindle.dir/src/catalog.cpp.o CMakeFiles/rindle.dir/src/driver.cpp.o CMakeFiles/rindle.dir/src/types.cpp.o CMakeFiles/rindle.dir/src/window_manifest.cpp.o CMakeFiles/rindle.dir/src/dataset_builder.cpp.o CMakeFiles/rindle.dir/src/rindle_api.cpp.o
+/usr/bin/ranlib librindle.a

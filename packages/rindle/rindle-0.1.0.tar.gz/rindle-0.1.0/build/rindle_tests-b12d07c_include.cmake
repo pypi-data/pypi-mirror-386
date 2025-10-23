@@ -1,0 +1,5 @@
+if(EXISTS "/Users/eric/CLionProjects/rivulet/build/rindle_tests-b12d07c_tests.cmake")
+  include("/Users/eric/CLionProjects/rivulet/build/rindle_tests-b12d07c_tests.cmake")
+else()
+  add_test(rindle_tests_NOT_BUILT-b12d07c rindle_tests_NOT_BUILT-b12d07c)
+endif()
