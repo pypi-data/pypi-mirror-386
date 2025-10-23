@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "flexikit" # Use lowercase and hyphens
+version = "0.1.2"
+authors = [
+  { name="Zachary Sherwood", email="zachary.sherwood2009@gmail.com" },
+]
+# FIX: Ensure this line is a complete, single-line string with matching quotes.
+description = "A library for tons of uses" 
+readme = "README.md"
+requires-python = ">=3.0"
+license = { text = "MIT" }
+dependencies = [
+    # List any external dependencies here, e.g., "requests>=2.28.1",
+]
+
+[project.urls]
+"Source" = "https://github.com/Roms-lab/FlexiKit"

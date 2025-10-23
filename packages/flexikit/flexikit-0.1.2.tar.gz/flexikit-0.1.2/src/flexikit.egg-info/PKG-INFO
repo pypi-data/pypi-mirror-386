@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: flexikit
+Version: 0.1.2
+Summary: A library for tons of uses
+Home-page: https://github.com/yourusername/your-repo
+Author: Zachary Sherwood
+Author-email: Zachary Sherwood <zachary.sherwood2009@gmail.com>
+License: MIT
+Project-URL: Source, https://github.com/Roms-lab/FlexiKit
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+pip install FlexiKit

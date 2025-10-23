@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/FlexiKit/DLL.py
+src/FlexiKit/Memory.py
+src/FlexiKit/Memorydll.dll
+src/FlexiKit/UI.py
+src/FlexiKit/__init__.py
+src/FlexiKit/math.py
+src/FlexiKit/time.py
+src/flexikit.egg-info/PKG-INFO
+src/flexikit.egg-info/SOURCES.txt
+src/flexikit.egg-info/dependency_links.txt
+src/flexikit.egg-info/top_level.txt
