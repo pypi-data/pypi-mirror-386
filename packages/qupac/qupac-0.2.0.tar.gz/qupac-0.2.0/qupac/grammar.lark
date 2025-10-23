@@ -1,0 +1,116 @@
+// Qupac Grammar (Lark)
+// Comments: # ... or // ... to end of line
+
+?start: program
+
+program: (statement | COMMENT)*
+
+statement: use_stmt
+         | qubits_decl
+         | classical_decl
+         | apply_stmt
+         | entangle_stmt
+         | superpose_stmt
+         | shots_decl
+         | optimize_decl
+         | simulator_decl
+         | noise_decl
+         | draw_stmt
+         | draw_file_stmt
+         | measure_stmt
+         | reset_stmt
+         | if_apply
+         | subcircuit_def
+         | initial_layout_decl
+         | coupling_map_decl
+         | call_stmt
+         | simulate_stmt
+
+use_stmt: "use" "qiskit"
+
+qubits_decl: "qubits" ":" INT
+classical_decl: "classical" ":" INT
+
+apply_stmt: "apply" gate_call apply_targets
+
+gate_call: GATE ("(" expr ")")?
+
+// Expressions for parameters (numbers, names, pi) with +, -, *, /
+?expr: expr "+" term   -> add
+    | expr "-" term   -> sub
+    | term
+?term: term "*" factor -> mul
+    | term "/" factor -> div
+    | factor
+?factor: SIGNED_NUMBER  -> number
+      | NAME           -> symbol
+      | "pi"           -> pi
+      | "(" expr ")"
+
+// Targets and controls can be single ints or lists like 0,1,2
+apply_targets: "to" index_list                 -> targets_list
+            | "from" index_list "to" index_list     -> controls_to_targets
+
+index_list: INT ("," INT)*
+
+entangle_stmt: "entangle" INT "," INT
+
+superpose_stmt: "superpose" INT
+
+shots_decl: "shots" ":" INT
+
+optimize_decl: "optimize" ":" INT
+
+MPL: "mpl"
+TEXTMODE: "text"
+
+draw_stmt: "draw" (TEXTMODE | MPL)?
+draw_file_stmt: "draw" "file" ":" STRING (MPL | TEXTMODE)?
+
+measure_stmt: "measure" "all"           -> measure_all
+            | "measure" index_list "->" index_list  -> measure_list
+
+reset_stmt: "reset" index_list
+
+simulate_stmt: "simulate"
+
+GATE: /H|X|Y|Z|S|T|CX|CY|CZ|RX|RY|RZ|SWAP|CCX/
+
+SIMTYPE: "default" | "statevector" | "unitary"
+simulator_decl: "simulator" ":" SIMTYPE
+
+noise_decl: "noise" "none"               -> noise_none
+          | "noise" "depol" "p=" SIGNED_NUMBER  -> noise_depol
+
+// Conditionals (single-line apply for now)
+if_apply: "if" INT "==" INT ":" "apply" gate_call apply_targets
+
+// Subcircuits: define and call
+subcircuit_def: "define" NAME "(" name_list ")" sub_body "end"
+name_list: NAME ("," NAME)*
+sub_body: (sub_apply | sub_reset | sub_measure)*
+sub_apply: "apply" gate_call sub_apply_targets
+sub_apply_targets: "to" name_list                 -> sub_targets_list
+                 | "from" name_list "to" name_list -> sub_controls_to_targets
+sub_reset: "reset" name_list
+sub_measure: "measure" name_list "->" name_list    -> sub_measure_list
+
+// Call a subcircuit onto specific qubits
+call_stmt: "call" NAME "on" index_list
+
+// Layout and routing
+initial_layout_decl: "initial_layout" ":" "[" int_list "]"
+int_list: INT ("," INT)*
+coupling_map_decl: "coupling_map" ":" "[" pair_list "]"
+pair_list: "[" INT "," INT "]" ("," "[" INT "," INT "]")*
+
+COMMENT: /#.*|\/\/.*\n?/
+
+%import common.WS
+%import common.INT
+%import common.ESCAPED_STRING -> STRING
+%import common.SIGNED_NUMBER
+%import common.CNAME -> NAME
+%ignore WS
+%ignore COMMENT
+

@@ -1,0 +1,168 @@
+```
+# Qupac (Quantum Python Abstraction Compiler)
+
+ A lightweight language to design quantum circuits and transpile them to Python code using Qiskit 2.x. Write simple gate instructions; Qupac parses, transpiles, and can run the generated Python for simulation.
+License
+- MIT
+
+```
+# Qupac (Quantum Python Abstraction Compiler)
+
+A lightweight language to design quantum circuits and transpile them to Python code using Qiskit 2.x. Write simple gate instructions; Qupac parses, transpiles, and can run the generated Python for simulation.
+
+Highlights
+- Minimal syntax for qubit/classical declarations, gate application, measurement, and simulate.
+- CLI runs generated Python in the background by default on Windows.
+- Optionally emit the generated Python without running it.
+
+Project layout
+- `qupac/grammar.lark` — Lark grammar for the language
+- `qupac/parser.py` — Parser and transformer to an IR
+- `qupac/transpiler.py` — IR -> Python (Qiskit 2.x) code generator
+- `qupac/executor.py` — Runs generated Python (bg/fg)
+- `qupac/cli.py` — CLI entrypoint (background by default)
+- `main.qu` — Example program
+
+Language quick reference
+- Use statement: `use qiskit`
+- Qubits: `qubits: <int>`
+- Classical bits (optional): `classical: <int>`
+- Apply gate: `apply H to 0` or `apply CX from 0 to 1`
+ - Entangle two qubits: `entangle 0,1` (shorthand for `apply CX from 0 to 1`)
+ - Put a qubit in superposition: `superpose 0` (shorthand for `apply H to 0`)
+- Measure all: `measure all`
+- Measure one: `measure 0 -> 0`
+- Execute: `simulate`
+ - Shots (number of measurement samples): `shots: 1024` (default 1024 if not provided)
+ - Optimization level for transpile: `optimize: 0|1|2|3` (maps to Qiskit's optimization_level)
+ - Draw the generated circuit: `draw` or `draw mpl` (text drawing is default; `mpl` attempts a matplotlib rendering)
+- Simulator backend method: `simulator: default|statevector|unitary`
+- Simple noise model (depolarizing): `noise depol p=0.01` (requires qiskit-aer noise modules)
+- Comments: lines starting with `#` or `//`
+
+Example `main.qu`
+
+use qiskit
+
+qubits: 3
+classical: 3
+
+apply H to 0
+apply CX from 0 to 1
+apply CX from 1 to 2
+
+measure all
+
+simulate
+
+Other shorthand examples
+
+```
+use qiskit
+qubits: 2
+entangle 0,1
+measure all
+simulate
+```
+
+Or using superpose:
+
+```
+use qiskit
+qubits: 1
+superpose 0
+measure all
+simulate
+```
+
+Draw and simulation options
+
+```
+use qiskit
+qubits: 2
+entangle 0,1
+draw
+shots: 2048
+optimize: 1
+simulate
+```
+
+This will print a textual drawing of the circuit, transpile with optimization level 1, and run the simulator with 2048 shots.
+
+Parameterized gates and statevector
+
+```
+use qiskit
+qubits: 1
+apply RY(1.5708) to 0
+draw
+simulator: statevector
+shots: 1
+simulate
+```
+
+Noise (depolarizing) example
+
+```
+use qiskit
+qubits: 2
+entangle 0,1
+noise depol p=0.02
+shots: 2048
+simulate
+```
+
+Setup
+1) Create and activate a Python 3.9+ environment.
+2) Install dependencies (Qiskit is large; installing only Lark lets you test parsing/transpiling):
+   - Minimal (parser/transpiler only):
+     pip install lark
+   - Full (to actually run/simulate):
+     pip install -r requirements.txt
+
+Developer setup (lint, type-check, tests)
+- Install dev tools:
+  - Using pip:
+    pip install -e .[dev]
+  - Or install individually:
+    pip install ruff mypy pytest
+
+- Lint (Ruff):
+  ruff check .
+
+- Type check (mypy):
+  mypy qupac
+
+- Run tests (pytest):
+  pytest -q
+
+How to run
+- Dev, without installing the package:
+  - Emit generated Python (no Qiskit needed):
+    python -m qupac.cli --emit main.qu
+  - Run generated Python in the background (requires Qiskit installed):
+    python -m qupac.cli main.qu
+  - Run in foreground/blocking (requires Qiskit installed):
+    python -m qupac.cli --fg main.qu
+
+- Install CLI (optional) to get the `qupac` command:
+  pip install -e .
+  qupac --emit main.qu
+  qupac main.qu
+
+Background execution and logs
+- By default, Qupac runs the generated Python script in the background.
+- Logs are written to `.qupac_build/` in your Qupac source folder. If you provide `--log`, output goes to that file.
+
+Notes and limitations
+- Rotation gates RX/RY/RZ need an angle; supported as numeric or expressions (e.g., `pi/2`).
+- Measuring a specific qubit (e.g., `measure 0 -> 0`) requires an explicit `classical: N` declaration.
+- Targeted for Qiskit 2.x APIs via `qiskit` and `qiskit-aer` packages.
+
+Troubleshooting
+- If your IDE shows "Invalid Python interpreter" or unresolved imports, make sure you’ve selected the correct Python environment and installed dependencies.
+- If background runs don’t produce output, check `.qupac_build/*.log` files for error messages (e.g., missing Qiskit).
+
+License
+- MIT (add your license as appropriate)
+
