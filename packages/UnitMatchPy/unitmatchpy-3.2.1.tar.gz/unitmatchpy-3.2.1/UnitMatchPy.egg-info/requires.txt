@@ -1,0 +1,15 @@
+numpy
+matplotlib
+scipy
+pandas
+mtscomp
+joblib
+mat73
+tqdm
+spikeinterface
+h5py
+scikit-learn
+torch
+
+[notebooks]
+ipykernel
