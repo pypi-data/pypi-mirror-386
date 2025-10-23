@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["mcp_server"]
+packages = ["bing_flights_scraper"]
+
+[project]
+name = "bing-flights-mcp"
+version = "1.0.1"
+description = "MCP server for searching flights on Bing Flights"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "Peter Che", email = "chonseng38@gmail.com"}
+]
+dependencies = [
+    "fastmcp>=0.1.0",
+    "playwright>=1.40.0",
+    "python-dateutil>=2.8.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/chonseng/bing-flights-mcp"
+
+[project.scripts]
+bing-flights-mcp = "mcp_server:main"
