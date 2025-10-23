@@ -1,0 +1,23 @@
+{
+  "examples": [
+    {
+      "problem_type": "portfolio_optimization",
+      "problem_description": "portfolio optimization investment allocation",
+      "keywords": ["portfolio", "investment", "allocation", "stocks", "risk", "return"],
+      "solution": "Create individual stock allocation variables with budget and risk constraints"
+    },
+    {
+      "problem_type": "production_planning",
+      "problem_description": "production planning manufacturing optimization",
+      "keywords": ["production", "manufacturing", "capacity", "demand", "cost"],
+      "solution": "Create production quantity variables with capacity and demand constraints"
+    },
+    {
+      "problem_type": "scheduling",
+      "problem_description": "employee scheduling task assignment",
+      "keywords": ["scheduling", "employee", "task", "assignment", "shift"],
+      "solution": "Create assignment variables with availability and skill constraints"
+    }
+  ]
+}
+}
