@@ -1,0 +1,2 @@
+[sqlalchemy.dialects]
+arc.arrow = arc_dialect_arrow:ArcDialect
