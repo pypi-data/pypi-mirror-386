@@ -1,0 +1,33 @@
+[pylint]
+max-line-length=88
+
+[pylint.master]
+init-hook='import sys; sys.path.append("./lambda"); sys.path.append("."); '
+ignore-paths=
+    ^/tests/.*$,
+    ^/docs/.*$
+
+[pylint.basic]
+good-names=e
+
+[MESSAGES CONTROL]
+disable=apply-builtin,
+        C0330,
+        C0326,
+        missing-module-docstring,
+        missing-function-docstring,
+        logging-fstring-interpolation,
+        missing-docstring,
+        empty-docstring,
+        invalid-name,
+        W
+
+[MASTER]
+init-hook='import sys; sys.path.append("./lambda"); sys.path.append("."); '
+ignore-paths=
+    ^/tests/.*$,
+    ^/docs/.*$
+ignore=docs
+
+[BASIC]
+good-names=e

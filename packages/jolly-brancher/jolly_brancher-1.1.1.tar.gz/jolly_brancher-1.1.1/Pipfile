@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jira = ">=3.5.0"
+prompt-toolkit = "==3.0.51"
+argparse = "*"
+pygithub = "*"
+twine = "*"
+
+[dev-packages]
+ruff = "*"
+pre-commit = "*"
+pytest = "*"
+pytest-cov = "*"
+black = "*"
+tox = "*"
+setuptools = "*"
+
+[requires]
+python_version = "3.11"
+
+[pipenv]
+allow_prereleases = true
+
+[scripts]
