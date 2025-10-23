@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: odoo-apps-Odoo-Apps-Sale-Workflow
+Version: 18.0.20251022.0
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 18.0
+Requires-Dist: odoo-addon-sale_subscription_period_discount==18.0.*
