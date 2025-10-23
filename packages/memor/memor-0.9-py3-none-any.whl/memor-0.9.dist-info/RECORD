@@ -1,0 +1,17 @@
+memor/__init__.py,sha256=6d6eD4ERVEqr-6y4enzmKDGLuT0_5tujcEWCHS3DzKo,389
+memor/errors.py,sha256=lcXtSozrZZBUUFjkze5lksDXG9oswwwwZH6CKNRHKT0,244
+memor/functions.py,sha256=tVhiXXMoWbXKOMjO5dXqI5W36Hpb3Oeb1FG3v5W4wy4,5871
+memor/keywords.py,sha256=hQzucRRigMbl8WF4Jsscw7Ff1fiwg1y148YSiaHaU4w,13236
+memor/message.py,sha256=r2JcMwSYgSo2O9T10FlykXhnO9rs66oouWFsiuvCF5Y,7818
+memor/params.py,sha256=_G4IwQp0OyWomPqVmleqygv7UouetMmO_Pglz8NNdRY,20436
+memor/prompt.py,sha256=Hjk-PbJ9Jc5G2EzHuMQF9B8BWwJZIgZxqTRdklOb2ww,13525
+memor/response.py,sha256=loiilrM_qGAoMmBmPSoxOUQqgpJneWKHqKIC8cH0nNw,13670
+memor/session.py,sha256=_RXJlBhtxyxwnyL7YFissk8QYpkUSyEEx6hobB0RtrQ,20565
+memor/template.py,sha256=pDqAMRpaClFbIO1KMBPcvys4wxcUyNQuX9vCMKVX_HU,21355
+memor/tokens_estimator.py,sha256=YBwMooUg2mngFKzx84KHEUgnOO6BpruPIEiQoTCqYXQ,5336
+memor-0.9.dist-info/licenses/AUTHORS.md,sha256=2BV-lUr-SKy9bM-fXVUImVRuA1kMkGjpnSh30NwSWzk,338
+memor-0.9.dist-info/licenses/LICENSE,sha256=Ck6vYPIMtG-c66W_PK2oYx-WDILkeu3KkrzbUYGQgwo,1066
+memor-0.9.dist-info/METADATA,sha256=-a3SChUEasT3fx1KKK5oWqRY3WfrazYR7TJn8J19eiE,33345
+memor-0.9.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+memor-0.9.dist-info/top_level.txt,sha256=XWNkuLOmIbKZzvUo36F2CF4U3OeM3LbenmhDvi1YpWw,6
+memor-0.9.dist-info/RECORD,,
