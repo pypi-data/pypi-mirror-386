@@ -1,0 +1,1 @@
+"""Core message handling and routing components."""
