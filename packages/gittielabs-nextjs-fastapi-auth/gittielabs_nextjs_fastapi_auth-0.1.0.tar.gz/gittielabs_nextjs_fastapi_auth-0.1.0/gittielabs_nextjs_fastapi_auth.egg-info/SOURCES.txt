@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+gittielabs_fastapi_auth/__init__.py
+gittielabs_fastapi_auth/jwt_admin_context.py
+gittielabs_fastapi_auth/models.py
+gittielabs_fastapi_auth/organization_context.py
+gittielabs_fastapi_auth/supabase_auth.py
+gittielabs_nextjs_fastapi_auth.egg-info/PKG-INFO
+gittielabs_nextjs_fastapi_auth.egg-info/SOURCES.txt
+gittielabs_nextjs_fastapi_auth.egg-info/dependency_links.txt
+gittielabs_nextjs_fastapi_auth.egg-info/requires.txt
+gittielabs_nextjs_fastapi_auth.egg-info/top_level.txt
+tests/test_jwt_admin_context.py
+tests/test_organization_context.py
+tests/test_supabase_auth.py
