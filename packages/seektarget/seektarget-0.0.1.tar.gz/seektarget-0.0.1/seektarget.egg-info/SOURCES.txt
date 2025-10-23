@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+seektarget.egg-info/PKG-INFO
+seektarget.egg-info/SOURCES.txt
+seektarget.egg-info/dependency_links.txt
+seektarget.egg-info/top_level.txt
+targetseek/__init__.py
