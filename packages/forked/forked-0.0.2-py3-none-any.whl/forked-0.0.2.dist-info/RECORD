@@ -1,0 +1,14 @@
+forked/__init__.py,sha256=svKujV75mS8rVhav3USW_h2lCXP36ypiCaNj14gqis8,138
+forked/build.py,sha256=G52tDMzda9DQ_hSbuzbr3uNBDx-ZcliWP9R_cZEX9Cc,19110
+forked/cli.py,sha256=fQo2SkB9l01tsCSWoUdpmI4klc7zazFNf8ssLpZqSmo,60034
+forked/config.py,sha256=Ca7hezbNlzmHER9BWjr3yQkpPcKLhe1nUpLGtVEKg94,4695
+forked/conflicts.py,sha256=nthnicHsyVPosoWA4skhUbmkO3RSYXDCUmZs0JvbRMk,13709
+forked/gitutil.py,sha256=OjkvUDkCeYJUByA1lbqUfXbmw8yU7wjZMw0GdgmrS-o,3406
+forked/guards.py,sha256=oaAubmY3B0zJKVaDIEmCfPmoBvy8hmmNEMlRvm09N-w,3190
+forked/resolver.py,sha256=S1JWjUDuRpCP-DZffJRWe8gONdJFC4d46eKiEioJgLc,5789
+forked/sync.py,sha256=JgXHahAygmtCmOtpupKc4hlnbXHt9bm4Tvv_S0aWu1E,8347
+forked-0.0.2.dist-info/METADATA,sha256=ipixDjKWCoW77Xg-MAkaYevlpsqFoVp6c_yPYLxfT7o,30864
+forked-0.0.2.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+forked-0.0.2.dist-info/entry_points.txt,sha256=jcvQZbBCvfh6eOelN4FzM_ZV4jo7D62a915nwxoD05k,41
+forked-0.0.2.dist-info/licenses/LICENSE,sha256=-RepnEbKBMPcVz6qltC_4pBoiwbYiUvn59KuUZtaMHQ,1074
+forked-0.0.2.dist-info/RECORD,,

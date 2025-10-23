@@ -1,0 +1,3 @@
+[console_scripts]
+forked=forked.cli:app
+
