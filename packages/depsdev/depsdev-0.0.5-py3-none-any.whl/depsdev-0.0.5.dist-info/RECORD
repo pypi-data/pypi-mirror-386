@@ -1,0 +1,16 @@
+depsdev/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+depsdev/__main__.py,sha256=BefEx7haQe2q0GuzIjg7aIeDBElmf4HCOenflZJiKc4,5649
+depsdev/_version.py,sha256=YRV1ohn6CdKEhsUOmFFMmr5UTjMv4Ydw3WJGxF2BHBs,704
+depsdev/base.py,sha256=knP1QrgtLQbwgZYqe5B-QNecYpBGQCLsQeIQRprPQKk,1314
+depsdev/osv.py,sha256=AWP3E1_LmUTbXGmA15yZazTrEU-uPf1f5TW69o8LW04,5983
+depsdev/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+depsdev/v3.py,sha256=vLkOYzT3wx5YuEnjwI1t7mcXXCbGmSVsoK4V1GbUGLc,7896
+depsdev/v3alpha.py,sha256=KUl8Fq9mLExAfrU5T43vAc1dlRBbugN3H2Eg4Tv5XxE,13908
+depsdev/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+depsdev/cli/purl.py,sha256=vl6Ix3r0mgvuy8MxQ_ayVYDmLNpok3qLqsXIMlJ9IgI,4967
+depsdev/cli/vuln.py,sha256=sTdeFpthSEhavzbfvSZ5PxBQltDGdVBcmscPZO9dkS8,2206
+depsdev-0.0.5.dist-info/METADATA,sha256=UekH3aUH-CYSIkTWQQGeoOC9JL-Hf4nzSCGq-Rgxxgw,10947
+depsdev-0.0.5.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+depsdev-0.0.5.dist-info/entry_points.txt,sha256=yVCFtXda2xhj-7SmKEw7ynA_8QJrmKi9tORDw2uco9Q,50
+depsdev-0.0.5.dist-info/licenses/LICENSE.txt,sha256=jpNC8_qYxlJENCgo7GKooe4rsIx-t_wIWl7ngr03F2k,1131
+depsdev-0.0.5.dist-info/RECORD,,
