@@ -1,0 +1,34 @@
+Metadata-Version: 2.2
+Name: u-shape-frame
+Version: 0.0.1
+Summary: A U-shaped middleware framework for building data processing pipelines
+Home-page: https://github.com/al6nlee/u-shape-frame
+Author: alan
+Author-email: alanlee.snao@gmail.com
+Project-URL: Bug Reports, https://github.com/al6nlee/u-shape-frame/issues
+Project-URL: Source, https://github.com/al6nlee/u-shape-frame
+Keywords: middleware pipeline dataflow u-shape processor
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: cffi==1.17.1
+Requires-Dist: cryptography==44.0.2
+Requires-Dist: Cython==3.0.12
+Requires-Dist: filelock==3.17.0
+Requires-Dist: pip==25.0
+Requires-Dist: pycparser==2.22
+Requires-Dist: setuptools==75.8.0
+Requires-Dist: wheel==0.45.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
