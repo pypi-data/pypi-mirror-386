@@ -1,0 +1,14 @@
+agent_framework_azurefunctions-0.0.1.dist-info/licenses/LICENSE,sha256=egDXuO660yiIfs5RFdXUo67dYd_mtkLavfI1C0sEPjw,1079
+durableagent/__init__.py,sha256=NkQxcn8GDNG6XUteQJw6rDBY00ysok_F473BCq3xdUg,593
+durableagent/app.py,sha256=kMx6XocK14nNCgGozMPuo2ot8rzCFhL3k7EnRBM8JBk,26072
+durableagent/callbacks.py,sha256=tjOefqrDfqS3BEZDt_U-hJr4pzIb-x_A8PkxtVNgoNI,1154
+durableagent/entities.py,sha256=QrZcBsPmTZoi6voXqtlw8AZrlSpr_sTKmZbhK6dwHfA,18044
+durableagent/errors.py,sha256=V7all9f9wgxG4CjULzFjiKM6rqe2Y25aXXVeyFL1pCo,362
+durableagent/logging_config.py,sha256=i78Ysk4QAmrrD04G77SCqaVC0wnhndnm2tsjvAu7PxU,4495
+durableagent/models.py,sha256=TuiTleovSJoUq9lYnzJUgvdMqxc73b0CbwVpX8N37fI,6615
+durableagent/orchestration.py,sha256=BUba9lhHmRrIXUrY4IWZAXY5HOqWnhIW9jcJqS8mqfQ,9860
+durableagent/state.py,sha256=CN2oQgtgQW60Qea8s5Vess4-Ckn4S_a6dAmSDWfbh_Q,8677
+agent_framework_azurefunctions-0.0.1.dist-info/METADATA,sha256=MOUnxvaxFc8DG5IN_y7pK2FLyvHWgvKVgloh28opDO4,22701
+agent_framework_azurefunctions-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+agent_framework_azurefunctions-0.0.1.dist-info/top_level.txt,sha256=1-WQ7twJDVH5MPUEwLUfJgwXzJ8V7H_gJ952bJbxQQc,13
+agent_framework_azurefunctions-0.0.1.dist-info/RECORD,,
