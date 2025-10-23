@@ -1,0 +1,2 @@
+[console_scripts]
+fc-code-interpreter-mcp-server = mcp_server:main
