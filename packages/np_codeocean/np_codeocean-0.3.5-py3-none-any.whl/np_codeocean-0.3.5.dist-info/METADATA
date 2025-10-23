@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: np_codeocean
+Version: 0.3.5
+Summary: Tools for uploading and interacting with Mindscope Neuropixels experiments on Code Ocean
+Author-Email: Ben Hardcastle <ben.hardcastle@alleninstitute.org>, Chris Mochizuki <chrism@alleninstitute.org>, Arjun Sridhar <arjun.sridhar@alleninstitute.org>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Project-URL: Source, https://github.com/AllenInstitute/np_codeocean
+Project-URL: Issues, https://github.com/AllenInstitute/np_codeocean/issues
+Requires-Python: >=3.10
+Requires-Dist: np_session>=0.6.44
+Requires-Dist: np-tools>=0.1.23
+Requires-Dist: np-config>=0.4.33
+Requires-Dist: requests>=2.31.0
+Requires-Dist: npc-session>=0.1.34
+Requires-Dist: polars>=0.20.16
+Requires-Dist: npc-lims>=0.1.168
+Requires-Dist: npc-ephys>=0.1.32
+Requires-Dist: wavpack-numcodecs<0.2
+Requires-Dist: cryptography<43.0
+Requires-Dist: aind-data-transfer-service>=1.15.0
+Requires-Dist: aind-slurm-rest-v2==0.0.3
+Requires-Dist: aind-codeocean-pipeline-monitor>=0.5.2
+Description-Content-Type: text/markdown
+
+# np_codeocean
+Tools for uploading Mindscope Neuropixels experiments to S3 (for Code Ocean).
+
+Requires running as admin on Windows in order to create remote-to-remote symlinks
+on the Isilon.
+
+- `upload` CLI tool is provided, which uses the
+  [`np_session`](https://github.com/AllenInstitute/np_session) interface to find
+  and upload
+  raw data for one ecephys session:
+
+    ```
+    pip install np_codeocean
+    upload <session-id>
+    ```
+ 
+    where session-id is any valid input to `np_session.Session()`, e.g.: 
+    - a lims ID (`1333741475`) 
+    - a workgroups foldername (`DRPilot_366122_20230101`) 
+    - a path to a session folder (    `\\allen\programs\mindscope\workgroups\np-exp\1333741475_719667_20240227`)
+    
+- a folder of symlinks pointing to the raw data is created, with a new structure suitable for the KS2.5 sorting pipeline on Code Ocean
+- the symlink folder, plus metadata, are entered into a csv file, which is
+  submitted to [`http://aind-data-transfer-service`](http://aind-data-transfer-service), which in turn runs the
+  [`aind-data-transfer`](https://github.com/AllenNeuralDynamics/aind-data-transfer)
+  tool on the HPC, which follows the symlinks to the original data,
+  median-subtracts/scales/compresses ephys data, then uploads with the AWS CLI tool
+- all compression/zipping acts on copies in temporary folders: the original raw data is not altered in anyway 

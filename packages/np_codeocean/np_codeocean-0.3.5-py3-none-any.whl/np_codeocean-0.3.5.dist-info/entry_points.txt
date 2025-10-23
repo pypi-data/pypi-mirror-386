@@ -1,0 +1,7 @@
+[console_scripts]
+upload_dr_behavior = np_codeocean.scripts.upload_dynamic_routing_behavior:main
+upload_dr_ecephys = np_codeocean.scripts.upload_dynamic_routing_ecephys:main
+upload_sessions = np_codeocean.scripts.upload_sessions:main
+
+[gui_scripts]
+
