@@ -1,0 +1,2 @@
+[console_scripts]
+get-external-data2 = get_external_data2.__main__:_bootstrap
