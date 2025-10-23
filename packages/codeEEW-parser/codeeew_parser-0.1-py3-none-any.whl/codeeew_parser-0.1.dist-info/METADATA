@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: codeEEW_parser
+Version: 0.1
+Summary: 緊急地震速報のコード電文を解析するためのパッケージ
+Author: t0729
+Dynamic: author
+Dynamic: summary
