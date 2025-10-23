@@ -1,0 +1,46 @@
+[project]
+name = "autowordle"
+version = "2.3.1b1"
+description = "Automatic Wordle collector"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aw-client>=0.5.15",
+    "maturin>=1.8.2",
+    "pillow>=11.1.0",
+    "pytesseract>=0.3.13",
+    "pytz>=2025.1",
+    "pyxdg>=0.28",
+    "pyyaml>=6.0.2",
+    "toml>=0.10.2",
+    "ttkthemes>=3.2.2",
+    "wand>=0.6.13",
+]
+
+[project.scripts]
+autowordle = "autowordle.prog:top"
+
+[tool.uv]
+package = true
+
+[tool.setuptools]
+packages = ["autowordle", "autowordle.game", "autowordle.res"]
+
+[[tool.uv.index]]
+name = "tymoon"
+url = "https://gitea.tymoon.eu/api/packages/isoraqathedh/pypi/simple/"
+publish-url = "https://gitea.tymoon.eu/api/packages/isoraqathedh/pypi"
+
+[tool.setuptools.package-data]
+"autowordle.res" = ['*.png', 'redactle-base.sh', 'game_defs.toml', 'schema.sql']
+
+[tool.pytest.ini_options]
+markers = [
+"involves_images: loads images from the test suite - slow",
+"db_to_return: game record(s) to be returned in a fake config"
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
