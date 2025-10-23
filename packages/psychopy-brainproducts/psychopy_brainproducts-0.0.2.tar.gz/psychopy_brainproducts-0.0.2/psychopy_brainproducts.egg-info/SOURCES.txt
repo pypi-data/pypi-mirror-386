@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+docs_src/conf.py
+docs_src/utils.py
+psychopy_brainproducts/__init__.py
+psychopy_brainproducts/brainproducts.py
+psychopy_brainproducts.egg-info/PKG-INFO
+psychopy_brainproducts.egg-info/SOURCES.txt
+psychopy_brainproducts.egg-info/dependency_links.txt
+psychopy_brainproducts.egg-info/entry_points.txt
+psychopy_brainproducts.egg-info/requires.txt
+psychopy_brainproducts.egg-info/top_level.txt
