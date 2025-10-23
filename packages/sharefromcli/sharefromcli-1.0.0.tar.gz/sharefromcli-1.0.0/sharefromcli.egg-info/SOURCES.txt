@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+sharefromcli/__init__.py
+sharefromcli/sharefromcli.py
+sharefromcli.egg-info/PKG-INFO
+sharefromcli.egg-info/SOURCES.txt
+sharefromcli.egg-info/dependency_links.txt
+sharefromcli.egg-info/entry_points.txt
+sharefromcli.egg-info/requires.txt
+sharefromcli.egg-info/top_level.txt
