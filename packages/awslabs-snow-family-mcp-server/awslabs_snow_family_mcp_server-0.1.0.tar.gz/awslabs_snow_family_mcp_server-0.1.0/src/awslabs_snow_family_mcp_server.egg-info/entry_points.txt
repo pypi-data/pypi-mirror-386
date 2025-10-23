@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-snow-family-mcp-server = awslabs_snow_family_mcp_server.main:main
