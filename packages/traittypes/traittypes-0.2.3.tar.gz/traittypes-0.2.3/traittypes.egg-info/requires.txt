@@ -1,0 +1,7 @@
+traitlets>=4.2.2
+
+[test]
+numpy
+pandas
+xarray
+pytest
