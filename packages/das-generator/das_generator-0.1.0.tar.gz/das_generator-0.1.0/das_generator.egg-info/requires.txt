@@ -1,0 +1,8 @@
+numpy>=2.2
+scipy>=0.14.1
+cffi>=1.17.1
+
+[tests]
+pytest
+pytest-cov
+pytest-black
