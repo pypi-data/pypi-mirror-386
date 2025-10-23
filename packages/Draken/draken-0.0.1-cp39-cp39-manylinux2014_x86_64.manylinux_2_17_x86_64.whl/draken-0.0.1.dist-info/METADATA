@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: Draken
+Version: 0.0.1
+Summary: Cython/Arrow Interop
+Home-page: https://github.com/mabel-dev/draken/
+Author: @joocer
+Author-email: Justin Joyce <justin.joyce@joocer.com>
+Maintainer: @joocer
+Maintainer-email: Justin Joyce <justin.joyce@joocer.com>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyarrow
+Provides-Extra: dev
+Requires-Dist: cython; extra == "dev"
+Requires-Dist: opteryx; extra == "dev"
+Dynamic: author
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: requires-python
