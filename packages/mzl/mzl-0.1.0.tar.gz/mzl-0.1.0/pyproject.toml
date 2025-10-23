@@ -1,0 +1,20 @@
+[project]
+name = "mzl"
+version = "0.1.0"
+authors = [
+  { name="Michel Liao", email="michel.liao22@gmail.com" },
+]
+description = "A test package."
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = []
+
+[build-system]
+requires = ["uv_build >= 0.9.5, <0.10.0"]
+build-backend = "uv_build"
