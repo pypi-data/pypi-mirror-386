@@ -1,0 +1,2 @@
+[console_scripts]
+poly-query-mcp = poly_query_mcp.server:cli_main

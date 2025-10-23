@@ -1,0 +1,34 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "username": null,
+    "password": "",
+    "database": "",
+    "charset": "utf8mb4",
+    "user": "root"
+  },
+  "postgresql": {
+    "host": "10.1.203.111",
+    "port": 17700,
+    "username": "jl_dev",
+    "password": "kc4T8Rf0C#rwm0121D",
+    "database": "jl_dev",
+    "user": "jl_dev"
+  },
+  "redis": {
+    "host": "10.12.12.222",
+    "port": 6379,
+    "username": "default",
+    "password": "RePssd_we891",
+    "database": null,
+    "db": 0
+  },
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "username": "",
+    "password": "",
+    "database": ""
+  }
+}
