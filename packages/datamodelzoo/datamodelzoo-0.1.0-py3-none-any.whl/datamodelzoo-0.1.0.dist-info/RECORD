@@ -1,0 +1,12 @@
+datamodelzoo/__init__.py,sha256=6QtSbKq8OmwWtqaMzbGlP0z-yQ979mc1gyDTk2AIQdo,673
+datamodelzoo/__main__.py,sha256=0qpI_Px15B96k59uBdwLsH7Wa_kasDLu1Lt-HvTNli8,119
+datamodelzoo/builtin.py,sha256=pw6UMCrBuem1VdSrVATjcw2onGk9RsciGXtlARy89ag,3797
+datamodelzoo/case.py,sha256=bWRSLvLtFFCJp310sb4v7JOrPZl7E_6UBHYvNXG0RE4,2980
+datamodelzoo/constructed.py,sha256=pjUmWdgU_gZz-x4KnxlVNXNjFEX5-tzDjzONI0ScoRA,2111
+datamodelzoo/protocol.py,sha256=RD3-KcKoEeZh6xQinBZrhItXSKFwlo5Ca2BABe3u17s,2594
+datamodelzoo/special.py,sha256=SskbRAAtFWqoJEAiWANXhQi-q3IRZQcGdWitALjxSkA,656
+datamodelzoo/stdlib.py,sha256=gMaTyVT0yekiLiQAxVcmIooOIiKwjYXnpBiL1yQd5U8,2638
+datamodelzoo/thirdparty.py,sha256=uMvroeHChyw7Yd-Vi2IDdywbChdArQMF0bfCYR3zNCA,4360
+datamodelzoo-0.1.0.dist-info/WHEEL,sha256=M6du7VZflc4UPsGphmOXHANdgk8zessdJG0DBUuoA-U,78
+datamodelzoo-0.1.0.dist-info/METADATA,sha256=RZg-suo1Dkjb6AugqDOA29iWH_TuefwQZz5OWrtrFq4,2615
+datamodelzoo-0.1.0.dist-info/RECORD,,
