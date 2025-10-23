@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: vy
+Version: 5.0.1
+Summary: A vim-like in python made from scratch.
+Home-page: https://github.com/iogf/vy
+Author: Iury O. G. Figueiredo
+Author-email: last.src@gmail.com
+Keywords: vy,vi,vim,emacs,sublime,atom,nano,vim-like
+License-File: LICENSE.md
