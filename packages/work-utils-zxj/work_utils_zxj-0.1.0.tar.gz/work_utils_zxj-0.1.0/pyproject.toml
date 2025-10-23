@@ -1,0 +1,27 @@
+[project]
+name = "work-utils-zxj"
+version = "0.1.0"
+license="MIT"
+description = "work util for self"
+authors = [
+    {name = "zxj",email = "1114062513@qq.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas (>=2.3.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "black (>=25.9.0,<26.0.0)"
+]
+
+[project.packages]
+include = ["work_utils_zxj"]  # 列出src下的所有包名
+from = "src"  
