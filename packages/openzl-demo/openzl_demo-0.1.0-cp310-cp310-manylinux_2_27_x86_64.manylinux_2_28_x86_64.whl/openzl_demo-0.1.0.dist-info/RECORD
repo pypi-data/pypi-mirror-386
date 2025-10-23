@@ -1,0 +1,14 @@
+lib64/libzstd.a,sha256=_CNa8h3AF4OutD7FBar5GxR4EchFlWY_EULqIUgwIjU,17904698
+lib64/libzstd.so,sha256=wbiF7EF8JLtmin8V-0_gMKb89Uk3hvJK7Wk96muFzYs,858296
+lib64/libzstd.so.1,sha256=wbiF7EF8JLtmin8V-0_gMKb89Uk3hvJK7Wk96muFzYs,858296
+lib64/libzstd.so.1.5.7,sha256=wbiF7EF8JLtmin8V-0_gMKb89Uk3hvJK7Wk96muFzYs,858296
+lib64/cmake/zstd/zstdConfig.cmake,sha256=NRq3k52UbOx9fGdC7A_3O8_yUoE8Pq7wj5f8URJA66o,1053
+lib64/cmake/zstd/zstdConfigVersion.cmake,sha256=95dCEV5ZzZlZS1AHgX0ZBW7p28M4zjJyimEiP0idaWU,2762
+lib64/cmake/zstd/zstdTargets-release.cmake,sha256=MuYkJGTiw1BCnGS5GkXEa5cuRckTxjHxaRDIsv-325g,1375
+lib64/cmake/zstd/zstdTargets.cmake,sha256=AaVpx89_YkC2fvMuBbktChwaeK68VcirBDNNhy7fvsc,4633
+lib64/pkgconfig/libzstd.pc,sha256=WpAEXyx1k9Qodt6Ax-1-iHFjjwOAvYSanxFkuaVunow,478
+openzl_demo/__init__.py,sha256=Nv4ajjGucVIYdFSlhupPQzSRfYVBxqHY6Bj9myif_Ag,10047
+openzl_demo/_openzl_demo.cpython-310-x86_64-linux-gnu.so,sha256=GteQSxlTLmlNSHIpFlP6cVoKqsQ1GJh7nWhQVvLpDyM,4359368
+openzl_demo-0.1.0.dist-info/METADATA,sha256=76fmcRjTSrCYFwK_vfTIp4lKbTt6rnByM5r3rUbk-mc,279
+openzl_demo-0.1.0.dist-info/WHEEL,sha256=LIrydfVXIQZCYHHYt4EvMdM8Vj8KvI9goZ8ya8gIfwM,157
+openzl_demo-0.1.0.dist-info/RECORD,,
