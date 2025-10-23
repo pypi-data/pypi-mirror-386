@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metropolis-SA"  # nombre público en PyPI (debe ser único)
+version = "5.0.0"
+description = "Simulated Annealing with Metropolis algorithm w/ convergence tracking."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Jose M. Lopez", email = "chema.electronica@gmail.com" }
+]
+requires-python = ">=3.8"
+
+# Dependencias del proyecto (puedo adaptarlas si me pasas tu requirements.txt)
+dependencies = [
+    "numpy",
+    "matplotlib"
+]
+
+[project.urls]
+Homepage = "https://github.com/chema-e/metropolis"
+Repository = "https://github.com/chema-e/metropolis"
+Issues = "https://github.com/chema-e/metropolis/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["metropolis*"]
+
+# Script de entrada: crea un comando CLI "metropolis-run"
+[project.scripts]
+metropolis-run = "metropolis.main:main"

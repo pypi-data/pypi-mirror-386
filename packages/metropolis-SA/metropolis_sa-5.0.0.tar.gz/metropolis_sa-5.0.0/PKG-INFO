@@ -1,0 +1,125 @@
+Metadata-Version: 2.4
+Name: metropolis-SA
+Version: 5.0.0
+Summary: Simulated Annealing with Metropolis algorithm w/ convergence tracking.
+Author-email: "Jose M. Lopez" <chema.electronica@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 Chema-ES
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/chema-e/metropolis
+Project-URL: Repository, https://github.com/chema-e/metropolis
+Project-URL: Issues, https://github.com/chema-e/metropolis/issues
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Dynamic: license-file
+
+# Metropolis
+
+Implementación del **algoritmo de Metropolis** como núcleo del método de **Simulated Annealing**
+
+
+## Instalación
+
+En tu entorno de Anaconda (u otro entorno virtual):
+
+```bash
+pip install -e .
+```
+Esto instala el paquete localmente en modo editable.
+
+Si se prefiere usar dependencias explícitas:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Estructura Metropolis V5.0
+
+```text
+Metropolis/
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── metropolis/
+│   ├── __init__.py      # inicialización paquete
+│   ├── core.py          # núcleo del algoritmo
+│   ├── schedule.py      # funciones de temperatura (v2+)
+│   ├── energies.py      # funciones de temperatura (v5+)
+│   └── visualization.py # para plots de convergencia (v3+)
+├── run/
+│   └── anneal.py
+└── tests/
+``` 
+
+## Ejecución
+
+```
+usage: anneal.py [-h] [--schedule {linear,exponential,logarithmic}] [--plot] {square,abs,cube,bimodal}
+
+Execute Metropolis annealing with different energy landscapes and scheduling types
+
+positional arguments:
+  {square,abs,cube,bimodal}
+                        Energy landscape
+
+options:
+  -h, --help            show this help message and exit
+  --schedule {linear,exponential,logarithmic}
+                        Type of scheduling to be used (default: exponential)
+  --plot                Plotted Metropolis epochs
+
+```
+
+Ejemplos:
+
+```bash
+python -m run.anneal square --plot
+python -m run.anneal bimodal --schedule exponential --plot
+python -m run.anneal bimodal --schedule linear
+```
+
+## Historial
+
+V1.0
+Motor Monte Carlo básico
+Ejemplo de uso
+
+V2.0
+Incorpora varios schedules  de enfriamiento
+
+V3.0
+- Añadido Módulo `visualization.py` para graficar convergencia.
+- Corregido bug en orden de parámetros de llamada a la función scheduling
+- Se evitan energías negativas
+- Otros cambios menores.
+
+V4.0
+- Añadido soporte línea de comandos.
+
+V5.0
+- Versión final estable
+- Posibilidad de indicar función paisaje-energético
+- Cambiado 
+- Salida en inglés
