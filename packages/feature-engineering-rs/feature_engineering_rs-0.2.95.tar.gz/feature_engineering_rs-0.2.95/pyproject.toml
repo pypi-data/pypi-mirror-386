@@ -1,0 +1,24 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "feature-engineering-rs"
+description = "A high-performance feature engineering package built with Rust and exposed to Python via PyO3"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Carlos Arias", email = "carlos.eligio92@gmail.com"},
+]
+keywords = ["feature-engineering", "time-series", "rust", "performance"]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version"]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "feature_engineering_rs"

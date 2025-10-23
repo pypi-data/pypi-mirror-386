@@ -1,0 +1,12 @@
+pub mod co_addnoise; // DONE
+pub mod sc_fluctanal; // DONE
+pub mod sy_driftingmean; // DONE
+pub mod sy_slidingwindow; // DONE
+pub mod st_localextrema; // DONE
+pub mod ph_walker; // DONE
+pub mod in_automutualinfostats_diff_20_gaussian_ami8; // DONE
+pub mod fc_looplocalsimple; // DONE
+pub mod co_translateshape; // DONE
+pub mod co_histogramami; // DONE
+pub mod co_nonlinearautocorr; // DONE
+pub mod dn_removepoints; // DONE
