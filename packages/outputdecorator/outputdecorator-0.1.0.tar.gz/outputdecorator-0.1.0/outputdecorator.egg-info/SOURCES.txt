@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+output_decorator/__init__.py
+output_decorator/decorators.py
+outputdecorator.egg-info/PKG-INFO
+outputdecorator.egg-info/SOURCES.txt
+outputdecorator.egg-info/dependency_links.txt
+outputdecorator.egg-info/top_level.txt

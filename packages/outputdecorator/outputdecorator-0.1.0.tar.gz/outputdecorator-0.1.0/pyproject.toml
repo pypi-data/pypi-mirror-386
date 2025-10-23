@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "outputdecorator"
+version = "0.1.0"
+description = "Library for decorating strings in CLI apps."
+authors = [
+    {name = "Alexander Suvorov", email = "aixandrolab@gmail.com"}
+]
+license = "BSD-3-Clause"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+
+]
+
+[project.urls]
+Homepage = "https://github.com/aixandrolab/outputdecorator"
+
+[tool.setuptools.packages.find]
+where = ["."]
