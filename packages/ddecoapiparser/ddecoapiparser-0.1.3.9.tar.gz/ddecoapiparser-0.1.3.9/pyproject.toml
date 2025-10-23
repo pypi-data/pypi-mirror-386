@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ddecoapiparser"
+version = "0.1.3.9"
+authors = [
+  { name="Wouter Abels", email="wouter.abels@rws.nl" },
+]
+description = "Package to request and parse AquaDesk data via the DD-ECO-API"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+  "requests>=2.31.0",
+  "numpy>=1.25.1",
+  "pandas>=2.0.3",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[tool.hatch.build.targets.wheel]
+only-include = ["src"]
+sources = ["src"]
+
+[project.urls]
+"Homepage" = "https://github.com/AbelsWouter/ddecoapiparser"
+"Bug Tracker" = "https://github.com/AbelsWouter/ddecoapiparser/issues"

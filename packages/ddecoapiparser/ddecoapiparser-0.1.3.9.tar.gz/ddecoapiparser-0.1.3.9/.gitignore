@@ -1,0 +1,6 @@
+/.*
+pyproject.toml
+/test
+/dist
+src/__pycache__/ddecoapiparser.cpython-314.pyc
+__pycache__
