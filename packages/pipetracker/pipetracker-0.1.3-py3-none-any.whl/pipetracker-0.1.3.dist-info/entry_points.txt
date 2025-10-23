@@ -1,0 +1,2 @@
+[console_scripts]
+pipetracker = pipetracker.cli.main:app
