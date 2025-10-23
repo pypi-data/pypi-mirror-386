@@ -1,0 +1,29 @@
+# Manifest file for PyAnsysV23
+
+# Include documentation files
+include README.md
+include KOREAN_GUIDE.md
+include PROJECT_SUMMARY.md
+include DEPLOYMENT_GUIDE.md
+include LICENSE
+include CHANGELOG.md
+include requirements.txt
+include setup.py
+include setup.cfg
+include pyproject.toml
+
+# Include all Python packages
+recursive-include pyansysv23 *.py
+
+# Include examples and tests
+include examples.py
+include test_pyansysv23.py
+
+# Exclude build artifacts
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+global-exclude *.egg-info
+global-exclude .pytest_cache
+global-exclude .mypy_cache
+global-exclude *.egg

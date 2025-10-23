@@ -1,0 +1,10 @@
+# PyAnsysV23 Requirements
+# This is a pure Python library with no external dependencies
+# Listed here for reference and future extensibility
+
+# Development dependencies (optional)
+# pytest>=6.0          # For testing
+# pytest-cov>=2.10     # For coverage reports
+# black>=21.0          # Code formatting
+# flake8>=3.9          # Linting
+# mypy>=0.910          # Type checking
