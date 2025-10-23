@@ -1,0 +1,1900 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_l10n_id_taxform_faktur_pajak
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__name
+msgid "# Document"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__enofa_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__enofa_number_id
+msgid "# E-NOFA"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__faktur_pajak_keluaran_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__faktur_pajak_keluaran_id
+msgid "# Faktur Pajak Keluaran"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_bank_statement_line__faktur_pajak_keluaran_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_move__faktur_pajak_keluaran_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_payment__faktur_pajak_keluaran_id
+msgid "# Faktur Pajak keluaran"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__issue_number
+msgid "# Issue"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__request_number
+msgid "# Request"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.core_tax_xml_view
+msgid "12"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_add_info
+msgid "ADD_INFO"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_alamat_lengkap
+msgid "ALAMAT_LENGKAP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__account_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__account_id
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Account"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Accounts"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:base.automation,name:ssi_l10n_id_taxform_faktur_pajak.klikpajak_open_2_done
+#: model:ir.actions.server,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_action_done
+msgid "Action Done"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_needaction
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_needaction
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_needaction
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_needaction
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_needaction
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__active
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__active
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__active
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__active
+msgid "Active"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__active_approval_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__active_approval_ids
+msgid "Active Approvals"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__active_approver_partner_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__active_approver_partner_ids
+msgid "Active Partners"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__active_approver_user_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__active_approver_user_ids
+msgid "Active Users"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.additional_info_action
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_additional_info
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__add_info_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__add_info_id
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.additional_info_menu
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.additional_info_configurator_group
+msgid "Additional Info"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.enofa_all_group
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_all_group
+msgid "All"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: code:addons/ssi_l10n_id_taxform_faktur_pajak/models/faktur_pajak_keluaran.py:0
+#, python-format
+msgid "All E-Faktur fields have been recomputed successfully."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__allowed_add_info_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_add_info_ids
+msgid "Allowed Additional Info"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_contact_ids
+msgid "Allowed Contact"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_enofa_number_ids
+msgid "Allowed E-NOFA Numbers"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_fpk_account_ids
+msgid "Allowed FP Keluaran Accounts"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__allowed_fpk_journal_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_fpk_journal_ids
+msgid "Allowed FP Keluaran Journal"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_fpk_tax_ids
+msgid "Allowed FP Keluaran Taxes"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__allowed_facility_stamp_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_facility_stamp_ids
+msgid "Allowed Facility Stamp"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__allowed_move_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_move_ids
+msgid "Allowed Journal Entries"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_move_line_ids
+msgid "Allowed Journal Items"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__allowed_policy_template_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_policy_template_ids
+msgid "Allowed Policy Templates"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__allowed_pricelist_ids
+msgid "Allowed Pricelists"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__allowed_tax_address_ids
+msgid "Allowed Tax Address"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__allowed_uom_ids
+msgid "Allowed UoMs"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__allowed_usage_ids
+msgid "Allowed Usages"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__analytic_account_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__analytic_account_id
+msgid "Analytic Account"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__approval_template_id
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__approval_template_id
+msgid "Approval Configuration"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__approval_template_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__approval_template_id
+msgid "Approval Template"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__approval_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__approval_ids
+msgid "Approvals"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__approve_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__approve_ok
+msgid ""
+"Approve policy\n"
+"\n"
+"* If active user can see and execute 'Approve' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__approved
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__approved
+msgid "Approved"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_country
+msgid "BUYER COUNTRY"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_buyer_document
+msgid "BUYER DOCUMENT"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_email
+msgid "BUYER EMAIL"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_buyer_id_tku
+msgid "BUYER_ID_TKU"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__create_faktur_pajak_keluaran__efaktur_opt__a
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_keluaran__efaktur_of_opt__a
+msgid "Barang"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__base_amount
+msgid "Base Amount"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_buyer_document
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__buyer_document_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__buyer_document_id
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.buyer_document_configurator_group
+msgid "Buyer Document"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.buyer_document_action
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.buyer_document_menu
+msgid "Buyer Documents"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__approve_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__approve_ok
+msgid "Can Approve"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__cancel_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__cancel_ok
+msgid "Can Cancel"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__confirm_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__confirm_ok
+msgid "Can Confirm"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__done_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__done_ok
+msgid "Can Finished"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__manual_number_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__manual_number_ok
+msgid "Can Input Manual Document Number"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__reject_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__reject_ok
+msgid "Can Reject"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__restart_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__restart_ok
+msgid "Can Restart"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__restart_approval_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__restart_approval_ok
+msgid "Can Restart Approval"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__open_ok
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__open_ok
+msgid "Can Start"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__terminate_ok
+msgid "Can Terminate"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.create_faktur_pajak_keluaran_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__cancel_reason_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__cancel_reason_id
+msgid "Cancel Reason"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__cancel_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__cancel_ok
+msgid ""
+"Cancel policy\n"
+"\n"
+"* If active user can see and execute 'Cancel' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__enofa_number__state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__code
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__code
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__code
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__code
+msgid "Code"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__company_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__company_id
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.enofa_company_group
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_company_group
+msgid "Company"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__company_currency_id
+msgid "Company Currency"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_company_npwp
+msgid "Company NPWP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__company_partner_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__company_partner_id
+msgid "Company Partner"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.enofa_companies_group
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_companies_group
+msgid "Company and All Child Companies"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__company_id
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__company_id
+msgid ""
+"Company that own the document\n"
+"\n"
+"* Automatically filled with user's company.\n"
+"  Default company can be changed"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.create_faktur_pajak_keluaran_view_form
+msgid "Confirm"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__confirm_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__confirm_ok
+msgid ""
+"Confirm policy\n"
+"\n"
+"* If active user can see and execute 'Confirm' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__contact_partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_res_country
+msgid "Country"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.create_faktur_pajak_keluaran_action
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_create_faktur_pajak_keluaran
+msgid "Create Faktur Pajak Keluaran"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__create_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__create_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__currency_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__currency_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "DISKON"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "DPP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__date
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_search
+msgid "Date"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__date_issue
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.enofa_search
+msgid "Date Issue"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__date_request
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.enofa_search
+msgid "Date Request"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__name
+msgid "Description"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__create_faktur_pajak_keluaran__efaktur_mode__detail
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_keluaran__efaktur_mode__detail
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__efaktur_mode__detail
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "Detail"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_faktur_pajak_keluaran_detail
+msgid "Detail Faktur Pajak Keluaran"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_faktur_pajak_keluaran_tax
+msgid "Detail Faktur Pajak Tax"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__detail_ids
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "Details"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_move__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_res_country__display_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_uom_uom__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_account_selection_method__domain
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_journal_selection_method__domain
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_tax_selection_method__domain
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Domain"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__done_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__done_ok
+msgid ""
+"Done policy\n"
+"\n"
+"* If active user can see and execute 'Done' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "E-Faktur"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_res_country__efaktur_code
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_uom_uom__efaktur_code
+msgid "E-Faktur Code"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__efaktur_mode
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_mode
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__efaktur_mode
+msgid "E-Faktur Mode"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.enofa_action
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_enofa
+#: model:ir.module.category,name:ssi_l10n_id_taxform_faktur_pajak.enofa_data_ownership_module_category
+#: model:ir.module.category,name:ssi_l10n_id_taxform_faktur_pajak.enofa_data_workflow_module_category
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.enofa_menu
+msgid "E-NOFA"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_enofa_number
+msgid "E-NOFA Number"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.enofa_number_action
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.enofa_number_menu
+msgid "E-NOFA Numbers"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_facility_stamp
+msgid "FACILITY_STAMP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_fg_pengganti
+msgid "FG_PENGGANTI"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "FK"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_account_domain
+msgid "FP Keluaran Account Domain"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_account_python_code
+msgid "FP Keluaran Account Python Code"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_account_selection_method
+msgid "FP Keluaran Account Selection Method"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_account_ids
+msgid "FP Keluaran Accounts"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.account_move_view_search
+msgid "FP Keluaran Cancelled"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.account_move_view_search
+msgid "FP Keluaran Issued"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_journal_domain
+msgid "FP Keluaran Journal Domain"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_journal_python_code
+msgid "FP Keluaran Journal Python Code"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_journal_selection_method
+msgid "FP Keluaran Journal Selection Method"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_journal_ids
+msgid "FP Keluaran Journals"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.account_move_view_search
+msgid "FP Keluaran Not Issued"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.account_move_view_search
+msgid "FP Keluaran On-Progress"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_tax_domain
+msgid "FP Keluaran Tax Domain"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_tax_python_code
+msgid "FP Keluaran Tax Python Code"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_tax_selection_method
+msgid "FP Keluaran Tax Selection Method"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__fpk_tax_ids
+msgid "FP Keluaran Taxes"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_facility_stamp
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__facility_stamp_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__facility_stamp_id
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.facility_stamp_configurator_group
+msgid "Facility Stamp"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.facility_stamp_action
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.facility_stamp_menu
+msgid "Facility Stamps"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_configuration_menu
+msgid "Faktur Pajak"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_action
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_faktur_pajak_keluaran
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_bank_statement_line__faktur_pajak_keluaran_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_move__faktur_pajak_keluaran_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_payment__faktur_pajak_keluaran_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__faktur_pajak_keluaran_ids
+#: model:ir.module.category,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_data_ownership_module_category
+#: model:ir.module.category,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_workflow_module_category
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_menu
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.account_move_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.enofa_number_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Faktur Pajak Keluaran"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__first_num_of_nsfp
+msgid "First Num. Of NSFP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_type_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_type_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_type_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_type_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_type_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__group_by_partner
+msgid "Group By Partner"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "HARGA_SATUAN"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "HARGA_TOTAL"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__create_faktur_pajak_keluaran__efaktur_mode__header
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_keluaran__efaktur_mode__header
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__efaktur_mode__header
+msgid "Header"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__header_product_name
+msgid "Header Product Name"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_move__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_res_country__id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_uom_uom__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_exception_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_exception_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_exception_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_exception_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_exception_icon
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_needaction
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_unread
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_needaction
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_unread
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_needaction
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_unread
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_needaction
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_unread
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_needaction
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_unread
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_needaction
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_has_error
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_has_error
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_has_error
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_has_error
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_has_error
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_is_follower
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_is_follower
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_is_follower
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_is_follower
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_is_follower
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__enofa_number__state__issued
+msgid "Issued"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "JUMLAH_BARANG"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_jumlah_dpp
+msgid "JUMLAH_DPP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_jumlah_ppn
+msgid "JUMLAH_PPN"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__create_faktur_pajak_keluaran__efaktur_opt__b
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_keluaran__efaktur_of_opt__b
+msgid "Jasa"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Journal"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__move_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__move_ids
+msgid "Journal Entries"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__move_line_id
+msgid "Journal Item"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Journals"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_kd_jenis_transaksi
+msgid "KD_JENIS_TRANSAKSI"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_move____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_res_country____last_update
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_uom_uom____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__write_uid
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__write_date
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_masa_pajak
+msgid "MASA_PAJAK"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__manual
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_account_selection_method__manual
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_journal_selection_method__manual
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_tax_selection_method__manual
+msgid "Manual"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__manual_number_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__manual_number_ok
+msgid ""
+"Manual number assignment policy\n"
+"\n"
+"* If active user can edit document number"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__taxform_period_id
+msgid "Masa Pajak"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__active
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__active
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__active
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__code
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__code
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__code
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_has_error
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_has_error
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_has_error
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_has_error
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_has_error
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_nama
+msgid "NAMA"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "NAME"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_nomor_faktur
+msgid "NOMOR_FAKTUR"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_npwp
+msgid "NPWP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__name
+msgid "Name"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__need_add_info
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__need_add_info
+msgid "Need Additional Info"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__need_facility_stamp
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__need_facility_stamp
+msgid "Need Facility Stamp"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__need_validation
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__need_validation
+msgid "Need Validation"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_summary
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_summary
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_summary
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_summary
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_summary
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_type_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_type_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_type_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_type_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_type_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__next_approval_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__next_approval_ids
+msgid "Next Approvals"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: code:addons/ssi_l10n_id_taxform_faktur_pajak/wizards/create_faktur_pajak_keluaran.py:0
+#, python-format
+msgid "No E-NOFA found"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: code:addons/ssi_l10n_id_taxform_faktur_pajak/wizards/create_faktur_pajak_keluaran.py:0
+#, python-format
+msgid "No E-NOFA number found"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.core_tax_xml_view
+msgid "Normal"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__note
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__note
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__note
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__note
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__note
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__note
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__num_of_nsfp
+msgid "Num. Of NSFP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__name
+msgid "Number"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_needaction_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_needaction_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_needaction_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_needaction_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_needaction_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_has_error_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_has_error_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_has_error_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_has_error_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_has_error_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_unread_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_unread_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_unread_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_unread_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_unread_counter
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__number_ids
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.enofa_view_form
+msgid "Numbers"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_diskon
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_diskon
+msgid "OF_DISKON"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_dpp
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_dpp
+msgid "OF_DPP"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_harga_satuan
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_harga_satuan
+msgid "OF_HARGA_SATUAN"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_harga_total
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_harga_total
+msgid "OF_HARGA_TOTAL"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_jumlah_barang
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_jumlah_barang
+msgid "OF_JUMLAH_BARANG"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_code
+msgid "OF_KODE"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_name
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_name
+msgid "OF_NAMA"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_opt
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_opt
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_unit
+msgid "OF_OPT"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_of_ppn
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__efaktur_of_ppn
+msgid "OF_PPN"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "OL"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__efaktur_opt
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "OPT"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__enofa_number__state__open
+msgid "On Process"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "PPN"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__partner_id
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_search
+msgid "Partner"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__partner_ids
+msgid "Partners"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__policy_template_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__policy_template_id
+msgid "Policy Template"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__prefix
+msgid "Prefix"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__price_subtotal
+msgid "Price Subtotal"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__price_unit
+msgid "Price Unit"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__pricelist_id
+msgid "Pricelist"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__product_id
+msgid "Product"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__product_category_id
+msgid "Product Category"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_account_selection_method__code
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_journal_selection_method__code
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__faktur_pajak_transaction_type__fpk_tax_selection_method__code
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Python Code"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "Qty."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_referensi
+msgid "REFERENSI"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.server,name:ssi_l10n_id_taxform_faktur_pajak.action_recompute_efaktur_fields_server
+msgid "Recompute E-Faktur Fields"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__reject_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__reject_ok
+msgid ""
+"Reject policy\n"
+"\n"
+"* If active user can see and execute 'Reject' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__rejected
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__rejected
+msgid "Rejected"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__user_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_user_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_user_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_user_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_user_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_user_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__restart_approval_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__restart_approval_ok
+msgid ""
+"Restart approval policy\n"
+"\n"
+"* If active user can see and execute 'Restart Approval' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__restart_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__restart_ok
+msgid ""
+"Restart policy\n"
+"\n"
+"* If active user can see and execute 'Restart' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__reviewer_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__reviewer_id
+msgid "Reviewer"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_seller_id_tku
+msgid "SELLER_ID_TKU"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__product_category_id
+msgid "Select category for the current product"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Selection Method"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__sequence_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__standard_price_subtotal
+msgid "Standard Price Subtotal"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__standard_price_subtotal_diff
+msgid "Standard Price Subtotal Diff."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__standard_price_unit
+msgid "Standard Price Unit"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__standard_price_unit_diff
+msgid "Standard Price Unit Diff."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__open_ok
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__open_ok
+msgid ""
+"Start policy\n"
+"\n"
+"* If active user can see and execute 'Start' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_bank_statement_line__fp_keluaran_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_move__fp_keluaran_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_account_payment__fp_keluaran_state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa_number__state
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__state
+msgid "State"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_state
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_state
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_state
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_state
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_state
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "Subtotal"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: code:addons/ssi_l10n_id_taxform_faktur_pajak/models/faktur_pajak_keluaran.py:0
+#, python-format
+msgid "Success"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_tahun_pajak
+msgid "TAHUN_FAKTUR"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__efaktur_tanggal_faktur
+msgid "TANGGAL_FAKTUR"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__taxform_year_id
+msgid "Tahun Pajak"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.enofa_search
+msgid "Tar Year"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__tax_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__price_tax
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__tax_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__tax_id
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Tax"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__tax_address_id
+msgid "Tax Address"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__amount_tax
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_tax__tax_amount
+msgid "Tax Amount"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__tax_year_id
+msgid "Tax Year"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__tax_ids
+msgid "Tax(es)"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__tax_ids
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_view_form
+msgid "Taxes"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_search
+msgid "Taxform Period"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_search
+msgid "Taxform Year"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__terminate_reason_id
+msgid "Terminate Reason"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__terminate_ok
+msgid ""
+"Terminate policy\n"
+"\n"
+"* If active user can see and execute 'Terminate' button"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__price_total
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_tree
+msgid "Total"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__amount_total
+msgid "Total Amount"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_tree
+msgid "Total Tax"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_tree
+msgid "Total Untaxed"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__type_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__type_id
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__type_id
+msgid "Transaction Type"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.act_window,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_action
+#: model:ir.ui.menu,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_menu
+msgid "Transaction Types"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__name
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__name
+msgid ""
+"Transaction/document number\n"
+"\n"
+"* Unique indentifer of transaction\n"
+"* Leave '/' to automatically generate number\n"
+"* Change '/' into any number/identifier to manually assign number.\n"
+"  Manual number assignment can be done in 'Draft' state\n"
+"  Only user with 'Can Manualy Assign Number' policy can manually assign number.\n"
+"* Transaction with number other than '/' can not be deleted."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_create_faktur_pajak_keluaran__type_id
+msgid "Type"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_transaction_type_configurator_group
+msgid "Type Of Faktur Pajak Transaction"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model,name:ssi_l10n_id_taxform_faktur_pajak.model_faktur_pajak_transaction_type
+msgid "Type of Faktur Pajak Transaction"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.core_tax_xml_view
+msgid "UM.0033"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_view_form
+msgid "UNIT"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_unread
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_unread
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_unread
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_unread
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_unread
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__amount_untaxed
+msgid "Untaxed Amount"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields.selection,name:ssi_l10n_id_taxform_faktur_pajak.selection__enofa_number__state__unused
+msgid "Unused"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__uom_id
+msgid "UoM"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__uom_quantity
+msgid "UoM Quantity"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran_detail__usage_id
+msgid "Usage"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.enofa_user_group
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_user_group
+msgid "User"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__user_id
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__user_id
+msgid ""
+"User that responsible for document\n"
+"\n"
+"* Create user can be different with responsible user\n"
+"* Automatically filled with user that initiate document creation.\n"
+"  Default responsible can be changed."
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__reviewer_id
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__reviewer_id
+msgid ""
+"User that responsible to review document\n"
+"\n"
+"* Unless it configured to approve reviewer does not equal to approver"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__active_approver_user_ids
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__active_approver_user_ids
+msgid "Users that can approve/reject document"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.enofa_validator_group
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_validator_group
+msgid "Validator"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.enofa_viewer_group
+#: model:res.groups,name:ssi_l10n_id_taxform_faktur_pajak.faktur_pajak_keluaran_viewer_group
+msgid "Viewer"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__website_message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__website_message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_enofa__website_message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__website_message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__website_message_ids
+#: model:ir.model.fields,field_description:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_additional_info__website_message_ids
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_buyer_document__website_message_ids
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_enofa__website_message_ids
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_facility_stamp__website_message_ids
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_keluaran__website_message_ids
+#: model:ir.model.fields,help:ssi_l10n_id_taxform_faktur_pajak.field_faktur_pajak_transaction_type__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model:ir.actions.report,name:ssi_l10n_id_taxform_faktur_pajak.core_tax_xml_report
+msgid "[XML] Core Tax"
+msgstr ""
+
+#. module: ssi_l10n_id_taxform_faktur_pajak
+#: model_terms:ir.ui.view,arch_db:ssi_l10n_id_taxform_faktur_pajak.create_faktur_pajak_keluaran_view_form
+msgid "or"
+msgstr ""
