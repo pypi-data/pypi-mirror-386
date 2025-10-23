@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "envrotate"
+version = "0.1.1"
+description = "Rotate environment variables (e.g., API keys) with cooldown intervals"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Cauan"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+keywords = ["api", "keys", "rotation", "env", "environment-variables"]
+
+[project.urls]
+Homepage = "https://github.com/cauan/envrotate"
+Repository = "https://github.com/cauan/envrotate"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["envrotate*"]
