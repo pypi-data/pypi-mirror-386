@@ -1,0 +1,16 @@
+jupyter_server_client/__init__.py,sha256=z24Py-0fSx05Im5Wb7RozhVHGMsj_U5rcL5rjqadY5Q,1358
+jupyter_server_client/_version.py,sha256=Rz7iSy1yAKBK_H8RaGIC12j5U9DdqfGKR-GLrujCqwk,81
+jupyter_server_client/client.py,sha256=EM5KEg8LK4UGErV1dygZfPqoBEtojF4zSaSmxp4k8Ks,4680
+jupyter_server_client/exceptions.py,sha256=12QhXRe7jteRagxwdUH74Mu2ZTcsz6RgVijKcZ6FlZk,3736
+jupyter_server_client/http_client.py,sha256=zVha952nIyY_ub_76whF8f2H4lJGjfR1LfRWsxacFc0,7271
+jupyter_server_client/models.py,sha256=Fr_kT5C73zX6-kr4n0vH_awPuWK-j3kGZW65XalwFsw,5898
+jupyter_server_client/managers/__init__.py,sha256=8g67EClSbQu6Ra8VxpC4mqERm62yjUQAmMKmK3hOXio,621
+jupyter_server_client/managers/contents.py,sha256=Bh1XKkZLGZb93tEOhjztdCS_dTp1hkf_52aV_8xgcRI,9567
+jupyter_server_client/managers/kernels.py,sha256=-V5PHfEgnSt_V7bCmMHOJtibYsd6UkKKeosJUyrE0kQ,1768
+jupyter_server_client/managers/kernelspecs.py,sha256=hNfsBYtUatQw3_0EXPBo8EE6d386ObzsUbWgc0A9z7A,1397
+jupyter_server_client/managers/sessions.py,sha256=XeA5pmcVjH1dG9n13yv6z-_JDrRVe2p8bcqkF0El2S8,3750
+jupyter_server_client/managers/terminals.py,sha256=G7rC-nqs6OKUdTx0lDuburraOCS5msqyjo-JkgiOEM8,1886
+jupyter_server_client-0.1.1.dist-info/METADATA,sha256=Jgucka32xsht3PPgwwp3QHTJw8fnErsDIw20NjKS348,13792
+jupyter_server_client-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+jupyter_server_client-0.1.1.dist-info/licenses/LICENSE,sha256=iI6tKKU0KQHZPjHQnzd4Lt9pXS8U-72wjT_PYGP3a2Y,1517
+jupyter_server_client-0.1.1.dist-info/RECORD,,
