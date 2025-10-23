@@ -1,0 +1,5 @@
+[pymodaq.instruments]
+imagingsource = pymodaq_plugins_imagingsource
+
+[pymodaq.plugins]
+imagingsource = pymodaq_plugins_imagingsource
