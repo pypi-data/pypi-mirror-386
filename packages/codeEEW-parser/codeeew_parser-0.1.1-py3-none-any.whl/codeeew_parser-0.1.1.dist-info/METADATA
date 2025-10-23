@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: codeEEW_parser
+Version: 0.1.1
+Summary: 緊急地震速報のコード電文を解析するためのパッケージ
+Home-page: https://github.com/t0729/codeEEW_parser/
+Author: t0729
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: summary
+
+詳細な説明等は GitHub を参照してください: https://github.com/t0729/codeEEW_parser/
