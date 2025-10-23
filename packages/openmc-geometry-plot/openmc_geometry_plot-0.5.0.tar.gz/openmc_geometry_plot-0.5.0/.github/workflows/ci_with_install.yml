@@ -1,0 +1,39 @@
+name: CI with install
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+    paths:
+      - "**.py"
+      - "**.ipynb"
+      - "**.yml"
+      - "**.cfg"
+      - "**.toml"
+      - "**.sh"
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install OpenMC with C++ library
+        run: |
+          # Install OpenMC with the compiled C++ library (needed for model.id_map())
+          python -m pip install --extra-index-url https://shimwell.github.io/wheels openmc
+
+      - name: Install package with test dependencies
+        run: |
+          pip install .[tests]
+
+      - name: Run tests
+        run: |
+          pytest tests/ -v
