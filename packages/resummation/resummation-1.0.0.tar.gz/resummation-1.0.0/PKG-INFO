@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: resummation
+Version: 1.0.0
+Summary: Resummation model for computing suppression signals from baryon fractions.
+Author-email: Marcel van Daalen <daalen@strw.leidenuniv.nl>
+License-Expression: GPL-3.0-or-later
+License-File: LICENSE
+Project-URL: Home, https://github.com/FLAMINGOSIM/Resummation
