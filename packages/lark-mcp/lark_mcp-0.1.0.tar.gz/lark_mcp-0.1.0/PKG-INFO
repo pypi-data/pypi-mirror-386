@@ -1,0 +1,39 @@
+Metadata-Version: 2.3
+Name: lark-mcp
+Version: 0.1.0
+Summary: Lark MCP Server
+License: MIT
+Author: yanrujing
+Author-email: rujing.yan@protagonist-ai.com
+Requires-Python: >=3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: lark-oapi (>=1.4.23,<2.0.0)
+Requires-Dist: mcp (>=1.6.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Lark MCP
+
+A Model Context Protocol (MCP) server for Lark.
+
+
+```json
+
+{
+  "mcpServers": {
+    "lark-mcp": {
+      "env": {
+        "APP_ID": "APP_ID",
+        "APP_SECRET": "APP_SECRET"
+      },
+      "command": "uvx",
+      "args": [
+        "lark-mcp"
+      ]
+    }
+  }
+}
+```
