@@ -1,0 +1,16 @@
+cellpose
+numpy
+magicgui
+qtpy
+matplotlib
+bioio
+bioio-tifffile
+
+[testing]
+tox
+pytest
+pytest-cov
+pytest-qt
+napari
+pyqt5
+cellpose<4
