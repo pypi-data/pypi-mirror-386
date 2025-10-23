@@ -1,0 +1,3 @@
+[console_scripts]
+zyd-dataset-down = dataset_down.cli:main
+
