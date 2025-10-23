@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+.coverage
+peru.egg-info
+build/
+dist/
+uv.lock
