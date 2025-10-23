@@ -1,0 +1,2 @@
+"""Crafter task app implementation."""
+
