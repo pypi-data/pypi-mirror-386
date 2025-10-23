@@ -1,0 +1,8 @@
+MANIFEST.in
+setup.py
+DSE3testInstaller/__init__.py
+DSE3testInstaller/mainos.exe
+DSE3testInstaller.egg-info/PKG-INFO
+DSE3testInstaller.egg-info/SOURCES.txt
+DSE3testInstaller.egg-info/dependency_links.txt
+DSE3testInstaller.egg-info/top_level.txt
