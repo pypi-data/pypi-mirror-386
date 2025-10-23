@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dbbasic-screenshot"
+version = "0.1.0"
+description = "Fast screenshot annotation tool for macOS"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "askrobots"}
+]
+keywords = ["screenshot", "annotation", "macos", "drawing", "tool"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Graphics :: Capture :: Screen Capture",
+    "Topic :: Multimedia :: Graphics :: Editors",
+]
+
+dependencies = [
+    "pillow>=10.0.0",
+    "PyQt5>=5.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/askrobots/dbbasic-screenshot"
+Repository = "https://github.com/askrobots/dbbasic-screenshot"
+Issues = "https://github.com/askrobots/dbbasic-screenshot/issues"
+
+[project.scripts]
+dbbasic-screenshot = "dbbasic_screenshot.__main__:main"
