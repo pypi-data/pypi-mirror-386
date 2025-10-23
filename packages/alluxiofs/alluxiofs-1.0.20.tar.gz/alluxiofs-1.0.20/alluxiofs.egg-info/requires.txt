@@ -1,0 +1,13 @@
+fsspec
+aiohttp
+decorator
+humanfriendly
+requests
+mmh3
+sortedcontainers
+
+[tests]
+pytest
+pytest-aiohttp
+ray
+pyarrow
