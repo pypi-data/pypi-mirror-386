@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: makitdone-orm
+Version: 0.0.1
+Summary: orm框架，目前仅支持mysql
+Home-page: https://gitee.com/makitdone/makitdone-orm
+Author: liangchao
+Author-email: liang20201101@163.com
+License: MIT
+Requires-Python: >=3.11
+License-File: LICENSE

@@ -1,0 +1,5 @@
+setuptools
+makitdone-lib~=2.0.0
+PyMySQL~=1.1.2
+aiomysql~=0.3.2
+logzero~=1.7.0
