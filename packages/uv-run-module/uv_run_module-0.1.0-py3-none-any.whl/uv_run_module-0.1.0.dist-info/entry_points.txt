@@ -1,0 +1,2 @@
+[console_scripts]
+uv-run-module = uv_run_module.__main__:main
