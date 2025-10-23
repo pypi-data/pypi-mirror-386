@@ -1,0 +1,15 @@
+SimLUCA_Blade/Animation.py,sha256=LDr1s6oCogZu1BM63RyyQb_MbrQuh18QWwImuoMnTYM,7143
+SimLUCA_Blade/ReactionLan/ChemSubs.py,sha256=aUYCqXu-4eMd__1_wqx-98MBoMwTm-Evbe16mjVflqY,7080
+SimLUCA_Blade/ReactionLan/Reaction.py,sha256=G2HXWrYZKEWf2VE44w9uICx03TDwixFcgr2ItG24Kz8,1610
+SimLUCA_Blade/ReactionLan/ReactionRateExpression.py,sha256=7MeZFq2wImBg-1--ZlMt2Pf0oYhVuMQPisCLOqnpnbk,4582
+SimLUCA_Blade/ReactionLan/__init__.py,sha256=td9_g_I2ZAMj3ZedlZkYTH3wYzEmRd_kt52vjL5_je4,554
+SimLUCA_Blade/ReactionSys.py,sha256=skzAQJh0UmobRRq2n2fJ_X9rWFJHmrJBJrlyTB68GS4,33469
+SimLUCA_Blade/SolveSys.py,sha256=nuM4cgtvgeObTi3K6GuY5tafxPjOY42pG2By-Ax07pM,3244
+SimLUCA_Blade/VolumeTessellation/Container.py,sha256=IqudwteZYG13sdZJXimNTOS3t9d9MGW1khb91lnfyOk,20595
+SimLUCA_Blade/VolumeTessellation/Diffusion.py,sha256=wyjcsnPkNadP2ru2LaVCRVHeIcRYsK_AYBjZqUCZ-pA,6086
+SimLUCA_Blade/VolumeTessellation/__init__.py,sha256=GQnUQ2u3nY2DtesbV8jPVW2_ucdRoDt9DrK2p6vEVhY,306
+SimLUCA_Blade/__init__.py,sha256=v29YKBPf7WDK7OMkZ124lmKoW5_UnrqkrjmZ_h1hbnM,455
+simluca_blade-0.1.3.dist-info/METADATA,sha256=ykmLf8IsrgA2sh7Yk-7uzOQBXyS-7T-trDyqdTSJ6cM,1539
+simluca_blade-0.1.3.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+simluca_blade-0.1.3.dist-info/licenses/LICENSE,sha256=CCGbveRf5SKN5-Eq948yzBlnqOOIqSq2kpCnS_zoW0E,1066
+simluca_blade-0.1.3.dist-info/RECORD,,
