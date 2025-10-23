@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: artconsole
+Version: 1.0.0
+Summary: This is a simple library for outputting to the console or receiving simple ASCII art as a string.
+Author: Dima M. Shirokov
+Author-email: D.Shirokov05@yandex.ru
+Dynamic: author
+Dynamic: author-email
+Dynamic: summary
