@@ -1,0 +1,317 @@
+# 🐴 BarnYard: Temporary Delete System for Safe Batch Automation
+
+BarnYard is a lightweight Python engine for safely distributing and processing leads or records across multiple concurrent automation scripts without data loss or duplication.
+
+It introduces a temporary delete system that ensures a record is only removed when the task is truly complete. This protects your data even in the face of crashes, force stops, or network interruptions.
+
+---
+
+## Why BarnYard
+
+In typical automation, you pull a record from a shared source such as SQL or CSV and delete it immediately to prevent other bots from processing the same record.
+
+That works, but only until something goes wrong.
+
+### The Problem
+
+If your automation:
+* Crashes mid task,
+* Is force stopped,
+* Or times out midway,
+
+Then that deleted record is gone forever even though the task never finished.  
+If you do not delete at all, you will have the opposite issue: duplicate processing by multiple bots.
+
+This tension between safety and concurrency is what BarnYard solves.
+
+---
+
+## 💡 The BarnYard Solution
+
+BarnYard replaces immediate deletion with a smarter two phase delete system.
+
+1. **Temporary checkout:**  
+   When a lead is fetched, it is moved into a local barn (your workspace).  
+   This prevents duplicates but keeps it recoverable if something goes wrong.
+
+2. **Conditional delete:**  
+   * If the task completes, the lead is shed (permanently removed).  
+   * If the process fails, the lead is reinstated later for retry.
+
+This ensures no record is ever lost or processed twice even when multiple scripts run in parallel.
+
+---
+
+## How It Works
+
+Each BarnYard instance (called an Engine) manages two local databases:
+
+| File | Purpose |
+|------|----------|
+| `<barn>` | The main barn containing active leads currently being processed. |
+| `<barn>_reinstate` | The reinstate barn holding leads that expired or failed and need retry. |
+
+---
+
+## ✅ What You Get
+
+| Feature | Description |
+|----------|-------------|
+| **Zero data loss** | Records only delete after confirmed success. |
+| **Crash recovery** | Reinstates unprocessed leads after failure. |
+| **Parallel safety** | Multiple bots can safely share one data source. |
+| **Local first** | Runs completely offline without Redis, servers, or queues. |
+| **Tunable safety** | Adjust `batch` and `calls` to balance speed and reliability. |
+| **Clear visibility** | Built in display system shows barn activity in real time. |
+
+---
+
+## Philosophy: High Scale, Low Cost
+
+BarnYard is part of a larger design philosophy:  
+**Build automation that is affordable, failure tolerant, and massively scalable using only local resources.**
+
+It gives you queue level safety and concurrency control without needing servers or message brokers.  
+Perfect for freelancers, small teams, or high scale environments running multiple headless bots.
+
+---
+
+# The Lead Model
+
+A **lead** (or record) is any list of values representing one unit of work:
+
+```python
+["John Doe", "Premium", 27]
+```
+
+BarnYard automatically assigns each lead a unique integer key (ID) behind the scenes, keeping it safe and traceable.
+
+---
+
+# 🚀 The Engine Class
+
+The Engine class is your main entry point. It controls how barns are created, managed, and displayed.
+
+---
+
+### 1. Initialize
+
+```python
+import barnyard
+
+barn = barnyard.Engine("my_barn")
+```
+
+This creates (or attaches to) a barn named `"my_barn"`.
+
+---
+
+### 2. Define a Fetch Function
+
+Your `add` function must return a list of leads (lists of values). BarnYard handles key assignment internally.
+
+```python
+def fetch_leads():
+    return [
+        ["Alice", "Math", 20],
+        ["Bob", "Science", 22],
+        ["Charlie", "History", 19],
+    ]
+```
+
+---
+
+### 3. Fetch Leads Using `next()`
+
+```python
+leads_dict = barn.next(add=fetch_leads, batch=3, expire=30)
+```
+
+This:
+
+* Pulls up to 3 leads at once.
+* Temporarily removes them from the barn (safe checkout).
+* Returns a dictionary of `key → lead`.
+
+Example output:
+
+```
+Key: 101, Lead: ['Alice', 'Math', 20]
+Key: 102, Lead: ['Bob', 'Science', 22]
+Key: 103, Lead: ['Charlie', 'History', 19]
+```
+
+---
+
+### 4. Process and Shed Safely
+
+After successful processing:
+
+```python
+for key, lead in leads_dict.items():
+    # ...process your lead...
+    barn.shed(key)
+```
+
+This permanently removes the lead, ensuring it will not reappear.
+
+---
+
+# Batch and Calls Explained
+
+BarnYard offers two controls that let you balance speed and safety when fetching leads.
+
+| Parameter | Description | Trade Off |
+| --------- | ------------ | ---------- |
+| `batch` | Number of leads fetched at once. | Larger batch means faster but higher risk if stopped midway. |
+| `calls` | Number of fetch cycles to repeat. | More calls means safer recovery but slower overall. |
+
+---
+
+### 🧮 Example
+
+```python
+barn.next(add=fetch_leads, batch=5, calls=3)
+```
+
+This means:
+
+* Each call fetches 5 leads.
+* Runs 3 times (total 15 leads).
+* If force stopped midway, only the current batch (5 leads) could be interrupted, not all 15.
+
+---
+
+### Balancing Speed and Safety
+
+| Situation | Recommended Setup |
+| ---------- | ---------------- |
+| Stable system, low crash risk | `batch=10`, `calls=1` |
+| Moderate risk, shared machine | `batch=5`, `calls=3` |
+| High risk, unstable environment | `batch=2`, `calls=10` |
+
+Smaller batches reduce the risk of losing leads during sudden stops, at the cost of speed.
+
+---
+
+### ⏳ Max Query Duration
+
+Every BarnYard operation has a maximum query time of 60 seconds.  
+This prevents hangs or deadlocks if a read or write stalls due to external I/O issues.
+
+---
+
+# 🖥 Display System
+
+BarnYard has a built in display engine that visually tracks barn activity.  
+It is simple but powerful, ideal for debugging, monitoring, and transparency.
+
+---
+
+## 🧩 How Display Works
+
+Every Engine instance has a global display mode set when you initialize it:
+
+```python
+barn = barnyard.Engine("my_barn", display=True)
+```
+
+This acts as the default display setting for all operations on that engine.
+
+However, every main function such as `next()`, `info()`, `find()`, and `remove()` has its own optional `display` argument (default: `None`).
+
+| Value | Behavior |
+| ------ | --------- |
+| `None` | Inherits from the engine’s global display mode. |
+| `True` | Forces display on for that specific function call. |
+| `False` | Runs silently, overriding the engine’s default. |
+
+This gives you flexible control.  
+Keep display on globally for clarity during development.  
+Turn it off per function when running automation in production.
+
+---
+
+### 🧭 Example
+
+```python
+barn = barnyard.Engine("orders", display=True)
+
+# Uses global display (True)
+barn.next(add=fetch_orders, batch=3, expire=30)
+
+# Overrides display (runs silently)
+barn.next(add=fetch_orders, batch=3, expire=30, display=False)
+```
+
+---
+
+### Sample Display Output
+
+```
+🐴  Barn: Orders | Action: Fetching New | Barn R. len: 0 ✖️ | 🕒 Time: 13:42:18
+🐴  Barn: Orders | Action: Reinstating | Barn A. len: 12 ✔️ | 🕒 Time: 13:42:48
+```
+
+Visual icons (✔️ and ✖️) and timestamps make it easy to follow each cycle in real time.
+
+---
+
+# Main Engine Functions
+
+| Function | Description | Key Arguments | Returns |
+| -------- | ------------ | -------------- | -------- |
+| `next(add, *, batch, expire, calls=1, display=None)` | Fetches new or reinstated leads into the barn. | `add`: callable returning list of leads | `dict[int, list]` |
+| `shed(key)` | Permanently deletes a lead after successful completion. | `key`: int | None |
+| `info(display=None)` | Displays or returns all active and reinstated leads. | `display`: bool or None | `list[[lead, key]]` |
+| `find(keys=None, values=None, display=None)` | Searches by key or lead value. | `keys` or `values` | Matches |
+| `listdir(display=None)` | Lists all barns in the current directory. | none | `list[str]` |
+| `remove(barn, display=None)` | Deletes a barn and all related reinstate data. | `barn`: str | None |
+
+---
+
+# 📖 Example: Safe Automation Workflow
+
+```python
+import barnyard
+
+# Initialize engine
+barn = barnyard.Engine("students", display=True)
+
+def fetch_students():
+    return [
+        ["Jane", "Math", 21],
+        ["Chris", "English", 22],
+        ["Tina", "Biology", 20],
+    ]
+
+# Step 1: Fetch new leads
+leads = barn.next(add=fetch_students, batch=3, calls=1, expire=30)
+
+# Step 2: Process safely
+for key, lead in leads.items():
+    print("Processing:", lead)
+    barn.shed(key)  # Delete only after success
+
+# Step 3: View remaining
+barn.info()
+
+# Step 4: Clean up
+barn.remove("students")
+```
+
+---
+
+# Key Takeaways
+
+* BarnYard prevents data loss by replacing instant deletes with temporary holding.
+* Each barn automatically restores unprocessed leads after crashes.
+* The display system can be globally set via the Engine or locally overridden per function.
+* Smaller batches and multiple calls reduce data loss risk during interruptions.
+* Every query automatically expires after 60 seconds to stay stable.
+
+---
+
+# 📜 License
+
+MIT License
