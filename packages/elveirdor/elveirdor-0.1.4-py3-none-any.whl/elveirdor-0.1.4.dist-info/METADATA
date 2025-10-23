@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: elveirdor
+Version: 0.1.4
+Summary: ELVEIRDOR Infinity Computing pipeline
+Author: You
+Requires-Python: >=3.8
+Requires-Dist: numpy
+Requires-Dist: pillow
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
