@@ -1,0 +1,35 @@
+[project]
+name = "gitq"
+version = "0.0.3"
+description = "git based patch manager"
+authors = [
+    {name = "Lawrence D'Anna",email = "larry@elder-gods.org"}
+]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml (>=6.0.3,<7.0.0)"
+]
+
+[tool.poetry]
+packages = [
+    { include = "gitq", from = 'src'},
+]
+
+[project.scripts]
+git-swap = "gitq.git_swap:main"
+git-queue = "gitq.git_queue:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "mypy (>=1.18.2,<2.0.0)",
+    "black (>=25.9.0,<26.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)",
+    "pytest (>=8.4.2,<9.0.0)",
+    "types-pyyaml (>=6.0.12.20250915,<7.0.0.0)"
+]
