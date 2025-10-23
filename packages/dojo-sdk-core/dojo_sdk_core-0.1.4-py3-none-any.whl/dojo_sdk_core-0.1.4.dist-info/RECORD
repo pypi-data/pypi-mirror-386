@@ -1,0 +1,14 @@
+dojo-sdk-core/__about__.py,sha256=sXLh7g3KC4QCFxcZGBTpG2scR7hmmBsMjq6LqRptkRg,22
+dojo-sdk-core/__init__.py,sha256=awtEu5LccouymX8TRe7bTTZNDxJTg4pcv_vWjZHyzDk,975
+dojo-sdk-core/models.py,sha256=HJVYTP63ZMKfzz56xqi9gnQ8mi91_w9DDGzjxggflCI,6860
+dojo-sdk-core/settings.py,sha256=8WrN3JHKYZOwQs6Etf5Gp258MssVI11IZ9PfWfS5Luw,1355
+dojo-sdk-core/tasks.py,sha256=M6kHNapJgb-K1hfkNMbMJuc1tqon5_W5vRqjCLayahI,4442
+dojo-sdk-core/types.py,sha256=34OwdbEusqpRSVrc9zUjrf4UUbSUo2mqCvdS2oYGMrw,2256
+dojo-sdk-core/ws_types.py,sha256=HMEv3Tpx-igrRBASe8aUt8tIKxCS_R-vnE2eY-vDGtI,2706
+dojo-sdk-core/dojos/__init__.py,sha256=kpjRhpcFNfRg3SfFCuESgKPU6pjwhm4R_AFmvZx68Oo,147
+dojo-sdk-core/dojos/dojos_loader.py,sha256=Qjb5VUQTHTlQqxp1wWkvu-45YfSMqmj4aqr1_mGDs1M,773
+dojo-sdk-core/dojos/model.py,sha256=yioYppzgpS-oHWbm7nk6Pa7DYvnoTxyA8YgMqMc8uCo,262
+dojo-sdk-core/dojos/rewards.py,sha256=t34qqub-NmmCTfHLJFyc2uSAo2y7Hup9P_67N-l6DSQ,5002
+dojo_sdk_core-0.1.4.dist-info/METADATA,sha256=-z99Ec_8bK-EgypM8SPI15mQMD3WxvPaJ78jngTpy7U,609
+dojo_sdk_core-0.1.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+dojo_sdk_core-0.1.4.dist-info/RECORD,,
