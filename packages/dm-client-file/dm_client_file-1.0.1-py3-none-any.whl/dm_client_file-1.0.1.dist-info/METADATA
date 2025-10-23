@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: dm-client-file
+Version: 1.0.1
+Summary: DM Client File
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dm-core-meta
+Dynamic: license-file
+
+# DM CLIENT FILE

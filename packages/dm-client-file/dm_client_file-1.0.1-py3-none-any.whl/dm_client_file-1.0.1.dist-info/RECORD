@@ -1,0 +1,12 @@
+dm_client/__init__.py,sha256=qEFeq3yuf3lQKVseALmL8aPM8fpCS54B_5pry00M3hk,76
+dm_client/file/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_client/file/apps.py,sha256=Mat4BvzwTlXAreqIUAPQIghe6ggfPsbIQfhYOOxyu1s,350
+dm_client/file/errors.py,sha256=8eUxdtR765jNWSv8vh7YRO2A9iBwLTTD-zAcastR6Mc,209
+dm_client/file/serializers.py,sha256=EmJqfgVihAmQdJkIiYuZumqoNNkGUFVXY5GJaliGdno,1951
+dm_client/file/service.py,sha256=2RCr2IZz5Ahb4Lc447DqHvVjc0Dc6LeSwji3l3dEdkE,4650
+dm_client/file/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_client_file-1.0.1.dist-info/licenses/LICENSE,sha256=VoAqKV2y0Kfbr6lR4IRaTU8m0gUagYSCIJCoqA12TJM,251
+dm_client_file-1.0.1.dist-info/METADATA,sha256=4DdKM1tANs9bGZZ8_Zdi066cEexBXHimcCMIkHN8FA0,580
+dm_client_file-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dm_client_file-1.0.1.dist-info/top_level.txt,sha256=o5mwKvCdhj0uwO5luz0zD1uU8ApJ4mDgbWJADduhZfw,10
+dm_client_file-1.0.1.dist-info/RECORD,,
