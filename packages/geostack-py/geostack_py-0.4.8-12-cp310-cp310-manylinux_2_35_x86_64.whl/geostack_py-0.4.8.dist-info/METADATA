@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: geostack-py
+Version: 0.4.8
+Summary: Python bindings of Geostack
+Maintainer: Nikhil Garg
+Maintainer-email: nikhilgarg.gju@gmail.com
+License: Mozilla 2.0
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: numpy
+
+Geostack
+--------
+
+Geospatial toolkit
+==================
+
+Geostack is a toolkit for high performance geospatial processing,
+modelling and analysis.
+
+Some highlights of Geostack include: - Range of programmable geospatial
+operations based on OpenCL, including `map
+algebra <https://gitlab.com/geostack/library/-/wikis/Raster%20creation%20and%20manipulation%20(Python)>`__,
+`distance
+mapping <https://gitlab.com/geostack/library/-/wikis/Distance%20maps%20(Python)>`__
+and
+`rasterisation <https://gitlab.com/geostack/library/-/wikis/Rasterisation%20(Python)>`__.
+- Data IO for common geospatial types such as
+`geotiff <https://gitlab.com/geostack/library/-/wikis/Reading%20and%20writing%20Raster%20layers%20(Python)>`__
+and shapefiles with no dependencies. - Implicit handling geospatial
+alignment and projections, allowing easier coding of geospatial models.
+- `Python
+bindings <https://gitlab.com/geostack/library/-/wikis/Rasters%20and%20numpy%20(Python)>`__
+for interoperability with GDAL/RasterIO/xarray/NetCDF. - Built-in
+computational solvers including `level
+set <https://gitlab.com/geostack/library/-/wikis/Level%20set%20solver%20(Python)>`__
+and network flow models.
+
+More information and build guides are on our
+`wiki <https://gitlab.com/geostack/library/-/wikis/home>`__.
+
+Geostack can be installed for Python `using
+conda <https://gitlab.com/geostack/library/-/wikis/Installing%20Geostack%20for%20Python%20using%20conda>`__.
+
+The documentation for the Python bindings is now available
+`here <https://geostack.gitlab.io/library/>`__. This is the low-level
+documentation of the bindings. For examples, please checkout the wiki
+pages mentioned above.
