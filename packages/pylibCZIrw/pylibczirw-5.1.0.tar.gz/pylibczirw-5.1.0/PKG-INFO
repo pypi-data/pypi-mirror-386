@@ -1,0 +1,537 @@
+Metadata-Version: 2.4
+Name: pylibCZIrw
+Version: 5.1.0
+Summary: A python wrapper around the libCZI C++ library with reading and writing functionality.
+Author: Sebastian Soyer
+Author-email: sebastian.soyer@zeiss.com
+Keywords: czi,imaging
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Requires-Python: >=3.9,<3.14
+Description-Content-Type: text/markdown
+License-File: COPYING
+License-File: COPYING.LESSER
+License-File: NOTICE.txt
+Requires-Dist: numpy
+Requires-Dist: cmake
+Requires-Dist: xmltodict
+Requires-Dist: validators
+Requires-Dist: packaging
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# pylibCZIrw - Python wrapper for libCZI
+
+This project provides a simple and easy-to-use Python wrapper for [libCZI](https://github.com/ZEISS/libczi) - a cross-platform C++ library intended for providing read and write access to CZI image documents.
+
+## Important Remarks
+
+* At the moment, **pylibCZIrw** completely abstracts away the subblock concept, both in the reading and in the writing APIs.
+* The core concept of pylibCZIrw is focussing on reading and writing 2D image planes by specifying the dimension indices and its location in order to only read or write **what is really needed**.
+* It allows reading data via http/https-protocol enabling cloud storage scenarios.
+
+## Example Usage
+
+```python
+from pylibCZIrw import czi as pyczi
+
+filepath = "myimagefile.czi"
+
+# open the CZI document to read the
+with pyczi.open_czi(filepath) as czidoc:
+    # get the image dimensions as a dictionary, where the key identifies the dimension
+    total_bounding_box = czidoc.total_bounding_box
+
+    # get the total bounding box for all scenes
+    total_bounding_rectangle = czidoc.total_bounding_rectangle
+
+    # get the bounding boxes for each individual scene
+    scenes_bounding_rectangle = czidoc.scenes_bounding_rectangle
+
+    # read a 2D image plane and optionally specify planes, zoom levels and ROIs
+    image2d = czidoc.read(plane={"T": 1, "Z": 2, "C": 0}, zoom=1.0, roi=(0, 0, 50, 100))
+```
+
+The detailed usage can be inferred from the [sample notebooks](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).  
+
+For more detailed information (on the latest version) refer to <https://zeiss.github.io/pylibczirw/>.  
+
+## Installation
+In case there is no wheel available for your system configuration, you can:  
+- try to install from the provided source distribution  
+  **For Windows**:
+  - try to [keep paths short on systems with maximum path lengths](https://github.com/pypa/pip/issues/3055)
+  - make [Win10 accept file paths over 260 characters](https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/)
+- reach out to the maintainers of this project to add more wheels
+
+## Disclaimer
+
+The library and the notebook are free to use for everybody. Carl Zeiss Microscopy GmbH undertakes no warranty concerning the use of those tools. Use them at your own risk.
+
+**By using any of those examples you agree to this disclaimer.**
+
+Version: 2023.11.20
+
+Copyright (c) 2023 Carl Zeiss AG, Germany. All Rights Reserved.
+
+
+# CHANGELOG
+
+
+
+## v5.1.0 (2025-10-21)
+
+### Chore
+
+* chore: Wheels for MacOS and ARM Linux (#85)
+
+- [x] I followed the [How to structure your
+PR](https://github.com/ZEISS/pylibczirw/blob/main/CONTRIBUTING.md#creating-a-pr).
+
+Fixes #57
+Fixes #82 
+Fixes https://github.com/bioio-devs/bioio-czi/issues/51
+
+# Context
+`pylibrczirw` does not provide wheels for MacOS or ARM Linux. In [some
+installation
+contexts](https://github.com/bioio-devs/bioio-czi/issues/51#issuecomment-2920756044),
+build dependencies like cmake are unavailable, which makes `pylibczirw`
+unusable. Specifically, this is an issue downstream for
+[bioio-czi](https://github.com/bioio-devs/bioio-czi).
+
+# Changes
+Added 3 new build artifacts: x86-64 MacOS, ARM64 MacOS, and ARM64 Linux,
+with MacOS-specific build logic in setup.py.
+
+# Testing
+I only tested the ARM64 MacOS wheel, since that&#39;s the hardware I have. I
+was able to install the wheel and `import pylibCZIrw`.
+
+# Review notes
+I strongly recommend also merging my PR #84 so that CI continues to work
+past the end of the month.
+
+---------
+
+Co-authored-by: Sebastian Rhode &lt;3833249+sebi06@users.noreply.github.com&gt;
+Co-authored-by: PintoCraig &lt;craig-kavan.pinto@zeiss.com&gt; ([`c8fd2ff`](https://github.com/ZEISS/pylibczirw/commit/c8fd2ff4b2b3aeac89d12bcfbeaeda2d694a1230))
+
+* chore: Upgrade from windows-2019 to windows-2022 (#84)
+
+# Context
+The windows-2019 action runner image will be fully unsupported by
+2025-06-30.
+https://github.com/actions/runner-images/issues/12045
+
+# Changes
+Replace all instances of `windows-2019` with the oldest supported
+windows runner, `windows-2022`. `windows-2025` is also available; I have
+no preference.
+Dropped support for python 3.8 as not default supported by windows-2022 pip version
+
+- [x] I followed the [How to structure your
+PR](https://github.com/ZEISS/pylibczirw/blob/main/CONTRIBUTING.md#creating-a-pr).
+
+---------
+
+Co-authored-by: PintoCraig &lt;121297487+PintoCraig@users.noreply.github.com&gt;
+Co-authored-by: PintoCraig &lt;craig-kavan.pinto@zeiss.com&gt; ([`0dabe3a`](https://github.com/ZEISS/pylibczirw/commit/0dabe3ab48146997825a35ff421b19d789525242))
+
+### Feature
+
+* feat: add &#34;mask support&#34; for reading &amp; composition (#96)
+
+This PR is updating libCZI to latest version, which includes support for
+&#34;mask&#34; (c.f. https://github.com/ZEISS/libczi/pull/153).
+The new functionality of &#34;mask-aware tile-composition&#34; is made available
+to pylibczirw by introducing a `ReaderOptions` object which optionally
+can be passed to `open_czi`. Mask-aware composition is therefore an
+opt-in function at this point (motivation is to limit risk and ensure
+backwards compatibility). ([`cc17eb3`](https://github.com/ZEISS/pylibczirw/commit/cc17eb364af509aa4cc8047c75fae44669389e68))
+
+
+## v5.0.0 (2025-04-11)
+
+### Breaking
+
+* feat: Support python upto 3.13 (#64)
+
+BREAKING CHANGE: We no longer support python 3.7 as it is not supported
+by packaging
+
+[x] I followed the [How to structure your
+PR](https://github.com/ZEISS/pylibczirw/blob/main/CONTRIBUTING.md#creating-a-pr).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **major** release will be created (because the body or
+footer begins with &#39;BREAKING CHANGE:&#39;), I created a new [Jupyter
+notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[x] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **minor/patch** release will be created (because PR title
+begins with &#39;feat&#39;/(&#39;fix&#39; or &#39;perf&#39;)), I optionally created a new
+[Jupyter notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] In case of API changes, I updated
+[API.md](https://github.com/ZEISS/pylibczirw/blob/main/API.md).
+
+_Summary of the change(s) and which issue(s) is/are fixed_  
+Added support for python upto 3.13
+_Relevant motivation and context_  
+Seems to work ootb, and new windows images have default higher version
+of python than 3.11
+_Dependencies required for this change_  
+None ([`c2f7cb3`](https://github.com/ZEISS/pylibczirw/commit/c2f7cb3ed599c68a6b76e37850293f22755a75bc))
+
+### Chore
+
+* chore: Move deploy job from reusable workflow to caller workflow (#71)
+
+[x] I followed the [How to structure your
+PR](https://github.com/ZEISS/pylibczirw/blob/main/CONTRIBUTING.md#creating-a-pr).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **major** release will be created (because the body or
+footer begins with &#39;BREAKING CHANGE:&#39;), I created a new [Jupyter
+notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **minor/patch** release will be created (because PR title
+begins with &#39;feat&#39;/(&#39;fix&#39; or &#39;perf&#39;)), I optionally created a new
+[Jupyter notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] In case of API changes, I updated
+[API.md](https://github.com/ZEISS/pylibczirw/blob/main/API.md).
+
+Fixes #70 ([`805ce42`](https://github.com/ZEISS/pylibczirw/commit/805ce42edc38234801c01b69172dc9497b6df977))
+
+### Deps
+
+* deps: Batch-bump pages-related actions (#3)
+
+Bumps [actions/deploy-pages](https://github.com/actions/deploy-pages)
+from 1 to 4.
+&lt;details&gt;
+&lt;summary&gt;Release notes&lt;/summary&gt;
+&lt;p&gt;&lt;em&gt;Sourced from &lt;a
+href=&#34;https://github.com/actions/deploy-pages/releases&#34;&gt;actions/deploy-pages&#39;s
+releases&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;v4.0.0&lt;/h2&gt;
+&lt;h1&gt;Changelog&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Deploy pages using artifact IDs &lt;a
+href=&#34;https://github.com/konradpabjan&#34;&gt;&lt;code&gt;@​konradpabjan&lt;/code&gt;&lt;/a&gt;
+(&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/251&#34;&gt;#251&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;This version requires the permission &lt;code&gt;actions: read&lt;/code&gt; in
+the workflows which use it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;ℹ️ This version of &lt;code&gt;actions/deploy-pages&lt;/code&gt; is
+&lt;strong&gt;ONLY&lt;/strong&gt; compatible with artifacts uploaded by either:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-pages-artifact/releases/tag/v3.0.0&#34;&gt;&lt;code&gt;actions/upload-pages-artifact@v3&lt;/code&gt;&lt;/a&gt;
+or newer&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/upload-artifact/releases/tag/v4.0.0&#34;&gt;&lt;code&gt;actions/upload-artifact@v4&lt;/code&gt;&lt;/a&gt;
+or newer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See details of &lt;a
+href=&#34;https://github.com/actions/deploy-pages/compare/v3.0.1...v4.0.0&#34;&gt;all
+code changes&lt;/a&gt; since previous release.&lt;/p&gt;
+&lt;p&gt;:warning: For use with products other than GitHub.com, such as GitHub
+Enterprise Server, please consult the &lt;a
+href=&#34;https://github.com/actions/deploy-pages/#compatibilty&#34;&gt;compatibility
+table&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;v3.0.1&lt;/h2&gt;
+&lt;h1&gt;Changelog&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Bump eslint from 8.54.0 to 8.55.0 &lt;a
+href=&#34;https://github.com/dependabot&#34;&gt;&lt;code&gt;@​dependabot&lt;/code&gt;&lt;/a&gt; (&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/266&#34;&gt;#266&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bump nock from 13.3.8 to 13.4.0 &lt;a
+href=&#34;https://github.com/dependabot&#34;&gt;&lt;code&gt;@​dependabot&lt;/code&gt;&lt;/a&gt; (&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/267&#34;&gt;#267&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bump eslint-config-prettier from 9.0.0 to 9.1.0 &lt;a
+href=&#34;https://github.com/dependabot&#34;&gt;&lt;code&gt;@​dependabot&lt;/code&gt;&lt;/a&gt; (&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/268&#34;&gt;#268&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bump &lt;code&gt;@​actions/core&lt;/code&gt; from 1.10.0 to 1.10.1 &lt;a
+href=&#34;https://github.com/dependabot&#34;&gt;&lt;code&gt;@​dependabot&lt;/code&gt;&lt;/a&gt; (&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/269&#34;&gt;#269&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bump &lt;code&gt;@​actions/github&lt;/code&gt; from 5.1.1 to 6.0.0 &lt;a
+href=&#34;https://github.com/dependabot&#34;&gt;&lt;code&gt;@​dependabot&lt;/code&gt;&lt;/a&gt; (&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/261&#34;&gt;#261&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Update compatibility table for v3 &lt;a
+href=&#34;https://github.com/JamesMGreene&#34;&gt;&lt;code&gt;@​JamesMGreene&lt;/code&gt;&lt;/a&gt;
+(&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/270&#34;&gt;#270&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧰 Maintenance&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;chore/docs: update version, fix typos &lt;a
+href=&#34;https://github.com/kbdharun&#34;&gt;&lt;code&gt;@​kbdharun&lt;/code&gt;&lt;/a&gt; (&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/272&#34;&gt;#272&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;See details of &lt;a
+href=&#34;https://github.com/actions/deploy-pages/compare/v3.0.0...v3.0.1&#34;&gt;all
+code changes&lt;/a&gt; since previous release.&lt;/p&gt;
+&lt;p&gt;:warning: For use with products other than GitHub.com, such as GitHub
+Enterprise Server, please consult the &lt;a
+href=&#34;https://github.com/actions/deploy-pages/#compatibilty&#34;&gt;compatibility
+table&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;v3.0.0&lt;/h2&gt;
+&lt;h1&gt;Changelog&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Update action to node20 &lt;a
+href=&#34;https://github.com/takost&#34;&gt;&lt;code&gt;@​takost&lt;/code&gt;&lt;/a&gt; (&lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/256&#34;&gt;#256&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;See details of &lt;a
+href=&#34;https://github.com/actions/deploy-pages/compare/v2.0.5...v3.0.0&#34;&gt;all
+code changes&lt;/a&gt; since previous release.&lt;/p&gt;
+&lt;p&gt;:warning: For use with products other than GitHub.com, such as GitHub
+Enterprise Server, please consult the &lt;a
+href=&#34;https://github.com/actions/deploy-pages/#compatibilty&#34;&gt;compatibility
+table&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;v2.0.5&lt;/h2&gt;
+&lt;h1&gt;Changelog&lt;/h1&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;... (truncated)&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Commits&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e&#34;&gt;&lt;code&gt;d6db901&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/324&#34;&gt;#324&lt;/a&gt;
+from actions/error-message-request-id&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/055f4259a5b2e76fa0789ad7922a992670f3f6b7&#34;&gt;&lt;code&gt;055f425&lt;/code&gt;&lt;/a&gt;
+compile changes&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/5ab929b0772a9c574971c2357565e79163c9088f&#34;&gt;&lt;code&gt;5ab929b&lt;/code&gt;&lt;/a&gt;
+Include request id in the error message of an error response&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/3ff795bc32f6f1ceb4dd02ca0c135001516c35ba&#34;&gt;&lt;code&gt;3ff795b&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/318&#34;&gt;#318&lt;/a&gt;
+from actions/dependabot/npm_and_yarn/non-breaking-cha...&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/f5a2f0d405b68f09cea281329308ca2cd64c1264&#34;&gt;&lt;code&gt;f5a2f0d&lt;/code&gt;&lt;/a&gt;
+Update distributables after Dependabot 🤖&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/1364cde56e32972e043d974794ed0a0e449616cf&#34;&gt;&lt;code&gt;1364cde&lt;/code&gt;&lt;/a&gt;
+Bump the non-breaking-changes group with 2 updates&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/2ed07f748804ece802939c5fa8753c2858c4dc4d&#34;&gt;&lt;code&gt;2ed07f7&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/316&#34;&gt;#316&lt;/a&gt;
+from actions/dependabot/npm_and_yarn/non-breaking-cha...&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/d5a892b11c1e1a34d36b6c8dd3b79f53e904086d&#34;&gt;&lt;code&gt;d5a892b&lt;/code&gt;&lt;/a&gt;
+Bump the non-breaking-changes group with 1 update&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/05977f58bc03458243006330b90b3352b6ceead6&#34;&gt;&lt;code&gt;05977f5&lt;/code&gt;&lt;/a&gt;
+Merge pull request &lt;a
+href=&#34;https://redirect.github.com/actions/deploy-pages/issues/314&#34;&gt;#314&lt;/a&gt;
+from actions/dependabot/npm_and_yarn/non-breaking-cha...&lt;/li&gt;
+&lt;li&gt;&lt;a
+href=&#34;https://github.com/actions/deploy-pages/commit/9414024cfce3ef0ceee3850d28ee5290f189d0d8&#34;&gt;&lt;code&gt;9414024&lt;/code&gt;&lt;/a&gt;
+Update distributables after Dependabot 🤖&lt;/li&gt;
+&lt;li&gt;Additional commits viewable in &lt;a
+href=&#34;https://github.com/actions/deploy-pages/compare/v1...v4&#34;&gt;compare
+view&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;br /&gt;
+
+
+[![Dependabot compatibility
+score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=actions/deploy-pages&amp;package-manager=github_actions&amp;previous-version=1&amp;new-version=4)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+You can trigger a rebase of this PR by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+&lt;details&gt;
+&lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
+&lt;br /&gt;
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits
+that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after
+your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge
+and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating
+it. You can achieve the same result by closing it manually
+- `@dependabot show &lt;dependency name&gt; ignore conditions` will show all
+of the ignore conditions of the specified dependency
+- `@dependabot ignore this major version` will close this PR and stop
+Dependabot creating any more for this major version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop
+Dependabot creating any more for this minor version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop
+Dependabot creating any more for this dependency (unless you reopen the
+PR or upgrade to it yourself)
+
+
+&lt;/details&gt;
+
+&gt; **Note**
+&gt; Automatic rebases have been disabled on this pull request as it has
+been open for over 30 days.
+
+---------
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+Co-authored-by: Felix Scheffler &lt;felix.scheffler@zeiss.com&gt; ([`844d89c`](https://github.com/ZEISS/pylibczirw/commit/844d89c0632436a67a4d90c0768857b601c3fb9f))
+
+
+## v4.1.3 (2024-08-26)
+
+### Fix
+
+* fix: Channel ID and Name in display settings metadata (#37)
+
+This PR inlcudes the latest version ov libczirw to fix #13 
+Fixes #13 ([`04316fe`](https://github.com/ZEISS/pylibczirw/commit/04316fe5861f4e3a5f7a5cb6797903cf75c770e6))
+
+
+## v4.1.2 (2024-08-06)
+
+### Chore
+
+* chore: remove temporary debugging logic to push to PyPI (#30)
+
+[x] I followed the [How to structure your
+PR](https://github.com/ZEISS/pylibczirw/blob/main/CONTRIBUTING.md#creating-a-pr).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **major** release will be created (because the body or
+footer begins with &#39;BREAKING CHANGE:&#39;), I created a new [Jupyter
+notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **minor/patch** release will be created (because PR title
+begins with &#39;feat&#39;/(&#39;fix&#39; or &#39;perf&#39;)), I optionally created a new
+[Jupyter notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] In case of API changes, I updated
+[API.md](https://github.com/ZEISS/pylibczirw/blob/main/API.md).
+
+Remove debugging code for temporaily pushing to testpypi until
+infrastructure properly set up. ([`3b2ea06`](https://github.com/ZEISS/pylibczirw/commit/3b2ea0610baaa0608156426e5c7d781ca7bcdfcb))
+
+### Fix
+
+* fix: consider only dimensions with size &gt;1 for plane-coordinate (#28)
+
+[x] I followed the [How to structure your
+PR](https://github.com/ZEISS/pylibczirw/blob/main/CONTRIBUTING.md#creating-a-pr).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **major** release will be created (because the body or
+footer begins with &#39;BREAKING CHANGE:&#39;), I created a new [Jupyter
+notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **minor/patch** release will be created (because PR title
+begins with &#39;feat&#39;/(&#39;fix&#39; or &#39;perf&#39;)), I optionally created a new
+[Jupyter notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] In case of API changes, I updated
+[API.md](https://github.com/ZEISS/pylibczirw/blob/main/API.md).
+
+Re-write of #16 due to changes in infrastructure.
+
+Fixes #10
+
+---------
+
+Co-authored-by: Soyer, Sebastian &lt;sebastian.soyer@zeiss.com&gt;
+Co-authored-by: soyers &lt;soyer.sebastian@gmail.com&gt; ([`264fcb4`](https://github.com/ZEISS/pylibczirw/commit/264fcb4ab95274e54433a0054d69f07c402582f4))
+
+
+## v4.1.1 (2024-07-26)
+
+### Chore
+
+* chore: Add codeowners (#27)
+
+Add CODEOWNERS file ([`dc1717b`](https://github.com/ZEISS/pylibczirw/commit/dc1717b88e4141546f4e9c29d4c3fa91a2c9ea95))
+
+### Deps
+
+* deps: bump codecov/codecov-action from 3 to 4 (#2)
+
+Bumps
+[codecov/codecov-action](https://github.com/codecov/codecov-action) from
+3 to 4.
+---------
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt;
+Co-authored-by: dependabot[bot] &lt;49699333+dependabot[bot]@users.noreply.github.com&gt;
+Co-authored-by: Felix Scheffler &lt;felix.scheffler@zeiss.com&gt; ([`dab7b18`](https://github.com/ZEISS/pylibczirw/commit/dab7b1807486f8eee57c9a565912d1337621cddd))
+
+### Refactor
+
+* refactor: Megalinter and infrastructure (#19)
+
+[x] I followed the [How to structure your
+PR](https://github.com/ZEISS/pylibczirw/blob/main/CONTRIBUTING.md#creating-a-pr).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **major** release will be created (because the body or
+footer begins with &#39;BREAKING CHANGE:&#39;), I created a new [Jupyter
+notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] Based on [Commit
+Parsing](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html):
+In case a new **minor/patch** release will be created (because PR title
+begins with &#39;feat&#39;/(&#39;fix&#39; or &#39;perf&#39;)), I optionally created a new
+[Jupyter notebook with a matching
+version](https://github.com/ZEISS/pylibczirw/tree/main/doc/jupyter_notebooks).
+[ ] In case of API changes, I updated
+[API.md](https://github.com/ZEISS/pylibczirw/blob/main/API.md).
+
+Infrastructure related changes, linting ([`2e60a2b`](https://github.com/ZEISS/pylibczirw/commit/2e60a2bc15933e92e75d96dce34171de07d109b7))
+
+### Unknown
