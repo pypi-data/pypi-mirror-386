@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: lsoc
+Version: 0.1.3
+Summary: Lite Python package that lets you view file and directory access rights with octal
+Home-page: https://github.com/AlperSakarya/lsoc
+Download-URL: https://github.com/AlperSakarya/lsoc/tarball/0.1
+Author: Alper Sakarya
+Author-email: alpersakarya@gmail.com
+Keywords: ls,octal
+License-File: LICENSE.txt
+
