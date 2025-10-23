@@ -1,0 +1,13 @@
+torchfont/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+torchfont/datasets/__init__.py,sha256=6TJl7KJcM_7Me2SF3icSAk1Q7RAhYKkZfLVdpIuRUXY,218
+torchfont/datasets/folder.py,sha256=ofnxTBaDI4vE_MHkq-mU2p4QPp8H6sKVlkr6LjCjwHI,4373
+torchfont/datasets/google_fonts.py,sha256=WvJeuJ0z7n0PIrXnLWitDVtvsLYesHiNiopn3NoI0zk,1182
+torchfont/datasets/repo.py,sha256=wC0_2d6OoQ0_xSajCwsl7c-vTeVuFUYc_zcsJznJ1wM,3096
+torchfont/io/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+torchfont/io/pens.py,sha256=rXhgFC1ahZDXnkIqgdFcELFiTIhqB6612trorWuYqLM,1796
+torchfont/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+torchfont/transforms/__init__.py,sha256=GNmBP3k64r0xi_w0gHiOAIf5CZFELTbki9rKI-jYLmc,173
+torchfont/transforms/transforms.py,sha256=rFjU0eLIH2D0YOhQgdDioEMyZ3VmGp36kvkwCyOg04s,1374
+torchfont-0.4.0.dist-info/WHEEL,sha256=eh7sammvW2TypMMMGKgsM83HyA_3qQ5Lgg3ynoecH3M,79
+torchfont-0.4.0.dist-info/METADATA,sha256=dlgj-QFVU9Hl-oun6BeZmiGcgUToR9hSfNURqmaUIuw,1121
+torchfont-0.4.0.dist-info/RECORD,,
