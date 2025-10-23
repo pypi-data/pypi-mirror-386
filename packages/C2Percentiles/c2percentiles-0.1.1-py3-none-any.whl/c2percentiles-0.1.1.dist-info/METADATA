@@ -1,0 +1,115 @@
+Metadata-Version: 2.4
+Name: C2Percentiles
+Version: 0.1.1
+Summary: All nine Hyndman-Fan sample-quantile estimators plus pandas helpers & plots.
+Author-email: Dr Subbiah <msubbiah@cepheus.in>
+License: MIT
+License-File: LICENSE.txt
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: numpy>=1.20
+Requires-Dist: pandas>=1.3
+Provides-Extra: plots
+Requires-Dist: matplotlib>=3.3; extra == 'plots'
+Requires-Dist: seaborn>=0.11; extra == 'plots'
+Description-Content-Type: text/markdown
+
+# C2Percentiles
+
+A lightweight, zero-dependency (core) Python package that delivers **all nine Hyndman-Fan sample-quantile estimators**—plus ready-made helpers for multi-column, group-wise, and visual work-flows.
+
+ **PyPI**  `pip install C2Percentiles` 
+ 
+**License**  MIT 
+
+ **Python**  ≥ 3.8 
+
+---
+
+## Why this package?
+
+Standard libraries (NumPy, pandas) give you **only one** estimator—Type 7.  
+Research or regulatory work often needs **Type 8** (median-unbiased) or **Type 9** (normal QQ-plots).  
+`C2Percentiles` gives you **all nine** in a single line, plus batteries-included helpers for:
+
+* single vectors
+* many columns at once
+* stratification by groups
+* quick Seaborn/ Matplotlib visuals
+
+---
+
+## Installation
+
+```bash
+# core only – no plotting
+pip install C2Percentiles
+
+# with plotting extras
+pip install "C2Percentiles[plots]"
+```
+
+---
+
+## 60-second tutorial
+
+```python
+import numpy as np, pandas as pd, quantile_kit as qk
+
+# any 1-D data
+x = np.random.randn(100)
+
+# all nine 0.25, 0.50, 0.75 quantiles
+qk.quantile_custom(x, [0.25, 0.5, 0.75], qtype="all")
+# → DataFrame indexed by probability
+
+# only Types 7 & 8, 4 sig-digits, pretty strings
+qk.quantile_custom(x, [0.1, 0.9], qtype=[7, 8], sig_digits=4)
+
+# many columns at once
+df = pd.DataFrame({"A": np.random.randn(80),
+                   "B": np.random.randn(80)*50 + 100,
+                   "Group": np.random.choice(["G1", "G2"], 80)})
+
+qk.quantiles_for_vars(df, ["A", "B"], probs=[0.05, 0.5, 0.95])
+# → long table: Variable | Probability | Type1 … Type9
+
+# group-wise
+qk.quantiles_by_group(df, "Group", ["A", "B"], probs=[0.25, 0.75])
+
+# quick plot – estimator spread
+qk.plot_quantile_line(df["B"], probs=[0.05, 0.5, 0.95])
+```
+
+---
+
+
+
+## API reference
+
+| Signature 						| Description |
+|-------------------------------------------------------|-------------|
+| `quantile_custom(x, probs, qtype=7, sig_digits=None)` | core engine |
+| `quantiles_for_vars(df, vars, probs, qtype, sig_digits)` | multi-column |
+| `quantiles_by_group(df, group_var, num_vars, probs, qtype, sig_digits)` | grouped |
+| `plot_quantile_line(x, probs, …)` | single-variable plot |
+| `plot_qfv(df, vars, probs, …)` | faceted by variable |
+| `plot_qbg(df, group_var, vars, probs, …)` | faceted by group & variable |
+
+Full doc-strings are available via `help(...)` or your IDE.
+
+---
+
+## Citation
+
+If you use this package in research, please cite:
+
+Hyndman, R. J. and Fan, Y. (1996) “Sample Quantiles in Statistical Packages”, *American Statistician* **50**(4): 361–365.
+
+---
+
+## License
+
+MIT – see `LICENSE` file.
