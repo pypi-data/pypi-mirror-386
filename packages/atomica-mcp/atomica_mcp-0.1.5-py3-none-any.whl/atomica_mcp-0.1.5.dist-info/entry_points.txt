@@ -1,0 +1,9 @@
+[console_scripts]
+atomica-cli = atomica_mcp.__main__:app
+atomica-mcp = atomica_mcp.__main__:cli_app_stdio_standalone
+atomica-run = atomica_mcp.__main__:cli_app_run
+atomica-sse = atomica_mcp.__main__:cli_app_sse_standalone
+atomica-stdio = atomica_mcp.__main__:cli_app_stdio_standalone
+dataset = atomica_mcp.dataset:app
+pdb-mining = atomica_mcp.mining.cli:main
+upload-to-hf = atomica_mcp.upload_to_hf:app
