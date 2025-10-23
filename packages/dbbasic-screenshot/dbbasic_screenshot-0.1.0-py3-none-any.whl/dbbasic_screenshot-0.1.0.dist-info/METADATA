@@ -1,0 +1,92 @@
+Metadata-Version: 2.4
+Name: dbbasic-screenshot
+Version: 0.1.0
+Summary: Fast screenshot annotation tool for macOS
+Author: askrobots
+License: MIT
+Project-URL: Homepage, https://github.com/askrobots/dbbasic-screenshot
+Project-URL: Repository, https://github.com/askrobots/dbbasic-screenshot
+Project-URL: Issues, https://github.com/askrobots/dbbasic-screenshot/issues
+Keywords: screenshot,annotation,macos,drawing,tool
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Multimedia :: Graphics :: Capture :: Screen Capture
+Classifier: Topic :: Multimedia :: Graphics :: Editors
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pillow>=10.0.0
+Requires-Dist: PyQt5>=5.15.0
+Dynamic: license-file
+
+# Screenshot Annotator
+
+A fast screenshot annotation tool for macOS. Capture screenshots (full or partial) and quickly annotate them with lines, arrows, rectangles, and text.
+
+## Features
+
+- Capture partial screen areas (click and drag to select)
+- Draw lines, arrows, and rectangles
+- Add text annotations
+- Multiple colors (red, green, blue, yellow, black)
+- Adjustable line width
+- Undo functionality
+- Save to file or copy to clipboard
+
+## Installation
+
+```bash
+pip install -r requirements-qt.txt
+```
+
+## Usage
+
+Run the tool:
+
+```bash
+python dbbasic-screenshot.py
+```
+
+Or make it executable:
+
+```bash
+chmod +x dbbasic-screenshot.py
+./dbbasic-screenshot.py
+```
+
+### Workflow
+
+1. When launched, choose to capture a new screenshot or open an existing image
+2. For new screenshots: Click and drag to select the area you want to capture
+3. Use the toolbar to select tools and colors
+4. Draw annotations on your screenshot
+5. Save or copy to clipboard
+
+### Tools
+
+- **Line**: Draw straight lines
+- **Arrow**: Draw arrows to point at things
+- **Rectangle**: Draw boxes around areas
+- **Text**: Click to add text labels
+
+## Tips
+
+- The partial screen capture is fast and easy - click and drag to select only the area you need
+- Use different colors to highlight different types of information
+- Adjust line width for thicker or thinner annotations
+- Text annotations use a clear, bold font
+
+## Requirements
+
+- macOS (uses native screencapture command)
+- Python 3.7+
+- PyQt5
+- Pillow
