@@ -1,0 +1,3 @@
+[console_scripts]
+pristy-support=pristy_support.cli:main
+
