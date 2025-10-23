@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/uv_run_module/__init__.py
+src/uv_run_module/__main__.py
+src/uv_run_module.egg-info/PKG-INFO
+src/uv_run_module.egg-info/SOURCES.txt
+src/uv_run_module.egg-info/dependency_links.txt
+src/uv_run_module.egg-info/entry_points.txt
+src/uv_run_module.egg-info/top_level.txt
