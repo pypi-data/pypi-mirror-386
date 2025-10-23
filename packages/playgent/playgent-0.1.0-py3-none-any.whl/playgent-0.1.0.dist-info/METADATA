@@ -1,0 +1,350 @@
+Metadata-Version: 2.4
+Name: playgent
+Version: 0.1.0
+Summary: SDK for tracking and testing OpenAI API calls
+Author-email: Aniruddh Sriram <aniruddh.sriram@gmail.com>
+Maintainer-email: Aniruddh Sriram <aniruddh.sriram@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/AniruddhS24/playgent-py
+Project-URL: Documentation, https://github.com/AniruddhS24/playgent-py#readme
+Project-URL: Repository, https://github.com/AniruddhS24/playgent-py
+Project-URL: Issues, https://github.com/AniruddhS24/playgent-py/issues
+Project-URL: Changelog, https://github.com/AniruddhS24/playgent-py/releases
+Keywords: openai,api,testing,tracking,replay,evaluation,sdk
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai>=1.0.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: pydantic>=2.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: build>=0.10.0; extra == "dev"
+Requires-Dist: twine>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Dynamic: license-file
+
+# Playgent
+
+[![PyPI Version](https://img.shields.io/pypi/v/playgent.svg)](https://pypi.org/project/playgent/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/playgent.svg)](https://pypi.org/project/playgent/)
+[![License](https://img.shields.io/pypi/l/playgent.svg)](https://github.com/yourusername/playgent-py/blob/main/LICENSE)
+
+Playgent is a Python SDK for tracking, testing, and evaluating OpenAI API calls. It provides seamless integration with OpenAI's Python client, allowing you to record API interactions, replay them for testing, and evaluate model outputs systematically.
+
+## Features
+
+- **Session Tracking**: Automatically track and record OpenAI API calls within sessions
+- **Replay Testing**: Replay recorded API calls to test different scenarios
+- **Evaluation Framework**: Evaluate model outputs against expected results
+- **Drop-in Replacement**: Works as a drop-in replacement for the OpenAI client
+- **Async Support**: Full support for both synchronous and asynchronous operations
+- **Decorator Pattern**: Simple `@record` decorator for automatic session management
+
+## Installation
+
+Install Playgent using pip:
+
+```bash
+pip install playgent
+```
+
+Or using uv:
+
+```bash
+uv add playgent
+```
+
+## Quick Start
+
+### Basic Usage
+
+```python
+from playgent import init, create_session, record
+
+# Initialize Playgent with your configuration
+init(api_key="your-playgent-api-key", server_url="https://your-server.com")
+
+# Create a session
+session_id = create_session(
+    person_id="user-123",
+    endpoint="chat-endpoint",
+    metadata={"purpose": "testing"}
+)
+
+# Your OpenAI code here - all calls will be tracked automatically
+```
+
+### Using the Drop-in OpenAI Client
+
+Replace your OpenAI import with Playgent's version:
+
+```python
+# Instead of: from openai import OpenAI
+from playgent.openai import OpenAI
+
+client = OpenAI(api_key="your-openai-api-key")
+
+# Use as normal - all calls are automatically tracked
+response = client.chat.completions.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": "Hello!"}]
+)
+```
+
+### Using the @record Decorator
+
+The simplest way to track OpenAI calls:
+
+```python
+from playgent import record
+from openai import OpenAI
+
+@record(
+    person_id="user-123",
+    endpoint="my-endpoint"
+)
+def my_function():
+    client = OpenAI()
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": "Hello!"}]
+    )
+    return response
+
+# All OpenAI calls within this function are automatically tracked
+result = my_function()
+```
+
+### Async Support
+
+```python
+from playgent import record
+from openai import AsyncOpenAI
+import asyncio
+
+@record(
+    person_id="user-123",
+    endpoint="async-endpoint"
+)
+async def my_async_function():
+    client = AsyncOpenAI()
+    response = await client.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": "Hello!"}]
+    )
+    return response
+
+# Run async function
+asyncio.run(my_async_function())
+```
+
+### Replay Testing
+
+```python
+from playgent import replay_test, get_session_events
+
+# Get events from a session
+events = get_session_events(session_id="your-session-id")
+
+# Create a test case
+test_case = {
+    "name": "Test Chat Response",
+    "session_id": "your-session-id",
+    "events": events
+}
+
+# Replay the test
+result = replay_test(test_case)
+print(f"Test passed: {result['passed']}")
+```
+
+### Evaluation
+
+```python
+from playgent import evaluate
+
+# Evaluate model outputs
+evaluation = evaluate(
+    session_id="your-session-id",
+    criteria={
+        "accuracy": lambda output: len(output) > 10,
+        "relevance": lambda output: "expected" in output.lower()
+    }
+)
+
+print(f"Evaluation results: {evaluation}")
+```
+
+## Configuration
+
+Playgent can be configured through environment variables or programmatically:
+
+### Environment Variables
+
+```bash
+export PLAYGENT_API_KEY="your-api-key"
+export PLAYGENT_SERVER_URL="https://your-server.com"
+export PLAYGENT_PERSON_ID="default-user"
+export PLAYGENT_ENDPOINT="default-endpoint"
+```
+
+### Programmatic Configuration
+
+```python
+from playgent import init
+
+init(
+    api_key="your-api-key",
+    server_url="https://your-server.com",
+    batch_size=100,  # Number of events to batch before sending
+)
+```
+
+## Advanced Usage
+
+### Session Management
+
+```python
+from playgent import create_session, get_session, session
+
+# Create a session with metadata
+session_id = create_session(
+    person_id="user-123",
+    endpoint="advanced-endpoint",
+    metadata={
+        "environment": "production",
+        "version": "1.0.0",
+        "feature_flags": ["new_model", "streaming"]
+    }
+)
+
+# Get session details
+session_info = get_session(session_id)
+print(f"Session: {session_info}")
+
+# Use session context manager
+with session(person_id="user-123", endpoint="context-endpoint"):
+    # All OpenAI calls in this block are tracked
+    pass
+```
+
+### Custom Event Tracking
+
+```python
+from playgent import record
+from playgent.types import EndpointEvent
+
+# Track custom events alongside OpenAI calls
+@record(person_id="user-123", endpoint="custom-endpoint")
+def process_with_custom_events():
+    # Your OpenAI calls here
+
+    # Create custom event
+    event = EndpointEvent(
+        type="custom_metric",
+        data={"metric": "response_time", "value": 0.125}
+    )
+
+    # Event will be included in session
+    return result
+```
+
+## API Reference
+
+### Core Functions
+
+- `init(api_key, server_url, batch_size)`: Initialize Playgent
+- `create_session(person_id, endpoint, metadata)`: Create a new tracking session
+- `get_session(session_id)`: Get session details
+- `get_session_events(session_id)`: Get all events from a session
+- `replay_test(test_case)`: Replay a test case
+- `evaluate(session_id, criteria)`: Evaluate session outputs
+- `reset()`: Reset Playgent state
+
+### Decorators
+
+- `@record(person_id, endpoint, metadata)`: Decorator for automatic session management
+
+### Types
+
+- `Session`: Session data model
+- `EndpointEvent`: Event data model
+- `TestCase`: Test case definition
+- `EvaluationResult`: Evaluation result data
+
+## Development
+
+### Setting Up Development Environment
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/playgent-py.git
+cd playgent-py
+
+# Install development dependencies
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+
+# Format code
+black src/
+ruff check src/
+
+# Type checking
+mypy src/
+```
+
+### Building and Publishing
+
+```bash
+# Build the package
+python -m build
+
+# Test on TestPyPI first
+python -m twine upload --repository testpypi dist/*
+
+# Publish to PyPI
+python -m twine upload dist/*
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For support, please open an issue on the [GitHub repository](https://github.com/yourusername/playgent-py/issues).
+
+## Acknowledgments
+
+- Built for seamless integration with OpenAI's Python client
+- Inspired by modern testing and observability practices
+- Designed for production-grade API tracking and testing
