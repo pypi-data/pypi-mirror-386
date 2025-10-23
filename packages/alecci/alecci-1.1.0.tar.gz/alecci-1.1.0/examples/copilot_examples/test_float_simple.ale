@@ -1,0 +1,10 @@
+procedure main()
+  const x = 10.5
+  const y = 3.2
+  print `x = {x}`
+  print `y = {y}`
+  
+  const sum = x + y
+  print `x + y = {sum}`
+  print `Expected: 13.7`
+end procedure

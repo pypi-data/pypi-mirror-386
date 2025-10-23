@@ -1,0 +1,11 @@
+procedure main()
+  const int_value = 10
+  const float_value = 3.5
+  
+  print `int_value = {int_value}`
+  print `float_value = {float_value}`
+  
+  const mixed1 = int_value + float_value
+  print `int_value + float_value = {mixed1}`
+  print `Expected: 13.5`
+end procedure

@@ -1,0 +1,3 @@
+[console_scripts]
+alecci = alecci:main
+alecci-compile = alecci:main

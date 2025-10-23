@@ -1,0 +1,21 @@
+procedure main()
+  mutable t1 := create_thread(get_random)
+  mutable t2 := create_thread(get_random)
+  mutable t3 := create_thread(get_random)
+  mutable t4 := create_thread(get_random)
+  
+  const n1 = join_thread(t1)
+  const n2 = join_thread(t2)
+  const n3 = join_thread(t3)
+  const n4 = join_thread(t4)
+  
+  print `Thread 1: {n1}`
+  print `Thread 2: {n2}`
+  print `Thread 3: {n3}`
+  print `Thread 4: {n4}`
+end procedure
+
+procedure get_random()
+  const num = rand(0, 100)
+  return num
+end procedure

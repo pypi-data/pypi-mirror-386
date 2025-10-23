@@ -1,0 +1,9 @@
+procedure simple_greet()
+    print("Hello from thread!")
+end procedure
+
+procedure main(argc, argv)
+    mutable thread1 as thread := create_thread(simple_greet)
+    join_thread(thread1)
+    print("Hello from main thread")
+end procedure

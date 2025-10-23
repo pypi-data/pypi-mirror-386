@@ -1,0 +1,4 @@
+procedure main(argc, argv)
+    shared mutable test_sem as semaphore := semaphore(1)
+    print("Testing semaphore initialization")
+end procedure

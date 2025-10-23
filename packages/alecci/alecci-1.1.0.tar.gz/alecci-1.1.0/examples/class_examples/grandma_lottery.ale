@@ -1,0 +1,13 @@
+procedure main()
+  mutable grandchild1 := create_thread(buy_lottery)
+  mutable grandchild2 := create_thread(buy_lottery)
+  const number1 = join_thread(grandchild1)
+  const number2 = join_thread(grandchild2)
+  print `My lottery numbers are {number1} and {number2}`
+end procedure
+
+procedure buy_lottery()
+  sleep(rand(1, 3))  // 1-3 seconds
+  const number = rand(0, 100)
+  return number
+end procedure

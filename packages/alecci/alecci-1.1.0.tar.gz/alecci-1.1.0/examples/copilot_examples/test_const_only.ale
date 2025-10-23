@@ -1,0 +1,4 @@
+procedure main()
+  const a = 10
+  print `a = {a}`
+end procedure

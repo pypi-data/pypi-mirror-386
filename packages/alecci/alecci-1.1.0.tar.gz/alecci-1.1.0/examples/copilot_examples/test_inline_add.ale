@@ -1,0 +1,5 @@
+procedure main()
+  const a = 10
+  const b = 5
+  print `a + b = {a + b}`
+end procedure

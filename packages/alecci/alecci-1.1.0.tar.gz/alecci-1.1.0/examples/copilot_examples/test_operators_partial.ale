@@ -1,0 +1,85 @@
+// Test only arithmetic operators before division
+procedure main()
+  print `=== ARITHMETIC OPERATORS TEST ===`
+  test_addition()
+  test_subtraction()
+  test_multiplication()
+  
+  print `=== Tests completed! ===`
+end procedure
+
+procedure test_addition()
+  print `Testing addition (+)`
+  
+  // Integer addition
+  const a = 10
+  const b = 5
+  const sum1 = a + b
+  print `  10 + 5 = {sum1}`
+  
+  // Float addition
+  const x = 10.5
+  const y = 3.2
+  const sum2 = x + y
+  print `  10.5 + 3.2 = {sum2}`
+  
+  // Negative numbers
+  const neg1 = -5
+  const neg2 = -3
+  const sum3 = neg1 + neg2
+  print `  -5 + -3 = {sum3}`
+  
+  // Mixed sign
+  const sum4 = a + neg1
+  print `  10 + -5 = {sum4}`
+end procedure
+
+procedure test_subtraction()
+  print `Testing subtraction (-)`
+  
+  const a = 20
+  const b = 8
+  const diff1 = a - b
+  print `  20 - 8 = {diff1}`
+  
+  const x = 15.7
+  const y = 3.2
+  const diff2 = x - y
+  print `  15.7 - 3.2 = {diff2}`
+  
+  // Result is negative
+  const diff3 = b - a
+  print `  8 - 20 = {diff3}`
+  
+  // Subtract from zero
+  const diff4 = 0 - 10
+  print `  0 - 10 = {diff4}`
+end procedure
+
+procedure test_multiplication()
+  print `Testing multiplication (*)`
+  
+  const a = 7
+  const b = 6
+  const prod1 = a * b
+  print `  7 * 6 = {prod1}`
+  
+  const x = 2.5
+  const y = 4.0
+  const prod2 = x * y
+  print `  2.5 * 4.0 = {prod2}`
+  
+  // Multiply by zero
+  const prod3 = a * 0
+  print `  7 * 0 = {prod3}`
+  
+  // Multiply by negative
+  const prod4 = a * -3
+  print `  7 * -3 = {prod4}`
+  
+  // Two negatives
+  const neg1 = -4
+  const neg2 = -5
+  const prod5 = neg1 * neg2
+  print `  -4 * -5 = {prod5}`
+end procedure
