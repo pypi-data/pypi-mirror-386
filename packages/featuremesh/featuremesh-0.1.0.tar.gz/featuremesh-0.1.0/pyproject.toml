@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=77.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "featuremesh"
+version = "0.1.0"
+description = "Python client for FeatureMesh - Execute FeatureQL queries on multiple database backends"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    {name = "FeatureMesh", email = "info@featuremesh.com"}
+]
+keywords = ["featureql", "featuremesh", "sql", "data", "query", "duckdb", "trino", "bigquery"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = [
+    "requests>=2.32.5",
+    "pandas>=2.3.3",
+    "ipython>=9.6.0",
+    "numpy>=2.3.4"
+]
+
+[project.urls]
+Homepage = "https://featuremesh.com"
+Repository = "https://github.com/featuremesh/featuremesh-client-py"
+
+[project.optional-dependencies]
+# Database backend dependencies (optional)
+duckdb = ["duckdb>=1.4.1"]
+trino = ["trino>=0.336.0"]
+bigquery = ["google-cloud-bigquery>=3.38.0"]
+datafusion = ["datafusion>=50.1.0"]
+all = [
+    "duckdb>=1.4.1",
+    "trino>=0.336.0",
+    "google-cloud-bigquery>=3.38.0",
+    "datafusion>=50.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["featuremesh*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311', 'py312', 'py313']
+
+[tool.pylint.main]
+max-line-length = 180
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "unused-argument",
+    "C0103",             # snake case
+    "W1203",             # use of format
+    "W0611",             # unused import
+    "W0718",             # raising exception
+    "W0719",             # broad exception
+]
