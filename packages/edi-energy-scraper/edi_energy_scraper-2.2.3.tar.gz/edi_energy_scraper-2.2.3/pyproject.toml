@@ -1,0 +1,128 @@
+# NOTE: you have to use single-quoted strings in TOML for regular expressions.
+# It's the equivalent of r-strings in Python.  Multiline strings are treated as
+# verbose regular expressions by Black.  Use [ ] to denote a significant space
+# character.
+
+# Build system information and other project-specific configuration below.
+
+[build-system]
+requires = ["hatchling==1.27.0", "hatch-vcs", "hatch-fancy-pypi-readme"]
+# pinned hatchling version because https://github.com/astral-sh/rye/issues/1446
+build-backend = "hatchling.build"
+
+[project]
+name = "edi_energy_scraper"
+description = "a scraper to mirror edi-energy.de"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Hochfrequenz Unternehmensberatung GmbH", email = "info+github@hochfrequenz.de" },
+]
+keywords = ["automation", "ahb", "bdew", "edi@energy", "bdew-mako.de"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "aiohttp>=3.8.4",
+    "pypdf>=3.4.1",
+    "efoli>=2.1.0",
+    "pytz>=2022.7.1",
+    "pydantic>=2",
+    "pytz>=2024.2",
+    "more_itertools"
+]
+dynamic = ["readme", "version"]
+
+[project.optional-dependencies]
+coverage = [
+    "coverage==7.10.7"
+]
+formatting = [
+    "black==25.9.0",
+    "isort==7.0.0"
+]
+linting = [
+    "pylint==3.3.7"
+]
+spellcheck = [
+    "codespell==2.4.1"
+]
+test_packaging = [
+    "build==1.3.0",
+    "twine==6.2.0"
+]
+tests = [
+    "aioresponses==0.7.8",
+    "freezegun==1.5.5",
+    "pytest==8.4.2",
+    "pytest-asyncio==1.2.0",
+    "pytest-mock==3.14.1",
+    "syrupy==4.9.1"
+]
+type_check = [
+    "mypy==1.17.1",
+    "types-pytz==2025.2.0.20250516"
+]
+
+[project.urls]
+Changelog = "https://github.com/Hochfrequenz/edi_energy_scraper/releases"
+Homepage = "https://github.com/Hochfrequenz/edi_energy_scraper"
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+fragments = [{ path = "README.md" }]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/_edi_energy_scraper_version.py"
+template = '''
+version = "{version}"
+'''
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/unittests"]
+
+[tool.hatch.build.targets.wheel]
+only-include = ["src"]
+sources = ["src"]
+
+
+[tool.black]
+line-length = 120
+target_version = ["py39", "py310", "py311", "py312", "py313"] # <-- we need this as lons as we support python 3.8
+
+[tool.isort]
+line_length = 120
+profile = "black"
+
+[tool.pylint."MESSAGES CONTROL"]
+max-line-length = 120
+
+[tool.pytest.ini_options]
+# When the mode is auto, all discovered async tests are considered asyncio-driven
+# even if they have no @pytest.mark.asyncio marker.
+# https://github.com/pytest-dev/pytest-asyncio#auto-mode
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+markers = ["snapshot: mark a test as a snapshot test"]
+# the following lines are needed if you would like to build a python package,
+# and you want to use semantic versioning
+# [build-system]
+# requires = ["setuptools>=41.0", "wheel", "setuptools_scm[toml]>=3.4"]
+# build-backend = "setuptools.build_meta"
+
+# [tool.setuptools_scm]
