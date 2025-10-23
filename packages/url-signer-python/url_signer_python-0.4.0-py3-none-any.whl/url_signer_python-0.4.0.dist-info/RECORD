@@ -1,0 +1,12 @@
+ioriver/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ioriver/key_info.py,sha256=nthXHdMlB2qRoX3VxsxcovIbRrD8HOF-bbPJjkKuU7o,519
+ioriver/policy.py,sha256=FW8kYykISgcimqr-BuyI4bwvT8z0KAqMV2Ve4L-D2a0,1098
+ioriver/url_signer.py,sha256=z3Cav5oIeidJrNiT67PO9laqgEJiOgvSvRrnnJqWYEY,4622
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_basic_policy.py,sha256=FOwOKdC9HxZHYOfwrXwHx3POUAOAAunpRqM-JFmco80,1776
+tests/test_url_signer.py,sha256=xS2U1YqONySMW7hR9Q1lZE8z67V3UJaNqG8wNtxXi1E,2260
+tests/test_util.py,sha256=YMHy8jc3AwcSdiB76kpegXd1HTpy4xtI52-yhL5hpzU,524
+url_signer_python-0.4.0.dist-info/METADATA,sha256=1qz-NoLL2KTRcxD6kvTo8JXD8bmeiUQOXfTYFHHMbfo,3305
+url_signer_python-0.4.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+url_signer_python-0.4.0.dist-info/top_level.txt,sha256=g9ecizaKlQ07sunSf98o9PoFeue7W6XtxNEVMRgy0Bc,14
+url_signer_python-0.4.0.dist-info/RECORD,,
