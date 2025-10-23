@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools >= 65.0.0",
+            "wheel",
+            "versioningit"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mvesuvio"
+dynamic = ["version"]
+authors = [
+  {name = "The Mantid Project", email = "mantid-help@mantidproject.org"},
+  {name = "Guilherme Pereira", email = "gui.maciel-pereira@stfc.ac.uk"},
+]
+description = "Analyse Vesuvio instrument data"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+]
+# Only these few, package meant to be installed alongside vesuvio-dev.yml 
+dependencies = [
+    "iminuit",
+    "jacobi",
+    "dill",
+]
+
+[project.urls]
+"Repository" = "https://github.com/mantidproject/vesuvio"
+"Bug Tracker" = "https://github.com/mantidproject/vesuvio/issues"
+
+[project.entry-points]
+console_scripts = { mvesuvio = "mvesuvio.main:main" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[tool.setuptools.package-data]
+"mvesuvio.config.ip_files" = ["*.par"]
+"mvesuvio.config" = ["*.properties", "*.mplstyle"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    ".",
+    "./src"
+]
+testpaths = ["tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+include = [
+    "*/src/mvesuvio/*",
+    "*/tools/calibration_scripts/*"
+]
+
+omit = [
+    "*tests*",
+    "*unpackaged*",
+    "*legacy*"
+]
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+skip_empty = true
+
+[tool.versioningit.vcs]
+method = "git"
+default-tag = "0.0"
+
+[tool.versioningit.next-version]
+method = "minor"
+
+[tool.versioningit.format]
+distance = "{version}.dev{distance}"
+dirty = "{version}"
+distance-dirty = "{version}.dev{distance}"
+
+[tool.versioningit.write]
+file = "src/mvesuvio/_version.py"
+
+[tool.ruff]
+exclude = [".git", "build", "buildconfig", "unpackaged", "legacy", "src/mvesuvio/config/analysis_inputs.py"]
+line-length = 140
+
+[tool.ruff.lint]
+ignore = ["F405", "F403"]
+
+[tool.ruff.format]
+skip-magic-trailing-comma = false
+line-ending = "auto"
+exclude = ["tests/unit/**", "tests/system/**"]
