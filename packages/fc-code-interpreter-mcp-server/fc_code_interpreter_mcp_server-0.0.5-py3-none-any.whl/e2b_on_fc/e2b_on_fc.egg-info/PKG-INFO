@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: e2b-on-fc
+Version: 1.0.0
+Summary: E2B SDK for Aliyun Function Compute
+Author: AgentRun Team
+License-Expression: Apache-2.0
+Requires-Python: >=3.10
+Requires-Dist: protobuf>=5.29.5
+Requires-Dist: requests>=2.32.4
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: alibabacloud-credentials>=1.0.2
+Requires-Dist: alibabacloud-credentials-api>=1.0.0
+Requires-Dist: alibabacloud-fc20230330>=4.2.7
+Requires-Dist: alibabacloud-tea>=0.4.3
+Requires-Dist: alibabacloud_endpoint_util>=0.0.4
+Requires-Dist: alibabacloud_gateway_spi>=0.0.3
+Requires-Dist: alibabacloud_openapi_util>=0.2.2
+Requires-Dist: alibabacloud_tea_openapi>=0.3.16
+Requires-Dist: alibabacloud_tea_util>=0.3.13
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: httpcore>=1.0.9
+Requires-Dist: typing_extensions>=4.14.1
+Requires-Dist: attrs>=25.3.0
+Requires-Dist: certifi>=2025.7.14
+Requires-Dist: charset-normalizer>=3.4.2
+Requires-Dist: idna>=3.10
+Requires-Dist: urllib3>=2.5.0
