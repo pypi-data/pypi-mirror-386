@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: dhanuma_datainstinct
+Version: 0.1.0
+Summary: A lightweight data profiler for CSV, Excel and JSON files
+Author: Dhanush
+Author-email: Dhanush <dhanushm.analyst@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: openpyxl>=3.0.0
+Dynamic: author
+Dynamic: requires-python
+
+# 🧠 datainstinct
+
+**datainstinct** is a lightweight Python library for quick data profiling and summary of CSV or Excel or JSON files.
+
+---
+
+##  Installation
+
+```bash
+pip install dhanuma_datainstinct
