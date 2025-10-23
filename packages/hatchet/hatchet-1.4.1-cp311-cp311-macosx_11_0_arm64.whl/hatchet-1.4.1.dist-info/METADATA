@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: hatchet
+Version: 1.4.1
+Summary: A Python library for analyzing hierarchical performance data
+Home-page: https://github.com/hatchet/hatchet
+Author: Abhinav Bhatele
+Author-email: bhatele@cs.umd.edu
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: pydot
+Requires-Dist: pyyaml
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: textx
+Requires-Dist: multiprocess
+Requires-Dist: caliper-reader
+Requires-Dist: pycubexr ; python_version >= "3.9"
+
