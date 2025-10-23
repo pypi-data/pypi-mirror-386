@@ -1,0 +1,16 @@
+dm_core/__init__.py,sha256=qEFeq3yuf3lQKVseALmL8aPM8fpCS54B_5pry00M3hk,76
+dm_core/migrationcd/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_core/migrationcd/abc.py,sha256=VILiiNEVMMVoGNw0aYk0VzYamQ2ArFPML03B4pJuFj8,1270
+dm_core/migrationcd/apps.py,sha256=AgRaPoyr6_hEbXIDYPBE4TCx1jtkx1Eu6Tm-srwe7-U,196
+dm_core/migrationcd/models.py,sha256=Em5uwE-WWxCpKb-buWRl1lWoBQiIDcTYN7kCR17n04Q,623
+dm_core/migrationcd/management/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_core/migrationcd/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_core/migrationcd/management/commands/migratecd.py,sha256=5wHKC8BY8Y7ZwhNp1WJM-kyTOIK_luew6vKbSd7q4To,4492
+dm_core/migrationcd/migrations/0001_initial.py,sha256=3uRBtHSWwzYF3cnpvip95CmRSJZB4MiFP976L9mKVCs,438
+dm_core/migrationcd/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_core/migrationcd/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_core_migrationcd-1.0.1.dist-info/licenses/LICENSE,sha256=VoAqKV2y0Kfbr6lR4IRaTU8m0gUagYSCIJCoqA12TJM,251
+dm_core_migrationcd-1.0.1.dist-info/METADATA,sha256=L8pugw2WSFjABq7khXU_dqji5ulJrgt3i3k851STJsY,813
+dm_core_migrationcd-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dm_core_migrationcd-1.0.1.dist-info/top_level.txt,sha256=02xnAiJcjRHDUdR4Vu2vG_9hnGcHcP2aBQX_L-y8XkY,8
+dm_core_migrationcd-1.0.1.dist-info/RECORD,,
