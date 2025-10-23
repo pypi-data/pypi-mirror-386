@@ -1,0 +1,16 @@
+nonebot_plugin_mai_arcade/__init__.py,sha256=hCLizufW0JH6b28uMvYPXcAh6GY6AV-ZWHudzqM1dbg,6835
+nonebot_plugin_mai_arcade/config.py,sha256=Jr6tjGoQxtbyQKe_8s7FK53Ha5QCuy67N8NjpZi4Rww,1122
+nonebot_plugin_mai_arcade/services.py,sha256=If_S_NuA7ExyfsrrDe15jCuh-neQ-nIQ6Nv7CzUNlyM,3474
+nonebot_plugin_mai_arcade/utils.py,sha256=8qYvZ7Jhq6IZ02SM9pob5MUi7RPKgCC06IgxIrh0NVM,4436
+nonebot_plugin_mai_arcade/handlers/__init__.py,sha256=YdEdX1OKbuS-zRijIqT1C3zuPpyrAIz8k4lhJNtPIVA,28
+nonebot_plugin_mai_arcade/handlers/admin.py,sha256=mPCgXbc4SIGjtKcD7rRCVSk5Q-spVoNjPYZHAsW_SWM,2687
+nonebot_plugin_mai_arcade/handlers/alias.py,sha256=HdWDfbFvxB4PpZPezS1YsU5c_t8yR5G6F9Bsu0J2WR0,6758
+nonebot_plugin_mai_arcade/handlers/arcade.py,sha256=4opzzeEl5vEM6sWCdEGjy2ZYLF5gF73S_r9XfYdKDds,11040
+nonebot_plugin_mai_arcade/handlers/count.py,sha256=tlHeG686EqjNc-524UMnbOQsOrYoLMMusIrmm82X8Tw,16021
+nonebot_plugin_mai_arcade/handlers/maps.py,sha256=lzT_hBcJoZpnRYy-WZL0NFGl-9_4PYLZYYsFE_6LWvo,6632
+nonebot_plugin_mai_arcade/handlers/queue.py,sha256=3HDK76D04Rl3UTQUZmfkZ0vvUogWOw0PxuEU4dza4po,8956
+nonebot_plugin_mai_arcade-0.2.0.dist-info/licenses/LICENSE,sha256=SYqKyqeKb6au2D7vF0MMwCrk5MWjekJHdMnDGAYTgDw,1088
+nonebot_plugin_mai_arcade-0.2.0.dist-info/METADATA,sha256=nfbJ69ch58nG_lIU37uiJLrVJNubBaMIp4o9mRH2ykI,12001
+nonebot_plugin_mai_arcade-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+nonebot_plugin_mai_arcade-0.2.0.dist-info/top_level.txt,sha256=1zA56a7nWFnPkzC7j0gFm9bbi6ycpzV00qjMBJHTAbM,26
+nonebot_plugin_mai_arcade-0.2.0.dist-info/RECORD,,
