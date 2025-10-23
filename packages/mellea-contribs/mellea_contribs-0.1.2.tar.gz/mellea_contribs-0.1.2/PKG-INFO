@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mellea-contribs
+Version: 0.1.2
+Summary: mellea-contribs is a library for incubating generative programming libraries
+Author-Email: Nathan Fulton <nathan@ibm.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Requires-Dist: mellea
+Description-Content-Type: text/markdown
+
+<img src="https://github.com/generative-computing/mellea-contribs/raw/main/mellea-contribs.jpg" height=100>
+
+
+# Mellea Contribs
+
+The `mellea-contribs` repository is an incubation point for contributions to
+the Mellea ecosystem.
