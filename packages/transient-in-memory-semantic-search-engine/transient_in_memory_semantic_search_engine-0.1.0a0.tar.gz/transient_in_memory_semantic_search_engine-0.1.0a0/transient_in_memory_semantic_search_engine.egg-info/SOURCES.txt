@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+transient_in_memory_semantic_search_engine.py
+transient_in_memory_semantic_search_engine.egg-info/PKG-INFO
+transient_in_memory_semantic_search_engine.egg-info/SOURCES.txt
+transient_in_memory_semantic_search_engine.egg-info/dependency_links.txt
+transient_in_memory_semantic_search_engine.egg-info/requires.txt
+transient_in_memory_semantic_search_engine.egg-info/top_level.txt

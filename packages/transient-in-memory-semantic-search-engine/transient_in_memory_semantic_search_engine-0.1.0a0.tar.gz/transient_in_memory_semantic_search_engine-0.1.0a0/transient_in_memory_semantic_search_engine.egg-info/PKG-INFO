@@ -1,0 +1,131 @@
+Metadata-Version: 2.4
+Name: transient-in-memory-semantic-search-engine
+Version: 0.1.0a0
+Summary: A transient, in-memory semantic search engine for small document collections, powered by sentence embeddings from an OpenAI Embeddings-compatible API.
+Author-email: Jifeng Wu <jifengwu2k@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/jifengwu2k/transient-in-memory-semantic-search-engine
+Project-URL: Bug Tracker, https://github.com/jifengwu2k/transient-in-memory-semantic-search-engine/issues
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: retrieve-sentence-embeddings
+Requires-Dist: unicode-raw-input
+Requires-Dist: typing; python_version < "3.5"
+Dynamic: license-file
+
+# `transient-in-memory-semantic-search-engine`
+
+A transient, in-memory semantic search engine for small document collections, powered by sentence embeddings
+from an [OpenAI Embeddings](https://platform.openai.com/docs/guides/embeddings)-compatible API. That includes:
+
+- [OpenAI's embedding models](https://platform.openai.com/docs/api-reference/embeddings) (`base_url='https://api.openai.com/v1`)
+- [Google Gemini](https://ai.google.dev/gemini-api/docs/openai#embeddings) (`base_url='https://generativelanguage.googleapis.com/v1beta/openai'`)
+- [ollama](https://github.com/ollama/ollama/blob/main/docs/openai.md#v1embeddings) (`base_url='http://localhost:11434/v1'`).
+
+with compatible models.
+
+## Features
+
+- Simple in-memory construction from mapping or iterable of key-value pairs.
+  - Values must be of type `Text`.
+- Uses cosine similarity for nearest neighbor ranking.
+
+## Installation
+
+```bash
+pip install transient-in-memory-semantic-search-engine
+```
+
+## Example
+
+```python
+# coding=utf-8
+from __future__ import print_function, unicode_literals
+from transient_in_memory_semantic_search_engine import TransientInMemorySemanticSearchEngine
+
+# For this example, api_key and base_url are ignored by the dummy backend.
+engine = TransientInMemorySemanticSearchEngine(
+    api_key='OPENAI_API_KEY',
+    base_url='https://api.openai.com/v1',
+    model='text-embedding-ada-002',
+    key_value_mapping_or_key_value_pairs=[
+        ('a', 'The quick brown fox jumps over the lazy dog.'),
+        ('b', 'A fast, dark-colored fox leaped above a sleeping canine.'),
+        ('c', 'Unrelated sentence about software engineering.'),
+    ]
+)
+
+# Search with a query:
+query = 'A fox jumping over a dog'
+results = engine(query)
+
+# Results are returned as a list of (similarity, key) pairs, sorted by similarity descending.
+print('Results:')
+for score, key in results:
+    print('Key: %s, Similarity: %.4f' % (key, score))
+```
+
+Output:
+
+```
+Results:
+Key: b, Similarity: 0.9236
+Key: a, Similarity: 0.9130
+Key: c, Similarity: 0.7434
+```
+    
+## Notes
+
+- Values must be of type `Text`.
+- Engine construction is fast for moderate document sizes, as all embeddings are precomputed.
+- Suitable for prototyping and small-scale applications.
+
+## Command-line Usage
+
+You can also use semantic search from the command line using:
+
+```bash
+python -m transient_in_memory_semantic_search_engine \
+    --api-key YOUR_API_KEY \
+    --base-url https://api.openai.com/v1 \
+    --model text-embedding-ada-002 \
+    --key-value-json path/to/your_documents.json
+```
+
+Where `your_documents.json` is a file containing your documents as a mapping from keys to text values, for example:
+
+```json
+{
+    "doc1": "The quick brown fox jumps over the lazy dog.",
+    "doc2": "A fast, dark-colored fox leaped above a sleeping canine.",
+    "doc3": "Unrelated sentence about software engineering."
+}
+```
+
+Once started, you will be prompted:
+
+```
+Enter a query:
+```
+
+Type your search query. The engine will print a ranked list of matches:
+
+```csv
+score,key
+0.9236,"doc2"
+0.9130,"doc1"
+0.7434,"doc3"
+```
+
+## Contributing
+
+Contributions are welcome! Please submit pull requests or open issues on the GitHub repository.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).

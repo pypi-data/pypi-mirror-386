@@ -1,0 +1,6 @@
+numpy
+retrieve-sentence-embeddings
+unicode-raw-input
+
+[:python_version < "3.5"]
+typing
