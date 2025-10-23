@@ -1,0 +1,11 @@
+colibri/__init__.py,sha256=5r_j9C9M-XUEojWhTSSmn0A85UZN5ztazAdc2MSM6Nk,2442
+colibri/_native.cp312-win_amd64.pyd,sha256=niJx1m6x2sJ8qLzlmmUrOibuTNWu8ecFXp0eAF_zxNU,893952
+colibri/client.py,sha256=8ERKG2-QM-ZImqFUvpcnQxlmiqUmNX61auQPACNuOco,21893
+colibri/py.typed,sha256=fDUY3AqEcQHC01aGMGdCqP2qwZXb9ILFNzjSSBBwh1U,61
+colibri/storage.py,sha256=evl2zA4kbZd7sQFpvr2pfI4dNH0c94AvFvQw1VEy5do,4579
+colibri/testing.py,sha256=nCvlOSD1ydzv-lv7bLd8UJNtvnlRCPhKKF7KHtZrf5o,10016
+colibri/types.py,sha256=9gwXeUkcCPUwKaMFRyCO0vEtoJLyw8ZKNvouCnrtpTQ,3995
+colibri_stateless-0.6.11.dist-info/METADATA,sha256=svDLsudQ_G4B5wmOJziCFI_HXyPSR0dVm2jBoT0tMMU,5673
+colibri_stateless-0.6.11.dist-info/WHEEL,sha256=8UP9x9puWI0P1V_d7K2oMTBqfeLNm21CTzZ_Ptr0NXU,101
+colibri_stateless-0.6.11.dist-info/top_level.txt,sha256=7YrQNaIHaKEkVXyESwWV8heheMQY94YJfVoepEYjWRk,8
+colibri_stateless-0.6.11.dist-info/RECORD,,
