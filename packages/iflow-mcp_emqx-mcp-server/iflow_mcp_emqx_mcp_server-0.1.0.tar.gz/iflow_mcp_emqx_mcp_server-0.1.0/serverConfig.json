@@ -1,0 +1,3 @@
+{
+    "serverConfig": "{\"mcpServers\":{\"emqx-mcp-server\":{\"command\":\"uvx\",\"args\":[\"--from\",\"iflow-mcp_emqx-mcp-server\",\"emqx-mcp-server\"],\"values\":{}}}}"
+}
