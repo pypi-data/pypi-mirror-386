@@ -1,0 +1,2 @@
+[console_scripts]
+sw-registry-stack = sw_registry_stack.cli:main
