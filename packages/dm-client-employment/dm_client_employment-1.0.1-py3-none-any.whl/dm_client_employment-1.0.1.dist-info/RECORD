@@ -1,0 +1,10 @@
+dm_client/employment/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_client/employment/apps.py,sha256=WGyniWNMOYYWk3wC4OMrtNZ_86JmtYUjJL5vcFbIQaw,461
+dm_client/employment/dataclasses.py,sha256=35HemdJlKpPjAnImBiR2V0IXmIpQaPqOqb7qwbq2tM0,2316
+dm_client/employment/service.py,sha256=Y99BB4_jOLLdZ1a-hkv6xZM4ll5BKv4YTiT2KRTlNec,8385
+dm_client/employment/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_client_employment-1.0.1.dist-info/licenses/LICENSE,sha256=VoAqKV2y0Kfbr6lR4IRaTU8m0gUagYSCIJCoqA12TJM,251
+dm_client_employment-1.0.1.dist-info/METADATA,sha256=BCD6fm6haL-R77A_n8bIxNkzmez7lvjiVkeUAKb8dlo,598
+dm_client_employment-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dm_client_employment-1.0.1.dist-info/top_level.txt,sha256=o5mwKvCdhj0uwO5luz0zD1uU8ApJ4mDgbWJADduhZfw,10
+dm_client_employment-1.0.1.dist-info/RECORD,,
