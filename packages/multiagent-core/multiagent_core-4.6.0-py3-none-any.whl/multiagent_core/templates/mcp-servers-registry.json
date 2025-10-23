@@ -1,0 +1,129 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-10-22T00:00:00.000000Z",
+  "servers": {
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${MCP_GITHUB_TOKEN}"
+      },
+      "description": "GitHub API integration - PRs, issues, repositories",
+      "category": "standard"
+    },
+    "postman": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@postman/postman-mcp-server"
+      ],
+      "env": {
+        "POSTMAN_API_KEY": "${MCP_POSTMAN_API_KEY}"
+      },
+      "description": "API testing and collection management",
+      "category": "standard"
+    },
+    "memory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {},
+      "description": "Persistent conversation memory (local storage)",
+      "category": "standard"
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ],
+      "env": {},
+      "description": "Browser automation and E2E testing",
+      "category": "standard"
+    },
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "${HOME}"
+      ],
+      "env": {},
+      "description": "File and directory operations",
+      "category": "standard"
+    },
+    "context7": {
+      "variants": {
+        "local": {
+          "type": "stdio",
+          "command": "npx",
+          "args": [
+            "-y",
+            "@upstash/context7-mcp"
+          ],
+          "env": {
+            "CONTEXT7_API_KEY": "${MCP_CONTEXT7_API_KEY}"
+          },
+          "description": "Up-to-date documentation (local npx)"
+        },
+        "remote": {
+          "type": "http",
+          "url": "https://mcp.context7.com/mcp",
+          "headers": {
+            "CONTEXT7_API_KEY": "${MCP_CONTEXT7_API_KEY}"
+          },
+          "description": "Up-to-date documentation (remote HTTP)"
+        }
+      },
+      "category": "standard",
+      "description": "Up-to-date code documentation for any library/framework"
+    },
+    "supabase": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@supabase/mcp-server"
+      ],
+      "env": {
+        "SUPABASE_URL": "${MCP_SUPABASE_URL}",
+        "SUPABASE_KEY": "${MCP_SUPABASE_KEY}"
+      },
+      "description": "Supabase backend operations",
+      "category": "standard"
+    },
+    "mem0": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mem0/mcp"
+      ],
+      "env": {
+        "MEM0_API_KEY": "${MCP_MEM0_API_KEY}"
+      },
+      "description": "Mem0 persistent memory and context management",
+      "category": "standard"
+    }
+  },
+  "notes": {
+    "env_vars": "All MCP server keys use MCP_* prefix (e.g., ${MCP_GITHUB_TOKEN}, ${MCP_POSTMAN_API_KEY}) resolved from ~/.bashrc Tier 1",
+    "three_tier_pattern": "See /docs patterns/security/api-key-organization for complete three-tier key organization",
+    "variants": "Servers with 'variants' support both local (stdio) and remote (http) connections",
+    "key_separation": "MCP_* keys (Tier 1) are separate from direct API keys (Tier 2) and platform keys (Tier 3) for billing/usage tracking",
+    "categories": {
+      "standard": "Pre-built MCP servers from npm packages",
+      "custom": "Your custom MCP servers (local development or remote deployment)"
+    },
+    "usage": {
+      "add_server": "Users can add custom servers to this registry",
+      "project_usage": "Projects pull from this registry using /mcp:manage commands",
+      "initialization": "Created by multiagent init if doesn't exist"
+    }
+  }
+}
