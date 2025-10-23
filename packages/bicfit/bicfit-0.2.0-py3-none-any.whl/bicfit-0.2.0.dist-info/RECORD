@@ -1,0 +1,13 @@
+bicfit/__init__.py,sha256=TyEYJtriI-ysdkfNhxoQ5pxgc8D0KPVA8kMmQmLE91o,13590
+bicfit/models.py,sha256=KLDZ59MDexRira6SqqJXBVOhZIfzrKwfI7xuw79dv9E,1529
+bicfit/plot.py,sha256=rGb4I17_sb8OKKuJXj970RhkxCAm6ffVH6ee5Zt1rD4,2889
+bicfit/post_fitting.py,sha256=bQyX4_qIx2070FwWGxGvFc0QYvfdvuPORjckt3Rj7Qs,7761
+bicfit/results/__init__.py,sha256=o8OwE27k9DXwhrns2NWMqmKCBfD8gHTGWwlOQMR7ch4,366
+bicfit/results/common.py,sha256=EmqBlt0eXveTb-DUueN27R8WBAGcn2wKybzwoPtEnaE,578
+bicfit/results/complex_mode.py,sha256=OZ6FCVf1C_5g5bZT7EQzIZDV2j54M4uufHDY2aZeMh4,2225
+bicfit/results/damped_cosine_mode.py,sha256=GsPSIBBoHO_1NiLLVslWh4LPMHSoRQ_SzLiRCFTm0Tc,1883
+bicfit/results/exponential_decay_mode.py,sha256=HcsoSxa2T2oPict14qL_VsBL64HKTtHEqfDHUKvbS7A,2031
+bicfit/types.py,sha256=wLrKZrpQCRm9l9rOMLuSsUrqKNA8Paz-orq5ef4JRFk,113
+bicfit-0.2.0.dist-info/WHEEL,sha256=eh7sammvW2TypMMMGKgsM83HyA_3qQ5Lgg3ynoecH3M,79
+bicfit-0.2.0.dist-info/METADATA,sha256=IRohflbJ9BOhE0inrz2gIQwOky9iKykSX0dtFWLL4oA,19707
+bicfit-0.2.0.dist-info/RECORD,,
