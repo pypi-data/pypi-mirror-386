@@ -1,0 +1,52 @@
+{
+  "target gender": {
+    "male": [
+      "male",
+      "man",
+      "men",
+      "mens",
+      "men s",
+      "guy",
+      "guys",
+      "gent",
+      "gents",
+      "gentleman",
+      "gentlemen",
+      "boy",
+      "boys",
+      "masculine",
+      "menswear",
+      "mens wear"
+    ],
+    "female": [
+      "female",
+      "woman",
+      "women",
+      "womens",
+      "women s",
+      "lady",
+      "ladies",
+      "girl",
+      "girls",
+      "feminine",
+      "womenswear",
+      "womens wear",
+      "her",
+      "hers"
+    ],
+    "unisex": [
+      "unisex",
+      "all gender",
+      "all genders",
+      "any gender",
+      "gender neutral",
+      "genderless",
+      "everyone",
+      "everybody",
+      "coed",
+      "co ed",
+      "multi gender",
+      "all people"
+    ]
+  }
+}
