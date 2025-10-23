@@ -1,0 +1,39 @@
+[project]
+name = 'gmailnudge'
+version = '2.1.3'
+    # 2.1.3 - pyproject.toml tuning
+    # 2.1.2 - Update pyproject.toml file per PyPI changes
+description = 'Nudge GMail so that it will frequently fetch new emails from another service'
+readme = 'README.md'
+requires-python = '>=3.9'       # RHEL 9 uses 3.9
+authors = [ {name = 'Chris Nelson', email = 'github@cjnaz.com'} ]
+license = 'MIT'
+dependencies = [
+    'cjnfuncs >= 3.0.1',
+    ]
+keywords = ['cjnaz', 'gmail', 'email']
+classifiers = [                 # https://pypi.org/classifiers/
+    'Programming Language :: Python :: 3',
+    'Topic :: Communications :: Email',
+    ]
+
+
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+
+[project.scripts]
+sndemail = 'gmailnudge.gmailnudge:cli'
+
+
+[project.urls]
+repository = 'https://github.com/cjnaz/gmailnudge'
+
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+
+[tool.setuptools.package-data]
+'*' = ['deployment_files/*']

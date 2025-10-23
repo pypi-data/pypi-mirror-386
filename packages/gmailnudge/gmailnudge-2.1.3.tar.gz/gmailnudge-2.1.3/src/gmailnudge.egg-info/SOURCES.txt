@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+src/gmailnudge/__init__.py
+src/gmailnudge/gmailnudge.py
+src/gmailnudge.egg-info/PKG-INFO
+src/gmailnudge.egg-info/SOURCES.txt
+src/gmailnudge.egg-info/dependency_links.txt
+src/gmailnudge.egg-info/entry_points.txt
+src/gmailnudge.egg-info/requires.txt
+src/gmailnudge.egg-info/top_level.txt
+src/gmailnudge/deployment_files/creds_SMTP
+src/gmailnudge/deployment_files/gmailnudge.cfg
+src/gmailnudge/deployment_files/gmailnudge.service

@@ -1,0 +1,9 @@
+[Unit]
+Description=Nudge GMail to force frequent new email checks from my server
+After=network-online.target
+
+[Service]
+ExecStart=/path-to-venv/bin/sndemail
+
+[Install]
+WantedBy=multi-user.target
