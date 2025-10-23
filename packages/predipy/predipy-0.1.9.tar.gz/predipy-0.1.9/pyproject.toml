@@ -1,0 +1,17 @@
+[project]
+name = "predipy"
+version = "0.1.9"
+description = "Lightweight Python library for prediction & regression"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name="Iyazkasep"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::coverage.exceptions.CoverageWarning:Couldn't import C tracer",
+]
+# Tidak perlu dynamic
