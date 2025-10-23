@@ -1,0 +1,63 @@
+[project]
+name = "ScriptMark"
+version = "0.1.1"
+description = "一个可扩展的、用于自动评分学生编程作业的CLI工具。目前仅实现了基于pytest的"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+dependencies = [
+	"pydantic>=2.12.3",
+	"pytest>=8.4.2",
+	"pytest-timeout>=2.4.0",
+	"rich>=14.2.0",
+	"typer>=0.20.0",
+]
+license = { text = "GPL-3.0-or-later" }
+keywords = ["grader", "pytest", "education", "autograding"]
+classifiers = [
+	"Development Status :: 3 - Alpha",
+	"Intended Audience :: Developers",
+	"Intended Audience :: Education",
+	"Operating System :: OS Independent",
+	"Programming Language :: Python :: 3",
+	"Programming Language :: Python :: 3.14",
+]
+authors = [
+	{ name = "Acture", email = "acturea@gmail.com" }
+]
+
+[build-system]
+requires = ["uv_build>=0.9.5"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+	"pytest-cov>=7.0.0",
+	"tox>=4.31.0",
+	"twine>=6.2.0",
+	"uv-build>=0.9.5",
+]
+
+[project.scripts]
+scriptmark = "scriptmark.main:app"
+[tool.uv]
+upgrade = true
+
+
+[tool.tox]
+requires = ["tox-uv"]
+envlist = ["py310", "py311", "py312", "py313", "py314"]
+installer = "uv"
+
+[tool.tox.testenv]
+deps = ".[dev]"
+# 运行 pytest 测试套件
+commands = "python -c \"import scriptmark\""
+
+[tool.ruff]
+indent-width = 4
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
+skip-magic-trailing-comma = false
+line-ending = "auto"
