@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: juffi
+Version: 0.2.0
+Summary: A feature rich TUI JSON log file viewer
+Author-email: Yotam Alon <yotam.alon@gmail.com>
+Maintainer-email: Yotam Alon <yotam.alon@gmail.com>
+License-Expression: GPL-3.0
+Project-URL: Homepage, https://github.com/YotamAlon/juffi
+Project-URL: Repository, https://github.com/YotamAlon/juffi.git
+Project-URL: Issues, https://github.com/YotamAlon/juffi/issues
+Project-URL: Documentation, https://github.com/YotamAlon/juffi#readme
+Keywords: json,log,viewer,tui,terminal,curses
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console :: Curses
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: pylint>=2.15.0; extra == "dev"
+Requires-Dist: isort>=5.0.0; extra == "dev"
+Requires-Dist: pre-commit>=3.0.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=7.0.0; extra == "test"
+Dynamic: license-file
+
+# juffi
+juffi is a feature rich TUI json log file viewer
