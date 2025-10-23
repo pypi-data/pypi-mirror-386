@@ -1,0 +1,93 @@
+Metadata-Version: 2.4
+Name: srndcipher
+Version: 0.6.4
+Summary: A simple way to encode plain text, keeps the result sortable and partly searchable.
+Author: rRR0VrFP
+Maintainer: rRR0VrFP
+License: MIT
+Keywords: cipher,SrndCipher,result sortable and partly searchable
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: zenutils
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: requires-dist
+Dynamic: summary
+
+# srndcipher
+
+A simple way to encode plain text, keeps the result sortable and partly searchable.
+
+## Install
+
+```shell
+pip install srndcipher
+```
+
+## Usage
+
+```
+import os
+import srndcipher
+
+cipher1 = srndcipher.SrndCipher(password="Your password")
+data1 = os.urandom(1024)
+data2 = cipher1.encrypt(data1)
+data3 = cipher1.decrypt(data2)
+assert data1 == data3
+
+cipher2 = srndcipher.SrndCipher(password="Your password", force_text=True)
+data1 = "your plain message"
+data2 = cipher2.encrypt(data1)
+data3 = cipher2.decrypt(data2)
+assert data1 == data3
+```
+
+## Notice
+
+- SrndCipher instance init takes about 0.6 second time, so try to keep the instance reusable.
+
+## Test Passed With Python Versions
+
+- python 2.7
+- python 3.2
+- python 3.3
+- python 3.4
+- python 3.5
+- python 3.6
+- python 3.7
+- python 3.8
+- python 3.9
+- python 3.10
+- python 3.11
+
+## Releases
+
+### v0.5.0
+
+- First relase.
+
+### v0.6.2
+
+- Set SrndCipher.default_result_encoder to cipherutils.Utf8Encoder().
+- Works with fastutils>=0.42.11.
+
+### v0.6.3
+
+- Doc update.
+- Deps on zenutils.
+
+### v0.6.4
+
+- Doc update.
