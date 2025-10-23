@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: envention
+Version: 0.0.1
+Summary: Placeholder package for osmosis.ai related projects
+Author: Osmosis.ai
+License: MIT
+Project-URL: Homepage, https://github.com/osmosis-ai/envention
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# envention
+
+Placeholder package for osmosis.ai related projects.
+
+## Installation
+
+```bash
+pip install envention
+```
+
+## About
+
+This is a placeholder package reserved for future use by osmosis.ai.
