@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: simluca-blade
+Version: 0.1.2
+Summary: Xiaoyu's Package of SynLUCA Simulator, named after Blade, the KamenRider.
+License: MIT
+License-File: LICENSE
+Author: Xiaoyu Wu
+Author-email: wuxiaoyu@westlake.edu.cn
+Requires-Python: >=3.10
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Provides-Extra: accel
+Provides-Extra: plot
+Requires-Dist: matplotlib (>=3.5) ; extra == "plot"
+Requires-Dist: numba (>=0.62) ; extra == "accel"
+Requires-Dist: numpy (>=2.0)
+Requires-Dist: scipy (>=1.8)
+Requires-Dist: shapely (>=2.0)
+Requires-Dist: tqdm (>=4.67.1)
+Project-URL: Documentation, https://github.com/BioProgramming-Lab/SimLUCA_Blade#readme
+Project-URL: Homepage, https://github.com/BioProgramming-Lab/SimLUCA_Blade
+Project-URL: Repository, https://github.com/BioProgramming-Lab/SimLUCA_Blade
+Description-Content-Type: text/markdown
+
+# SimLUCA_Blade
+Xiaoyu's Package of SynLUCA Simulator enabling users to: 
+    1. Define reaction system using user-friendly reaction language. 
+    2. Run simulation effectively with automatically generated RHS and Jacobian matrix. 
+    3. Visualize Simulation results with animations.
+
+
