@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+zeska.py
+zeska_lang.egg-info/PKG-INFO
+zeska_lang.egg-info/SOURCES.txt
+zeska_lang.egg-info/dependency_links.txt
+zeska_lang.egg-info/entry_points.txt
+zeska_lang.egg-info/top_level.txt

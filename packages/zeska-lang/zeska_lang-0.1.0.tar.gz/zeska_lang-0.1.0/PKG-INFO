@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: zeska-lang
+Version: 0.1.0
+Summary: Tanglish-based beginner-friendly programming language that auto-corrects and self-heals.
+Author-email: Sibi <Smartsibi65hacker@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Smartsibi65hacker/ZeskaLang
+Project-URL: Bug Tracker, https://github.com/Smartsibi65hacker/ZeskaLang/issues
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# ZeskaLang
+Tanglish-based beginner-friendly programming language (auto-correct + self-heal)
