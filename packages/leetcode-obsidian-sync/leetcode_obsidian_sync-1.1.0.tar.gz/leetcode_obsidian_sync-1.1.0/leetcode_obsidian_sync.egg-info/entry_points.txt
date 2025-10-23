@@ -1,0 +1,4 @@
+[console_scripts]
+leetcode-schedule = src.scheduler:main
+leetcode-sync = src.leetcode_notes_crawler:crawl_leetcode_notes
+leetcode-validate = src.cookie_validator:main

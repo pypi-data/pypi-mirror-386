@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leetcode-obsidian-sync"
+version = "1.1.0"
+description = "自动同步 LeetCode 笔记到 Obsidian/Markdown，支持增量更新、Cookie 自动检测和多种提醒方式"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Haoze Li", email = "haoze.li@outlook.com"}
+]
+maintainers = [
+    {name = "Haoze Li", email = "haoze.li@outlook.com"}
+]
+keywords = [
+    "leetcode", 
+    "obsidian", 
+    "sync", 
+    "notes", 
+    "markdown",
+    "crawler",
+    "automation",
+    "cookie-validator"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+dependencies = [
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+    "schedule>=1.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/LiHaoze-Bob/LeetCodeUpdate"
+Repository = "https://github.com/LiHaoze-Bob/LeetCodeUpdate"
+"Bug Tracker" = "https://github.com/LiHaoze-Bob/LeetCodeUpdate/issues"
+Documentation = "https://github.com/LiHaoze-Bob/LeetCodeUpdate#readme"
+Changelog = "https://github.com/LiHaoze-Bob/LeetCodeUpdate/blob/main/docs/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["src", "utils"]
+
+[tool.setuptools.package-data]
+src = ["*.py"]
+utils = ["*.py"]
+
+[project.scripts]
+leetcode-sync = "src.leetcode_notes_crawler:crawl_leetcode_notes"
+leetcode-validate = "src.cookie_validator:main"
+leetcode-schedule = "src.scheduler:main"
