@@ -1,0 +1,3 @@
+[console_scripts]
+business-use = src.cli:main
+business-use-core = src.cli:main
