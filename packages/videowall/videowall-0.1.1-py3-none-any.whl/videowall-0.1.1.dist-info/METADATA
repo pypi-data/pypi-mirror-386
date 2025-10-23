@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: videowall
+Version: 0.1.1
+Summary: A Qt video wall player
+Author-email: Robin Scher <robin@uberware.net>
+Project-URL: Homepage, https://github.com/uberware/videowall
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PySide6>=6.7
+Dynamic: license-file
+
+# Videowall
+
+This is a Qt based video wall player. It can play an arbitrary number of movies at the same time in a user customizable configuration.
+
+Playback features include:
+* Select loop, step forward, or random videos from a library
+* Customize volume and playback speed for each video
+* Play, Pause, Mute the whole wall
+* Keyboard control for a primary video
+* Save wall layouts and automatic recovery of last layout
+* Lots of options for customizing operation
+
+## Requirements
+
+* Python 3.9+
+* PySide6
