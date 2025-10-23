@@ -1,0 +1,72 @@
+Metadata-Version: 2.3
+Name: datamodelzoo
+Version: 0.1.0
+Summary: Collection of objects that represent Python datamodelzoo
+Author: Arseny Boykov (Bobronium)
+Author-email: Arseny Boykov (Bobronium) <hi@bobronium.me>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: datamodelzoo[lint] ; extra == 'dev'
+Requires-Dist: datamodelzoo[typecheck] ; extra == 'dev'
+Requires-Dist: datamodelzoo[test] ; extra == 'dev'
+Requires-Dist: datamodelzoo[docs] ; extra == 'dev'
+Requires-Dist: mkdocs-material ; extra == 'docs'
+Requires-Dist: mkdocstrings[python] ; extra == 'docs'
+Requires-Dist: mkdocs-autorefs ; extra == 'docs'
+Requires-Dist: mkdocs-section-index ; extra == 'docs'
+Requires-Dist: ruff>=0.5 ; extra == 'lint'
+Requires-Dist: pytest>=8 ; extra == 'test'
+Requires-Dist: pytest-cov>=5 ; extra == 'test'
+Requires-Dist: coverage>=7.4 ; extra == 'test'
+Requires-Dist: pytest-assert-type>=0.1.2 ; extra == 'test'
+Requires-Dist: typing-extensions ; python_full_version < '3.12' and extra == 'test'
+Requires-Dist: msgspec>=0.19.0 ; extra == 'thirdparty'
+Requires-Dist: networkx>=3.4.2 ; extra == 'thirdparty'
+Requires-Dist: numpy>=2.2.6 ; extra == 'thirdparty'
+Requires-Dist: pandas>=2.3.3 ; extra == 'thirdparty'
+Requires-Dist: pydantic>=2.12.3 ; extra == 'thirdparty'
+Requires-Dist: sympy>=1.14.0 ; extra == 'thirdparty'
+Requires-Dist: torch>=2.9.0 ; extra == 'thirdparty'
+Requires-Dist: mypy>=1.10 ; extra == 'typecheck'
+Requires-Dist: pyright>=1.1.400 ; extra == 'typecheck'
+Requires-Python: >=3.10
+Project-URL: Homepage, https://github.com/Bobronium/datamodelzoo
+Project-URL: Issues, https://github.com/Bobronium/datamodelzoo/issues
+Project-URL: Source, https://github.com/Bobronium/datamodelzoo
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: lint
+Provides-Extra: test
+Provides-Extra: thirdparty
+Provides-Extra: typecheck
+Description-Content-Type: text/markdown
+
+# datamodelzoo
+
+Collection of objects that represent Python datamodel
+
+## Installation
+
+```bash
+uv add datamodelzoo
+```
+
+## Usage
+
+```python
+from datamodelzoo import CASES
+
+
+for case in CASES:
+    print(case.name)
+```
