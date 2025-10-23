@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/dm_client/__init__.py
+src/dm_client/offline/__init__.py
+src/dm_client/offline/apps.py
+src/dm_client/offline/service.py
+src/dm_client/offline/tests/__init__.py
+src/dm_client_offline.egg-info/PKG-INFO
+src/dm_client_offline.egg-info/SOURCES.txt
+src/dm_client_offline.egg-info/dependency_links.txt
+src/dm_client_offline.egg-info/requires.txt
+src/dm_client_offline.egg-info/top_level.txt
