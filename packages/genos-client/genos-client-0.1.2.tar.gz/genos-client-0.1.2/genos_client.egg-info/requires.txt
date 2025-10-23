@@ -1,0 +1,16 @@
+requests
+numpy
+matplotlib
+pandas
+pyfaidx
+pyBigWig
+torch
+
+[dev]
+black
+pytest
+flake8
+
+[viz]
+matplotlib
+pandas
