@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+openatlas/__init__.py
+openatlas/agent.py
+openatlas/cli.py
+openatlas/julia_browser_tools.py
+openatlas.egg-info/PKG-INFO
+openatlas.egg-info/SOURCES.txt
+openatlas.egg-info/dependency_links.txt
+openatlas.egg-info/entry_points.txt
+openatlas.egg-info/requires.txt
+openatlas.egg-info/top_level.txt
