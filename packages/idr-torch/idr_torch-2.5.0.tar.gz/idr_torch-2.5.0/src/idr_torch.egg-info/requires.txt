@@ -1,0 +1,9 @@
+
+[dev]
+ruff>=0.1.0
+torch
+python-hostlist
+ipyparallel
+
+[notebook]
+ipyparallel

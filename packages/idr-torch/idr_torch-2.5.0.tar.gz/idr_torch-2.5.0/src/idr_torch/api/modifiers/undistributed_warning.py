@@ -1,0 +1,27 @@
+import warnings
+from functools import wraps
+
+from ...utils import IdrTorchWarning
+from .. import API
+from .decorate_methods import decorate_methods
+
+
+def warn(func):
+    @wraps(func)
+    def wrapper(self, *args, **kwargs):
+        warnings.warn(
+            message=(
+                "Calling idr_torch only makes sense within a distributed execution "
+                "but none was detected. You may have forgotten to use a launcher "
+                "(such as srun). Back to default (non distributed) values"
+            ),
+            category=IdrTorchWarning,
+            stacklevel=4,
+        )
+        return func(self, *args, **kwargs)
+
+    return wrapper
+
+
+def UndistributedWarning(cls: type[API]) -> type[API]:
+    return decorate_methods(cls, func_to_apply=warn)
