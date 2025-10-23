@@ -1,0 +1,3 @@
+[console_scripts]
+autocamlight = autocamlight.__main__:main
+
