@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voidnet"
+version = "0.0.1"
+description = "A Python library for interacting with the OpenVoidNet API"
+authors = [{name = "Roshan Akther"}]
+license = {text = "Apache-2.0"}
+dependencies = []
+urls = {Homepage = "https://openvoidnet.com", Repository = "https://github.com/openvoidnet/voidnet-python"}
+
+[project.scripts]
+voidnet = "voidnet:greetings"

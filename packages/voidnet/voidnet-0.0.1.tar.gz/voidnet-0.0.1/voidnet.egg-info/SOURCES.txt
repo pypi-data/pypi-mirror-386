@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+antics/__init__.py
+antics/greetings.py
+voidnet.egg-info/PKG-INFO
+voidnet.egg-info/SOURCES.txt
+voidnet.egg-info/dependency_links.txt
+voidnet.egg-info/entry_points.txt
+voidnet.egg-info/top_level.txt
