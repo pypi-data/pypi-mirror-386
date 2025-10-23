@@ -1,0 +1,172 @@
+Metadata-Version: 2.4
+Name: vera-testframework
+Version: 1.0.0
+Summary: Testframework voor VERA referentiedata
+Author-email: Woonstad Rotterdam <info@woonstadrotterdam.nl>, Tomer Gabay <tomer.gabay@woonstadrotterdam.nl>
+License: MIT License
+        
+        Copyright (c) 2024 Woonstad Rotterdam
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/woonstadrotterdam/vera-testframework
+Project-URL: Issues, https://github.com/woonstadrotterdam/vera-testframework/issues
+Keywords: vera,referentiedata,test,testframework,aedes
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyspark-testframework>=3.0.0
+Requires-Dist: requests>=2.0.0
+Provides-Extra: test
+Requires-Dist: pre-commit==3.*; extra == "test"
+Requires-Dist: pytest==8.*; extra == "test"
+Requires-Dist: pytest-cov==5.*; extra == "test"
+Requires-Dist: pyspark==3.*; extra == "test"
+Provides-Extra: dev
+Requires-Dist: vera-testframework[test]; extra == "dev"
+Requires-Dist: ruff==0.14.1; extra == "dev"
+Dynamic: license-file
+
+# VERA Testframework
+
+⏳ Work in progress
+
+Maakt het makkelijk om te testen of data voldoet aan de [VERA-standaard](https://github.com/Aedes-datastandaarden/vera-referentiedata) m.b.v. het [pyspark-testframework](https://github.com/woonstadrotterdam/pyspark-testframework).
+
+## Tutorial
+
+**Op het moment is het _vera-testframework_ alleen compatibel met _pyspark_.**
+
+```python
+from vera_testframework.pyspark import ReferentiedataTest
+from pyspark.sql import SparkSession
+from testframework.dataquality import DataFrameTester
+```
+
+```python
+spark = SparkSession.builder.appName("vera_testframework").getOrCreate()
+```
+
+**Hieronder wordt een voorbeeld DataFrame gemaakt m.b.t. ruimten, waarvan we gaan testen of de waardes voldoen aan de VERA-standaard.**
+
+```python
+ruimten = [
+    (1, "LOG", "Loggia"),
+    (2, "WOO", "Woonkamer"),
+    (3, "BAD", "Badruimte"),
+    (4, "BAD", "Badkamer"),
+    (5, None, "Kelder"),
+    (6, "SLA", None),
+]
+
+ruimten_df = spark.createDataFrame(ruimten, ["id", "code", "naam"])
+```
+
+**We maken gebruik van de `DataFrameTester` van het _pyspark-testframework_ om onze testresultaten in bij te houden.**
+
+```python
+testframework = DataFrameTester(
+    df=ruimten_df,
+    primary_key="id",
+    spark=spark,
+)
+```
+
+**Door middel van de `ReferentiedataTest` kunnen we testen of een kolom voldoet aan de VERA-standaard m.b.t. Referentiedata.**
+
+```python
+testframework.test(
+    col="code",
+    test=ReferentiedataTest(
+        soort="RUIMTEDETAILSOORT",
+        attribuut="Code",
+        release="latest",  # standaard is latest, maar kan ook een specifieke versie zijn zoals v4.1.240419
+    ),
+    nullable=False,  # of een waarde leeg mag zijn. Dit is aan de gebruiker
+).show(truncate=False)
+```
+
+    +-----------+----------------------------------------+-----------+----------+----------------------------------+--------+
+    |primary_key|test_name                               |test_result|test_value|test_description                  |test_col|
+    +-----------+----------------------------------------+-----------+----------+----------------------------------+--------+
+    |1          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |LOG       |VERA_LATEST_RUIMTEDETAILSOORT_Code|code    |
+    |2          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |WOO       |VERA_LATEST_RUIMTEDETAILSOORT_Code|code    |
+    |3          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |BAD       |VERA_LATEST_RUIMTEDETAILSOORT_Code|code    |
+    |4          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |BAD       |VERA_LATEST_RUIMTEDETAILSOORT_Code|code    |
+    |5          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|false      |NULL      |VERA_LATEST_RUIMTEDETAILSOORT_Code|code    |
+    |6          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |SLA       |VERA_LATEST_RUIMTEDETAILSOORT_Code|code    |
+    +-----------+----------------------------------------+-----------+----------+----------------------------------+--------+
+
+```python
+testframework.test(
+    col="naam",
+    test=ReferentiedataTest(
+        soort="RUIMTEDETAILSOORT",
+        attribuut="Naam",
+    ),
+    nullable=True,
+    description="Naam van ruimtedetailsoort voldoet aan de VERA-standaard"
+).show(truncate=False)
+```
+
+    +-----------+----------------------------------------+-----------+----------+--------------------------------------------------------+--------+
+    |primary_key|test_name                               |test_result|test_value|test_description                                        |test_col|
+    +-----------+----------------------------------------+-----------+----------+--------------------------------------------------------+--------+
+    |1          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Loggia    |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |
+    |2          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Woonkamer |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |
+    |3          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|false      |Badruimte |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |
+    |4          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Badkamer  |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |
+    |5          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Kelder    |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |
+    |6          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |NULL      |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |
+    +-----------+----------------------------------------+-----------+----------+--------------------------------------------------------+--------+
+
+**De resultaten van de testen zijn te vinden in de `.results` attribuut van de `DataFrameTester`.**
+
+```python
+testframework.results.show(truncate=False)
+```
+
+    +-----------+----------------------------------------+-----------+----------+--------------------------------------------------------+--------+---------------+-----------------------+
+    |primary_key|test_name                               |test_result|test_value|test_description                                        |test_col|primary_key_col|timestamp              |
+    +-----------+----------------------------------------+-----------+----------+--------------------------------------------------------+--------+---------------+-----------------------+
+    |1          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |LOG       |VERA_LATEST_RUIMTEDETAILSOORT_Code                      |code    |id             |2025-10-21 15:58:35.475|
+    |2          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |WOO       |VERA_LATEST_RUIMTEDETAILSOORT_Code                      |code    |id             |2025-10-21 15:58:35.475|
+    |3          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |BAD       |VERA_LATEST_RUIMTEDETAILSOORT_Code                      |code    |id             |2025-10-21 15:58:35.475|
+    |4          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |BAD       |VERA_LATEST_RUIMTEDETAILSOORT_Code                      |code    |id             |2025-10-21 15:58:35.475|
+    |5          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|false      |NULL      |VERA_LATEST_RUIMTEDETAILSOORT_Code                      |code    |id             |2025-10-21 15:58:35.475|
+    |6          |code__VERA_LATEST_RUIMTEDETAILSOORT_Code|true       |SLA       |VERA_LATEST_RUIMTEDETAILSOORT_Code                      |code    |id             |2025-10-21 15:58:35.475|
+    |1          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Loggia    |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |id             |2025-10-21 15:58:35.475|
+    |2          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Woonkamer |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |id             |2025-10-21 15:58:35.475|
+    |3          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|false      |Badruimte |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |id             |2025-10-21 15:58:35.475|
+    |4          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Badkamer  |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |id             |2025-10-21 15:58:35.475|
+    |5          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |Kelder    |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |id             |2025-10-21 15:58:35.475|
+    |6          |naam__VERA_LATEST_RUIMTEDETAILSOORT_Naam|true       |NULL      |Naam van ruimtedetailsoort voldoet aan de VERA-standaard|naam    |id             |2025-10-21 15:58:35.475|
+    +-----------+----------------------------------------+-----------+----------+--------------------------------------------------------+--------+---------------+-----------------------+
+
+**Voor meer informatie over hoe het _pyspark-testframework_ te gebruiken, raadpleeg de documentatie op [hun Github](https://github.com/woonstadrotterdam/pyspark-testframework)**
+
+```python
+spark.stop()
+```

@@ -1,0 +1,12 @@
+pyspark-testframework>=3.0.0
+requests>=2.0.0
+
+[dev]
+vera-testframework[test]
+ruff==0.14.1
+
+[test]
+pre-commit==3.*
+pytest==8.*
+pytest-cov==5.*
+pyspark==3.*
