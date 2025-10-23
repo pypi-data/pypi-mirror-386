@@ -1,0 +1,79 @@
+/* Main chat container */
+#chat-container {
+    height: 100%;
+}
+
+#chat-content {
+    height: 100%;
+}
+
+/* Message list area */
+#message-list {
+    height: 1fr;
+    text-align: center;
+    padding: 2;
+    overflow-y: auto;
+}
+
+#welcome-message {
+    color: $text-muted;
+    text-style: italic;
+    text-align: center;
+    padding: 4 2;
+    width: 100%;
+}
+
+/* Individual messages */
+Message {
+    margin: 1 0;
+    padding: 1 2;
+    border-left: thick $accent;
+}
+
+.message-user {
+    background: $boost;
+    border-left: thick $success;
+}
+
+.message-assistant {
+    background: $panel;
+    border-left: thick $primary;
+}
+
+.message-shell {
+    background: $warning-darken-1;
+    border-left: thick $warning;
+}
+
+.message-shell_output {
+    background: $surface;
+    border-left: thick $accent;
+}
+
+.message-system {
+    background: $error-darken-2;
+    border-left: thick $error;
+}
+
+/* Chat input area */
+#chat-input {
+    height: auto;
+    background: $boost;
+    margin-bottom: 1;
+    padding: 0 2;
+}
+
+#chat-input:focus {
+    background: $panel;
+}
+
+/* Shell command input highlighting */
+#chat-input.shell-command {
+    background: $warning 30%;
+    border: tall $warning;
+}
+
+#chat-input.shell-command:focus {
+    background: $warning 40%;
+    border: tall $warning;
+}
