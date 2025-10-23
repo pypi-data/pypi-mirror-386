@@ -1,0 +1,34 @@
+V3.3.1
+- Fixing the test for OSCEM protocol
+- Fixed duplication of __version__ in __init__.py
+
+V3.3.0
+- Added OSCEM metadata viewer
+- Optimized protocols: data counter and data sampler
+
+V3.3.0
+- OSCEM viewer
+- Data counter fix 
+
+V3.2.0
+- Add OSCEM metadata protocol
+- Add streaming protocols: Data counter and Data sampler 
+
+V3.1.0
+- Monitor summary: validation for publish command
+- Monitor summary: verbose error if publish command fails
+- Updated workflow template
+- 2D Streamer protocol: new functionalities (cumulative batch and limit for launching classification jobs)
+- New protocols: Good classes extractor and Volume extractor
+- New logo for the plugin
+
+V3.0.5
+- Fix: TypeError: getPluginTemplateDir() missing 1 required positional argument: 'self'
+
+V3.0.4
+- new protocol track used items 
+- fixing important bugs in the html
+- New rate column to track the pace of the acquisition
+- Get rid of the dependency to eman2 for the thumbnails generation
+
+
