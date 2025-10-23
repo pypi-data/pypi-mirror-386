@@ -1,0 +1,12 @@
+microvector/__init__.py,sha256=PxzCygrN7hxfoNDXgOdIt55FLfdafXmJqe0wNBCPKag,185
+microvector/algos.py,sha256=KcSgKP4jW5EqLcp4CU92hpark46Bj0lSl4Z4LNIVAhg,2499
+microvector/cache.py,sha256=CpdU5ZqqLAp3HkEP_1O2D7ZhL_vZCY3PfIzWw0Dfmf8,4485
+microvector/embed.py,sha256=VJwGXZm9iHu6KkUmcMTEx6_VgInBgwsKREhZyUNRtC8,4587
+microvector/main.py,sha256=obn686A9i4RoooAyZdcK4Ustu9g3vENagdoePWN3nzk,6797
+microvector/search.py,sha256=xbjm234Yda3OpDLL6p6MQr77uIlwN76og1H6d-vazK0,1712
+microvector/store.py,sha256=TiXwVDKcxxlq7fVceeNFWOwX03e1yTzI7WKTh6bqapY,6514
+microvector/utils.py,sha256=TZ1oQFLXwqaleKK5-WjF4dKdos64mYD8c85ijB8XSNs,1816
+microvector-0.1.1.dist-info/METADATA,sha256=87ADeCZy82ciUVZ98cvqob4UrS6OaSlHI_dDjXLTOVc,9243
+microvector-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+microvector-0.1.1.dist-info/licenses/LICENSE,sha256=kSL7ltg4KDglZJLPSTk1uUoJWLw3KAoQMpSZ0xd58uQ,1070
+microvector-0.1.1.dist-info/RECORD,,
