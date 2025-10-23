@@ -1,0 +1,59 @@
+Metadata-Version: 2.4
+Name: img2ascii_pro
+Version: 1.3
+Summary: Convert images to colored ASCII art (text + HTML)
+Home-page: https://github.com/MohamedElsayed-debug/img2ascii-pro
+Author: Mohamed Elsayed
+Author-email: ms.moh.dev@gmail.com
+Project-URL: Source, https://github.com/MohamedElsayed-debug/img2ascii-pro
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: Pillow
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: summary
+
+# img2ascii_pro
+Convert any image into colorful ASCII art directly in your terminal or export it as HTML or text
+
+---
+
+## Installation
+Install from **PyPI** using:
+```bash
+pip install img2ascii-pro
+```
+---
+Convert any image to ASCII art:
+img2ascii_pro myphoto.jpg
+---
+Command Options
+
+| Option                 | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| `--width`              | Set the output width (default: 100)                           |
+| `--preset`             | Choose a character preset: `realistic`, `minimal`, or `block` |
+| `--invert`             | Invert the character brightness for dark/light reversal       |
+| `--html output.html`   | Save the result as a colored HTML file                        |
+| `--outfile output.txt` | Save the ASCII result to a plain text file                    |
+---
+Import and Use in Python
+
+from PIL import Image
+from img2ascii_pro import *
+
+img = Image.open("photo.jpg")
+ascii_lines, _, _, _ = image_to_ascii(img, width=100, chars=PRESETS["block"])
+
+for line in ascii_lines:
+    print(line)
