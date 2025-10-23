@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="195f63d3-192c-4e64-8cd8-909be23b7f21" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/reddit-admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/reddit-admin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/plugin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/plugin/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/plugin/asynchronouspluginsexecutor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/plugin/asynchronouspluginsexecutor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/plugin/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/plugin/plugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/plugin/plugin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/plugin/pluginsexecutor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/plugin/pluginsexecutor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/plugin/redditinterfacefactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/plugin/redditinterfacefactory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/program/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/program/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/program/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/program/program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/program/streamprocessingprogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/program/streamprocessingprogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/utility/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/utility/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/utility/botcredentials.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/utility/botcredentials.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/utility/contributionsutility.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/utility/contributions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/utility/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/utility/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/utility/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/utility/redditinterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/utility/redditinterface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redditadmin/utility/redditsubmission.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/redditadmin/utility/redditsubmission.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="32p8OlMlwQ8WROlkny3tCkSz7AU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redditadmin/utility/contributionsutility.py" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\IT DIR\Documents\sys\Software Projects\reddit-admin\src\redditadmin" />
+      <recent name="C:\Users\IT DIR\Documents\sys\Software Projects\reddit-admin\src\redditadmin\plugin" />
+      <recent name="C:\Users\IT DIR\Documents\sys\Software Projects\reddit-admin\src\redditadmin\pluginsexecutor" />
+      <recent name="C:\Users\IT DIR\Documents\sys\Software Projects\reddit-admin\src\redditadmin\core" />
+      <recent name="C:\Users\IT DIR\Documents\sys\Software Projects\reddit-admin\src\redditadmin\main" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="reddit-admin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-PY-252.25557.178" />
+        <option value="bundled-python-sdk-ce6832f46686-7b97d883f26b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.25557.178" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="195f63d3-192c-4e64-8cd8-909be23b7f21" name="Changes" comment="" />
+      <created>1758106143570</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758106143570</updated>
+      <workItem from="1758106901905" duration="242000" />
+      <workItem from="1758116790749" duration="4796000" />
+      <workItem from="1758191562568" duration="1286000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
