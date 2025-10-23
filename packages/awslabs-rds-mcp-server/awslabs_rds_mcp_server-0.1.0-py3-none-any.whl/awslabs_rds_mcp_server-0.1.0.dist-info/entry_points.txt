@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-rds-mcp-server = awslabs_rds_mcp_server.main:main
