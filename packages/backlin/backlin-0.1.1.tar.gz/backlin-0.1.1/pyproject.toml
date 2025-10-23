@@ -1,0 +1,78 @@
+[tool.poetry]
+name = "backlin"
+version = "0.1.1"
+description = "SaaS backend built with FastAPI"
+authors = ["LinXueyuanStdio <23211526+LinXueyuanStdio@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+# 指定要打包的 Python 包
+packages = [
+  { include = "backlin" }
+]
+
+[tool.poetry.scripts]
+# Typer CLI 入口：使用 "poetry run backlin --help" 查看子命令
+backlin = "backlin.__main__:cli"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+
+# Web 与运行时
+fastapi = { version = "*", extras = ["all"] }
+uvicorn = "*"
+typer = "*"
+
+# 环境变量与日志
+python-dotenv = "*"
+loguru = "*"
+
+# 界面 / 可视化
+matplotlib = "*"
+contourpy = "*"
+seaborn = "*"
+plotly = "*"
+gradio = "*"
+
+# 表格 / Excel
+pyexcel = "*"
+pyexcel-xls = "*"
+pyexcel-xlsx = "*"
+openpyxl = "*"
+pandas = "*"
+pillow = "*"
+
+# 系统与网络
+psutil = "*"
+requests = "*"
+
+# 数据库与调度
+SQLAlchemy = "*"
+APScheduler = "*"
+pydantic-settings = "*"
+redis = "5.0.8"
+psycopg2-binary = "2.9.9"
+
+# 安全与认证
+python-jose = "*"
+user-agents = "*"
+ics = "*"
+bcrypt = "*"
+pyjwt = "*"
+
+# 扩展与生态
+fastapi-crudrouter = "*"
+openai = "*"
+openapi-schema-pydantic = "*"
+networkx = "*"
+plotly-express = "*"
+sse-starlette = "*"
+xlin = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+black = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
