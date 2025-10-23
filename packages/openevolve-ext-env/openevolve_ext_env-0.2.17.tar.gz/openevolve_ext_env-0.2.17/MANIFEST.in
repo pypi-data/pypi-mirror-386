@@ -1,0 +1,3 @@
+include openevolve/prompts/defaults/*.txt
+include openevolve/prompts/defaults/*.json
+include openevolve/py.typed
