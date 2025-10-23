@@ -1,0 +1,140 @@
+# SW Registry Stack Python SDK
+
+[![PyPI version](https://badge.fury.io/py/sw-registry-stack.svg)](https://badge.fury.io/py/sw-registry-stack)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/pypi/pyversions/sw-registry-stack)](https://python.org/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+A comprehensive Python SDK for the SW Registry Stack, providing Python interfaces for Operator Registry, Pipeline Registry, Executor, and Recorder operations.
+
+## Installation
+
+```bash
+pip install sw-registry-stack
+```
+
+For development:
+
+```bash
+pip install sw-registry-stack[dev]
+```
+
+## Quick Start
+
+### Executor Operations
+
+```python
+import asyncio
+from sw_registry_stack import Executor
+
+async def main():
+    # Initialize the executor
+    executor = Executor(
+        base_path="/tmp/executor",
+        bridge_lib_path="/path/to/libexecutor_bridge.so",
+        debug=True
+    )
+    
+    await executor.initialize()
+    
+    # Create a pipeline
+    result = await executor.create(
+        config={
+            "json_file": "/path/to/pipeline.json",
+            "background": True
+        },
+        device_id="my-device-001",
+        enable_logging=True,
+        on_unified_log=lambda entry: print(f"Log: {entry.message} from {entry.source}")
+    )
+    
+    if result.status == "success":
+        print(f"Pipeline created: {result.data.pipeline_id}")
+        
+        # Start the pipeline
+        await executor.start(result.data.run_id)
+        
+        # Stop the pipeline
+        await executor.stop(result.data.run_id)
+        
+        # Destroy the pipeline
+        await executor.destroy(result.data.run_id)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Unified Logging
+
+The SDK provides structured logging with rich context:
+
+```python
+from sw_registry_stack.modules.executor.utils.unified_logging import (
+    UnifiedLogEntry, LOG_LEVELS, LOG_SOURCES
+)
+
+def log_callback(entry: UnifiedLogEntry):
+    print(f"Log: {entry.message}")
+    print(f"Level: {entry.level} ({LOG_LEVELS(entry.level).name})")
+    print(f"Source: {entry.source} ({LOG_SOURCES(entry.source).name})")
+    print(f"Node: {entry.node_id}")
+    print(f"Pipeline: {entry.pipeline_id}")
+    print(f"Data: {entry.data}")
+```
+
+### Log Sources
+
+- **NODE (0)**: C++ pipeline nodes
+- **EXECUTOR (1)**: Executor core operations
+- **PIPELINE (2)**: Pipeline management
+- **SDK (3)**: Python SDK operations
+- **SYSTEM (4)**: System components
+
+### Log Levels
+
+- **DEBUG (0)**: Detailed debugging information
+- **INFO (1)**: General information
+- **WARNING (2)**: Warning messages
+- **ERROR (3)**: Error conditions
+- **CRITICAL (4)**: Critical failures
+
+## API Reference
+
+### Executor
+
+#### `Executor(base_path, bridge_lib_path, debug=False)`
+
+Create a new Executor instance.
+
+**Parameters:**
+- `base_path: str` - Base directory for executor operations
+- `bridge_lib_path: str` - Path to the native bridge library
+- `debug: bool` - Enable debug logging
+
+#### `await executor.initialize()`
+
+Initialize the executor and load the native bridge.
+
+#### `await executor.create(config, device_id=None, enable_logging=False, on_unified_log=None)`
+
+Create a new pipeline.
+
+**Parameters:**
+- `config: dict` - Pipeline configuration
+- `device_id: str` - Device identifier
+- `enable_logging: bool` - Enable unified logging
+- `on_unified_log: callable` - Logging callback function
+
+**Returns:** `PipelineCreateResponse`
+
+#### `await executor.start(run_id)`
+
+Start a pipeline execution.
+
+#### `await executor.stop(run_id)`
+
+Stop a pipeline execution.
+
+#### `await executor.destroy(run_id)`
+
+Destroy a pipeline and clean up resources.

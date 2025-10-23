@@ -1,0 +1,65 @@
+"""
+Recorder module for the SW Registry Stack Python SDK.
+
+This module provides the Recorder service for managing recordings.
+"""
+
+from .recorder import Recorder
+from .dto import (
+    RecorderConfig,
+    RecorderListOptions,
+    RecorderCreateOptions,
+    RecorderUpdateOptions,
+    RecorderDownloadOptions,
+    RecordingStatus,
+    RecordingMarker,
+    RecordingMetadata,
+    RecordingListData,
+    RecordingCreateData,
+    RecordingUpdateData,
+    RecordingInfoData,
+    RecordingDownloadData,
+    RecordingDeleteData,
+    RecordingStartData,
+    RecordingStopData,
+    RecordingTotalDurationData,
+    RecordingListResponse,
+    RecordingCreateResponse,
+    RecordingUpdateResponse,
+    RecordingInfoResponse,
+    RecordingDownloadResponse,
+    RecordingDeleteResponse,
+    RecordingStartResponse,
+    RecordingStopResponse,
+    RecordingTotalDurationResponse,
+)
+
+__all__ = [
+    "Recorder",
+    "RecorderConfig",
+    "RecorderListOptions",
+    "RecorderCreateOptions",
+    "RecorderUpdateOptions",
+    "RecorderDownloadOptions",
+    "RecordingStatus",
+    "RecordingMarker",
+    "RecordingMetadata",
+    "RecordingListData",
+    "RecordingCreateData",
+    "RecordingUpdateData",
+    "RecordingInfoData",
+    "RecordingDownloadData",
+    "RecordingDeleteData",
+    "RecordingStartData",
+    "RecordingStopData",
+    "RecordingTotalDurationData",
+    "RecordingListResponse",
+    "RecordingCreateResponse",
+    "RecordingUpdateResponse",
+    "RecordingInfoResponse",
+    "RecordingDownloadResponse",
+    "RecordingDeleteResponse",
+    "RecordingStartResponse",
+    "RecordingStopResponse",
+    "RecordingTotalDurationResponse",
+]
