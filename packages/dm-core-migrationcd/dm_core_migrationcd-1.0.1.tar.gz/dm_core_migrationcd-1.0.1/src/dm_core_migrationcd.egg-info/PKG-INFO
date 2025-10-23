@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: dm-core-migrationcd
+Version: 1.0.1
+Summary: DM Cassandra Migration Management
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django==5.2.5
+Requires-Dist: django-cassandra-engine==1.9.0
+Requires-Dist: cassandra-driver==3.29.2
+Requires-Dist: scylla-driver==3.26.9
+Requires-Dist: pytz==2023.3
+Dynamic: license-file
+
+# DM CORE MIGRATION CD
+
+DM Core library for managing Cassandra Migrations
