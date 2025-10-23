@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+SoketDB.egg-info/PKG-INFO
+SoketDB.egg-info/SOURCES.txt
+SoketDB.egg-info/dependency_links.txt
+SoketDB.egg-info/requires.txt
+SoketDB.egg-info/top_level.txt
+soketdb/__init__.py

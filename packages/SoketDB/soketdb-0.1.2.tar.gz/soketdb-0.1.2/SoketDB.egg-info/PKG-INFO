@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: SoketDB
+Version: 0.1.2
+Summary: Soket Database — a fast, lightweight JSON-based database that eliminates the need for complex setup. It’s built for developers who want instant data storage, natural language querying, and secure local or cloud-backed persistence — all in one self-contained system.
+Author: Alex Austin
+Author-email: benmap40@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: huggingface_hub
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
