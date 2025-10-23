@@ -1,0 +1,15 @@
+PyYAML
+netCDF4
+numpy
+pandas
+pyxlsb
+seaborn
+tqdm
+xarray
+
+[dev]
+pytest
+
+[notebooks]
+matplotlib
+biotrade
