@@ -1,0 +1,3 @@
+[console_scripts]
+agents-boot-serve = agents_boot.server.__main__:main
+novachain-serve = agents_boot.server.__main__:main
