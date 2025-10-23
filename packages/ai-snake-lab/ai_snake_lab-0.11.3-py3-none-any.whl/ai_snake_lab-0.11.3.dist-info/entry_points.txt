@@ -1,0 +1,5 @@
+[console_scripts]
+sim-client=ai_snake_lab.ui.SimClient:main
+sim-router=ai_snake_lab.server.SimRouter:main
+sim-server=ai_snake_lab.server.SimServer:main
+
