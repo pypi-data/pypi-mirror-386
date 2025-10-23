@@ -1,0 +1,132 @@
+================================================================================
+QUICK REFERENCE: PUBLISHING TO PyPI
+================================================================================
+
+QUESTION: If I push code, will it be published on PyPI?
+ANSWER: NO - You must create a GitHub Release or tag to publish
+
+================================================================================
+WHAT HAPPENS WHEN YOU PUSH CODE
+================================================================================
+
+Push to main/develop branch:
+  ✓ CI workflow runs (tests, linting, type checking)
+  ✓ Package is built
+  ✓ Tests must pass
+  ✗ NOT published to PyPI
+
+================================================================================
+HOW TO PUBLISH TO PyPI
+================================================================================
+
+OPTION 1: Using Git Commands (Recommended)
+────────────────────────────────────────────
+
+1. Update version in pyproject.toml:
+   version = "0.0.4"
+
+2. Commit the change:
+   git add pyproject.toml
+   git commit -m "Bump version to 0.0.4"
+   git push origin main
+
+3. Create and push tag:
+   git tag v0.0.4
+   git push origin v0.0.4
+
+4. Monitor publishing:
+   - Go to GitHub Actions
+   - Watch "Publish to PyPI" workflow
+   - Check PyPI after ~5 minutes
+
+OPTION 2: Using GitHub UI
+──────────────────────────
+
+1. Go to GitHub repository
+2. Click "Releases" → "Create a new release"
+3. Tag version: v0.0.4
+4. Release title: Release v0.0.4
+5. Add release notes
+6. Click "Publish release"
+
+================================================================================
+WORKFLOW TRIGGERS
+================================================================================
+
+CI Workflow (Tests & Build):
+  Triggers: Push to main/develop, Pull requests
+  Result: Tests run, package built, NOT published
+
+Publish Workflow (PyPI):
+  Triggers: Git tag push (refs/tags/*)
+  Condition: Only on tags like v0.0.4
+  Result: Package published to PyPI
+
+================================================================================
+IMPORTANT RULES
+================================================================================
+
+✓ DO:
+  - Update version in pyproject.toml before tagging
+  - Use semantic versioning (0.0.4)
+  - Match tag to version (v0.0.4 = version 0.0.4)
+  - Add meaningful release notes
+  - Wait for CI to pass before tagging
+
+✗ DON'T:
+  - Push code and expect automatic publishing
+  - Create tag without updating version
+  - Use mismatched versions (v0.0.4 but version 0.0.3)
+  - Try to republish same version
+
+================================================================================
+CURRENT STATUS
+================================================================================
+
+Current Version: 0.0.3
+Current Status: Already published on PyPI
+Next Version: 0.0.4 (ready to publish when you decide)
+
+PyPI Project: https://pypi.org/project/egnyte-langchain-connector/
+
+================================================================================
+VERIFICATION AFTER PUBLISHING
+================================================================================
+
+1. Check GitHub Actions:
+   https://github.com/yourusername/egnyte-langchain-connector/actions
+
+2. Check PyPI:
+   https://pypi.org/project/egnyte-langchain-connector/
+
+3. Install and test:
+   pip install egnyte-langchain-connector==0.0.4
+
+================================================================================
+SUMMARY
+================================================================================
+
+Push Code:
+  ✓ Runs tests
+  ✓ Builds package
+  ✗ Does NOT publish to PyPI
+
+Create Release/Tag:
+  ✓ Runs tests
+  ✓ Builds package
+  ✓ PUBLISHES to PyPI
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+When ready to publish v0.0.4:
+
+1. Update version in pyproject.toml
+2. Commit and push to main
+3. Create git tag: git tag v0.0.4
+4. Push tag: git push origin v0.0.4
+5. Monitor GitHub Actions
+6. Verify on PyPI after 5-10 minutes
+
+================================================================================
