@@ -1,0 +1,20 @@
+[project]
+name = "depths-client"
+version = "0.1.0"
+description = "Opinionated OTel compatible telemetry client SDK for Depths telemetry server."
+readme = "README.md"
+authors = [{ name = "Depths AI", email = "admin@depthsai.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["README.md"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["depths_client"] 
