@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: quasi_utils
+Version: 0.1.86
+Summary: Utilities for OMS
+Author-email: Kaustubh Dixit <hi.stockemy@gmail.com>
+Keywords: trading,algorithm,nifty
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyjwt>=2.10.1
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: requests>=2.32.5
+Dynamic: license-file
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content."# quasi_utils"
+
+python -m build
+twine upload dist/*
