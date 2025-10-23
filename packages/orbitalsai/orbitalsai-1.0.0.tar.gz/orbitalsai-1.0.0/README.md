@@ -1,0 +1,396 @@
+# OrbitalsAI Python SDK
+
+[![PyPI version](https://badge.fury.io/py/orbitalsai.svg)](https://badge.fury.io/py/orbitalsai)
+[![Python Support](https://img.shields.io/pypi/pyversions/orbitalsai.svg)](https://pypi.org/project/orbitalsai/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A simple and powerful Python SDK for the OrbitalsAI API. Transcribe audio files in multiple African languages with optional SRT subtitle generation.
+
+## ✨ Features
+
+- 🚀 **Simple API** - Just 3 lines to transcribe audio
+- 🔄 **Sync & Async** - Use synchronously or asynchronously
+- 🌍 **African Languages** - Support for Hausa, Igbo, Yoruba, Swahili, and more
+- 📝 **SRT Subtitles** - Generate subtitle files automatically
+- 💰 **Balance Management** - Built-in billing and usage tracking
+- 🔒 **Secure** - API key authentication
+- 📦 **Easy Installation** - `pip install orbitalsai`
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+pip install orbitalsai
+```
+
+### Basic Usage
+
+```python
+import orbitalsai
+
+# Initialize client
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+# Transcribe audio (waits automatically)
+transcript = client.transcribe("audio.mp3")
+print(transcript.text)
+```
+
+That's it! 🎉
+
+## 📖 Table of Contents
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Authentication](#authentication)
+- [Basic Transcription](#basic-transcription)
+- [Advanced Features](#advanced-features)
+- [Async Usage](#async-usage)
+- [Error Handling](#error-handling)
+- [API Reference](#api-reference)
+- [Supported Languages](#supported-languages)
+- [Supported Formats](#supported-formats)
+- [Troubleshooting](#troubleshooting)
+
+## 🔑 Authentication
+
+Get your API key from the [OrbitalsAI Dashboard](https://dashboard.orbitalsai.com).
+
+```python
+import orbitalsai
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+```
+
+## 🎵 Basic Transcription
+
+### Simple Transcription
+
+```python
+import orbitalsai
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+# Transcribe audio file
+transcript = client.transcribe("audio.mp3")
+print(transcript.text)
+```
+
+### With Language and SRT
+
+```python
+import orbitalsai
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+# Transcribe in Hausa with SRT subtitles
+transcript = client.transcribe(
+    "audio.mp3",
+    language="hausa",
+    generate_srt=True
+)
+
+print(transcript.text)
+print(transcript.srt_content)  # SRT subtitle content
+```
+
+### Don't Wait (Advanced)
+
+```python
+import orbitalsai
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+# Start transcription without waiting
+task = client.transcribe("audio.mp3", wait=False)
+print(f"Task started: {task.task_id}")
+
+# Check status later
+status = client.get_task(task.task_id)
+if status.status == "completed":
+    print(status.result_text)
+
+# Or wait for completion
+transcript = client.wait_for_task(task.task_id)
+print(transcript.text)
+```
+
+## 🔄 Async Usage
+
+Perfect for processing multiple files or building web applications.
+
+```python
+import asyncio
+import orbitalsai
+
+async def main():
+    async with orbitalsai.AsyncClient(api_key="your_api_key_here") as client:
+        # Transcribe multiple files concurrently
+        tasks = await asyncio.gather(
+            client.transcribe("audio1.mp3"),
+            client.transcribe("audio2.wav"),
+            client.transcribe("audio3.m4a")
+        )
+        
+        for transcript in tasks:
+            print(transcript.text)
+
+asyncio.run(main())
+```
+
+## 💰 Balance Management
+
+### Check Balance
+
+```python
+import orbitalsai
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+balance = client.get_balance()
+print(f"Current balance: ${balance.balance:.2f}")
+print(f"Last updated: {balance.last_updated}")
+```
+
+### Usage History
+
+```python
+import orbitalsai
+from datetime import date, timedelta
+
+client = orbitalsai.Client(api_key="QDOBQ2PJ.4ThV4fwk-27hpBvh8pYVvAdOOQlA4Lk1fJQdI6EL9Yk")
+
+# Get last 7 days of usage
+end_date = date.today()
+start_date = end_date - timedelta(days=7)
+
+usage = client.get_daily_usage(start_date=start_date, end_date=end_date)
+print(f"Total cost: ${usage.total_cost:.2f}")
+print(f"Total audio processed: {usage.total_audio_seconds:.1f} seconds")
+
+for day in usage.daily_records:
+    print(f"{day.date}: ${day.total_cost:.4f} ({day.transcription_usage:.1f}s transcription)")
+```
+
+## 🛠️ Advanced Features
+
+### List All Tasks
+
+```python
+import orbitalsai
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+tasks = client.list_tasks()
+for task in tasks:
+    print(f"Task {task.task_id}: {task.status} - {task.original_filename}")
+```
+
+### Get User Information
+
+```python
+import orbitalsai
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+user = client.get_user()
+print(f"User: {user.first_name} {user.last_name} ({user.email})")
+print(f"Verified: {user.is_verified}")
+```
+
+## ⚠️ Error Handling
+
+The SDK provides specific exceptions for different error scenarios.
+
+```python
+import orbitalsai
+from orbitalsai.exceptions import (
+    AuthenticationError, InsufficientBalanceError, 
+    UnsupportedFileError, UnsupportedLanguageError,
+    TranscriptionError, TimeoutError
+)
+
+client = orbitalsai.Client(api_key="your_api_key_here")
+
+try:
+    transcript = client.transcribe("audio.mp3", language="hausa")
+    print(transcript.text)
+    
+except UnsupportedFileError:
+    print("File format not supported")
+except UnsupportedLanguageError:
+    print("Language not supported")
+except InsufficientBalanceError:
+    print("Not enough credits")
+except AuthenticationError:
+    print("Invalid API key")
+except TranscriptionError as e:
+    print(f"Transcription failed: {e}")
+except TimeoutError:
+    print("Transcription timed out")
+except Exception as e:
+    print(f"Unexpected error: {e}")
+```
+
+## 📚 API Reference
+
+### Client Methods
+
+#### `transcribe(file_path, language="english", generate_srt=False, wait=True, timeout=300, poll_interval=5)`
+
+Transcribe an audio file.
+
+**Parameters:**
+- `file_path` (str): Path to the audio file
+- `language` (str): Language code (default: "english")
+- `generate_srt` (bool): Generate SRT subtitles (default: False)
+- `wait` (bool): Wait for completion (default: True)
+- `timeout` (int): Maximum wait time in seconds (default: 300)
+- `poll_interval` (int): Seconds between status checks (default: 5)
+
+**Returns:** `Transcript` object (if wait=True) or `TranscriptTask` object (if wait=False)
+
+#### `get_task(task_id)`
+
+Get the status of a transcription task.
+
+**Parameters:**
+- `task_id` (int): ID of the task
+
+**Returns:** `TranscriptTask` object
+
+#### `wait_for_task(task_id, timeout=300, poll_interval=5)`
+
+Wait for a task to complete.
+
+**Parameters:**
+- `task_id` (int): ID of the task
+- `timeout` (int): Maximum wait time in seconds
+- `poll_interval` (int): Seconds between status checks
+
+**Returns:** `Transcript` object
+
+#### `list_tasks()`
+
+Get all transcription tasks for the current user.
+
+**Returns:** List of `TranscriptTask` objects
+
+#### `get_balance()`
+
+Get the current user's balance.
+
+**Returns:** `Balance` object
+
+#### `get_usage_history(start_date=None, end_date=None, page=1, page_size=50)`
+
+Get usage history for the current user.
+
+**Returns:** `UsageHistory` object
+
+#### `get_daily_usage(start_date=None, end_date=None, page=1, page_size=30)`
+
+Get daily usage history for the current user.
+
+**Returns:** `DailyUsage` object
+
+#### `get_user()`
+
+Get current user details.
+
+**Returns:** `User` object
+
+### Data Models
+
+#### `Transcript`
+- `text` (str): Transcribed text
+- `srt_content` (str, optional): SRT subtitle content
+- `task_id` (int): Task ID
+- `original_filename` (str): Original filename
+- `audio_url` (str, optional): URL to processed audio
+
+#### `TranscriptTask`
+- `task_id` (int): Task ID
+- `status` (str): Task status ("pending", "processing", "completed", "failed")
+- `original_filename` (str): Original filename
+- `audio_url` (str, optional): URL to processed audio
+- `srt_requested` (bool): Whether SRT was requested
+- `result_text` (str, optional): Transcribed text
+- `srt_content` (str, optional): SRT subtitle content
+- `error` (str, optional): Error message if failed
+
+#### `Balance`
+- `balance` (float): Current balance in credits
+- `last_updated` (datetime): Last update timestamp
+
+## 🌍 Supported Languages
+
+- **English** (`english`)
+- **Hausa** (`hausa`)
+- **Igbo** (`igbo`)
+- **Yoruba** (`yoruba`)
+- **Swahili** (`swahili`)
+- **Pidgin** (`pidgin`)
+- **Kinyarwanda** (`kinyarwanda`)
+
+## 📁 Supported Formats
+
+### Audio Formats
+- WAV (`.wav`, `.wave`)
+- MP3 (`.mp3`, `.mpeg`)
+- OGG (`.ogg`, `.oga`)
+- FLAC (`.flac`)
+- AAC (`.aac`)
+- M4A (`.m4a`)
+- WMA (`.wma`)
+- AMR (`.amr`)
+- 3GP (`.3gp`)
+
+### Maximum File Size
+- **200 MB** per file
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Q: I get "Invalid API key" error**
+A: Make sure your API key is correct. Get it from the [OrbitalsAI Dashboard](https://dashboard.orbitalsai.com).
+
+**Q: I get "Insufficient balance" error**
+A: Add credits to your account through the dashboard.
+
+**Q: I get "Unsupported file format" error**
+A: Make sure your audio file is in a supported format (see [Supported Formats](#supported-formats)).
+
+**Q: Transcription takes too long**
+A: Large files take longer to process. You can increase the timeout:
+```python
+transcript = client.transcribe("large_file.mp3", timeout=600)  # 10 minutes
+```
+
+**Q: I get "Unsupported language" error**
+A: Make sure you're using a supported language code (see [Supported Languages](#supported-languages)).
+
+### Getting Help
+
+- 📧 Email: support@orbitalsai.com
+- 🐛 Issues: [GitHub Issues](https://github.com/orbitalsai/orbitalsai-python-sdk/issues)
+- 📖 Docs: [Documentation](https://docs.orbitalsai.com)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 🙏 Acknowledgments
+
+- Built for the African AI community
+- Powered by OrbitalsAI
+
+---
+
+Made by the OrbitalsAI team
