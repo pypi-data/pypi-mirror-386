@@ -1,0 +1,40 @@
+[project]
+name = "hotbeak"
+version = "0.0.5"
+description = "When your beak just won't cool down."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "deepagents>=0.1.1",
+    "langchain>=1.0.0",
+    "langchain-anthropic>=1.0.0",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "tavily-python>=0.7.12",
+    "textual>=6.3.0",
+]
+
+[project.scripts]
+hotbeak = "hotbeak.app:main"
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["hotbeak", "hotbeak.screens", "hotbeak.widgets", "hotbeak.services"]
+
+[tool.setuptools.package-data]
+hotbeak = ["splash/*.txt", "styles/*.tcss"]
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+    "build>=1.3.0",
+    "twine>=6.2.0",
+]
+test = [
+    "ruff>=0.14.1",
+]
