@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: luxgeo
+Version: 0.1.2
+Summary: A very basic Python API for Lux Geo thermostats
+Author-email: Steve Garrity <sgarrity@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 Steve Garrity
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/stgarrity/lux-geo-python
+Project-URL: Repository, https://github.com/stgarrity/lux-geo-python
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp
+Requires-Dist: pkce
+Dynamic: license-file
+
+# lux-geo-python
+Unofficial Python API for Lux Geo thermostats
+
+This is quick-and-dirty, and mostly written by Cursor + ChatGPT/Claude + Flow. :)
+
+The motivation behind this was a Lux Geo thermostat (for an in-wall gravity propane millivolt heater) that
+doesn't work with Home Assistant (yet).
+
+Usage: define your own `.env` file based on `.env_sample` and run `python main.py`.
+
+For development/testing, I find it useful to cache `TOKENS` in the `.env` file and not force auth every time.
+
+`auth.py` contains a very lazy hack to enable headless PKCE auth, and could be improved and factored out to its own package.
