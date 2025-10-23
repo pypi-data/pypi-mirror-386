@@ -1,0 +1,387 @@
+Metadata-Version: 2.4
+Name: dbbasic-follows
+Version: 0.1.0
+Summary: Social graph module for DBBasic - manage follows, friends, and connection suggestions
+Author-email: DBBasic Contributors <info@dbbasic.com>
+License: MIT
+Project-URL: Homepage, https://dbbasic.com
+Project-URL: Documentation, https://github.com/askrobots/dbbasic-follows
+Project-URL: Repository, https://github.com/askrobots/dbbasic-follows
+Project-URL: Issues, https://github.com/askrobots/dbbasic-follows/issues
+Keywords: dbbasic,social,follows,friends,social-graph,web,framework
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dbbasic-web>=0.1.10
+Requires-Dist: dbbasic-tsv>=1.0.0
+Requires-Dist: dbbasic-admin>=0.1.1
+Requires-Dist: dbbasic-accounts>=0.1.0
+Dynamic: license-file
+
+# dbbasic-follows
+
+**Social Graph Management for DBBasic**
+
+A complete social graph module for DBBasic applications, providing follow relationships, friend detection, and intelligent connection suggestions.
+
+## Features
+
+- **Follow System**: One-directional follow relationships
+- **Friend Detection**: Automatic identification of mutual follows
+- **Smart Suggestions**: Algorithm-driven follow and friend recommendations
+- **Admin Interface**: Built-in UI for managing relationships
+- **Fast Lookups**: TSV-based storage with indexed queries
+- **Simple API**: Clean, intuitive Python interface
+
+## Installation
+
+```bash
+pip install dbbasic-follows
+```
+
+## Quick Start
+
+```python
+from dbbasic_follows import Follows
+
+# Initialize
+follows = Follows()
+
+# Create follow relationships
+follows.follow(follower_id=1, followee_id=2)
+follows.follow(follower_id=2, followee_id=1)  # Now they're friends!
+
+# Check relationships
+follows.is_following(1, 2)  # True
+follows.are_friends(1, 2)   # True
+
+# Get lists
+followers = follows.get_followers(user_id=2)
+following = follows.get_following(user_id=1)
+friends = follows.get_friends(user_id=1)
+
+# Get suggestions
+suggestions = follows.suggest_follows(user_id=1, limit=10)
+friend_suggestions = follows.suggest_friends(user_id=1)
+
+# Get stats
+stats = follows.get_stats(user_id=1)
+# {'followers': 100, 'following': 50, 'friends': 30}
+```
+
+## Core Concepts
+
+### Follows
+A **follow** is a one-directional relationship where User A follows User B. This doesn't mean B follows A back.
+
+```python
+follows.follow(follower_id=1, followee_id=2)
+```
+
+### Friends
+A **friend** relationship exists when both users follow each other (mutual follow).
+
+```python
+# User 1 follows User 2
+follows.follow(1, 2)
+
+# User 2 follows User 1 back
+follows.follow(2, 1)
+
+# Now they're friends!
+follows.are_friends(1, 2)  # True
+```
+
+## API Reference
+
+### Core Operations
+
+#### `follow(follower_id, followee_id)`
+Create a follow relationship.
+
+```python
+follows.follow(follower_id=1, followee_id=2)
+# Returns: True if created, False if already exists
+```
+
+#### `unfollow(follower_id, followee_id)`
+Remove a follow relationship.
+
+```python
+follows.unfollow(follower_id=1, followee_id=2)
+# Returns: True if deleted, False if didn't exist
+```
+
+#### `is_following(follower_id, followee_id)`
+Check if user A follows user B.
+
+```python
+is_following = follows.is_following(1, 2)
+# Returns: True or False
+```
+
+#### `are_friends(user_id_a, user_id_b)`
+Check if two users are friends (mutual follows).
+
+```python
+are_friends = follows.are_friends(1, 2)
+# Returns: True or False
+```
+
+### Querying Relationships
+
+#### `get_followers(user_id, limit=None)`
+Get list of users who follow the specified user.
+
+```python
+followers = follows.get_followers(user_id=2, limit=50)
+# Returns: [{'follower_id': 1, 'followee_id': 2, 'created_at': '...'}, ...]
+```
+
+#### `get_following(user_id, limit=None)`
+Get list of users that the specified user follows.
+
+```python
+following = follows.get_following(user_id=1, limit=50)
+# Returns: [{'follower_id': 1, 'followee_id': 2, 'created_at': '...'}, ...]
+```
+
+#### `get_friends(user_id, limit=None)`
+Get list of friend user IDs (mutual follows).
+
+```python
+friends = follows.get_friends(user_id=1)
+# Returns: [2, 3, 5, 8, ...]
+```
+
+### Counts
+
+#### `get_follower_count(user_id)`
+Get count of followers.
+
+```python
+count = follows.get_follower_count(user_id=1)
+# Returns: 100
+```
+
+#### `get_following_count(user_id)`
+Get count of users being followed.
+
+```python
+count = follows.get_following_count(user_id=1)
+# Returns: 50
+```
+
+#### `get_friend_count(user_id)`
+Get count of friends.
+
+```python
+count = follows.get_friend_count(user_id=1)
+# Returns: 30
+```
+
+### Suggestions
+
+#### `suggest_follows(user_id, limit=10)`
+Suggest users to follow based on social graph analysis.
+
+**Algorithm:**
+1. Find users followed by people you follow (2nd degree connections)
+2. Rank by number of mutual connections
+3. Exclude users already followed
+4. Exclude self
+
+```python
+suggestions = follows.suggest_follows(user_id=1, limit=10)
+# Returns: [
+#   {'user_id': 5, 'score': 3, 'mutual_connections': [2, 3, 4]},
+#   {'user_id': 7, 'score': 2, 'mutual_connections': [2, 8]},
+#   ...
+# ]
+```
+
+#### `suggest_friends(user_id, limit=10)`
+Suggest potential friends (users who follow you but you don't follow back).
+
+```python
+suggestions = follows.suggest_friends(user_id=1, limit=10)
+# Returns: [
+#   {'user_id': 10, 'score': 5, 'follows_you': True},
+#   {'user_id': 12, 'score': 3, 'follows_you': True},
+#   ...
+# ]
+```
+
+### Statistics
+
+#### `get_stats(user_id)`
+Get comprehensive social graph statistics for a user.
+
+```python
+stats = follows.get_stats(user_id=1)
+# Returns: {
+#   'followers': 100,
+#   'following': 50,
+#   'friends': 30
+# }
+```
+
+## Data Storage
+
+The module uses `dbbasic-tsv` for storage, creating a `follows.tsv` file in your data directory.
+
+### Schema
+
+```
+follower_id    followee_id    created_at              status
+1              2              2024-01-15T10:30:00     active
+2              1              2024-01-15T10:31:00     active
+```
+
+### Indexes
+
+The module automatically creates indexes on:
+- `follower_id` - Fast lookups of "who does user X follow?"
+- `followee_id` - Fast lookups of "who follows user Y?"
+
+## Admin Interface
+
+When integrated with `dbbasic-admin`, the module provides a web UI for managing follow relationships.
+
+Access at: `http://localhost:8000/admin/follows`
+
+Features:
+- View all follow relationships
+- See follower → following connections
+- Delete relationships
+- Status indicators
+
+## Integration Example
+
+### Basic App
+
+```python
+from dbbasic_web import App
+from dbbasic_follows import Follows
+
+app = App()
+follows = Follows()
+
+@app.route('/api/follow/<int:user_id>')
+def follow_user(request, user_id):
+    current_user_id = request.user.id
+    follows.follow(current_user_id, user_id)
+    return {'success': True}
+
+@app.route('/api/unfollow/<int:user_id>')
+def unfollow_user(request, user_id):
+    current_user_id = request.user.id
+    follows.unfollow(current_user_id, user_id)
+    return {'success': True}
+
+@app.route('/api/followers')
+def my_followers(request):
+    current_user_id = request.user.id
+    followers = follows.get_followers(current_user_id)
+    return {'followers': followers}
+
+@app.route('/api/suggestions')
+def get_suggestions(request):
+    current_user_id = request.user.id
+    suggestions = follows.suggest_follows(current_user_id, limit=10)
+    return {'suggestions': suggestions}
+```
+
+### With dbbasic-accounts
+
+```python
+from dbbasic_accounts import Accounts
+from dbbasic_follows import Follows
+
+accounts = Accounts()
+follows = Follows()
+
+# Create users
+user1 = accounts.create(username="alice", password="secret")
+user2 = accounts.create(username="bob", password="secret")
+
+# Create social graph
+follows.follow(user1['id'], user2['id'])
+
+# Get user's social stats
+stats = follows.get_stats(user1['id'])
+print(f"Alice is following {stats['following']} users")
+```
+
+## Use Cases
+
+### Social Network
+Build social following systems with automatic friend detection.
+
+### Content Platform
+Enable users to follow creators and get personalized feeds.
+
+### Community Site
+Connect users with similar interests through mutual follows.
+
+### Recommendation Engine
+Use the social graph to recommend content, products, or connections.
+
+## Future Enhancements
+
+The module is designed to support future features:
+
+- **Content Recommendations**: Use the social graph to recommend posts, products, or content based on who users follow
+- **Influence Scores**: Calculate user influence based on follower count and engagement
+- **Communities**: Detect clusters of highly connected users
+- **Activity Feeds**: Generate personalized feeds based on follows
+- **Privacy Controls**: Block users, private accounts, follow requests
+
+These features can be built in separate modules that leverage `dbbasic-follows` as the core social graph.
+
+## Performance
+
+- **Fast Lookups**: Indexed queries on follower/followee IDs
+- **Efficient Storage**: TSV format is compact and human-readable
+- **Scalable**: Suitable for small to medium apps (< 100k users)
+- **No Database**: No PostgreSQL, MySQL, or MongoDB required
+
+## Requirements
+
+- Python >= 3.10
+- dbbasic-web >= 0.1.10
+- dbbasic-tsv >= 1.0.0
+- dbbasic-admin >= 0.1.1 (optional, for admin UI)
+- dbbasic-accounts >= 0.1.0 (for user management)
+
+## License
+
+MIT License - feel free to use in any project.
+
+## Contributing
+
+Contributions welcome! Please submit issues and pull requests on GitHub.
+
+## Links
+
+- **Documentation**: https://github.com/askrobots/dbbasic-follows
+- **DBBasic**: https://dbbasic.com
+- **Issues**: https://github.com/askrobots/dbbasic-follows/issues
+
+## Example Apps
+
+See the `examples/` directory for complete working applications:
+- Social network demo
+- Content platform with follows
+- Friend suggestion system
+
+---
+
+Built with ❤️ using [DBBasic](https://dbbasic.com) - radically simple Python web framework

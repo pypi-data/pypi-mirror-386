@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+dbbasic_follows/__init__.py
+dbbasic_follows/admin.py
+dbbasic_follows/follows.py
+dbbasic_follows.egg-info/PKG-INFO
+dbbasic_follows.egg-info/SOURCES.txt
+dbbasic_follows.egg-info/dependency_links.txt
+dbbasic_follows.egg-info/requires.txt
+dbbasic_follows.egg-info/top_level.txt
+dbbasic_follows/api/__init__.py
+dbbasic_follows/api/follows/__init__.py
+dbbasic_follows/api/follows/list.py
+tests/test_follows.py

@@ -1,0 +1,42 @@
+[project]
+name = "dbbasic-follows"
+version = "0.1.0"
+description = "Social graph module for DBBasic - manage follows, friends, and connection suggestions"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "DBBasic Contributors", email = "info@dbbasic.com"}
+]
+keywords = ["dbbasic", "social", "follows", "friends", "social-graph", "web", "framework"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "dbbasic-web>=0.1.10",
+    "dbbasic-tsv>=1.0.0",
+    "dbbasic-admin>=0.1.1",
+    "dbbasic-accounts>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://dbbasic.com"
+Documentation = "https://github.com/askrobots/dbbasic-follows"
+Repository = "https://github.com/askrobots/dbbasic-follows"
+Issues = "https://github.com/askrobots/dbbasic-follows/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dbbasic_follows", "dbbasic_follows.api", "dbbasic_follows.api.follows"]
+
+[tool.setuptools.package-data]
+dbbasic_follows = ["data/*"]
