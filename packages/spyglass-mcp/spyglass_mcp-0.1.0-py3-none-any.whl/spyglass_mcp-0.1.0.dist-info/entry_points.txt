@@ -1,0 +1,2 @@
+[console_scripts]
+spyglass-mcp = spyglass_mcp.main:main
