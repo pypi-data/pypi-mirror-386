@@ -1,0 +1,7 @@
+CHANGES
+=======
+
+v0.20251022.0
+-------------
+
+* Allow the use of unencrypted secrets.yml files (#1764)
