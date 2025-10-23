@@ -1,0 +1,136 @@
+Metadata-Version: 2.4
+Name: percolate-rem
+Version: 0.1.0
+Summary: REM (Resources-Entities-Moments) memory system for Percolate - privacy-first personal AI infrastructure
+Project-URL: Homepage, https://github.com/percolation-labs/percolate
+Project-URL: Documentation, https://docs.percolate.dev
+Project-URL: Repository, https://github.com/percolation-labs/percolate
+Author-email: Percolation Labs <hello@percolate.dev>
+License: MIT
+Keywords: agent,ai,knowledge-base,memory,personal,privacy,rem,vector-db
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Rust
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.11
+Requires-Dist: asyncpg>=0.30.0
+Requires-Dist: cryptography>=44.0.0
+Requires-Dist: fastapi>=0.115.5
+Requires-Dist: fastmcp>=0.5.0
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: opentelemetry-api>=1.29.0
+Requires-Dist: opentelemetry-exporter-otlp>=1.29.0
+Requires-Dist: opentelemetry-instrumentation-fastapi>=0.50b0
+Requires-Dist: opentelemetry-instrumentation-logging>=0.50b0
+Requires-Dist: opentelemetry-sdk>=1.29.0
+Requires-Dist: pydantic-ai>=0.0.15
+Requires-Dist: pydantic-settings>=2.7.1
+Requires-Dist: pydantic>=2.10.5
+Requires-Dist: pyjwt[crypto]>=2.10.1
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: python-multipart>=0.0.20
+Requires-Dist: redis>=5.2.1
+Requires-Dist: rich>=13.9.4
+Requires-Dist: typer>=0.15.1
+Requires-Dist: uvicorn[standard]>=0.34.0
+Provides-Extra: dev
+Requires-Dist: black>=24.10.0; extra == 'dev'
+Requires-Dist: ipython>=8.31.0; extra == 'dev'
+Requires-Dist: mypy>=1.14.0; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.24.0; extra == 'dev'
+Requires-Dist: pytest-cov>=6.0.0; extra == 'dev'
+Requires-Dist: pytest-mock>=3.14.0; extra == 'dev'
+Requires-Dist: pytest>=8.3.4; extra == 'dev'
+Requires-Dist: ruff>=0.8.5; extra == 'dev'
+Requires-Dist: types-redis>=4.6.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Percolate Python Package
+
+Python implementation of Percolate - the API server, agent runtime, and orchestration layer.
+
+## Structure
+
+```
+percolate/
+├── src/percolate/          # Main package
+│   ├── api/                # FastAPI server
+│   ├── auth/               # OAuth 2.1 authentication
+│   ├── agents/             # Agent-let runtime
+│   ├── memory/             # REM database interface (wraps Rust)
+│   ├── parsers/            # Document parsing orchestration
+│   ├── mcp/                # Model Context Protocol server
+│   ├── cli/                # Command-line interface
+│   ├── otel/               # OpenTelemetry instrumentation
+│   └── settings.py         # Configuration
+├── tests/                  # Test suite
+│   ├── unit/               # Unit tests
+│   └── integration/        # Integration tests
+└── pyproject.toml          # Project configuration
+```
+
+## Development
+
+### Setup
+
+```bash
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Create virtual environment and install dependencies
+cd percolate
+uv venv
+source .venv/bin/activate  # or `.venv\Scripts\activate` on Windows
+uv pip install -e ".[dev]"
+```
+
+### Running
+
+```bash
+# Start API server
+uv run percolate serve
+
+# CLI commands
+uv run percolate --help
+```
+
+### Testing
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run with coverage
+uv run pytest --cov=percolate --cov-report=html
+
+# Run specific test
+uv run pytest tests/unit/agents/test_factory.py -v
+```
+
+### Code Quality
+
+```bash
+# Format code
+uv run black src tests
+
+# Lint
+uv run ruff check src tests
+
+# Type check
+uv run mypy src
+```
+
+## Dependencies
+
+This package depends on `percolate-core` (Rust) for:
+- REM memory engine
+- Vector embeddings
+- Document parsing (fast path)
+- Cryptographic operations
+
+See `../percolate-core/` for Rust implementation.
