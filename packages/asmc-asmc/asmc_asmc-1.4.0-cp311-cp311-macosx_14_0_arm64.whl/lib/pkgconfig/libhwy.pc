@@ -1,0 +1,10 @@
+prefix=/var/folders/y6/nj790rtn62lfktb1sh__79hc0000gn/T/tmprxycl409/wheel/platlib
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libhwy
+Description: Efficient and performance-portable SIMD wrapper
+Version: 1.4.0
+Libs: -L${libdir} -lhwy
+Cflags: -I${includedir} -DHWY_STATIC_DEFINE
