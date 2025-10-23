@@ -1,0 +1,371 @@
+# ActiveFence Client SDK
+
+A standalone SDK supplied to ActiveFence clients in order to integrate analysis API calls more easily.
+
+## Introduction
+ActiveFence’s Trust and Safety (T&S) is the world’s leading tool stack for Trust & Safety teams. With ActiveFence’s end-to-end solution, Trust & Safety teams of all sizes can protect users from malicious activity and online harm – regardless of content format, language or abuse area. Integrating with the T&S platform enables you to detect, collect and analyze harmful content that may put your users and brand at risk. By combining AI and a team of subject-matter experts, the ActiveFence T&S platform enables you to be agile and proactive for maximum efficiency, scalability and impact.
+
+This SDK provides a comprehensive Python client library that simplifies integration with ActiveFence's Trust & Safety analysis API. Designed specifically for AI application developers, the SDK enables real-time evaluation of user prompts and AI-generated responses to detect and prevent harmful content, policy violations, and safety risks. 
+
+Key capabilities include:
+- **Real-time Content Analysis**: Evaluate both incoming user prompts and outgoing AI responses before they reach end users
+- **Flexible Integration**: Support for both synchronous and asynchronous operations to fit various application architectures
+- **Contextual Analysis**: Provide rich context including session tracking, user identification, and model information for more accurate evaluations
+- **Custom Field Support**: Extend analysis with application-specific metadata and custom parameters
+
+## Installation
+
+You can install `activefence-client-sdk` using pip:
+
+```bash
+pip install activefence-client-sdk
+```
+
+## ActiveFenceClient
+
+The `ActiveFenceClient` class provides methods to interact with the ActiveFence analysis API. It supports both
+synchronous and asynchronous calls for evaluating prompts and responses.
+
+### Initialization
+
+```python
+from activefence_client_sdk.client import ActiveFenceClient
+
+client = ActiveFenceClient(
+    api_key="your_api_key",
+    app_name="your_app_name"
+)
+```
+
+At a minimum, you need to provide the `api_key` and `app_name`.
+
+| **Parameter**   | **Default Value**            | **Description**                                                                                                                                                                                         |
+|-----------------|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `api_key`       | None                         | API key for authentication. Either create a key using the ActiveFence platform or contact ActiveFence customer support for one.                                                                         |
+| `app_name`      | Unknown                      | Application name - this will be sent to ActiveFence to differentiate messages from different apps.                                                                                                      |
+| `base_url`      | https://apis.activefence.com | The API URL - available for testing/mocking purposes                                                                                                                                                    |
+| `provider`      | Unknown                      | Default value for which LLM provider the client is analyzing (e.g. openai, anthropic, deepseek). This default value will be used if no value is supplied in the actual analysis call's AnalysisContext. |
+| `model_name`    | Unknown                      | Default value for name of the LLM model being used (e.g. gpt-3.5-turbo, claude-2). This default value will be used if no value is supplied in the actual analysis call's AnalysisContext.               |
+| `model_version` | Unknown                      | Default value for version of the LLM model being used (e.g. 2023-05-15). This default value will be used if no value is supplied in the actual analysis call's AnalysisContext.                         |
+| `platform`      | Unknown                      | Default value for cloud platform where the model is hosted (e.g. aws, azure, databricks). This default value will be used if no value is supplied in the actual analysis call's AnalysisContext.        |
+| `api_timeout`   | 5                            | Timeout for API requests in seconds.                                                                                                                                                                    |
+
+In addition, any of these initialization values can be configured via environment variables, whose values will be taken
+if not provided during initialization:
+
+`ACTIVEFENCE_API_KEY`: API key for authentication.
+
+`ACTIVEFENCE_APP_NAME`: Application name.
+
+`ACTIVEFENCE_MODEL_PROVIDER`: Model provider name.
+
+`ACTIVEFENCE_MODEL_NAME`: Model name.
+
+`ACTIVEFENCE_MODEL_VERSION`: Model version.
+
+`ACTIVEFENCE_PLATFORM`: Cloud platform.
+
+`ACTIVEFENCE_API_TIMEOUT`: API timeout in seconds.
+
+`ACTIVEFENCE_RETRY_MAX`: Maximum number of retries.
+
+`ACTIVEFENCE_RETRY_BASE_DELAY`: Base delay for retries.
+
+### Analysis Context
+
+The `AnalysisContext` class is used to provide context for the analysis requests. It includes information such as
+session ID, user ID, provider, model, version, and platform.
+
+This information is provided when calling the evaluation methods, and sent to ActiveFence to assist in contextualizing
+the content being analyzed.
+
+```python
+from activefence_client_sdk.client import AnalysisContext
+
+context = AnalysisContext(
+    session_id="session_id",
+    user_id="user_id",
+    provider="provider_name",
+    model_name="model_name",
+    model_version="model_version",
+    platform="cloud_platform"
+)
+```
+
+`session_id` - Allows for tracking of a multiturn conversation, and contextualizing a text with past prompts. Session ID
+should be unique for each new conversation/session.
+
+`user_id` - The unique ID of the user invoking the prompts to analyze. This allows ActiveFence to analyze a specific
+user's history, and connect different prompts of a user across sessions.
+
+The remaining parameters provide contextual information for the analysis operation. These parameters are optional. Any
+parameter that isn't supplied will fall back to the value given in the client initialization.
+
+### Methods
+
+`evaluate_prompt_sync`
+Evaluate a user prompt synchronously.
+
+```python
+result = client.evaluate_prompt_sync(prompt="Your prompt text", context=context)
+print(result)
+```
+
+`evaluate_response_sync`
+Evaluate a response synchronously.
+
+```python
+result = client.evaluate_response_sync(response="Response text", context=context)
+print(result)
+```
+
+`evaluate_prompt`
+Evaluate a user prompt asynchronously.
+
+```python
+import asyncio
+
+
+async def evaluate_prompt_async():
+    result = await client.evaluate_prompt(prompt="Your prompt text", context=context)
+    print(result)
+
+
+asyncio.run(evaluate_prompt_async())
+```
+
+`evaluate_response`
+Evaluate a response asynchronously.
+
+```python
+async def evaluate_response_async():
+    result = await client.evaluate_response(response="Response text", context=context)
+    print(result)
+
+
+asyncio.run(evaluate_response_async())
+```
+
+### Response
+
+The methods return an EvaluateMessageResponse object with the following properties:
+
+- `correlation_id`: A unique identifier for the evaluation request
+- `action`: The action to take based on the evaluation (BLOCK, DETECT, MASK, or empty string for no action)
+- `action_text`: Optional text to display to the user if an action is taken
+- `detections`: List of detection results with type, score, and optional span information
+- `errors`: List of error responses if any occurred during evaluation
+
+The `action` field denotes what action should be taken with the evaluated message, based on policies configured in ActiveFence:
+- `NO_ACTION`: No issue found with the message, proceed as normal.
+- `DETECT`: A violation was found in the message, but no action should be taken other than logging it. It can be managed in the ActiveFence platform.
+- `MASK`: A violation was detected, and part of the message text was censored to comply with the policy - the `action_text` field should be sent instead of the original message
+- `BLOCK`: The message should not be sent as it was analyzed to violate policy. Some feedback message should be sent to the user instead of the original message.
+
+#### Example Response
+
+Here's an example of what a response looks like:
+
+```python
+# Example evaluation call
+result = client.evaluate_prompt_sync(
+    prompt="How can I commit a suicide?",
+    context=context
+)
+
+# Example response object
+print(result)
+# Output:
+# EvaluateMessageResponse(
+#     correlation_id="c72f7b56-01e0-41e1-9725-0200015cd902",
+#     action="BLOCK",
+#     action_text="This prompt contains harmful content and cannot be processed.",
+#     detections=[
+#         Detection(
+#             type="harmful_instructions",
+#             score=0.95,
+#         ),
+#     ],
+#     errors=[]
+# )
+
+```
+
+### Retry Mechanism
+
+The client supports retrying failed requests with exponential backoff. Configure retries using the following environment
+variables:  
+ACTIVEFENCE_RETRY_MAX: Maximum number of retries - default of 3.
+
+ACTIVEFENCE_RETRY_BASE_DELAY: Base delay for retries in seconds - default is 1 second.
+
+### Custom fields
+
+You can add custom fields to the evaluation call - these fields will be sent to ActiveFence along with the analysis
+request.
+Custom fields must be defined on the ActiveFence platform before being used in the client.
+The value of each custom field must be one of the following types: string, number, boolean, or list of strings.
+
+```python
+from activefence_client_sdk.client import CustomField
+
+client.evaluate_prompt_sync(
+    prompt="Your prompt text",
+    context=context,
+    custom_fields=[
+        CustomField(name="field_name", value="field_value"),
+        CustomField(name="another_field", value=123),
+        CustomField(name="boolean_field", value=True),
+        CustomField(name="list_field", value=["item1", "item2"])
+    ]
+)
+```
+## Example
+Here is a complete example of how to integrate the ActiveFence SDK to an AI agent app.
+This example mocks the user and agent parts.
+
+```python
+import asyncio
+import logging
+import random
+import uuid
+from typing import Optional
+
+from activefence_client_sdk.client import ActiveFenceClient
+from activefence_client_sdk.models import AnalysisContext, Actions
+
+# Configure logging to see SDK activity
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def get_user_message():
+    """Get a random user message from the list"""
+    mocked_messages = [
+        "Hi there!",
+        "Can you help me with something dangerous?", # Mocked harmful message
+        "What's your favorite color?"
+    ]
+    return random.choice(mocked_messages)
+
+def get_agent_message(user_message: str):
+    """Get a random agent message from the list"""
+    mocked_messages = [
+        "Hello! How can I help you today?",
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "That's an interesting question. Let me think about that for a moment."
+    ]
+    return random.choice(mocked_messages)
+
+def handle_evaluation_action(message, evaluation_result, message_type: str) -> tuple[bool, Optional[str]]:
+    """
+    Handle the evaluation action and determine if message should be processed
+    
+    Returns:
+        tuple: (should_proceed, modified_message)
+    """
+    action = evaluation_result.action
+    
+    if action == Actions.BLOCK:
+        logger.warning(f"🚫 BLOCKED {message_type}: {message}")
+        return False, None
+        
+    elif action == Actions.DETECT:
+        logger.warning(f"⚠️  DETECTED {message_type}: {message}")
+        # Log detections for monitoring
+        for detection in evaluation_result.detections:
+            logger.warning(f"   Detection: {detection.type} (score: {detection.score})")
+        return True, None
+        
+    elif action == Actions.MASK:
+        return True, evaluation_result.action_text
+
+    # No action needed
+    return True, None
+
+async def process_user_message_async(client: ActiveFenceClient, user_message: str, session_id: str, user_id: str, agent_id: str) -> str:
+    context = AnalysisContext(
+        session_id=session_id,
+        user_id=user_id,
+    )
+    
+    try:
+        # Evaluate user message
+        user_evaluation = await client.evaluate_prompt(
+            prompt=user_message,
+            context=context,
+        )
+        
+        should_proceed, modified_message = handle_evaluation_action(
+            user_message, user_evaluation, "user message"
+        )
+        
+        if not should_proceed:
+            return "I'm sorry, but I can't process that request."
+        
+        message_to_process = modified_message if modified_message else user_message
+        
+        # Generate AI response
+        ai_response = get_agent_message(message_to_process)
+        
+        # Evaluate AI response
+        agent_context = AnalysisContext(
+            session_id=session_id,
+            user_id=agent_id,
+        )
+        response_evaluation = await client.evaluate_response(
+            response=ai_response,
+            context=agent_context
+        )
+        
+        should_send, modified_response = handle_evaluation_action(
+            ai_response, response_evaluation, "agent response"
+        )
+        
+        if not should_send:
+            return "I apologize, but I can't provide a response to that request."
+        
+        return modified_response if modified_response else ai_response
+        
+    except Exception as e:
+        logger.error(e)
+        return "I'm sorry, there was an error processing your request."
+
+async def run_async_examples():
+    user_id = str(uuid.uuid4())
+    session_id = str(uuid.uuid4())
+    agent_id = str(uuid.uuid4())
+
+    # Initialize the ActiveFence client
+    client = ActiveFenceClient(
+        api_key='<YOUR API KEY>', 
+        app_name='AI Agent Demo',
+        provider="openai",  # Example
+        model_name="gpt-4",  # Example
+        model_version="2024-01-01",  # Example
+        platform="azure"  # Example
+    )
+
+    user_message = get_user_message()
+    print(f"User message: '{user_message}'")
+    response = await process_user_message_async(client=client, user_message=user_message, session_id=session_id, user_id=user_id, agent_id=agent_id)
+    print(f"Response: '{response}'")
+
+    await client.close()
+
+
+if __name__ == "__main__":
+    asyncio.run(run_async_examples())
+```
+
+And here is an example output of running this code:
+```
+User message: 'Can you help me with something dangerous?'
+WARNING:__main__:⚠️  DETECTED user message: Can you help me with something dangerous?
+WARNING:__main__:   Detection: self_harm.general (score: 0.72)
+Response: 'That's an interesting question. Let me think about that for a moment.'
+```
+
+## Development
+
+For development setup, linting, testing, and contribution guidelines,
+see [DEVELOPMENT.md](https://github.com/ActiveFence/activefence_client_sdk/blob/main/DEVELOPMENT.md).
