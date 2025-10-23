@@ -1,0 +1,69 @@
+Metadata-Version: 2.4
+Name: ast-transforms
+Version: 0.2.0
+Summary: A collection of AST-based transformations
+Home-page: https://github.com/habanero-lab/ast-transforms
+Author: Tong Zhou
+Author-email: zt9465@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: ast_comments
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# AST Transforms
+
+A collection of AST-based Python transformations for manipulating code programmatically.
+
+## Installation
+
+```bash
+pip install ast_transforms
+```
+
+## Usage
+
+```python
+import ast
+import ast_transforms as at
+
+code = '''
+@mydecorator
+def foo():
+    print("foo")
+'''
+
+# Parse code into an AST
+tree = ast.parse(code)
+
+# Apply transformations
+tree = at.remove_func_decorator(tree)  # removes all function decorators
+
+# Convert AST back to source code
+new_code = ast.unparse(tree)
+print(new_code)
+```
+
+**Output:**
+
+```python
+def foo():
+    print("foo")
+```
+
+---
+
+## Passes
+
+* `remove_func_decorator(tree)` – removes all decorators from functions.
+* More passes are to be added ...
