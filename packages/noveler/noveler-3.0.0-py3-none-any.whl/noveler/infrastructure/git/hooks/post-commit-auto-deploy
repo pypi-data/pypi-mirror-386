@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# Git post-commit フック：自動デプロイメント
+# コミット後に各プロジェクトのスクリプトを自動更新
+#
+
+# スクリプトのディレクトリを取得
+HOOK_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRIPTS_ROOT="$( cd "$HOOK_DIR/.." &> /dev/null && pwd )"
+
+echo "🔄 Commit detected - Auto-deploying to projects..."
+
+# TDD+DDD準拠のデプロイツールを実行
+python3 "$SCRIPTS_ROOT/tools/deploy_scripts_cli.py" \
+    --mode production \
+    --no-verify \
+    > /tmp/auto-deploy.log 2>&1
+
+# 結果を確認
+if [ $? -eq 0 ]; then
+    echo "✅ Auto-deployment completed successfully"
+    # 成功時は簡潔なメッセージのみ
+    tail -n 5 /tmp/auto-deploy.log | grep "✅\|📦\|🎉"
+else
+    echo "❌ Auto-deployment failed - check /tmp/auto-deploy.log"
+    echo "Manual deployment may be required:"
+    echo "  cd scripts && python3 tools/deploy_scripts_cli.py"
+fi
+
+echo ""

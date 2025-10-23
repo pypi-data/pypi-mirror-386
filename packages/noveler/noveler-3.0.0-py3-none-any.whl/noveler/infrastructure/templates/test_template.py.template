@@ -1,0 +1,448 @@
+"""統合インポート管理システム準拠テストファイルテンプレート
+
+このテンプレートは、TDD+DDD準拠で統合インポート管理システムを使用した
+テストファイルの標準パターンを提供します。
+
+使用方法:
+1. このファイルをコピーして新しいテストファイルを作成
+2. クラス名・メソッド名を対象に合わせて変更
+3. インポート文を追加（必ず noveler.* パターンを使用）
+4. テストケースを実装
+
+重要: インポートは必ず統合インポート管理システム（noveler.*）を使用してください
+"""
+
+import time
+from unittest.mock import Mock
+
+import pytest
+
+from noveler.application.use_cases.example_use_case import ExampleRequest, ExampleResponse, ExampleUseCase
+from noveler.domain.entities.example_entity import ExampleEntity
+from noveler.domain.exceptions.base import BusinessRuleViolationError, EntityNotFoundError, ValidationError
+from noveler.domain.services.example_service import ExampleService
+from noveler.domain.value_objects.example_value import ExampleValue
+from noveler.infrastructure.repositories.example_repository import ExampleRepository
+from noveler.infrastructure.repositories.yaml_example_repository import YamlExampleRepository
+
+# ❌ 使用禁止パターン（相対インポート・非scripts付き）
+# from noveler.domain.entities.example_entity import ExampleEntity  # NG
+# from noveler.domain.entities.example_entity import ExampleEntity  # NG
+# from example_service import ExampleService  # NG
+
+
+class TestExampleEntity:
+    """ExampleEntityのDDD準拠テスト
+
+    テスト方針:
+    - ドメインエンティティのビジネスロジックをテスト
+    - 状態変更・不変条件・ビジネスルールを検証
+    - 外部依存は排除（純粋なドメインテスト）
+    """
+
+    @pytest.fixture
+    def valid_entity_data(self) -> dict[str, object]:
+        """有効なエンティティデータ"""
+        return {"id": "example-001", "name": "テストエンティティ", "value": ExampleValue(100), "status": "active"}
+
+    @pytest.fixture
+    def example_entity(self, valid_entity_data: dict[str, object]) -> ExampleEntity:
+        """テスト用エンティティインスタンス"""
+        return ExampleEntity(**valid_entity_data)
+
+    def test_create_entity_with_valid_data(self, valid_entity_data: dict[str, object]) -> None:
+        """有効なデータでのエンティティ作成テスト"""
+        entity = ExampleEntity(**valid_entity_data)
+
+        assert entity.id == "example-001"
+        assert entity.name == "テストエンティティ"
+        assert entity.value.amount == 100
+        assert entity.status == "active"
+        assert entity.is_valid()
+
+    def test_create_entity_with_invalid_data(self) -> None:
+        """無効なデータでのエンティティ作成テスト"""
+        with pytest.raises(ValueError, match="名前は必須です"):
+            ExampleEntity(id="example-001", name="", value=ExampleValue(100))
+
+    def test_entity_state_change(self, example_entity: ExampleEntity) -> None:
+        """エンティティ状態変更テスト"""
+        # 初期状態の確認
+        assert example_entity.status == "active"
+
+        # 状態変更の実行
+        example_entity.deactivate()
+
+        # 変更後の状態確認
+        assert example_entity.status == "inactive"
+        assert not example_entity.is_active()
+
+    def test_entity_business_rule_validation(self, example_entity: ExampleEntity) -> None:
+        """ビジネスルール検証テスト"""
+        # ビジネスルール: 値が0以下の場合は無効化できない
+        example_entity.update_value(ExampleValue(-10))
+
+        with pytest.raises(BusinessRuleViolationError, match="値が0以下の場合は無効化できません"):
+            example_entity.deactivate()
+
+    @pytest.mark.parametrize(
+        ("value", "expected"),
+        [
+            (100, True),
+            (0, False),
+            (-10, False),
+        ],)
+
+    def test_value_validation(self, value: object, expected: object) -> None:
+        """値の検証テスト（パラメータ化）"""
+        entity_data = {"id": "test-001", "name": "テスト", "value": ExampleValue(value), "status": "active"}
+
+        if expected:
+            entity = ExampleEntity(**entity_data)
+            assert entity.value.amount == value
+        else:
+            with pytest.raises(ValueError, match=".*"):
+                ExampleEntity(**entity_data)
+
+
+class TestExampleService:
+    """ExampleServiceのDDD準拠テスト
+
+    テスト方針:
+    - ドメインサービスのビジネスロジックをテスト
+    - リポジトリのモック化により外部依存を分離
+    - ビジネスルールの適用と結果を検証
+    """
+
+    @pytest.fixture
+    def mock_repository(self):
+        """リポジトリのモック"""
+        repo = Mock(spec=ExampleRepository)
+        repo.find_by_id.return_value = None
+        repo.save.return_value = True
+        return repo
+
+    @pytest.fixture
+    def example_service(self, mock_repository: Mock) -> ExampleService:
+        """テスト用サービスインスタンス"""
+        return ExampleService(mock_repository)
+
+    def test_process_business_logic_success(self, example_service: object, mock_repository: object) -> None:
+        """ビジネスロジック正常処理テスト"""
+        # テストデータの準備
+        entity = ExampleEntity(id="test-001", name="テストエンティティ", value=ExampleValue(100), status="active")
+
+        # モックの設定
+        mock_repository.find_by_id.return_value = entity
+        mock_repository.save.return_value = True
+
+        # サービスメソッドの実行
+        result = example_service.process_business_logic("test-001")
+
+        # 結果の検証
+        assert result.success is True
+        assert result.entity_id == "test-001"
+
+        # リポジトリメソッドの呼び出し確認
+        mock_repository.find_by_id.assert_called_once_with("test-001")
+        mock_repository.save.assert_called_once()
+
+    def test_process_business_logic_entity_not_found(self, example_service: object, mock_repository: object) -> None:
+        """エンティティが見つからない場合のテスト"""
+        # モックの設定（エンティティが見つからない）
+        mock_repository.find_by_id.return_value = None
+
+        # サービスメソッドの実行と例外確認
+        with pytest.raises(EntityNotFoundError, match="エンティティが見つかりません"):
+            example_service.process_business_logic("nonexistent-001")
+
+        # リポジトリメソッドの呼び出し確認
+        mock_repository.find_by_id.assert_called_once_with("nonexistent-001")
+        mock_repository.save.assert_not_called()
+
+
+class TestExampleUseCase:
+    """ExampleUseCaseのDDD準拠テスト
+
+    テスト方針:
+    - ユースケースロジックをテスト
+    - リポジトリとサービスのモック化
+    - リクエスト・レスポンスオブジェクトの検証
+    """
+
+    @pytest.fixture
+    def mock_repository(self):
+        """リポジトリのモック"""
+        return Mock(spec=ExampleRepository)
+
+    @pytest.fixture
+    def mock_service(self):
+        """サービスのモック"""
+        return Mock(spec=ExampleService)
+
+    @pytest.fixture
+    def example_use_case(self, mock_repository: object, mock_service: object):
+        """テスト用ユースケースインスタンス"""
+        return ExampleUseCase(mock_repository, mock_service)
+
+    def test_execute_use_case_success(self, example_use_case: ExampleUseCase, mock_repository: Mock, mock_service: Mock) -> None:
+        """ユースケース正常実行テスト"""
+        # リクエストの準備
+        request = ExampleRequest(entity_id="test-001", operation="process", parameters={"value": 100})
+
+        # モックの設定
+        mock_entity = ExampleEntity(id="test-001", name="テストエンティティ", value=ExampleValue(100), status="active")
+        mock_repository.find_by_id.return_value = mock_entity
+        mock_service.process_business_logic.return_value = Mock(success=True)
+
+        # ユースケースの実行
+        response = example_use_case.execute(request)
+
+        # レスポンスの検証
+        assert isinstance(response, ExampleResponse)
+        assert response.success is True
+        assert response.entity_id == "test-001"
+        assert response.message == "処理が正常に完了しました"
+
+        # 依存オブジェクトの呼び出し確認
+        mock_repository.find_by_id.assert_called_once_with("test-001")
+        mock_service.process_business_logic.assert_called_once()
+
+    def test_execute_use_case_validation_error(self, example_use_case: ExampleUseCase) -> None:
+        """リクエスト検証エラーのテスト"""
+        # 無効なリクエスト
+        invalid_request = ExampleRequest(
+            entity_id="",  # 空のID（無効）
+            operation="process",
+            parameters={"value": 100},)
+
+
+        # ユースケース実行と例外確認
+        with pytest.raises(ValidationError, match="エンティティIDは必須です"):
+            example_use_case.execute(invalid_request)
+
+
+class TestExampleRepository:
+    """ExampleRepositoryの統合テスト
+
+    テスト方針:
+    - リポジトリインターフェースの契約をテスト
+    - 実装の詳細ではなく、契約の遵守を確認
+    - データ永続化・取得の動作を検証
+    """
+
+    @pytest.fixture
+    def example_repository(self):
+        """テスト用リポジトリインスタンス"""
+        # 実際の実装を使用（統合テスト）
+
+        return YamlExampleRepository(test_mode=True)
+
+    @pytest.fixture
+    def sample_entity(self):
+        """サンプルエンティティ"""
+        return ExampleEntity(id="test-001", name="テストエンティティ", value=ExampleValue(100), status="active")
+
+    def test_save_and_find_entity(self, example_repository: object, sample_entity: object) -> None:
+        """エンティティ保存・取得テスト"""
+        # エンティティの保存
+        save_result = example_repository.save(sample_entity)
+        assert save_result is True
+
+        # エンティティの取得
+        found_entity = example_repository.find_by_id("test-001")
+        assert found_entity is not None
+        assert found_entity.id == "test-001"
+        assert found_entity.name == "テストエンティティ"
+        assert found_entity.value.amount == 100
+
+    def test_find_nonexistent_entity(self, example_repository: ExampleRepository) -> None:
+        """存在しないエンティティの取得テスト"""
+        result = example_repository.find_by_id("nonexistent-001")
+        assert result is None
+
+    def test_repository_contract_compliance(self, example_repository: ExampleRepository) -> None:
+        """リポジトリ契約の遵守確認"""
+        # リポジトリインターフェースの全メソッドが実装されているか確認
+        assert hasattr(example_repository, "save")
+        assert hasattr(example_repository, "find_by_id")
+        assert hasattr(example_repository, "find_all")
+        assert hasattr(example_repository, "delete")
+
+        # メソッドが呼び出し可能か確認
+        assert callable(example_repository.save)
+        assert callable(example_repository.find_by_id)
+        assert callable(example_repository.find_all)
+        assert callable(example_repository.delete)
+
+
+# テストマーカーの使用例
+@pytest.mark.slow
+class TestExampleIntegration:
+    """統合テスト（時間がかかるテスト）"""
+
+    def test_full_workflow_integration(self) -> None:
+        """フルワークフロー統合テスト"""
+        # 実際の依存関係を使用した統合テスト
+
+
+@pytest.mark.unit
+class TestExampleValueObject:
+    """値オブジェクトの単体テスト"""
+
+    def test_value_object_immutability(self) -> None:
+        """値オブジェクトの不変性テスト"""
+        value = ExampleValue(100)
+        original_amount = value.amount
+
+        # 値オブジェクトは不変なので、変更メソッドは新しいインスタンスを返す
+        new_value = value.add(50)
+
+        assert value.amount == original_amount  # 元のインスタンスは変更されない
+        assert new_value.amount == 150  # 新しいインスタンスが返される
+        assert value != new_value  # 異なるインスタンス
+
+
+# カスタムフィクスチャの例
+@pytest.fixture(scope="session")
+def test_database() -> None:
+    """テスト用データベース（セッションスコープ）"""
+    # テストセッション全体で共有されるリソース
+    # from your_test_utils import setup_test_database, cleanup_test_database
+    # db = setup_test_database()
+    # yield db
+    # cleanup_test_database(db)
+
+
+@pytest.fixture(autouse=True)
+def cleanup_after_test() -> None:
+    """テスト後の自動クリーンアップ"""
+    return
+    # 各テスト後に自動実行される処理
+    # cleanup_test_data()  # テンプレート例
+
+
+# パフォーマンステストの例
+@pytest.mark.performance
+def test_performance_critical_operation() -> None:
+    """パフォーマンスクリティカルな操作のテスト"""
+    start_time = time.time()
+
+    # 性能が重要な処理
+    # result = perform_critical_operation()  # テンプレート例
+    result = "performance_test_result"  # テンプレート実装
+
+    end_time = time.time()
+    execution_time = end_time - start_time
+
+    # 実行時間の検証（例: 1秒以内）
+    assert execution_time < 1.0, f"処理時間が遅すぎます: {execution_time:.2f}秒"
+    assert result is not None
+
+
+# パラメータ化テストの高度な例
+@pytest.mark.parametrize(
+    ("input_data", "expected_result", "should_raise"),
+    [
+        # (入力データ, 期待する結果, 例外が発生するか)
+        ({"value": 100, "name": "test"}, True, False),
+        ({"value": -10, "name": "test"}, False, True),
+        ({"value": 0, "name": ""}, False, True),
+    ],)
+
+def test_complex_validation_scenarios(input_data: dict[str, object], expected_result: bool, should_raise: bool) -> None:
+    """複雑な検証シナリオのパラメータ化テスト"""
+    if should_raise:
+        with pytest.raises(ValidationError, match=".*"):
+            # validate_complex_data(input_data)  # テンプレート例
+            pass
+    else:
+        # result = validate_complex_data(input_data)  # テンプレート例
+        result = expected_result  # テンプレート実装
+        assert result == expected_result
+
+
+# テストデータビルダーパターンの例
+class ExampleEntityBuilder:
+    """テスト用エンティティビルダー"""
+
+    def __init__(self) -> None:
+        self.id = "default-001"
+        self.name = "デフォルト名"
+        self.value = ExampleValue(100)
+        self.status = "active"
+
+    def with_id(self, entity_id: str) -> "ExampleEntityBuilder":
+        self.id = entity_id
+        return self
+
+    def with_name(self, name: str) -> "ExampleEntityBuilder":
+        self.name = name
+        return self
+
+    def with_value(self, value: int) -> "ExampleEntityBuilder":
+        self.value = ExampleValue(value)
+        return self
+
+    def with_status(self, status: str) -> "ExampleEntityBuilder":
+        self.status = status
+        return self
+
+    def build(self) -> ExampleEntity:
+        return ExampleEntity(id=self.id, name=self.name, value=self.value, status=self.status)
+
+
+def test_entity_builder_usage() -> None:
+    """エンティティビルダーの使用例"""
+    entity = ExampleEntityBuilder().with_id("custom-001").with_name("カスタム名").with_value(200).build()
+
+    assert entity.id == "custom-001"
+    assert entity.name == "カスタム名"
+    assert entity.value.amount == 200
+
+
+# テストユーティリティ関数の例
+def assert_entity_equals(actual: ExampleEntity, expected: ExampleEntity) -> None:
+    """エンティティの詳細比較ユーティリティ"""
+    assert actual.id == expected.id
+    assert actual.name == expected.name
+    assert actual.value.amount == expected.value.amount
+    assert actual.status == expected.status
+
+
+def create_test_entity(**overrides) -> ExampleEntity:
+    """テスト用エンティティ作成ヘルパー"""
+    defaults = {"id": "test-001", "name": "テストエンティティ", "value": ExampleValue(100), "status": "active"}
+    defaults.update(overrides)
+    return ExampleEntity(**defaults)
+
+
+"""
+📋 このテンプレートの使用ガイド:
+
+1. ✅ 必須事項:
+   - すべてのインポートは noveler.* パターンを使用
+   - クラス名は Test{対象クラス名} の形式
+   - フィクスチャを適切に使用
+   - モックオブジェクトでリポジトリを分離
+
+2. 🎯 テスト方針:
+   - ドメイン層: ビジネスロジック・不変条件のテスト
+   - アプリケーション層: ユースケース・オーケストレーションのテスト
+   - インフラ層: 外部システムとの統合テスト
+
+3. 📝 命名規則:
+   - test_{メソッド名}_{シナリオ} の形式
+   - 日本語コメントで意図を明確化
+   - パラメータ化テストで網羅性向上
+
+4. 🔧 ツール活用:
+   - pytest.mark でテストカテゴリ分け
+   - フィクスチャでテストデータ共有
+   - モックオブジェクトで依存関係分離
+
+5. ⚠️ 禁止事項:
+   - 相対インポート（from . import, from .. import）
+   - 非scripts付きローカルインポート（from noveler.domain import）
+   - テスト間の状態共有（副作用）
+"""

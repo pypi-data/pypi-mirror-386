@@ -1,0 +1,110 @@
+#!/bin/bash
+#
+# DDDバリデーションを含むpre-commitフック
+# .git/hooks/pre-commitにコピーして使用
+#
+
+# スクリプトのディレクトリを取得
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+PROJECT_ROOT="$( cd "$SCRIPT_DIR/../.." &> /dev/null && pwd )"
+
+echo "🔍 Pre-commit DDD validation starting..."
+
+# 1. DDDバリデーション
+echo "📋 Checking DDD compliance..."
+cd "$PROJECT_ROOT/scripts" || exit 1
+
+python3 tools/ddd_validator_cli.py . --threshold 85 --quiet
+DDD_EXIT_CODE=$?
+
+if [ $DDD_EXIT_CODE -ne 0 ]; then
+    echo "❌ DDD validation failed!"
+    echo "Run 'python3 scripts/tools/ddd_validator_cli.py scripts' for details"
+    exit 1
+fi
+
+SCORE=$(python3 tools/ddd_validator_cli.py . --quiet)
+echo "✅ DDD compliance score: ${SCORE}%"
+
+# 2. テストカバレッジチェック
+echo "📊 Checking test coverage..."
+cd "$PROJECT_ROOT/scripts" || exit 1
+
+# 変更されたファイルのテストを実行
+CHANGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.py$' | grep -E '(domain|application|infrastructure)/')
+
+if [ -n "$CHANGED_FILES" ]; then
+    # 対応するテストファイルを探す
+    TEST_FILES=""
+    for FILE in $CHANGED_FILES; do
+        # ファイル名からテストファイル名を推測
+        BASE_NAME=$(basename "$FILE" .py)
+        TEST_FILE="tests/test_${BASE_NAME}.py"
+
+        if [ -f "$TEST_FILE" ]; then
+            TEST_FILES="$TEST_FILES $TEST_FILE"
+        fi
+    done
+
+    if [ -n "$TEST_FILES" ]; then
+        echo "Running tests for changed files..."
+        python3 -m pytest $TEST_FILES --cov=. --cov-fail-under=60 -q
+        TEST_EXIT_CODE=$?
+
+        if [ $TEST_EXIT_CODE -ne 0 ]; then
+            echo "❌ Test coverage failed!"
+            exit 1
+        fi
+    fi
+fi
+
+# 3. TDDサイクルチェック（簡易版）
+echo "🔄 Checking TDD cycle..."
+
+# 新しいテストファイルが追加されているか確認
+NEW_TEST_FILES=$(git diff --cached --name-only --diff-filter=A | grep 'test_.*\.py$')
+
+if [ -n "$NEW_TEST_FILES" ]; then
+    echo "✅ New test files detected - good TDD practice!"
+
+    # 対応する実装ファイルもあるか確認
+    for TEST_FILE in $NEW_TEST_FILES; do
+        # test_xxx.py から xxx を抽出
+        BASE_NAME=$(basename "$TEST_FILE" | sed 's/test_//' | sed 's/\.py$//')
+
+        # 実装ファイルを探す
+        IMPL_FILES=$(git diff --cached --name-only | grep "${BASE_NAME}\.py$" | grep -v test_)
+
+        if [ -z "$IMPL_FILES" ]; then
+            echo "⚠️  Warning: Test file $TEST_FILE added without corresponding implementation"
+            echo "   Following TDD? Make sure to write failing tests first!"
+        fi
+    done
+fi
+
+# 4. レイヤー依存関係の簡易チェック
+echo "🏗️  Checking layer dependencies..."
+
+# domainディレクトリのファイルがinfrastructureをインポートしていないか
+DOMAIN_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '^scripts/domain/.*\.py$')
+
+for FILE in $DOMAIN_FILES; do
+    if grep -q "from infrastructure" "$FILE" || grep -q "import infrastructure" "$FILE"; then
+        echo "❌ Layer violation detected in $FILE"
+        echo "   Domain layer should not import infrastructure!"
+        exit 1
+    fi
+done
+
+# 5. DDDチェックリストの確認（リマインダー）
+if [ -f "$PROJECT_ROOT/scripts/templates/ddd_implementation_checklist.md" ]; then
+    echo ""
+    echo "📋 Reminder: Have you reviewed the DDD implementation checklist?"
+    echo "   scripts/templates/ddd_implementation_checklist.md"
+fi
+
+echo ""
+echo "✅ All pre-commit checks passed!"
+echo ""
+
+exit 0

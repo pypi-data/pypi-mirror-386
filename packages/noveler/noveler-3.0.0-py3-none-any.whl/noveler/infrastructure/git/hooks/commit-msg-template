@@ -1,0 +1,105 @@
+#!/bin/bash
+# commit-msg template for structured commit messages
+# Conventional Commit + Jira ID integration
+
+set -e
+
+# カラー出力
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# エラーメッセージ表示関数
+show_error() {
+    echo -e "${RED}❌ コミットメッセージエラー: $1${NC}" >&2
+    echo -e "${YELLOW}💡 正しい形式:${NC}" >&2
+    echo -e "${BLUE}  feat: 新機能の追加${NC}" >&2
+    echo -e "${BLUE}  fix: バグ修正${NC}" >&2
+    echo -e "${BLUE}  refactor: リファクタリング${NC}" >&2
+    echo -e "${BLUE}  docs: ドキュメント更新${NC}" >&2
+    echo -e "${BLUE}  test: テスト追加・修正${NC}" >&2
+    echo -e "${BLUE}  chore: 雑務・設定変更${NC}" >&2
+    echo ""
+    echo -e "${YELLOW}📋 例:${NC}" >&2
+    echo -e "${BLUE}  feat: Phase 4 - 複雑度閾値の強制実装${NC}" >&2
+    echo -e "${BLUE}  fix: 品質チェッカーのNullPointerException修正${NC}" >&2
+    echo -e "${BLUE}  refactor: DDD準拠のエンティティ分離${NC}" >&2
+    echo ""
+    echo -e "${YELLOW}🔗 Jira連携 (オプション):${NC}" >&2
+    echo -e "${BLUE}  feat: [PROJ-123] 新機能の追加${NC}" >&2
+    exit 1
+}
+
+# 成功メッセージ表示関数
+show_success() {
+    echo -e "${GREEN}✅ コミットメッセージ検証完了${NC}"
+    echo -e "${BLUE}📝 メッセージ: $1${NC}"
+    if [[ "$2" != "" ]]; then
+        echo -e "${BLUE}🔗 Jira ID: $2${NC}"
+    fi
+}
+
+# 空のコミットメッセージチェック
+if [[ -z "$COMMIT_MSG" || "$COMMIT_MSG" =~ ^#.*$ ]]; then
+    show_error "コミットメッセージが空です"
+fi
+
+# マージコミットの除外
+if [[ "$COMMIT_MSG" =~ ^Merge\ branch ]]; then
+    echo -e "${YELLOW}⚠️ マージコミットを検出、検証をスキップします${NC}"
+    exit 0
+fi
+
+# リバートコミットの除外
+if [[ "$COMMIT_MSG" =~ ^Revert\ \" ]]; then
+    echo -e "${YELLOW}⚠️ リバートコミットを検出、検証をスキップします${NC}"
+    exit 0
+fi
+
+# Conventional Commit形式の検証
+CONVENTIONAL_COMMIT_REGEX="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,50}"
+
+# Jira ID付きのパターン
+JIRA_COMMIT_REGEX="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: \[([A-Z]+-[0-9]+)\] .{1,50}"
+
+# コミットメッセージの最初の行を取得
+FIRST_LINE=$(echo "$COMMIT_MSG" | head -n 1)
+
+# Jira ID付きパターンのチェック
+if [[ "$FIRST_LINE" =~ $JIRA_COMMIT_REGEX ]]; then
+    TYPE="${BASH_REMATCH[1]}"
+    JIRA_ID="${BASH_REMATCH[3]}"
+    show_success "$FIRST_LINE" "$JIRA_ID"
+    exit 0
+fi
+
+# 通常のConventional Commitパターンのチェック
+if [[ "$FIRST_LINE" =~ $CONVENTIONAL_COMMIT_REGEX ]]; then
+    TYPE="${BASH_REMATCH[1]}"
+    show_success "$FIRST_LINE"
+    exit 0
+fi
+
+# エラーの場合
+show_error "Conventional Commit形式に従っていません"
+
+# 具体的なエラー詳細
+if [[ ! "$FIRST_LINE" =~ ^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert) ]]; then
+    echo -e "${RED}  → 無効なタイプ: ${FIRST_LINE%%:*}${NC}" >&2
+    echo -e "${YELLOW}  → 有効なタイプ: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert${NC}" >&2
+fi
+
+if [[ ! "$FIRST_LINE" =~ : ]]; then
+    echo -e "${RED}  → コロン(:)が見つかりません${NC}" >&2
+fi
+
+if [[ "${#FIRST_LINE}" -gt 50 ]]; then
+    echo -e "${RED}  → 1行目が長すぎます (${#FIRST_LINE}文字 > 50文字)${NC}" >&2
+fi
+
+exit 1

@@ -1,0 +1,217 @@
+# 段階実行制御テスト用設定
+# ProgressiveTaskManagerの18ステップ執筆システム設定
+
+metadata:
+  version: "1.0.0"
+  system: "progressive_task_manager"
+  description: "18ステップ執筆システム用タスク定義（段階実行制御強化版）"
+
+phases:
+  structural_design:
+    name: "構造設計フェーズ"
+    description: "エピソードの骨格となる構造を設計"
+  content_development:
+    name: "内容開発フェーズ"
+    description: "具体的な内容を開発・詳細化"
+  writing_execution:
+    name: "執筆実行フェーズ"
+    description: "実際の文章執筆と調整"
+  quality_assurance:
+    name: "品質保証フェーズ"
+    description: "論理検証と品質確認"
+
+tasks:
+  - id: 0
+    name: "範囲の定義"
+    phase: "structural_design"
+    description: "エピソードの目的・範囲・文字数目標を明確に定義"
+    prerequisites: []
+    estimated_duration: "5-10分"
+    next_action: "execute_writing_step で step_id=0 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 1
+    name: "背骨（大骨）"
+    phase: "structural_design"
+    description: "エピソードの主要構造・大きな流れを設計"
+    prerequisites: [0]
+    estimated_duration: "10-15分"
+    next_action: "execute_writing_step で step_id=1 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 2
+    name: "中骨（節）"
+    phase: "structural_design"
+    description: "セクション・シーンの区切りと役割を設計"
+    prerequisites: [1]
+    estimated_duration: "10-15分"
+    next_action: "execute_writing_step で step_id=2 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 3
+    name: "テーマの独自性"
+    phase: "content_development"
+    description: "テーマの独自性と一貫性を確認・強化"
+    prerequisites: [2]
+    estimated_duration: "8-12分"
+    next_action: "execute_writing_step で step_id=3 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 4
+    name: "セクションバランス設計"
+    phase: "content_development"
+    description: "セクション間のバランスと文字数配分を設計"
+    prerequisites: [3]
+    estimated_duration: "10-15分"
+    next_action: "execute_writing_step で step_id=4 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 5
+    name: "小骨（シーン/ビート）"
+    phase: "content_development"
+    description: "個別シーンの詳細な構成とビートを設計"
+    prerequisites: [4]
+    estimated_duration: "15-20分"
+    next_action: "execute_writing_step で step_id=5 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 6
+    name: "論理検証"
+    phase: "quality_assurance"
+    description: "ストーリー論理の一貫性と整合性を検証"
+    prerequisites: [5]
+    estimated_duration: "10-15分"
+    next_action: "execute_writing_step で step_id=6 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 7
+    name: "キャラクター設定詳細化"
+    phase: "content_development"
+    description: "各キャラクターの背景・動機・口調を詳細に設定"
+    prerequisites: [6]
+    estimated_duration: "15-20分"
+    next_action: "execute_writing_step で step_id=7 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 8
+    name: "対話設計"
+    phase: "content_development"
+    description: "重要な対話シーンの設計とキャラクター間の相互作用"
+    prerequisites: [7]
+    estimated_duration: "15-20分"
+    next_action: "execute_writing_step で step_id=8 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 9
+    name: "感情カーブ設計"
+    phase: "content_development"
+    description: "読者の感情変化を意図的に設計・制御"
+    prerequisites: [8]
+    estimated_duration: "12-18分"
+    next_action: "execute_writing_step で step_id=9 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 10
+    name: "雰囲気・世界観描写"
+    phase: "content_development"
+    description: "場面の雰囲気と世界観の描写設計"
+    prerequisites: [9]
+    estimated_duration: "15-20分"
+    next_action: "execute_writing_step で step_id=10 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 11
+    name: "伏線配置"
+    phase: "content_development"
+    description: "効果的な伏線の配置と回収設計"
+    prerequisites: [10]
+    estimated_duration: "15-25分"
+    next_action: "execute_writing_step で step_id=11 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 12
+    name: "初稿執筆"
+    phase: "writing_execution"
+    description: "設計に基づいて実際の文章を執筆"
+    prerequisites: [11]
+    estimated_duration: "60-120分"
+    next_action: "execute_writing_step で step_id=12 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 13
+    name: "文体調整"
+    phase: "writing_execution"
+    description: "文章の流れやリズムを調整・統一"
+    prerequisites: [12]
+    estimated_duration: "30-45分"
+    next_action: "execute_writing_step で step_id=13 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 14
+    name: "描写強化"
+    phase: "writing_execution"
+    description: "五感描写と情景描写の強化"
+    prerequisites: [13]
+    estimated_duration: "25-35分"
+    next_action: "execute_writing_step で step_id=14 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 15
+    name: "読みやすさ最適化"
+    phase: "writing_execution"
+    description: "読者の読みやすさを重視した文章調整"
+    prerequisites: [14]
+    estimated_duration: "20-30分"
+    next_action: "execute_writing_step で step_id=15 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 16
+    name: "品質チェック"
+    phase: "quality_assurance"
+    description: "誤字脱字・表現の一貫性等の品質確認"
+    prerequisites: [15]
+    estimated_duration: "20-30分"
+    next_action: "execute_writing_step で step_id=16 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 17
+    name: "読者体験最適化"
+    phase: "quality_assurance"
+    description: "読者の体験・満足度を最適化する最終調整"
+    prerequisites: [16]
+    estimated_duration: "20-30分"
+    next_action: "execute_writing_step で step_id=17 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+  - id: 18
+    name: "最終確認・公開準備"
+    phase: "quality_assurance"
+    description: "最終確認と公開用フォーマット準備"
+    prerequisites: [17]
+    estimated_duration: "15-25分"
+    next_action: "execute_writing_step で step_id=18 を実行してください"
+    llm_instruction: "このステップのみを実行してください。複数ステップを一括で実行しないでください。"
+
+llm_templates:
+  step_completion: |
+    ステップ {step_id}「{step_name}」が完了しました。
+
+    実行結果：
+    {result_summary}
+
+    次のアクション：
+    {next_action}
+
+    {llm_instruction}
+
+  error_handling: |
+    ステップ {step_id}「{step_name}」でエラーが発生しました：
+    {error_message}
+
+    get_task_status ツールで現在の状況を確認してください。
+    修正後、同じステップを再実行してください。
+
+control_settings:
+  strict_execution: true
+  single_step_only: true
+  batch_execution_prevention: true

@@ -1,0 +1,383 @@
+# 品質チェックタスク定義ファイル
+# LLMによる段階的品質チェック実行のための詳細タスク定義
+# B20準拠: 既存実装を活用した段階的チェックシステム
+
+metadata:
+  version: "1.0.0"
+  description: "MCPサーバーでの品質チェック段階的実行用定義"
+  total_steps: 12
+  author: "noveler system"
+  based_on: "writing_tasks.yaml パターン"
+
+phases:
+  basic_quality:
+    name: "基本品質"
+    description: "誤字脱字・文法・表記統一の基本的な品質チェック"
+
+  story_quality:
+    name: "ストーリー品質"
+    description: "キャラクター一貫性・プロット整合性・世界観チェック"
+
+  structure_quality:
+    name: "構造品質"
+    description: "起承転結・伏線回収・シーン転換の構造チェック"
+
+  expression_quality:
+    name: "表現品質"
+    description: "文章表現・リズム・読みやすさの表現チェック"
+
+tasks:
+  # ===== 基本品質チェック =====
+  - id: 1
+    name: "誤字脱字チェック"
+    phase: "basic_quality"
+    description: "タイポ・変換ミス・入力ミスの検出と修正提案"
+    prerequisites: []
+    next_action: "文法チェックを実行してください"
+    llm_instruction: |
+      このステップでは基本的な誤字脱字をチェックしてください：
+      1. 明らかなタイポの検出
+      2. 変換ミス（同音異字）の確認
+      3. 入力ミス（重複文字、抜け文字）の発見
+      4. 修正提案の生成
+
+      次のMCPツール呼び出し：execute_check_step で step_id=2 を実行してください。
+    estimated_duration: "3-5分"
+    success_criteria:
+      - "明らかな誤字が0個になっている"
+      - "変換ミスが修正されている"
+      - "入力ミスが修正されている"
+
+  - id: 2
+    name: "文法・表記統一チェック"
+    phase: "basic_quality"
+    description: "文法の正確性と表記の一貫性を確認"
+    prerequisites: [1]
+    next_action: "読みやすさ基礎チェックを実行してください"
+    llm_instruction: |
+      文法と表記統一のチェックを行ってください：
+      1. 助詞の使い分け（は・が・を・に・で等）
+      2. 敬語・丁寧語の一貫性
+      3. 数字・記号の表記統一（全角・半角）
+      4. 句読点の適切な使用
+
+      次のMCPツール呼び出し：execute_check_step で step_id=3 を実行してください。
+    estimated_duration: "5-8分"
+    success_criteria:
+      - "助詞の使い方が適切"
+      - "敬語レベルが統一されている"
+      - "数字・記号表記が統一されている"
+      - "句読点が適切に配置されている"
+
+  - id: 3
+    name: "読みやすさ基礎チェック"
+    phase: "basic_quality"
+    description: "文の長さ・語彙の難易度・改行位置の基礎的チェック"
+    prerequisites: [2]
+    next_action: "キャラクター一貫性チェックを実行してください"
+    llm_instruction: |
+      読みやすさの基礎チェックを行ってください：
+      1. 文の長さが適切か（目安：40-80文字）
+      2. 難解な語彙の頻度確認
+      3. 改行・段落の適切性
+      4. 文章のリズムと流れ
+
+      次のMCPツール呼び出し：execute_check_step で step_id=4 を実行してください。
+    estimated_duration: "8-10分"
+    success_criteria:
+      - "長すぎる文が適切に分割されている"
+      - "難解語彙の使用が適度"
+      - "段落分けが読みやすい"
+      - "文章にリズムがある"
+
+  # ===== ストーリー品質チェック =====
+  - id: 4
+    name: "キャラクター一貫性チェック"
+    phase: "story_quality"
+    description: "登場人物の性格・行動・発言の一貫性を確認"
+    prerequisites: [3]
+    next_action: "プロット整合性チェックを実行してください"
+    llm_instruction: |
+      キャラクター一貫性チェックを行ってください：
+      1. 各キャラクターの性格設定との整合性
+      2. 前エピソードとの行動パターン一貫性
+      3. 発言・口調の特徴維持
+      4. 関係性の変化の自然さ
+
+      次のMCPツール呼び出し：execute_check_step で step_id=5 を実行してください。
+    estimated_duration: "10-15分"
+    success_criteria:
+      - "キャラクターが設定通りに行動している"
+      - "口調・発言パターンが一貫している"
+      - "関係性の変化が自然"
+      - "性格の矛盾がない"
+
+  - id: 5
+    name: "プロット整合性チェック"
+    phase: "story_quality"
+    description: "物語の流れ・因果関係・設定の論理的整合性を確認"
+    prerequisites: [4]
+    next_action: "世界観・設定チェックを実行してください"
+    llm_instruction: |
+      プロット整合性チェックを行ってください：
+      1. 物語の因果関係の論理性
+      2. 前エピソードとの整合性
+      3. 時系列の正確性
+      4. 設定の矛盾チェック
+
+      次のMCPツール呼び出し：execute_check_step で step_id=6 を実行してください。
+    estimated_duration: "12-18分"
+    success_criteria:
+      - "因果関係が論理的"
+      - "前エピソードと矛盾がない"
+      - "時系列が正確"
+      - "設定に一貫性がある"
+
+  - id: 6
+    name: "世界観・設定チェック"
+    phase: "story_quality"
+    description: "作品世界の設定・ルール・背景の一貫性を確認"
+    prerequisites: [5]
+    next_action: "構造・起承転結チェックを実行してください"
+    llm_instruction: |
+      世界観・設定チェックを行ってください：
+      1. 作品世界のルール・法則の一貫性
+      2. 地理・歴史設定の整合性
+      3. 社会制度・文化設定の矛盾チェック
+      4. 専門用語・固有名詞の統一
+
+      次のMCPツール呼び出し：execute_check_step で step_id=7 を実行してください。
+    estimated_duration: "10-12分"
+    success_criteria:
+      - "世界のルールが一貫している"
+      - "地理・歴史に矛盾がない"
+      - "社会制度が論理的"
+      - "用語・名称が統一されている"
+
+  # ===== 構造品質チェック =====
+  - id: 7
+    name: "構造・起承転結チェック"
+    phase: "structure_quality"
+    description: "物語構造・起承転結・シーン構成の効果性を確認"
+    prerequisites: [6]
+    next_action: "伏線・回収チェックを実行してください"
+    llm_instruction: |
+      構造・起承転結チェックを行ってください：
+      1. 起承転結の構造バランス
+      2. 各シーンの目的と効果
+      3. クライマックスの位置と効果
+      4. 物語の流れの自然さ
+
+      次のMCPツール呼び出し：execute_check_step で step_id=8 を実行してください。
+    estimated_duration: "15-20分"
+    success_criteria:
+      - "起承転結が明確で効果的"
+      - "各シーンに明確な目的がある"
+      - "クライマックスが効果的に配置されている"
+      - "物語の流れが自然"
+
+  - id: 8
+    name: "伏線・回収チェック"
+    phase: "structure_quality"
+    description: "伏線の設置・回収・読者への謎提示の適切性を確認"
+    prerequisites: [7]
+    next_action: "シーン転換チェックを実行してください"
+    llm_instruction: |
+      伏線・回収チェックを行ってください：
+      1. 伏線の適切な設置
+      2. 回収のタイミングと効果
+      3. 読者への情報提示のバランス
+      4. 謎・疑問の解決度合い
+
+      次のMCPツール呼び出し：execute_check_step で step_id=9 を実行してください。
+    estimated_duration: "12-15分"
+    success_criteria:
+      - "伏線が適切に設置されている"
+      - "回収が効果的なタイミング"
+      - "情報提示のバランスが良い"
+      - "謎が適切に解決されている"
+
+  - id: 9
+    name: "シーン転換チェック"
+    phase: "structure_quality"
+    description: "シーン間の転換・接続・時間経過の自然さを確認"
+    prerequisites: [8]
+    next_action: "文章表現・文体チェックを実行してください"
+    llm_instruction: |
+      シーン転換チェックを行ってください：
+      1. シーン間の接続の自然さ
+      2. 時間・場所の転換の明確性
+      3. 読者の混乱を避ける工夫
+      4. 転換のリズムと効果
+
+      次のMCPツール呼び出し：execute_check_step で step_id=10 を実行してください。
+    estimated_duration: "8-12分"
+    success_criteria:
+      - "シーン転換が自然"
+      - "時空間の移動が明確"
+      - "読者が混乱しない"
+      - "転換にリズムがある"
+
+  # ===== 表現品質チェック =====
+  - id: 10
+    name: "文章表現・文体チェック"
+    phase: "expression_quality"
+    description: "表現の豊かさ・文体の統一・語彙選択の適切性を確認"
+    prerequisites: [9]
+    next_action: "リズム・テンポチェックを実行してください"
+    llm_instruction: |
+      文章表現・文体チェックを行ってください：
+      1. 表現の豊かさと多様性
+      2. 文体の統一と一貫性
+      3. 語彙選択の適切性
+      4. 比喩・描写の効果性
+
+      次のMCPツール呼び出し：execute_check_step で step_id=11 を実行してください。
+    estimated_duration: "15-20分"
+    success_criteria:
+      - "表現が豊かで多様"
+      - "文体が統一されている"
+      - "語彙選択が適切"
+      - "比喩・描写が効果的"
+
+  - id: 11
+    name: "リズム・テンポチェック"
+    phase: "expression_quality"
+    description: "文章のリズム・読書テンポ・緊張感の調整を確認"
+    prerequisites: [10]
+    next_action: "総合品質認定を実行してください"
+    llm_instruction: |
+      リズム・テンポチェックを行ってください：
+      1. 文章のリズムと韻律
+      2. 読書テンポの適切性
+      3. 緊張感・緩急のメリハリ
+      4. 読者の注意力維持
+
+      次のMCPツール呼び出し：execute_check_step で step_id=12 を実行してください。
+    estimated_duration: "10-15分"
+    success_criteria:
+      - "文章にリズムがある"
+      - "読書テンポが適切"
+      - "緊張感にメリハリがある"
+      - "読者の注意を維持できる"
+
+  - id: 12
+    name: "総合品質認定"
+    phase: "expression_quality"
+    description: "全体的な品質の最終確認と公開可否判定"
+    prerequisites: [11]
+    next_action: "品質チェック完了"
+    llm_instruction: |
+      総合品質認定を行ってください：
+      1. 全チェック項目の総合評価
+      2. 読者視点での満足度予測
+      3. 公開レベルの品質判定
+      4. 改善提案の優先度付け
+
+      全ステップが完了しました。品質チェックが完了しました！
+    estimated_duration: "8-10分"
+    success_criteria:
+      - "全体的な品質が高い"
+      - "読者満足度が期待できる"
+      - "公開に値する完成度"
+      - "改善点が明確になっている"
+
+# 実行制御設定
+execution_control:
+  allow_skip: false  # ステップのスキップを許可するか
+  require_confirmation: true  # 各ステップ実行前に確認を求めるか
+  auto_progress: false  # 自動で次のステップに進むか（falseでLLMの判断待ち）
+  error_recovery: "pause_and_notify"  # エラー時の動作
+  file_io_enabled: true  # ファイル入出力機能を有効化
+
+# LLM向け指示テンプレート
+llm_templates:
+  step_completion: |
+    ステップ {step_id}「{step_name}」が完了しました。
+
+    実行結果の概要：
+    {result_summary}
+
+    次のアクション：
+    {next_action}
+
+    {llm_instruction}
+
+  error_handling: |
+    ステップ {step_id}「{step_name}」の実行中にエラーが発生しました：
+    {error_message}
+
+    対処方法：
+    1. エラーの原因を確認してください
+    2. 必要に応じて前のステップに戻って修正してください
+    3. 再度同じステップを実行してください
+
+    get_check_status ツールで現在の状況を確認できます。
+
+  progress_summary: |
+    現在の品質チェック進捗状況：
+    - 完了ステップ: {completed_steps}/{total_steps}
+    - 進捗率: {progress_percentage}%
+    - 現在のフェーズ: {current_phase}
+    - 次のステップ: {next_step}
+
+    続行するには、execute_check_step で step_id={next_step_id} を実行してください。
+
+# ファイル入出力設定
+file_io_settings:
+  session_format: "EP{episode:03d}_{timestamp}"  # EP001_202501091430
+  timestamp_format: "%Y%m%d%H%M"
+  base_directory: ".noveler/checks"
+  file_types:
+    input: "{session_id}_step_{step_id}_input.json"
+    output: "{session_id}_step_{step_id}_output.json"
+    result: "{session_id}_step_{step_id}_result.json"
+    state: "{session_id}_session_state.json"
+
+  # 保存内容の定義
+  input_structure:
+    step_info:
+      - step_id
+      - step_name
+      - phase
+      - description
+    target_content:
+      - episode_number
+      - manuscript_path
+      - content_text
+    check_parameters:
+      - check_type
+      - focus_areas
+      - severity_threshold
+    session_context:
+      - previous_results
+      - user_preferences
+      - project_settings
+
+  output_structure:
+    check_results:
+      - issues_found
+      - severity_scores
+      - improvement_suggestions
+    performance_metrics:
+      - execution_time
+      - words_checked
+      - issues_per_category
+    next_step_guidance:
+      - recommended_action
+      - priority_items
+      - estimated_effort
+
+  result_structure:
+    summary:
+      - step_completion_status
+      - overall_score
+      - key_findings
+    detailed_results:
+      - issue_list
+      - fix_suggestions
+      - quality_metrics
+    continuity:
+      - next_step_ready
+      - prerequisites_met
+      - session_progress

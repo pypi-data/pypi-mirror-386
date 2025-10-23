@@ -1,0 +1,131 @@
+metadata:
+  version: "1.0.0"
+  last_updated: "2025-09-11"
+
+prompt_templates:
+  basic_writing_request:
+    template: |
+      以下の条件で小説を執筆してください：
+
+      【基本条件】
+      - 字数：{word_count}字
+      - 視点：{viewpoint}（{viewpoint_character}視点）
+      - ジャンル：{genre}
+      - 参照ファイル：
+        - プロジェクト: {project_path}
+        - プロット: {project_path}/20_プロット/{episode_file}
+
+      【表現ルール】
+      禁止表現：
+      {forbidden_expressions}
+
+      推奨表現：
+      {recommended_expressions}
+
+      【ジャンル特化要件】
+      {genre_specific_requirements}
+    variables:
+      forbidden_expressions:
+        - "〜と思った"
+        - "〜という気持ち"
+        - "〜を感じた"
+        - "〜な雰囲気"
+      recommended_expressions:
+        - "感情 → 身体反応で表現"
+        - "抽象 → 具体的描写で表現"
+        - "説明 → 体験として表現"
+
+quality_standards:
+  critical:
+    paragraph_design:
+      name: "段落設計の原則遵守"
+      description: "1段落=1意味、2-4行を維持"
+    viewpoint_unity:
+      name: "視点統一の維持"
+      description: "視点ブレを防止する"
+    forbidden_free:
+      name: "禁止表現の排除"
+      description: "A30テンプレート準拠"
+
+validation_checklist:
+  mandatory_checks:
+    - check: "参照ファイルの存在確認（プロット/設定）"
+    - check: "ジャンル別ルールの読込"
+    - check: "禁止表現チェックの有効化"
+  recommended_checks:
+    - check: "語彙バリエーション最適化"
+    - check: "テンポ（リズム）の改善"
+
+genre_specifications:
+  fantasy:
+    name: "ファンタジー"
+    specific_rules:
+      - { rule: "世界観の示し方", method: "説明語りではなく体験として提示（五感描写）" }
+      - { rule: "魔法/能力の提示", method: "導入2-3節にルールを暗示" }
+    template_additions:
+      - "導入でフック（①異変/②葛藤/③魅力）を1つ必ず置く"
+  sci-fi:
+    name: "SF"
+    specific_rules:
+      - { rule: "設定提示", method: "ガジェット/仮説は主人公の行動と絡めて提示" }
+      - { rule: "因果整合性", method: "技術・世界観の因果を矛盾なく保持" }
+    template_additions:
+      - "1章末に科学的/社会的問いを明確化"
+  mystery:
+    name: "ミステリー"
+    specific_rules:
+      - { rule: "伏線設置", method: "3箇所以上、役割を分散（人物/物/台詞）" }
+      - { rule: "手がかり提示", method: "公正性を維持（後出しを避ける）" }
+    template_additions:
+      - "各章末に事実整理の短い要約を入れる"
+
+usage_examples:
+  fantasy_basic:
+    prompt: |
+      【参考例: ファンタジー導入】
+      冒頭で主人公の欠落と世界の異物感を同時に提示し、
+      2-3段落目までにフック（危機/発見/誘い）を置く。
+  sci-fi_basic:
+    prompt: |
+      【参考例: SF導入】
+      科学要素は独白や説明ではなく行動に織り交ぜて開示する。
+  mystery_basic:
+    prompt: |
+      【参考例: ミステリー導入】
+      事件の骨子（被害/状況/制約）を簡潔に提示し、公正性を最初から担保する。
+
+troubleshooting:
+  common_problems:
+    explanatory_writing:
+      problem: "説明的になっている"
+      solution:
+        - "抽象を具体に落とす（身体反応/五感）"
+        - "情報は行動と紐付けて開示"
+    short_sentence_burst:
+      problem: "連続短文で単調"
+      solution:
+        - "2-3文を統合して段落設計を再適用"
+        - "描写の密度を意図的に変化させる"
+
+stepwise_writing_system:
+  methodology: "A30準拠10段階構造化執筆プロセス"
+  stages:
+    stage1:
+      name: "Stage 1: 参照/前提確認"
+      objective: "プロット/設定の前提同期"
+      required_files:
+        - { type: plot, path: "{project_path}/20_プロット/{episode_file}" }
+        - { type: world_setting, path: "{project_path}/30_設定集/世界観.yaml" }
+        - { type: character_setting, path: "{project_path}/30_設定集/キャラクター.yaml" }
+      tasks:
+        - { id: viewpoint_character, name: "視点人物の固定", details: "本話の視点は{viewpoint_character}。ブレないこと。" }
+        - { id: expression_cleanup, name: "禁止表現の洗い出し", details: "禁止表現を初期から排除" }
+      completion_marker: "■ Stage 1 完了"
+    stage2:
+      name: "Stage 2: 導入/フック設計"
+      objective: "冒頭で読者を掴む"
+      tasks:
+        - { id: opening_golden_rule, name: "冒頭3行の黄金律", rules: ["主体/目的/障害の暗示", "未解決の問いを残す"] }
+      completion_marker: "■ Stage 2 完了"
+  final_output:
+    completion_instruction: "全段階を統合した完成原稿を出力してください"
