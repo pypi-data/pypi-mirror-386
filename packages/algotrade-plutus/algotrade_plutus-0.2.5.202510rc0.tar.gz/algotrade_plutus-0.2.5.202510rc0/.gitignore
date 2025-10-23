@@ -1,0 +1,22 @@
+.idea*
+dist*
+*__pycache__*
+.DS_Store*
+CLAUDE.md
+
+# Personal configuration (contains dataset paths)
+config.cfg
+
+# Keep template tracked
+!config.cfg.template
+
+idocs
+.claude*
+.gemini*
+.venv
+.pytest_*
+
+# Sphinx documentation build artifacts
+docs/_build/
+docs/_static/
+docs/_templates/
