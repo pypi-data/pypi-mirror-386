@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "spatiopath"
+version = "0.1.0"
+description = "A toolkit for spatial pathology analysis"
+authors = [{ name = "Mounib", email = "mbenimam@pasteur.fr" }]
+readme = "README.md"
+license = { text = "GPL-3.0" }
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-image",
+    "opencv-python",
+    "matplotlib",
+    "seaborn",
+    "shapely",
+    "tqdm",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["spatiopath"]
