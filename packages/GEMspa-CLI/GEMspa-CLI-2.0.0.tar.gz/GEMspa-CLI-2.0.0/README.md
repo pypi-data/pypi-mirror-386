@@ -1,0 +1,356 @@
+# GEMspa-CLI: Single-Particle Tracking Analysis (v2.0.0)
+
+**Advanced, modular single-particle tracking (SPT) and ensemble diffusion analysis for microscopy data.**
+
+---
+
+## Overview
+
+`gemspa-cli` is a command-line interface for **GEMspa**, a modular single-particle tracking and diffusion analysis suite.  
+It performs robust trajectory extraction, per-track MSD fitting, ensemble averaging, step-size statistics, and condition-wise comparisons.
+
+### New in v2.0.0
+
+- **Integrated split metrics by condition** - Automatically generates condition-grouped CSV files
+- **Steps and tracks analysis** - Heatmaps and track overlays with step-size coloring
+- **Flexible condition extraction** - Removes date codes and handles any dataset naming
+- **Unified filtering system** - Consistent filtering across all analysis modules
+- **Enhanced CLI interface** - New flags for advanced visualization and analysis
+- **PyPI ready** - Clean package structure optimized for distribution
+
+### Features
+
+- **Advanced group analysis** with automatic metrics splitting by condition
+- **TrackMate cleaning utility** (`--clean-trackmate`)
+- **Unified global filtering parameters** for D and α across the entire pipeline
+- **Step-size vs brightness heatmaps** with customizable parameters
+- **Track overlays** colored by step size for visual analysis
+- **Cross-condition comparison plots** with KS statistical annotations
+- **Modular architecture** supporting automatic condition detection and flexible I/O
+
+---
+
+## Installation
+
+### Install from PyPI (Recommended)
+
+```bash
+pip install GEMspa-CLI
+```
+
+### Create a virtual environment (Optional but recommended)
+
+```bash
+python3 -m venv ~/venvs/gemspa
+source ~/venvs/gemspa/bin/activate
+```
+
+Windows PowerShell:
+
+```powershell
+python -m venv %USERPROFILE%\venvs\gemspa
+%USERPROFILE%\venvs\gemspa\Scripts\Activate.ps1
+```
+
+### Install from source
+
+```bash
+git clone https://github.com/your-username/GEMspa-CLI.git
+cd GEMspa-CLI
+pip install -e .
+```
+
+---
+
+## New Features in v2.0.0
+
+### Split Metrics by Condition
+Automatically generates condition-grouped CSV files for easy statistical analysis:
+
+```bash
+# This happens automatically during advanced group analysis
+python -m gemspa.cli -d /path/to/data --time-step 0.01 --micron-per-px 0.11
+# Creates: grouped_advanced_analysis/split_metrics_by_condition/
+#   - D_fit.csv, alpha_fit.csv, r2_fit.csv, etc.
+```
+
+### Steps and Tracks Analysis
+Generate heatmaps and track overlays with step-size coloring:
+
+```bash
+# Generate both heatmaps and track overlays
+python -m gemspa.cli -d /path/to/data --steps-tracks
+
+# Generate only heatmaps
+python -m gemspa.cli -d /path/to/data --steps-tracks --steps-tracks-mode heatmaps
+
+# Generate only track overlays with custom settings
+python -m gemspa.cli -d /path/to/data --steps-tracks --steps-tracks-mode tracks \
+  --line-width 1.0 --invert-lut-tracks --min-track-length 15
+```
+
+### Flexible Condition Extraction
+Handles any dataset naming convention by removing date codes and replicate numbers:
+
+- `Traj_20220706_G12V_4.csv` → `G12V`
+- `Traj_20220708_G12V_13.csv` → `G12V` (properly pooled!)
+- `Traj_20220706_HKWT_2.csv` → `HKWT`
+
+---
+
+## Workflow Overview
+
+```
+ ┌──────────────────────────────────────────────┐
+ │ TrackMate export  →  gemspa-cli pipeline     │
+ └──────────────────────────────────────────────┘
+        │
+        ├── (optional) --clean-trackmate
+        │        → Traj_<COND>_<REP>.csv
+        │
+        ├── Per-replicate trajectory analysis
+        │        → D_fit, α_fit, r², MSD curves, rainbow overlay
+        │
+        ├── Ensemble pooling by condition
+        │        → grouped_raw / grouped_filtered
+        │
+        ├── (optional) --step-size-analysis
+        │        → KDEs, α₂ non-Gaussian stats, KS tests
+        │
+        ├── (optional) automatic advanced grouped analysis (default is on)
+        │        → grouped_advanced_analysis/
+        │
+        └── Cross-condition comparison
+                 → comparison/*.png
+```
+
+---
+
+## Core Analysis Logic
+
+### 1. Mean-Square Displacement (MSD)
+
+For each trajectory of \(N\) frames:
+
+\[
+\mathrm{MSD}(\tau) = \langle (x_{i+\tau} - x_i)^2 + (y_{i+\tau} - y_i)^2 \rangle_i
+\]
+
+where \(\tau\) is the time lag in seconds (`τ = frame × --time-step`).
+
+---
+
+### 2. Diffusion Coefficient (D)
+
+Linear fit to the early MSD regime:
+
+\[
+\mathrm{MSD}(\tau) \approx 4D\tau \quad \Rightarrow \quad D = \frac{1}{4}\frac{d(\mathrm{MSD})}{d\tau}
+\]
+
+---
+
+### 3. Anomalous Exponent (α)
+
+Log–log slope across valid lags:
+
+\[
+\log_{10}\!\big[\mathrm{MSD}(\tau)\big] = \alpha \log_{10}(\tau) + \log_{10}(4D)
+\]
+
+- α ≈ 1 → normal diffusion  
+- α < 1 → subdiffusive  
+- α > 1 → superdiffusive
+
+---
+
+### 4. Non-Gaussian Parameter (α₂)
+
+Quantifies deviation from Brownian motion based on step-size moments:
+
+\[
+\alpha_2 = \frac{\langle r^4 \rangle}{3\langle r^2 \rangle^2} - 1
+\]
+
+---
+
+### 5. Velocity Autocorrelation (VACF)
+
+Used in Advanced grouped analysis:
+
+\[
+\mathrm{VACF}(k) = \frac{\langle \vec{v}_i \cdot \vec{v}_{i+k} \rangle}
+                        {\langle \vec{v}_i \cdot \vec{v}_i \rangle}
+\]
+
+---
+
+## Command-Line Usage
+
+```bash
+gemspa-cli -d /path/to/folder [options]
+```
+
+**Required**
+- `-d, --work-dir` : Directory with trajectory CSVs
+
+### Common Options
+
+#### Input Discovery
+- `--csv-pattern` Glob for CSVs (default: `Traj_*.csv`)
+- For TrackMate: `"*Spots in tracks*.csv"`
+
+#### Acquisition / Units
+- `--time-step` Seconds between frames  
+- `--micron-per-px` Pixel size in µm
+
+#### Track/fit Constraints
+- `--min-track-len` Minimum frames per track  
+- `--tlag-cutoff` Maximum lag (frames) for MSD fit
+
+#### Parallelism
+- `-j, --n-jobs` Processes across replicates  
+- `--threads-per-rep` Threads per replicate
+
+#### Rainbow Tracks (optional)
+- `--rainbow-tracks` Enable colored overlays  
+- `--img-prefix` Image prefix (e.g., `MAX_`)  
+- `--rainbow-min-D`, `--rainbow-max-D`, `--rainbow-colormap`, `--rainbow-scale`, `--rainbow-dpi`
+
+#### Ensemble Filters (shared globally)
+- `--filter-D-min`, `--filter-D-max` (µm²/s)  
+- `--filter-alpha-min`, `--filter-alpha-max`
+
+#### Optional Analyses
+- `--step-size-analysis` Enable step-size KDE + KS plots  
+- `--clean-trackmate` Run TrackMate CSV cleaner and exit  
+- `--no-advanced-group` Disable automatic advanced analysis
+
+---
+
+## Outputs
+
+### Per Replicate `<COND>_<REP>/`
+- `msd_results.csv` : Per-track D_fit, α_fit, r²_fit  
+- `msd_vs_tau.png` : Linear MSD vs τ with D estimate  
+- `msd_vs_tau_loglog.png` : Log–log MSD vs τ with α slope  
+- `D_fit_distribution.png` : Histogram of D (log x-axis)  
+- `alpha_vs_logD.png` : Scatter of α vs log₁₀ D  
+- `rainbow_tracks.png` : Colored trajectories (if enabled)
+
+### Ensemble Level
+- `grouped_raw/` and `grouped_filtered/` subfolders  
+- Ensemble-averaged MSD plots (`ensemble_msd_vs_tau_<COND>.png`)  
+- Step-size KDEs (`step_kde_<COND>_(ensemble).png`, filtered variants)  
+  - Global limits: **x ≤ 3 µm**, **y ≥ 1e-5** (log-scale)
+
+### Comparison (`comparison/`)
+- `ensemble_filtered_D_histograms.png` (log-scale with KS annotation)  
+- `ensemble_filtered_alpha_histograms.png`  
+- `replicate_median_D_boxplot.png`
+
+### Advanced Grouped Analysis (`grouped_advanced_analysis/`)
+Automatically runs unless `--no-advanced-group` is specified.
+
+**Per-track metrics**
+```
+track_id, condition, D_fit, alpha_fit, r2_fit, vacf_lag1,
+confinement_idx, hull_area_um2, tortuosity, n_frames
+```
+
+**Plots**
+- D_fit and α_fit box/violin plots by condition  
+- VACF histograms and mean curves  
+- Convex-hull area vs tortuosity scatterplots
+
+### TrackMate Cleaner (`--clean-trackmate`)
+Cleans TrackMate exports to GEMspa schema (`x, y, frame, track_id`) and standardizes names as:
+```
+Traj_<COND>_<REP>.csv
+```
+
+Options:  
+- `--clean-out-dir` : Output directory  
+- `--clean-include-date` : Include date codes (YYMMDD / YYYYMMDD)  
+- `--clean-move` : Move instead of copy  
+- `--clean-dry-run` : Preview only
+
+---
+
+## Example Commands
+
+```bash
+# Clean TrackMate CSVs only
+gemspa-cli -d /data/TrackMateExports --clean-trackmate
+
+# Full GEMspa run (auto advanced group analysis, no step-size)
+gemspa-cli -d /data/GEMspa --time-step 0.03 --micron-per-px 0.11 --min-track-len 4 --tlag-cutoff 4
+
+# Include step-size and rainbow overlays
+gemspa-cli -d /data/GEMspa --rainbow-tracks --step-size-analysis
+
+# Skip Advanced analysis module
+gemspa-cli -d /data/GEMspa --no-advanced-group
+```
+
+---
+
+## Mathematical Summary
+
+| Symbol | Definition | Units |
+|:-------:|-------------|:------:|
+| τ | Time lag ( frame × Δt ) | s |
+| MSD(τ) | Mean square displacement | µm² |
+| D | Diffusion coefficient | µm²/s |
+| α | Anomalous exponent | – |
+| α₂ | Non-Gaussian parameter | – |
+| VACF | Velocity autocorrelation | – |
+| T | Tortuosity | – |
+| A_hull | Convex-hull area | µm² |
+
+---
+
+## Output Organization
+
+```
+<work_dir>/
+├── <COND>_<REP>/
+│   ├── msd_results.csv
+│   ├── msd_vs_tau.png
+│   └── ...
+├── grouped_raw/
+│   ├── msd_results.csv
+│   └── step_kde/
+├── grouped_filtered/
+│   ├── msd_results.csv
+│   └── step_kde/
+├── grouped_advanced_analysis/
+└── comparison/
+```
+
+---
+
+## Citation
+
+If you use this software, please cite:
+
+> **Bazley A., Keegan S. et al.** 
+> [GEMspa-CLI (PyPI)](https://pypi.org/project/GEMspa-CLI/)
+
+
+---
+
+## Acknowledgements
+
+Developed by  
+1. **Andrew Bazley** and **Sarah Keegan** — *Liam Holt and David Fenyo Labs, Institute for Systems Genetics, NYU Langone Health*  
+2. **David Duran** — *Liam Holt Lab, Institute for Systems Genetics, NYU Langone Health*
+
+**Original build:** [gemspa-spt (PyPI)](https://pypi.org/project/gemspa-spt/)  
+**Primary reference:** [Keegan et al., *bioRxiv* 2023.06.26.546612](https://www.biorxiv.org/content/10.1101/2023.06.26.546612v1)
+
+---
+
+---
+
+© 2025 GEMspa Project · MIT License
