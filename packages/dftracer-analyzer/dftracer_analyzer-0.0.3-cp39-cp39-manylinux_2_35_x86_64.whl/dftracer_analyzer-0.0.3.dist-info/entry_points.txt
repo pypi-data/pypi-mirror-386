@@ -1,0 +1,4 @@
+[console_scripts]
+dfanalyzer = dftracer.analyzer.__main__:main
+dfanalyzer-cluster = dftracer.analyzer.cluster:main
+
