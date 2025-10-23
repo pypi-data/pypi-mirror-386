@@ -1,0 +1,14 @@
+[project]
+name = 'quasi_utils'
+version = "0.1.86"
+description = 'Utilities for OMS'
+readme = 'README.md'
+authors = [{ name = 'Kaustubh Dixit', email = 'hi.stockemy@gmail.com' }]
+license-files = ['LICENSE']
+keywords = ['trading', 'algorithm', 'nifty']
+requires-python = '>=3.13'
+dependencies = [
+    'pyjwt>=2.10.1',
+    "python-dotenv>=1.1.1",
+    'requests>=2.32.5',
+]
