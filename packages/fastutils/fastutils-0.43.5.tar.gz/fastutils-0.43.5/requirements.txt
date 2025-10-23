@@ -1,0 +1,42 @@
+bizerror
+pypinyin
+jsonformatter
+requests
+pytz
+python-dateutil
+zenutils
+
+pycryptodome; python_version=='2.7'
+pycryptodome; python_version>='3.3'
+pycryptodome==3.6.6; python_version=='3.2'
+
+
+Pillow; python_version=='2.7'
+Pillow; python_version>='3.8'
+Pillow==9.5.0; python_version=='3.7'
+Pillow==8.4.0; python_version=='3.6'
+Pillow==7.2.0; python_version=='3.5'
+Pillow==5.4.1; python_version=='3.4'
+Pillow==4.3.0; python_version=='3.3'
+Pillow==4.3.0; python_version=='3.2'
+
+rsa<4.7; python_version=='2.7'
+rsa; python_version>='3.5'
+rsa<4.7; python_version=='3.4'
+rsa<=4.0; python_version=='3.3'
+rsa<=4.3; python_version=='3.2'
+
+PyYAML==5.4.1; python_version=='2.7'
+PyYAML; python_version>'3.4'
+PyYAML==5.2; python_version=='3.4'
+PyYAML==3.11; python_version=='3.3'
+PyYAML==3.11; python_version=='3.2'
+
+psutil==5.9.0; python_version=='2.6'
+psutil; python_version=='2.7'
+psutil; python_version>='3.3'
+psutil==5.4.3; python_version=='3.2'
+
+msgpack; python_version=='2.7'
+msgpack; python_version>='3.3'
+msgpack==1.0.3; python_version=='3.2'

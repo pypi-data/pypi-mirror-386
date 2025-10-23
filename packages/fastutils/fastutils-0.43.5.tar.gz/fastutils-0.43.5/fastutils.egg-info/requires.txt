@@ -1,0 +1,59 @@
+bizerror
+pypinyin
+jsonformatter
+requests
+pytz
+python-dateutil
+zenutils
+
+[:python_version == "2.6"]
+psutil==5.9.0
+
+[:python_version == "2.7"]
+pycryptodome
+Pillow
+rsa<4.7
+PyYAML==5.4.1
+psutil
+msgpack
+
+[:python_version == "3.2"]
+pycryptodome==3.6.6
+Pillow==4.3.0
+rsa<=4.3
+PyYAML==3.11
+psutil==5.4.3
+msgpack==1.0.3
+
+[:python_version == "3.3"]
+Pillow==4.3.0
+rsa<=4.0
+PyYAML==3.11
+
+[:python_version == "3.4"]
+Pillow==5.4.1
+rsa<4.7
+PyYAML==5.2
+
+[:python_version == "3.5"]
+Pillow==7.2.0
+
+[:python_version == "3.6"]
+Pillow==8.4.0
+
+[:python_version == "3.7"]
+Pillow==9.5.0
+
+[:python_version > "3.4"]
+PyYAML
+
+[:python_version >= "3.3"]
+pycryptodome
+psutil
+msgpack
+
+[:python_version >= "3.5"]
+rsa
+
+[:python_version >= "3.8"]
+Pillow
