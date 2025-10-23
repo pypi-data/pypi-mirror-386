@@ -1,0 +1,12 @@
+airflow/providers/apache/pig/LICENSE,sha256=gXPVwptPlW1TJ4HSuG5OMPg-a3h43OGMkZRR1rpwfJA,10850
+airflow/providers/apache/pig/__init__.py,sha256=8UfyuAGdGoC1DHQq_Ipip4zka0gHr81PewIgl64SSZs,1499
+airflow/providers/apache/pig/get_provider_info.py,sha256=CtKdG7lK8ytBQIgMuGzWqZ9b_V_9AK9VASSUZ59wN3A,2134
+airflow/providers/apache/pig/version_compat.py,sha256=A6a37mMJVpSRlvL7wAMj4VGbFao3-lnRXMgnU3F3nLE,1676
+airflow/providers/apache/pig/hooks/__init__.py,sha256=mlJxuZLkd5x-iq2SBwD3mvRQpt3YR7wjz_nceyF1IaI,787
+airflow/providers/apache/pig/hooks/pig.py,sha256=ZJYtully1P8PcTTF1f0ZSAkF0Bm9z6IrnEQQh3hmxWI,4130
+airflow/providers/apache/pig/operators/__init__.py,sha256=mlJxuZLkd5x-iq2SBwD3mvRQpt3YR7wjz_nceyF1IaI,787
+airflow/providers/apache/pig/operators/pig.py,sha256=OsTtqJp3QqmItJ2XEjkyN4Gi-LnQ0kz1wR8ccF3wNTk,3039
+apache_airflow_providers_apache_pig-4.7.3rc1.dist-info/entry_points.txt,sha256=BEFKCX9PB4rzDFY69Y8BcWYcyiiqc_CUZ8cYyAFt8-w,106
+apache_airflow_providers_apache_pig-4.7.3rc1.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+apache_airflow_providers_apache_pig-4.7.3rc1.dist-info/METADATA,sha256=Xo4RW4L5v4QpHh6YcDbjfUflxVyEgLyGAZgvPxaWGtk,4284
+apache_airflow_providers_apache_pig-4.7.3rc1.dist-info/RECORD,,
