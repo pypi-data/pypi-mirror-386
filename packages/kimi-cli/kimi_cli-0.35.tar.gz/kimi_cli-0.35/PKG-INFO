@@ -1,0 +1,24 @@
+Metadata-Version: 2.3
+Name: kimi-cli
+Version: 0.35
+Summary: Kimi CLI is your next CLI agent.
+Requires-Dist: agent-client-protocol>=0.4.9
+Requires-Dist: aiofiles>=25.1.0
+Requires-Dist: aiohttp>=3.13.1
+Requires-Dist: click>=8.3.0
+Requires-Dist: kosong>=0.14.1
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: patch-ng>=1.19.0
+Requires-Dist: prompt-toolkit>=3.0.52
+Requires-Dist: pyyaml>=6.0.3
+Requires-Dist: rich>=14.2.0
+Requires-Dist: ripgrepy>=2.2.0
+Requires-Dist: streamingjson>=0.0.5
+Requires-Dist: trafilatura>=2.0.0
+Requires-Dist: tenacity>=9.1.2
+Requires-Dist: fastmcp>=2.12.5
+Requires-Dist: pydantic>=2.12.3
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+# Kimi CLI
