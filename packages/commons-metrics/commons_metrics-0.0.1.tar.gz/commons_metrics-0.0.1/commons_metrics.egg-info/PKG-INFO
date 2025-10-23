@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: commons-metrics
+Version: 0.0.1
+Summary: A simple library for basic statistical calculations
+Author: Bancolombia
+Author-email: omar.david.pino@email.com
+License: MIT
+Requires-Python: >=3.7
+License-File: LICENSE
