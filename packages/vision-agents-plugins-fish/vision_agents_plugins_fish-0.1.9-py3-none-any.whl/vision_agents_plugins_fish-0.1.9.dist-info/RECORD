@@ -1,0 +1,13 @@
+./.gitignore,sha256=S6wPCu4rBDB_yyTYoXbMIR-pn4OPv6b3Ulnx1n5RWvo,916
+./PKG-INFO,sha256=Jc91BZCdUDMgYJ7uoWJ79Ntv9RGmf0K2xQOaClzYEME,2014
+./README.md,sha256=NEi16btFsfAHE2tzOyLzLJqs2yvcjzZVA5YMbMcblC4,1505
+./pyproject.toml,sha256=TUOSdFC0hH0qT3YQseM9_hgz0kpjZ2Dxu9mofo4shLU,984
+./vision_agents/__init__.py,sha256=xMYgYbrV3jCuCfS5E2004VD-81LVxQ1Z8EtXMlpKWAM,86
+./vision_agents/plugins/fish/__init__.py,sha256=yDJe4FB8N08XUHQ_Q8JEOOg7DiO3X33-JAhFOyF8fWY,41
+./vision_agents/plugins/fish/tts.py,sha256=8hpNvCbQ7qLyVVwD5pmvM_t47hbetfojs2VJ2ccebbI,4139
+vision_agents/__init__.py,sha256=xMYgYbrV3jCuCfS5E2004VD-81LVxQ1Z8EtXMlpKWAM,86
+vision_agents/plugins/fish/__init__.py,sha256=yDJe4FB8N08XUHQ_Q8JEOOg7DiO3X33-JAhFOyF8fWY,41
+vision_agents/plugins/fish/tts.py,sha256=8hpNvCbQ7qLyVVwD5pmvM_t47hbetfojs2VJ2ccebbI,4139
+vision_agents_plugins_fish-0.1.9.dist-info/METADATA,sha256=Jc91BZCdUDMgYJ7uoWJ79Ntv9RGmf0K2xQOaClzYEME,2014
+vision_agents_plugins_fish-0.1.9.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+vision_agents_plugins_fish-0.1.9.dist-info/RECORD,,
