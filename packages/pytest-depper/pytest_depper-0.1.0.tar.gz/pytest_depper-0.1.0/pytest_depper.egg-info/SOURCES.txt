@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+pytest_depper/__init__.py
+pytest_depper/analyzer.py
+pytest_depper/cli.py
+pytest_depper/git_utils.py
+pytest_depper/plugin.py
+pytest_depper/py.typed
+pytest_depper.egg-info/PKG-INFO
+pytest_depper.egg-info/SOURCES.txt
+pytest_depper.egg-info/dependency_links.txt
+pytest_depper.egg-info/entry_points.txt
+pytest_depper.egg-info/requires.txt
+pytest_depper.egg-info/top_level.txt
