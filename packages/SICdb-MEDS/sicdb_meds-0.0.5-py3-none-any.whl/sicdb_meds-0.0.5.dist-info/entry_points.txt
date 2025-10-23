@@ -1,0 +1,2 @@
+[console_scripts]
+MEDS_extract-SICdb = SICdb_MEDS.__main__:main
