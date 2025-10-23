@@ -1,0 +1,955 @@
+Metadata-Version: 2.4
+Name: glean-klient
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: confluent-kafka>=2.12.0
+Requires-Dist: click>=8.0.0
+
+# klient
+
+Lightweight Python wrappers around `confluent-kafka` providing:
+
+- Unified Producer, Consumer, and Admin helpers with clear sync & async APIs
+- Built-in transactional produce (sync & async context managers)
+- Environment–aware configuration loading from `~/.kafka` (merge default + named env)
+- Simple CLI entrypoint (`python -m klient ...`) for common admin & consume patterns
+- Sensible defaults (isolation level defaults to `read_committed`, unlimited streaming)
+
+The project favors clarity over cleverness: thin abstractions, explicit naming, and test-backed behavior.
+
+---
+
+## Installation
+
+### Prerequisites
+
+Kafka broker accessible (local or remote), Python >=3.12.
+
+### Install via editable clone
+
+```bash
+git clone https://github.com/your-org/glean-kafka.git
+cd glean-kafka
+pip install -e .[dev]
+```
+
+The `[dev]` extra (defined in `pyproject.toml`) installs testing dependencies (`pytest`, `pytest-asyncio`, `pytest-cov`).
+
+---
+
+## Quick Start (Library)
+
+### Producing Messages
+
+```python
+from klient.producer import KafkaProducer, ProducerConfig
+
+producer = KafkaProducer(ProducerConfig(bootstrap_servers="localhost:9092"))
+result = producer.produce(topic="events", key=b"user-1", value=b"hello")
+print(result.status, result.partition, result.offset)
+
+# Async
+import asyncio
+async def main():
+    aresult = await producer.aproduce(topic="events", key=b"user-2", value=b"hi async")
+    print(aresult.status)
+asyncio.run(main())
+
+producer.close()
+```
+
+### Consuming (poll single / batch / stream)
+
+```python
+from klient.consumer import KafkaConsumer, ConsumerConfig
+
+consumer = KafkaConsumer(ConsumerConfig(bootstrap_servers="localhost:9092", group_id="demo", topics=["events"]))  # supply topics list in config
+
+# Explicit subscription (list-only API). Provide a list even for a single topic:
+consumer.subscribe(["events"])  # list of topic strings
+
+# Single poll (returns MessageResult | None)
+msg = consumer.poll(timeout=1.0)
+if msg:
+    print(msg.key, msg.value)
+
+# Batch consume (up to max_messages or until timeout window exhausted)
+batch = consumer.consume_messages(max_messages=10, timeout=5.0)
+for m in batch:
+    print(m.offset)
+
+# Streaming (unlimited by default). Break manually.
+for m in consumer.message_stream(timeout=1.0):
+    print(m.key, m.value)
+    if some_condition():
+        break
+consumer.stop()  # stop underlying loop if streaming helper created one
+```
+
+### Seeking to Specific Offsets
+
+```python
+from klient.consumer import KafkaConsumer, ConsumerConfig
+
+consumer = KafkaConsumer(ConsumerConfig(bootstrap_servers="localhost:9092", group_id="demo"))
+consumer.subscribe(["events"])
+
+# Seek to offset 1000 in ALL partitions of the topic
+consumer.seek_to_offset(topic="events", offset=1000)
+
+# Seek to offset 1000 in a SPECIFIC partition
+consumer.seek_to_offset(topic="events", offset=1000, partition=0)
+
+# Now poll or consume from that offset
+msg = consumer.poll(timeout=1.0)
+if msg:
+    print(f"Message at offset {msg.offset}: {msg.value}")
+```
+
+### Admin Operations
+
+```python
+from klient.admin import KafkaAdmin, AdminConfig
+
+admin = KafkaAdmin(AdminConfig(bootstrap_servers="localhost:9092"))
+admin.create_topics([{ "topic": "events", "num_partitions": 1, "replication_factor": 1 }])
+print(admin.list_topics())
+admin.delete_topics(["events"])  # cleanup
+```
+
+---
+
+## Transactions
+
+Enable transactions by supplying a `transactional_id` in `ProducerConfig`. The wrapper initializes transactions lazily.
+
+```python
+from klient.producer import KafkaProducer, ProducerConfig
+
+producer = KafkaProducer(ProducerConfig(bootstrap_servers="localhost:9092", transactional_id="tx-demo"))
+
+with producer.transaction():  # sync context manager
+    producer.produce("events", key=b"k1", value=b"payload-1")
+    producer.produce("events", key=b"k2", value=b"payload-2")
+    # raise to trigger abort
+
+# Async
+import asyncio
+async def run_tx():
+    async with producer.atransaction():
+        await producer.aproduce("events", key=b"k3", value=b"async-1")
+asyncio.run(run_tx())
+```
+
+Error handling: a raised exception inside the context causes `abort_transaction()` and re-raises. Begin/commit/abort each return a `TransactionResult` with `success`, `error`, and optional `transaction_id`.
+
+### Continuous Async Transaction Stream
+
+Below is an example of producing messages continuously in discrete transactional batches. Each loop iteration creates a new transaction, allowing partial failure without impacting previous committed batches. A cancellation signal (Ctrl+C) or external event stops the loop gracefully.
+
+```python
+import asyncio
+import signal
+from klient.producer import KafkaProducer, ProducerConfig
+
+stop = asyncio.Event()
+
+def handle_sigint(*_):
+  stop.set()
+
+signal.signal(signal.SIGINT, handle_sigint)
+
+producer = KafkaProducer(ProducerConfig(
+  bootstrap_servers="localhost:9092",
+  transactional_id="stream-tx-producer"  # stable id per producer instance
+))
+
+async def produce_forever(batch_size: int = 5, delay: float = 0.5):
+  counter = 0
+  while not stop.is_set():
+    async with producer.atransaction():  # new transaction each batch
+      for i in range(batch_size):
+        key = f"user-{counter}".encode()
+        value = f"payload-{counter}".encode()
+        await producer.aproduce("events", key=key, value=value)
+        counter += 1
+    await asyncio.sleep(delay)  # pacing; remove for max throughput
+
+  # Optional final flush (transactions already committed)
+  producer.flush()
+
+asyncio.run(produce_forever())
+```
+
+Considerations:
+
+1. Throughput: Increase `batch_size` and reduce `delay` for higher message rates.
+2. Ordering: All messages in a single transaction appear atomically to `read_committed` consumers.
+3. Backpressure: If delivery reports back up, adjust producer config (e.g., linger, batch size, queue limits).
+4. Shutdown: SIGINT sets the event; the current transaction completes before exit.
+5. Retry semantics: `confluent-kafka` handles retries internally; aborted transactions never become visible when isolation is `read_committed`.
+
+### Consuming From One Topic and Producing To Another (Relay)
+
+Common pattern: read, transform, and forward. Below are sync and async relay examples. The async version batches each relay group into a transaction for atomicity.
+
+#### Synchronous Relay (Simple Transform)
+
+```python
+from klient.consumer import KafkaConsumer, ConsumerConfig
+from klient.producer import KafkaProducer, ProducerConfig
+
+consumer = KafkaConsumer(ConsumerConfig(
+  bootstrap_servers="localhost:9092",
+  group_id="relay-group",
+  isolation_level="read_committed"
+))
+consumer.subscribe(["input-topic"])  # list-only subscription
+
+producer = KafkaProducer(ProducerConfig(
+  bootstrap_servers="localhost:9092"
+))
+
+for msg in consumer.message_stream(timeout=1.0):
+  # Basic transform: uppercase value, preserve key
+  new_value = msg.value.upper() if msg.value else b""
+  producer.produce("output-topic", key=msg.key, value=new_value)
+  # Optionally flush periodically for latency control
+  # if msg.offset % 100 == 0: producer.flush()
+```
+
+#### Async Transactional Relay (Batch Atomicity)
+
+```python
+import asyncio
+from klient.consumer import KafkaConsumer, ConsumerConfig
+from klient.producer import KafkaProducer, ProducerConfig
+
+consumer = KafkaConsumer(ConsumerConfig(
+  bootstrap_servers="localhost:9092",
+  group_id="relay-async-group",
+  isolation_level="read_committed"
+))
+consumer.subscribe(["input-topic"])  # list-only subscription
+
+producer = KafkaProducer(ProducerConfig(
+  bootstrap_servers="localhost:9092",
+  transactional_id="relay-tx-producer"
+))
+
+async def relay_forever(batch_size: int = 25):
+  buffer = []
+  async for msg in consumer.amessage_stream(timeout=1.0):
+    buffer.append(msg)
+    if len(buffer) >= batch_size:
+      async with producer.atransaction():
+        for m in buffer:
+          # Example enrichment: append offset metadata
+          enriched = (m.value or b"") + f"|offset={m.offset}".encode()
+          await producer.aproduce("output-topic", key=m.key, value=enriched)
+      buffer.clear()
+
+asyncio.run(relay_forever())
+```
+
+Notes:
+
+1. Backpressure: Adjust `batch_size` to tune commit frequency vs latency.
+2. Ordering: Within a transaction all output messages become visible together; cross-transaction ordering depends on source order + processing time.
+3. Isolation: Using `read_committed` avoids relaying aborted input messages.
+4. Flow Control: Add a max loop runtime or cancellation signal for graceful shutdown.
+5. Error Handling: Exceptions inside the transactional context abort that batch only; upstream offsets still advance because messages were read—consider manual offset management if exactly-once relay semantics are required.
+
+---
+
+## Environment Configuration Loading
+
+Single file model: `~/.kafka/config.json` (or an explicit path you pass). This JSON file may contain:
+
+- A `default` object with baseline Kafka client properties.
+- One or more named environment objects (`dev`, `prod`, etc.).
+
+When an environment name is provided (CLI `--env` or wrapper factory parameter), the effective configuration is the shallow merge of `default` overlaid by the named environment object (environment values win). If no environment is specified, the `default` object is used; if `default` is absent, the raw top-level mapping is returned.
+
+No per-environment standalone files are read; only the single config file is considered.
+
+### Role-Specific Environment Names
+
+Producer and consumer often require different Kafka client properties (e.g. batching, compression, fetch settings). Define separate environment blocks like `prod-producer` and `prod-consumer` in the same config file:
+
+```jsonc
+{
+  "default": {"bootstrap.servers": "shared:9092", "client.id": "app-base"},
+  "prod-producer": {"bootstrap.servers": "prod-write:9092", "compression.type": "lz4", "linger.ms": 25},
+  "prod-consumer": {"bootstrap.servers": "prod-read:9092", "auto.offset.reset": "earliest", "fetch.max.bytes": 5242880}
+}
+```
+
+Library usage:
+
+```python
+from klient import resolve_env_config, KafkaProducer, ProducerConfig, KafkaConsumer, ConsumerConfig
+
+producer_raw = resolve_env_config('prod-producer', None)
+consumer_raw = resolve_env_config('prod-consumer', None)
+
+producer = KafkaProducer(ProducerConfig(
+    bootstrap_servers=producer_raw['bootstrap.servers'],
+    additional_config={k: v for k, v in producer_raw.items() if k != 'bootstrap.servers'}
+))
+
+consumer = KafkaConsumer(ConsumerConfig(
+    bootstrap_servers=consumer_raw['bootstrap.servers'],
+    group_id='analytics-group',
+    additional_config={k: v for k, v in consumer_raw.items() if k not in ('bootstrap.servers', 'group.id')}
+))
+consumer.subscribe(['input-topic'])
+```
+
+CLI usage with role-specific environments:
+
+
+```bash
+python -m klient --config-file ~/.kafka/config.json \
+  --producer-env prod-producer \
+  --consumer-env prod-consumer \
+  produce transaction events --count 10 --transactional-id tx-prod
+
+python -m klient --config-file ~/.kafka/config.json \
+  --consumer-env prod-consumer \
+  consume stream events --timeout 1
+```
+
+If a role-specific env is not provided, the global `--env` (if set) applies; otherwise only `default` keys are used.
+
+Section splitting: A combined env file may contain scoped objects:
+ 
+```jsonc
+{
+  "default": {
+    "bootstrap_servers": "localhost:9092"
+  },
+  "dev": {
+    "bootstrap_servers": "dev-broker:9092",
+    "producer": {"linger_ms": 5},
+    "consumer": {"group_id": "demo-group", "auto_offset_reset": "earliest"},
+    "admin": {"security_protocol": "PLAINTEXT"}
+  }
+}
+```
+
+Factory helpers resolve and split config (note: subscribe now requires a list):
+ 
+```python
+from klient.producer import KafkaProducer
+prod = KafkaProducer.from_env_config("dev")
+
+from klient.consumer import KafkaConsumer
+cons = KafkaConsumer.from_env_config("dev", topics=["events"])  # topics is list
+
+from klient.admin import KafkaAdmin
+adm = KafkaAdmin.from_env_config("dev")
+```
+
+If an env is missing, an empty dict is returned (wrappers fall back to explicit arguments or defaults like `localhost:9092`).
+
+---
+
+## Isolation Level (Default: read_committed)
+
+The consumer default was changed from `read_uncommitted` to `read_committed` to hide aborted transactional messages. Override per CLI flag or `ConsumerConfig(isolation_level="read_uncommitted")` when debugging.
+
+| Level | Behavior |
+|-------|----------|
+| read_committed | Only committed transactional messages + non-transactional |
+| read_uncommitted | Includes pending + aborted transactional messages |
+
+---
+
+## CLI Usage
+
+Invoke via module:
+
+```bash
+python -m klient --help
+```
+
+### Configuration Display
+
+Use `--show-config` to display all Kafka configuration details before executing any command:
+
+```bash
+# Show configuration for a consumer command
+python -m klient --show-config consume poll events --group my-group
+
+# Show configuration with specific environment
+python -m klient -e production --show-config admin list-topics
+
+# Show configuration for producer with detailed command info
+python -m klient --show-config produce send events --key user1 --value "hello"
+```
+
+The configuration display includes:
+
+- **Connection Details**: Bootstrap servers, environment names
+- **Command Information**: Specific command parameters and options
+- **Configuration Sections**: All producer, consumer, and admin settings
+- **Security**: Sensitive values (passwords, keys, secrets) are automatically masked
+- **Available Environments**: Lists all configured environments from config file
+
+### Output Options
+
+Control output formatting, filtering, and destination:
+
+```bash
+# Write output to file instead of stdout
+python -m klient admin list-topics --output-file topics.json
+
+# Pretty-formatted JSON (default)
+python -m klient --json info config-dump
+
+# Compact JSON (single line, no extra spaces)
+python -m klient --json --compact-json info config-dump
+
+# Filter output with regex pattern
+python -m klient --filter "prod" info config-dump
+
+# Filter JSON by specific key (key:regex syntax)
+python -m klient --json --filter "bootstrap.servers:kafka" info config-dump
+
+# Combine all options: filtered, formatted output to file
+python -m klient --json --compact-json --filter "server:prod" --output-file filtered.json info config-dump
+```
+
+#### Filtering Examples
+
+**Text Filtering:**
+```bash
+# Show only lines containing "kafka"
+python -m klient --filter "kafka" admin list-topics
+
+# Case-insensitive regex patterns
+python -m klient --filter "prod.*server" info config-dump
+```
+
+**JSON Key Filtering:**
+
+```bash
+# Filter by specific key values
+python -m klient --json --filter "topic:events" consume poll events
+
+# Filter nested JSON structures  
+python -m klient --json --filter "host:prod" info config-dump
+
+# Use regex patterns in key filtering
+python -m klient --json --filter "name:^test.*" admin list-topics
+```
+
+Key commands (abbreviated) reflecting current subcommand syntax:
+
+Produce one message (sync):
+
+```bash
+python -m klient produce send events --key k1 --value hello
+```
+
+Transactional batch (N messages in one commit):
+
+```bash
+python -m klient produce transaction events --count 5 --transactional-id batch-1
+```
+
+Produce from JSON file (array format: `[{}, {}, ...]`):
+
+```bash
+# Basic usage - send entire JSON object as message value
+python -m klient produce from-file events messages.json
+
+# Extract specific fields for message components
+python -m klient produce from-file events data.json --key-field user_id --partition-field shard
+
+# Transactional batch processing from file
+python -m klient produce from-file events batch.json --transactional-id tx-1 --batch-size 50
+
+# Extract headers from JSON field
+python -m klient produce from-file events events.json --headers-field metadata --key-field id
+```
+
+**JSON File Format:**
+The JSON file must contain an array of objects. Each object becomes a separate Kafka message:
+
+```json
+[
+  {
+    "user_id": "user1", 
+    "data": "message content",
+    "shard": 0,
+    "metadata": {"type": "event", "version": "1.0"}
+  },
+  {
+    "user_id": "user2",
+    "data": "another message", 
+    "shard": 1,
+    "metadata": {"type": "command", "version": "2.0"}
+  }
+]
+```
+
+Field extraction options:
+
+- `--key-field`: Extract this field as message key (removed from value)
+- `--partition-field`: Extract this field as partition number (removed from value)
+- `--headers-field`: Extract this object field as message headers (removed from value)
+- Remaining fields become the JSON message value
+
+### Consuming Messages
+
+All consume commands require a topic name as the first positional argument after the subcommand:
+
+```bash
+python -m klient consume <subcommand> <TOPIC> [options...]
+# Examples:
+python -m klient consume poll my-topic --group my-group
+python -m klient consume batch events --count 10
+python -m klient consume stream logs --limit 100
+```
+
+Poll once (single message attempt):
+
+```bash
+python -m klient consume poll events --group g1 --timeout 2
+```
+
+Batch (bounded fetch up to --count messages):
+
+```bash
+python -m klient consume batch events --group g1 --count 10 --timeout 5
+```
+
+Stream (unlimited; interrupt with Ctrl+C):
+
+```bash
+python -m klient consume stream events --group g1 --timeout 1
+```
+
+Stream with limit (first N then exit):
+
+```bash
+python -m klient consume stream events --group g1 --timeout 1 --limit 100
+```
+
+Stream with graceful shutdown grace period (allow in-flight processing to finish):
+
+```bash
+python -m klient consume stream events --group g1 --timeout 1 --grace-period 2.5
+```
+
+Seek to specific offset before consuming (available in poll, batch, and stream):
+
+```bash
+# Seek to offset 1000 in ALL partitions
+python -m klient consume poll events --group g1 --seek-to-offset 1000
+
+# Seek to offset 1000 in SPECIFIC partition
+python -m klient consume poll events --group g1 --seek-to-offset 1000 --seek-to-partition 0
+
+# Works with batch and stream commands too
+python -m klient consume batch events --group g1 --seek-to-offset 500
+python -m klient consume stream events --group g1 --seek-to-offset 2000 --seek-to-partition 1
+```
+
+Isolation override example:
+
+```bash
+python -m klient consume poll events --group g1 --isolation read_uncommitted
+```
+
+Config dump (merged view for env):
+
+```bash
+python -m klient info config-dump --env dev
+```
+
+See inline `--help` for each subcommand; consume help text explains poll vs batch vs stream semantics. Multi-topic subscription is supported only via library usage (`consumer.subscribe(["t1","t2"])`); the CLI stream/poll/batch commands accept a single topic argument.
+
+---
+
+## Testing & Coverage
+
+Run tests:
+
+```bash
+pytest -q
+```
+
+Collect coverage (library files; CLI omitted):
+
+```bash
+pytest --cov=klient --cov-report=term-missing
+```
+
+Goal: maintain >=80% coverage. Add focused tests for error paths before broad refactors.
+
+---
+
+## Coding Guidelines
+
+See `.github/copilot-instructions.md` for naming, error handling, logging, and testing standards. Changes affecting public API must update README + tests in the same commit.
+
+---
+
+## Roadmap / Next Steps
+
+- Sustain >=80% coverage; expand edge-path tests (rebalance failures, half-open circuit breaker)
+- Add optional SASL/SSL config examples
+- Structured logging integration hook for external log routers
+- Benchmarks for high-throughput produce/consume scenarios
+- Prometheus / OpenMetrics exporter (wrapping `metrics.snapshot()`)
+- Advanced circuit breaker (time-based half-open state)
+- Pluggable metrics sink (push counters to external system)
+
+---
+
+## Resiliency & Advanced Features
+
+### Error Classes
+
+Producer:
+
+- `KafkaProducerError` (base)
+- `KafkaProducerRetriableError` (temporary issues; auto-retried in `produce_with_retry`)
+- `KafkaProducerFatalError` (non-recoverable)
+- `KafkaTransactionError` (transaction lifecycle failure)
+
+### Retry, Jitter & Circuit Breaker
+
+`produce_with_retry` / `aproduce_with_retry` implement exponential backoff with +/-10% jitter to reduce thundering herds against brokers during partial outages. Backoff formula per attempt `sleep = base_backoff * 2^(attempt-1) +/- 10% jitter`.
+
+Circuit breaker semantics: when the maximum attempts are exhausted for a single produce call, the breaker is considered "open" for that invocation (logged as JSON event `produce_circuit_open` / `produce_async_circuit_open`). A subsequent successful produce call logs circuit closure. This lightweight breaker prevents silent spin when persistent failures occur and provides an instrumentation hook (log monitor can alert on open events). For more advanced scenarios, extend with time-based half-open states.
+
+### Error Code Classification
+
+Producer maintains sets of Kafka error codes for retriable, fatal, and fencing conditions (see `producer.py`: `RETRIABLE_ERROR_CODES`, `FATAL_ERROR_CODES`, `FENCING_ERROR_CODES`). These are populated defensively (wrapped in `try/except AttributeError` for version portability). Delivery callback logs classification buckets. Extend sets as operational patterns emerge.
+
+### Structured JSON Logging
+
+Transaction lifecycle and retry circuit breaker events emit compact JSON objects (e.g. `{"event":"transaction_commit","transaction_id":"relay-tx-producer","duration_ms":3.2}`). Rebalance callbacks similarly emit `{"event":"rebalance_assign",...}` forms. This enables direct ingestion by log pipelines (Splunk/ELK). Avoid parsing non-JSON human-formatted logs.
+
+### Metrics (In-Process Counters)
+
+Module `klient.metrics` offers thread-safe counters: `inc(name: str, value: int = 1)`, `get(name: str)`, and `snapshot()` (returns copy of all counters). Integrated / emitted counters:
+
+- `producer.tx.begin|commit|abort`
+- `consumer.rebalance.assign|revoke|lost`
+- `consumer.shutdown.signal` (first SIGINT/SIGTERM received during stream)
+- `consumer.shutdown.complete` (stream termination path executed)
+- (Optional extension) `producer.retry` per retriable attempt
+
+Example:
+
+```python
+from klient.metrics import snapshot
+print(snapshot())  # {'producer.tx.begin': 12, 'consumer.rebalance.assign': 3, ...}
+```
+
+Prometheus integration can wrap `snapshot()` periodically; for large-scale multi-process exporters use shared storage (Redis/memfd) or native client libs.
+
+### Relay Concurrency
+
+`ExactlyOnceRelay.arun(..., max_in_flight=N)` allows up to N transactional batches in-flight concurrently (semaphore controlled). This improves throughput for high-latency commit scenarios while preserving batch atomicity. Tune `batch_size` + `max_in_flight` to balance memory and latency.
+
+### Isolation & Visibility
+
+Use `read_committed` consumers when relaying from transactional producers to avoid forwarding aborted messages. The relay commits source offsets only after a successful target transaction commit.
+
+### Extending Resiliency
+
+Planned enhancements: configurable circuit breaker (cooldown window), pluggable metrics sink, dynamic error code refresh. Contributions welcome—keep changes focused and tested.
+
+- `KafkaProducerFencedError` (fencing / competing transactional id)
+
+Consumer:
+
+- `KafkaConsumerError` (base)
+- `KafkaConsumerRetriableError` (safe to retry poll)
+- `KafkaConsumerFatalError` (stop consumption)
+- `KafkaConsumerRebalanceError` (issues in assignment callbacks)
+
+### Rebalance Callbacks
+
+Pass `on_assign`, `on_revoke`, `on_lost` to `KafkaConsumer` constructor. Exceptions raised inside callbacks are wrapped in `KafkaConsumerRebalanceError` to surface issues without silent failure.
+
+### Retriable Produce
+
+Use:
+
+```python
+producer.produce_with_retry("topic", value=b"data", max_attempts=5, base_backoff=0.05)
+```
+
+Async:
+
+```python
+await producer.aproduce_with_retry("topic", value=b"data")
+```
+
+Populate `RETRIABLE_ERROR_CODES`, `FATAL_ERROR_CODES`, `FENCING_ERROR_CODES` in `producer.py` for environment-specific tuning.
+
+### Exactly-Once Relay Helper
+
+Module: `klient.relay.ExactlyOnceRelay`
+
+```python
+from klient.consumer import KafkaConsumer, ConsumerConfig
+from klient.producer import KafkaProducer, ProducerConfig
+from klient.relay import ExactlyOnceRelay
+
+cons = KafkaConsumer(ConsumerConfig(bootstrap_servers="localhost:9092", group_id="relay", isolation_level="read_committed"))
+prod = KafkaProducer(ProducerConfig(bootstrap_servers="localhost:9092", transactional_id="relay-tx"))
+
+def transform(msg):
+  return msg  # identity or modify msg.value
+
+relay = ExactlyOnceRelay(cons, prod, transform=transform, batch_size=25)
+relay.run("input-topic", "output-topic")  # blocking
+ 
+```
+
+
+Async variant:
+
+```python
+await relay.arun("input-topic", "output-topic")
+```
+
+Guarantee model: offsets are committed only after transaction success, reducing risk of duplicate downstream visibility while still relying on broker EOS guarantees.
+
+### Multi-Topic Subscription
+
+Subscribe with more than one topic by passing a list:
+
+```python
+consumer.subscribe(["orders", "payments", "audit-events"])  # list-only API
+```
+
+When using the CLI, you still specify a single topic per invocation; for multi-topic inspection create a small script using the library.
+
+### Observability Highlights
+
+Implemented:
+
+- Counters for `producer.tx.begin|commit|abort`, rebalance events, and shutdown lifecycle
+- Transaction duration logging (`TransactionResult.duration_ms` in JSON logs)
+- Structured JSON logs for transaction lifecycle, rebalance callbacks, stream shutdown events (`shutdown_requested`, `stream_ended`)
+- Retry backoff with jitter and circuit breaker open/close events
+- Async relay concurrency control (`max_in_flight`) for higher throughput
+
+Shutdown JSON events (example):
+
+
+```json
+{"event":"shutdown_requested","signal":2,"topic":"events"}
+{"event":"stream_ended","reason":"signal","messages":42,"duration_s":3.417}
+```
+
+
+These are emitted directly to stdout; integrate with log pipeline by tailing the process output.
+
+### Graceful Shutdown
+
+The stream consumer (`consume stream`) installs SIGINT/SIGTERM handlers. On first signal:
+
+1. Counter `consumer.shutdown.signal` increments
+2. A JSON line `{"event":"shutdown_requested",...}` is emitted
+3. Loop enters a grace window (`--grace-period`, default 2s) allowing in-flight processing to finish
+4. After grace, offsets commit (if auto-commit enabled) and the loop ends
+5. Counter `consumer.shutdown.complete` increments and a final `stream_ended` JSON event prints
+
+Set `--grace-period 0` for immediate termination (still emits both events). Use longer periods for at-least-once downstream processing guarantees.
+
+### Continuous Transactional Relay (Library First)
+
+While a CLI helper exists, production integrations typically import the wrappers directly for clearer control, richer transformation logic, and structured instrumentation. Below are canonical synchronous and asynchronous patterns.
+
+#### Sync Relay with Transactions
+
+```python
+from klient.consumer import KafkaConsumer, ConsumerConfig
+from klient.producer import KafkaProducer, ProducerConfig
+
+SOURCE = "input-topic"
+TARGET = "output-topic"
+
+consumer = KafkaConsumer(ConsumerConfig(
+  bootstrap_servers="localhost:9092",
+  group_id="relay-sync",
+  topics=[SOURCE],
+  isolation_level="read_committed",
+  enable_auto_commit=False,  # commit only after successful target transaction
+))
+
+producer = KafkaProducer(ProducerConfig(
+  bootstrap_servers="localhost:9092",
+  transactional_id="relay-sync-tx"
+))
+
+def transform_value(value_bytes: bytes) -> bytes:
+  """Example transform: append a marker; return bytes."""
+  base = value_bytes.decode() if value_bytes else ""
+  return f"{base}|processed".encode()
+
+batch = []
+BATCH_SIZE = 25
+
+try:
+  for msg in consumer.message_stream(timeout=0.5):
+    batch.append(msg)
+    if len(batch) >= BATCH_SIZE:
+      producer.begin_transaction()
+      for m in batch:
+        transformed = transform_value(m.value)
+        producer.produce(TARGET, key=m.key.decode() if m.key else None, value=transformed, flush=False)
+      producer.commit_transaction()
+      consumer.commit()  # commit source offsets only after transaction success
+      batch.clear()
+except KeyboardInterrupt:
+  # Allow current batch to finish or abort.
+  if producer.in_transaction:
+    producer.abort_transaction()
+finally:
+  consumer.stop()
+  producer.close()
+```
+
+#### Async Relay with Concurrency
+
+```python
+import asyncio
+from klient.consumer import KafkaConsumer, ConsumerConfig
+from klient.producer import KafkaProducer, ProducerConfig
+
+SOURCE = "input-topic"
+TARGET = "output-topic"
+
+consumer = KafkaConsumer(ConsumerConfig(
+  bootstrap_servers="localhost:9092",
+  group_id="relay-async",
+  topics=[SOURCE],
+  isolation_level="read_committed",
+  enable_auto_commit=False,
+))
+
+producer = KafkaProducer(ProducerConfig(
+  bootstrap_servers="localhost:9092",
+  transactional_id="relay-async-tx"
+))
+
+stop_event = asyncio.Event()
+
+def _sigint_handler():
+  stop_event.set()
+
+async def transform_bytes(b: bytes) -> bytes:
+  # Illustrative async transform (could call external service)
+  await asyncio.sleep(0)  # yield
+  text = b.decode() if b else ""
+  return f"{text}|async".encode()
+
+async def relay_forever(batch_size: int = 50):
+  buffer = []
+  async for msg in consumer.amessage_stream(timeout=0.5):
+    if stop_event.is_set():
+      break
+    buffer.append(msg)
+    if len(buffer) >= batch_size:
+      async with producer.atransaction():
+        for m in buffer:
+          transformed = await transform_bytes(m.value)
+          await producer.aproduce(TARGET, key=m.key.decode() if m.key else None, value=transformed)
+      consumer.commit()
+      buffer.clear()
+  # Flush residual messages (optional):
+  if buffer:
+    async with producer.atransaction():
+      for m in buffer:
+        transformed = await transform_bytes(m.value)
+        await producer.aproduce(TARGET, key=m.key.decode() if m.key else None, value=transformed)
+    consumer.commit()
+
+async def main():
+  loop = asyncio.get_running_loop()
+  try:
+    loop.add_signal_handler(getattr(__import__('signal'), 'SIGINT'), _sigint_handler)
+  except (NotImplementedError, ValueError):
+    pass
+  await relay_forever()
+  consumer.stop()
+  producer.close()
+
+asyncio.run(main())
+```
+
+Key points:
+
+1. Source offsets are committed only after successful target transaction commit (exactly-once style).
+2. Transform can be sync or async; ensure deterministic output for idempotence.
+3. Graceful cancellation waits for current transaction scope to finish (avoid partial batch). Use a timeout wrapper if hard bounds are required.
+4. For high throughput, shard by key/partition or use `ExactlyOnceRelay` with `max_in_flight` (async) for parallel in-flight transactions.
+5. See `examples/continuous_relay_async.py` for a complete async variant with retry and error handling.
+
+### Continuous Transactional Relay (CLI)
+
+A common pattern is to consume from one topic, transform each message, and produce to another topic atomically in transactional batches. The CLI provides a `relay stream` command for this:
+
+```bash
+python -m klient relay stream source-topic target-topic \
+  --group relay-g1 \
+  --transactional-id relay-tx-id \
+  --batch-size 50 \
+  --timeout 0.5 \
+  --grace-period 2 \
+  --transform 'value.upper()'
+```
+
+Behavior:
+
+- Buffers up to `--batch-size` messages from `source-topic` under `--group`.
+- Begins a transaction, applies `--transform` expression to each message value (`value` bound to decoded UTF-8 string), produces all outputs to `target-topic`.
+- Commits the transaction; on success commits source offsets (exactly-once style handoff) and emits `relay_batch_committed` JSON event.
+- On transactional failure the batch is aborted (`relay_batch_aborted` event) and offsets are NOT committed (messages will be retried on next pass).
+- Graceful shutdown via SIGINT/SIGTERM triggers `shutdown_requested` + waits up to `--grace-period` seconds before final `relay_stream_ended` event.
+
+Metrics involved:
+
+- `relay.batch.commit` increments per committed batch.
+- `relay.messages.forwarded` aggregates total messages successfully forwarded.
+- `consumer.shutdown.signal` / `consumer.shutdown.complete` for lifecycle.
+
+Library alternative for tighter control or custom transformation logic can use `ExactlyOnceRelay` directly or write an async loop with `atransaction()` contexts.
+
+### Future Enhancements
+
+- Populate error code sets with actual `KafkaError` codes
+- Backoff jitter & circuit breaker after repeated failures
+- Configurable max in-flight transactions for high-throughput relays
+- Pluggable metrics reporter interface
+
+---
+
+## Troubleshooting
+
+| Symptom | Suggestion |
+|---------|------------|
+| No messages consumed | Check topic name, group id, and that messages are actually produced. Increase `timeout`. |
+| Abort errors in transactions | Ensure broker supports transactions and `transactional.id` is stable per producer instance. |
+| Config env not found | Verify filename or presence of `default` block in combined config.json. |
+| Unexpected duplicates | Consider enabling idempotence (auto when `transactional_id` set). |
+
+---
+
+## License
+
+MIT (or organization internal) — update as appropriate.
+
