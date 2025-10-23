@@ -1,0 +1,21 @@
+[project]
+name = "webarenax"
+version = "0.1"
+description = "This is an unofficial, use-at-your-own risks port of the webarena benchmark, for use as a standalone library package."
+readme = "README.md"
+dependencies = [
+    "gymnasium",
+    "playwright>=1.39",
+    "Pillow",
+    "evaluate",
+    "openai>=1",
+    "types-tqdm",
+    "tiktoken",
+    "aiolimiter",
+    "beartype>=0.12.0",
+    "flask",
+    "nltk",
+    "text-generation",
+    "transformers",
+]
+license = "Apache-2.0"
