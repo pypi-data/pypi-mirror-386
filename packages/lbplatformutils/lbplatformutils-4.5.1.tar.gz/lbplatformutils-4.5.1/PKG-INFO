@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: lbplatformutils
+Version: 4.5.1
+Summary: utilities for platform detection
+Home-page: https://gitlab.cern.ch/lhcb-core/LbPlatformUtils
+License: GPL-3.0+
+Author: CERN - LHCb Core Software
+Author-email: lhcb-core-soft@cern.ch
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
