@@ -1,0 +1,14 @@
+dataruns/__init__.py,sha256=DEdPFCGN-ctkYjsvhUqwvXhIumaQrLfSu-fyKHjIA90,2001
+dataruns/core/__init__.py,sha256=D-vRMZM136R05alvvQ31-7ffFMQn3huZx60T3idB1Ho,1125
+dataruns/core/pipeline.py,sha256=0djEv9kJW32ze4bVOHWmT2iV1H4qFQCOGAP2Er3cLHc,3425
+dataruns/core/transforms.py,sha256=a82UHpoPZ0zd4gaUJ3hZYajCyFaoKX5sJHTeZzRq__c,5081
+dataruns/core/types.py,sha256=ui2l9GgJ-q2tiaQuXfYqirqWpPfsJutc2fnrb9h_TqU,1471
+dataruns/dl/__init__.py,sha256=aHXOtwv00ZSanVyVNTMKcM0sJDCUaBS0-ILd4rc8Gk4,98
+dataruns/dl/engine.py,sha256=_Weq44uYUKM737TeULGomZ9V0HkzI2K0NBwyf2xV2A0,84
+dataruns/source/__init__.py,sha256=DAh5OjQqTYv1RR6sRPio8ogeWH2bsgd4dhAveVeQ0GM,5606
+dataruns/source/datasource.py,sha256=xYGWBQIGwYwsKC8xZ7UpnCTR6wAnpI5HSKWTDbKH_cQ,2929
+dataruns-0.2.0.dist-info/licenses/LICENSE,sha256=IUGc1raY0Ufd49SaF9RFu59paiAeOAp1FaepY0a9TRk,1079
+dataruns-0.2.0.dist-info/METADATA,sha256=SBXlui1Y0MHlRHAcdIgqtZ8ZZEfn3gIc6fV56S26bZo,6620
+dataruns-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dataruns-0.2.0.dist-info/top_level.txt,sha256=tynrdalbHH_V8IJKQKyyFeAueEk6HmkAhLeM6AiF3RU,9
+dataruns-0.2.0.dist-info/RECORD,,
