@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: claudebook
+Version: 0.1.1
+Summary: Add your description here
+Author-email: 3956745+thejcannon@users.noreply.github.com
+License-File: LICENSE
+Requires-Python: >=3.13
+Requires-Dist: cyclopts>=4.0.0
+Requires-Dist: pyyaml>=6.0.3
+Description-Content-Type: text/markdown
+
+# claudebook
