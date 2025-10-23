@@ -1,0 +1,15 @@
+torchtext>=0.17.1
+awscli>=1.32
+llm-foundry[all-flash2]>=0.17.0
+
+[all]
+pre-commit<4,>=3.4.0
+toml<0.11,>=0.10.2
+packaging<23,>=21
+ipykernel
+
+[dev]
+pre-commit<4,>=3.4.0
+toml<0.11,>=0.10.2
+ipykernel
+packaging<23,>=21
