@@ -1,0 +1,13 @@
+core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+core/config.py,sha256=biq1ekk4B8spUKGiOfw0Rlfd8KrCktx5Xar53q4Ah7Y,161
+core/dependencies.py,sha256=Gu7juxTSZoQr-zkVOs4pzAHiWLPsrW2i9CVFLSPeuos,1283
+core/rabbitmq_core.py,sha256=pftClb2che-dgcy5O7xvtXP-U6_4dURbx451VWjm-t0,433
+core/router_utils.py,sha256=JU2gHa0JTHRvJIadDTMINsxEIqTu3MN1hcWO5FtaDxw,592
+core/security.py,sha256=tzYk1TYV46ucwW9U7yO9pAEvitJMpir531OBBC6ZDYc,935
+sql/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sql/database.py,sha256=yHLZeeyG7WcGES45oevJ3J6uXyahAop3IZf_OqPXIcA,553
+sql/models.py,sha256=S9uuonJ6Om2M08vtS95a89UXci8M4p0CRQRj6DM1dBU,1287
+microservice_chassis_grupo2-0.1.0.dist-info/METADATA,sha256=EL_1zkOjnJNHYQNWzQqa8R8Ilwb4NzCTJnwz8XMy0yQ,249
+microservice_chassis_grupo2-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+microservice_chassis_grupo2-0.1.0.dist-info/top_level.txt,sha256=d2lb5MByI4r4x-GrVdxMY4e3n0_RRtr16exCAOboiDM,9
+microservice_chassis_grupo2-0.1.0.dist-info/RECORD,,
