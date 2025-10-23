@@ -1,0 +1,10 @@
+crashpad/__init__.py,sha256=-uE6e1_xbq3zIeOpPF1HRR3ZQzaGIVD0gEwvqAZCyxg,54
+crashpad/api_call.py,sha256=hmc0HcBuoGN2DO5Cy_bp66RrYlQbVRgEfzHVDg0oL9k,1693
+crashpad/django_sdk.py,sha256=KVpj1ukUrOi4XO0H-vSoJwFlZs08Y54bnOFkNWlQNSE,1503
+crashpad/error_integration.py,sha256=cciacMn05W69EAN2S1gJQFb7CHcxTrXN-bE1aclMafA,3082
+crashpad/error_processing.py,sha256=5R4abTSlFy1Vu7wdvbn9mftrCPfwc-lflshJqNTp1Os,4971
+crashpad-0.1.0b0.dist-info/licenses/LICENSE,sha256=3ZI_RvwUGOmokDKXHMubuEqE9PwVQw8eYDBSimvXvcU,1093
+crashpad-0.1.0b0.dist-info/METADATA,sha256=McyhBAIxOXqW8lA_uz90DdZ5x5wR5Ufp7wM-fr8FikI,5438
+crashpad-0.1.0b0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+crashpad-0.1.0b0.dist-info/top_level.txt,sha256=e1GvJoZ2GGyYzmlGE_KDSWI2qat2iKzbCNtKpMmQ5Ws,9
+crashpad-0.1.0b0.dist-info/RECORD,,
