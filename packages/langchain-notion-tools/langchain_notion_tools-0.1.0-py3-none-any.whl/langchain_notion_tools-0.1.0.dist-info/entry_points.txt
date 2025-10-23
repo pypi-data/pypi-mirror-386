@@ -1,0 +1,3 @@
+[console_scripts]
+notion-search = langchain_notion_tools.cli:notion_search_main
+notion-write = langchain_notion_tools.cli:notion_write_main
