@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "strulab"
+version = "0.0.0"
+description = "Structure Laboratory"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "DalNur", email = "liyang@alu.hit.edu.cn"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/DalNur/strulab"
