@@ -1,0 +1,9 @@
+db2-hj3415>=0.4.1
+redis-hj3415>=0.2.3
+utils-hj3415>=3.2.6
+u8darts[all]
+yfinance
+matplotlib
+pandas
+numpy
+python-dotenv
