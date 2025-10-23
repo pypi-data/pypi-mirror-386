@@ -1,0 +1,12 @@
+README.md
+setup.py
+aws_cli_tool/__init__.py
+aws_cli_tool/aws_query.py
+aws_cli_tool.egg-info/PKG-INFO
+aws_cli_tool.egg-info/SOURCES.txt
+aws_cli_tool.egg-info/dependency_links.txt
+aws_cli_tool.egg-info/entry_points.txt
+aws_cli_tool.egg-info/requires.txt
+aws_cli_tool.egg-info/top_level.txt
+tests/__init__.py
+tests/test_aws_query.py

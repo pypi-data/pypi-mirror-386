@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: aws-cli-tool
+Version: 0.1.0
+Summary: CLI tool to query AWS EC2 resource usage
+Author: Your Name
+Requires-Python: >=3.7
+Requires-Dist: boto3
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

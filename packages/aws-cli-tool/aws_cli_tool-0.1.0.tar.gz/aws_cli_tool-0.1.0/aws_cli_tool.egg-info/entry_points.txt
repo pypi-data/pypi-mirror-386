@@ -1,0 +1,2 @@
+[console_scripts]
+aws-query = aws_cli_tool.aws_query:main
