@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: inspire-classifier
+Version: 2.0.0
+Summary: INSPIRE module aimed at automatically classifying the new papers that are added to INSPIRE, such as if they are core or not, or the arXiv category corresponding to each of them.
+License: MIT
+Author: CERN
+Author-email: admin@inspirehep.net
+Requires-Python: >=3.11,<4
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Dist: click (>=8.3.0,<9.0.0)
+Requires-Dist: click-spinner (>=0.1.10,<0.2.0)
+Requires-Dist: fastai (<2.8.0)
+Requires-Dist: numpy (>=2.3.4,<3.0.0)
+Requires-Dist: pandas (>=2.3.3,<3.0.0)
+Requires-Dist: tqdm (>=4.67.1,<5.0.0)
+Project-URL: Homepage, https://inspirehep.net
+Project-URL: Repository, https://github.com/inspirehep/inspire-classifier
