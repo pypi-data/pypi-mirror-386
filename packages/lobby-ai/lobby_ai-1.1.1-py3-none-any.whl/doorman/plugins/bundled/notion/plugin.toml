@@ -1,0 +1,11 @@
+[plugin]
+name = "notion"
+version = "1.0.0"
+description = "Integration with Notion API for knowledge management and documentation"
+author = "Doorman Team"
+type = "tool"
+entry_point = "notion_plugin:Plugin"
+permissions = [ "filesystem", "network",]
+dependencies = []
+min_doorman_version = "0.1.0"
+max_doorman_version = "999.0.0"

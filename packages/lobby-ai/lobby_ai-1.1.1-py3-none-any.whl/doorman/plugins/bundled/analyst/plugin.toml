@@ -1,0 +1,16 @@
+[plugin]
+name = "analyst"
+version = "1.0.0"
+description = "AI agent specialized in data analysis, research, and business intelligence"
+author = "Doorman Team"
+type = "agent"
+entry_point = "analyst_plugin:Plugin"
+permissions = [ "openrouter_api",]
+dependencies = []
+min_doorman_version = "0.1.0"
+max_doorman_version = "999.0.0"
+
+[plugin.sprite]
+archetype = "developer"
+color_scheme = "neon"
+accessories = []

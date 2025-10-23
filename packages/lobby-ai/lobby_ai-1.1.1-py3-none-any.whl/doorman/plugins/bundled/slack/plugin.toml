@@ -1,0 +1,11 @@
+[plugin]
+name = "slack"
+version = "1.0.0"
+description = "Integration with Slack API for team communication and notifications"
+author = "Doorman Team"
+type = "tool"
+entry_point = "slack_plugin:Plugin"
+permissions = [ "filesystem", "network",]
+dependencies = []
+min_doorman_version = "0.1.0"
+max_doorman_version = "999.0.0"

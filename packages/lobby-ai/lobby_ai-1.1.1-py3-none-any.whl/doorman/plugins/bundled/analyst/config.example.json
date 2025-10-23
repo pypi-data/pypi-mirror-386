@@ -1,0 +1,13 @@
+{
+  "specialization": "coding",
+  "model": "anthropic/claude-3-sonnet",
+  "max_iterations": 5,
+  "color_scheme": "neon",
+  "sprite": {
+    "archetype": "developer",
+    "accessories": [
+      "glasses",
+      "headset"
+    ]
+  }
+}

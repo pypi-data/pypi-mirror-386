@@ -1,0 +1,16 @@
+[plugin]
+name = "researcher"
+version = "1.0.0"
+description = "AI agent specialized in information gathering, fact-checking, and report generation"
+author = "Doorman Team"
+type = "agent"
+entry_point = "researcher_plugin:Plugin"
+permissions = [ "openrouter_api",]
+dependencies = []
+min_doorman_version = "0.1.0"
+max_doorman_version = "999.0.0"
+
+[plugin.sprite]
+archetype = "developer"
+color_scheme = "neon"
+accessories = []
