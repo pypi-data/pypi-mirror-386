@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dbbasic-copypaste"
+version = "0.1.0"
+description = "Clipboard manager with history for macOS"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "askrobots"}
+]
+keywords = ["clipboard", "manager", "history", "macos", "tool"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Desktop Environment",
+    "Topic :: Utilities",
+]
+
+dependencies = [
+    "pillow>=10.0.0",
+    "PyQt5>=5.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/askrobots/dbbasic-copypaste"
+Repository = "https://github.com/askrobots/dbbasic-copypaste"
+Issues = "https://github.com/askrobots/dbbasic-copypaste/issues"
+
+[project.scripts]
+dbbasic-copypaste = "dbbasic_copypaste.__main__:main"

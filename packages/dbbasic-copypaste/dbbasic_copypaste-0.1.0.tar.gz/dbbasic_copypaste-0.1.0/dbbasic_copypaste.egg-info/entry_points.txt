@@ -1,0 +1,2 @@
+[console_scripts]
+dbbasic-copypaste = dbbasic_copypaste.__main__:main
