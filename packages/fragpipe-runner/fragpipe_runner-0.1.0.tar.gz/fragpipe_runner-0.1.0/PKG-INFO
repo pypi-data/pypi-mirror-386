@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: fragpipe-runner
+Version: 0.1.0
+Summary: A Python library to simplify and support the execution of FragPipe when running in command-line mode.
+Author: David M. Hollenstein
+Author-email: David M. Hollenstein <hollenstein.david@gmail.com>
+License-Expression: Apache-2.0
+Requires-Dist: pandas>=1.5.3
+Requires-Python: >=3.10
+Project-URL: homepage, https://github.com/maxperutzlabs-ms/fragpipe-runner
+Description-Content-Type: text/markdown
+
+# FragPipe-Runner
+
+## About
+
+A Python library to simplify and support the execution of FragPipe when running in command-line mode.
