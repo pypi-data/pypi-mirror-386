@@ -1,0 +1,5 @@
+[console_scripts]
+pytest-depper = pytest_depper.cli:main
+
+[pytest11]
+depper = pytest_depper.plugin
