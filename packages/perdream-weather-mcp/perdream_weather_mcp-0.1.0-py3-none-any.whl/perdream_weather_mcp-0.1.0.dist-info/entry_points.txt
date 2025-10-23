@@ -1,0 +1,3 @@
+[console_scripts]
+perdream-weather-mcp = perdream_weather_mcp:main
+
