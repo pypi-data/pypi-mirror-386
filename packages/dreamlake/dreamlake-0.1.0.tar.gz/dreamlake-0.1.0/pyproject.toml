@@ -1,0 +1,14 @@
+[project]
+name = "dreamlake"
+version = "0.1.0"
+description = "A Python package for dreamlake"
+readme = "README.md"
+authors = [
+    { name = "Ge Yang", email = "ge.ike.yang@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["uv_build>=0.9.3,<0.10.0"]
+build-backend = "uv_build"
