@@ -1,0 +1,1932 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* photovoltaic_mgmt_extended
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20250813\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-23 06:17+0000\n"
+"PO-Revision-Date: 2025-09-23 06:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_contract_type__2_0td
+msgid "2.0TD"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_contract_type__2_1td
+msgid "2.1TD"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_contract_type__3_0td
+msgid "3.0TD"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_contract_type__6_0td
+msgid "6.0TD"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "<span style=\"color: #212529\">Datos de contacto:</span>"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#. odoo-python
+#: code:addons/photovoltaic_mgmt_extended/models/photovoltaic_power_station.py:0
+#, python-format
+msgid "A power station can't be open for investment if it has no start date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__access_instructions
+msgid "Access Instructions"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__access_notification
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Access Notification"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__access_point
+msgid "Access Point"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__access_schedule
+msgid "Access Schedule"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_account_allocation
+msgid "Account allocation"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_needaction
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__active
+msgid "Active"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Administrative"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Alarm"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Allocation"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__amount_tax
+msgid "Amount tax"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__annual_rent
+msgid "Annual Rent"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__annual_rent_goods_owners
+msgid "Annual Rent Goods Owners"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.res_partner_interest_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.actions.act_window,help:photovoltaic_mgmt_extended.action_partner_interest_form
+msgid "Assign interests to your contacts to organize, filter and track them."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__assigned_power
+msgid "Assigned power [MW]"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__AT_provider
+msgid "At Provider"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_attachment_count
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__bank_account_id
+msgid "Bank Account"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Basic data"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__book
+msgid "Book"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__BT_contract
+msgid "Bt Contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__BT_provider
+msgid "Bt Provider"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "CGPM"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "CIE"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CIE_power
+msgid "CIE power [Kw]"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "CIF"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CUPS
+msgid "CUPS"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CA_panel
+msgid "Ca Panel"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__cadastral_reference
+msgid "Cadastral Reference"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.actions.act_window,name:photovoltaic_mgmt_extended.update_state_act_window
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_update_state_form
+msgid "Cambiar estado"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_update_state_form
+msgid "Cancelar"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CC_panel
+msgid "Cc Panel"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CGPM_identification
+msgid "Cgpm Identification"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CGPM_location
+msgid "Cgpm Location"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__child_ids
+msgid "Child Tags"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CIL_owner
+msgid "Cil Owner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Close long term"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Close short term"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__color
+msgid "Color"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__comment
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__comments
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__comments
+msgid "Comments"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_update_state_form
+msgid "Confirmar"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__connection_point_date
+msgid "Connection Point Date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__connection_point_location
+msgid "Connection Point Location"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Connection_point"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__eq_family_consumption
+msgid "Consumo equivalente en familia"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__consumption_contract_state
+msgid "Consumption Contract State"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__consumption_contract_type
+msgid "Consumption Contract Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__consumption_type
+msgid "Consumption Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Consumption contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_res_partner
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__contact
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__contact
+msgid "Contact"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.actions.act_window,name:photovoltaic_mgmt_extended.action_partner_interest_form
+#: model:ir.ui.menu,name:photovoltaic_mgmt_extended.res_partner_interest_menu
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_partner_interest_form
+msgid "Contact Interests"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__contact_person
+msgid "Contact Person"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_partner_interest_list
+msgid "Contact Tags"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__contract_id
+msgid "Contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__contract_end_date
+msgid "Contract End Date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__contract_start_date
+msgid "Contract Start Date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_contract_participation
+msgid "Contract and a partner's participation"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Contracts"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__convention_id
+msgid "Convenio"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.actions.act_window,help:photovoltaic_mgmt_extended.action_partner_interest_form
+msgid "Create an Interest"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__create_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__create_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__account_allocation__state__crece_acumulado
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__account_allocation_state_update_wizard__state__crece_acumulado
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__participant_liquidations__state__crece_acumulado
+msgid "Crece Solar - acumulado"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__account_allocation__state__crece_reinvertido
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__account_allocation_state_update_wizard__state__crece_reinvertido
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__participant_liquidations__state__crece_reinvertido
+msgid "Crece Solar - reinvertido"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_contract_participation__crece_active
+msgid "Crece Solar activado"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_contract_participation__crece_activation_date
+msgid "Crece Solar fecha activación"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_contract_participation__crece_deactivation_date
+msgid "Crece Solar fecha desactivación"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CT
+msgid "Ct"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__CT_comments
+msgid "Ct Comments"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__CUPS
+msgid "Cups"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__current_market_representative
+msgid "Current Market Representative"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__current
+msgid "Current owner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__date
+msgid "Date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__report_send_time
+msgid "Date of sending the report"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__deck_access_notification
+msgid "Deck Access Notification"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__deck_type
+msgid "Deck Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Deck access"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Deck transit"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__difference
+msgid "Difference"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__difference
+msgid "Difference between incomes and expenses"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__difference_power_station
+msgid "Difference between incomes and expenses of power station"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__difference_power_station
+msgid "Difference power station"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__display_name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__distributor
+msgid "Distributor"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__distributor_contract_number
+msgid "Distributor Contract Number"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Distributor/Market representative"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.actions.act_window,name:photovoltaic_mgmt_extended.action_photovoltaic_distributors_tree
+#: model:ir.ui.menu,name:photovoltaic_mgmt_extended.photovoltaic_distributors_menu
+msgid "Distributors"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__participant_liquidations__state__donacion
+msgid "Donación"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Ejemplo: Acebedo"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__contact_data_email
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Email"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__end_period_date
+msgid "End period date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Energy"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__tecnical_memory_link
+msgid "Enlace memoria técnica"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation__state
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__state
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_participant_liquidations__state
+msgid "Estado"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__expense_porcentual_ids
+msgid "Expenses porcentual"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__expenses_contract_amount
+msgid "Expenses/Contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__expenses_amount
+msgid "Expenses/Plant"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__external_maintenance
+msgid "External Maintenance"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__failed_message_ids
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__failed_message_ids
+msgid "Failed Messages"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__farm_alarm
+msgid "Farm Alarm"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__farm_number
+msgid "Farm Number"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__farm_type
+msgid "Farm Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Farm access"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__file_number
+msgid "File Number"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__fire_protection_system_provider
+msgid "Fire Protection System Provider"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__fire_protection_system_state
+msgid "Fire Protection System State"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__fire_protection_system_type
+msgid "Fire Protection System Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Fire protection system"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__configuration__flat
+msgid "Flat"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_follower_ids
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_partner_ids
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner__friend_ids
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__friend_id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_users__friend_ids
+msgid "Friend"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.actions.act_window,name:photovoltaic_mgmt_extended.res_partner_friend_action
+#: model:ir.ui.menu,name:photovoltaic_mgmt_extended.menu_res_partner_friend
+msgid "Friends"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__expense_puntual_ids
+msgid "Gastos puntuales"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__expenses_contract_amount
+msgid "Gastos puntuales por CONTRATO y PERIODO"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__expenses_amount
+msgid "Gastos puntuales por PLANTA y PERIODO"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__total_contract_expenses
+msgid "Gastos totales por contrato"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__total_power_station_expenses
+msgid "Gastos totales por planta"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "General Info"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__handrails
+msgid "Handrails"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__has_message
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__hired_power
+msgid "Hired Power"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Hired powers"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__id
+msgid "ID"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_needaction
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_has_error
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_has_sms_error
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_has_error
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__image_ids
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Images"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__tax_to_apply
+msgid "Impuesto a aplicar"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_consumption_contract__state__in_process
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_contract_state__in_process
+msgid "In process"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__incomes_contract_amount
+msgid "Incomes/Contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__incomes_amount
+msgid "Incomes/Plant"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_type__individualized
+msgid "Individualized"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Info"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Information"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__incomes_contract_amount
+msgid "Ingresos venta de electricidad por CONTRATO y PERIODO"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__incomes_amount
+msgid "Ingresos venta de electricidad por PLANTA y PERIODO"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__inscription
+msgid "Inscription"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__installation_company
+msgid "Installation Company"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner__interest_ids
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_users__interest_ids
+msgid "Interests"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Intrusion protection system"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__intrussion_protection_system_provider
+msgid "Intrussion Protection System Provider"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__intrussion_protection_system_state
+msgid "Intrussion Protection System State"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__intrussion_protection_system_type
+msgid "Intrussion Protection System Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Inventory"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__inversion
+msgid "Inversion"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Inversors"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__inversors_location
+msgid "Inversors Location"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner__inviter_id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__inviter_id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_users__inviter_id
+msgid "Inviter"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_is_follower
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__key_type
+msgid "Key Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__land_regime
+msgid "Land Regime"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Land lease"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.actions.act_window,name:photovoltaic_mgmt_extended.action_photovoltaic_land_regimes_tree
+#: model:ir.ui.menu,name:photovoltaic_mgmt_extended.photovoltaic_land_regimes_menu
+msgid "Land regimes"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend____last_update
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__write_uid
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__write_date
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__lessor
+msgid "Lessor"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Lessor/dealer"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__lifelines
+msgid "Lifelines"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__photovoltaic_lifting_height
+msgid "Lifting height [m]"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "List of equipment in station"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__location_id
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Location"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_main_attachment_id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Maintenance"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__maintenance_deck_type
+msgid "Maintenance Deck Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__market_representative_contract_number
+msgid "Market Representative Contract Number"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.actions.act_window,name:photovoltaic_mgmt_extended.action_photovoltaic_market_representatives_tree
+#: model:ir.ui.menu,name:photovoltaic_mgmt_extended.photovoltaic_market_representatives_menu
+msgid "Market representatives"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__medium_voltage_line
+msgid "Medium Voltage Line"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_has_error
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_ids
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__product_mode_id
+msgid "Modalidad"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__MT_AT_contract
+msgid "Mt At Contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__configuration__multi_pitched
+msgid "Multi-pitched"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_maintenance_deck_type__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_notification_format__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_distributor__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_farm_type__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_state__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_fps_type__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_state__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_ips_type__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_key_type__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_land_regime__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_lifting_type__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_market_representative__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_it_code__name
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_station_typology__name
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Name"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Necessary"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__necessary_sprouts
+msgid "Necessary Sprouts"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_consumption_contract__state__no
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_contract_state__no
+msgid "No"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__deck_type__not_passable
+msgid "Not passable"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Notes"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__notification_format
+msgid "Notification Format"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_needaction_counter
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_has_error_counter
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_needaction_counter
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_has_error_counter
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Ocultar en web"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__configuration__one_pitched
+msgid "One-pitched"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Open long term"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Open short term"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__original
+msgid "Original owner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__other_commitments
+msgid "Other Commitments"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__other_consumption_contracts
+msgid "Other Consumption Contracts"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Other acquired commitments"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__other_protections
+msgid "Other necessary protections"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Other-consumption-contracts"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__owner
+msgid "Owner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__owners
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Owners"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "PREFO"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "PRL"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__paper
+msgid "Paper"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__parent_id
+msgid "Parent Category"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_participant_activities
+msgid "Participant activities"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_participant_liquidations
+msgid "Participant liquidations"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_res_partner_interest
+msgid "Partner Interest"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__partner_ids
+msgid "Partners"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__deck_type__passable
+msgid "Passable"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__peak_power
+msgid "Peak power"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_search_inherit
+msgid "Pending socialization"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__percentage
+msgid "Percentage"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__contact_data_phone
+msgid "Phone"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Phone number"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__photovoltaic_lifting_type
+msgid "Photovoltaic Lifting Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_power_energy
+msgid "Photovoltaic Power Energy"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__photovoltaic_power_station_id
+msgid "Photovoltaic Power Station"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_power_station
+msgid "Photovoltaic Power Stations"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Photovoltaic Station Name"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_market_representative
+msgid "Photovoltaic market representative"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_distributor
+msgid "Photovoltaic power distributor"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_station_typology
+msgid "Photovoltaic station typology"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__long_term_investment
+msgid "Plant available for long term investment"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__short_term_investment
+msgid "Plant available for sort term investment"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__platform_entity
+msgid "Platform Entity"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Production (kWh)"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Products"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner__promotional_code
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_users__promotional_code
+msgid "Promotional Code"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__property_register
+msgid "Property Register"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Protection panels"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Provider"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__public_release
+msgid "Public Release"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Publicar en web"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__quarter
+msgid "Quarter"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "RAIPRE"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__royal_decree__rd_1578_2008
+msgid "RD 1578/ 2008"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__royal_decree__rd_413_2014
+msgid "RD 413/2014"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__royal_decree__rd_661_2007
+msgid "RD 661/2007"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "RIPRE"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__RAIPRE_code
+msgid "Raipre Code"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__RAIPRE_owner
+msgid "Raipre Owner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__rated_power
+msgid "Rated power"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Reference installers"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Regime"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__account_allocation__state__reinversion_iva
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__account_allocation_state_update_wizard__state__reinversion_iva
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__participant_liquidations__state__reinversion_iva
+msgid "Reinversión IVA"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__remunerative_power
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__remunerative_power_ripre
+msgid "Remunerative power [Kw]"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__is_portal
+msgid "Reparto en portal"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__allocation_sent
+msgid "Reparto enviado por email"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Request and work orders"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__RIPRE_code
+msgid "Ripre Code"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__RIPRE_owner
+msgid "Ripre Owner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__royal_decree
+msgid "Royal Decree"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__message_has_sms_error
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.res_partner_interest_view_search
+msgid "Search Partner Interest"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Signatory installation company"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__skylights
+msgid "Skylights"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_tree_inherit
+msgid "Socialization"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_search_inherit
+msgid "Socialized"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_search_inherit
+msgid "Solencalma Red"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Sprouts"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__sprouts_provider
+msgid "Sprouts Provider"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__stamp_date
+msgid "Stamp Date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__start_period_date
+msgid "Start period date"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__state
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "State"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_consumption_contract__station
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__station
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__station
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Station"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__station_typology
+msgid "Station Typology"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.actions.act_window,name:photovoltaic_mgmt_extended.action_photovoltaic_station_typologies_tree
+#: model:ir.ui.menu,name:photovoltaic_mgmt_extended.photovoltaic_station_typologies_menu
+msgid "Station typologies"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__stock_location
+msgid "Stock Location"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__stock_quants
+msgid "Stock Quants"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_interest__name
+msgid "Tag Name"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__lessor_id
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__vat
+msgid "Tax ID"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station__lessor_id
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station_owner__vat
+msgid ""
+"The Tax Identification Number. Values here will be validated based on the "
+"country format. You can use '/' to indicate that the partner is not subject "
+"to tax."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_res_partner_interest__active
+msgid "The active field allows you to hide the category without removing it."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__time_slot
+msgid "Time Slot"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__person_type
+msgid "Tipo de persona"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__total
+msgid "Total"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__total_contract_expenses
+msgid "Total contract expenses"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__co2_contract_total
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__energy_contract_total
+msgid "Total energy/Contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__total_power_station_expenses
+msgid "Total expenses"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__incomes_contract_total
+msgid "Total incomes/Contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_type__totalizer
+msgid "Totalizer"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__trading_company_contract_number
+msgid "Trading Company Contract Number"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Transformation center/s"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__typology_invoice
+msgid "Typology Invoice"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_res_partner_friend__used
+msgid "Used"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__vat
+msgid "VAT"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "Value"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__volume
+msgid "Volume"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__website_message_ids
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_account_allocation_state_update_wizard__website_message_ids
+#: model:ir.model.fields,help:photovoltaic_mgmt_extended.field_photovoltaic_power_station__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_account_allocation_state_update_wizard
+msgid "Wizard to update account allocation state in bulk"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_consumption_contract__state__yes
+#: model:ir.model.fields.selection,name:photovoltaic_mgmt_extended.selection__photovoltaic_power_station__consumption_contract_state__yes
+msgid "Yes"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "auxiliary_services"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_partner_interest_form
+msgid "e.g. \"Consulting Services\""
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model_terms:ir.ui.view,arch_db:photovoltaic_mgmt_extended.view_photovoltaic_power_station_form_inherit
+msgid "lessor CIF/DNI"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_maintenance_deck_type
+msgid "maintenance.deck.type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_notification_format
+msgid "notification.format"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_consumption_contract
+msgid "photovoltaic.consumption.contract"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_farm_type
+msgid "photovoltaic.farm.type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_fps_state
+msgid "photovoltaic.fps.state"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_fps_type
+msgid "photovoltaic.fps.type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_hired_power
+msgid "photovoltaic.hired.power"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_ips_state
+msgid "photovoltaic.ips.state"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_ips_type
+msgid "photovoltaic.ips.type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_key_type
+msgid "photovoltaic.key.type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_land_regime
+msgid "photovoltaic.land.regime"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_lifting_type
+msgid "photovoltaic.lifting.type"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_power_station_it_code
+msgid "photovoltaic.power.station.it.code"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_photovoltaic_power_station_owner
+msgid "photovoltaic.power.station.owner"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_power_station__quota
+msgid "quota"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model,name:photovoltaic_mgmt_extended.model_res_partner_friend
+msgid "res.partner.friend"
+msgstr ""
+
+#. module: photovoltaic_mgmt_extended
+#: model:ir.model.fields,field_description:photovoltaic_mgmt_extended.field_photovoltaic_hired_power__hired_power
+msgid "value"
+msgstr ""
