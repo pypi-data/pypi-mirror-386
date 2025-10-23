@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}Task {{ task.id[:8] }} - OMNI-X{% endblock %}
+
+{% block header %}Task {{ task.id[:8] }}{% endblock %}
+
+{% block nav %}
+<a href="../index.html" class="text-blue-600 hover:text-blue-800 text-sm">← Back to Dashboard</a>
+{% endblock %}
+
+{% block content %}
+<div x-data="{
+    showMetadata: false,
+    showCode: true,
+    showLlmLogs: false
+}">
+    <!-- Header with status badges -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+                <h2 class="text-xl font-semibold text-gray-900 font-mono">{{ task.id }}</h2>
+
+                {% if task.archive_idx is not none %}
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                    Archived #{{ task.archive_idx }}
+                </span>
+                {% elif task.done and task.success is none %}
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                    Discarded
+                </span>
+                {% else %}
+                <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                    WIP
+                </span>
+                {% endif %}
+
+                {% if task.success is not none %}
+                    {% if task.success %}
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                        ✓ Success
+                    </span>
+                    {% else %}
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">
+                        ✗ Failed
+                    </span>
+                    {% endif %}
+                {% endif %}
+
+                {% if task.interesting is not none %}
+                    {% if task.interesting %}
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">
+                        Interesting
+                    </span>
+                    {% else %}
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                        Not Interesting
+                    </span>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div>
+                <dt class="text-gray-600 font-medium">Parents</dt>
+                <dd class="text-gray-900">{{ task.parents|length if task.parents else 0 }}</dd>
+            </div>
+            <div>
+                <dt class="text-gray-600 font-medium">Trained</dt>
+                <dd class="text-gray-900">{{ 'Yes' if task.trained else 'No' }}</dd>
+            </div>
+            {% if task.metadata.eval %}
+            <div>
+                <dt class="text-gray-600 font-medium">Success Rate</dt>
+                <dd class="text-gray-900">{{ "%.1f"|format(task.metadata.eval.success_rate * 100) }}%</dd>
+            </div>
+            <div>
+                <dt class="text-gray-600 font-medium">Episodes</dt>
+                <dd class="text-gray-900">{{ task.metadata.eval.num_success }}/{{ task.metadata.eval.num_episodes }}</dd>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Description -->
+    {% if task.description %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Description</h3>
+        <div class="prose max-w-none text-gray-700">
+            {{ task.description }}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Parents -->
+    {% if task.parents %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Parent Tasks</h3>
+        <div class="flex flex-wrap gap-2">
+            {% for parent_idx in task.parents %}
+            <a href="../tasks/{{ parent_tasks[parent_idx].id }}.html"
+               class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-mono text-blue-600 transition">
+                #{{ parent_idx }}: {{ parent_tasks[parent_idx].id[:8] }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Code -->
+    {% if task.code %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-gray-900">Environment Code</h3>
+            <button @click="showCode = !showCode" class="text-sm text-blue-600 hover:text-blue-800">
+                <span x-show="!showCode">Show</span>
+                <span x-show="showCode">Hide</span>
+            </button>
+        </div>
+        <pre x-show="showCode" class="!mt-0"><code class="language-python">{{ task.code }}</code></pre>
+    </div>
+    {% endif %}
+
+    <!-- Lineage Tree -->
+    {% if lineage_svg_path %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Lineage Tree</h3>
+        <div class="flex justify-center">
+            <img src="../{{ lineage_svg_path }}" alt="Lineage tree" class="max-w-full h-auto">
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Videos -->
+    {% if videos %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Videos</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for video in videos %}
+            <div class="bg-gray-900 rounded-lg overflow-hidden">
+                <video controls class="w-full">
+                    <source src="../{{ video.path }}" type="video/mp4">
+                </video>
+                <div class="px-3 py-2 text-xs text-gray-300 text-center">
+                    {{ video.name }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Metadata (collapsible) -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-gray-900">Full Metadata</h3>
+            <button @click="showMetadata = !showMetadata" class="text-sm text-blue-600 hover:text-blue-800">
+                <span x-show="!showMetadata">Show</span>
+                <span x-show="showMetadata">Hide</span>
+            </button>
+        </div>
+        <pre x-show="showMetadata" class="text-xs bg-gray-50 p-4 rounded overflow-x-auto"><code>{{ task_json }}</code></pre>
+    </div>
+
+    <!-- LLM Logs (collapsible) -->
+    {% if task.metadata.llm_calls %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-gray-900">LLM Reasoning Traces</h3>
+            <button @click="showLlmLogs = !showLlmLogs" class="text-sm text-blue-600 hover:text-blue-800">
+                <span x-show="!showLlmLogs">Show</span>
+                <span x-show="showLlmLogs">Hide</span>
+            </button>
+        </div>
+        <div x-show="showLlmLogs" class="space-y-4">
+            {% for call in task.metadata.llm_calls %}
+            <div class="border border-gray-200 rounded-lg p-4">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-semibold text-gray-900">{{ call.step }}</span>
+                    <span class="text-xs text-gray-600">{{ call.model }}</span>
+                </div>
+                <div class="text-xs text-gray-600 mb-2">
+                    Tokens: {{ call.input_tokens }} in / {{ call.output_tokens }} out
+                </div>
+                {% if llm_logs.get(call.log_file) %}
+                <div class="bg-gray-50 p-3 rounded text-xs">
+                    <div class="font-semibold mb-1">Reasoning:</div>
+                    <div class="text-gray-700 whitespace-pre-wrap">{{ llm_logs[call.log_file].reasoning[:500] }}{% if llm_logs[call.log_file].reasoning|length > 500 %}...{% endif %}</div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
