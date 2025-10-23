@@ -1,0 +1,3 @@
+[console_scripts]
+plutus-datahub = plutus.datahub.__main__:main
+plutus-mcp = plutus.mcp.__main__:main
