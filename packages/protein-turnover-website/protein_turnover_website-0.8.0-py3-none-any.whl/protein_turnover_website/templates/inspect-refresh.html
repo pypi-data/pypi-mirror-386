@@ -1,0 +1,15 @@
+{% extends base_template %}
+{% block title %}Decompressing{% endblock %}
+
+{% block meta %}
+<meta http-equiv="Refresh" content="{{seconds}}" />
+{% endblock meta %}
+
+{% block content %}
+<div class="container-fluid pt-2 pb-4 mt-5">
+    <h2 class="text-center">Decompressing....&nbsp;<i class="fas fa-spinner fa-spin"></i></h2>
+    {% if job_name is defined %}
+    <h4 class="text-center">{{job_name}}</h4>
+    {% endif %}
+</div>
+{% endblock content %}
