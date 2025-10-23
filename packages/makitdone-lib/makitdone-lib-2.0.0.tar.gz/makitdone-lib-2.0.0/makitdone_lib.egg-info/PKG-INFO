@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: makitdone-lib
+Version: 2.0.0
+Summary: python基础库扩展
+Home-page: https://gitee.com/makitdone/makitdone-lib
+Author: liangchao
+Author-email: liang20201101@163.com
+License: MIT
+Requires-Python: >=3.3
+License-File: LICENSE
