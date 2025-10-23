@@ -1,0 +1,10 @@
+pycoro/__init__.py,sha256=0R3Heo8MHknje_AjbLw8ypAuheItD-n0Ukk2b_sdhlc,4811
+pycoro/io/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pycoro/io/fio.py,sha256=ugwxzJ72MgHtQ6c7dx00KuKtI2ZiK1QWQ_b6bGa_iDM,1949
+pycoro/io/io.py,sha256=TiHVz0V_A-sfV7ElKThKv0X8OonCirus_xyHe6gFCNs,253
+pycoro/promise.py,sha256=slr9wpLNoeRaGL-Kl8AjxXUtLFmLfDJk11IXAY-kScw,1244
+pycoro/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pycoro/scheduler.py,sha256=TSbzPtTZCFC8n398-vZ9kEju_vuVTb0FzWC5RMOJKC4,3344
+pycoro-1.1.0.dist-info/WHEEL,sha256=eh7sammvW2TypMMMGKgsM83HyA_3qQ5Lgg3ynoecH3M,79
+pycoro-1.1.0.dist-info/METADATA,sha256=JIF8Z-Yp0JtCFVzPM0X6r-Z2NVRf2B_5LppINGEJzks,533
+pycoro-1.1.0.dist-info/RECORD,,
