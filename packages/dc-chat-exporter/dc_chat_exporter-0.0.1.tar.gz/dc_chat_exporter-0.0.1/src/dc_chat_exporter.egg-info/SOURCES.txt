@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+requirements.txt
+src/dc_chat_exporter/__init__.py
+src/dc_chat_exporter.egg-info/PKG-INFO
+src/dc_chat_exporter.egg-info/SOURCES.txt
+src/dc_chat_exporter.egg-info/dependency_links.txt
+src/dc_chat_exporter.egg-info/top_level.txt
