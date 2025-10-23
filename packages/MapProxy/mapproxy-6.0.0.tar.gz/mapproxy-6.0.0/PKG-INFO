@@ -1,0 +1,200 @@
+Metadata-Version: 2.4
+Name: MapProxy
+Version: 6.0.0
+Summary: An accelerating proxy for tile and web map services
+Home-page: https://mapproxy.org
+Author: Oliver Tonnhofer
+Author-email: olt@omniscale.de
+Maintainer: terrestris GmbH & Co. KG
+Maintainer-email: info@terrestris.de
+License: Apache Software License 2.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Internet :: Proxy Servers
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Scientific/Engineering :: GIS
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+License-File: COPYING.txt
+License-File: AUTHORS.txt
+Requires-Dist: PyYAML>=3.0
+Requires-Dist: future
+Requires-Dist: pyproj>=2
+Requires-Dist: jsonschema>=4
+Requires-Dist: werkzeug<4
+Requires-Dist: Pillow!=8.3.0,!=8.3.1,>=8; python_version == "3.9"
+Requires-Dist: Pillow>=9; python_version == "3.10"
+Requires-Dist: Pillow>=10; python_version == "3.11"
+Requires-Dist: Pillow>=10.1; python_version == "3.12"
+Requires-Dist: Pillow>=11; python_version == "3.13"
+Requires-Dist: lxml>=6
+Requires-Dist: shapely>=2
+Requires-Dist: jinja2
+Requires-Dist: Babel
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: requires-dist
+Dynamic: summary
+
+MapProxy is an open source proxy for geospatial data. It caches, accelerates and transforms data from existing map services and serves any desktop or web GIS client.
+
+MapProxy is a tile cache, but also offers many new and innovative features like full support for WMS clients.
+
+MapProxy is released under the Apache Software License 2.0, runs on Unix/Linux and Windows and is easy to install and to configure.
+
+Go to https://mapproxy.org/ for more information.
+
+The documentation is available at: http://mapproxy.github.io/mapproxy/latest/
+
+Changes
+-------
+6.0.0 2025-10-22
+~~~~~~~~~~~~~~~~
+
+Breaking:
+
+  - The extension for mbtiles used in MapProxy was wrong. It used `.mbtile` instead of `.mbtiles`. Existing files in
+    caches have to be renamed! Here is a small script to change all files in a directory recursively:
+    `find . -type f -name "*.mbtile" -exec sh -c 'mv "$1" "${1%.mbtile}.mbtiles"' _ {} \;`
+  - lxml was updated. The new version is much stricter in its inputs and administrators might have to adjust
+    featureinfo services to output valid HTML.
+
+Improvements:
+
+  - New source types `ogcapitiles` and `ogcapimaps` are now available! See docs for further information.
+  - New util `gridconf-from-ogcapitilematrixset` to fetch grids from an OGC API compliant web service was added.
+    See docs for further information.
+  - MapProxy now offers an OGCAPI compliant service for OGC API Maps and OGC API Tiles. Including landing page and
+    preview maps! See docs for further information.
+  - The `SERVICE` parameter for WMS `GetMap` requests is no longer mandatory as according to spec.
+  - Added test pipeline for the documentation.
+  - The GitHub actions now have better fitting permissions, improving the security.
+  - WMTS capabilities now include `OperationsMetadata` for restful mode.
+  - TMS capabilities now include metadata similar to WMS and WMTS.
+
+Maintenance:
+
+  - Some fixes in the documentation.
+  - As shapely is no longer optional, code to check for its existence has been removed.
+
+Fixes:
+
+  - An error regarding unicode strings in the featureinfo parsing was fixed.
+  - An error in the debug logging of configurations was fixed
+
+
+5.1.1 2025-10-01
+~~~~~~~~~~~~~~~~
+
+Improvements:
+
+  - Better logging of http errors if mapproxy requests tiles
+
+Fixes:
+
+  - Fixed logger for merged configuration files
+
+
+5.1.0 2025-09-30
+~~~~~~~~~~~~~~~~
+
+Improvements:
+
+  - Added `query_layers` option to `wms_opts` to be able to configure the `QUERY_LAYERS` of the wms request
+  - Added workflow to republish docker images if the base image changed, i.e. for security updates
+
+Maintenance:
+
+  - Fixed some spelling and debug output
+  - Updated various dependencies
+
+Fixes:
+
+  - Fixes some errors in the json schema regarding `use_direct_level_from` and `use_direct_res_from`
+  - Fixes an error with merging resolutions of grids
+
+
+5.0.0 2025-06-18
+~~~~~~~~~~~~~~~~
+
+Breaking:
+
+  - The dependencies lxml, shapely, pyproj, gdal and PyYAML are no longer optional
+
+Maintenance:
+
+  - By default lxml, shapely, pyproj, Pillow and PyYAML are now installed via pip and are not recommended to be installed
+    as apt packages anymore
+
+Fixes:
+
+  - The alpine image uses the python3 plugin for uwsgi correctly
+  - An lxml encoding error is fixed
+
+
+4.1.2 2025-05-27
+~~~~~~~~~~~~~~~~
+
+Maintenance:
+
+    - Set Pillow versions in setup.py to actually supported versions
+    - Using PIL instead of Pillow was not working since Python 2, so it is removed from setup.py
+    - Using a higher pyproj version for Python 3.13 is necessary
+    - Added a test for an older Pillow version with Python 3.9
+
+
+4.1.1 2025-04-30
+~~~~~~~~~~~~~~~~
+
+Improvements:
+
+  - The scale denominator in the WMTS capabilites is now rounded to 10 digits after the decimal place.
+
+
+4.1.0 2025-04-29
+~~~~~~~~~~~~~~~~
+
+Improvements:
+
+  - It is now possible to integrate the grid name into paths for AWS buckets. This allows storage of tiles for multiple
+    grids in the same bucket.
+  - We are returning a 404 http status code instead of a 500 if no legend graphic is found for a service.
+  - We are using utf-8 in GetFeatureInfo requests now.
+
+Maintenance:
+
+  - Updated some dependencies.
+  - Updated the GitHub runner versions.
+  - Refactored the grid.py file into multiple files.
+  - Removed the implementation of odict in favour of the builtin OrderedDict class.
+  - Added support for python 3.13.
+  - Skipping permissions tests if tests are run with root user. This is necessary to build and test MapProxy in a chroot
+    environment which is used to package MapProxy for Debian. Normal testing is not affected.
+
+Fixes:
+
+  - Fixed deprecation warnings for utctime, sqlite, ImageMath.eval, mock_s3.
+  - Fix entrypoint.sh to create default MapProxy configurations if none are found.
+  - Allowed the trivy security scan workflow to write the results to the GitHub security tab.
+  - We are not allowing the deprecated TLS Versions 1.1 or lower for connections to servers anymore.
+
+
+
+Older changes
+-------------
+See https://raw.github.com/mapproxy/mapproxy/master/CHANGES.txt
