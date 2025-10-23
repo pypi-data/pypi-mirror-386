@@ -1,0 +1,12 @@
+model_converter/__init__.py,sha256=7dbs4H5Shh5Y58HoqGvJ5d-c9hA4BmBDzkLrnDRGYe4,146
+model_converter/cli.py,sha256=KQxCB1rmyVCTxgRf_ywViX5BV22dnM4PwTvzyBE5OYg,448
+model_converter/binaries/bin/model-converter,sha256=g-e_cVTDs4ywY4Jv_a7papYcAzGzzTCBnmK2gssiRgE,54346768
+model_converter/binaries/lib/ai-ml-sdk-model-converter.spdx.json,sha256=5Asr8yO3569VR2bTOis-amH8fEM2sOruZvSee56ENTU,34530
+model_converter/binaries/lib/cmake/ModelConverter/ModelConverterConfig-release.cmake,sha256=g3bJSExGTiTy7l1eiHOLlnEDEn_IkfAQKSQzR_vfTb8,886
+model_converter/binaries/lib/cmake/ModelConverter/ModelConverterConfig.cmake,sha256=-RQ0-fNmURN44VVEUz1_SA6F_zpsYJPKRjDC3GGzNII,3841
+model_converter/binaries/lib/cmake/ModelConverter/ModelConverterConfigVersion.cmake,sha256=trLLvkv4FcRyorwGiIUdsiPkAUVwciS8jgKbMk872FI,3362
+ai_ml_sdk_model_converter-0.7.0.dist-info/METADATA,sha256=cogWiPhXNXK2HwbrUiaVt9GEFOKMIlynTbIiYW8p_zc,150
+ai_ml_sdk_model_converter-0.7.0.dist-info/WHEEL,sha256=YFDvGUd4qgsZW2DR7HoTshh6r2NDinrixRAyA44xxkw,109
+ai_ml_sdk_model_converter-0.7.0.dist-info/entry_points.txt,sha256=Spin3nC2DjCYad1laO-Z26d9hRzjtdVXsV_vAmj9M5A,62
+ai_ml_sdk_model_converter-0.7.0.dist-info/top_level.txt,sha256=pkGFNiYcQUSk5RxpYkTlTs5pslRhRCp8Ji_ihD0du1o,16
+ai_ml_sdk_model_converter-0.7.0.dist-info/RECORD,,
