@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: rakib-django-core
+Version: 0.1.2
+Summary: This is a Django-based web application for managing core functionalities.
+Home-page: https://github.com/rakib1515hassan/django-core-app
+Author: Md. Rakib Hassan
+Author-email: "Md. Rakib Hassan" <rakib1515hassan@gmail.com>
+Project-URL: Homepage, https://github.com/rakib1515hassan/django-core-app
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.0
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Rakib App - Core Django Package
+
+A reusable Django app for core functionalities including utilities, services, and management commands.
+
+## Installation
+
+### From Test PyPI (Development):
+```bash
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ rakib-django-core==0.1.1
+```
+### From PyPI (Stable Release):
+```bash
+pip install rakib-django-core
+```
+
+## Usage
+
+### 1. Add to your Django project's INSTALLED_APPS:
+```python
+INSTALLED_APPS = [
+    # ...
+    'core',
+]
+```     
+
+### 2. Run migrations if you're using the models:
+```python
+python manage.py migrate
+``` 
+
+## Features
+- Custom management commands
+- Utility functions
+- Email and SMS services
+- Template tags
+- Context processors
+
+## Available Management Commands
+```python
+python manage.py superuser
+python manage.py staffuser
+python manage.py newapp
+python manage.py newapi
+python manage.py appmigrations
+python manage.py setup
+```
