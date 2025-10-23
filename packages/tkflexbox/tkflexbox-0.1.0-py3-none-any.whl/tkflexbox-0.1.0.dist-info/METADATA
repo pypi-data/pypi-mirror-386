@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: tkflexbox
+Version: 0.1.0
+Summary: Implements flexbox like functionality to tkinter. Makes creating a reactive GUI far easier.
+Author-email: Daniel Hitchcock <dan@madeupemail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/w50111831/tkflexbox
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# tkflexbox
+
+A python library to implement flexbox like functionality to tkinter.
+
+
+## install
+```bash
+pip install tkflexbox
+```
+
+## example usage
+```bash
+import tkflexbox
+from tkflexbox import FlexBoxFrame
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+root.geometry('800x800')
+page = FlexBoxFrame(root, rows=5, columns=5)
+page.place_widget(ttk.Button, row=1, column=2, columnspan=2, text='Hello world')
+
+root.mainloop()
+
+```
