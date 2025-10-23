@@ -1,0 +1,2 @@
+[console_scripts]
+sndemail = gmailnudge.gmailnudge:cli
