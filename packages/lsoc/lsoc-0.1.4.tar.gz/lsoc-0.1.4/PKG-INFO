@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: lsoc
+Version: 0.1.4
+Summary: Lite Python package that lets you view file and directory access rights with octal
+Home-page: https://github.com/AlperSakarya/lsoc
+Download-URL: https://github.com/AlperSakarya/lsoc/tarball/0.1
+Author: Alper Sakarya
+Author-email: alpersakarya@gmail.com
+Keywords: ls,octal
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# lsoc - LS OCTAL
+
+A lite Python package that lets you view file and directory access rights with octal.
+
+Equivalent to typing: `stat -c "%a %n" *`
+
+## Installation
+
+### From PyPI
+```bash
+pip install lsoc
+```
+
+### On Ubuntu 24+ and modern Linux distros
+```bash
+pipx install lsoc
+```
+
+### From source
+```bash
+git clone https://github.com/AlperSakarya/lsoc.git
+cd lsoc
+pipx install -e .
+```
+
+## Usage
+
+View all files in current directory:
+```bash
+lsoc
+```
+
+View specific file:
+```bash
+lsoc filename
+```
+
+## Example Output
+
+```
+$ lsoc
+755 Desktop
+755 Documents
+755 Downloads
+755 Music
+600 myfile.tar.gz
+755 Pictures
+755 Public
+400 Python.pem
+775 Steam
+```
+
+```
+$ lsoc /usr/bin/sudo
+4755 /usr/bin/sudo
+```
+
+## Available on PyPI
+https://pypi.org/project/lsoc/
