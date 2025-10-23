@@ -1,0 +1,13 @@
+kicad_to_openpnp/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kicad_to_openpnp/board_to_packages.py,sha256=yByBMxNaPIh2Il7MMoQ1uurD1va3DhYWV-t_KuFNN3w,2430
+kicad_to_openpnp/board_to_parts.py,sha256=nJMmog_lL6WzGkMyFoPVHGBZ5CdYHQEeoups8ONwO10,2499
+kicad_to_openpnp/cli_utils.py,sha256=g2ZnVvtgcklhxqHX3vTV-p3fyijoS-wbDoAyvghyGmU,873
+kicad_to_openpnp/const.py,sha256=Vp4vPxbi96d2T6kpbCAZIUNNyaf-nmZrPAG8RhLG_yY,78
+kicad_to_openpnp/footprint_to_package.py,sha256=HLuo4mjrWObfUZA1oAtsu13HTC0YkoiI8wnNk9VfZ8Q,3605
+kicad_to_openpnp/kicad_utils.py,sha256=SIdKlLU2zf3KK4S0HLfwblXKIZoXl37jD7SQLr8tkKs,2483
+kicad_to_openpnp/xml_utils.py,sha256=TB78ksQCti1ZsPcJkTqeZRuwdLhhaW-9Xz-wF9-DpxE,273
+kicad_to_openpnp-0.1.4.dist-info/LICENSE,sha256=Kl97_IVma7RAxhpDj4305RkWEnz6qWUQCwyxIsML9ec,1062
+kicad_to_openpnp-0.1.4.dist-info/METADATA,sha256=8ITDkHY-9toAxCjveFkVtYrLq0lwc9FOEdXi9Z11pQ0,3703
+kicad_to_openpnp-0.1.4.dist-info/WHEEL,sha256=IYZQI976HJqqOpQU6PHkJ8fb3tMNBFjg-Cn-pwAbaFM,88
+kicad_to_openpnp-0.1.4.dist-info/entry_points.txt,sha256=9Sk_IYJz2uEf68S7iixhNb1AUFtQgURg5ruJcOhyCh4,235
+kicad_to_openpnp-0.1.4.dist-info/RECORD,,
