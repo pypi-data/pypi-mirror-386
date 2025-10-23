@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: dcclib-cli
+Version: 0.3.0
+Summary: Command line interface for the dcclib
+Author-email: Jan Loewe <jan.loewe@ptb.de>
+Requires-Python: <3.14,>=3.10
+Requires-Dist: click>=8.3.0
+Requires-Dist: dcclib

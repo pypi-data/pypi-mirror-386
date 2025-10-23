@@ -1,0 +1,2 @@
+[console_scripts]
+cli = dcclib_cli.cli:main
