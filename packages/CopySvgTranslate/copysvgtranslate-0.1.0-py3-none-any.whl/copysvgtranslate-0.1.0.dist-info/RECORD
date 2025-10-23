@@ -1,0 +1,12 @@
+CopySvgTranslate/__init__.py,sha256=j27Bfg7lYak8TY849IGdxafBInJ4b3uzfG-GHyVMH54,433
+CopySvgTranslate/text_utils.py,sha256=n9KKFDcFA7y8Cb9JKJ9N4bVv5OHQo5lgcUikazpz1fs,869
+CopySvgTranslate/workflows.py,sha256=wfsSgYwatsT-Um3Lz0Ad-LAODVY3XldOG1I_VRzUtFE,2441
+CopySvgTranslate/extraction/__init__.py,sha256=pv7KHM36KNheFyxsgl9BWSzfnUjNm73aMnSwXQwAmjs,108
+CopySvgTranslate/extraction/extractor.py,sha256=n4Bh1ZBWIZLeCgn4GSQ_co5HchlxGFMeaNKE31ovXnI,5167
+CopySvgTranslate/injection/__init__.py,sha256=EoqKtkHLvcr6raScCB4HP_B-Vtn-4j2f159W9qiO1Bs,448
+CopySvgTranslate/injection/batch.py,sha256=NvJ1wbUJRPUdyWE0Ls0DexjUVnIBCC3AgdIPL6Qlflw,2281
+CopySvgTranslate/injection/injector.py,sha256=HkJ3XWnAfkbR0HAaZ3r7AJdmaEG2EnrXYZQpSHaWkBA,8830
+CopySvgTranslate/injection/preparation.py,sha256=cmngerp9END07HVWvGUWe1LAYLblE0wRU4UinL3O3Wc,5639
+copysvgtranslate-0.1.0.dist-info/METADATA,sha256=k01zIVp42Q9XKAFa3xo9cW1pRVkRQJ_J6C9npp8m1Jg,5772
+copysvgtranslate-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+copysvgtranslate-0.1.0.dist-info/RECORD,,
