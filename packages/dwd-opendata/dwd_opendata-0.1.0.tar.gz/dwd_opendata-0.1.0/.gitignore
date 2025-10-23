@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.aider*
+
+# Environment and tool-specific files
+.envrc
+.direnv/
+
+# Claude Code files
+.claude-code*
+CLAUDE.md
+
+# Syncthing
+.stfolder/
+
+# Documentation build
+source/

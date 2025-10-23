@@ -1,0 +1,418 @@
+:PROPERTIES:
+:GPTEL_MODEL: qwen3-coder:30b-a3b-q4_K_M
+:GPTEL_BACKEND: Ollama
+:GPTEL_SYSTEM: You are a large language model living in Emacs and a helpful assistant. Respond concisely. Do not output tables unless they are narrow.
+:GPTEL_BOUNDS: ((response (441 2145) (2245 3701) (3831 5170) (5227 6902) (6974 8187) (8241 10075) (10131 10948) (11038 12302) (12323 14000) (14165 15939)))
+:END:
+
+* Is there a better place to point data_dir to?
+
+=data_dir= is currently hard‑coded to =~/data/opendata_dwd=.  That works, but it clutters the user’s home directory and makes it hard to switch datasets or clean up.  A more conventional approach is:
+
+1. *Use the XDG cache/data directories*  
+   #+begin_src python
+   import os
+   from pathlib import Path
+
+   # XDG data dir (fallback to ~/.local/share)
+   xdg_data_home = Path(os.getenv('XDG_DATA_HOME', os.path.join(Path.home(), '.local', 'share')))
+   data_dir = xdg_data_home / 'opendata_dwd'
+   # or XDG_CACHE_HOME (fallback to ~/.cache)
+   # xdg_cache_home = Path(os.getenv('XDG_CACHE_HOME', os.path.join(Path.home(), '.cache')))
+   # data_dir = xdg_cache_home / 'opendata_dwd'
+   data_dir.mkdir(parents=True, exist_ok=True)
+   #+end_src
+
+   This places the data under the standard “share” or “cache” hierarchy (=~/.local/share/opendata_dwd= or =~/.cache/opendata_dwd=), keeping the home directory tidy.
+
+2. *Allow user override*  
+   #+begin_src python
+   data_dir = Path(os.getenv('OPENDATA_DWD_DIR', data_dir))
+   data_dir.mkdir(parents=True, exist_ok=True)
+   #+end_src
+
+   Now a user can set =OPENDATA_DWD_DIR=/tmp/opendata= for temporary runs or testing.
+
+3. *Package‑level fallback*  
+   If you ship the package in a virtual environment, you can default to a directory relative to the package itself (e.g., =Path(__file__).resolve().parent / 'data'=) for development, but switch to the XDG directory in production.
+
+In short, move =data_dir= to an XDG‑conformant location (or let the user override it), and keep the =mkdir(parents=True, exist_ok=True)= call close to the assignment so it’s created only once. This keeps the user’s home directory clean and follows common desktop conventions.
+
+* What would be a platform-agnostic way to create a temporary directory for integration testing?
+
+The most reliable, cross‑platform way to create a sandboxed directory in a test is to use the built‑in *=tempfile=* module (or the =tmp_path= fixture that pytest exposes).  
+=tempfile= works on Windows, macOS, Linux, and any other OS that Python supports.
+
+#+begin_src python
+import tempfile
+import shutil
+
+# ---- 1.  Create a temp dir (platform‑agnostic) ----
+tmp_dir = tempfile.mkdtemp(prefix="integration_test_")
+
+try:
+    # Do the integration test – use `tmp_dir` as the root for all temp files
+    # Example: write a file inside the temp dir
+    with open(f"{tmp_dir}/example.txt", "w") as f:
+        f.write("hello world")
+
+    # ... run code that expects a writable directory ...
+finally:
+    # ---- 2.  Clean up – delete the whole tree ----
+    shutil.rmtree(tmp_dir)
+#+end_src
+
+If you are using *pytest*, the same idea is available as a built‑in fixture:
+
+#+begin_src python
+import pytest
+
+@pytest.fixture
+def temp_dir(tmp_path):
+    # `tmp_path` is a pathlib.Path object pointing to a unique temporary directory
+    yield tmp_path
+    # the directory is automatically removed by pytest after the test
+#+end_src
+
+Using =tempfile= (or =tmp_path=) guarantees that:
+
+- The directory is created in the OS’s temporary‑file area, respecting
+  environment variables like =TMPDIR=, =TEMP=, or =TMP=.
+- It works on all supported platforms without needing any external
+  utilities.
+- The directory is automatically cleaned up, preventing leftover
+  clutter.
+
+* How would that look like for =dwd_opendata.data_dir=, which is set manually as a fixture in =TestDWDIntegration.setUpClass=?
+
+For =dwd_opendata.data_dir=, you'd modify =TestDWDIntegration.setUpClass= and =tearDownClass= to use a temporary directory:
+
+#+begin_src python
+import tempfile
+import shutil
+from pathlib import Path
+
+class TestDWDIntegration(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        """Set up class-level fixtures with temp directory."""
+        # Store original data_dir
+        cls.original_data_dir = dwd_opendata.data_dir
+        
+        # Create temporary directory
+        cls.temp_dir = tempfile.mkdtemp(prefix="dwd_opendata_test_")
+        dwd_opendata.data_dir = Path(cls.temp_dir)
+
+    @classmethod
+    def tearDownClass(cls):
+        """Clean up class-level fixtures."""
+        # Restore original data_dir
+        dwd_opendata.data_dir = cls.original_data_dir
+        
+        # Clean up temp directory
+        shutil.rmtree(cls.temp_dir)
+#+end_src
+
+This approach:
+1. Uses =tempfile.mkdtemp= to create a unique, OS-appropriate temp directory
+2. Stores the original =data_dir= for restoration
+3. Sets =dwd_opendata.data_dir= to the temp directory
+4. Cleans up the temp directory after all tests in the class finish
+
+The =tempfile.mkdtemp= function ensures the directory is created in the OS's standard temporary location (respecting =TMPDIR=, =TEMP=, =TMP=, etc.) and is automatically cleaned up after the test run.
+
+* How about using pytest fixtures? What would I gain?
+
+Using pytest fixtures instead of =setUpClass= / =tearDownClass= gives you several advantages:
+
+1. *Automatic cleanup*: Pytest handles cleanup automatically, even if tests crash
+2. *Better scoping*: You can control whether fixtures apply per-test, per-class, or per-module
+3. *Easier reuse*: Fixtures can be shared across multiple test files
+4. *Cleaner code*: Less boilerplate and more readable test functions
+
+Here's how you'd refactor using pytest fixtures:
+
+#+begin_src python
+import tempfile
+import shutil
+from pathlib import Path
+import pytest
+
+@pytest.fixture(scope="class")
+def temp_data_dir():
+    """Provide a temporary directory for DWD data."""
+    temp_dir = tempfile.mkdtemp(prefix="dwd_opendata_test_")
+    original_dir = dwd_opendata.data_dir
+    dwd_opendata.data_dir = Path(temp_dir)
+    
+    yield temp_dir  # This is where the test runs
+    
+    # Cleanup happens automatically after the test class finishes
+    dwd_opendata.data_dir = original_dir
+    shutil.rmtree(temp_dir)
+
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... rest of test
+#+end_src
+
+Benefits:
+- No need for =setUpClass= / =tearDownClass=
+- Automatic cleanup even if tests fail
+- Clearer test intent with =@pytest.mark.usefixtures=
+- Easier to extend with multiple fixtures
+- Works seamlessly with pytest's test discovery and parallel execution
+
+You could also make the fixture more flexible by using =tmp_path= (pytest's built-in temp directory fixture) instead of =tempfile= for even cleaner integration with pytest's ecosystem.
+
+** And what would a platform-agnostic location for temporal data be?
+
+For platform-agnostic temporary data storage, use the standard library's =tempfile= module or pytest's =tmp_path= fixture:
+
+*Option 1: Using =tempfile.mkdtemp= (most portable)*
+#+begin_src python
+import tempfile
+from pathlib import Path
+
+# Creates a temp dir in system temp location (respects TMPDIR, TEMP, TMP, etc.)
+temp_dir = Path(tempfile.mkdtemp(prefix="dwd_opendata_"))
+# Clean up when done: shutil.rmtree(temp_dir)
+#+end_src
+
+*Option 2: Using =tmp_path= (pytest)*
+#+begin_src python
+import pytest
+
+@pytest.fixture
+def temp_data_dir(tmp_path):
+    # tmp_path is a pathlib.Path to a unique temp dir
+    return tmp_path
+#+end_src
+
+*Option 3: XDG-based temp (more structured)*
+#+begin_src python
+import os
+from pathlib import Path
+
+# Use XDG cache directory (standard on Linux/macOS)
+xdg_cache = Path(os.getenv('XDG_CACHE_HOME', Path.home() / '.cache'))
+temp_dir = xdg_cache / 'opendata_dwd' / 'test'
+temp_dir.mkdir(parents=True, exist_ok=True)
+#+end_src
+
+*Recommendation*: For integration tests, use =tmp_path= if using pytest, or =tempfile.mkdtemp= otherwise. Both are cross-platform and respect system conventions. The =tmp_path= fixture is particularly nice because it's automatically cleaned up by pytest.
+
+** Can you integrate that with the pytest fixture?
+
+Yes, here's how to integrate the platform-agnostic temp directory with a pytest fixture:
+
+#+begin_src python
+import tempfile
+import shutil
+from pathlib import Path
+import pytest
+
+@pytest.fixture(scope="class")
+def temp_data_dir():
+    """Provide a temporary directory for DWD data (cross-platform)."""
+    # Create temp directory using tempfile (cross-platform)
+    temp_dir = tempfile.mkdtemp(prefix="dwd_opendata_test_")
+    temp_path = Path(temp_dir)
+    
+    # Store original and set new data_dir
+    original_dir = dwd_opendata.data_dir
+    dwd_opendata.data_dir = temp_path
+    
+    yield temp_path  # Test runs here
+    
+    # Cleanup: restore original and remove temp dir
+    dwd_opendata.data_dir = original_dir
+    shutil.rmtree(temp_dir)
+
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... rest of test
+#+end_src
+
+Alternative using =tmp_path= (if you want to rely on pytest's built-in temp handling):
+
+#+begin_src python
+import pytest
+
+@pytest.fixture(scope="class")
+def temp_data_dir(tmp_path):
+    """Provide a temporary directory for DWD data."""
+    # Store original and set new data_dir
+    original_dir = dwd_opendata.data_dir
+    dwd_opendata.data_dir = tmp_path
+    
+    yield tmp_path  # Test runs here
+    
+    # Cleanup: restore original
+    dwd_opendata.data_dir = original_dir
+
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... rest of test
+#+end_src
+
+The =tmp_path= version is cleaner since pytest automatically cleans up the directory, but both approaches are cross-platform and work reliably.
+
+** I don't need the setUpClass method any more then?
+
+No, you don't need =setUpClass= anymore if you use the pytest fixture approach. The fixture handles the setup and teardown automatically.
+
+With the pytest fixture, you get:
+
+1. *Automatic setup*: The fixture runs before each test class (due to =scope="class"=)
+2. *Automatic cleanup*: The fixture's cleanup code runs after the test class finishes
+3. *No manual boilerplate*: No need for =setUpClass=, =tearDownClass= methods
+
+Your test class becomes much cleaner:
+
+#+begin_src python
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... test code
+#+end_src
+
+The fixture handles all the =data_dir= management for you, so you can focus on writing the actual tests.
+
+*** There seems to be a problem because the fixture is for functions, not for classes?
+
+You're absolutely right! There's a scoping issue. The fixture needs to be defined with the correct scope for class-level setup.
+
+Here's the corrected approach:
+
+#+begin_src python
+import pytest
+
+@pytest.fixture(scope="class")
+def temp_data_dir(tmp_path):
+    """Provide a temporary directory for DWD data."""
+    # Store original and set new data_dir
+    original_dir = dwd_opendata.data_dir
+    dwd_opendata.data_dir = tmp_path
+    
+    yield tmp_path  # Test runs here
+    
+    # Cleanup: restore original
+    dwd_opendata.data_dir = original_dir
+
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... test code
+#+end_src
+
+The fixture scope="class" means it runs once per test class, not per test function. This is what you want for setting up the =data_dir= for all tests in the class. The =tmp_path= fixture (which is built into pytest) provides a unique temporary directory for each test class.
+
+Note that =tmp_path= is already a =pathlib.Path= object, so you don't need to convert it or do any manual temp directory creation. The =tmp_path= fixture is specifically designed to handle this exact use case.
+
+*** What changed?
+
+Looking at my previous response, I made an error. Let me correct what I meant:
+
+The fixture /can/ be defined for classes, but there's an important detail about how it interacts with the test class. The main issue is that you need to ensure that the =data_dir= change happens at the right time and that cleanup is handled properly.
+
+Here's the correct approach:
+
+#+begin_src python
+import pytest
+
+@pytest.fixture(scope="class")
+def temp_data_dir(tmp_path):
+    """Provide a temporary directory for DWD data."""
+    # Store original and set new data_dir
+    original_dir = dwd_opendata.data_dir
+    dwd_opendata.data_dir = tmp_path
+    
+    yield tmp_path  # Test runs here
+    
+    # Cleanup: restore original
+    dwd_opendata.data_dir = original_dir
+
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... test code
+#+end_src
+
+What changed:
+1. I'm using the built-in =tmp_path= fixture which provides a unique temporary directory
+2. The =scope="class"= ensures it runs once per test class (not per test function)
+3. The fixture handles both setup and cleanup automatically
+
+This approach works correctly because:
+- =tmp_path= is provided by pytest and is guaranteed to be unique per test class
+- The fixture's cleanup code runs after all tests in the class finish
+- It's much simpler than manually creating temp directories with =tempfile.mkdtemp=
+
+The key insight is that when you use =scope="class"=, the fixture runs once for the entire class, which is what you want for setting up =data_dir= for all tests in that class.
+
+*** Well, I still get this: ScopeMismatch: You tried to access the function scoped fixture tmp_path with a class scoped request object. Requesting fixture stack:
+
+You're right, there's a scoping conflict. The issue is that =tmp_path= is function-scoped, but you're trying to use it in a class-scoped fixture. Here are two working solutions:
+
+*Solution 1: Use =tmp_path_factory= (class-scoped)*
+#+begin_src python
+import pytest
+
+@pytest.fixture(scope="class")
+def temp_data_dir(tmp_path_factory):
+    """Provide a temporary directory for DWD data."""
+    # Create a unique temp directory for this test class
+    temp_dir = tmp_path_factory.mktemp("dwd_test")
+    
+    # Store original and set new data_dir
+    original_dir = dwd_opendata.data_dir
+    dwd_opendata.data_dir = temp_dir
+    
+    yield temp_dir
+    
+    # Cleanup: restore original
+    dwd_opendata.data_dir = original_dir
+
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... test code
+#+end_src
+
+*Solution 2: Keep it function-scoped but use =tmp_path= directly*
+#+begin_src python
+import pytest
+
+@pytest.fixture
+def temp_data_dir(tmp_path):
+    """Provide a temporary directory for DWD data."""
+    # Store original and set new data_dir
+    original_dir = dwd_opendata.data_dir
+    dwd_opendata.data_dir = tmp_path
+    
+    yield tmp_path
+    
+    # Cleanup: restore original
+    dwd_opendata.data_dir = original_dir
+
+@pytest.mark.usefixtures("temp_data_dir")
+class TestDWDIntegration:
+    def test_load_metadata_real_server(self):
+        metadata = dwd_opendata.load_metadata("air_temperature", time="hourly")
+        # ... test code
+#+end_src
+
+But wait - in Solution 2, if you have multiple tests, you'll need to run the fixture once per test function. For class-level setup, use Solution 1 with =tmp_path_factory=.
+
+*** 

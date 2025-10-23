@@ -1,0 +1,7 @@
+services:
+  lib:
+    image: dwd_opendata_image    
+    build:
+      context: .
+      dockerfile: dockerfile.lib
+      

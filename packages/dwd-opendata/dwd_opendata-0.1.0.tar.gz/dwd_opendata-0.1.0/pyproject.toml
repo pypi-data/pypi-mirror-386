@@ -1,0 +1,36 @@
+[tool.black]
+line-length = 79
+
+[project]
+name = "dwd_opendata"
+version = "0.1.0"
+description = "Download data from DWD's ftp server and return it as xarray DataArray"
+license = {text = "MIT"}
+readme = "README.md"
+authors = [
+    { name = "iskur", email = "32363199+iskur@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "cartopy>=0.24.1",
+    "pandas>=2.3.0",
+    "tqdm>=4.67.1",
+    "xarray>=2024.1.0",
+]
+
+[project.optional-dependencies]
+plot = [
+    "cartopy>=0.24.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ipython>=9.5.0",
+    "pre-commit>=4.3.0",
+    "pytest>=8.4.2",
+    "restructuredtext-lint>=1.4.0",
+]

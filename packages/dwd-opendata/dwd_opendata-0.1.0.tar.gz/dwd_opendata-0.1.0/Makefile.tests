@@ -1,0 +1,36 @@
+# Test running convenience commands
+
+.PHONY: test test-unit test-integration test-all test-quick
+
+# Quick unit tests only (default)
+test: test-unit
+
+# Fast unit tests with mocking
+test-unit:
+	@echo "Running unit tests (fast, mocked)..."
+	python -m unittest src/dwd_opendata/tests/test_dwd_opendata.py -v
+
+# Integration tests with real server calls
+test-integration:
+	@echo "Running integration tests (slow, real server calls)..."
+	@echo "This requires internet connectivity and may take several minutes..."
+	python -m unittest src/dwd_opendata/tests/test_integration.py -v
+
+# Run all tests
+test-all: test-unit test-integration
+
+# Quick syntax and import test
+test-quick:
+	@echo "Quick syntax check..."
+	python -c "import src.dwd_opendata; print('✓ Module imports successfully')"
+	python -m py_compile src/dwd_opendata/__init__.py
+	@echo "✓ Syntax check passed"
+
+# Help
+help:
+	@echo "Available test commands:"
+	@echo "  make test        - Run unit tests only (default)"
+	@echo "  make test-unit   - Run fast unit tests with mocking"
+	@echo "  make test-integration - Run slow integration tests with real DWD server"
+	@echo "  make test-all    - Run both unit and integration tests"
+	@echo "  make test-quick  - Quick syntax and import check"

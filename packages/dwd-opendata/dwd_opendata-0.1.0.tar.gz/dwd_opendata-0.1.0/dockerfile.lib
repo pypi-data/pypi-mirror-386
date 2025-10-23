@@ -1,0 +1,62 @@
+# -------------------------------------------------------------
+# 1️⃣  Builder – runs all CI steps
+# -------------------------------------------------------------
+FROM python:3.13-slim-bookworm AS builder
+
+# ------------- 1.1  Environment -------------
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+# ------------- 1.2  System libs for cartopy -------------
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        libproj-dev \
+        libgeos-dev \
+        libgdal-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# ------------- 1.4  Work‑dir -------------
+WORKDIR /app
+
+# ------------- 1.5  Copy only what is needed -------------
+COPY pyproject.toml .
+COPY README.md .
+COPY src/ ./src/
+
+# ------------- 1.6  Create a virtual‑env in the builder -------------
+RUN pip install uv
+RUN uv venv
+
+# ------------- 1.7  Install test‑group deps + the package itself -------------
+RUN . .venv/bin/activate && uv pip install --group test && \
+    uv pip install .[test] || true
+
+# ------------- 1.8  Build wheel -------------
+RUN . .venv/bin/activate && uv build
+
+# ------------- 1.9  Run tests against source tree -------------
+# RUN . .venv/bin/activate && pytest --pyargs vg
+
+# -------------------------------------------------------------
+# 2️⃣  Final image – only the wheel (and runtime deps if needed)
+# -------------------------------------------------------------
+FROM python:3.13-slim-bookworm AS dwd-opendata-lib
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Copy the built wheel from the builder
+COPY --from=builder /app/dist/*.whl /tmp/
+
+# Install the wheel; runtime deps will be pulled automatically
+RUN pip install --no-cache-dir /tmp/*.whl
+
+# Optional: pin the runtime libs you really need for a slimmer image
+# RUN pip install --no-cache-dir bottleneck cartopy dill matplotlib \
+#    numexpr pandas scipy timezonefinder tqdm xarray
+
+# Default command – run tests again (or replace with your entrypoint)
+# CMD ["pytest", "--pyargs", "vg"]
