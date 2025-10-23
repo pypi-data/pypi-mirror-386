@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: mensajes-andre
+Version: 0.0.0
+Summary: Un paquete para saludar y despedir
+Author-email: Andre Macas <andremacas2007@gmail.com>
+Project-URL: Homepage, https://github.com/21andree
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=2.3.4
+Dynamic: license-file
+
+# mensajes
+
+Un paquete para saludar y despedir en Python.
+
+## Instalación
+
+```bash
+pip install mensajes
+# Uso
+from mensajes.hola.saludos import saludar
+from mensajes.adios.despedidas import despedir
+
+saludar("Andre")
+despedir("Amigo")

@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+mensajes/__init__.py
+mensajes/adios/despedidas.py
+mensajes/hola/__init__.py
+mensajes/hola/saludos.py
+mensajes_andre.egg-info/PKG-INFO
+mensajes_andre.egg-info/SOURCES.txt
+mensajes_andre.egg-info/dependency_links.txt
+mensajes_andre.egg-info/requires.txt
+mensajes_andre.egg-info/top_level.txt
+tests/test_hola.py
