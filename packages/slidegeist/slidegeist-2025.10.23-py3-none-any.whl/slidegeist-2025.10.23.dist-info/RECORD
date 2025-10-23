@@ -1,0 +1,15 @@
+slidegeist/__init__.py,sha256=G0L9kp6hUcv5KgTwwk7ib91NVk0s_tuOjGuLpOar524,292
+slidegeist/cli.py,sha256=0TaMyoyuvKCzyjEj_03psWm3neO8E2Sp8PILzNWvi1Y,10205
+slidegeist/constants.py,sha256=2mD59X7W-AG3oRhb5i3GE26-lDINXmWSJAwewsxMZAg,901
+slidegeist/download.py,sha256=o-CtDc2PaaKxMmps0DJ-7h0Xowbtix0nhAl2o7PvO7k,4962
+slidegeist/export.py,sha256=yrPtAz4EaXa8063-f65GdDkmY0fDK-1NLJsKRfxWxmk,2735
+slidegeist/ffmpeg.py,sha256=HP0xJyS7YwI0nsnvQglNU4wuGGpjvNfauY1JeNa7P6s,4471
+slidegeist/pipeline.py,sha256=iPTo0Izwa5WPJeINb3Q9e8I0NwNA04LCh_PlOGtzzhk,5444
+slidegeist/pixel_diff_detector.py,sha256=j6XtreNb1XewGFQScjXLUsbZJRilHw2HFs3w6vg6KIw,7627
+slidegeist/slides.py,sha256=lfm_WH_NusLNScX3V0bifKa6zsVKYmL1uqM_H1Hy3ns,4523
+slidegeist/transcribe.py,sha256=Qjz30INOaLekY22vG4tQGZtHce4qEwa6VY_McUDHdtM,6725
+slidegeist-2025.10.23.dist-info/METADATA,sha256=WwRQMHuYpTBs0G-AlmaXoQSh0r0cnEdOr3w08_PIm7A,6916
+slidegeist-2025.10.23.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+slidegeist-2025.10.23.dist-info/entry_points.txt,sha256=TlhmGDENpsLbqPodBxg7GsrBdt20fpbMFde9UGUNfuw,51
+slidegeist-2025.10.23.dist-info/licenses/LICENSE,sha256=egPtrMDwecUEcmLV399_JvWqRRXRIf9XAkbW1G58708,1075
+slidegeist-2025.10.23.dist-info/RECORD,,
