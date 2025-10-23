@@ -1,0 +1,4 @@
+[console_scripts]
+git-queue=gitq.git_queue:main
+git-swap=gitq.git_swap:main
+

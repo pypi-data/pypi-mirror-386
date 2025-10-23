@@ -1,0 +1,11 @@
+gitq/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gitq/continuations.py,sha256=JwIFgs8hmJYUqN95oTzRYnJaRWGw3fVXntwKr5TEj-U,9793
+gitq/git.py,sha256=CwVgcEUzJCCSKX0Adkti6Hc9OrJ1gX5jpty_UKiBLvA,8347
+gitq/git_queue.py,sha256=Z_29Y3Vj6O-2GHgeQp8LmVniHECFzbk0nwVfhuR97AY,5685
+gitq/git_swap.py,sha256=Lau2a0BZUJ73wsZXmj3z4ahiBk43RDEY79e3MLuNPts,12504
+gitq/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gitq/queue.py,sha256=NkT-4w66i7P_tQS8eJ9GnXAVoTH61lXy6BAA7Q8isWA,2357
+gitq-0.0.3.dist-info/METADATA,sha256=1EOkfXmg-rsN9JRNNb3oMbvHh42h8w-QNxe0WHiBs0Y,4293
+gitq-0.0.3.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+gitq-0.0.3.dist-info/entry_points.txt,sha256=QwrTURrjhSDRQ68nf6lRuAnKK-eUQB-OW6MWoNv8xKI,77
+gitq-0.0.3.dist-info/RECORD,,
