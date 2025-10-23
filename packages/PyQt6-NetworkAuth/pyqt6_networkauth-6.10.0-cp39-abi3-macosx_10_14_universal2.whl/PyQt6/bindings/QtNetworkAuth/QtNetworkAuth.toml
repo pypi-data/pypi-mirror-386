@@ -1,0 +1,6 @@
+# Automatically generated configuration for PyQt6.QtNetworkAuth.
+
+sip-version = "6.13.1"
+sip-abi-version = "13.8"
+module-tags = ["QtNetworkAuth_6_10_0", "Qt_6_10_0", "macOS"]
+module-disabled-features = []
