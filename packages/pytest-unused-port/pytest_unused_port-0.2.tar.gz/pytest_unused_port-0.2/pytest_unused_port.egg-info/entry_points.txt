@@ -1,0 +1,6 @@
+[console_scripts]
+pytest-unused-port = pytest_unused_port.__main__:main
+uport = pytest_unused_port.__main__:main
+
+[pytest11]
+unused_port = pytest_unused_port
