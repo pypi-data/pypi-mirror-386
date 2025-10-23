@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-framework-azurefunctions"
+version = "0.0.1"
+description = "Durable Agent Framework - Deploy Microsoft Agent Framework agents as Azure Durable Function Apps using Durable Entities"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Microsoft", email = "azurefunctions@microsoft.com"}
+]
+keywords = ["azure", "functions", "durable", "entity", "agent", "ai", "microsoft", "agent-framework", "azure-functions"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "azure-functions",
+    "azure-functions-durable",
+    "agent-framework",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+]
+
+azure-openai = [
+    "azure-identity>=1.15.0",
+    "openai>=1.0.0",
+]
+
+azure-ai = [
+    "azure-ai-projects>=1.0.0",
+    "azure-identity>=1.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Azure/durable-agent-framework"
+Documentation = "https://github.com/Azure/durable-agent-framework/tree/main/python#readme"
+Repository = "https://github.com/Azure/durable-agent-framework"
+Issues = "https://github.com/Azure/durable-agent-framework/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["durableagent*"]
+exclude = ["tests*", "samples*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
