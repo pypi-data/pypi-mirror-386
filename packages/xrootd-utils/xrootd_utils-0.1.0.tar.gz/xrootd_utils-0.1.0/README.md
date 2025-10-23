@@ -1,0 +1,136 @@
+# XRootD Utils
+
+A collection of high-level utility scripts for moving data to and from offline archival storage using XRootD.
+
+## Environment setup
+
+Other platforms may need to use different names to get the equivalent packages.
+
+### Rocky 9
+
+```bash
+sudo dnf install "@Development Tools" python3.11 python3.11-pip python3.11-setuptools python3.11-devel openldap-devel swig gcc gcc-c++ openssl-devel cmake3 libuv libuuid-devel git
+```
+
+### Debian 12
+
+```bash
+sudo agt-get update
+sudo apt-get install build-essential curl python3.11 python3.11-venv python3.11-dev python3-pip libldap2-dev libsasl2-dev cmake uuid-dev git
+```
+
+## Usage
+
+### Authentication
+
+XRootD uses environment variables to define the credentials used to authenticate to the server. Note that files containing keys need to be only readable/writable by the user, so it may be necessary to manually configure this:
+
+```bash
+chmod 600 /path/to/.keytab
+```
+
+#### Keytab
+
+```bash
+export XrdSecPROTOCOL=sss
+export XrdSecSSSKT=/path/to/.keytab
+```
+
+#### X509 certificates
+
+```bash
+export X509_USER_CERT=/path/to/hostcert.pem
+export X509_USER_KEY=/path/to/hostkey.pem
+```
+
+### Commandline
+
+```bash
+xrootd-utils --help
+```
+```
+usage: xrootd-utils [-h] [--verbose] url {backup,restore} ...
+
+positional arguments:
+  url               Url for remote XRootD server including top level directory path, for example root://hostname.domain:1094//path/to/directory
+  {backup,restore}
+    backup          Backup files in local directory to tape.
+    restore         Restore files in a remote directory to tape
+
+options:
+  -h, --help        show this help message and exit
+  --verbose, -v     Increase logging level to DEBUG.
+```
+
+#### Backup
+
+```bash
+xrootd-utils root://localhost:1094 backup --help
+```
+```
+usage: xrootd-utils url backup [-h] [--auto-remove {never,backed_up,cached}] source
+
+positional arguments:
+  source                Local source path. Directories will be walked to find all nested files.
+
+options:
+  -h, --help            show this help message and exit
+  --auto-remove {never,backed_up,cached}, -r {never,backed_up,cached}
+                        Whether to automatically remove the local copy of a file: 'never', only when the XRootD server has it 'backed_up', or as soon as the server has a 'cached' copy.
+```
+
+#### Restore
+
+```bash
+xrootd-utils root://localhost:1094 restore --help
+```
+```
+usage: xrootd-utils url restore [-h] [--poll-seconds POLL_SECONDS] [--auto-evict] source target
+
+positional arguments:
+  source                Remote relative source path. Directories will be walked to find all nested files.
+  target                Local directory to restore relative paths to.
+
+options:
+  -h, --help            show this help message and exit
+  --poll-seconds POLL_SECONDS, -s POLL_SECONDS
+                        Number of seconds to wait between querying to see if requested files are online.
+  --auto-evict, -e      Once copied to local storage, automatically evict the online copy cached on the remote server.
+```
+
+### As a library
+
+```python
+from xrootd_utils.client import Client
+
+client = Client("root://localhost:1094//")
+client.backup("local/directory")
+```
+
+## Development
+
+It's recommended to use [poetry](https://python-poetry.org/docs/#installation) to manage dependencies and virtual environments, however manually managing the development environment is also possible.
+
+```bash
+python -m venv .venv
+poetry install  # Note that as XRootD needs to be compiled at install time, this can take ~5 minutes
+source .venv/bin/activate
+```
+
+### Formatting
+
+```bash
+black .
+```
+
+### Linting
+
+```bash
+flake8 xrootd_utils test
+```
+
+### Package vulnerabilities
+
+```bash
+safety check --full-report
+```

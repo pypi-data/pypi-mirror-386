@@ -1,0 +1,49 @@
+[project]
+name = "xrootd-utils"
+version = "0.1.0"
+description = "A collection of high-level utility scripts for moving data to and from offline archival storage using XRootD."
+authors = [
+    {name = "Patrick Austin",email = "patrick.austin@stfc.ac.uk"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11, <3.14"
+dependencies = [
+    "xrootd (==5.8.2)"
+]
+
+[project.scripts]
+xrootd-utils = "xrootd_utils.main:main"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.0"
+flake8 = "^7.3.0"
+flake8-black = "^0.2.1"
+flake8-broken-line = "^1.0.0"
+flake8-bugbear = "^22.4.25"
+flake8-builtins = "^1.5.3"
+flake8-commas = "^4.0.0"
+flake8-comprehensions = "^3.3.0"
+flake8-import-order = "^0.19.2"
+flake8-logging-format = "^2024.24.12"
+pep8-naming = "^0.12.1"
+safety = "^3.6.0"
+pytest = "^7.2.0"
+pytest-cov = "^6.2.1"
+coverage = "^7.10.6"
+typer = "^0.16.1"
+pytest-mock = "^3.14.1"
+pytest-timeout = "^2.4.0"
+
+[tool.coverage.paths]
+source = ["xrootd_utils"]
+
+[tool.coverage.run]
+source = ["xrootd_utils"]
+
+[tool.coverage.report]
+show_missing = true
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
