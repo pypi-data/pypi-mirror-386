@@ -1,0 +1,34 @@
+[build-system]
+requires = ['setuptools==80.9.0']
+build-backend = 'setuptools.build_meta'
+
+
+[project]
+authors = [
+  { name='Romaan Khadeer', email='romaan@dollarmates.com' },
+]
+classifiers = [
+    'Programming Language :: Python :: 3.10',
+    'Framework :: Django',
+    'Operating System :: OS Independent',
+    'Environment :: Web Environment'
+]
+license-files = [ "LICENSE" ]
+description = 'DM Core Crypto'
+dependencies = [
+  'cryptography==43.0.3',
+  'Django==5.2.5',
+  'pycryptodome==3.21.0',
+  'pyOpenSSL==24.2.1',
+]
+name = 'dm-core-crypto'
+readme = 'README.md'
+requires-python = '==3.12.*'
+version = '1.0.1'
+
+[project.urls]
+Homepage = 'https://www.dollarmates.com'
+Source = 'https://github.com:dollarmates/dm-libs.git'
+
+[tool.setuptools.packages.find]
+where = ['src']

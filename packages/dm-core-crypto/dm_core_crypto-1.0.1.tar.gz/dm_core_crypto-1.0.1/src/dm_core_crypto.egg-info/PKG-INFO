@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: dm-core-crypto
+Version: 1.0.1
+Summary: DM Core Crypto
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cryptography==43.0.3
+Requires-Dist: Django==5.2.5
+Requires-Dist: pycryptodome==3.21.0
+Requires-Dist: pyOpenSSL==24.2.1
+Dynamic: license-file
+
+# DM CORE CRYPTO
