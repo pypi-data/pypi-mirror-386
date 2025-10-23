@@ -1,0 +1,14 @@
+fashion_mnist_classifier-0.1.11.dist-info/licenses/LICENSE,sha256=eMh3AkLJdS5xVYyWEEQCr4da3Fxg80rFixDKTR7K4L4,1108
+my_project/__init__.py,sha256=W9zFI47wUfi0sd7HQQTRSG1p7RMHSXNeGpdaYvMXCtY,84
+my_project/app.py,sha256=DTWU47LGadlpNFdPYI8DIEEoJAsfUTwBOPwarIAS8tk,10326
+my_project/config.py,sha256=Dks5ku6IeEC9mupWWtF0b2HuBuDS8cl3CV6itr6CT_g,537
+my_project/dataset.py,sha256=jbuN-DCFaUNDo8GQSe1Ekx4k4Iov7z8SroMbEwUnvoE,3278
+my_project/model.py,sha256=YG7TWMR1-48v3zzQqoJrYWaFmU819mwd1UDu5QPDfEY,3880
+my_project/plots.py,sha256=aC9-2xkldnmZ_D7IY_jAUiOy5DdUNG9lKXQAtGO4CHg,19025
+my_project/train.py,sha256=sZyzL9WxG8p6DkRyJzQciAKzSZ960mmvAAyBsQJY5rs,2296
+my_project/train_exp1.py,sha256=5bJw_1GHCxmC8w6hSuUsMp72wmKO7QVn6FIWnEnACcE,376
+fashion_mnist_classifier-0.1.11.dist-info/METADATA,sha256=93_dqDtc3GlVjsAbH_QAvrG4QbMD-QyRSo19cYIjfYM,7560
+fashion_mnist_classifier-0.1.11.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+fashion_mnist_classifier-0.1.11.dist-info/entry_points.txt,sha256=IWa_M95p7CHlG487gMBxDiGODACFghbdpghMij9EYXM,107
+fashion_mnist_classifier-0.1.11.dist-info/top_level.txt,sha256=uS7apALK2uWw8F_KBBQAZtzeHHsSEGEVn4IRDmM5rfw,11
+fashion_mnist_classifier-0.1.11.dist-info/RECORD,,
