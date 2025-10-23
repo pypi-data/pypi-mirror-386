@@ -1,0 +1,13 @@
+fastquadtree-1.3.1.dist-info/METADATA,sha256=YIM8YulIaIIme-cHchU0DJfSBmFDlcZ3c32Xep0Mr90,9747
+fastquadtree-1.3.1.dist-info/WHEEL,sha256=Xy8PCw5xnuodE1p5F-6ZcCwEC9PSHi9XphukLuN_20I,146
+fastquadtree-1.3.1.dist-info/licenses/LICENSE,sha256=pRuvcuqIMtEUBMgvP1Bc4fOHydzeuA61c6DQoQ1pb1w,1071
+fastquadtree/__init__.py,sha256=rtkveNz7rScRasTRGu1yEqzeoJfLfreJNxg21orPL-U,195
+fastquadtree/_base_quadtree.py,sha256=8YXQ9txNHlOD0wFv78PU17JumL4Nb_WnZIwt1FOgMy8,16325
+fastquadtree/_item.py,sha256=EDS3nJHdVtjDsuTqTZKGTZH8iWJIQ-TKxLXqvMScNPA,2405
+fastquadtree/_native.abi3.so,sha256=wbaB9daveTkrYJC-D-HOBROiYXHVkwjR5jF1XhvZ_u0,1410624
+fastquadtree/_obj_store.py,sha256=HeYFGUPYhvxBzL7Js0g0jsIxflpZS6RsXNk50rGeNlA,6522
+fastquadtree/point_quadtree.py,sha256=BbTlY1hJLh5oVI7zgkjMCReO8GlPKy4pJqHHSZKo5SA,6179
+fastquadtree/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fastquadtree/pyqtree.py,sha256=2Khh1gCPalD4z0gb3EmqtzMoga08E9BkB0j5bwkiRPU,6076
+fastquadtree/rect_quadtree.py,sha256=zD3MqFqDJRd3oJcuT5EMkuMnq_ABfMVhf-wXbidK7jE,4002
+fastquadtree-1.3.1.dist-info/RECORD,,
