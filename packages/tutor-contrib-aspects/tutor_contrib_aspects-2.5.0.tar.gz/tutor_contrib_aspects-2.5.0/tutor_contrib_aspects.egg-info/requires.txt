@@ -1,0 +1,8 @@
+bcrypt
+click<8.3.0,>=8.0
+importlib-resources
+openedx-atlas
+ruamel.yaml
+shandy-sqlfmt[jinjafmt]==0.26.0
+tutor>=18
+tutor-mfe>=18
