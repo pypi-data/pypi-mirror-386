@@ -1,0 +1,6 @@
+pytest
+pytest-cov
+pdoc
+numpy
+setuptools_scm
+numba

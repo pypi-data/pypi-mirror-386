@@ -1,0 +1,160 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+env:
+  PYTEST_ADDOPTS: "--color=yes"
+
+jobs:
+  test:
+    name: Test - Python ${{ matrix.python-version }} with numpy ${{matrix.numpy-version}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        numpy-version: ["1.*", "2.*"]
+        extra-packages: ["", "numba"]
+
+        exclude:
+          # this takes a long time to setup
+          - python-version: "3.13"
+            numpy-version: "1.*"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install pytest
+          python -m pip install pytest-benchmark
+          python -m pip install "numpy==${{matrix.numpy-version}}" ${{matrix.extra-packages}}
+
+      - name: Run tests
+        run: python -m pytest --benchmark-skip
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install flake8
+
+      - name: Lint source files
+        run: flake8 ./blobid --count --show-source --statistics
+
+      - name: Lint tests files
+        run: flake8 ./tests --count --show-source --statistics
+      
+  benchmark:
+    name: Benchmark - ${{ matrix.branch }}
+    needs: [test, lint]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    strategy:
+      matrix:
+        branch: [ "base", "head"]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch == 'base' && github.base_ref || github.head_ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install pytest
+          python -m pip install pytest-benchmark
+          python -m pip install numpy numba
+
+      - name: Run base benchmark
+        run: |
+          python -m pytest --benchmark-only --benchmark-json=${{matrix.branch}}.json \
+          --benchmark-min-rounds=20 --benchmark-warmup=true
+          git rev-parse HEAD > ${{matrix.branch}}.hash
+
+      - name: Archive results
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{matrix.branch}}-results
+          path: |
+            ${{matrix.branch}}.json
+            ${{matrix.branch}}.hash
+
+  compare:
+    name: Benchmark - compare
+    needs: benchmark
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install pytest-benchmark[histogram]
+
+      - name: Get ref artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: base-results
+
+      - name: Get head artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: head-results
+
+      - name: Compare benchmarks
+        run: |
+          pytest-benchmark compare *.json --group-by=func --name=normal \
+          --histogram=benchmark | tee benchmark.txt
+
+      - name: Archive benchmark comparisons
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: |
+            benchmark*.svg
+
+      - name: Comment to PR
+        run: |
+          echo "## Benchmark Results" > report.md
+          echo -e "\`\`\`" >> report.md
+          cat benchmark.txt >> report.md
+          echo -e "\`\`\`" >> report.md
+          echo -n "- base: " >> report.md
+          cat base.hash >> report.md
+          echo -n "- head: " >> report.md
+          cat head.hash >> report.md
+          gh pr comment ${{github.event.pull_request.number}} --body-file report.md \
+            --edit-last --create-if-none
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+
