@@ -1,0 +1,106 @@
+[build-system]
+requires = ["setuptools>=61.2"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "djadyen"
+version = "4.0.0"
+description = "Django adyen payment integration"
+authors = [
+    {name = "Maykin Media", email = "support@maykinmedia.nl"}
+]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["django", "adyen", "payment"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "Adyen>=10.0.0",
+    "django>=3.2",
+    "requests",
+    "glom",
+]
+
+[project.urls]
+Homepage = "https://github.com/maykinmedia/djadyen"
+
+[project.optional-dependencies]
+tests = [
+    "pytest",
+    "pytest-django",
+    "pytest-cov",
+    "django-webtest",
+    "requests-mock",
+    "factory-boy",
+    "freezegun",
+    "tox",
+    "ruff",
+]
+docs = [
+    "sphinx",
+    "sphinx-rtd-theme",
+]
+release = [
+    "bump-my-version",
+    "twine",
+]
+
+[tool.setuptools.packages.find]
+include = ["djadyen*"]
+namespaces = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+DJANGO_SETTINGS_MODULE = "testapp.settings"
+
+[tool.ruff.lint]
+extend-select = [
+    "UP",  # pyupgrade
+    "DJ",  # django
+    "LOG", # logging
+    "G",
+    "I",   # isort
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "PERF",# perflint
+    "B",   # flake8-bugbear
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+section-order = [
+    "future",
+    "standard-library",
+    "django",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.ruff.lint.isort.sections]
+"django" = ["django"]
+
+[tool.bumpversion]
+current_version = "4.0.0"
+files = [
+    {filename = "pyproject.toml"},
+    {filename = "package.json"},
+    {filename = "djadyen/__init__.py"},
+]
