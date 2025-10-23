@@ -1,0 +1,6 @@
+numpy
+sympy>=1.12
+re
+itertools
+typing
+dataclasses
