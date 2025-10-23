@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gestor_notas"
+version = "1.0.1"
+description = "Un gestor de notas en consola con persistencia mediante Pickle."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+
+authors = [
+    { name = "Aurisssss", email = "aurisssss@protonmail.com" }
+]
+
+keywords = ["notas", "gestor", "consola", "productividad", "pickle"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux"
+]
+
+[project.urls]
+Homepage = "https://pypi.org/project/gestor-notas/"
+Source = "https://github.com/aurisssss/gestor_notas"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gestor_notas*"]
+
+[tool.setuptools.package-data]
+gestor_notas = ["*.txt"]
+
+[project.scripts]
+notas = "gestor_notas.main:main"
+
