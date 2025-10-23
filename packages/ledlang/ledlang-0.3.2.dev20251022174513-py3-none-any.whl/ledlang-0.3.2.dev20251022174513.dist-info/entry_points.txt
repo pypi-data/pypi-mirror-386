@@ -1,0 +1,6 @@
+[console_scripts]
+ledlang = ledlang.LEDSendCLI:main
+ledlang-list = ledlang.LEDSendCLI:list_files
+ledlang-pytest = ledlang.InternalTester:PyTestTesterCLI
+ledlang-pytest-test = ledlang.LEDSendCLI:PyTestTestingCLI
+ledlang-test = ledlang.LEDLangTesting:main
