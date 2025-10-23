@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: pyinfra-ansible-inventory-connector
+Version: 0.1.1
+Summary: Ansible inventory connector for pyinfra 3.x
+Project-URL: Homepage, https://github.com/j-jacobsen/pyinfra-ansible-inventory-connector
+Author-email: Julian Jacobsen <jj@compositiv.com>
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: ansible-core>=2.14
+Requires-Dist: pyinfra>=3.0
+Description-Content-Type: text/markdown
+
+# pyinfra-ansible-inventory-connector
+
+pyinfra-ansible-inventory-connector lets you use your Ansible inventories with pyinfra 3.x.
+
+Instead of building a parser for Ansible inventories as was tried in pyinfra pre 3.x, this connector just uses the Ansible Python API to do the heavy lifting.
+
+## Build and install
+
+```bash
+pip install pyinfra-ansible-inventory-connector
+```
+
+## Usage
+
+```bash
+pyinfra @ansible/path/to/inventory deploy.py # relative path
+pyinfra @ansible//path/to/inventory deploy.py # absolute path
+```

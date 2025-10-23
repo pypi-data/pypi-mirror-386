@@ -1,0 +1,2 @@
+[pyinfra.connectors]
+ansible = pyinfra_ansible_inventory_connector.connector:AnsibleInventoryConnector
