@@ -1,0 +1,15 @@
+napari_sc3d_viewer/__init__.py,sha256=OiXJeXi7VqUCX5551sRA0bqGnyWxko2-aNZRtt725Ro,102
+napari_sc3d_viewer/_display_embryo.py,sha256=i5xj_n64ciderp-II0FK858E-yMhqfmIlVQG10fEhU0,43070
+napari_sc3d_viewer/_umap_selection.py,sha256=pLYEm78zZXlMh2m54c8GFOeysNOhRxh41rN_5P18Aio,15693
+napari_sc3d_viewer/_utils.py,sha256=aGlPUbVrGp5FtwB8aYXT6QPOSLHOFIL0GFz-D7n8w5E,1175
+napari_sc3d_viewer/_widget_load.py,sha256=mgOs1tGjFX_O6pyYS8RStjgGLvh0htC0D-rKDbmw8Kc,6078
+napari_sc3d_viewer/_widget_register.py,sha256=AfbTwcLVcTVhhOfjwqkHma-RvXKksY5T-K9HJj5laOc,12484
+napari_sc3d_viewer/napari.yaml,sha256=nh0Y9ry0EY26q_N0X48kQKiXAzn1l25wVdQVCcQTvlI,562
+napari_sc3d_viewer/_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_sc3d_viewer/_tests/test_widget.py,sha256=1TiDbaWiGObF9AeAb9e5DOu2syo9XL8Pl6rhVn4m-eM,5051
+napari_sc3d_viewer-2.0.0.dist-info/licenses/LICENSE,sha256=bMVkvBC_NUtczkvIy6n73L0N_9JjqexpQytnDSjX77I,1079
+napari_sc3d_viewer-2.0.0.dist-info/METADATA,sha256=Jkw-TDZaO_-D5dBy-pIQI8FwZi_S7JvEVCzw46pT7jY,12436
+napari_sc3d_viewer-2.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+napari_sc3d_viewer-2.0.0.dist-info/entry_points.txt,sha256=oJ0M0_Q9qVa5NeI006KjyDKMWpaKVV2WAqsfjCvtPKg,70
+napari_sc3d_viewer-2.0.0.dist-info/top_level.txt,sha256=dwNJ6yWB2-jXjUWoEaSFcLk34NrOK1L2zYGCbW-v_q8,19
+napari_sc3d_viewer-2.0.0.dist-info/RECORD,,
