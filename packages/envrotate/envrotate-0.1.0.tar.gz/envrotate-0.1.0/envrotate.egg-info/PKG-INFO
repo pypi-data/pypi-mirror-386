@@ -1,0 +1,104 @@
+Metadata-Version: 2.4
+Name: envrotate
+Version: 0.1.0
+Summary: Rotate environment variables (e.g., API keys) with cooldown intervals
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/api-key-rotator
+Project-URL: Repository, https://github.com/yourusername/api-key-rotator
+Keywords: api,keys,rotation,environment-variables
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Env Rotator
+
+Rotate API keys from environment variables with configurable cooldown intervals.
+
+## Installation
+```bash
+pip install envrotate
+```
+
+## Usage
+```python
+import os
+from envrotate import EnvRotate
+
+# Set environment variables (in real use, set these externally)
+os.environ["API_X_1"] = "key123"
+os.environ["API_X_2"] = "key234"
+os.environ["API_X_3"] = "key345"
+
+# Initialize rotator
+api_manager = EnvRotate(prefix="API_X_", min_interval=30)
+
+# Get keys
+print(api_manager.get(random=False, wait=True))  # "key123"
+print(api_manager.get(random=True, wait=True))   # e.g., "key234"
+print(api_manager.get(random=True, wait=True))   # e.g., "key345"
+
+# After 30s cooldown, keys become available again
+print(api_manager.get(random=True, wait=False))  # None (if <30s passed)
+print(api_manager.get(random=True, wait=True))   # Waits then returns available key
+```
+
+## API Reference
+
+### `EnvRotate(prefix: str, min_interval: int)`
+
+Initializes the environment variable rotator.
+
+- `prefix` (str): Environment variable prefix to match (e.g., "API_X_"). Only environment variables starting with this prefix will be included in the rotation.
+- `min_interval` (int): Minimum seconds before a key can be reused. This sets the cooldown period between key usage.
+
+**Raises:**
+- `ValueError`: If no environment variables are found with the specified prefix.
+
+### `get(random: bool = False, wait: bool = True) -> Optional[str]`
+
+Retrieves an available key from the pool.
+
+- `random` (bool, optional): If `True`, selects randomly from currently available keys. If `False` (default), uses round-robin selection starting with the key that became available earliest.
+- `wait` (bool, optional): If `True` (default), blocks and waits until a key is available. If `False`, returns `None` immediately if no keys are available.
+
+**Returns:**
+- `str` or `None`: Returns an API key string when available. Returns `None` if `wait=False` and no keys are currently available.
+
+## Features
+- Thread-safe: Uses locks for concurrent access
+- Flexible selection: Round-robin or random key selection
+- Automatic waiting: Sleeps until next key is available when wait=True
+- Environment-driven: Reads keys directly from os.environ
+
+## Practical Example
+
+```python
+from envrotate import EnvRotate
+import os
+
+# In a real application, set these as actual environment variables
+os.environ["OPENAI_API_KEY_1"] = "sk-123..."
+os.environ["OPENAI_API_KEY_2"] = "sk-456..."
+os.environ["OPENAI_API_KEY_3"] = "sk-789..."
+
+# Initialize with 60-second cooldown between key reuse
+rotator = EnvRotate(prefix="OPENAI_API_KEY_", min_interval=60)
+
+# Use round-robin selection (first available key)
+api_key = rotator.get(random=False, wait=True)
+
+# Use random selection from available keys
+api_key = rotator.get(random=True, wait=True)
+
+# Don't wait if no keys available (returns None immediately)
+api_key = rotator.get(random=False, wait=False)
+if api_key:
+    # Use the key
+    pass
+else:
+    # Handle no available keys
+    print("No keys currently available")
+```

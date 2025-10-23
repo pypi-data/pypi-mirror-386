@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "envrotate"
+version = "0.1.0"
+description = "Rotate environment variables (e.g., API keys) with cooldown intervals"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Your Name", email = "your.email@example.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+keywords = ["api", "keys", "rotation", "environment-variables"]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/api-key-rotator"
+Repository = "https://github.com/yourusername/api-key-rotator"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["api_key_rotator*"]

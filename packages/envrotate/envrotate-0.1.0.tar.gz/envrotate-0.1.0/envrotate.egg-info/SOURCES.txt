@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+envrotate.egg-info/PKG-INFO
+envrotate.egg-info/SOURCES.txt
+envrotate.egg-info/dependency_links.txt
+envrotate.egg-info/top_level.txt
+tests/test.py
