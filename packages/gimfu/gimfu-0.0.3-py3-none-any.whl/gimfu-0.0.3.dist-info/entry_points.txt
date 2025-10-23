@@ -1,0 +1,3 @@
+[console_scripts]
+make_scenarios = gimfu.make_scenarios:main
+save2incon = gimfu.save2incon:main
