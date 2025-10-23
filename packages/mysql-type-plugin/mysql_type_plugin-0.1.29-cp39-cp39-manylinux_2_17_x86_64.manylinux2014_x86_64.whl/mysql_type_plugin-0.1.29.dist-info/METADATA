@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: mysql-type-plugin
+Version: 0.1.29
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# py-mysql-type-plugin
+
+To test locally, run e.g.:
+```sh
+rm -f *.whl && \
+python3 -m pip wheel -e . && \
+pip install --user --force-reinstall *.whl --break-system-packages
+```
+
