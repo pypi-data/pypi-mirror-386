@@ -1,0 +1,16 @@
+DocTest/DocumentRepresentation.py,sha256=UQZD0QEGel_ReuJlhL7JmExtrneT8IOcn_rs7r8rlNg,49591
+DocTest/Downloader.py,sha256=Ly0QRMTHwJ367s777m0P8FMtfmxgBk_l4BGOWaF8uxQ,1436
+DocTest/IgnoreAreaManager.py,sha256=eD_STiGsNlnVKLPdxeq7rnY0JHwjy3zk7JvNxFg1lwQ,6340
+DocTest/Ocr.py,sha256=0usiPgsSuJ327UH4fIH0zn5MNeIWLuv6AKcv7U0-lAQ,9987
+DocTest/PdfStructureComparator.py,sha256=ukAe-cr5F-z5bAY-ZSZTdmU5CvGvwR78PvEIxZTvdOw,11001
+DocTest/PdfStructureModels.py,sha256=imYZnkdofqt0c5gGHiJ6mX31rA1zHDAYYBChMiTcsfA,7280
+DocTest/PdfTest.py,sha256=DleDhU3D6-Zr1qKs3ZkDkX-KFp4DQOVgQ9A3UlKa7Tk,23984
+DocTest/PrintJob.py,sha256=Vl9JZMjku1z2OMAqnzVhlCsKusKJr1HQpz8YAXLgPeY,147
+DocTest/PrintJobTests.py,sha256=qWMMcTREb0x8myLMAlGiWuCMiT8bB_ZS-nJ7Zg9BweE,19237
+DocTest/VisualTest.py,sha256=7RuxDnktRm_encaMYUFr6dA6dsxecvyAZusDNXmab3I,150945
+DocTest/__init__.py,sha256=7i6KhOs4WYLHQAOhem84gdg7vDK1TncVugnHZkvoA9w,13105
+DocTest/config.py,sha256=8YwENqq7Lw_6kVgthy5dfiI2M0NMS3QRrkDTZzb8UGs,319
+robotframework_doctestlibrary-0.26.0.dist-info/LICENSE,sha256=1-hnhyZ0wFfHRVpZUuyrqu75iBVVe8--GD-V5898FIU,10443
+robotframework_doctestlibrary-0.26.0.dist-info/METADATA,sha256=wWb8iKu-AngXO4CWXba9--z823enMwvuQ0uvcb6ylUM,15375
+robotframework_doctestlibrary-0.26.0.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+robotframework_doctestlibrary-0.26.0.dist-info/RECORD,,
