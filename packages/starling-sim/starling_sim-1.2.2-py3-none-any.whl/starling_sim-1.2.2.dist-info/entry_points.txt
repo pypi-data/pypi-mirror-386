@@ -1,0 +1,2 @@
+[console_scripts]
+starling-sim = starling_sim.cli:run_cli
