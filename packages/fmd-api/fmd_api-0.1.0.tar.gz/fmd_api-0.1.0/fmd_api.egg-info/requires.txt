@@ -1,0 +1,11 @@
+requests
+argon2-cffi
+cryptography
+aiohttp
+
+[dev]
+pytest>=7.0
+pytest-asyncio
+black
+flake8
+mypy
