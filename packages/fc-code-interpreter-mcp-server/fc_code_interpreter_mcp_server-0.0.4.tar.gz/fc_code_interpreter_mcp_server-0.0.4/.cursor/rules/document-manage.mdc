@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+
+# 文件和目录命名规范规则（AI 助手专用）
+
+单一事实来源（Single Source of Truth, SSOT）：docs/rules/documentation_maintenance.md
+
+请将 docs/rules/documentation_maintenance.md 作为文档管理规则的唯一权威来源，避免在本文件中重复或固化具体规则，防止产生规则漂移。
