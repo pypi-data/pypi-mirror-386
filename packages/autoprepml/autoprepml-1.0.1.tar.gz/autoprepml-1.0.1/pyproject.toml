@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autoprepml"
+version = "1.0.1"
+description = "AI-Assisted Multi-Modal Data Preprocessing Pipeline for ML"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "MD Shoaibuddin Chanda", email = "mdshoaibuddinchanda@gmail.com"}
+]
+keywords = ["machine-learning", "data-preprocessing", "data-cleaning", "automl"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "pandas==2.2.2",
+    "numpy==1.26.4",
+    "scikit-learn==1.7.2",
+    "matplotlib==3.10.7",
+    "seaborn==0.13.2",
+    "jinja2==3.1.6",
+    "pyyaml==6.0.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.4.2",
+    "pytest-cov==7.0.0",
+    "black==24.10.0",
+    "ruff==0.8.4",
+]
+docs = [
+    "mkdocs>=1.4.0",
+    "mkdocs-material>=8.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/autoprepml"
+Documentation = "https://autoprepml.readthedocs.io"
+Repository = "https://github.com/yourusername/autoprepml"
+"Bug Tracker" = "https://github.com/yourusername/autoprepml/issues"
+
+[project.scripts]
+autoprepml = "autoprepml.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["autoprepml*"]
+exclude = ["tests*", "docs*", "examples*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "--verbose --tb=short"
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
