@@ -1,0 +1,16 @@
+torch>=2.0.0
+transformers>=4.30.0
+tqdm
+Pillow
+torchvision
+numpy
+safetensors
+kagglehub
+pandas
+datasets
+
+[dev]
+pytest
+black
+flake8
+mypy

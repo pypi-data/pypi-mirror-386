@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools-scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nthuku_fast"
+version = "0.1.2"
+description = "Nthuku-Fast: A blazing-fast multimodal AI model with vision and language understanding"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Nthuku Team"}
+]
+keywords = [
+    "machine learning",
+    "deep learning",
+    "transformers",
+    "multimodal",
+    "vision-language",
+    "mixture-of-experts"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+    "tqdm",
+    "Pillow",
+    "torchvision",
+    "numpy",
+    "safetensors",
+    "kagglehub",
+    "pandas",
+    "datasets",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+    "mypy",
+]
+
+[project.urls]
+Homepage = "https://github.com/elijahnzeli1/Nthuku-fast_v2"
+Repository = "https://github.com/elijahnzeli1/Nthuku-fast_v2"
+"Bug Tracker" = "https://github.com/elijahnzeli1/Nthuku-fast_v2/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nthuku_fast*"]
+exclude = ["tests*"]
