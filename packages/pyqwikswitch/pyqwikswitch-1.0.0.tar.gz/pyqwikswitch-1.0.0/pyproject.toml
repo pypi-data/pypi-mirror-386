@@ -1,0 +1,89 @@
+[build-system]
+build-backend = "uv_build"
+requires = [ "uv-build>=0.8.20,<0.9" ]
+
+[project]
+name = "pyqwikswitch"
+version = "1.0.0"
+description = "Library to interface Qwikswitch USB Hub"
+readme = "README.md"
+keywords = [ "asyncio", "qwikswitch" ]
+license = { file = "LICENSE" }
+authors = [ { name = "Johann Kellerman", email = "kellerza@gmail.com" } ]
+requires-python = ">=3.12"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+  "aiohttp>=3.12.15",
+  "attrs>=25.3",
+]
+
+[dependency-groups]
+dev = [
+  "aioresponses",
+  "codespell",
+  "mypy",
+  "pyproject-fmt",
+  "pytest",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pytest-github-actions-annotate-failures",
+  "types-attrs",
+]
+
+[tool.ruff]
+format.line-ending = "lf"
+format.docstring-code-format = true
+lint.select = [
+  "A",     # flake8-builtins
+  "ASYNC", # flake8-async
+  "B",     # bugbear
+  "D",     # pydocstyle
+  "E",     # pycodestyle
+  "F",     # pyflakes
+  "I",     # isort
+  "PGH",   # pygrep-hooks
+  "PIE",   # flake8-pie
+  "PL",    # pylint
+  "PTH",   # flake8-pathlib
+  "PYI",   # flake8-pyi
+  "RUF",   # ruff
+  "UP",    # pyupgrade
+  "W",     # pycodestyle
+]
+lint.ignore = [ "D203", "D213", "E203", "E501", "PLR2004" ]
+lint.pylint.max-args = 7
+
+[tool.codespell]
+ignore-words-list = [ "hass" ]
+
+[tool.pytest.ini_options]
+pythonpath = [ "src" ]
+testpaths = "src/tests"
+norecursedirs = [ ".git", "modules" ]
+log_cli = true
+log_cli_level = "DEBUG"
+asyncio_mode = "auto"
+addopts = "--cov=src --cov-report xml:cov.xml"
+
+[tool.semantic_release]
+commit = true
+tag = true
+vcs_release = true
+commit_parser = "emoji"
+# https://python-semantic-release.readthedocs.io/en/latest/configuration.html#version-toml
+version_toml = [ "pyproject.toml:project.version" ]
+build_command = "pip install uv && uv build"
+commit_version_number = true
+
+[tool.semantic_release.branches.main]
+match = "main"
+
+[tool.semantic_release.commit_parser_options]
+major_tags = [ ":boom:" ]
+minor_tags = [ ":rocket:" ]
+patch_tags = [ "" ]
