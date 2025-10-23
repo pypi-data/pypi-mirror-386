@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+database_creatorplus/__init__.py
+database_creatorplus/db_module.py
+database_creatorplus.egg-info/PKG-INFO
+database_creatorplus.egg-info/SOURCES.txt
+database_creatorplus.egg-info/dependency_links.txt
+database_creatorplus.egg-info/not-zip-safe
+database_creatorplus.egg-info/top_level.txt
