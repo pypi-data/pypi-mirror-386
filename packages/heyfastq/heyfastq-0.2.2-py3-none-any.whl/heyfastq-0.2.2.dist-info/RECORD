@@ -1,0 +1,14 @@
+heyfastqlib/__init__.py,sha256=t9KZdp_DIvv91kyAlbqfXkrky_63qicYujvE-nd8xlM,93
+heyfastqlib/_version.py,sha256=cWW_l3uTlR1GzDEoq6gPkULT-Zr02dDl0_bafG9sxV4,24610
+heyfastqlib/argparse_types.py,sha256=n3imEOoynL1-5xb6ZTa4eu-Cu85gT7rtIk4Ku41kMA4,6496
+heyfastqlib/command.py,sha256=KqXz0IRftvjK538-8QyMqi-T7ANYRJrIU6F3VsHqzEI,10678
+heyfastqlib/io.py,sha256=c5zOAOXbq01DVohJSz-SFD5Rg6h_j83kZ6xcKbDHAcQ,1985
+heyfastqlib/pipelines.py,sha256=uC8ILCqZQmg-p4C7fr6r0fF7GJfHy_sxZTuE_aC2Ubc,4227
+heyfastqlib/read.py,sha256=VIDXIM84FHiuI5fVCyopbs-YK_yClADBfSI1EPAi7TM,4399
+heyfastqlib/seqs.py,sha256=rSruhzbPB7QkXb6a45iI_1uo8UzNTWjMqdKpOmHhbcw,179
+heyfastqlib/util.py,sha256=pybFi80TfZ-qeqzP0O0_oMPtjxMO_CqpSZwTjMjeTHA,1024
+heyfastq-0.2.2.dist-info/METADATA,sha256=LQVYviiGh-uOC1albS1Gq90Xu3ybq47BIk-k4d6AaH8,2141
+heyfastq-0.2.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+heyfastq-0.2.2.dist-info/entry_points.txt,sha256=6a6PRITw8npzxSs4BMAgzonsLGX0hmbkyT4yiH6a4vI,63
+heyfastq-0.2.2.dist-info/top_level.txt,sha256=c7iciuibETh9Kyyig4K5Skpq6NsybrVYL4xUUJXT1bI,12
+heyfastq-0.2.2.dist-info/RECORD,,

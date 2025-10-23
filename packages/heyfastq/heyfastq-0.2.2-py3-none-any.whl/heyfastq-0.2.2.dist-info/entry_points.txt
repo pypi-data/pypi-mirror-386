@@ -1,0 +1,2 @@
+[console_scripts]
+heyfastq = heyfastqlib.command:heyfastq_main
