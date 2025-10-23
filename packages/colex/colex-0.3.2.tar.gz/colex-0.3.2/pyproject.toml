@@ -1,0 +1,24 @@
+[build-system]
+requires = ["uv_build~=0.8.15"]
+build-backend = "uv_build"
+
+[project]
+name = "colex"
+version = "0.3.2"
+description = "Library with constants and functions for working with colors"
+authors = [
+    { name = "Havsalt", email = "77575424+Havsalt@users.noreply.github.com" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">= 3.10"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "ruff>=0.14.1",
+]
+
+[project.urls]
+Source = "https://github.com/havsalt/colex.git"
