@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: lrclib-python
+Version: 0.1
+Summary: A pure python client for lrclib
+Author-email: Enulix <kareemoidd@gmail.com>
+Project-URL: Homepage, https://github.com/Kareem4040/lrclib-python
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Dynamic: license-file
+
+# lrclib-python
+An extremely basic wrapper for the lrclib api, a lightweight alternative to lrclibapi
