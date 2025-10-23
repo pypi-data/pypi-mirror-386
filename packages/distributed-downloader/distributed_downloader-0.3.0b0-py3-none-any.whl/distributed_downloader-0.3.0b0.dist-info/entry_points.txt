@@ -1,0 +1,3 @@
+[console_scripts]
+distributed_downloader = distributed_downloader.core.main:main
+distributed_downloader_tools = distributed_downloader.tools.main:main
