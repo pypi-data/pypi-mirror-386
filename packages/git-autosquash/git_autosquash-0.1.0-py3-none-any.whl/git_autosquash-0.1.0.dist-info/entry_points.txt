@@ -1,0 +1,2 @@
+[console_scripts]
+git-autosquash = git_autosquash.main:main
