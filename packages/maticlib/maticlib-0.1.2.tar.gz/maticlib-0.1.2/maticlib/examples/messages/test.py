@@ -1,0 +1,28 @@
+from maticlib.core.messages import SystemMessage
+from maticlib.core.messages import HumanMessage
+from maticlib.core.messages import AIMessage
+
+x = SystemMessage("hi")
+print(x)
+print(x.content)
+print(x.message_type)
+print(x.message_type.name)
+print(x.message_type.value)
+x = HumanMessage("hi")
+print(x)
+print(x.content)
+print(x.message_type)
+print(x.message_type.name)
+print(x.message_type.value)
+x = AIMessage("Hi")
+print(x)
+print(x.content)
+print(x.message_type)
+print(x.message_type.name)
+print(x.message_type.value)
+x = AIMessage(0)
+print(x)
+print(x.content)
+print(x.message_type)
+print(x.message_type.name)
+print(x.message_type.value)
