@@ -1,0 +1,41 @@
+[build-system]
+requires = ['setuptools==80.9.0']
+build-backend = 'setuptools.build_meta'
+
+
+[project]
+authors = [
+  { name='Romaan Khadeer', email='romaan@dollarmates.com' },
+]
+classifiers = [
+    'Programming Language :: Python :: 3.10',
+    'Framework :: Django',
+    'Operating System :: OS Independent',
+    'Environment :: Web Environment'
+]
+license-files = [ "LICENSE" ]
+description = 'DM Core Meta'
+dependencies = [
+    'django-cors-headers==4.7.0',
+    'django-countries==7.6.1',
+    'djangorestframework==3.15.2',
+    'django-filter==25.1',
+    'django-extensions==3.2.3',
+    'drf-extra-fields==3.7.0',
+    'phonenumbers==9.0.11',
+    'django-phonenumber-field==8.1.0',
+    'django-money==3.5.4',
+    'jsonschema==4.25.0',
+    'dm-core-tracer'
+]
+name = 'dm-core-meta'
+readme = 'README.md'
+requires-python = '==3.12.*'
+version = '1.0.1'
+
+[project.urls]
+Homepage = 'https://www.dollarmates.com'
+Source = 'https://github.com:dollarmates/dm-libs.git'
+
+[tool.setuptools.packages.find]
+where = ['src']

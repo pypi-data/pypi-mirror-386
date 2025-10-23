@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: dm-core-meta
+Version: 1.0.1
+Summary: DM Core Meta
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django-cors-headers==4.7.0
+Requires-Dist: django-countries==7.6.1
+Requires-Dist: djangorestframework==3.15.2
+Requires-Dist: django-filter==25.1
+Requires-Dist: django-extensions==3.2.3
+Requires-Dist: drf-extra-fields==3.7.0
+Requires-Dist: phonenumbers==9.0.11
+Requires-Dist: django-phonenumber-field==8.1.0
+Requires-Dist: django-money==3.5.4
+Requires-Dist: jsonschema==4.25.0
+Requires-Dist: dm-core-tracer
+Dynamic: license-file
+
+# DM CORE META
+
+DM Core Meta library is responsible for the following:
+
+- Validating the inbound API while communicating amongst the microservices
+- Validating the outbound API while communicating amongst the microservices
+- Validating the messages while communicating amongst the microservices
