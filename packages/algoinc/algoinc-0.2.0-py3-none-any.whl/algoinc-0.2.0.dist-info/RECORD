@@ -1,0 +1,13 @@
+algoinc/__init__.py,sha256=ucQESw8DmMUlgbIvhowpcUSqVmdq9NvqLm_U5RE1nuA,22
+algoinc/__main__.py,sha256=PFEwUd8GAMZY7pTBSuD1cm1HKPhguySpijmu2LlIwzo,60
+algoinc/cli.py,sha256=n_OxA_cH7uYDtXqVn3hY_CUXEBHOO-EQNvBQ-0jsJ60,515
+algoinc/fetcher.py,sha256=ztQ57ODz5sLmgdvl6HeGJWl-Cfiv2zbZJU7fQjYV7jU,563
+algoinc/algorithms/__init__.py,sha256=I0od1kCnVmydeIuRuoDXWdRAmDdbaxk4nkoqyd_-POM,60
+algoinc/algorithms/bubble_sort.c,sha256=lmnQtUwq17trJzeoxwhexdsUjiy1BZIDr92CGRD4UxE,535
+algoinc/algorithms/merge_sort.c,sha256=0CRQrQ-v0dkJgo-O6i-GCVqcoh8zXr31D3fWiuHrDfY,836
+algoinc/algorithms/quick_sort.c,sha256=7hyV_YJcxaf0EKBKQ246dLWsq5S8CgCGtDILQ_TlTqI,804
+algoinc-0.2.0.dist-info/METADATA,sha256=e6HFWf0AcTLbPV9V9kl2L68qeiOMYn2VL5J_ssXOQys,1349
+algoinc-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+algoinc-0.2.0.dist-info/entry_points.txt,sha256=IR1ID66riDGOA3gqy2w9ExyTwyqkpRxX1WDY8UMqERY,45
+algoinc-0.2.0.dist-info/top_level.txt,sha256=sruEpUaZgEVhX4NxU89viAaM9sNzNJqEBnA09QtTnps,8
+algoinc-0.2.0.dist-info/RECORD,,

@@ -1,0 +1,55 @@
+Metadata-Version: 2.4
+Name: algoinc
+Version: 0.2.0
+Summary: CLI tool to fetch C algorithms instantly
+Author-email: SkillGroX <admin@skillgrox.site>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/algoinc
+Project-URL: Bug Tracker, https://github.com/yourusername/algoinc/issues
+Project-URL: Documentation, https://github.com/yourusername/algoinc#readme
+Keywords: algorithms,c,cli,education,programming
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Education
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: black>=21.5b2; extra == "dev"
+Requires-Dist: isort>=5.8.0; extra == "dev"
+
+# AlgoInc
+
+A CLI tool to quickly fetch C algorithm codes.
+
+## Installation
+
+```bash
+pip install algoinc
+```
+
+## Usage
+
+List all available algorithms:
+```bash
+algoinc list
+```
+
+Get a specific algorithm:
+```bash
+algoinc get quick_sort
+```
+
+## Available Algorithms
+
+- bubble_sort
+- merge_sort
+- quick_sort
+
+## License
+
+MIT
