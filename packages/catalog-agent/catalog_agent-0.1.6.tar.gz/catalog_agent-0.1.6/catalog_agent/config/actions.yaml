@@ -1,0 +1,172 @@
+openapi: 3.1.0
+info:
+  title: StyledGenie Product Catalog API (v4)
+  description: "Minimal tool surface for filterProducts and searchEmbedding."
+  version: "4.0.0"
+servers:
+  - url: https://psnfturxvltaejaopvvg.functions.supabase.co
+    description: Supabase Edge Functions
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Bearer token authentication with GPT_ACTIONS_API_KEY
+
+  schemas:
+    ProductResult:
+      type: object
+      required: [handle, title]
+      properties:
+        handle:
+          type: string
+          description: Unique product identifier (URL-safe)
+          example: "red-cotton-shirt"
+        title:
+          type: string
+          description: Product name/title
+          example: "Elegant Red Cotton Shirt"
+        url:
+          type: string
+          format: uri
+          description: Full product URL
+          example: "https://shop.styledgenie.com/products/red-cotton-shirt"
+        image_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Primary product image URL
+        score:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1
+          description: Semantic similarity score (searchEmbedding only)
+        boosted:
+          type: boolean
+          description: Indicates whether result was boosted (searchEmbedding boost mode)
+
+    FilterRequest:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+          description: Attribute key/value pairs (values may be string or string[])
+        categories:
+          type: array
+          items: { type: string }
+          description: Category names or full paths
+        vendors:
+          type: array
+          items: { type: string }
+          description: Vendor/brand names
+        match_mode:
+          type: string
+          enum: [fuzzy, exact]
+          description: Primary match strategy (default fuzzy)
+      example:
+        attributes:
+          Color: "Red"
+          Size: ["M", "L"]
+        categories: ["Dresses"]
+        vendors: ["Calvin Klein"]
+        match_mode: "fuzzy"
+
+    FilterResponse:
+      type: object
+      required: [results, success]
+      properties:
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/ProductResult' }
+        count:
+          type: integer
+          description: Number of products returned
+        filters_applied:
+          type: object
+          description: Echo of filters that were applied
+        success:
+          type: boolean
+        duration_ms:
+          type: integer
+
+    EmbeddingSearchRequest:
+      type: object
+      required: [query]
+      properties:
+        query:
+          type: string
+          description: Natural-language description of user intent
+        handle_filter:
+          type: array
+          items: { type: string }
+          description: Optional product handles to restrict search to
+        filter_mode:
+          type: string
+          enum: [strict, boost]
+          default: strict
+          description: "strict = only search handles; boost = prioritize handles"
+        top_k:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 10
+          description: Number of results to return
+
+    EmbeddingSearchResponse:
+      type: object
+      required: [results, success]
+      properties:
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/ProductResult' }
+        metadata:
+          type: object
+          description: Execution metadata (mode, counts, timings)
+        success:
+          type: boolean
+        duration_ms:
+          type: integer
+
+security:
+  - ApiKeyAuth: []
+
+paths:
+  /filter-products:
+    post:
+      operationId: filterProducts
+      summary: Filter StyledGenie products by attributes, categories, and vendors.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterRequest'
+      responses:
+        '200':
+          description: Filtered product list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterResponse'
+
+  /search-embedding:
+    post:
+      operationId: searchEmbedding
+      summary: Perform semantic ranking and narrowing over StyledGenie products.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddingSearchRequest'
+      responses:
+        '200':
+          description: Ranked product list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddingSearchResponse'
