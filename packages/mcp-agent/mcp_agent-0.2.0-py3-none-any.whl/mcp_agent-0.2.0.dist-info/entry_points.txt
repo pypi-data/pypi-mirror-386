@@ -1,0 +1,5 @@
+[console_scripts]
+mcp-agent = mcp_agent.cli.main:run [cli]
+mcp-cloud = mcp_agent.cli.cloud.main:run [cli]
+mcpc = mcp_agent.cli.cloud.main:run [cli]
+silsila = mcp_agent.cli.main:run [cli]
