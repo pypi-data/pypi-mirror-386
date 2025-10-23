@@ -1,0 +1,14 @@
+g4fpro/__init__.py,sha256=wFpZeRljrx_0yVgkzphVYzfKqfRXHk0hj6v1EOaZrCI,218
+g4fpro/async_chat.py,sha256=rK6EhMPEEe5-vNCDIRlle8SvQcVZg37iuhxj7dLf-Zs,10084
+g4fpro/async_image_generator.py,sha256=WO6Bd3eTTy5If00kYyIHN1pS2Bljc7TJvnUQsvjqW94,7659
+g4fpro/base_chat.py,sha256=mPe7j9PagwMg05c7QpbK9zxdAfgUPbA0mVIRzB69KUg,7745
+g4fpro/base_image_generator.py,sha256=4DPfsgKO1S3b6LFtHb5PeX8v8GXOIa6uxMICBr6Tavg,7973
+g4fpro/chat.py,sha256=VyIrKtP1fCF3_4mllv8TxquwvRlYZzQlTcgB3-y3Y6c,9996
+g4fpro/exceptions.py,sha256=ZP-O4sM0Fd79eZr_YpwiVOYmxM6nGIbjAg0dGsL3f7E,1861
+g4fpro/image_generator.py,sha256=W8KwUWe49pv5HkWylFrGkfPSUhFtkLq3DvUYwW0VV8o,7231
+g4fpro/messages.py,sha256=Vz_VM1VzNM9rA6hZ0h-GBVheBs8tK93s910_hEq7otc,10469
+g4fpro/models.py,sha256=Lsj4bdlLx_b9gtya0Li2Dl4ogJPC8U56Yi3TkKrSFfk,6133
+g4fpro-0.1.2.dist-info/METADATA,sha256=FEnDwPKf5nKYGblWQFNYwhw8r-EDR3M0anC70fniH_s,7845
+g4fpro-0.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+g4fpro-0.1.2.dist-info/top_level.txt,sha256=oZcZ9NkPpFPPuqq82vL3HC8BuH4C4dGYxEmoksfcPk0,7
+g4fpro-0.1.2.dist-info/RECORD,,
