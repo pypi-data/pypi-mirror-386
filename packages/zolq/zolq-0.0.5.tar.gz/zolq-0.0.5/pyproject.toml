@@ -1,0 +1,22 @@
+[project]
+name = "zolq"
+version = "0.0.5"
+description = "ZOL-Q Binding Kernel: post-selected symmetry projection and CPTP twirl"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy"]
+license = {text = "MIT"}
+authors = [{name="ZOL Team"}]
+keywords = ["quantum", "error mitigation", "stabilizer", "symmetry verification", "VQE"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Information Analysis"
+]
+[project.scripts]
+zolq = "zolq.cli:main"
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"

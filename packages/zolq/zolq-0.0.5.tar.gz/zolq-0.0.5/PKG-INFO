@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: zolq
+Version: 0.0.5
+Summary: ZOL-Q Binding Kernel: post-selected symmetry projection and CPTP twirl
+Author: ZOL Team
+License: MIT
+Keywords: quantum,error mitigation,stabilizer,symmetry verification,VQE
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+# ZOL-Q
+Post-selected symmetry binding for simple quantum error mitigation.
+- `zolq.cli` demo: `python -m zolq.cli --mode project`
+- CLI command after install: `zolq --mode project`
