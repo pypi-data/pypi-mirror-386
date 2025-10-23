@@ -1,0 +1,2 @@
+[console_scripts]
+dbcontent = dbbasic_content.cli:main
