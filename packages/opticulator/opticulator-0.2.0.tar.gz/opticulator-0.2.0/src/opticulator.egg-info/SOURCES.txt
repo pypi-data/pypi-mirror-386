@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/opticulator/__init__.py
+src/opticulator.egg-info/PKG-INFO
+src/opticulator.egg-info/SOURCES.txt
+src/opticulator.egg-info/dependency_links.txt
+src/opticulator.egg-info/requires.txt
+src/opticulator.egg-info/top_level.txt
+src/opticulator/peak/__init__.py
+src/opticulator/peak/peak_analyzer.py
