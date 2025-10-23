@@ -1,0 +1,69 @@
+[project]
+name = "atomica-mcp"
+version = "0.1.1"
+description = "MCP server for PDB structure queries and protein resolution using AnAge database"
+readme = "README.md"
+authors = [
+    { name = "antonkulaga", email = "antonkulaga@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "biotite>=1.5.0",
+    "eliot>=1.17.5",
+    "fastmcp>=2.12.5",
+    "fsspec>=2025.9.0",
+    "huggingface-hub>=0.35.3",
+    "numpy>=2.3.4",
+    "polars>=1.34.0",
+    "pycomfort>=0.0.18",
+    "requests>=2.32.5",
+    "rich>=13.9.0",
+    "tenacity>=9.1.2",
+    "typer>=0.20.0",
+    "urllib3>=2.5.0",
+]
+
+[project.scripts]
+atomica-mcp = "atomica_mcp.__main__:cli_app_stdio_standalone"
+atomica-stdio = "atomica_mcp.__main__:cli_app_stdio_standalone"
+atomica-sse = "atomica_mcp.__main__:cli_app_sse_standalone"
+atomica-run = "atomica_mcp.__main__:cli_app_run"
+atomica-cli = "atomica_mcp.__main__:app"
+dataset = "atomica_mcp.dataset:app"
+pdb-mining = "atomica_mcp.mining.cli:main"
+upload-to-hf = "atomica_mcp.upload_to_hf:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.4.10",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-timeout>=2.3.1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/atomica_mcp"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "data/",
+    "logs/",
+    "notebooks/",
+    "docs/",
+    "tests/",
+    "examples/",
+    ".pytest_cache/",
+    "*.log",
+    "*.json",
+    "mcp-config-*.json",
+]
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
