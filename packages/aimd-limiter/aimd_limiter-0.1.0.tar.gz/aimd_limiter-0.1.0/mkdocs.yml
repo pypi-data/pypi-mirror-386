@@ -1,0 +1,46 @@
+site_name: AIMD Limiter
+site_description: Asynchronous AIMD-based rate limiter for Python
+site_url: https://aimd-limiter.readthedocs.io
+repo_url: https://github.com/mxcoras/aimd-limiter
+repo_name: mxcoras/aimd-limiter
+docs_dir: docs
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.sections
+    - content.code.copy
+plugins:
+  - search
+  - i18n:
+      default_language: en
+      default_translation: en
+      languages:
+        en: English
+        zh: 中文
+      docs_structure: suffix
+      nav_translations:
+        zh:
+          Home: 首页
+          Usage: 使用指南
+          API Reference: API 参考
+          Thread Safety: 线程安全
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Usage: usage.md
+  - API Reference: api.md
+  - Thread Safety: thread-safety.md
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mxcoras/aimd-limiter
+  generator: false
