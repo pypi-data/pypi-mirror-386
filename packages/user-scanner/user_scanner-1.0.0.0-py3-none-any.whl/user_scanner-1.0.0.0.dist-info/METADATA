@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: user-scanner
+Version: 1.0.0.0
+Summary: Check username availability across multiple popular platforms
+Keywords: username,checker,availability,social,tech,python,user-scanner
+Author-email: Kaif <kafcodec@gmail.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: httpx
+Requires-Dist: colorama
+Project-URL: Homepage, https://github.com/kaifcodec/user-scanner
+
+# user-scanner
