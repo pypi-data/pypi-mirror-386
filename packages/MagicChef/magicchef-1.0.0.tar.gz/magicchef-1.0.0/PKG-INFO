@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: MagicChef
+Version: 1.0.0
+Summary: MagicChef is a Python library designed to automatically detect and decode encrypted text using the MagicChef web interface. You simply provide an encoded string, and the library processes it to identify the encryption type and return the decoded result in structured JSON format.
+Author: deep
+Author-email: asyncpy@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<p align="center">
+  <img align="center" width="320" src="https://github.com/user-attachments/assets/8a02b9b7-e6e5-4cb2-b065-26bab530d476" />
+  <h3 align="center"></h3>
+</p>
+
+
+<p align="center">
+
+<a href="https://pypi.org/project/SyncAi/">
+    <img src="https://img.shields.io/pypi/v/MagicChef?color=red&logo=pypi&logoColor=red">
+  </a>
+
+  <a href="https://t.me/Pycodz">
+    <img src="https://img.shields.io/badge/Telegram-Channel-blue.svg?logo=telegram">
+  </a>
+  
+  <a href="https://t.me/DevZ44d" target="_blank">
+    <img alt="Telegram Owner" src="https://img.shields.io/badge/Telegram-Owner-red.svg?logo=telegram" />
+  </a>
+</p>
+
+
+
+
+>🧩 **Magic Chef** is a lightweight Python library that **automatically** detects and decodes encrypted or encoded text . It identifies the encryption type and returns a **clean JSON response** containing the decoding type and the final text.
+
+### 🚀 Features
+
+- *Automatic decoding: Instantly detects and decodes encrypted or encoded text.*
+
+- *Clean JSON output: Returns structured and human-readable JSON with decoding type and result.*
+
+- *Cross-platform: Works on Windows, macOS, and Linux.*
+
+- *Future-ready: Upcoming updates will bring faster performance and more decoding capabilities.*
+
+
+### ⚙️ Installation
+```shell
+pip install MagicChef -U
+```
+
+### 🧠 Usage Example
+```python
+from MagicChef import Chef
+
+# Provide your encoded text
+chef: Chef = Chef("61 6c 65 78")  # Example: "alex" encoded in hex
+
+# Decode it automatically
+chef.analyze()
+```
+
+### ⚙️ Output:
+```json
+{
+  "Recipe": "From_Hex('Space')",
+  "result": "alex"
+}
+```
+
+### 📦 Version
+
+- **v1.0.0** – Initial prototype release
+
+> ⚠️ *Note:* This is an early version of the library.
+Future updates will include more decoding recipes, improved performance, and API enhancements.
+
+
+### 💬 Help & Support .
+- Follow updates via the **[Telegram Channel](https://t.me/Pycodz)**.
+- For general questions and help, join our **[Telegram chat](https://t.me/PyChTz)**.

@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+src/MagicChef/__init__.py
+src/MagicChef/browser.py
+src/MagicChef/scraper.py
+src/MagicChef.egg-info/PKG-INFO
+src/MagicChef.egg-info/SOURCES.txt
+src/MagicChef.egg-info/dependency_links.txt
+src/MagicChef.egg-info/top_level.txt
