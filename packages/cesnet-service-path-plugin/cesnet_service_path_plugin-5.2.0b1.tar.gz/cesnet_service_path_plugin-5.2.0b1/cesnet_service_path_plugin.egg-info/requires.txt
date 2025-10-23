@@ -1,0 +1,11 @@
+geopandas
+fiona
+shapely
+
+[dev]
+black
+autopep8
+pip
+check-manifest
+pytest
+python-dotenv
