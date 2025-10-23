@@ -1,0 +1,4 @@
+# MANIFEST.in
+
+# Включаем файл данных в дистрибутив
+include data/browsers.json
