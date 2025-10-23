@@ -1,0 +1,319 @@
+Metadata-Version: 2.4
+Name: langchain-privy
+Version: 0.1.0
+Summary: LangChain integration for Privy embedded wallets
+Project-URL: Homepage, https://github.com/privy-io/privy
+Project-URL: Documentation, https://docs.privy.io
+Project-URL: Repository, https://github.com/privy-io/privy
+Author-email: Privy <support@privy.io>
+License: MIT
+License-File: LICENSE
+Keywords: ai-agents,blockchain,langchain,privy,wallets,web3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Requires-Dist: langchain-core>=0.1.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: tenacity>=8.0.0
+Provides-Extra: dev
+Requires-Dist: black>=23.7.0; extra == 'dev'
+Requires-Dist: mypy>=1.5.0; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.21.0; extra == 'dev'
+Requires-Dist: pytest-mock>=3.11.1; extra == 'dev'
+Requires-Dist: pytest>=7.4.0; extra == 'dev'
+Requires-Dist: ruff>=0.0.287; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# LangChain Privy Integration
+
+Enable LangChain agents to create and manage [Privy](https://privy.io) wallets for blockchain operations.
+
+## Overview
+
+`langchain-privy` provides a seamless integration between LangChain and Privy's wallet infrastructure, allowing AI agents to:
+
+- **Automatically create and manage wallets** - No user accounts required!
+- Sign messages and transactions using Privy wallets
+- Execute multi-chain blockchain operations (Ethereum, Base, Polygon, Solana, etc.)
+- Manage wallet operations with built-in security policies
+
+## Installation
+
+```bash
+pip install langchain-privy
+```
+
+## Quick Start
+
+```python
+import os
+from langchain_privy import PrivyWalletTool
+from langchain.agents import create_agent
+from langchain_openai import ChatOpenAI
+
+# Set your Privy credentials (or use environment variables)
+os.environ["PRIVY_APP_ID"] = "your-privy-app-id"
+os.environ["PRIVY_APP_SECRET"] = "your-privy-app-secret"
+
+# Initialize Privy wallet tool (automatically creates a wallet!)
+privy_tool = PrivyWalletTool()
+
+print(f"Wallet created! Address: {privy_tool.wallet_address}")
+print(f"Wallet ID: {privy_tool.wallet_id}")
+
+# Create an agent with wallet capabilities
+agent = create_agent(
+    model=ChatOpenAI(temperature=0, model="gpt-4"),
+    tools=[privy_tool],
+    system_prompt="You are a helpful wallet assistant that can manage cryptocurrency wallets.",
+)
+
+# Agent can now perform wallet operations
+result = agent.invoke({"messages": [("user", "What is my wallet address?")]})
+print(result["messages"][-1].content)
+
+result = agent.invoke({"messages": [("user", "Sign the message 'Hello from LangChain!'")]})
+print(result["messages"][-1].content)
+```
+
+That's it! No user management, no complex setup - just simple wallet operations for your AI agents.
+
+## Features
+
+### Multi-Chain Support
+
+The integration supports all chains available in Privy:
+
+- EVM chains: Ethereum, Base, Polygon, Arbitrum, Optimism, and more
+- Solana
+- Bitcoin (view-only operations)
+
+### Wallet Operations
+
+- `get_wallet_address` - Retrieve wallet addresses for different chains
+- `get_balance` - Query wallet balances
+- `sign_message` - Sign arbitrary messages
+- `send_transaction` - Execute blockchain transactions
+- `sign_transaction` - Sign transactions without broadcasting
+
+### Security Features
+
+- Server-side authentication using Privy App Secrets
+- Automatic request signing and authorization
+- Support for Privy's transaction policies
+- Built-in rate limiting and error handling
+
+## Advanced Usage
+
+### Creating Wallets on Specific Chains
+
+```python
+from langchain_privy import PrivyWalletTool
+
+# Create a Solana wallet instead of Ethereum
+solana_tool = PrivyWalletTool(chain_type="solana")
+print(f"Solana wallet: {solana_tool.wallet_address}")
+
+# Create a Base wallet
+base_tool = PrivyWalletTool(chain_type="base")
+print(f"Base wallet: {base_tool.wallet_address}")
+```
+
+### Reusing Existing Wallets
+
+```python
+# Use an existing wallet ID (from previous session)
+existing_wallet_id = "wal_abc123..."
+tool = PrivyWalletTool(wallet_id=existing_wallet_id)
+
+# The tool will use this wallet for all operations
+```
+
+### Listing and Managing Wallets
+
+```python
+from langchain_privy import PrivyAuth, PrivyConfig
+
+# Initialize auth client
+config = PrivyConfig.from_env()
+auth = PrivyAuth(config)
+
+# List all wallets for your app
+result = auth.list_wallets(chain_type="ethereum")
+for wallet in result['data']:
+    print(f"Wallet {wallet['id']}: {wallet['address']}")
+
+# Create a new wallet programmatically
+new_wallet = auth.create_wallet(chain_type="polygon")
+print(f"Created wallet: {new_wallet['address']}")
+```
+
+### Multi-Chain Operations
+
+```python
+# Create different tools for different chains
+eth_tool = PrivyWalletTool(chain_type="ethereum")
+sol_tool = PrivyWalletTool(chain_type="solana")
+
+# Each tool manages its own wallet
+tool.send_transaction(
+    chain="base",
+    to="0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+    value="0.01",
+    unit="ether"
+)
+```
+
+## Configuration
+
+### Environment Variables
+
+```bash
+PRIVY_APP_ID=your-app-id
+PRIVY_APP_SECRET=your-app-secret
+PRIVY_API_URL=https://auth.privy.io  # Optional, defaults to production
+```
+
+### Python Configuration
+
+```python
+from langchain_privy import PrivyWalletTool, PrivyConfig
+
+config = PrivyConfig(
+    app_id="your-app-id",
+    app_secret="your-app-secret",
+    api_url="https://auth.privy.io",
+    timeout=30  # Request timeout in seconds
+)
+
+tool = PrivyWalletTool(config=config, user_id="did:privy:xxx")
+```
+
+## Example
+
+Check out the [examples](examples/) directory for a complete working implementation:
+
+- **[Chat Agent](examples/chat_agent.py)** - Interactive chat interface with wallet operations
+
+To run the example:
+
+```bash
+cd examples
+pip install -r requirements.txt
+
+# Set your credentials
+export PRIVY_APP_ID="your-app-id"
+export PRIVY_APP_SECRET="your-app-secret"
+export OPENAI_API_KEY="your-openai-key"
+
+# Run the chat agent
+python chat_agent.py
+```
+
+The chat agent demonstrates:
+
+- Automatic wallet creation
+- Interactive conversation with tool calling
+- Natural language wallet operations
+- Multi-chain address queries
+- Balance checking
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     LangChain Agent                         │
+│                                                             │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │            PrivyWalletTool (LangChain Tool)           │  │
+│  └───────────────────────────────────────────────────────┘  │
+│                            │                                │
+└────────────────────────────┼────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   langchain-privy                           │
+│                                                             │
+│  ┌─────────────┐  ┌──────────────┐  ┌──────────────────┐    │
+│  │   Auth      │  │  RPC Client  │  │  Chain Config    │    │
+│  │   Module    │  │              │  │                  │    │
+│  └─────────────┘  └──────────────┘  └──────────────────┘    │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      Privy API                              │
+│                                                             │
+│  • Wallet Authentication                                    │
+│  • Transaction Signing                                      │
+│  • Multi-Chain Support                                      │
+│  • Embedded Wallet Management                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Development
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/privy-io/privy.git
+cd public-packages/langchain-privy
+
+# Install in development mode
+pip install -e ".[dev]"
+```
+
+### Testing
+
+```bash
+# Run tests
+pytest
+
+# Run with coverage
+pytest --cov=langchain_privy --cov-report=html
+
+# Run specific test file
+pytest tests/test_wallet_tool.py
+```
+
+### Linting and Formatting
+
+```bash
+# Format code
+black langchain_privy tests
+
+# Lint
+ruff check langchain_privy tests
+
+# Type checking
+mypy langchain_privy
+```
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Support
+
+- **Documentation**: https://docs.privy.io
+- **Slack**: https://privy-developers.slack.com
+- **Email**: support@privy.io
+
+## Related Projects
+
+- [Privy React SDK](https://www.npmjs.com/package/@privy-io/react-auth)
+- [Privy Server Auth](https://www.npmjs.com/package/@privy-io/server-auth)
+- [LangChain](https://github.com/langchain-ai/langchain)
