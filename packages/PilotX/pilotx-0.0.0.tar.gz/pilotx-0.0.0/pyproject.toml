@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "PilotX"
+version = "0.0.0"
+description = "Python package for PilotX"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE.txt"}
+authors = [{name = "DEZHI YU", email = "dezhi.yu@bytedance.com"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/PilotX"]
+
