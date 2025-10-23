@@ -1,0 +1,11 @@
+Metadata-Version: 2.3
+Name: perdream-weather-mcp
+Version: 0.1.2
+Summary: PerDream Weather MCP
+Author: awardhuang
+Author-email: awardhuang <awardhuang@tencent.com>
+Requires-Dist: mcp[cli]>=1.18.0
+Requires-Dist: pypinyin>=0.55.0
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
