@@ -1,0 +1,2 @@
+[console_scripts]
+citation-hallucination-stop = citation_hallucination_stop.cli:main

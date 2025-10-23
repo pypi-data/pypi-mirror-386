@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+citation_hallucination_stop/__init__.py
+citation_hallucination_stop/cleaner.py
+citation_hallucination_stop/utils.py
+citation_hallucination_stop.egg-info/PKG-INFO
+citation_hallucination_stop.egg-info/SOURCES.txt
+citation_hallucination_stop.egg-info/dependency_links.txt
+citation_hallucination_stop.egg-info/entry_points.txt
+citation_hallucination_stop.egg-info/requires.txt
+citation_hallucination_stop.egg-info/top_level.txt
+tests/test_cleaner.py
