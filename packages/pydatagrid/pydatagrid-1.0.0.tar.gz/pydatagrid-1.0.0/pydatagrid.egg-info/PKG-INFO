@@ -1,0 +1,550 @@
+Metadata-Version: 2.1
+Name: pydatagrid
+Version: 1.0.0
+Summary: A powerful data grid library with sorting, filtering, pagination, and export features
+Home-page: https://github.com/yourusername/pydatagrid
+Author: PyDataGrid Team
+Author-email: info@pydatagrid.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Flask>=2.0.0
+Requires-Dist: flask-cors>=3.0.0
+
+# PyDataGrid
+
+A powerful and flexible Python library for creating interactive data grids with sorting, filtering, pagination, and export capabilities. Perfect for displaying tabular data from Python APIs in a beautiful web interface.
+
+## 📚 Documentation
+
+- **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes
+- **[Deployment Guide](DEPLOYMENT.md)** - Docker, PyPI, Angular & Python integration
+- **[Examples](examples/)** - Code examples and use cases
+
+## Features
+
+✨ **Core Features:**
+- 📊 Display data in a beautiful, responsive table
+- 🔄 Sort data by any column (ascending/descending)
+- 🔍 Filter data by column values (real-time)
+- 📄 Pagination with configurable page size
+- ☑️ Row selection (individual, all, cross-page)
+- 📥 Export selected or all filtered data to CSV
+- 👁️ Show/hide columns dynamically
+- 📱 Responsive design for all screen sizes
+
+✨ **Advanced Features:**
+- ⚡ High performance with large datasets
+- 🎨 Professional UI with hover tooltips
+- � Visual filter indicators
+- 🌐 REST API for Angular/React integration
+- 🐳 Docker-ready
+- 📦 PyPI publishable
+- 🔧 Easy integration with Flask, Django, FastAPI
+
+## Installation
+
+### From Source
+
+```bash
+git clone https://github.com/yourusername/pydatagrid.git
+cd pydatagrid
+pip install -e .
+```
+
+### Using pip (once published)
+
+```bash
+pip install pydatagrid
+```
+
+## Quick Start
+
+### Basic Usage with Flask
+
+```python
+from pydatagrid import create_grid_app
+
+# Your data
+data = [
+    {'id': 1, 'name': 'John Doe', 'email': 'john@example.com', 'age': 30, 'city': 'New York'},
+    {'id': 2, 'name': 'Jane Smith', 'email': 'jane@example.com', 'age': 25, 'city': 'London'},
+    {'id': 3, 'name': 'Bob Johnson', 'email': 'bob@example.com', 'age': 35, 'city': 'Paris'},
+    # ... more data
+]
+
+# Create and run the grid application
+app = create_grid_app(data, host='127.0.0.1', port=5000, debug=True)
+app.run()
+```
+
+Then open your browser and navigate to `http://127.0.0.1:5000/grid/`
+
+### Advanced Usage with Custom Flask App
+
+```python
+from flask import Flask
+from flask_cors import CORS
+from pydatagrid import create_grid_blueprint
+
+app = Flask(__name__)
+CORS(app)
+
+# Your data source (can be a function)
+def get_data():
+    # Fetch data from database, API, or any source
+    return [
+        {'id': 1, 'name': 'Product A', 'price': 29.99, 'stock': 100},
+        {'id': 2, 'name': 'Product B', 'price': 49.99, 'stock': 50},
+        # ... more data
+    ]
+
+# Create and register the grid blueprint
+grid_blueprint = create_grid_blueprint(
+    data_source=get_data,
+    name='products_grid',
+    url_prefix='/products'
+)
+app.register_blueprint(grid_blueprint)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+Access the grid at `http://127.0.0.1:5000/products/`
+
+### Using DataGrid Class Directly
+
+```python
+from pydatagrid import DataGrid
+
+# Create a DataGrid instance
+data = [
+    {'name': 'Alice', 'score': 95, 'grade': 'A'},
+    {'name': 'Bob', 'score': 87, 'grade': 'B'},
+    {'name': 'Charlie', 'score': 92, 'grade': 'A'},
+]
+
+grid = DataGrid(data)
+
+# Apply sorting
+grid.setSorting('score', 'desc')
+
+# Apply filtering
+grid.setFilter('grade', 'A')
+
+# Set pagination
+grid.setPage(1).setPageSize(50)
+
+# Get processed data
+processed_data = grid.getProcessedData()
+print(processed_data)
+
+# Export to CSV
+csv_data = grid.toCsv()
+with open('export.csv', 'w') as f:
+    f.write(csv_data)
+```
+
+## Integration with Angular
+
+PyDataGrid can be easily integrated with Angular applications by consuming its REST API endpoints.
+
+### Step 1: Start the PyDataGrid Server
+
+```python
+# server.py
+from pydatagrid import create_grid_app
+
+data = [
+    # your data here
+]
+
+app = create_grid_app(data, host='127.0.0.1', port=5000)
+app.run()
+```
+
+### Step 2: Create Angular Service
+
+```typescript
+// data-grid.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface GridConfig {
+  columns: string[];
+  visibleColumns: string[];
+  currentPage: number;
+  pageSize: number;
+  totalPages: number;
+  totalRows: number;
+  sortColumn: string | null;
+  sortDirection: string;
+  filters: { [key: string]: string };
+  data: any[];
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataGridService {
+  private apiUrl = 'http://127.0.0.1:5000/grid/api';
+
+  constructor(private http: HttpClient) {}
+
+  getData(
+    page: number = 1,
+    pageSize: number = 100,
+    sortColumn: string = '',
+    sortDirection: string = 'asc',
+    filters: { [key: string]: string } = {},
+    visibleColumns: string[] = []
+  ): Observable<GridConfig> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('page_size', pageSize.toString())
+      .set('sort_column', sortColumn)
+      .set('sort_direction', sortDirection);
+
+    if (visibleColumns.length > 0) {
+      params = params.set('visible_columns', JSON.stringify(visibleColumns));
+    }
+
+    Object.entries(filters).forEach(([key, value]) => {
+      params = params.set(`filter_${key}`, value);
+    });
+
+    return this.http.get<GridConfig>(`${this.apiUrl}/data`, { params });
+  }
+
+  exportData(
+    exportType: 'all' | 'selected',
+    sortColumn: string = '',
+    sortDirection: string = 'asc',
+    filters: { [key: string]: string } = {},
+    selectedRows: number[] = []
+  ): string {
+    let params = new HttpParams()
+      .set('export_type', exportType)
+      .set('sort_column', sortColumn)
+      .set('sort_direction', sortDirection);
+
+    Object.entries(filters).forEach(([key, value]) => {
+      params = params.set(`filter_${key}`, value);
+    });
+
+    if (selectedRows.length > 0) {
+      params = params.set('selected_rows', JSON.stringify(selectedRows));
+    }
+
+    return `${this.apiUrl}/export?${params.toString()}`;
+  }
+}
+```
+
+### Step 3: Create Angular Component
+
+```typescript
+// data-grid.component.ts
+import { Component, OnInit } from '@angular/core';
+import { DataGridService, GridConfig } from './data-grid.service';
+
+@Component({
+  selector: 'app-data-grid',
+  templateUrl: './data-grid.component.html',
+  styleUrls: ['./data-grid.component.css']
+})
+export class DataGridComponent implements OnInit {
+  gridConfig: GridConfig | null = null;
+  selectedRows: Set<number> = new Set();
+  loading: boolean = false;
+
+  constructor(private dataGridService: DataGridService) {}
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void {
+    this.loading = true;
+    const page = this.gridConfig?.currentPage || 1;
+    const sortColumn = this.gridConfig?.sortColumn || '';
+    const sortDirection = this.gridConfig?.sortDirection || 'asc';
+    const filters = this.gridConfig?.filters || {};
+    const visibleColumns = this.gridConfig?.visibleColumns || [];
+
+    this.dataGridService.getData(
+      page,
+      100,
+      sortColumn,
+      sortDirection,
+      filters,
+      visibleColumns
+    ).subscribe({
+      next: (config) => {
+        this.gridConfig = config;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error loading data:', error);
+        this.loading = false;
+      }
+    });
+  }
+
+  onSort(column: string): void {
+    if (!this.gridConfig) return;
+
+    if (this.gridConfig.sortColumn === column) {
+      this.gridConfig.sortDirection = 
+        this.gridConfig.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.gridConfig.sortColumn = column;
+      this.gridConfig.sortDirection = 'asc';
+    }
+    
+    this.loadData();
+  }
+
+  onFilter(column: string, value: string): void {
+    if (!this.gridConfig) return;
+
+    if (value) {
+      this.gridConfig.filters[column] = value;
+    } else {
+      delete this.gridConfig.filters[column];
+    }
+    
+    this.gridConfig.currentPage = 1;
+    this.loadData();
+  }
+
+  onPageChange(page: number): void {
+    if (!this.gridConfig) return;
+    this.gridConfig.currentPage = page;
+    this.selectedRows.clear();
+    this.loadData();
+  }
+
+  toggleRowSelection(index: number): void {
+    if (this.selectedRows.has(index)) {
+      this.selectedRows.delete(index);
+    } else {
+      this.selectedRows.add(index);
+    }
+  }
+
+  selectAll(checked: boolean): void {
+    if (checked) {
+      this.gridConfig?.data.forEach((_, index) => 
+        this.selectedRows.add(index)
+      );
+    } else {
+      this.selectedRows.clear();
+    }
+  }
+
+  exportSelected(): void {
+    if (!this.gridConfig || this.selectedRows.size === 0) return;
+
+    const url = this.dataGridService.exportData(
+      'selected',
+      this.gridConfig.sortColumn || '',
+      this.gridConfig.sortDirection,
+      this.gridConfig.filters,
+      Array.from(this.selectedRows)
+    );
+
+    window.open(url, '_blank');
+  }
+
+  exportAll(): void {
+    if (!this.gridConfig) return;
+
+    const url = this.dataGridService.exportData(
+      'all',
+      this.gridConfig.sortColumn || '',
+      this.gridConfig.sortDirection,
+      this.gridConfig.filters
+    );
+
+    window.open(url, '_blank');
+  }
+}
+```
+
+### Step 4: Angular Template
+
+```html
+<!-- data-grid.component.html -->
+<div class="grid-container" *ngIf="gridConfig">
+  <div class="grid-header">
+    <button (click)="exportSelected()" 
+            [disabled]="selectedRows.size === 0">
+      Export Selected
+    </button>
+    <button (click)="exportAll()">
+      Export All
+    </button>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>
+          <input type="checkbox" 
+                 [checked]="selectedRows.size === gridConfig.data.length"
+                 (change)="selectAll($event.target.checked)">
+        </th>
+        <th *ngFor="let column of gridConfig.visibleColumns"
+            (click)="onSort(column)"
+            class="sortable">
+          {{ column }}
+          <span *ngIf="gridConfig.sortColumn === column">
+            {{ gridConfig.sortDirection === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of gridConfig.data; let i = index"
+          [class.selected]="selectedRows.has(i)">
+        <td>
+          <input type="checkbox"
+                 [checked]="selectedRows.has(i)"
+                 (change)="toggleRowSelection(i)">
+        </td>
+        <td *ngFor="let column of gridConfig.visibleColumns">
+          {{ row[column] }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button (click)="onPageChange(1)" 
+            [disabled]="gridConfig.currentPage === 1">
+      First
+    </button>
+    <button (click)="onPageChange(gridConfig.currentPage - 1)"
+            [disabled]="gridConfig.currentPage === 1">
+      Previous
+    </button>
+    <span>Page {{ gridConfig.currentPage }} of {{ gridConfig.totalPages }}</span>
+    <button (click)="onPageChange(gridConfig.currentPage + 1)"
+            [disabled]="gridConfig.currentPage === gridConfig.totalPages">
+      Next
+    </button>
+    <button (click)="onPageChange(gridConfig.totalPages)"
+            [disabled]="gridConfig.currentPage === gridConfig.totalPages">
+      Last
+    </button>
+  </div>
+</div>
+```
+
+## API Reference
+
+### DataGrid Class
+
+#### Constructor
+```python
+DataGrid(data, columns=None, column_config=None)
+```
+
+#### Methods
+
+- `setVisibleColumns(columns)`: Set which columns to display
+- `setPageSize(size)`: Set number of rows per page
+- `setPage(page)`: Navigate to specific page
+- `setSorting(column, direction)`: Set sorting configuration
+- `setFilter(column, value)`: Apply filter to a column
+- `clearFilters()`: Remove all filters
+- `getProcessedData()`: Get current page data
+- `getFilteredData()`: Get all filtered data (no pagination)
+- `getTotalRows()`: Get total number of rows
+- `getTotalPages()`: Get total number of pages
+- `toJson()`: Export current page to JSON
+- `toJsonAll()`: Export all data to JSON
+- `toCsv(selected_rows)`: Export data to CSV
+
+### Flask Integration
+
+#### create_grid_blueprint()
+```python
+create_grid_blueprint(data_source, name='datagrid', url_prefix='/grid')
+```
+
+Creates a Flask Blueprint with the following routes:
+- `/`: Main grid interface
+- `/api/data`: Get paginated data
+- `/api/export`: Export data as CSV
+
+#### create_grid_app()
+```python
+create_grid_app(data, host='127.0.0.1', port=5000, debug=True)
+```
+
+Creates a complete Flask application with the grid.
+
+## Configuration
+
+### Naming Conventions
+
+The library follows these naming conventions:
+- **PascalCase**: Component names, interfaces, and type aliases
+- **camelCase**: Variables, functions, and methods
+- **_underscore prefix**: Private class members
+- **ALL_CAPS**: Constants
+
+### Performance Optimization
+
+- Default page size: 100 rows (configurable)
+- Column width adjusts to screen size
+- Text truncation with ellipsis for long content
+- Tooltip shows up to 200 characters on hover
+- Efficient filtering and sorting algorithms
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Requirements
+
+- Python >= 3.7
+- Flask >= 2.0.0
+- flask-cors >= 3.0.0
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Support
+
+For issues and questions, please open an issue on GitHub.
+
+## Changelog
+
+### Version 1.0.0
+- Initial release
+- Core grid functionality
+- Sorting and filtering
+- Pagination
+- Column visibility controls
+- Export to CSV
+- Flask integration
+- Responsive design

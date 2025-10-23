@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyDataGrid</title>
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/datagrid.css') }}">
+</head>
+<body>
+    <div class="pydatagrid-container" id="pydatagrid-main">
+        <!-- Column Visibility Menu -->
+        <div class="grid-header">
+            <div class="column-visibility-menu">
+                <button class="hamburger-btn" id="columnMenuBtn" title="Show/Hide Columns">
+                    ☰ Columns
+                </button>
+                <div class="column-menu-dropdown" id="columnMenuDropdown">
+                    <div class="column-menu-header">
+                        <span>Select Columns to Display</span>
+                        <button class="close-menu-btn" id="closeColumnMenu">×</button>
+                    </div>
+                    <div class="column-menu-items" id="columnMenuItems">
+                        <!-- Column checkboxes will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Export Buttons -->
+            <div class="export-buttons">
+                <button class="export-btn" id="exportSelectedBtn" title="Export Selected Rows">
+                    📥 Export Selected
+                </button>
+                <button class="export-btn" id="exportAllBtn" title="Export All Filtered Data">
+                    📥 Export All
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Filters Display -->
+        <div class="active-filters" id="activeFilters" style="display: none;">
+            <div class="active-filters-header">
+                <strong>🔍 Active Filters:</strong>
+            </div>
+            <div class="active-filters-list" id="activeFiltersList">
+                <!-- Filter badges will be added here dynamically -->
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="table-wrapper">
+            <table class="pydatagrid-table" id="dataTable">
+                <thead>
+                    <tr id="tableHeader">
+                        <th class="select-column">
+                            <input type="checkbox" id="selectAllCheckbox" title="Select All on Current Page">
+                        </th>
+                        <!-- Column headers will be dynamically added here -->
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination-info">
+                <span id="paginationInfo">Showing 0 - 0 of 0 rows</span>
+            </div>
+            <div class="pagination-controls">
+                <button class="page-btn" id="firstPageBtn" title="First Page">⏮</button>
+                <button class="page-btn" id="prevPageBtn" title="Previous Page">◀</button>
+                <span class="page-numbers" id="pageNumbers"></span>
+                <button class="page-btn" id="nextPageBtn" title="Next Page">▶</button>
+                <button class="page-btn" id="lastPageBtn" title="Last Page">⏭</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('.static', filename='js/datagrid.js') }}"></script>
+    <script>
+        // Initialize the grid with data from backend
+        const gridConfig = {{ config | tojson | safe }};
+        const gridInstance = new PyDataGrid('pydatagrid-main', gridConfig);
+    </script>
+</body>
+</html>

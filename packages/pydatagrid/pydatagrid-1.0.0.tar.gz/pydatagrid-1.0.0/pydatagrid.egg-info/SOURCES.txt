@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+pydatagrid/__init__.py
+pydatagrid/datagrid.py
+pydatagrid/flask_integration.py
+pydatagrid.egg-info/PKG-INFO
+pydatagrid.egg-info/SOURCES.txt
+pydatagrid.egg-info/dependency_links.txt
+pydatagrid.egg-info/requires.txt
+pydatagrid.egg-info/top_level.txt
+pydatagrid/static/css/datagrid.css
+pydatagrid/static/js/datagrid.js
+pydatagrid/templates/datagrid.html

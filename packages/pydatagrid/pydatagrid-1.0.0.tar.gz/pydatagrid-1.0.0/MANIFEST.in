@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include pydatagrid/templates *.html
+recursive-include pydatagrid/static *.css *.js
