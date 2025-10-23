@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/distributed_downloader"]
+
+[project]
+name = "distributed_downloader"
+dynamic = ["version"]
+authors = [
+    { name = "Andrey Kopanev", email = "kopanev.1@osu.edu" },
+    { name = "Elizabeth G. Campolongo", email = "e.campolongo479@gmail.com" },
+    { name = "Matthew J. Thompson", email = "thompson.m.j@outlook.com" },
+]
+description = "MPI-based tool for downloading images from a list of URLs in parallel."
+readme = "README.md"
+requires-python = ">=3.10, <3.12"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "attrs",
+    "brotli",
+    "cramjam",
+    "cython",
+    "fsspec",
+    "inflate64",
+    "mpi4py",
+    "multivolumefile",
+    "opencv-python",
+    "pandas",
+    "pathspec",
+    "pillow",
+    "psutil",
+    "pyarrow",
+    "pybcj",
+    "pycryptodomex",
+    "pyppmd",
+    "pyspark",
+    "python-dotenv",
+    "pyyaml",
+    "pyzstd",
+    "requests",
+    "setuptools",
+    "texttable",
+    "trove-classifiers",
+    "typing-extensions",
+    "wheel"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff"
+]
+
+keywords = [
+    "parallel",
+    "distributed",
+    "download",
+    "url",
+    "mpi-applications",
+    "dataset-generation",
+]
+
+[project.urls]
+Homepage = "https://github.com/Imageomics/distributed-downloader"
+Repository = "https://github.com/Imageomics/distributed-downloader.git"
+"Bug Tracker" = "https://github.com/Imageomics/distributed-downloader/issues"
+
+[project.scripts]
+distributed_downloader = "distributed_downloader.core.main:main"
+distributed_downloader_tools = "distributed_downloader.tools.main:main"
+
+[tool.hatch.version]
+path = "src/distributed_downloader/core/__about__.py"
