@@ -1,0 +1,44 @@
+[project]
+name = 'lanmonitor'
+version = '4.0.1'
+    # 4.0.1 - pyproject.toml tuning
+    # 4.0 - release
+    # 3.3.2 - yum_update_history_plugin - Added '--cacheonly', cjnfuncs 3.0 dependency, release
+    # 3.3
+description = 'Monitor the state of services, processes, web pages, file system, etc. on your server and LAN'
+readme = 'README.md'
+requires-python = '>=3.9'       # RHEL 9 uses 3.9
+authors = [ {name = 'Chris Nelson', email = 'github@cjnaz.com'} ]
+license = 'MIT'
+dependencies = [
+    'cjnfuncs >= 3.0.1',
+    'asyncssh >= 2.21.0',
+    'invoke >= 2.2.0',
+    ]
+keywords = ['cjnaz', 'lan', 'monitor']
+classifiers = [                 # https://pypi.org/classifiers/
+    'Programming Language :: Python :: 3',
+    'Topic :: System :: Monitoring',
+    'Topic :: System :: Networking :: Monitoring',
+    ]
+
+
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+
+[project.scripts]
+lanmonitor = 'lanmonitor.lanmonitor:cli'
+
+
+[project.urls]
+repository = 'https://github.com/cjnaz/lanmonitor'
+
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+
+[tool.setuptools.package-data]
+'*' = ['deployment_files/*']
