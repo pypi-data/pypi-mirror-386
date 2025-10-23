@@ -1,0 +1,406 @@
+commit cf469a593b7445ff9b7e30590defec83d07307ae
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Oct 16 10:57:25 2025 +0100
+
+    Release 6.10.0
+
+commit 3da0d16567bafc61bd4c398b084d740c54dce392
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Oct 10 16:16:59 2025 +0100
+
+    Updated the build system requirements.
+
+commit 7f3fa5350c5ac234bd203852abe530e16b415cc9
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Oct 10 09:58:41 2025 +0100
+
+    Added support for Qt v6.10.
+
+commit a8ddaf23aeedc33641ea0cb2e77fba5686409dbc
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jul 8 16:57:29 2025 +0100
+
+    Imported from Mercurial
+
+commit 0d01b4225ad8a628d66b3f4c1661fe3dbd44b30a
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sat May 24 18:51:39 2025 +0100
+
+    Use PEP 639 licensing.
+    SIP v6.12 is required.
+    Updated the project format.
+
+commit f2521dbd2b8479a13beb5a9daffc911b1f5a15a3
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Apr 3 11:15:38 2025 +0100
+
+    Added tag 6.9.0 for changeset 6d4496c261cf
+
+commit e9e7be46b5ef4d5c6dcdaa0647f30e19504d2744
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Apr 3 11:15:28 2025 +0100
+
+    Updated the NEWS file.
+
+commit 36ba7ee8996d24e74a0591d504241bcd982e5e41
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Mar 18 10:27:34 2025 +0000
+
+    Updated for Qt v6.9.0rc.
+
+commit 892d155385d01daf2f461b11bd39768b31d13df6
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Dec 6 14:00:45 2024 +0000
+
+    Added tag 6.8.0 for changeset 33e6fc557665
+
+commit bff5b0bcda661a79c80eea24813832704420bf73
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Oct 24 14:54:27 2024 +0100
+
+    Updated the NEWS file.
+
+commit 450d45748848269163b2bf84d1c99d6e91b5df61
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Oct 14 13:04:32 2024 +0100
+
+    Updated the build system requirements to SIP v6.9 and PyQt-builder v1.17.
+
+commit 10ad6bc38a2c9bb59a3a3f70523d8952644dbe70
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Oct 3 13:54:02 2024 +0100
+
+    Updated for Qt v6.8.0.
+
+commit 4694ffd0e7012c746a0a38ff12c64a6ebf506d0b
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sat Apr 20 16:12:37 2024 +0100
+
+    Added tag 6.7.0 for changeset 78386dd50be5
+
+commit 5f8e21f1e90a7e00ad9f6a2b016c6fdf02a5d9b5
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Apr 4 14:46:05 2024 +0100
+
+    Updated for Qt v6.7.0.
+
+commit b5b6fd96a3ffc49ebb85e5a17c1d79d2939fed89
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sun Mar 17 15:13:19 2024 +0000
+
+    Added support for Qt v6.7.
+
+commit 0089655c44d3d1d8c4385ba4c129686d25c5f6ad
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sun Feb 18 13:00:56 2024 +0000
+
+    Updated the NEWS file.
+
+commit c988d4532e76882cbadf9b98a964969fcf897b9c
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sun Feb 18 12:59:15 2024 +0000
+
+    Migrated from [tool.sip.metadata] to [project] in pyproject.toml.
+
+commit a3721c6beac71067039b64f1e24431d8a7909c11
+Merge: c50cda1 d58d279
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sun Feb 18 12:52:05 2024 +0000
+
+    Merged the 6.6-maint branch.
+
+commit d58d2796dc14363aa09a3cc7da7370bd8af0b5a3
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jan 2 11:54:16 2024 +0000
+
+    Removed the product file.
+
+commit c50cda1cc608b783ca04b600a36381c8b6564451
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Oct 25 09:09:45 2023 +0100
+
+    Added tag 6.6.0 for changeset b0379b68ceac
+
+commit 942086d851a4c3e8c397786bd24e7f569605f6c5
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sun Oct 22 17:51:45 2023 +0100
+
+    Updated for Qt v6.6.
+
+commit 5633e20b8d2b23aeaef8ab6a2b7aca7c0cac972d
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Apr 4 15:05:51 2023 +0100
+
+    Added tag 6.5.0 for changeset 56538be6fbcd
+
+commit 66c57ed1d56250d681fb7dcf33dd2681baa0c923
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Mar 31 15:02:52 2023 +0100
+
+    Updated for Qt v6.5.0rc.
+
+commit e30162122d1cdddc78dd9ce061f1d2902bec9107
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Sep 30 09:09:36 2022 +0100
+
+    Added tag 6.4.0 for changeset ed2fbf0055ac
+
+commit 178d5c125395c61f2d5febe43b177dc2bd677e60
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Sep 30 09:00:43 2022 +0100
+
+    Updated for Qt v6.4.0.
+
+commit 5e49d126e40e71490694d2a72a1b8e5deed43fb6
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Sep 21 05:37:55 2022 +0100
+
+    Updated for Qt v6.4.0rc.
+
+commit 4843f2d64f9f0e5ab1497b678d21aa0eddb9f5b2
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sun Sep 18 22:44:38 2022 +0100
+
+    Updated the NEWS file.
+
+commit 58bacbce91b52c8b87586e339207f87db64fb687
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Apr 12 16:02:08 2022 +0100
+
+    Added tag 6.3.0 for changeset a5131b8dd486
+
+commit 06ea9cbf62acceb49743481a56b7e8681d34e902
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Mar 31 18:11:38 2022 +0100
+
+    Updated for Qt v6.3.0rc.
+
+commit 7b787333f809624c6922bb230a26c89982e8db5c
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Sep 30 14:55:46 2021 +0100
+
+    Added tag 6.2.0 for changeset 28591284b7b9
+
+commit 6fd515a2cdb59efa17218344e520ed3901ca8a75
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Sep 30 14:55:29 2021 +0100
+
+    Updated for Qt v6.2.0.
+
+commit c9ca1028534ffc08af4f8ed21aef9a86e2457d99
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jul 13 12:49:34 2021 +0100
+
+    Update the minimum PyQt version.
+
+commit 2294e8f42fcb5856feb724a15b553dda1d811789
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jul 13 12:35:50 2021 +0100
+
+    Updated for Qt v6.2.0beta1.
+
+commit 9c273c04e0633a787a81d686fc895b344a3e2bcf
+Merge: 94dbe74 b120242
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jul 13 12:29:17 2021 +0100
+
+    Merged the 6.1-maint branch.
+
+commit b12024276ba75f55a6a7e492027b6755fdf25994
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jun 8 13:15:33 2021 +0100
+
+    Added tag 6.1.1 for changeset a9b5c31c2047
+
+commit b5dea7479eaa310d48d474ce0a4f92fa9f5b2251
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Jun 8 11:33:41 2021 +0100
+
+    Updated the NEWS file.
+
+commit 94dbe74031a9d76e0d6218e696a98c198401debb
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri May 7 14:41:36 2021 +0100
+
+    Added tag 6.1.0 for changeset d3f0ba030cb3
+
+commit c4917967c7e9e34deee2812ad721fac78cb250b5
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sat Apr 24 20:11:39 2021 +0100
+
+    Updated for Qt v6.1.0rc.
+
+commit 4e8194007db1c785f33bed5420d7c49f8e104a2a
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sat Apr 10 15:18:30 2021 +0100
+
+    Updated for Qt v6.1.0beta3.
+
+commit ee958a65544b63a820596b67f4eaf18f91789040
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sat Apr 10 10:12:16 2021 +0100
+
+    The developer notes are no longer required.
+
+commit c81ab9f405f8c8021316331578c324eb4e8d1f79
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Apr 1 10:36:40 2021 +0100
+
+    Added the examples.
+
+commit 8be3c86278e230f2bb133aa2a40b94c6aaf5133e
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Mar 30 01:14:33 2021 +0100
+
+    Prepare for Qt v6.1.
+
+commit 140c5598ad62fc43f19c36057227a257819080a9
+Merge: 39fcb4c cb7df55
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Mar 30 01:00:45 2021 +0100
+
+    Merged the 6.0-maint branch.
+
+commit cb7df55b6fcddeda9202a8391e00473896d0c694
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Mar 4 12:30:49 2021 +0000
+
+    Added tag 6.0.3 for changeset bda3700cc3a2
+
+commit 2c248a9500407fcf92cbca71d141aa2f1ed69328
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Mar 4 12:30:45 2021 +0000
+
+    Released as v6.0.3.
+
+commit a68654a247d20e11669c33625a836d7d8dbb4d8e
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Mar 4 12:28:39 2021 +0000
+
+    Fixed the PyQt dependency.
+
+commit 0ed667a80cd0449ab99954fe52afc028b252a74a
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Mar 2 14:22:20 2021 +0000
+
+    Updated the NEWS file.
+
+commit 478f1265913733d62f92ce298b74e6fc60d6cd07
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sat Feb 27 17:32:52 2021 +0000
+
+    Fixed the project dependencies.
+
+commit d06696f0ebb2fb13cf27379304acd15607e2cfe6
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Feb 22 17:16:23 2021 +0000
+
+    Added tag 6.0.2 for changeset 0ecc2018c833
+
+commit faa0fd65750e7ef7c331e8ac04e4c7e07f45c198
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Feb 22 17:16:18 2021 +0000
+
+    Released as v6.0.2.
+
+commit 5c9c2c6fdf372e28cca01363ed9120bba4d974e1
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Feb 22 17:15:44 2021 +0000
+
+    Updated the NEWS file.
+
+commit 515d02787299175840a9db59ac69e2818ef74653
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Feb 5 11:09:30 2021 +0000
+
+    Added tag 6.0.1 for changeset df34f36f4b9c
+
+commit 1523d15bce27d093ab2e363880ca18352603cf0a
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Fri Feb 5 11:09:24 2021 +0000
+
+    Released as v6.0.1.
+
+commit 2a292225d780448afc5a26e20107a95a7fe77b93
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Feb 4 15:59:54 2021 +0000
+
+    Updated the NEWS file.
+
+commit 2f0c45082c3347275d766fbb832241114a83eacc
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Sun Jan 17 12:54:53 2021 +0000
+
+    Wheels depend on an external Qt wheel rather than bundle Qt.
+
+commit ff1a09d49afcbd949e66c667d4b53580ecafc288
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Jan 7 14:54:50 2021 +0000
+
+    There is no longer any need to explcitly specify the next release number.
+
+commit 9a557e331f03b68a330c87d6d4f9ef21dfdce474
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Jan 7 14:53:30 2021 +0000
+
+    Fixed building when not concatenating generated C++ source files.
+
+commit 39fcb4cb4e777a895b9fee1b25850cfb85dab398
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Jan 4 11:29:56 2021 +0000
+
+    Added tag 6.0.0 for changeset 52bfb2314668
+
+commit 1ae2be24fab8e4f4fcd4857728b6c3c4d68f0095
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Jan 4 11:29:52 2021 +0000
+
+    Released as v6.0.0.
+
+commit 62a008e774681ad24eeec715995170bb0b3320bc
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Mon Jan 4 10:01:20 2021 +0000
+
+    Updated the NEWS file.
+
+commit 38ff87d1aee4c285c540bb00185b7c1f24f8ff09
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Thu Dec 31 17:09:12 2020 +0000
+
+    Added DevelopersNotes.txt.
+
+commit d9f2f8657222a5e898ea5068f7aaea74b6d6923f
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Dec 30 17:49:50 2020 +0000
+
+    Completed the updates for Qt6.
+
+commit 0e431d2df244a0d9dac1537225c18203849ec41a
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Dec 30 16:00:59 2020 +0000
+
+    Updated Qt3DLogic and Qt3DRender for Qt6.
+
+commit d0f8acc9d8dbce5e1a67451a67b411c0c427f5d3
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Dec 30 15:02:03 2020 +0000
+
+    Updated Qt3DInput for Qt6.
+
+commit ec8a1e1fef3030438eac9f72a9cd89e7405fe46c
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Dec 30 14:39:17 2020 +0000
+
+    Updated Qt3DCore and Qt3DExtras for Qt6.
+
+commit f4720fa2aa681c8c5d82b23317505b3d92d6a5d3
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Wed Dec 30 11:31:02 2020 +0000
+
+    Updated Qt3DAnimation for Qt6.
+
+commit 14472f4e6af0558dab9911c3ee833a75b307289f
+Author: Phil Thompson <phil@riverbankcomputing.com>
+Date:   Tue Dec 29 17:59:30 2020 +0000
+
+    The initial commit of PyQt6-3D based on PyQt3D.
