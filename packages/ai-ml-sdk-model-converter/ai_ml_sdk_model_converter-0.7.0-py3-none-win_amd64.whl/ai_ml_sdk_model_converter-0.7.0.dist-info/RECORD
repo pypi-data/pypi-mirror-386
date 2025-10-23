@@ -1,0 +1,12 @@
+model_converter/__init__.py,sha256=16NwI7JQqoDS50nQz3wvwLdKIa_GJiMaF6g2qd6kK28,150
+model_converter/cli.py,sha256=I3BbYp1zVbZ2qg4WnypB6rEW5hOhQ2FneeGk2FLsi7w,463
+model_converter/binaries/bin/model-converter.exe,sha256=Jo8vr1xX6CEGwNxlIDFRT24KNqOHDHoZ0MfEaC4jUf4,12819968
+model_converter/binaries/lib/ai-ml-sdk-model-converter.spdx.json,sha256=Bq6W30-5pPZvGqqEu-kwblhTpg9Dr3O8zbXIpc9JP_c,35327
+model_converter/binaries/lib/cmake/ModelConverter/ModelConverterConfig-release.cmake,sha256=j6a5hho4jVsE-K7dx-5v1ISJdrzuNc63Q-LQ4-cbrsc,912
+model_converter/binaries/lib/cmake/ModelConverter/ModelConverterConfig.cmake,sha256=GFuE3JyS4d1gYJrqUhktrRhwbkvstWmGOfX6Km_kHIA,4161
+model_converter/binaries/lib/cmake/ModelConverter/ModelConverterConfigVersion.cmake,sha256=oNAL_nOVy1I4ddTkhs4a6kTJbSxJkmC9_6vi9mmW6o8,3329
+ai_ml_sdk_model_converter-0.7.0.dist-info/METADATA,sha256=cogWiPhXNXK2HwbrUiaVt9GEFOKMIlynTbIiYW8p_zc,150
+ai_ml_sdk_model_converter-0.7.0.dist-info/WHEEL,sha256=i9qQj8KaD8_YEW0Vc2oS56fKju23RkQ-FVz-QmzVakQ,98
+ai_ml_sdk_model_converter-0.7.0.dist-info/entry_points.txt,sha256=Spin3nC2DjCYad1laO-Z26d9hRzjtdVXsV_vAmj9M5A,62
+ai_ml_sdk_model_converter-0.7.0.dist-info/top_level.txt,sha256=pkGFNiYcQUSk5RxpYkTlTs5pslRhRCp8Ji_ihD0du1o,16
+ai_ml_sdk_model_converter-0.7.0.dist-info/RECORD,,
