@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: nltkbleu
+Version: 0.1.1
+Summary: A nltk scoring and text utility module with TensorFlow and NLP tools.
+Home-page: https://github.com/yourusername/nltkbleu
+Author: pixelpilot24
+Author-email: pixelpilot24@gmail.com
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: pandas
+
+# nltkbleud
+
+Python package that provides the `BLEUD` class.
