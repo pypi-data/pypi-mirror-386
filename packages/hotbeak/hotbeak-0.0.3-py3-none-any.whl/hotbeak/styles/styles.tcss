@@ -1,0 +1,53 @@
+/* Main chat container */
+#chat-container {
+    height: 100%;
+}
+
+#chat-content {
+    height: 100%;
+}
+
+/* Message list area */
+#message-list {
+    height: 1fr;
+    text-align: center;
+    padding: 2;
+    overflow-y: auto;
+}
+
+#welcome-message {
+    color: $text-muted;
+    text-style: italic;
+    text-align: center;
+    padding: 4 2;
+    width: 100%;
+}
+
+/* Individual messages */
+Message {
+    margin: 1 0;
+    padding: 1 2;
+    border-left: thick $accent;
+}
+
+.message-user {
+    background: $boost;
+    border-left: thick $success;
+}
+
+.message-assistant {
+    background: $panel;
+    border-left: thick $primary;
+}
+
+/* Chat input area */
+#chat-input {
+    height: auto;
+    background: $boost;
+    margin-bottom: 1;
+    padding: 0 2;
+}
+
+#chat-input:focus {
+    background: $panel;
+}
