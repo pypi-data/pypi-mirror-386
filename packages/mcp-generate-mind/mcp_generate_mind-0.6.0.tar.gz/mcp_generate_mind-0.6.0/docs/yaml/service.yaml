@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mindmap-mcp-svc
+  labels:
+    app: mindmap-mcp
+  namespace: {namespace}
+spec:
+  ipFamilies:
+  - IPv4
+  ports:
+  - port: 8000
+    targetPort: 8000
+    nodePort: {NODE_PORT}
+    protocol: TCP
+  type: NodePort
+  ipFamilyPolicy: SingleStack
+  selector:
+    app: mindmap-mcp
