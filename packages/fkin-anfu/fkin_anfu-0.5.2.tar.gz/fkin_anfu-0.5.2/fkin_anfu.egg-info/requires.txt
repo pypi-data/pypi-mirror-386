@@ -1,0 +1,15 @@
+pandas
+sqlalchemy
+pymysql
+openpyxl
+XlsxWriter
+python-dotenv
+colorama
+pydantic
+pyfiglet
+
+[dev]
+pytest
+flake8
+black
+isort
