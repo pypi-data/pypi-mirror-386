@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+nltkbleud/__init__.py
+nltkbleud/bleud.py
+nltkbleud.egg-info/PKG-INFO
+nltkbleud.egg-info/SOURCES.txt
+nltkbleud.egg-info/dependency_links.txt
+nltkbleud.egg-info/top_level.txt
