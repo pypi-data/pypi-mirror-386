@@ -1,0 +1,15 @@
+activity_audit/__init__.py,sha256=UAqjH6Nek1KoLXH1ygy0pQPdIMJv5rruBFChD-34iME,436
+activity_audit/apps.py,sha256=62-QEn0yowVsYkLCi7oc8OpkL5b3C3Mj9Vzn9eJKYgU,504
+activity_audit/constants.py,sha256=JtQFDPi1SDqIzEBVWjX7XzVBO5KPt_Bcxjfei3_MTT8,155
+activity_audit/formatters.py,sha256=4LauWRpC7J0kTiHi_zRTMpmsEXW6L1ZAOhCJxf1o0QM,4972
+activity_audit/handlers.py,sha256=p6UG8KnldiQ8GDxg2T2jR19RVAx1j3DazAWDUMmCilI,1985
+activity_audit/logger_levels.py,sha256=NBIz4D3aSSA8z7OyVcnrrdQyow5E6udsvvdYv0ntGmM,1017
+activity_audit/middleware.py,sha256=Njr3N9QvglCq-0pR7IMXteeigT2bcOY3QPqRDdD3wng,7706
+activity_audit/protocols.py,sha256=Gh5mR6AIWMfUUwkRBLpbQyHWk3yCjY6_dECZYQtJuVI,6982
+activity_audit/settings.py,sha256=T0qoCynOCjnrUitbZPHQNE083FqjGJ4RiTFNhvgxOKQ,1118
+activity_audit/signals.py,sha256=eftvt302ogWctjynErXWzmTj8WlRRIa0DZh54ykdFBw,11077
+activity_audit/utils.py,sha256=ehXhAZqdXGRbjkzYcrNcCD8kAO8pjfV1nKQiGYeJFfs,2225
+django_activity_audit-1.2.5.dist-info/METADATA,sha256=omCw531yZ3zlYummmMA74U5kB0fvsNsigIif9EvIhfg,8303
+django_activity_audit-1.2.5.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+django_activity_audit-1.2.5.dist-info/licenses/LICENSE,sha256=p-VA6Caus8hsLk9jQQd0T6_eSxCVQSMz9jAqa6XcNCs,1065
+django_activity_audit-1.2.5.dist-info/RECORD,,
