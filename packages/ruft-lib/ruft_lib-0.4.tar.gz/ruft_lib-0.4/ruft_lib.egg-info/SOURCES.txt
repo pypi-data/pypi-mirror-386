@@ -1,0 +1,11 @@
+AUTHORS.md
+LICENSE
+README.md
+setup.py
+ruft/__init__.py
+ruft/module1.py
+ruft_lib.egg-info/PKG-INFO
+ruft_lib.egg-info/SOURCES.txt
+ruft_lib.egg-info/dependency_links.txt
+ruft_lib.egg-info/requires.txt
+ruft_lib.egg-info/top_level.txt
