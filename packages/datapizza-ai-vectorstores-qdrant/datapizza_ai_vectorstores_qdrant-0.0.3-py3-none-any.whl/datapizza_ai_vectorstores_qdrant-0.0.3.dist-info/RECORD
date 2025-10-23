@@ -1,0 +1,6 @@
+datapizza/vectorstores/qdrant/__init__.py,sha256=y7hrRBvzhT4LYxVV8FD7cxA6HD9rXmZ43bqozmfiWHw,83
+datapizza/vectorstores/qdrant/qdrant_vectorstore.py,sha256=MGZ5tiptnTIQP2OxzEnEBgJXNiOD6xDpA7TVPaG4P4U,14324
+datapizza/vectorstores/qdrant/tests/test_qdrant_vectorstore.py,sha256=BOndXdf6HykaXBhThmEqWdlZN_j3jdRMgWefSzNX3jg,1702
+datapizza_ai_vectorstores_qdrant-0.0.3.dist-info/METADATA,sha256=B1DB0eq2qYsNjgNg1t602y24ui-pyCkL03qvAaSHHgY,610
+datapizza_ai_vectorstores_qdrant-0.0.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+datapizza_ai_vectorstores_qdrant-0.0.3.dist-info/RECORD,,
