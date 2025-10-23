@@ -1,0 +1,33 @@
+{% if value.embed_method == "iframe" %}
+    <div data-mf-video-id="{{value.file_id}}" style="background:none repeat scroll 0 0 #ccc;margin:0 auto;width:100%;">
+        <div style="position:relative;">
+            <img style="display:block;height:auto;width:100%" alt="" src="{{ value.poster }}" />
+            <iframe title="{{ value.name }}" style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;" 
+                src="{{ value.src }}" allowfullscreen></iframe>
+        </div>
+    </div>
+{% else %}
+    <div data-mf-video-id="{{value.file_id}}" id="{{ value.random_element_id }}"></div>
+    <script>
+    
+     var opts = {env:"production", autoPlay: "{{value.autoplay}}" == "True", startAt: {{value.start_offset}} };
+
+    if (!document.querySelector('link[href="https://mfstatic.com/css/mediaflowplayer.min.css"]')) {
+        const lel =document.createElement('link');
+        lel.setAttribute('rel','stylesheet');
+        lel.setAttribute('type','text/css');
+        lel.setAttribute('href','https://mfstatic.com/css/mediaflowplayer.min.css');
+        document.getElementsByTagName('head')[0].appendChild(lel);
+    }
+    if (typeof(MFPlayer)=='undefined') {
+        const sel = document.createElement('script');
+        sel.setAttribute('crossorigin','anonymous');
+        document.body.appendChild(sel);
+        sel.onload=function(){
+            new MFPlayer('#{{value.random_element_id}}','{{ value.media_id }}', opts); 
+        };
+        sel.src='https://mfstatic.com/js/mediaflowplayer.min.js';
+    } else {
+        new MFPlayer('#{{value.random_element_id}}','{{ value.media_id }}', opts); }
+    </script>
+{% endif %}

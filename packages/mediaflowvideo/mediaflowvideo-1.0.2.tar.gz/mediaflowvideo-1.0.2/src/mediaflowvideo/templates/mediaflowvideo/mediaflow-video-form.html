@@ -1,0 +1,69 @@
+{% load wagtailadmin_tags  %}
+{% load i18n %}
+{% block extra_js %}
+  <script src="{% versioned_static 'wagtailadmin/js/modal-workflow.js' %}"></script>
+  <script type="text/javascript">
+    $(function() {
+        
+        const getFile = function (mediaId) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status == 200) {
+                        var o = JSON.parse(xhr.responseText);
+                        if (o && o.poster) {
+                            $('.{{ prefix }}-mf-title').text(o.title);
+                            $('.{{ prefix }}-mf-poster').attr('src', o.poster);
+                            $('.{{ prefix }}-mf-poster').css('display','');
+                            $('.{{ prefix }}-mf-browse').text("{% translate 'Choose another' %}");
+                        }
+                    }
+                }
+            };
+            xhr.open('GET', 'https://m.mediaflow.com/json/'+ mediaId);
+            xhr.send();
+        };
+       
+        $(document).ready(function() {  
+            let adminpath = window.mf.admin_route || "/admin";         
+            $('.{{ prefix }}-mf-browse').on('click', function(ev) {
+                ev.preventDefault();
+                ModalWorkflow({                    
+                    url: adminpath + 'mediaflowmodal/?trigger=' + '{{ prefix }}'
+                });
+            });
+            const mediaId = $("#{{ prefix }}-media_id").val();
+            if (mediaId) {
+                getFile(mediaId);              
+            }     
+            $('#{{ prefix }}-media_id').on('input', function(ev) {            
+                const mediaId = ev.target.value;
+                if (mediaId) {                    
+                    getFile(mediaId);                  
+                }
+            });
+        })
+    });
+
+   
+  </script>
+{% endblock %}
+
+<div style="display:flex;gap:0 20px">
+   <img class="{{ prefix }}-mf-poster chooser__image" alt="Poster image" src="#" style="display:none" width=192 height=108>
+   <div style="display:flex;flex-direction:column;gap: 20px;">
+       <h2 class="w-panel__heading w-panel__heading--label {{ prefix }}-mf-title"></h2>
+       <button class="button action-save button-longrunning {{ prefix }}-mf-browse">{% translate "Choose a video" %}</button>
+   </div>
+
+</div>
+
+
+{% for child in children.values %}
+        <div hidden class="w-field" data-field data-contentpath="{{ child.block.name }}">           
+            {% if child.block.label %}
+                <label class="w-field__label" {% if child.id_for_label %}for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}{% if child.block.required %}<span class="w-required-mark">*</span>{% endif %}</label>
+            {% endif %}
+            {{ child.render_form }}             
+        </div>
+{% endfor %}

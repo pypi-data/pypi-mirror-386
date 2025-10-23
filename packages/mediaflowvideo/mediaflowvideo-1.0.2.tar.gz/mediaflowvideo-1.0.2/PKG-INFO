@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: mediaflowvideo
+Version: 1.0.2
+Summary: Wagtail video plugin for Mediaflow
+Project-URL: Homepage, https://support.mediaflow.com
+Project-URL: Issues, https://support.mediaflow.com
+Author-email: Mediaflow Europe AB <support@mediaflow.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Mediaflow video plugin for Wagtail
+
+
+## Installation
+      pip install mediaflowvideo
+
+### Edit the settings file (mysite/settings/base.py):
+
+ - Add "mediaflowvideo" to the array **INSTALLED_APPS** (near the top of the file)
+
+- Add "mf-video" to the feature list for the Draftail Rich Text Editor 
+
+      WAGTAILADMIN_RICH_TEXT_EDITORS = {
+      	'default': {
+      		'WIDGET': 'wagtail.admin.rich_text.DraftailRichTextArea',
+      		'OPTIONS': {
+      			'features': ['mf-video' .....]
+      		}
+      	}
+      }
+
+
+- Add your API keys
+  
+      MEDIAFLOW_CLIENT_ID = <YOUR SERVER ID>
+      MEDIAFLOW_CLIENT_SECRET = <YOUR CLIENT SECRET>
+      MEDIAFLOW_SERVER_KEY = <YOUR SERVER KEY>
+
+  
+### Using the plugin
+
+TODO

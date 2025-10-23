@@ -1,0 +1,181 @@
+
+{% include "wagtailadmin/shared/header.html" with title="Infoga video" icon="no-view" %}
+{% load wagtailadmin_tags  %}
+
+{% block extra_js %}
+<script src="{% versioned_static 'wagtailadmin/js/modal-workflow.js' %}"></script>
+
+<script>
+  $(document).ready(function() {
+      const updateInsertButton = function() {
+        $('#mf-insert').prop('disabled', selectedData.fileId <= 0); 
+      }
+
+      var myFileSelector;
+      var selectedData = {
+        mediaId : $('#{{ trigger }}-media_id').val(),
+        folderId : $('#{{ trigger }}-folder_id').val(),
+        fileId : $('#{{ trigger }}-file_id').val(),
+        autoPlay : $('#{{ trigger }}-autoplay').is(':checked'),
+        embedMethod : $('#{{ trigger }}-embed_method').val(),
+        startOffset : $('#{{ trigger }}-start_offset').val(),
+      }      
+      if('{{ trigger }}'.startsWith('draftail')) {
+        selectedData.embedMethod = 'js';
+        selectedData.autoPlay = false;
+        selectedData.startOffset = 0;
+      }
+      
+      $('#mf-embed_method').val(selectedData.embedMethod);
+      $('#mf-start_offset').val(selectedData.startOffset);
+      $('#mf-autoplay').prop('checked', selectedData.autoPlay);
+      
+    
+      
+      $('#mf-insert').on('click', function() {        
+        // update the parent form (hidden form fields)
+        if(! '{{ trigger }}'.startsWith('draftail')) {
+          $('#{{ trigger }}-media_id').val(selectedData.mediaId);
+          $('#{{ trigger }}-folder_id').val(selectedData.folderId);
+          $('#{{ trigger }}-file_id').val(selectedData.fileId);
+          $('#{{ trigger }}-autoplay').prop('checked', selectedData.autoPlay);
+          $('#{{ trigger }}-embed_method').val(selectedData.embedMethod);
+          $('#{{ trigger }}-start_offset').val(selectedData.startOffset);
+          // force thumbnail update on parent form
+          $('#{{ trigger }}-media_id').trigger('input'); 
+        }
+        
+        window.dispatchEvent(new CustomEvent('mf-video-selected', { 
+          detail: {
+            trigger: '{{ trigger }}',
+            mediaId: selectedData.mediaId,
+            embedMethod: selectedData.embedMethod,
+            startOffset: selectedData.startOffset,
+            autoPlay: selectedData.autoPlay
+
+          }
+        }));
+      });
+        
+      $('#{{ trigger }}-mf-options input, #{{ trigger }}-mf-options select').on('change', function(ev) {        
+        ev.preventDefault();
+        selectedData.embedMethod = $('#mf-embed_method').val();
+        selectedData.startOffset = $('#mf-start_offset').val();
+        selectedData.autoPlay = $('#mf-autoplay').is(':checked');
+      });
+          
+      let locale = '{{ locale }}';
+      switch(locale) {
+        case 'en':
+          locale = 'en_US';
+          break;
+          case 'no':
+          case 'nb':
+          locale = 'nb_NO';
+          break;
+          case 'fi':
+          locale = 'fi_FI';
+          break;
+          case 'sv':
+          locale = 'sv_SE';
+          break;
+          case 'de':
+          locale = 'de_DE';
+          break;
+          default:
+          locale = 'en_US';
+      }
+      
+      myFileSelector = new FileSelector('mf-fileselector', {
+        auth: 'token',
+        client_id: '{{ client_id }}',
+        client_secret: '{{ client_secret }}',
+        refresh_token: '{{ server_key }}',
+        showDoneButton: false,
+        limitFileType: 'mp4,mov,mpg,ts,avi,mts,mpeg,m4v',
+        viewLayout: 'thumbnails',
+        allowCrop: false,
+        noCropButton:true,
+        locale: 'sv-se',
+        downloadFormat: 'original',
+        selectedFile: selectedData.fileId,
+        selectedFolder: selectedData.folderId,
+        locale: locale,
+                
+        success: function(o) {
+          
+        },
+        
+        events: function(eventName, eventData) {
+            if(eventName === 'fileClick') {                
+              validOK = true;     
+              selectedData.mediaId = eventData.mediaId;
+              selectedData.title = eventData.name;
+              selectedData.fileId = eventData.id;            
+              if(eventData.isSearch === true) {
+                selectedData.folderId = 0;
+              }
+              updateInsertButton();              
+            }
+            if(eventName === 'folderClick') {
+              validOK = false;
+              selectedData.mediaId = '';
+              selectedData.fileId = 0;
+              selectedData.folderId = eventData.id;            
+              updateInsertButton();
+            }
+        }      
+      });
+      updateInsertButton();
+    
+  });
+</script>
+{% endblock %}
+
+
+  <div class="nice-padding" id="{{ trigger }}-mf-options">
+    
+    <div class="w-field light">
+      <label class="w-field__label">Select a video</label>
+      <div class="w-field__wrapper" style="max-width:none" data-field-wrapper="">
+        <div class="panel-body" id="mf-fileselector" style="height: 500px;position: relative">          
+        </div>
+      </div>
+    </div>
+    
+    <div class="w-field" data-field="" data-contentpath="autoplay">
+      <label class="w-field__label" for="mf-autoplay">Autoplay</label>
+      <div class="w-field__wrapper" data-field-wrapper="">
+        <div class="w-field__input" data-field-input="">
+          <input type="checkbox" name="mf-autoplay" id="mf-autoplay"/>
+        </div>        
+      </div>
+    </div>
+
+    <div class="w-field" data-field="" data-contentpath="start_offset">
+      <label class="w-field__label" for="mf-start_offset">Start offset</label>
+      <div class="w-field__wrapper" data-field-wrapper="">
+        <div class="w-field__input" data-field-input="">
+          <input type="number" name="mf-start_offset" id="mf-start_offset">
+        </div>    
+      </div>
+    </div>
+
+    <div class="w-field" data-field="" data-contentpath="embed_method">
+      <label class="w-field__label" for="mf-embed_method">Embed method</label>
+      <div class="w-field__wrapper" data-field-wrapper="">
+        <div class="w-field__input" data-field-input="">
+          <select name="mf-embed_method" id="mf-embed_method">
+            <option value="iframe">IFrame</option>
+            <option selected value="js">Javascript</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-field" data-field="">
+      <button data-dismiss="modal" id="mf-insert" disabled class="button action-save button-longrunning">Choose</button>
+      <button data-dismiss="modal" id="mf-cancel" class="button cancel">Cancel</button>
+    </div>
+
+  </div>
