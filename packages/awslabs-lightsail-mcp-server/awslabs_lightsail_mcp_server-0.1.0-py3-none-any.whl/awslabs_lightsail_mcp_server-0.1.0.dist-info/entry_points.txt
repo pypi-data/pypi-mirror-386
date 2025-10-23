@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-lightsail-mcp-server = awslabs_lightsail_mcp_server.main:main
