@@ -1,0 +1,16 @@
+nomad-lab>=1.3.0
+rapidfuzz
+
+[:sys_platform == "win32"]
+python-magic-bin
+
+[dev]
+ruff
+pytest
+structlog
+nomad-docs
+mkdocs
+mkdocs-material>=8.1.1
+pymdown-extensions
+mkdocs-click
+mkdocs-macros-plugin
