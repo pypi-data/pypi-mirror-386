@@ -1,0 +1,15 @@
+star_shell/__init__.py,sha256=OvwU5SOS8AncebkqsL0NdQMYg6sv0zvpiA3HskTox8s,138
+star_shell/backend.py,sha256=Kh0TzQnvrq5E1Wx2uWUY84lWap709R8g2wnnYMnijRI,28906
+star_shell/command_executor.py,sha256=S61JXOmXKj5GOvSzFOdhqa9wH8EZ4T5EmvDLzjfO0CU,5512
+star_shell/command_safety.py,sha256=Q1kuuqteBgDiUHMkzC4uN7zAnN8JwMk37qq_WbG6ZtA,4458
+star_shell/context.py,sha256=Yatm1Eih00295Dw8Zo-6DQ-R-NCPlnld_PWRHuKihLQ,3593
+star_shell/main.py,sha256=JoZWjslimKHRN9nMfArR77Y62r1rhGEYiUC3AFz_KNw,8889
+star_shell/security.py,sha256=15n_byysWbPvBQxsszQEZ_wzTY_FmVdFh6aoKXe1fqc,2656
+star_shell/session_manager.py,sha256=DOl4gfnOA5ypziK1UivTmAzdcrvMlDs1Pp9fgfvWOKc,13180
+star_shell/utils.py,sha256=PHydjoE5H0qooxAWA5nGZ-zw6cqC_KfG9co5adFVVSo,2290
+star_shell-0.4.0.dist-info/licenses/LICENSE,sha256=yeK3Wh1zirgTs16BRa05YTSulUtH50cAvWvUHYLlStQ,1066
+star_shell-0.4.0.dist-info/METADATA,sha256=81FoV1in26jzYamKlso6Z3P7SsRADiftQzqrZbewaNU,4767
+star_shell-0.4.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+star_shell-0.4.0.dist-info/entry_points.txt,sha256=7YK60cVe6_PpDX_GtZdK3gWgDS_SR5ajXTEAMuZ0N0w,51
+star_shell-0.4.0.dist-info/top_level.txt,sha256=yaS8VX3u45TRVFPDnOtH_gWQWi3xB--YKFDe5GHPUi0,11
+star_shell-0.4.0.dist-info/RECORD,,
