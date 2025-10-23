@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/lrclib.py
+src/lrclib_python.egg-info/PKG-INFO
+src/lrclib_python.egg-info/SOURCES.txt
+src/lrclib_python.egg-info/dependency_links.txt
+src/lrclib_python.egg-info/requires.txt
+src/lrclib_python.egg-info/top_level.txt
