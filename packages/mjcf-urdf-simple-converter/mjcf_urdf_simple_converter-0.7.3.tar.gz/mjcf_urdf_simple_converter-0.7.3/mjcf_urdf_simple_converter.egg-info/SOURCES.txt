@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+mjcf_urdf_simple_converter/__init__.py
+mjcf_urdf_simple_converter/mjcf_urdf_simple_converter.py
+mjcf_urdf_simple_converter.egg-info/PKG-INFO
+mjcf_urdf_simple_converter.egg-info/SOURCES.txt
+mjcf_urdf_simple_converter.egg-info/dependency_links.txt
+mjcf_urdf_simple_converter.egg-info/requires.txt
+mjcf_urdf_simple_converter.egg-info/top_level.txt
+tests/test_conversion.py
