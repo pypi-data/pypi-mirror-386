@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: luis-autogit
+Version: 0.1.3
+Summary: Utilities to automate frequently used git workflows.
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-slugify>=8.0.0
+Dynamic: license-file
+
+# Autogit
+
+Utilities to automate frequently used git workflows.
