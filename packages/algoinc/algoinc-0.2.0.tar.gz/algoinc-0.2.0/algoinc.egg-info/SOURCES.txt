@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+algoinc/__init__.py
+algoinc/__main__.py
+algoinc/cli.py
+algoinc/fetcher.py
+algoinc.egg-info/PKG-INFO
+algoinc.egg-info/SOURCES.txt
+algoinc.egg-info/dependency_links.txt
+algoinc.egg-info/entry_points.txt
+algoinc.egg-info/requires.txt
+algoinc.egg-info/top_level.txt
+algoinc/algorithms/__init__.py
+algoinc/algorithms/bubble_sort.c
+algoinc/algorithms/merge_sort.c
+algoinc/algorithms/quick_sort.c
