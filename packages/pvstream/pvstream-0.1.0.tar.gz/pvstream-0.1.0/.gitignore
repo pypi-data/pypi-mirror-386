@@ -1,0 +1,39 @@
+# Rust builds
+/target
+Cargo.lock
+
+# Python virtual environment
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Type checking
+.mypy_cache/
+.pytype/
+.dmypy.json
+dmypy.json
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Test coverage
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
