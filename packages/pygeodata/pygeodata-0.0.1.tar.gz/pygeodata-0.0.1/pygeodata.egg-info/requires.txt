@@ -1,0 +1,7 @@
+rioxarray
+geopandas
+dask
+zarr
+
+[test]
+pytest
