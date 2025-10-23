@@ -1,0 +1,3 @@
+[console_scripts]
+lark-mcp=lark_mcp:main
+
