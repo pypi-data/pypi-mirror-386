@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: enthusiast-model-mistral
+Version: 1.1.0
+Summary: A plugin for Enthusiast that provides an Mistral connector.
+Author: Damian Sowiński
+Author-email: damian.sowinski@upsidelab.io
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: enthusiast-common (>=1,<2)
+Requires-Dist: langchain-core (>=0.3.66,<0.4.0)
+Requires-Dist: langchain-mistralai (>=0.2.11,<0.3.0)
+Requires-Dist: mistralai (>=1.9.10,<2.0.0)
+Description-Content-Type: text/markdown
+
+
