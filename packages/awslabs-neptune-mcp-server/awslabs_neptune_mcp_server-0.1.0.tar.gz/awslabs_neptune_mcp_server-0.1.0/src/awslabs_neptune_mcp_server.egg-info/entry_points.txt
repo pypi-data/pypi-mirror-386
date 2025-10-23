@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-neptune-mcp-server = awslabs_neptune_mcp_server.main:main
