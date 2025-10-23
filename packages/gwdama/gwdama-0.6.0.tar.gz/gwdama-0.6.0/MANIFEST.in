@@ -1,0 +1,3 @@
+include tests/*
+include data/glitch_sample_list_L1_O2.csv
+include data/glitch_sample.csv
