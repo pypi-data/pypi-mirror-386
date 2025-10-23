@@ -1,0 +1,10 @@
+dm_client/__init__.py,sha256=qEFeq3yuf3lQKVseALmL8aPM8fpCS54B_5pry00M3hk,76
+dm_client/validator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_client/validator/apps.py,sha256=17dJUVQ0AFyeIfEyaZi-TqnhFhjCb0hO94oep6Yirt4,465
+dm_client/validator/service.py,sha256=Nl7hehrdCxsmr2Q5k7lpLX8s1QrCc2y9bzsE5TlELxQ,3084
+dm_client/validator/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dm_client_validator-1.0.1.dist-info/licenses/LICENSE,sha256=VoAqKV2y0Kfbr6lR4IRaTU8m0gUagYSCIJCoqA12TJM,251
+dm_client_validator-1.0.1.dist-info/METADATA,sha256=wTfG-c4c1f2rAP1wwsI3i_I3LY2nDXf2XCBAaVxJiiA,868
+dm_client_validator-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dm_client_validator-1.0.1.dist-info/top_level.txt,sha256=o5mwKvCdhj0uwO5luz0zD1uU8ApJ4mDgbWJADduhZfw,10
+dm_client_validator-1.0.1.dist-info/RECORD,,
