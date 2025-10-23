@@ -1,0 +1,7 @@
+matplotlib
+numpy
+importlib-metadata
+drapo>=1.2.0
+
+[opencv]
+opencv-python
