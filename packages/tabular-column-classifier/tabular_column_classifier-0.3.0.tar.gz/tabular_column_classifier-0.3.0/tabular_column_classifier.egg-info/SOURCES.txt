@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+column_classifier/__init__.py
+column_classifier/column_classifier.py
+tabular_column_classifier.egg-info/PKG-INFO
+tabular_column_classifier.egg-info/SOURCES.txt
+tabular_column_classifier.egg-info/dependency_links.txt
+tabular_column_classifier.egg-info/requires.txt
+tabular_column_classifier.egg-info/top_level.txt
+tests/test_classifier.py
