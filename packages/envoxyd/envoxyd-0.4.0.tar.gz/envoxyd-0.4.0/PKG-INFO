@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: envoxyd
+Version: 0.4.0
+Summary: Customized uWSGI server for Envoxy
+Home-page: https://github.com/habitio/envoxy
+Author: Matheus Santos
+Author-email: vorj.dux@gmail.com
+Requires-Python: >=3.12
+License-File: LICENSE.txt
+Requires-Dist: envoxy>=0.5.0
+Requires-Dist: flask-cors==6.0.1
+Requires-Dist: isort==7.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
