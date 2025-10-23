@@ -1,0 +1,48 @@
+Metadata-Version: 2.2
+Name: a2y_i18n
+Version: 0.9.4
+Summary: 这个模块提供一个类似`gettext`的功能：文本显示前的翻译。
+Home-page: http://www.kersci.com/a2y/i18n.html
+Author: Yu Han
+Author-email: hanjunyu@163.com
+License: Private
+Platform: Windows
+Platform: Linux
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: Free For Educational Use
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: platform
+Dynamic: summary
+
+# Python Module: a2y_i18n
+
+这个模块提供一个类似`gettext`的功能：文本显示前的翻译。
+与传统`gettext`分散存储不同语言文本的方式不同，`i18n`在一个`CSV`文档中存储所有的语言文本。
+其中的每一列（第一列除外）对应一种语言的文本。用一个整数序号表示要启用的那种语言。其中序号 0 表示默认的语言。
+
+本模块除了提供用于翻译的`gettext`函数，也提供了用于从源码中提取待翻译文本的函数，`parse`和`parse_directory`。
+
+`parse`类函数目前只支持使用`_`作为函数关键字，只支持使用单个双引号`"`括住的字符串。
+即是说，待翻译的文本需要满足这样的格式：`_("Text to translate")`。
+
+另外，像`wxFormbuilder`这样的工具，生成的代码默认使用标准`gettext`。
+为了方便替换代码中导入的模块名称，提供了函数`replace_gettext`。
+`replace_gettext`函数目前仅适用于`Python`代码。
+
+## ChangeLog
+
+- 2025-10-21 发布一个初步验证可用的版本。版本 0.9.4。
+
+- 2025-10-20 初始项目，开始编码，未到可用状态。版本 0.8.0。
