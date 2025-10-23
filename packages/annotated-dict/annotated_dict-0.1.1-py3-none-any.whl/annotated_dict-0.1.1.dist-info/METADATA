@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: annotated-dict
+Version: 0.1.1
+Summary: 
+License: MIT
+License-File: LICENSE
+Author: Miles Copeland Luce
+Requires-Python: >=3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: flatten-dict (>=0.4.2,<0.5.0)
