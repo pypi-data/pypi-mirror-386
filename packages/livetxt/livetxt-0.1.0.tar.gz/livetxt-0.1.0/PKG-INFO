@@ -1,0 +1,59 @@
+Metadata-Version: 2.4
+Name: livetxt
+Version: 0.1.0
+Summary: A Python package for live text processing
+Home-page: https://github.com/nisarg38/livetxt
+Author: nisarg38
+Author-email: nisarg38 <nisarg38@gmail.com>
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+Project-URL: Homepage, https://github.com/nisarg38/livetxt
+Project-URL: Repository, https://github.com/nisarg38/livetxt
+Project-URL: Issues, https://github.com/nisarg38/livetxt/issues
+Keywords: text,processing,live
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# livetxt
+
+## Coming Soon!
+
+This package is currently under development. Stay tuned for exciting features!
+
+## Installation
+
+```bash
+pip install livetxt
+```
+
+## Usage
+
+```python
+import livetxt
+
+# Coming soon!
+```
+
+## License
+
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License - see LICENSE file for details.
