@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run pytest:*)",
+      "Bash(just lint:*)",
+      "Bash(just test:*)",
+      "Bash(just fix:*)",
+      "Bash(uv run python:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
