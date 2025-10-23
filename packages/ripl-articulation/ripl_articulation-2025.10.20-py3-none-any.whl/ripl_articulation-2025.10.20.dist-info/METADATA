@@ -1,0 +1,68 @@
+Metadata-Version: 2.4
+Name: ripl_articulation
+Version: 2025.10.20
+Summary: Package containing the articulation estimation tools of the RIPL Lab of the University of Waterloo.
+Author-email: Russell Buchanan <russell.buchanan@uwaterloo.ca>, Adrian Röfer <aroefer@cs.uni-freiburg.de>
+License-Expression: BSD-3-Clause
+Project-URL: Homepage, https://github.com/ripl-lab/ripl_articulation
+Project-URL: Issues, https://github.com/ripl-lab/ripl_articulation/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy<=1.26.4
+Requires-Dist: gtsam>=4.1
+Provides-Extra: test
+Requires-Dist: scipy>=1.14.0; extra == "test"
+Requires-Dist: tqdm; extra == "test"
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Dynamic: license-file
+
+# The RIPL Lab Articulation Estimation Tools
+
+Authors: Russell Buchanan, Adrian Röfer
+
+This package contains the implementation of the articulation estimators described in:
+ - "Online estimation of articulated objects with factor graphs using vision and proprioceptive sensing", Buchanan et al., ICRA 2024. [ArXiv](https://arxiv.org/pdf/2309.16343).
+
+## Installation
+
+Simply install the package from PyPi as
+```bash
+pip install ripl_articulation
+```
+
+## Usage
+
+The core functionality is estimating an SE3 articulation from a series of SE3 pose pairs like so:
+```python
+from ripl_articulation import solve_articulation_from_poses
+
+# Poses of Frame A in some reference frame
+ref_T_A = ...
+# Poses of Frame B in some reference frame
+ref_T_B = ...
+
+Xi, thetas = solve_articulation_from_poses(ref_T_A, ref_T_B)
+```
+From the solution we can reconstruct **B** as `ref_T_B = ref_T_A @ exp(Xi * thetas)`, where `exp` is your favorite SE3 exponential map implementation.
+
+Further, the package provides the individual articulation factor `RelativePoseFactor` which can be added to a `gtsam` factor graph. It can simply be imported as `from ripl_articulation import RelativePoseFactor`.
+
+In addition to these core functionalities of the paper, the package includes a `utils` package, which implements a discrete ground truth articulation container, i.e. `Articulation`, and distance metrics to compare solved articulations to it.
+
+## Citing the Package
+
+If you use or compare to this estimator, please cite our work as
+```
+@inproceedings{buchanan2024online,
+  title={Online estimation of articulated objects with factor graphs using vision and proprioceptive sensing},
+  author={Buchanan, Russell and R{\"o}fer, Adrian and Moura, Jo{\~a}o and Valada, Abhinav and Vijayakumar, Sethu},
+  booktitle={2024 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={16111--16117},
+  year={2024},
+  organization={IEEE}
+}
+```
