@@ -1,0 +1,6 @@
+mcp[cli]
+requests>=2.31.0
+jsonref>=1.1.0
+pydantic>=2.0
+fuzzywuzzy>=0.18.0
+python-levenshtein>=0.21.0

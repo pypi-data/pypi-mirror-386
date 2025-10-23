@@ -1,0 +1,48 @@
+[project]
+urls = { "Homepage" = "https://github.com/Facets-cloud/control-plane-openapi-mcp", "Bug Tracker" = "https://github.com/Facets-cloud/control-plane-openapi-mcp/issues", "Documentation" = "https://github.com/Facets-cloud/control-plane-openapi-mcp#readme" }
+
+name = "control-plane-openapi-mcp"
+description = "MCP server for Facets Control Plane OpenAPI specification"
+dynamic = ["version"]
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    { name = "Anuj Hydrabadi", email = "anuj.hydrabadi@facets.cloud" },
+]
+dependencies = [
+    "mcp[cli]",
+    "requests>=2.31.0",
+    "jsonref>=1.1.0",
+    "pydantic>=2.0",
+    "fuzzywuzzy>=0.18.0",
+    "python-levenshtein>=0.21.0",
+]
+requires-python = ">=3.11"
+keywords = ["Facets", "MCP", "OpenAPI", "Python"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Intended Audience :: Developers",
+    "Development Status :: 4 - Beta",
+]
+
+[project.scripts]
+control-plane-openapi-mcp = "control_plane_openapi_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm>=7.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "control_plane_openapi_mcp/_version.py"
+version_scheme = "post-release"
+local_scheme = "no-local-version"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["control_plane_openapi_mcp*"]

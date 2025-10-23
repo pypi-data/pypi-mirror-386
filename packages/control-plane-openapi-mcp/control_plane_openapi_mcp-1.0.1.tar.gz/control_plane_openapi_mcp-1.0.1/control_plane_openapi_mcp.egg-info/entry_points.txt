@@ -1,0 +1,2 @@
+[console_scripts]
+control-plane-openapi-mcp = control_plane_openapi_mcp.server:main
