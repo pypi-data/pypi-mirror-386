@@ -1,0 +1,3 @@
+[console_scripts]
+xrootd-utils=xrootd_utils.main:main
+
