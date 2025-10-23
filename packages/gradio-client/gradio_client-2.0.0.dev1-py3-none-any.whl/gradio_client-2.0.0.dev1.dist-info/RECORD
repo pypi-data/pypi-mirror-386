@@ -1,0 +1,14 @@
+gradio_client/CHANGELOG.md,sha256=ToRvQTyK5vWHK0qtHduRb4ERj0d1Luj4VxtKnaHCKH4,53167
+gradio_client/__init__.py,sha256=GtVHNFpTWZo0hL7CZTjwGiP3Ml2iHQyDof25LhmxSd0,246
+gradio_client/client.py,sha256=l9Renx0MStrAyWJDHQFHU8gO7oAsgfORENO9BlnqD2I,68343
+gradio_client/data_classes.py,sha256=tMdBJBjvdqqwg4XSgXpSH7sVHnCfxQY48QuSGf8nYN4,735
+gradio_client/documentation.py,sha256=CDRDAGnp_hF75xDDWtlxYy0nItvixP39GeZkyO7dhJw,14087
+gradio_client/exceptions.py,sha256=Z-z52BfxekWj6Y2xauNRZY1HBgjkLpyLWy07jaZubIo,1589
+gradio_client/media_data.py,sha256=fhQuEdZqJQYmCMjqWM5tHPsFbK17cNYfgb08O3-dLMA,722799
+gradio_client/package.json,sha256=FgAjOZy04LmPwV8j_lrNc4ZCD9FWfminEPkkUieb-dU,138
+gradio_client/types.json,sha256=hTBJNs5ZyXC1-f-0UfzFezdhzNp3OnUhNs3Qv-muAQ0,4432
+gradio_client/utils.py,sha256=rWFDGHChaSfRc2cjq5zgRlA1ECrqyaRKcsmJ1UYDpF4,42485
+gradio_client/templates/discord_chat.py,sha256=i5_6-O89tahflAHdR8xqGIHqspzrTaTlrt6yHstj4ls,5607
+gradio_client-2.0.0.dev1.dist-info/METADATA,sha256=YqJnFUQ6-VMXG7urF8mNgZdFC5fG0hor-mpGU_jVlRg,7087
+gradio_client-2.0.0.dev1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+gradio_client-2.0.0.dev1.dist-info/RECORD,,
