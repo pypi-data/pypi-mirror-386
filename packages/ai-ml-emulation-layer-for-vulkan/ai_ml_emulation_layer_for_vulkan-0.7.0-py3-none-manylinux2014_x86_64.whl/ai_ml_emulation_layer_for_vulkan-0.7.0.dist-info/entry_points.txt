@@ -1,0 +1,3 @@
+[console_scripts]
+emulation_layer = emulation_layer.cli:main
+

@@ -1,0 +1,337 @@
+{
+    "SPDXID": "SPDXRef-DOCUMENT",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2025-09-19T06:04:03Z",
+        "creators": [
+            "Organization: Arm Limited.",
+            "Tool: Black Duck Hub - 2025.4.1"
+        ],
+        "licenseListVersion": "3.20",
+        "comment": "NOTICE: THIS SOFTWARE BILL OF MATERIALS (“SBOM”) IS PROVIDED BY ARM LIMITED 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT ARE DISCLAIMED. IN NO EVENT SHALL ARM LIMITED BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SBOM, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+    },
+    "name": "ai-ml-emulation-layer-for-vulkan",
+    "dataLicense": "CC0-1.0",
+    "documentNamespace": "https://blackducksoftware.github.io/spdx/ML%3AMLSDKforVulkan-1ad9ac7a-51fe-4566-931b-9cae9fc43be6",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "8675b9d3-95f3-4db2-b3e5-8a7599691306",
+                    "referenceType": "BlackDuck-Version"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "(Apache-2.0)",
+            "licenseDeclared": "(Apache-2.0)",
+            "name": "ai-ml-emulation-layer-for-vulkan",
+            "copyrightText": "Copyright (c) Arm Limited",
+            "originator": "Organization: Arm Limited.",
+            "supplier": "Organization: Arm Limited.",
+            "versionInfo": "ai-ml-emulation-layer-for-vulkan"
+        },
+        {
+            "SPDXID": "SPDXRef-package-18e36ba3-5553-495c-afa3-ef67a7b417c1",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "c4b64693-2caf-45d7-abfb-fd1490491a7c",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "18e36ba3-5553-495c-afa3-ef67a7b417c1",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "11ad566d-e0a2-4e11-98a7-08ad33356f4e",
+                    "referenceType": "BlackDuck-Component"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "BSD-3-Clause",
+            "licenseDeclared": "BSD-3-Clause",
+            "name": "CMake",
+            "supplier": "Organization: conan",
+            "versionInfo": "v3.31.8"
+        },
+        {
+            "SPDXID": "SPDXRef-package-683c8c7b-3a1c-4cf9-bdea-a1c76433772e",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "11f827cc-4e0e-4f5f-ade6-1b04f625ab3e",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "683c8c7b-3a1c-4cf9-bdea-a1c76433772e",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "d14db7d7-15e4-4a44-9fe5-1780d6d922af",
+                    "referenceType": "BlackDuck-Component"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "3-Clause BSD License/2-Clause BSD License/MIT/Apache License 2.0/GPL 3 with special bison exception",
+            "licenseDeclared": "3-Clause BSD License/2-Clause BSD License/MIT/Apache License 2.0/GPL 3 with special bison exception",
+            "name": "glslang",
+            "copyrightText": "Copyright (c) The Khronos Group Inc.",
+            "supplier": "Organization: Khronos Group",
+            "versionInfo": "vulkan-sdk-1.4.321.0"
+        },
+        {
+            "SPDXID": "SPDXRef-package-a22316c0-1153-40f0-94e4-b7cf02232d85",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "a22316c0-1153-40f0-94e4-b7cf02232d85",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "ac3331eb-2aa8-4867-ab91-8226042a13e4",
+                    "referenceType": "BlackDuck-Component"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "434f992a-656e-4c70-965f-c9e50bb5e372",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "BSD-3-Clause",
+            "licenseDeclared": "BSD-3-Clause",
+            "name": "Google C++ Testing Framework",
+            "supplier": "Organization: Google",
+            "copyrightText": "Copyright Google Inc.",
+            "versionInfo": "v1.17.0"
+        },
+        {
+            "SPDXID": "SPDXRef-package-6d4aae9c-8e1e-4352-8946-d3c07e8fa910",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "54aff6fd-81f9-4f67-90e9-481407a801d1",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "6d4aae9c-8e1e-4352-8946-d3c07e8fa910",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "ffeaf81c-260b-476b-9efc-6f6b1278d20c",
+                    "referenceType": "BlackDuck-Component"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "SPIRV-Cross",
+            "supplier": "Organization: Khronos Group",
+            "copyrightText": "Copyright (c) The Khronos Group Inc.",
+            "versionInfo": "vulkan-sdk-1.4.321.0"
+        },
+        {
+            "SPDXID": "SPDXRef-package-c5af8272-fb0c-4b55-a344-7330045b54e4",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "9f5c9a65-3d23-4377-837c-5f18c05337db",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "c5af8272-fb0c-4b55-a344-7330045b54e4",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "f891c8fd-fd5b-46ef-b545-8cee3b9efc01",
+                    "referenceType": "BlackDuck-Component"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "MIT",
+            "licenseDeclared": "MIT",
+            "name": "SPIRV-Headers",
+            "copyrightText": "Copyright (c) The Khronos Group Inc.",
+            "supplier": "Organization: Khronos Group",
+            "versionInfo": "staging-2025-09-09 (with Arm patches)"
+        },
+        {
+            "SPDXID": "SPDXRef-package-53317521-4f29-449d-b3c8-ae0d339cacd4",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "53317521-4f29-449d-b3c8-ae0d339cacd4",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "fd3f8515-4925-4e6d-9896-d204878efe7e",
+                    "referenceType": "BlackDuck-Component"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "4558479a-2bb0-4113-93ef-e392c18dd0c7",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "SPIRV-Tools",
+            "supplier": "Organization: Khronos Group",
+            "copyrightText": "Copyright (c) The Khronos Group Inc.",
+            "versionInfo": "staging-2025-09-09 (with Arm patches)"
+        },
+        {
+            "SPDXID": "SPDXRef-package-ebe0c66e-2c6c-46fb-b7a2-0b65fb2c4ca8",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "caf839c6-257e-4280-b853-31165dbd8762",
+                    "referenceType": "BlackDuck-Component"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "d9c13dbb-b4f9-4ba7-b463-80365e1c7e4f",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "ebe0c66e-2c6c-46fb-b7a2-0b65fb2c4ca8",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "Vulkan-Headers",
+            "copyrightText": "Copyright (c) The Khronos Group Inc.",
+            "supplier": "Organization: Khronos Group",
+            "versionInfo": "1.4.321.0"
+        },
+        {
+            "SPDXID": "SPDXRef-package-c0d3fb35-93b8-484f-ac99-32afbc49ba3a",
+            "downloadLocation": "NOASSERTION",
+            "externalRefs": [
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "bd4c17ae-0607-4cdc-a579-e4d722fba437",
+                    "referenceType": "BlackDuck-Component"
+                },
+                {
+                    "referenceCategory": "PACKAGE-MANAGER",
+                    "referenceLocator": "pkg:github/KhronosGroup/Vulkan-ValidationLayers@v1.3.204",
+                    "referenceType": "purl"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "9e6bdb4a-3824-4e81-82d0-d41825554fd8",
+                    "referenceType": "BlackDuck-ComponentOrigin"
+                },
+                {
+                    "referenceCategory": "OTHER",
+                    "referenceLocator": "c0d3fb35-93b8-484f-ac99-32afbc49ba3a",
+                    "referenceType": "BlackDuck-ComponentVersion"
+                }
+            ],
+            "filesAnalyzed": false,
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "name": "Vulkan-ValidationLayers",
+            "supplier": "Organization: Khronos Group",
+            "copyrightText": "Copyright (c) The Khronos Group Inc.",
+            "versionInfo": "v1.3.204"
+        }
+    ],
+    "relationships": [
+        {
+            "spdxElementId": "SPDXRef-DOCUMENT",
+            "relationshipType": "DESCRIBES",
+            "relatedSpdxElement": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DYNAMIC_LINK",
+            "relatedSpdxElement": "SPDXRef-package-683c8c7b-3a1c-4cf9-bdea-a1c76433772e"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DYNAMIC_LINK",
+            "relatedSpdxElement": "SPDXRef-package-ebe0c66e-2c6c-46fb-b7a2-0b65fb2c4ca8"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DYNAMIC_LINK",
+            "relatedSpdxElement": "SPDXRef-package-c5af8272-fb0c-4b55-a344-7330045b54e4"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DYNAMIC_LINK",
+            "relatedSpdxElement": "SPDXRef-package-6d4aae9c-8e1e-4352-8946-d3c07e8fa910"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DYNAMIC_LINK",
+            "relatedSpdxElement": "SPDXRef-package-53317521-4f29-449d-b3c8-ae0d339cacd4"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DYNAMIC_LINK",
+            "relatedSpdxElement": "SPDXRef-package-a22316c0-1153-40f0-94e4-b7cf02232d85"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "CONTAINS",
+            "relatedSpdxElement": "SPDXRef-package-c0d3fb35-93b8-484f-ac99-32afbc49ba3a"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-53317521-4f29-449d-b3c8-ae0d339cacd4",
+            "relationshipType": "DYNAMIC_LINK",
+            "relatedSpdxElement": "SPDXRef-package-18e36ba3-5553-495c-afa3-ef67a7b417c1"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DEPENDS_ON",
+            "relatedSpdxElement": "SPDXRef-package-6d4aae9c-8e1e-4352-8946-d3c07e8fa910"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DEPENDS_ON",
+            "relatedSpdxElement": "SPDXRef-package-c5af8272-fb0c-4b55-a344-7330045b54e4"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DEPENDS_ON",
+            "relatedSpdxElement": "SPDXRef-package-53317521-4f29-449d-b3c8-ae0d339cacd4"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DEPENDS_ON",
+            "relatedSpdxElement": "SPDXRef-package-ebe0c66e-2c6c-46fb-b7a2-0b65fb2c4ca8"
+        },
+        {
+            "spdxElementId": "SPDXRef-package-8675b9d3-95f3-4db2-b3e5-8a7599691306",
+            "relationshipType": "DEPENDS_ON",
+            "relatedSpdxElement": "SPDXRef-package-683c8c7b-3a1c-4cf9-bdea-a1c76433772e"
+        }
+    ]
+}

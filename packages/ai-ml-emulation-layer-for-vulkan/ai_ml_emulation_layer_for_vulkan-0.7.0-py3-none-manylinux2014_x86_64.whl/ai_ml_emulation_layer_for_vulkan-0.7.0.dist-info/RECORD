@@ -1,0 +1,15 @@
+emulation_layer/__init__.py,sha256=7dbs4H5Shh5Y58HoqGvJ5d-c9hA4BmBDzkLrnDRGYe4,146
+emulation_layer/cli.py,sha256=1A_teAWrsJpyEGkr-CaPyS1x5WxJTBqY3D-4LzjNpoY,1391
+emulation_layer/deploy/lib/ai-ml-sdk-emulation-layer.spdx.json,sha256=gsAhb7LqZkuZmwTDC776hbwzQhbMXNAVu_vafOzdPvw,15573
+emulation_layer/deploy/lib/libVkLayer_Graph.so,sha256=l4HnaD7My0u3fmGZEo6Mc2c0ZBCsb76qt6IsC5051CU,14068696
+emulation_layer/deploy/lib/libVkLayer_Tensor.so,sha256=G8KlAs6W-3lPHOOVwdWypH8jsyIwZ5yUBcSzLlJZAVU,12825672
+emulation_layer/deploy/lib/cmake/MLEmulationLayer/MLEmulationLayerConfig-release.cmake,sha256=tfBO-k_HcLvLdbWNApaStDB5sWMa-5w3yEIbRE56P1Y,1514
+emulation_layer/deploy/lib/cmake/MLEmulationLayer/MLEmulationLayerConfig.cmake,sha256=CmxzJLib2UOpGblZ_NXRRaFmNExUe9SPYe1jxNOMXw8,4001
+emulation_layer/deploy/lib/cmake/MLEmulationLayer/MLEmulationLayerConfigVersion.cmake,sha256=trLLvkv4FcRyorwGiIUdsiPkAUVwciS8jgKbMk872FI,3362
+emulation_layer/deploy/share/vulkan/explicit_layer.d/VkLayer_Graph.json,sha256=3HHmjYGg80_UVJ7urSD_G_-HVZkrxwEifbKWyOI7K4o,2246
+emulation_layer/deploy/share/vulkan/explicit_layer.d/VkLayer_Tensor.json,sha256=D0WqTKb4pZ0edQgJL8BqnQtNjnRcFxs5lI0HimPYE_4,2512
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/METADATA,sha256=gL3wqVfOTkh1Vscrixm1GAs1qEz8ua-4a-AHaj2t_GQ,157
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/WHEEL,sha256=YFDvGUd4qgsZW2DR7HoTshh6r2NDinrixRAyA44xxkw,109
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/entry_points.txt,sha256=H-FUmws6843BmDJOtXj0Di2W9Vv-Yo8ZWqQYA5IQCsA,62
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/top_level.txt,sha256=iljXb-zxpxAA2-o4UtooJl2amJ50MAwo89dxN7AwRsQ,16
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/RECORD,,
