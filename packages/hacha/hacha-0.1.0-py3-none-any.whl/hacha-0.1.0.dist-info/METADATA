@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: hacha
+Version: 0.1.0
+Summary: A tool for splitting files in multiple parts and joining them at a later time.
+License-Expression: GPL-3.0-or-later
+License-File: LICENSE
+Requires-Python: >=3.10
+Project-URL: Homepage, https://github.com/cristian64/hacha
+Project-URL: Repository, https://github.com/cristian64/hacha.git
+Description-Content-Type: text/markdown
+
+# Hacha
+
+A tool for splitting files in multiple parts and joining them at a later time.
