@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "santai-mcp-sdk"
+version = "0.1.0"
+description = "Sant.ai MCP SDK"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Jayanth Peetla", email = "jpeetla1@gmail.com"}]
+keywords = ["mcp", "client", "sdk", "llm"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+# Runtime deps only
+dependencies = [
+    "fastmcp>=2.12.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.14.0",
+    "pre-commit>=4.3.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/homere/santai-mcp-sdk"
+Source = "https://gitlab.com/homere/santai-mcp-sdk"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["santai_mcp_client*"]   # adjust if your package name differs
+exclude = ["tests*", "examples*"]
+

@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/santai_mcp_client/__init__.py
+src/santai_mcp_client/__main__.py
+src/santai_mcp_client/client.py
+src/santai_mcp_client/llm_endpoint.py
+src/santai_mcp_client/models.py
+src/santai_mcp_client/selector.py
+src/santai_mcp_client/tester.py
+src/santai_mcp_client/transport.py
+src/santai_mcp_sdk.egg-info/PKG-INFO
+src/santai_mcp_sdk.egg-info/SOURCES.txt
+src/santai_mcp_sdk.egg-info/dependency_links.txt
+src/santai_mcp_sdk.egg-info/requires.txt
+src/santai_mcp_sdk.egg-info/top_level.txt

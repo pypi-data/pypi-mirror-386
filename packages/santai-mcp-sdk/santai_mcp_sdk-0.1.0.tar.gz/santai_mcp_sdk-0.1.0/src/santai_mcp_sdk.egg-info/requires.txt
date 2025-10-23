@@ -1,0 +1,7 @@
+fastmcp>=2.12.4
+
+[dev]
+ruff>=0.14.0
+pre-commit>=4.3.0
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
