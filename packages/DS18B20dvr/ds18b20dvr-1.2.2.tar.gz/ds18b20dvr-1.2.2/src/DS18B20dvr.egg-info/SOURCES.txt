@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/DS18B20dvr/DS18B20.py
+src/DS18B20dvr/__init__.py
+src/DS18B20dvr.egg-info/PKG-INFO
+src/DS18B20dvr.egg-info/SOURCES.txt
+src/DS18B20dvr.egg-info/dependency_links.txt
+src/DS18B20dvr.egg-info/entry_points.txt
+src/DS18B20dvr.egg-info/top_level.txt
