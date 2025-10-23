@@ -1,0 +1,198 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "io.github.devopsfranco/doorman",
+  "description": "🎮 Universal intent taxonomy + 16-bit cyberpunk sprites. Transform tasks into workflows. BYOK model.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Franco",
+    "email": "franco@example.com",
+    "url": "https://github.com/franco"
+  },
+  "homepage": "https://doorman.dev",
+  "repository": {
+    "type": "git", 
+    "url": "https://github.com/devopsfranco/doorman"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "agents", 
+    "task-planning",
+    "taxonomy",
+    "mcp",
+    "cyberpunk",
+    "16-bit",
+    "sprites",
+    "orchestration",
+    "workflow",
+    "intent-classification",
+    "byok",
+    "openrouter"
+  ],
+  "categories": [
+    "task-planning",
+    "ai-agents",
+    "workflow-automation",
+    "productivity"
+  ],
+  "packages": [
+    {
+      "registry_type": "pypi",
+      "identifier": "doorman",
+      "version": "0.1.0"
+    }
+  ],
+  "remotes": [
+    {
+      "protocol": "stdio",
+      "description": "Run Doorman MCP server with procedural sprite generation and planning tools",
+      "command": "doorman",
+      "args": ["mcp-server"],
+      "env": {}
+    }
+  ],
+  "tools": [
+    {
+      "name": "doorman.plan",
+      "description": "Transform user intent into executable workflow taxonomy with procedural sprite visualization. Supports quota management and tier-based feature gating.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "type": "string",
+            "description": "User intent or task description to transform into executable workflow"
+          },
+          "options": {
+            "type": "object",
+            "properties": {
+              "max_steps": {"type": "integer", "default": 10},
+              "include_sprites": {"type": "boolean", "default": true},
+              "tier": {"type": "string", "enum": ["free", "premium", "enterprise"], "default": "free"}
+            }
+          }
+        },
+        "required": ["task"]
+      }
+    },
+    {
+      "name": "doorman.recommend_agents", 
+      "description": "Get AI agent recommendations with procedural sprite generation based on task requirements and user tier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_type": {
+            "type": "string",
+            "description": "Type of task needing agent recommendation"
+          },
+          "user_id": {
+            "type": "string", 
+            "description": "User identifier for procedural sprite generation"
+          }
+        },
+        "required": ["task_type"]
+      }
+    },
+    {
+      "name": "doorman.billing.status",
+      "description": "Check user billing tier, quota usage, and feature access with personalized cyberpunk sprite display.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User identifier for billing and sprite generation"
+          }
+        }
+      }
+    },
+    {
+      "name": "doorman.patterns.search",
+      "description": "Search pattern library for reusable workflow templates and task decomposition patterns.",
+      "inputSchema": {
+        "type": "object", 
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Pattern search query"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "description": "Maximum number of patterns to return"
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "doorman.sprites.generate",
+      "description": "Generate unique 16-bit cyberpunk sprites from user hash with tier-specific visual effects (crowns, auras, etc.).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User identifier for deterministic sprite generation"
+          },
+          "tier": {
+            "type": "string",
+            "enum": ["free", "premium", "enterprise"],
+            "default": "free",
+            "description": "User tier for visual effect application"
+          },
+          "agent_type": {
+            "type": "string",
+            "enum": ["developer", "writer", "analyst", "researcher", "pm"],
+            "description": "Agent type for specialized sprite variation"
+          }
+        },
+        "required": ["user_id"]
+      }
+    }
+  ],
+  "features": {
+    "unique_selling_points": [
+      "🎮 Procedural 16-bit sprite generation from user hashes",
+      "🏛️ Universal intent taxonomy system", 
+      "🎯 Zero-token category matching + LLM fallback",
+      "💰 BYOK model (users pay OpenRouter directly)",
+      "🎨 Cyberpunk terminal UI with neon themes",
+      "⚡ Tier-based quota management and feature gating",
+      "🔗 Native MCP orchestration and tool ecosystem integration",
+      "📈 Viral growth through MCP server listings"
+    ],
+    "monetization": "BYOK + Stripe subscriptions",
+    "themes": ["cyberpunk", "90s-retro", "16-bit-sprites"],
+    "differentiators": [
+      "Only MCP server with procedural sprite generation",
+      "Universal taxonomy for any task type",
+      "Built-in viral growth strategy via MCP ecosystem",
+      "Transparent BYOK pricing model"
+    ]
+  },
+  "requirements": {
+    "python": ">=3.9",
+    "dependencies": {
+      "required": ["typer", "rich", "surrealdb", "httpx", "pydantic"],
+      "optional": ["openrouter-api-key"]
+    }
+  },
+  "examples": [
+    {
+      "title": "Plan a blog post with sprite visualization",
+      "code": "doorman plan 'Create a technical blog post about MCP servers'"
+    },
+    {
+      "title": "Get agent recommendations with procedural sprites", 
+      "code": "doorman recommend_agents development franco123"
+    },
+    {
+      "title": "Generate unique user sprite",
+      "code": "doorman sprites generate franco123 premium developer"
+    },
+    {
+      "title": "Check billing status with cyberpunk display",
+      "code": "doorman billing status franco123"
+    }
+  ]
+}

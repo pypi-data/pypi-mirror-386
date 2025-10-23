@@ -1,0 +1,11 @@
+[plugin]
+name = "zapier"
+version = "1.0.0"
+description = "Integration with Zapier API for workflow automation and app connections"
+author = "Doorman Team"
+type = "tool"
+entry_point = "zapier_plugin:Plugin"
+permissions = [ "filesystem", "network",]
+dependencies = []
+min_doorman_version = "0.1.0"
+max_doorman_version = "999.0.0"

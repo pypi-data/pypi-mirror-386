@@ -1,0 +1,11 @@
+[plugin]
+name = "github"
+version = "1.0.0"
+description = "Integration with GitHub API for repository management, issues, and pull requests"
+author = "Doorman Team"
+type = "tool"
+entry_point = "github_plugin:Plugin"
+permissions = [ "filesystem", "network",]
+dependencies = []
+min_doorman_version = "0.1.0"
+max_doorman_version = "999.0.0"

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "lobby": {
+      "command": "python3",
+      "args": [
+        "/Users/franco/doorman/lobby_mcp_server.py"
+      ],
+      "description": "LOBBY AI Concierge - Intelligent task orchestration with multi-provider routing",
+      "version": "1.0.0"
+    }
+  }
+}

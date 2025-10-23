@@ -1,0 +1,26 @@
+{
+  "name": "lobby-ai",
+  "version": "1.1.1",
+  "description": "npx wrapper for LOBBY AI (Python) CLI",
+  "bin": {
+    "lobby-ai": "bin/lobby.js",
+    "lobby": "bin/lobby.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franco/lobby.git"
+  },
+  "keywords": [
+    "cli",
+    "ai",
+    "lobby",
+    "orchestration",
+    "mcp",
+    "python"
+  ],
+  "license": "MIT",
+  "author": "Franco <support@lobby.directory>",
+  "engines": {
+    "node": ">=14"
+  }
+}
