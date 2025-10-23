@@ -1,0 +1,3 @@
+[console_scripts]
+xls2ddl = xls2ddl.xls2ddl:main
+xls2ui = xls2ddl.xls2ui:main
