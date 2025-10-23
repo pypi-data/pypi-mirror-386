@@ -1,0 +1,132 @@
+[nerdle]
+name = "Nerdle"
+target = "^nerdlegame"
+refresh_hour = 8
+
+[binerdle]
+name = "Binerdle"
+target = "^binerdle"
+refresh_hour = 8
+
+[lukhap]
+name = "Lukhap"
+target = "^六合"
+
+[zidou]
+name = "Zidou"
+
+[mjhandle]
+code = "mjhandle"
+name = "Mahjong Handle"
+target = "^Mahjong Handle"
+
+[tetsudoru]
+name = "Tetsudoru"
+target = "^#テツドル"
+window_title = "テツドル"
+
+[redactle]
+name = "Redactle"
+target = "^I solved Redactle"
+
+[[redactle.reparse_actions]]
+action = "reformat_caption"
+caption_regexp = "[#Q]([0-9]+) in ([0-9]+) guess(?:es)? with an accuracy of ([0-9]+\\.[0-9]+)%"
+capture = ["puzzle_number", "guesses", "accuracy"]
+types = ["int", "int", "float"]
+
+[[redactle.reparse_actions]]
+action = "success_metric"
+metric = "always_succeed"
+
+[hexcodle]
+name = "Hexcodle"
+target = "^I (got|didn\\'t get) Hexcodle"
+
+[[hexcodle.reparse_actions]]
+action = "hexcodle"
+
+[celltower]
+name = "Cell Tower"
+target = "^#CellTower"
+refresh_hour = 8
+
+[diffle]
+name = "Diffle"
+detection = "image"
+target = "^DIFFLE"
+text_target = "^Diffle"
+
+[[diffle.reparse_actions]]
+action = "reformat_caption"
+format_string = "Diffle {guesses}/{letters}"
+caption_regexp = "([0-9]+) words / ([0-9]+) letters"
+capture = ["guesses", "letters"]
+types = ["int", "int"]
+
+[[diffle.reparse_actions]]
+action = "success_metric"
+metric = "always_succeed"
+
+[celtix]
+name = "Celtix"
+detection = "image"
+target = "Celtix"
+refresh_hour = 8
+crop = [0, 0, 222, 74]
+
+[[celtix.reparse_actions]]
+action = "reformat_caption"
+caption_regexp = "Celtix ([0-9]+) using ([0-9]+) wall"
+capture = ["puzzle_number", "score"]
+types = ["str", "int"]
+
+[[celtix.reparse_actions]]
+action = "integer_score_to_squares"
+columns = 8
+
+[kotoba]
+name = "Kotoba de Asobou"
+target = "^Kotobade"
+window_title = "Kotobade"
+
+[[kotoba.reparse_actions]]
+action = "reformat_caption"
+format_string = "言葉で遊ぼう\n{puzzle_number} {guesses}/12{modifiers}"
+caption_regexp = "([0-9]+) (1?[0-9X])+/12(\\?)?"
+capture = ["puzzle_number", "guesses", "modifiers"]
+types = ["str", "int", "str"]
+
+[connections]
+name = "Connections"
+display_row = 1
+
+[[connections.reparse_actions]]
+action = "reformat_caption"
+caption_regexp = 'Puzzle #([0-9]+)'
+capture = ["puzzle_number"]
+
+[[connections.reparse_actions]]
+action = "success_metric"
+metric = "last_row_uniform"
+
+[bracketcity]
+name = "Bracket City"
+refresh_hour = 12
+target = "^\\[Bracket City\\]"
+window_title = "Bracket City - The Atlantic"
+display_row = 1
+
+# [[bracketcity.reparse_actions]]
+# action = "reformat_caption"
+# # regexp_fail_behaviour = "use_nil"
+# format_string = "Bracket City {wrongs}-{peeks}-{reveals} = {score} ({rank})"
+# capture.rank = "^Rank: .* \\(([A-Za-z ]+)\\)$"
+# capture.wrongs = "Wrong guesses: ([0-9]+)$"
+# capture.peeks = "Peeks: ([0-9]+)$"
+# capture.reveals = "Answers Revealed: ([0-9]+)$"
+# capture.score = "^Total Score: ([0-9.]+)$"
+
+# [[bracketcity.reparse_actions]]
+# action = "success_metric"
+# metric = "not_score_zero"
