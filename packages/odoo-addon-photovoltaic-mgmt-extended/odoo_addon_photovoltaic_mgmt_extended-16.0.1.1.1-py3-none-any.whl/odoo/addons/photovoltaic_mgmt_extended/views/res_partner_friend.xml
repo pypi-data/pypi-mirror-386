@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_friend_view_tree" model="ir.ui.view">
+        <field name="name">Friends</field>
+        <field name="model">res.partner.friend</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="inviter_id" />
+                <field name="friend_id" />
+                <field name="used" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_friend_view_search" model="ir.ui.view">
+        <field name="model">res.partner.friend</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="inviter_id" />
+                <field name="friend_id" />
+            </search>
+        </field>
+    </record>
+
+    <record id="res_partner_friend_view_form" model="ir.ui.view">
+        <field name="name">Friend</field>
+        <field name="model">res.partner.friend</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="4">
+                        <field name="inviter_id" />
+                        <field name="friend_id" />
+                        <field name="used" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_partner_friend_action" model="ir.actions.act_window">
+        <field name="name">Friends</field>
+        <field name="res_model">res.partner.friend</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="menu_res_partner_friend" model="ir.ui.menu">
+        <field name="name">Friends</field>
+        <field name="action" ref="res_partner_friend_action"/>
+        <field name="parent_id" ref="contacts.res_partner_menu_config"/>
+        <field name="sequence" eval="30"/>
+    </record>
+</odoo>
