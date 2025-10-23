@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pqcdualusb"
+version = "0.15.0"
+description = "Post-quantum cryptography dual USB backup system with PQCRYPTO backend support"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Johnson Ajibi", email = "ajibijohnson@jtnetsolutions.com"}
+]
+keywords = [
+    "post-quantum",
+    "cryptography",
+    "kyber",
+    "dilithium",
+    "pqcrypto",
+    "usb",
+    "backup",
+    "encryption",
+    "security",
+    "NIST"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security :: Cryptography",
+    "Topic :: System :: Archiving :: Backup",
+]
+
+dependencies = [
+    "cryptography>=38.0.0",
+    "argon2-cffi>=21.0.0",
+    "pqcrypto>=0.3.4",
+    "psutil>=5.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+cpp = [
+    "cpp-pqc>=0.1.0",
+]
+rust = [
+    "rust-pqc>=0.1.5",
+]
+oqs = [
+    "oqs>=0.8.0",
+]
+all = [
+    "pqcdualusb[dev,cpp,rust,oqs]",
+]
+
+[project.urls]
+Homepage = "https://github.com/Johnsonajibi/PostQuantum-DualUSB-Token-Library"
+Documentation = "https://github.com/Johnsonajibi/PostQuantum-DualUSB-Token-Library#readme"
+Repository = "https://github.com/Johnsonajibi/PostQuantum-DualUSB-Token-Library"
+"Bug Tracker" = "https://github.com/Johnsonajibi/PostQuantum-DualUSB-Token-Library/issues"
+Changelog = "https://github.com/Johnsonajibi/PostQuantum-DualUSB-Token-Library/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["pqcdualusb"]
+
+[tool.setuptools.package-data]
+pqcdualusb = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --cov=pqcdualusb --cov-report=term-missing"
