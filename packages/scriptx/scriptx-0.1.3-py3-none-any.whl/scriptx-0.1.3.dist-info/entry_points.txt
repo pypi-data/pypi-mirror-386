@@ -1,0 +1,3 @@
+[console_scripts]
+,scriptx = scriptx.__main__:main
+scriptx = scriptx.__main__:main
