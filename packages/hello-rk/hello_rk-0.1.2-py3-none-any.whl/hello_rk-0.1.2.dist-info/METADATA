@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: hello-rk
+Version: 0.1.2
+Summary: A simple Hello World package
+Author: R K
+License-Expression: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# hello-rk
+A simple Hello World package.
+
+## Usage
+```python
+from hello_rk import say_hello
+say_hello()
