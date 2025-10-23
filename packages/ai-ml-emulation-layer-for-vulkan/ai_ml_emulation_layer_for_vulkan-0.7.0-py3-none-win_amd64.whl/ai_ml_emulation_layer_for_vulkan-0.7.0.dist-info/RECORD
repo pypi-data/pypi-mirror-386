@@ -1,0 +1,17 @@
+emulation_layer/__init__.py,sha256=16NwI7JQqoDS50nQz3wvwLdKIa_GJiMaF6g2qd6kK28,150
+emulation_layer/cli.py,sha256=b2uh3qWnx3DjS1kTvXId-R_ZWgTHkWmrJFOf6D9eUgo,1433
+emulation_layer/deploy/bin/VkLayer_Graph.dll,sha256=8IzrG831CIlRKr_2u2gASU3fkNpd7tz1Ryu08x9stJM,7323136
+emulation_layer/deploy/bin/VkLayer_Graph.json,sha256=lr5JuDEco3vMiTUK4cBTkQjEdvQ62Z6KIQsZHAwPsAc,2303
+emulation_layer/deploy/bin/VkLayer_Tensor.dll,sha256=P8RFrySqOPnb5-4UY3bD2u7pMzI09ZNKXMYeVUXXvbA,5523456
+emulation_layer/deploy/bin/VkLayer_Tensor.json,sha256=Loo7k5MoTQT80v4-bwkmh3AGH-x-qOQMoq369rvCWwQ,2576
+emulation_layer/deploy/lib/VkLayer_Graph.lib,sha256=bukkv0nzVpV3EztruMy6Fl8qu681IqWnNTSms9Ga7Kg,2470
+emulation_layer/deploy/lib/VkLayer_Tensor.lib,sha256=qZngPrPZEnqUF3_2RivAb82i6I-7uKssGUUPpPU717A,2498
+emulation_layer/deploy/lib/ai-ml-sdk-emulation-layer.spdx.json,sha256=JYGdNRf_3py1qy0d5INBWtFM_mw_4y9sX8U3d5YPBhw,15910
+emulation_layer/deploy/lib/cmake/MLEmulationLayer/MLEmulationLayerConfig-release.cmake,sha256=s_K08HztCdAesG_ZTauowSnG7HVAnvApy_zuc_o3Q-I,1660
+emulation_layer/deploy/lib/cmake/MLEmulationLayer/MLEmulationLayerConfig.cmake,sha256=04QUc6I4z4NuCLaDvYnIVkAAjsO2eho6q3ywDlKrowY,4324
+emulation_layer/deploy/lib/cmake/MLEmulationLayer/MLEmulationLayerConfigVersion.cmake,sha256=oNAL_nOVy1I4ddTkhs4a6kTJbSxJkmC9_6vi9mmW6o8,3329
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/METADATA,sha256=gL3wqVfOTkh1Vscrixm1GAs1qEz8ua-4a-AHaj2t_GQ,157
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/WHEEL,sha256=i9qQj8KaD8_YEW0Vc2oS56fKju23RkQ-FVz-QmzVakQ,98
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/entry_points.txt,sha256=H-FUmws6843BmDJOtXj0Di2W9Vv-Yo8ZWqQYA5IQCsA,62
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/top_level.txt,sha256=iljXb-zxpxAA2-o4UtooJl2amJ50MAwo89dxN7AwRsQ,16
+ai_ml_emulation_layer_for_vulkan-0.7.0.dist-info/RECORD,,
