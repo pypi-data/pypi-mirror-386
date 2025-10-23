@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "euispice-coreg"
+version = "0.4.0"
+description = "Tools to co-register imagers (including HRI-EUV) and SPICE, on-bord Solar Orbiter. "
+authors = ["dolliou <dolliou@mps.mpg.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+numpy = ">=1.26.4"
+tqdm = ">=4.66.2"
+astropy = ">=7.0"
+matplotlib = ">=3.8.4"
+opencv-python = ">=4.9.0.80"
+scipy = ">=1.13.0"
+pytest = ">=8.1.1"
+multiprocess = ">=0.70.15"
+sunpy = {extras = ["visualization"], version = "^6.0.4"}
+beautifulsoup4 = ">=4.12.3"
+reproject = "^0.14.1"
+numba = "^0.61.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
