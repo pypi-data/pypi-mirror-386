@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+setup.py
+img2ascii_pro/__init__.py
+img2ascii_pro/__main__.py
+img2ascii_pro/image_to_ascii.py
+img2ascii_pro.egg-info/PKG-INFO
+img2ascii_pro.egg-info/SOURCES.txt
+img2ascii_pro.egg-info/dependency_links.txt
+img2ascii_pro.egg-info/entry_points.txt
+img2ascii_pro.egg-info/requires.txt
+img2ascii_pro.egg-info/top_level.txt
