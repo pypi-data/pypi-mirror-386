@@ -1,0 +1,17 @@
+nextgen_kernels_api/__init__.py,sha256=pcchbZSnDH7-r06S6asVXAC0FiCCweQx47arUQu-uvk,3552
+nextgen_kernels_api/gateway/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nextgen_kernels_api/gateway/managers.py,sha256=sZCkL8y6lm4xY4HxZvoW_dmKBSqSgidbAe9ULC1gE6k,5808
+nextgen_kernels_api/services/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nextgen_kernels_api/services/kernels/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nextgen_kernels_api/services/kernels/cache.py,sha256=5FrSl87UdbPJ_yBTSiYuK27-JRhamerv79lkjx9yTrA,7486
+nextgen_kernels_api/services/kernels/client.py,sha256=53vcIllzVzC9CPxCOOgCrLS9aAZxUvqEDrJ1V9cu674,31147
+nextgen_kernels_api/services/kernels/client_registry.py,sha256=eotrntbKxEQu_EkmbqBAy_VSbqK-EgMuN7ZhzJXd-_4,9730
+nextgen_kernels_api/services/kernels/kernelmanager.py,sha256=10LrTHYmlNqEgVK3UGWUKsN9mazBT-DdZemW2TqEzJ4,1696
+nextgen_kernels_api/services/kernels/state_mixin.py,sha256=cj_aV8R1V2ZW3Nx_Z3mD7oqZJ0tY3kCWoVGi7VKsHvQ,5594
+nextgen_kernels_api/services/kernels/states.py,sha256=WPxC1p_QrULut_Y84gieT0D3eDKoq25Ebw-1IF9meus,987
+nextgen_kernels_api/services/kernels/connection/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nextgen_kernels_api/services/kernels/connection/kernel_client_connection.py,sha256=m_3I1_Q-9T7D50q8qgKpa28cgbb3ZJHj2fKL6MMKJfs,7529
+nextgen_kernels_api-0.2.0.dist-info/METADATA,sha256=fJ89HgaiQWrFNZSZ-TGCMaYfMg6AKox_sE4QWDgZ948,5264
+nextgen_kernels_api-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+nextgen_kernels_api-0.2.0.dist-info/licenses/LICENSE.txt,sha256=a5U4A5PZD0VRIuj8D3-RR29H9Ud2CEbH_b_cMMaoP6s,1535
+nextgen_kernels_api-0.2.0.dist-info/RECORD,,
