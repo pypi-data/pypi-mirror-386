@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-s3-glacier-mcp-server = awslabs_s3_glacier_mcp_server.main:main
