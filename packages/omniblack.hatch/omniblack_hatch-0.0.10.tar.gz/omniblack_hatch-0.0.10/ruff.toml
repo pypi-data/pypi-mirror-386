@@ -1,0 +1,61 @@
+line-length = 80
+indent-width = 4
+target-version = "py313"
+
+[format]
+quote-style = 'single'
+indent-style = 'space'
+
+[lint]
+select = [
+    'ARG',
+    'ASYNC',
+    'BLE',
+    'C4',
+    'COM818',
+    'COM819',
+    'E',
+    'EM',
+    'ERA',
+    'F',
+    'FBT',
+    'FLY',
+    'I',
+    'LOG',
+    'N',
+    'PIE',
+    'PT',
+    'Q',
+    'RSE',
+    'SIM',
+    'SLF',
+    'SLOT',
+    'UP',
+    'W',
+    'YTT',
+    'RET503',
+]
+ignore=[
+    'N801',
+    'N806',
+
+    'SLF001',
+    'SLOT001',
+
+    'C420',
+]
+
+[lint.isort]
+combine-as-imports = true
+known-first-party = ['omniblack.*', 'omniblack']
+lines-between-types = 1
+
+[lint.flake8-quotes]
+inline-quotes='single'
+
+[lint.flake8-builtins]
+builtins-ignorelist = ['license', 'copyright', 'id']
+
+[lint.per-file-ignores]
+"src/game/systemd/org_freedesktop_systemd1.py"=["ALL"]
+"src/game/fomod/*"=["N815"]
