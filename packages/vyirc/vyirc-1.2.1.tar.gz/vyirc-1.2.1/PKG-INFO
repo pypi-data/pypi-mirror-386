@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: vyirc
+Version: 1.2.1
+Summary: An irc plugin for vy.
+Home-page: https://github.com/vyapp/vyirc
+Download-URL: https://github.com/vyapp/vyirc/releases
+Author: Iury O. G. Figueiredo
+Author-email: ioliveira@id.uff.br
+Keywords: vy,irc,chat,vyirc
+License-File: LICENSE
