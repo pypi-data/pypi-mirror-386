@@ -1,0 +1,8 @@
+remote_read_sql/__init__.py,sha256=C_OrLeDF0QCSN00j1wyyKJWYbiTeWOguHDMpN7SdPsw,219
+remote_read_sql/get_db_connection.py,sha256=uotcUdEasuI4np-Oh8UsHlxmEPJZJct5UBnDaykZV3w,1349
+remote_read_sql/get_ssh_connection.py,sha256=byfjrXD9W91swDxmH9uqHSkEC4MO4zBUOKzKLPgHi8A,1689
+remote_read_sql/remote_read_sql.py,sha256=_3HCL6qXNRY_BchLfw7qC6X5d6JKJKEK_zDPjbZEePk,1189
+remote_read_sql-1.0.3.dist-info/licenses/LICENSE,sha256=v34JPpBF5o7GwcrKOC3eepu7i9nY8MYGwhvroPOXl5A,1075
+remote_read_sql-1.0.3.dist-info/WHEEL,sha256=M6du7VZflc4UPsGphmOXHANdgk8zessdJG0DBUuoA-U,78
+remote_read_sql-1.0.3.dist-info/METADATA,sha256=FawilLWFttQcK34cuux0BWfnu4PPFJLP_MySq4AeY2w,1765
+remote_read_sql-1.0.3.dist-info/RECORD,,
