@@ -1,0 +1,12 @@
+pytest_depper/__init__.py,sha256=f24BCr5-PVBjCw3U4HmfApWlb9Nlh0eUWEjw0R3NeUI,362
+pytest_depper/analyzer.py,sha256=qcsWfrJkOE0D6cD8gCocXBXs_rb_WAaNNxDlJ_W0EXo,14459
+pytest_depper/cli.py,sha256=lhjGbnbgcu_VbreCtWCknRLnqJ3r-HVw3ylsNnmkS1M,3022
+pytest_depper/git_utils.py,sha256=SOI-s5xf5Al-Hj3r3q5QQ3KWXmVImpcwXgONr3CfDwo,3225
+pytest_depper/plugin.py,sha256=gVyYJ6kVBiDsCJvIWlI-IECHnhonmHcUFHrJd4FSvZY,5172
+pytest_depper/py.typed,sha256=3Kd4sqquG44XssWov46PiMQN_GwQJ6czdci2Cl9Kklc,60
+pytest_depper-0.1.1.dist-info/licenses/LICENSE,sha256=qXcynj9Qpps3rJTI56Gn_bDLv8vxHXaKpT8Pg4ALdNA,1083
+pytest_depper-0.1.1.dist-info/METADATA,sha256=-6AMO_yqrsCEohPs7CvA7Gxxt7satVg1D4-qKaHpzxA,14350
+pytest_depper-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pytest_depper-0.1.1.dist-info/entry_points.txt,sha256=-pAKIJ3MZBiBhT2DUWIqj2epzKgGejELJmUUv9kfF6k,99
+pytest_depper-0.1.1.dist-info/top_level.txt,sha256=0hHj-c3I_EPJpwlhn9ClGwZqdt0L0wo3rNQIDBHOwFk,14
+pytest_depper-0.1.1.dist-info/RECORD,,
