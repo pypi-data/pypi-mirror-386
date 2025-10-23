@@ -1,0 +1,12 @@
+flowllm[reme]>=0.1.11.3
+
+[all]
+reme_ai[dev]
+
+[dev]
+jupyter-book
+ghp-import
+myst-nb
+sphinxcontrib-bibtex
+furo
+sphinxcontrib-mermaid
