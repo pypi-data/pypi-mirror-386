@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(jupyter server extension enable nextgen_kernels_api)",
+      "Bash(python:*)",
+      "Bash(jupyter server extension enable nextgen_kernels_api --py --sys-prefix)",
+      "Bash(jupyter server extension list)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
