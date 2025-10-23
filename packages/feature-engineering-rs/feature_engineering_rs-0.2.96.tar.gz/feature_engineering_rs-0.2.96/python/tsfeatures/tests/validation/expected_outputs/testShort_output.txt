@@ -1,0 +1,14 @@
+flat_spots, 2
+crossing_points, 1
+entropy, 0.5621175041710926
+lumpiness, 0
+stability, 0
+hurst, 0.9640926036542261
+unitroot_pp, 0.07451651716448957
+unitroot_kpss, 0.5111182027300984
+arch_lm, nan
+nonlinearity, 65.84741040033337
+x_pacf5, nan
+diff1x_pacf5, 0.5340394972308532
+diff2x_pacf5, 0.7209424641827883
+seas_pacf, nan
