@@ -1,0 +1,116 @@
+[project]
+name = "pylazyimports-eps"
+authors = [{ name = "Dhia Hmila" }]
+description = "Hatch plugin to automaticilly detect and fill lazyimport entrypoints"
+license = { text = "MIT License" }
+requires-python = ">=3.10"
+keywords = []
+readme = "README.md"
+dynamic = ['version']
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Framework :: Hatch",
+  "Typing :: Typed",
+]
+dependencies = ["hatchling>=1.0.0"]
+
+[project.urls]
+Repository = "https://github.com/hmiladhia/lazyimports"
+Issues = "https://github.com/hmiladhia/lazyimports/issues"
+
+[dependency-groups]
+dev = [{ include-group = "tests" }]
+tests = ["pytest>=8.3.4", "pytest-sugar", "build"]
+
+# == Build System ==
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/lazyimports_entrypoints/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "tests/",
+  ".github/",
+  "uv.lock",
+  ".pre-commit-config.yaml",
+  ".copier-answers.yml",
+  ".gitignore",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lazyimports_entrypoints"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/lazyimports_entrypoints" = "lazyimports_entrypoints"
+
+[project.entry-points.hatch]
+lazyimports = "lazyimports_entrypoints.hatchling.hooks"
+
+# == Tests Config ==
+
+[tool.tox]
+min_version = "4"
+requires = ["tox>=4.19", "tox-uv>=1"]
+env_list = ["format", "lint", "3.14", "3.13", "3.12", "3.11", "3.10"]
+
+# This is a workaround
+# See Issue: https://github.com/ymyzk/tox-gh-actions/issues/198
+[tool.tox.gh-actions]
+python = """
+	3.10: py310
+	3.11: py311
+	3.12: py312
+	3.13: py313
+  3.14: py314
+	"""
+
+[tool.tox.env_run_base]
+description = "run unit tests"
+dependency_groups = ["tests"]
+commands = [
+  [
+    "pytest",
+    { replace = "posargs", default = [
+      "tests",
+    ], extend = true },
+  ],
+]
+
+[tool.tox.env.format]
+description = "run formatter"
+skip_install = true
+dependency_groups = ["linting"]
+commands = [
+  [
+    "ruff",
+    "format",
+    { replace = "posargs", default = [
+      ".",
+    ], extend = true },
+  ],
+]
+
+[tool.tox.env.lint]
+description = "run linters"
+skip_install = true
+dependency_groups = ["linting"]
+commands = [
+  [
+    "ruff",
+    "check",
+    { replace = "posargs", default = [
+      ".",
+    ], extend = true },
+  ],
+]
