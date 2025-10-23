@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+runner.py
+setup.py
+python_script_runner.egg-info/PKG-INFO
+python_script_runner.egg-info/SOURCES.txt
+python_script_runner.egg-info/dependency_links.txt
+python_script_runner.egg-info/entry_points.txt
+python_script_runner.egg-info/requires.txt
+python_script_runner.egg-info/top_level.txt
