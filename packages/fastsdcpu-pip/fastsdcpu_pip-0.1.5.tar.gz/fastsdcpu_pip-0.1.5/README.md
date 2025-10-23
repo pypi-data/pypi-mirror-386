@@ -1,0 +1,1 @@
+# FastSD CPU (pip version)
