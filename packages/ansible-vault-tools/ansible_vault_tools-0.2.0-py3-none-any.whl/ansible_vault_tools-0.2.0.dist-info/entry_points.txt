@@ -1,0 +1,3 @@
+[console_scripts]
+ansible-vault-tools=ansible_vault_tools.main:_cli
+
