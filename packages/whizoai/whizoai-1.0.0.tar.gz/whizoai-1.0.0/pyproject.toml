@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whizoai"
+version = "1.0.0"
+description = "Official WhizoAI SDK for Python - Enterprise-grade web scraping API client"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "WhizoAI Team", email = "support@whizo.ai"}
+]
+keywords = ["whizoai", "web-scraping", "scraping", "crawler", "data-extraction", "ai-extraction"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "requests>=2.31.0",
+    "pydantic>=2.0.0",
+    "typing-extensions>=4.0.0",
+]
+
+[project.optional-dependencies]
+async = [
+    "aiohttp>=3.9.0",
+]
+
+[project.urls]
+Homepage = "https://whizo.ai"
+Documentation = "https://docs.whizo.ai"
+Repository = "https://github.com/whizoai/whizoai-sdks"
+"Bug Tracker" = "https://github.com/whizoai/whizoai-sdks/issues"

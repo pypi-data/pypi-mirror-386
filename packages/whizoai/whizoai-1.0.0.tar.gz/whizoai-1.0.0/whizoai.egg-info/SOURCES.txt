@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+whizoai/__init__.py
+whizoai/client.py
+whizoai/exceptions.py
+whizoai.egg-info/PKG-INFO
+whizoai.egg-info/SOURCES.txt
+whizoai.egg-info/dependency_links.txt
+whizoai.egg-info/requires.txt
+whizoai.egg-info/top_level.txt
