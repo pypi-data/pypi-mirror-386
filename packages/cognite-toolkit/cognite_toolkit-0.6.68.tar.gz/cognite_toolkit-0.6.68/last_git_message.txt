@@ -1,0 +1,21 @@
+🐛  Fix download raw  (#2114)
+
+# Description
+
+The RAW DB configuration is not dumped.
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Fixed
+
+- [alpha] When running `cdf data download raw`, the configuration for
+the raw database is included.
+
+## templates
+
+No changes.
