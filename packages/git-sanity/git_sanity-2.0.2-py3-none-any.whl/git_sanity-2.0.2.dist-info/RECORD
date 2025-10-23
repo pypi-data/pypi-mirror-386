@@ -1,0 +1,16 @@
+git_sanity/__init__.py,sha256=wp0wY0h5Dak5DlqL3WHbTm14aLO6-vQpUxmv9MbCMus,301
+git_sanity/__main__.py,sha256=xTrPN7PAbT2a4MLa2MR7ZChpfEnyeZ6yDfevb-eXV3Y,4480
+git_sanity/branch.py,sha256=DyG_vShijJ_yMZrNjgUYN2OlzrLCL0TFtj-ppayQZiA,1505
+git_sanity/clone.py,sha256=JIuPd879myjXu_kKmYwVZmc5vKHkTPa0JyokpT_t2Yk,1772
+git_sanity/command.py,sha256=Im3DCJIGbJ0pGGqqUSoQ1uzCccuVYzHz_q-kFLQshBw,1103
+git_sanity/init.py,sha256=BGQbq5YJTOaX8YNXH5YsAqxuJmEftZOItPfjAZK2PTg,2834
+git_sanity/push.py,sha256=Q3uq-bXiiKUwirR73hGEw7rZ9orTh6Rqtwzfp0kZifM,2083
+git_sanity/switch.py,sha256=84zBltiJ-wyFY87n1jTS34mqVu_ljXiO5M8ViZyd87c,2105
+git_sanity/sync.py,sha256=SOcts-DnrqzG6wVlyB1Il8TS5XAiqP8e9zh3DMA5UQw,1339
+git_sanity/utils.py,sha256=sjYLmBkKizMFJEBNLy5OTEDBsUW1EVaBUmHPL9ozG28,6043
+git_sanity-2.0.2.dist-info/LICENSE.txt,sha256=7_dn4gDxaTrxpIfE-pFHBPYPJhHHbu9faODB-s0VwAg,1075
+git_sanity-2.0.2.dist-info/METADATA,sha256=-jcABldTXE61H0x6CTERF1px6l-Tj5YigZNPuVAQOWA,1008
+git_sanity-2.0.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+git_sanity-2.0.2.dist-info/entry_points.txt,sha256=B-Snv4Zz9mXViUNkizVMWmgTCeqYK7K4KsBA5nktWeU,57
+git_sanity-2.0.2.dist-info/top_level.txt,sha256=alpwaazA8oTz2uvJAbfJ5a6FD0FOZGK0huKvM70aKWU,11
+git_sanity-2.0.2.dist-info/RECORD,,
