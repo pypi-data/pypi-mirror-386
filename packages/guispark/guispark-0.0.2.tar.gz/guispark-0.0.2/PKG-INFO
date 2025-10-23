@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: guispark
+Version: 0.0.2
+Summary: Crie interfaces gráficas Python em segundos! ⚡
+Author: Lronardo
+Author-email: leonardonery616@gmail.com
+Project-URL: Homepage, https://github.com/seuusuario/guispark
+Project-URL: Bug Tracker, https://github.com/seuusuario/guispark/issues
+Keywords: python,gui,pyqt,interface,desktop,app,quick,spark
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: PyQt6>=6.4.0
+Requires-Dist: PyQt6-WebEngine>=6.4.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# GuiSpark ⚡
+
+**Crie interfaces gráficas Python em segundos!**
+
+[![PyPI version](https://img.shields.io/pypi/v/guispark.svg)](https://pypi.org/project/guispark/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/guispark.svg)](https://pypi.org/project/guispark/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+GuiSpark é uma biblioteca Python intuitiva e poderosa para criar aplicações GUI com PyQt6 de forma rápida e simples, sem complicação.
+
+## ✨ Características
+
+- 🚀 **Rápido**: Interface em menos de 5 linhas de código
+- 🎨 **Bonito**: Temas pré-prontos e estilização CSS
+- 🌐 **Moderno**: Suporte a conteúdo web embutido
+- 📱 **Flexível**: 10+ tipos de widgets diferentes
+- 💾 **Inteligente**: Sistema de arquivos integrado
+- 🎯 **Simples**: API intuitiva em português
+
+## ⚡ Instalação Rápida
+
+```bash
+pip install guispark
