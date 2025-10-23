@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: voidnet
+Version: 0.0.1
+Summary: A Python library for interacting with the OpenVoidNet API
+Author: Roshan Akther
+License: Apache-2.0
+Project-URL: Homepage, https://openvoidnet.com
+Project-URL: Repository, https://github.com/openvoidnet/voidnet-python
+License-File: LICENSE
+Dynamic: license-file
