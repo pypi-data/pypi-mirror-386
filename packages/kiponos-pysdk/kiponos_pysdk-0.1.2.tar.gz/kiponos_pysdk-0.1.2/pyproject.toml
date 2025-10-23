@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "kiponos-pysdk"
+version = "0.1.2"
+description = "Kiponos Python SDK for real-time configuration management via WebSocket/STOMP for Kiponos.io"
+authors = ["Moshe Avdiel <moshe@kiponos.io>"]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://kiponos.io"
+repository = "https://github.com/Avdiel/kiponos-py-sdk"
+keywords = ["configuration", "websocket", "stomp", "real-time"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+websocket-client = ">=1.8.0,<2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
