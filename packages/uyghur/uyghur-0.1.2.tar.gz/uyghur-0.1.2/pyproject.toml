@@ -1,0 +1,43 @@
+[project]
+name = "uyghur"
+version = "0.1.2"
+description = "All things you need for Uyghur Language."
+readme = "README_zh.md"
+requires-python = ">=3.8"
+license = "AGPL-3.0-or-later"
+keywords = ["Uyghur", "NPL"]
+authors = [{ name = "Tang Ziya", email = "tcztzy@gmail.com" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Natural Language :: Chinese (Simplified)",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+[tool.uv.build-backend]
+module-root = ""
+
+[dependency-groups]
+dev = [
+    { include-group = "test" },
+    "tox-uv>=1.13.1",
+]
+test = [
+    "pytest-cov>=5.0.0",
+]
+
+[project.urls]
+repository = "https://github.com/tcztzy/uyghur"
+
+[build-system]
+requires = ["uv_build>=0.9.0,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.tox]
+requires = ["tox>=4", "tox-uv>=1"]
+env_list = ["3.14", "3.13", "3.12", "3.11", "3.10", "3.9", "3.8"]
+
+[tool.tox.env_run_base]
+dependency_groups = ["test"]
+commands = [["pytest", { replace = "posargs", default = ["tests"], extend = true }]]
