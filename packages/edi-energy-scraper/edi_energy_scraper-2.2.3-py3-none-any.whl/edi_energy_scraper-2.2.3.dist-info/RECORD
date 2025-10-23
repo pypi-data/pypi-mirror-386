@@ -1,0 +1,11 @@
+_edi_energy_scraper_version.py,sha256=xfEqKAkLVaYmiQVzIjqcoNCn4lxqeEa_a5aAg6xIpn8,18
+edi_energy_scraper/__init__.py,sha256=4v5_Z19MDktvgSn7J82EC5q5mffxeOC3gV9LoYv6fjM,213
+edi_energy_scraper/apidocument.py,sha256=pG4NjYIM3EvqnTbi61YqgPXq1RctN4PCLKSRe7JOMDY,9839
+edi_energy_scraper/documentmetadata.py,sha256=ciebJsCvHr-ac4AwAiJGCxO8URjGOQ4a8bZatOesT8o,3813
+edi_energy_scraper/py.typed,sha256=U1teYsoHgViP73aww83EU0H2Xlk-eD_XkNejqWu3SCc,168
+edi_energy_scraper/scraper.py,sha256=5R2BV6-C21ZNeEVQyN7oM_6Gqn2qPKPLy5efI8T0C9s,10661
+edi_energy_scraper/utilities.py,sha256=HoBrRNzm_ARJkFDUesY-xt7Ea8WRSyv_Z5Ih8K5PPlU,2346
+edi_energy_scraper-2.2.3.dist-info/METADATA,sha256=K7kCiP0hml74EyFH6ZEhqCJZLaYXGk9Cw3NXNorWO-I,6262
+edi_energy_scraper-2.2.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+edi_energy_scraper-2.2.3.dist-info/licenses/LICENSE,sha256=qKFWCKq0x7vMZsaVL3gacXO43HKbi3LH7e55MHx7fZQ,1095
+edi_energy_scraper-2.2.3.dist-info/RECORD,,
