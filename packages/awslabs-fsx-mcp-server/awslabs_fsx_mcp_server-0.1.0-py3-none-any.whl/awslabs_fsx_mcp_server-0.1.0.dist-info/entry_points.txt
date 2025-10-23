@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-fsx-mcp-server = awslabs_fsx_mcp_server.main:main
