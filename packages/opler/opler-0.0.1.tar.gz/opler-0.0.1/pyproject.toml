@@ -1,0 +1,48 @@
+[project]
+name = "opler"
+version = "0.0.1"
+description = "A local, offline-first entity and place resolution system that maps messy place/entity strings and codes to canonical entities with calibrated confidence scores"
+readme = "README.md"
+authors = [
+    { name = "Jorge Rivera", email = "jorge.rivera@one.org" }
+]
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = [
+    "entity-resolution",
+    "geocoding",
+    "place-names",
+    "data-commons",
+    "iso-codes",
+    "offline",
+    "disambiguation",
+    "normalization"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Text Processing :: Linguistic",
+    "Typing :: Typed"
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/jm-rivera/opler"
+Repository = "https://github.com/jm-rivera/opler"
+
+[project.scripts]
+oper = "opler:main"
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
