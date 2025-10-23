@@ -1,0 +1,17 @@
+numpy>=1.6.0
+scipy>=1.1.0
+
+[dev]
+build
+pre-commit
+pylint
+pytest
+pytest-cov
+pytest-randomly
+setuptools
+
+[testing]
+stats_arrays
+pytest
+pytest-cov
+python-coveralls
