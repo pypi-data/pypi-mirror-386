@@ -1,0 +1,2 @@
+[console_scripts]
+autoprepml = autoprepml.cli:main
