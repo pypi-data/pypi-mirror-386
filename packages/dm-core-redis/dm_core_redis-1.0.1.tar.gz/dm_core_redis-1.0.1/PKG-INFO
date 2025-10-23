@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: dm-core-redis
+Version: 1.0.1
+Summary: DM Core Redis
+Author-email: Romaan Khadeer <romaan@dollarmates.com>
+Project-URL: Homepage, https://www.dollarmates.com
+Project-URL: Source, https://github.com:dollarmates/dm-libs.git
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Requires-Python: ==3.12.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django==5.2.5
+Requires-Dist: django-redis==6.0.0
+Requires-Dist: python-redis-lock==4.0.0
+Requires-Dist: pytz==2023.3
+Requires-Dist: redis==5.0.4
+Requires-Dist: rq==2.0.0
+Requires-Dist: dm-core-crypto
+Dynamic: license-file
+
+# DM CORE REDIS 
+
+DM Core library to interact with redis
