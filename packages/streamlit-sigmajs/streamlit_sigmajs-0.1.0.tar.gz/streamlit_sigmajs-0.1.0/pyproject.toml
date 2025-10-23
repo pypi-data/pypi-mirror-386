@@ -1,0 +1,18 @@
+[project]
+name = "streamlit-sigmajs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.50.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/my-package"
+Repository = "https://github.com/yourusername/my-package"
+
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"

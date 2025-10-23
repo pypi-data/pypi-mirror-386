@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+st_sigma/__init__.py
+st_sigma/example.py
+streamlit_sigmajs.egg-info/PKG-INFO
+streamlit_sigmajs.egg-info/SOURCES.txt
+streamlit_sigmajs.egg-info/dependency_links.txt
+streamlit_sigmajs.egg-info/requires.txt
+streamlit_sigmajs.egg-info/top_level.txt
