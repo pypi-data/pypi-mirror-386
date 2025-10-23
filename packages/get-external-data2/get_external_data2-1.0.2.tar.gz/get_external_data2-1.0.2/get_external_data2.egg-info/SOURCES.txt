@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+get_external_data2/__main__.py
+get_external_data2/data_getter.py
+get_external_data2/db.py
+get_external_data2/models.py
+get_external_data2.egg-info/PKG-INFO
+get_external_data2.egg-info/SOURCES.txt
+get_external_data2.egg-info/dependency_links.txt
+get_external_data2.egg-info/entry_points.txt
+get_external_data2.egg-info/requires.txt
+get_external_data2.egg-info/top_level.txt

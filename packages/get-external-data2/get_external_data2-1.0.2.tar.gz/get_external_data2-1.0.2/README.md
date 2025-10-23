@@ -1,0 +1,78 @@
+# get-external-data2
+
+A drop-in replacement for the original [`get-external-data.py`](https://github.com/gravitystorm/openstreetmap-carto/blob/master/scripts/get-external-data.py) script from OpenStreetMap Carto, rewritten with safety, validation, and better user experience in mind.
+
+## Overview
+
+`get-external-data2` is a full rewrite of the OSM Carto data import utility that downloads and imports shapefiles into a PostGIS database.
+
+It behaves identically to the original script — but is:
+- **More reliable** (honors HTTP `Last-Modified`, **skips unnecessary re-downloads**)
+- **Safer** (SQL-safe with `psycopg3` and type-checked logic)
+- **More transparent** (shows download progress via [`tqdm`](https://pypi.org/project/tqdm/))
+- **Configurable and validated** (using [`pydantic`](https://pypi.org/project/pydantic/) with JSON schema generation)
+
+## Installation
+
+```bash
+pip install get-external-data2
+```
+
+Or from source:
+
+```
+git clone https://github.com/insan3d/get-external-data2.git
+cd get-external-data2
+pip install .
+```
+
+## Features
+
+- Fully backwards-compatible YAML configuration format and CLI interface
+- Built-in `--dump-config-schema` to generate a JSON Schema for your config
+- `--delete-cache` flag now actually works
+- Honors HTTP caching (`If-Modified-Since` / `Last-Modified`)
+- Clean interruption handling (`SIGTERM`, `KeyboardInterrupt`)
+- Progress bars for file downloads
+- Strict validation for schema and table names
+- Safer database logic with transactional DDL via `psycopg3`
+
+## Removed / Changed Behavior
+
+- `file://` protocol is no longer supported for local files — only `http(s)://`
+- Archive handling is limited to `.zip` (as in original script, for now)
+- Modern PostgreSQL and GDAL versions are expected (tested with Debian 13 __Trixie__).
+
+## Usage Example
+
+```bash
+get-external-data2 -c external-data.yml -v
+```
+
+Typical configuration file (`external-data.yml`):
+
+```yaml
+settings:
+  schema: public
+  temp_schema: loading
+  database: gis
+  host: /var/run/postgresql
+  username: gis
+  metadata_table: external_data
+
+sources:
+  simplified_water_polygons:
+    url: https://osmdata.openstreetmap.de/download/simplified-water-polygons-complete-3857.zip
+    file: simplified-water-polygons-complete-3857/simplified_water_polygons.shp
+    archive:
+      format: zip
+      files:
+        - simplified-water-polygons-complete-3857/simplified_water_polygons.shp
+        - simplified-water-polygons-complete-3857/simplified_water_polygons.dbf
+        - simplified-water-polygons-complete-3857/simplified_water_polygons.prj
+        - simplified-water-polygons-complete-3857/simplified_water_polygons.shx
+```
+
+## License
+
+MIT License — as the original OSM Carto tools.
