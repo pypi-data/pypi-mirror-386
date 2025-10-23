@@ -1,0 +1,2 @@
+[console_scripts]
+brownie-backup = brownie_metadata_db.backup.cli:main
