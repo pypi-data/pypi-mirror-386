@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: verichain
+Version: 2.4.1
+Summary: Legal-grade accountability system for AI decisions with ATHENA, HELIOS, and ARES
+Home-page: https://github.com/verichain/verichain
+Author: Fabio Petti
+Author-email: contact@verichain.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography>=41.0.0
+Requires-Dist: pynacl>=1.5.0
+Requires-Dist: canonicaljson>=2.0.0
+Requires-Dist: python-dateutil>=2.8.0
+Requires-Dist: requests>=2.31.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+VeriChain - Legal-grade accountability system for AI decisions
