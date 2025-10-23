@@ -1,0 +1,45 @@
+---
+timezone: Asia/Hong_Kong
+archives:
+  yaml: '~/Documents/Junk/wordle-clone-archive/%Y.yaml'
+  celtix: '~/Pictures/celtix/{puznum:>04}-{date:%Y-%m-%d}.png'
+  db: '~/Pictures/wordle-clones/archives/archive.db'
+output:
+  filename: '~/Pictures/wordle-clones/%Y/%m-%d.png'
+  width: 1200
+  game_separation: 20
+  content_font_size: 18
+  content_font: Noto-Sans-CJK-TC
+  title:
+    font_size: 35
+    subtitle_font_size: 20
+    font: Nunito-Light
+  timeline:
+    left_edge: 50
+    height_per_bucket: 20
+    width_per_second: 0.5
+    border_width: 2
+    font: Nunito-bold
+    font_size: 15
+    colour: "#CCCCCC"
+layouts:
+- [['tetsudoru', 'zidou', 'lukhap', 'mjhandle' ],
+   ['redactle', 'bracketcity', 'hexcodle', 'connections' ],
+   [[['celltower', 'celtix'],
+    ['nerdle', 'binerdle', 'kotoba',]],
+    'diffle']]
+games:
+- nerdle
+- binerdle
+- lukhap
+- zidou
+- mjhandle
+- tetsudoru
+- redactle
+- hexcodle
+- celltower
+- diffle
+- celtix
+- kotoba
+- connections
+- bracketcity
