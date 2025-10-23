@@ -1,0 +1,8 @@
+setup.py
+numpay/__init__.py
+numpay/numpay.py
+numpay.egg-info/PKG-INFO
+numpay.egg-info/SOURCES.txt
+numpay.egg-info/dependency_links.txt
+numpay.egg-info/requires.txt
+numpay.egg-info/top_level.txt
