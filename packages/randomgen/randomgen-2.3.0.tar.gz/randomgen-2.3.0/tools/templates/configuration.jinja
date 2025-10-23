@@ -1,0 +1,25 @@
+import numpy as np
+import randomgen as rg
+
+ENTROPY = {{ entropy }}
+JUMPED = {{ jumped }}
+STREAMS = {{ streams }}
+BIT_GENERATOR_KWARGS = {{ kwargs }}
+
+SEED_SEQ = np.random.SeedSequence(ENTROPY)
+
+{{ extra_initialization }}
+BASE_GEN = rg.{{ bit_generator }}(SEED_SEQ, **BIT_GENERATOR_KWARGS)
+if STREAMS == 1:
+    bitgens = [BASE_GEN]
+elif JUMPED:
+    bitgens = [BASE_GEN]
+    for _ in range(STREAMS - 1):
+        bitgens.append(bitgens[-1].jumped())
+else:
+    bitgens = []
+    for child in SEED_SEQ.spawn(STREAMS):
+        bitgens.append(rg.{{ bit_generator }}(child, **BIT_GENERATOR_KWARGS))
+output = {{ output }}
+
+{{ extra_code }}

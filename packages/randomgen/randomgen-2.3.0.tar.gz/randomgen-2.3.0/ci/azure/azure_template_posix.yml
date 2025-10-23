@@ -1,0 +1,177 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+parameters:
+  # defaults for any parameters that are not specified
+  name: ''
+  vmImage: ''
+  coverage: true
+  BUILD_FLAGS: ''
+
+
+jobs:
+
+- job: ${{ parameters.name }}Test
+  pool:
+    vmImage: ${{ parameters.vmImage }}
+  strategy:
+    matrix:
+      ${{ if eq(parameters.name, 'Linux') }}:
+        python39_legacy:
+          python.version: '3.9'
+          NUMPY: 1.22.3
+        python310_last_numpy_1:
+          python.version: '3.10'
+          test.wheel: true
+          coverage: false
+          NUMPY: 1.26.4
+        python310_latest:
+          python.version: '3.10'
+          NUMPY: 2.0.2
+        python311_numpy_numba:
+          python.version: '3.12'
+          NUMPY: 2.0.2
+          NUMBA: 0.60.0
+          USE_NUMBA: true
+          USE_SCIPY: true
+        python311_latest:
+          python.version: '3.11'
+        python312_options:
+          python.version: '3.12'
+          BUILD_FLAGS: '-Csetup-args=-Dpcg64-force-emulated=true -Csetup-args=-Ddisable-sse2=true -Csetup-args=-Ddisable-avx2=true'
+        python312_latest:
+          python.version: '3.12'
+          BUILD_FLAGS: '-Csetup-args=-Dcython-coverage=true'
+          cython.coverage: true
+          PYTEST_PATTERN: "(not slow)"
+        python313_latest_coverage:
+          python.version: '3.13'
+        python314_latest:
+          python.version: '3.14'
+        python312_prerelease:
+          python.version: '3.12'
+          pip.pre: true
+        python_312_no_coverage:
+          python.version: '3.12'
+          PYPI: true
+          # TODO: Enable debug
+          RANDOMGEN_DEBUG: true
+          test.wheel: true
+          coverage: false
+      ${{ if eq(parameters.name, 'macOS') }}:
+        python310_macos:
+          python.version: '3.10'
+          CYTHON_VER: 3.0.10
+        python311_macos:
+          python.version: '3.11'
+          CYTHON_VER: 3.0.11
+        python312_latest_macos:
+          python.version: '3.12'
+        python313_latest_macos:
+          python.version: '3.13'
+
+    maxParallel: 10
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+    displayName: 'Use Python $(python.version)'
+
+  - bash: |
+      echo "##vso[task.prependpath]$CONDA/bin"
+      echo "##vso[task.prependpath]$CONDA/envs/randomgen-test"
+      echo "##vso[task.prependpath]$CONDA/envs/randomgen-test/condabin"
+      echo "##vso[task.prependpath]$CONDA/envs/randomgen-test/bin"
+    displayName: 'Add conda and env to PATH'
+    condition: eq(variables['use.conda'], 'true')
+
+  - script: |
+      source ci/azure/install-posix.sh
+    displayName: 'Install dependencies'
+
+  - script: |
+      ruff check
+      flake8 .
+      black --check .
+      isort --check randomgen
+    displayName: 'Check style and formatting'
+
+  - script: |
+      python -m pip install pip --upgrade
+      python -c "import platform;print(platform.uname())"
+      python -c "import numpy;print(numpy.show_runtime())"
+      python -m pip list
+    displayName: 'List Configuration (PyPI)'
+    condition: ne(variables['use.conda'], 'true')
+
+  - script: |
+      python -m pip install pip --upgrade
+      python -c "import platform;print(platform.uname())"
+      conda list
+    displayName: 'List Configuration (conda)'
+    condition: eq(variables['use.conda'], 'true')
+
+  - script: |
+      echo "Installing to site packages"
+      python -m pip wheel . -w wheelhouse/
+      WHL=$(ls -t wheelhouse/randomgen-*.whl | head -n1)
+      pip install ${WHL}
+    displayName: 'Install randomgen (site-packages)'
+    condition: eq(variables['test.wheel'], 'true')
+
+  - script: |
+      python -m pip install -e . -v --no-build-isolation ${BUILD_FLAGS}
+    displayName: 'Install randomgen (editable, no-build-isolation)'
+    condition: ne(variables['test.wheel'], 'true')
+
+  - script: |
+      echo "Testing site packages"
+      mkdir test_run_dir
+      pushd test_run_dir
+      python -c "import randomgen; randomgen.test(['-n', 'auto', '--junitxml=../junit/test-results.xml'])"
+      popd
+    displayName: 'Run tests (site-packages)'
+    condition: and(ne(variables['pip.pre'], 'true'), eq(variables['test.wheel'], 'true'))
+
+  - script: |
+      python ci/azure/cythonize-pyx.py
+    displayName: Cythonize pyx files for coverage
+    condition: eq(variables['cython.coverage'], 'true')
+
+  - script: |
+      echo "Testing editable install"
+      export COVERAGE_OPTS="--cov=randomgen --cov-branch --cov-report xml:coverage.xml --cov-report term"
+      echo pytest -m "${PYTEST_PATTERN}" --junitxml=junit/test-results.xml --durations=25 ${COVERAGE_OPTS} randomgen/tests
+      pytest -m "${PYTEST_PATTERN}" --junitxml=junit/test-results.xml --durations=25 ${COVERAGE_OPTS} randomgen/tests
+    displayName: 'Run tests (editable)'
+    condition: and(ne(variables['pip.pre'], 'true'), ne(variables['test.wheel'], 'true'))
+
+  - script: |
+      echo "Testing prerelease"
+      export COVERAGE_OPTS="--cov=randomgen --cov-branch --cov-report xml:coverage.xml --cov-report term"
+      echo pytest -m "${PYTEST_PATTERN}" --junitxml=junit/test-results.xml --durations=25 ${COVERAGE_OPTS} randomgen/tests
+      pytest -m "${PYTEST_PATTERN}" --junitxml=junit/test-results.xml --durations=25 ${COVERAGE_OPTS} randomgen/tests
+    displayName: 'Run tests (pip pre)'
+    condition: eq(variables['pip.pre'], 'true')
+    continueOnError: true
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFiles: '**/test-results.xml'
+      testRunTitle: 'Python $(python.version)'
+    condition: succeededOrFailed()
+
+  - task: PublishCodeCoverageResults@2
+    inputs:
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    condition: eq(variables['coverage'], 'true')
+
+  - script: |
+      curl -Os https://uploader.codecov.io/latest/linux/codecov
+      chmod +x codecov
+      ./codecov -f coverage.xml -F adder -F subtractor
+    displayName: 'Codecov upload'
+    condition: and(eq(variables['coverage'], 'true'), ne(variables['Agent.OS'], 'Darwin'))
