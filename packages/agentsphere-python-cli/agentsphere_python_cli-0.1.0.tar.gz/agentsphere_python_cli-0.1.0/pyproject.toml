@@ -1,0 +1,15 @@
+[project]
+name = "agentsphere-python-cli"
+version = "0.1.0"
+description = "CLI tool for connecting to AgentSphere sandboxes with SSH-like functionality"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "agentsphere==0.1.6",
+    "click>=8.0.0",
+    "logging>=0.4.9.6",
+    "rich>=13.0.0",
+]
+
+[project.scripts]
+agentsphere-python-cli = "main:cli"
