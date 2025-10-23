@@ -1,0 +1,2 @@
+[console_scripts]
+semantic-network = semantic_network.script:main
