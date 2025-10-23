@@ -1,0 +1,15 @@
+mocha/__init__.py,sha256=uqaYw0YSsgCy3ZsbYk4CaM8Kct3D2AyV2sQ8P3MupT0,3179
+mocha/__main__.py,sha256=8SATOphikvOSt_esbYLEHtZAC-OMz3Me1pd2VzzczOU,55
+mocha/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mocha/commands/coffee.py,sha256=1sg6bPtx29coqo9rx7i2H6GkQSjmhF9bdicIBf3VqLg,1763
+mocha/commands/greet.py,sha256=WyiuAUx2_lUdTmXpYJXwPQRZcpZ2dcauyCMN2w8jwBw,239
+mocha/commands/hydrate.py,sha256=loxRBLXia7_qJVSYiu40I5j41GdTd3oE9Tarx9ldV94,2204
+mocha/commands/note.py,sha256=HA8LxP7pXHXBDLJsh7hifzXPFGbPCCcoh-OuRQSLBEM,6054
+mocha/commands/timer.py,sha256=N7U3Kk_l4xDgI8N0RSqYJmCqq3NjtRAAAGR07R-QKRg,514
+mocha/commands/todo.py,sha256=KzyMZeVFuZQ3JcST0uU6xFnfrHnRvH_i0H0UTeENhDw,1533
+mocha_sh-1.0.1.dist-info/licenses/LICENSE,sha256=n2fJDve-FnC81nr1PogRofzqsv2NQlY_iMWwU9JWNy0,1065
+mocha_sh-1.0.1.dist-info/METADATA,sha256=lElCQqCuPVnrHsZnt2U_u8hHoS3t5VWZCxF2SDnJ86w,3028
+mocha_sh-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mocha_sh-1.0.1.dist-info/entry_points.txt,sha256=OJuL-ZVhsj9hAT_qocM2qiVqsES1Q8S_phj0uevR1Rg,36
+mocha_sh-1.0.1.dist-info/top_level.txt,sha256=l8qVOz986V0Z6wQV0WCRMD3TlgjVAFIauhZ1z2IeuX0,6
+mocha_sh-1.0.1.dist-info/RECORD,,
