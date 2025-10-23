@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-quantum-ledger-database-mcp-server = awslabs_quantum_ledger_database_mcp_server.main:main
