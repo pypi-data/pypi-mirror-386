@@ -1,0 +1,2 @@
+[console_scripts]
+dcclib = dcclib:__main__

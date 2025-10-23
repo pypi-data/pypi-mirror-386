@@ -1,0 +1,148 @@
+Metadata-Version: 2.4
+Name: dcclib
+Version: 0.3.0
+Summary: A library containing modules for working with Digital Calibration Certificates (DCCs).
+Author-email: Jan Loewe <jan.loewe@ptb.de>, Justin Sebastian Jagieniak <justin.jagieniak@ptb.de>
+License-Expression: LGPL-3.0-or-later
+License-File: LICENSE
+Keywords: DCC,Digital Calibration Certificate,PTB
+Requires-Python: <3.14,>=3.10
+Requires-Dist: lxml>=6.0.1
+Requires-Dist: mpmath>=1.3.0
+Requires-Dist: prettytable>=3.16.0
+Requires-Dist: saxonche>=12.9.0
+Requires-Dist: signxml>=4.2.0
+Requires-Dist: sympy>=1.14.0
+Requires-Dist: xmlschema>=4.1.0
+Provides-Extra: cli
+Requires-Dist: dcclib-cli; extra == 'cli'
+Description-Content-Type: text/markdown
+
+# dcclib
+
+**A modular Python library for working with Digital Calibration Certificates (DCCs), complete with a CLI and REST API.**
+
+---
+
+## Overview
+
+`dcclib` is a comprehensive monorepo that houses:
+
+- **`dcclib`** – Core library with essential tools for handling DCCs and other XML-based files.
+- **`dcclib-cli`** – Command Line Interface for quick access to library features.
+- **`dcclib-rest-api`** – RESTful API for integrating the library functionality into web services.
+
+Whether you're converting, validating, or extracting information from DCCs, this library provides structured and
+reusable components to streamline your workflow.
+
+---
+
+## Library Structure
+
+### Core Modules
+
+- `conversion` – Convert DCCs between various formats.
+- `extraction` – Extract key data like formulas and attachments.
+- `signature` – Verify and apply digital signatures.
+- `validation` – Validate structure and content of DCCs.
+- `transformation` – Apply XSLT transformations using stylesheets.
+
+### Abstract Interfaces
+
+To promote consistency and reusability, the following abstract base classes define the common contract:
+
+- **`Constructible`** – Build from tree, file, or string (`from_tree`, `from_file`, `from_str`).
+- **`Convertible`** – Enable format conversion (`convert`).
+- **`Extractable`** – Extract structured information (`extract`).
+- **`Transformable`** – Apply transformations (`transform`).
+- **`Validatable`** – Validate trees, files, or strings (`validate_tree`, `validate_file`, `validate_str`).
+
+---
+
+## Installation
+
+### Using `pip`
+
+```bash
+# Install from the GitLab package registry
+pip install dcclib --index-url https://gitlab1.ptb.de/api/v4/projects/3323/packages/pypi/simple
+
+# Include optional CLI tools
+pip install "dcclib[cli]" --index-url https://gitlab1.ptb.de/api/v4/projects/3323/packages/pypi/simple
+```
+
+### Using `docker`
+
+```bash
+# Login to the GitLab container registry
+docker login registry.gitlab1.ptb.de
+
+# Run the CLI in the current directory, replacing <command> with the desired command
+docker run --rm -v $(pwd):/app registry.gitlab1.ptb.de/d-ptb/dcc/dcclib/cli:latest <command>
+
+# Run the REST API on port 8080
+docker run --rm -p 8080:8080 registry.gitlab1.ptb.de/d-ptb/dcc/dcclib/rest-api:latest
+```
+
+---
+
+## Development Setup
+
+### Requirements
+
+- Git
+- Python
+- `uv` (install via `pipx install uv`)
+
+### Getting Started
+
+```bash
+# Clone the repository
+git clone https://gitlab1.ptb.de/ag1-24/sandbox/dcclib.git
+cd dcclib
+
+# Install dependencies
+uv sync --all-packages
+
+# Build all packages
+uv build --all-packages
+```
+
+### Commands
+
+#### Run Components
+
+```shell
+# dcclib-rest-api
+uv run --package dcclib-rest-api api
+
+# dcclib-cli
+uv run --package dcclib-cli cli
+```
+
+#### Run Tests
+
+```shell
+# dcclib
+uv run -- pytest tests --cov=dcclib --cov-append
+
+# dcclib-cli
+uv run --package dcclib-cli -- pytest packages/dcclib-cli --cov=dcclib_cli --cov-append
+
+# dcclib-rest-api
+uv run --package dcclib-rest-api -- pytest packages/dcclib-rest-api --cov=dcclib_rest_api --cov-append
+```
+
+#### Lint and Format
+
+```shell
+# Lint all files and apply automatic fixes
+uv run ruff check --fix
+
+# Format all files
+uv run ruff format
+```
+
+## About
+
+This project was developed as part of the bachelor thesis of Jan Loewe at the Ostfalia University of Applied Sciences.
