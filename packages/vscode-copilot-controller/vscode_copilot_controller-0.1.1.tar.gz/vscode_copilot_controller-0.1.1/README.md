@@ -1,0 +1,256 @@
+# VSCode Copilot Controller
+
+[![PyPI version](https://badge.fury.io/py/vscode-copilot-controller.svg)](https://badge.fury.io/py/vscode-copilot-controller)
+[![Python Support](https://img.shields.io/pypi/pyversions/vscode-copilot-controller.svg)](https://pypi.org/project/vscode-copilot-controller/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Downloads](https://pepy.tech/badge/vscode-copilot-controller)](https://pepy.tech/project/vscode-copilot-controller)
+
+Programmatically control VSCode Copilot chat panel using OCR-based UI automation.
+
+## ✨ Features
+
+- **🎯 Automated Button Clicking**: Automatically detect and click Keep/Undo buttons in Copilot chat
+- **💬 Message Sending**: Send messages to Copilot chat programmatically  
+- **📊 Status Monitoring**: Monitor Copilot working status (Working, Ready, etc.)
+- **📸 Screenshot Integration**: Take targeted screenshots of Copilot interface
+- **🎨 High Contrast Optimized**: Optimized for VSCode high contrast themes
+- **⌨️ CLI Interface**: Command-line tool for automation scripts
+- **🔧 Interactive Configuration**: Easy setup for different screen layouts
+- **🔄 Smart OCR Processing**: Blue pixel conversion and image preprocessing for better accuracy
+
+## 🚀 Installation
+
+```bash
+pip install vscode-copilot-controller
+```
+
+### Prerequisites
+
+- **🔍 Tesseract OCR**: Required for text detection
+  - **Windows**: Download from [GitHub releases](https://github.com/UB-Mannheim/tesseract/wiki)
+  - **macOS**: `brew install tesseract`
+  - **Linux**: `sudo apt-get install tesseract-ocr`
+
+- **🖱️ PyAutoGUI dependencies**: For automated clicking
+  - **Windows**: No additional setup needed
+  - **macOS**: May need to grant accessibility permissions
+  - **Linux**: `sudo apt-get install python3-tk python3-dev`
+
+## 🎬 Quick Start
+
+### Command Line Usage
+
+```bash
+# Click Keep button in Copilot chat
+vscode-copilot-controller click-keep
+
+# Click Undo button  
+vscode-copilot-controller click-undo
+
+# Send message to Copilot
+vscode-copilot-controller send-message "Explain this code"
+
+# Check Copilot status
+vscode-copilot-controller status
+
+# Wait for Copilot to finish working
+vscode-copilot-controller wait-ready --timeout 30
+
+# Take screenshot of Copilot area
+vscode-copilot-controller screenshot copilot_area.png
+
+# Configure screen areas interactively
+vscode-copilot-controller configure-areas
+```
+
+# Take screenshot of Copilot area
+vscode-copilot-controller screenshot copilot_area.png
+```
+
+### Python API Usage
+
+```python
+from vscode_copilot_controller import CopilotController
+
+# Initialize controller
+controller = CopilotController()
+
+# Click Keep button automatically
+success = controller.click_keep_button()
+if success:
+    print("Keep button clicked!")
+
+# Send message and wait for response
+controller.send_message_to_copilot("Help me refactor this function", wait_for_response=True)
+
+# Monitor status
+status = controller.get_copilot_status()
+print(f"Copilot working: {status['is_working']}")
+print(f"Available actions: {status['available_actions']}")
+
+# Wait for Copilot to become ready
+if controller.wait_for_copilot_ready(timeout=30):
+    print("Copilot is ready!")
+```
+
+## ⚙️ Configuration
+
+### Default Configuration
+
+The package works out of the box with default settings:
+- Tesseract path: `C:\Program Files\Tesseract-OCR\tesseract.exe` (Windows)
+- Screenshot region: Right quarter of screen (where Copilot typically appears)
+- Confidence thresholds: 50% for most elements
+
+### Custom Configuration
+
+```python
+from vscode_copilot_controller import CopilotController, CopilotConfig
+
+# Create custom config
+config = CopilotConfig(
+    tesseract_path="/usr/local/bin/tesseract",  # Custom Tesseract path
+    high_confidence_threshold=85,
+    medium_confidence_threshold=60,
+    low_confidence_threshold=40
+)
+
+# Set custom screenshot region (x, y, width, height)
+config.set_screenshot_region(1200, 0, 720, 1080)
+
+# Initialize with custom config
+controller = CopilotController(config)
+```
+
+## Use Cases
+
+### Automated Code Review Workflow
+
+```python
+# Automation script for code review with Copilot
+import time
+from vscode_copilot_controller import CopilotController
+
+controller = CopilotController()
+
+# Send review request
+controller.send_message_to_copilot("Review this code for potential issues")
+
+# Wait for Copilot to analyze
+controller.wait_for_copilot_ready(timeout=60)
+
+# Check if Keep button is available (suggestions provided)
+status = controller.get_copilot_status()
+if 'keep' in status['available_actions']:
+    print("Copilot provided suggestions")
+    # Optionally click Keep to accept suggestions
+    controller.click_keep_button()
+else:
+    print("No suggestions provided")
+```
+
+### Batch Processing with Copilot
+
+```python
+# Process multiple files with Copilot assistance
+questions = [
+    "Add error handling to this function",
+    "Optimize this code for performance", 
+    "Add type hints to this code"
+]
+
+for question in questions:
+    print(f"Processing: {question}")
+    
+    # Send question
+    controller.send_message_to_copilot(question)
+    
+    # Wait for response
+    if controller.wait_for_copilot_ready(timeout=45):
+        # Check for suggestions
+        status = controller.get_copilot_status()
+        if 'keep' in status['available_actions']:
+            controller.click_keep_button()
+            print("✅ Suggestions applied")
+        else:
+            print("ℹ️ No suggestions provided")
+    else:
+        print("⚠️ Timeout waiting for Copilot")
+    
+    time.sleep(2)  # Brief pause between requests
+```
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+1. **❌ Tesseract not found**
+   ```bash
+   # Verify Tesseract installation
+   tesseract --version
+   ```
+   
+   **Solution**: Make sure Tesseract is installed and in your PATH. On Windows, the default path is usually `C:\Program Files\Tesseract-OCR\tesseract.exe`.
+
+2. **❌ OCR not detecting buttons**
+   - ✅ Ensure VSCode is using a high contrast theme (`File > Preferences > Theme > High Contrast`)
+   - ✅ Check that Copilot chat panel is visible and not minimized
+   - ✅ Try adjusting confidence thresholds in configuration
+   - ✅ Run the interactive configuration tool: `vscode-copilot-controller configure-areas`
+
+3. **❌ Screenshots not capturing Copilot area**
+   - ✅ Verify Copilot panel position and size
+   - ✅ Set custom screenshot region in config
+   - ✅ Check screen scaling settings (100% recommended)
+
+4. **❌ Permission errors on macOS**
+   - ✅ Grant accessibility permissions to Terminal/IDE in System Preferences > Security & Privacy > Accessibility
+
+5. **❌ Import errors**
+   ```bash
+   # Reinstall with all dependencies
+   pip uninstall vscode-copilot-controller
+   pip install vscode-copilot-controller[gui,dev]
+   ```
+
+### Debug Mode
+
+Enable verbose logging to see what's happening:
+
+```python
+import logging
+logging.basicConfig(level=logging.INFO)
+
+from vscode_copilot_controller import CopilotController
+controller = CopilotController()
+# Now you'll see detailed OCR and detection logs
+```
+
+### Performance Tips
+
+- **Use high contrast themes**: Much better OCR accuracy
+- **Adjust screen scaling**: 100% scaling works best
+- **Close unnecessary applications**: Reduces interference
+- **Use SSD storage**: Faster screenshot processing
+
+### Getting Help
+
+- 📖 Check the [examples directory](examples/) for practical usage patterns
+- 🐛 Report bugs on [GitHub Issues](https://github.com/autoocto/vscode-copilot-controller/issues)
+- 💬 Ask questions in [GitHub Discussions](https://github.com/autoocto/vscode-copilot-controller/discussions)
+
+## 🤝 Contributing
+
+Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+## 📈 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and migration guides.
+
+---
+
+**Made with ❤️ by the AutoOcto Team**
