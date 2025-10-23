@@ -1,0 +1,535 @@
+---
+description: 项目实现范围与技术规范规则
+globs:
+alwaysApply: true
+---
+# 实现范围与技术规范规则
+
+## 核心实现范围
+
+### 1. 数据面服务实现 ✅
+
+#### 沙盒代码执行引擎
+- **进程管理**：进程创建、监控、终止、资源控制
+- **文件系统**：文件读写、目录操作、权限管理、隔离控制
+- **终端会话**：PTY 管理、输入输出处理、会话生命周期
+- **资源隔离**：CPU、内存、磁盘、网络资源限制
+- **安全控制**：沙盒边界、权限验证、操作审计
+
+#### API 服务层
+- **gRPC 服务**：高性能的内部通信接口
+- **HTTP REST API**：标准化的外部访问接口
+- **WebSocket 支持**：实时终端交互
+- **认证授权**：API 密钥、JWT 令牌、权限验证
+- **限流控制**：请求频率限制、资源配额管理
+
+#### 监控和可观测性
+- **指标收集**：性能指标、资源使用、业务统计
+- **日志管理**：结构化日志、日志级别、日志聚合
+- **健康检查**：服务状态、依赖检查、故障检测
+- **链路追踪**：请求追踪、性能分析、问题定位
+
+### 2. Docker 实现 ✅
+
+#### 镜像构建
+- **基础镜像**：优化的运行时基础镜像
+- **服务镜像**：sandbox-code-interpreter 服务镜像
+- **多架构支持**：Linux AMD64/ARM64 镜像
+- **镜像优化**：多阶段构建、层缓存、安全扫描
+
+#### 容器编排
+- **Docker Compose**：本地开发环境
+- **Kubernetes 部署**：生产环境部署配置
+- **服务发现**：容器间通信、负载均衡
+- **资源管理**：CPU/内存限制、存储卷管理
+
+#### 安全配置
+- **镜像安全**：漏洞扫描、基础镜像更新
+- **运行时安全**：非 root 用户、最小权限原则
+- **网络安全**：网络策略、端口暴露控制
+- **存储安全**：数据加密、访问控制
+
+### 3. 配置管理实现 ✅
+
+#### 配置文件
+- **YAML 配置**：服务配置、环境配置、部署配置
+- **环境变量**：运行时配置、敏感信息管理
+- **配置验证**：格式验证、值范围检查、依赖验证
+- **配置热重载**：运行时配置更新、动态调整
+
+#### 配置分发
+- **配置模板**：环境适配、变量替换
+- **配置版本**：配置版本管理、回滚机制
+- **配置加密**：敏感配置加密、密钥管理
+- **配置审计**：配置变更记录、审计日志
+
+## 控制面设计范围 🎯
+
+### 1. 接口设计（需要设计，不实现）
+
+#### API 网关接口
+```yaml
+# 为控制面预留的接口规范
+control_plane_interfaces:
+  - name: "service_discovery"
+    endpoint: "/api/v1/control/discovery"
+    method: "POST"
+    description: "服务发现和注册接口"
+    
+  - name: "config_management"
+    endpoint: "/api/v1/control/config"
+    method: "PUT"
+    description: "配置下发和管理接口"
+    
+  - name: "monitoring_data"
+    endpoint: "/api/v1/control/metrics"
+    method: "GET"
+    description: "监控数据上报接口"
+    
+  - name: "resource_control"
+    endpoint: "/api/v1/control/resources"
+    method: "POST"
+    description: "资源控制和配额管理接口"
+```
+
+#### 配置格式设计
+```yaml
+# 控制面配置格式规范
+control_plane_config:
+  version: "v1"
+  metadata:
+    source: "control-plane"
+    timestamp: "2025-08-30T11:30:00Z"
+    version: "1.0.0"
+  
+  services:
+    - name: "sandbox-code-interpreter"
+      replicas: 3
+      resources:
+        cpu: "1000m"
+        memory: "2Gi"
+      config:
+        max_concurrent_sandboxes: 100
+        default_timeout: "300s"
+        security_policies:
+          - "file_access_control"
+          - "network_isolation"
+          - "resource_limits"
+```
+
+#### 监控协议设计
+```yaml
+# 监控数据格式规范
+monitoring_protocol:
+  metrics:
+    - name: "sandbox_active_count"
+      type: "gauge"
+      description: "当前活跃沙盒数量"
+      labels: ["environment", "service_instance"]
+      
+    - name: "sandbox_execution_duration"
+      type: "histogram"
+      description: "沙盒执行时长分布"
+      buckets: [0.1, 0.5, 1.0, 5.0, 10.0]
+      
+    - name: "resource_usage"
+      type: "gauge"
+      description: "资源使用情况"
+      labels: ["resource_type", "sandbox_id"]
+  
+  health_checks:
+    - name: "service_health"
+      endpoint: "/health"
+      interval: "30s"
+      timeout: "5s"
+      
+    - name: "dependency_health"
+      endpoint: "/health/dependencies"
+      interval: "60s"
+      timeout: "10s"
+```
+
+### 2. 架构设计（需要设计，不实现）
+
+#### 控制面组件架构
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Control Plane Components                 │
+│                                                             │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
+│  │ API Gateway │ │ Config Mgmt │ │ Monitoring  │          │
+│  │             │ │             │ │             │          │
+│  │ • Routing   │ │ • Storage   │ │ • Metrics   │          │
+│  │ • Auth      │ │ • Version   │ │ • Alerts    │          │
+│  │ • Rate Lim  │ │ • Distribute│ │ • Dashboard │          │
+│  └─────────────┘ └─────────────┘ └─────────────┘          │
+│                                                             │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
+│  │ User Mgmt   │ │ Resource    │ │ Lifecycle   │          │
+│  │             │ │ Scheduler   │ │ Manager     │          │
+│  │ • Identity  │ │ • Node      │ │ • Deploy    │          │
+│  │ • Permissions│ │ Selection  │ │ • Update    │          │
+│  │ • Audit     │ │ • Allocation│ │ • Rollback  │          │
+│  └─────────────┘ └─────────────┘ └─────────────┘          │
+└─────────────────────────────────────────────────────────────┘
+```
+
+#### 数据流设计
+```
+Control Plane Request Flow:
+1. User Request → API Gateway
+2. Authentication & Authorization
+3. Request Routing & Rate Limiting
+4. Service Discovery & Load Balancing
+5. Data Plane Service Execution
+6. Response & Metrics Collection
+7. Monitoring & Alerting
+8. Audit Logging
+```
+
+## 技术实现规范
+
+### 1. 代码实现规范
+
+#### 服务接口设计
+```go
+// 为控制面预留的接口定义
+type ControlPlaneInterface interface {
+    // 服务发现
+    RegisterService(ctx context.Context, req *RegisterServiceRequest) error
+    DeregisterService(ctx context.Context, req *DeregisterServiceRequest) error
+    
+    // 配置管理
+    UpdateConfig(ctx context.Context, req *UpdateConfigRequest) error
+    GetConfig(ctx context.Context, req *GetConfigRequest) (*Config, error)
+    
+    // 监控数据
+    ReportMetrics(ctx context.Context, metrics *Metrics) error
+    HealthCheck(ctx context.Context) (*HealthStatus, error)
+    
+    // 资源控制
+    UpdateResourceQuota(ctx context.Context, req *ResourceQuotaRequest) error
+    GetResourceUsage(ctx context.Context) (*ResourceUsage, error)
+}
+
+// 实现数据面功能，预留控制面接口
+type SandboxService struct {
+    // 数据面实现
+    filesystemService *FilesystemService
+    processService    *ProcessService
+    terminalService   *TerminalService
+    
+    // 控制面接口（预留）
+    controlPlaneInterface ControlPlaneInterface
+}
+```
+
+#### 配置管理实现
+```go
+// 支持控制面配置的配置管理器
+type ConfigManager struct {
+    // 本地配置
+    localConfig *LocalConfig
+    
+    // 控制面配置（预留）
+    controlPlaneConfig *ControlPlaneConfig
+    
+    // 配置更新通道
+    configUpdateChan chan *ConfigUpdate
+    
+    // 配置验证器
+    validator *ConfigValidator
+}
+
+// 配置更新处理
+func (cm *ConfigManager) HandleConfigUpdate(update *ConfigUpdate) error {
+    // 验证配置
+    if err := cm.validator.Validate(update); err != nil {
+        return fmt.Errorf("invalid config: %w", err)
+    }
+    
+    // 应用配置
+    if err := cm.applyConfig(update); err != nil {
+        return fmt.Errorf("failed to apply config: %w", err)
+    }
+    
+    // 通知相关服务
+    cm.notifyServices(update)
+    
+    return nil
+}
+```
+
+### 2. Docker 实现规范
+
+#### Dockerfile 模板
+```dockerfile
+# 多阶段构建，支持控制面配置
+FROM golang:1.23-alpine AS builder
+
+# 构建参数
+ARG VERSION=dev
+ARG COMMIT=unknown
+ARG DATE=unknown
+
+# 构建标签
+LABEL org.opencontainers.image.title="Sandbox Code Interpreter"
+LABEL org.opencontainers.image.description="Data plane implementation for sandbox code execution"
+LABEL org.opencontainers.image.version="${VERSION}"
+LABEL org.opencontainers.image.revision="${COMMIT}"
+LABEL org.opencontainers.image.created="${DATE}"
+
+# 构建阶段
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build \
+    -ldflags "-X main.version=${VERSION} -X main.commit=${COMMIT} -X main.date=${DATE}" \
+    -o sandbox-code-interpreter ./cmd/server
+
+# 运行时阶段
+FROM alpine:3.19
+
+# 安全配置
+RUN addgroup -g 1000 -S sandbox && \
+    adduser -u 1000 -S sandbox -G sandbox
+
+# 安装运行时依赖
+RUN apk add --no-cache ca-certificates tzdata
+
+# 复制二进制文件
+COPY --from=builder /app/sandbox-code-interpreter /usr/local/bin/
+RUN chown sandbox:sandbox /usr/local/bin/sandbox-code-interpreter
+
+# 创建必要的目录
+RUN mkdir -p /var/lib/sandbox /var/log/sandbox && \
+    chown -R sandbox:sandbox /var/lib/sandbox /var/log/sandbox
+
+# 切换到非 root 用户
+USER sandbox
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD /usr/local/bin/sandbox-code-interpreter health || exit 1
+
+# 暴露端口
+EXPOSE 8080 8089
+
+# 启动命令
+ENTRYPOINT ["/usr/local/bin/sandbox-code-interpreter"]
+CMD ["--config", "/etc/sandbox/config.yaml"]
+```
+
+#### Docker Compose 配置
+```yaml
+# docker-compose.yml - 支持控制面配置
+version: '3.8'
+
+services:
+  sandbox-code-interpreter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: ${VERSION:-dev}
+        COMMIT: ${COMMIT:-unknown}
+        DATE: ${DATE:-unknown}
+    
+    image: sandbox-code-interpreter:${VERSION:-latest}
+    container_name: sandbox-code-interpreter
+    
+    # 环境配置
+    environment:
+      - SANDBOX_ENV=${SANDBOX_ENV:-development}
+      - SANDBOX_LOG_LEVEL=${SANDBOX_LOG_LEVEL:-info}
+      - SANDBOX_CONFIG_PATH=/etc/sandbox/config.yaml
+      
+    # 配置挂载
+    volumes:
+      - ./config:/etc/sandbox:ro
+      - ./data:/var/lib/sandbox
+      - ./logs:/var/log/sandbox
+      
+    # 端口映射
+    ports:
+      - "8080:8080"  # HTTP API
+      - "8089:8089"  # gRPC API
+      
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+          
+    # 健康检查
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/sandbox-code-interpreter", "health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+      
+    # 重启策略
+    restart: unless-stopped
+    
+    # 网络配置
+    networks:
+      - sandbox-network
+      
+    # 标签（为控制面预留）
+    labels:
+      - "sandbox.service.type=data-plane"
+      - "sandbox.service.version=${VERSION:-dev}"
+      - "sandbox.control.plane.enabled=false"
+      - "sandbox.monitoring.enabled=true"
+
+# 网络配置
+networks:
+  sandbox-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# 卷配置
+volumes:
+  sandbox-data:
+    driver: local
+  sandbox-logs:
+    driver: local
+```
+
+### 3. 配置管理规范
+
+#### 配置文件结构
+```yaml
+# config/config.yaml - 支持控制面配置
+version: "v1"
+environment: "development"
+
+# 服务配置
+server:
+  host: "0.0.0.0"
+  port: 8080
+  timeout: "30s"
+  max_connections: 1000
+  
+agent:
+  host: "0.0.0.0"
+  port: 8089
+  timeout: "30s"
+  max_sandboxes: 100
+
+# 日志配置
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+  file:
+    path: "/var/log/sandbox/app.log"
+    max_size: "100MB"
+    max_age: "7d"
+    max_backups: 5
+
+# 监控配置
+monitoring:
+  enabled: true
+  metrics_port: 9090
+  health_check_interval: "30s"
+  prometheus:
+    enabled: true
+    path: "/metrics"
+    
+# 安全配置
+security:
+  authentication:
+    enabled: false  # 控制面实现
+    type: "jwt"
+    secret: ""
+  authorization:
+    enabled: false  # 控制面实现
+    policies: []
+  sandbox:
+    isolation_level: "process"
+    resource_limits:
+      cpu: "1000m"
+      memory: "1Gi"
+      disk: "10Gi"
+    network:
+      enabled: false
+      allowed_hosts: []
+      
+# 控制面配置（预留）
+control_plane:
+  enabled: false
+  endpoints:
+    - "http://control-plane:8080"
+  config_sync:
+    enabled: false
+    interval: "60s"
+  service_discovery:
+    enabled: false
+    registry: ""
+  monitoring:
+    enabled: false
+    endpoint: ""
+    
+# 扩展配置
+extensions:
+  plugins:
+    enabled: false
+    directory: "/var/lib/sandbox/plugins"
+  hooks:
+    enabled: false
+    pre_execution: []
+    post_execution: []
+```
+
+## 实现检查清单
+
+### 数据面实现 ✅
+- [ ] 核心服务框架
+- [ ] 文件系统服务
+- [ ] 进程管理服务
+- [ ] 终端会话服务
+- [ ] API 接口实现
+- [ ] 配置管理
+- [ ] 日志记录
+- [ ] 监控指标
+- [ ] 错误处理
+- [ ] 安全控制
+
+### Docker 实现 ✅
+- [ ] 基础镜像
+- [ ] 服务镜像
+- [ ] 多架构支持
+- [ ] 安全配置
+- [ ] 资源限制
+- [ ] 健康检查
+- [ ] 配置挂载
+- [ ] 网络配置
+
+### 控制面设计 🎯
+- [ ] 接口规范设计
+- [ ] 配置格式设计
+- [ ] 监控协议设计
+- [ ] 架构设计文档
+- [ ] 扩展性设计
+- [ ] 集成点设计
+
+### 文档和测试 ✅
+- [ ] 架构文档
+- [ ] API 文档
+- [ ] 部署文档
+- [ ] 运维文档
+- [ ] 单元测试
+- [ ] 集成测试
+- [ ] 性能测试
+- [ ] 安全测试
+

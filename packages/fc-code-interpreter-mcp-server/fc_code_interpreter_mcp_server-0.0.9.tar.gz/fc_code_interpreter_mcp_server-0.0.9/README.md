@@ -1,0 +1,271 @@
+# Sandbox Code Interpreter MCP Server (SSE)
+
+基于 SSE (Server-Sent Events) 协议的 MCP 服务器，支持通过 E2B SDK 进行安全的代码执行。
+
+## 🚀 快速开始
+
+### 1. 启动 Sandbox Docker 服务
+
+```bash
+# 启动本地 sandbox
+docker-compose up -d
+
+# 验证服务运行
+curl http://localhost:5001/health
+```
+
+**预期输出**: `{"status":"healthy"}`
+
+### 2. 安装依赖
+
+```bash
+# 使用 UV (推荐)
+uv install
+
+# 或使用 pip
+pip install -e .
+```
+
+### 3. 启动 SSE 服务器
+
+```bash
+# 方式 1: 使用 Make (推荐)
+make run
+
+# 方式 2: 直接运行
+uv run sandbox-mcp-server
+
+# 方式 3: 指定配置
+SANDBOX_URL=http://localhost:5001 MCP_PORT=3000 uv run sandbox-mcp-server
+
+# 方式 4: 带 Inspector 调试
+make debug
+```
+
+服务器将在 `http://0.0.0.0:3000` 启动，提供以下端点：
+- **SSE 端点**: `http://localhost:3000/sse`
+- **消息端点**: `http://localhost:3000/messages`
+
+### 4. 配置环境变量 (可选)
+
+创建 `.env` 文件或设置环境变量：
+
+```bash
+# Sandbox 配置
+SANDBOX_URL=http://localhost:5001    # 本地 sandbox 地址
+
+# MCP 服务器配置
+MCP_HOST=0.0.0.0                      # 监听地址
+MCP_PORT=3000                         # 服务端口
+LOG_LEVEL=INFO                        # 日志级别
+
+# AgentRun 云服务 (可选)
+AGENTRUN_ACCESS_KEY_ID=your_key
+AGENTRUN_ACCESS_KEY_SECRET=your_secret
+AGENTRUN_ACCOUNT_ID=your_account
+AGENTRUN_REGION=cn-hangzhou
+```
+
+## 🔍 测试服务器
+
+### 使用 MCP Inspector
+
+```bash
+# 启动 Inspector 连接到 SSE 服务器
+npx @modelcontextprotocol/inspector http://localhost:3000/sse
+```
+
+### 使用 curl 测试
+
+```bash
+# 测试 SSE 端点
+curl -N http://localhost:3000/sse
+
+# 测试健康状态（如果有健康检查端点）
+curl http://localhost:3000/health
+```
+
+## 📋 可用工具
+
+1. **create_context** - 创建代码执行上下文
+   ```json
+   {
+     "name": "my-context",
+     "language": "python",
+     "description": "Python execution context"
+   }
+   ```
+
+2. **run_code** - 执行代码
+   ```json
+   {
+     "context_id": "ctx-xxx",
+     "code": "print('Hello World')"
+   }
+   ```
+
+3. **list_contexts** - 列出所有上下文
+   ```json
+   {}
+   ```
+
+4. **stop_context** - 停止上下文
+   ```json
+   {
+     "context_id": "ctx-xxx"
+   }
+   ```
+
+## ⚙️ 配置选项
+
+### 环境变量
+
+| 变量 | 默认值 | 说明 |
+|------|--------|------|
+| `SANDBOX_BASE_URL` | `http://localhost:8080` | Sandbox 服务地址 |
+| `SANDBOX_TIMEOUT` | `30` | 请求超时（秒） |
+| `SESSION_POOL_SIZE` | `3` | Session 池大小 |
+| `SESSION_LIFETIME_HOURS` | `6` | Session 生命周期（小时） |
+| `MCP_HOST` | `0.0.0.0` | MCP 服务器监听地址 |
+| `MCP_PORT` | `3000` | MCP 服务器端口 |
+| `LOG_LEVEL` | `INFO` | 日志级别 |
+
+## 🔧 与 Claude Desktop 集成
+
+在 Claude Desktop 配置文件中添加：
+
+```json
+{
+  "mcpServers": {
+    "sandbox": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/path/to/sandbox-code-interpreter-mcp-server",
+        "run",
+        "python",
+        "-m",
+        "mcp_server"
+      ],
+      "env": {
+        "SANDBOX_BASE_URL": "http://localhost:8080",
+        "MCP_HOST": "localhost",
+        "MCP_PORT": "3000"
+      }
+    }
+  }
+}
+```
+
+## 🐛 故障排查
+
+### 问题 1: 模块导入错误
+
+```bash
+# 确保依赖已安装
+uv sync
+
+# 或手动安装依赖
+pip install mcp python-dotenv requests pydantic starlette uvicorn
+```
+
+### 问题 2: 端口被占用
+
+```bash
+# 检查端口占用
+lsof -i :3000
+
+# 使用其他端口
+MCP_PORT=3001 uv run python -m mcp_server
+```
+
+### 问题 3: 无法连接到 Sandbox
+
+```bash
+# 检查 Docker 容器状态
+docker ps | grep sandbox-code-interpreter
+
+# 查看容器日志
+docker logs sandbox-code-interpreter
+
+# 重启容器
+docker-compose restart
+```
+
+### 问题 4: Session 初始化失败
+
+```bash
+# 检查配置
+echo $SANDBOX_BASE_URL
+
+# 测试连接
+curl http://localhost:8080/health
+
+# 降低 session 池大小
+SESSION_POOL_SIZE=1 uv run python -m mcp_server
+```
+
+## 📊 日志输出
+
+服务器启动后会显示：
+
+```
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - ============================================================
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Local Sandbox MCP Server (SSE) Starting...
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - ============================================================
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Configuration:
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO -   - Sandbox URL: http://localhost:8080
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO -   - Timeout: 30s
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO -   - Session pool size: 3
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO -   - Session lifetime: 6h
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Initializing local sandbox integration...
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - ✅ Connected to sandbox at http://localhost:8080
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Created session 1/3: sess-xxx
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Created session 2/3: sess-yyy
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Created session 3/3: sess-zzz
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - ✅ Session pool initialized with 3 sessions
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - ✅ Local sandbox integration initialized
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Server initialization complete
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Mode: Local Sandbox
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - ============================================================
+2025-10-22 19:53:00 - sandbox-mcp-sse - INFO - Starting SSE server on http://0.0.0.0:3000
+INFO:     Started server process [12345]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:3000 (Press CTRL+C to quit)
+```
+
+## 🆚 stdio vs SSE 对比
+
+| 特性 | stdio | SSE |
+|------|-------|-----|
+| **传输方式** | 标准输入输出 | HTTP |
+| **调试难度** | 困难 | 简单 |
+| **网络访问** | 仅本地 | 支持远程 |
+| **浏览器测试** | 不支持 | 支持 |
+| **日志查看** | 混在一起 | 独立 |
+| **连接方式** | 进程管道 | HTTP 请求 |
+
+## 📚 相关文档
+
+- [Session 管理器](mcp_server/session_manager.py)
+- [本地 Sandbox 客户端](mcp_server/local_sandbox_client.py)
+- [SSE 服务器实现](mcp_server/server_sse.py)
+- [Docker Compose 配置](docker-compose.yml)
+- [本地迁移指南](docs/LOCAL_SANDBOX_MIGRATION.md)
+
+## ✅ 验证清单
+
+- [ ] Docker 容器运行正常
+- [ ] Sandbox 健康检查通过
+- [ ] Python 依赖已安装
+- [ ] SSE 服务器启动成功
+- [ ] Session 池初始化完成
+- [ ] MCP Inspector 可以连接
+- [ ] 可以创建 context
+- [ ] 可以执行代码
+- [ ] 可以列出 contexts
+
+---
+
+**Happy coding with SSE! 🎉**
