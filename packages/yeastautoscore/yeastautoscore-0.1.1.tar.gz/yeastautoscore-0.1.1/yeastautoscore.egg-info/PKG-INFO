@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: yeastautoscore
+Version: 0.1.1
+Summary: YeastAutoScore runs with python -m yeastautoscore
+Author-email: "INET, Helmholtz Munich" <inet@helmholtz-munich.com>
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python<5.0,>=4.10
+Requires-Dist: numpy>=2.2
+
+# YeastAutoScore
+
+A Python tool that runs with:
+
+```bash
+python -m yeastautoscore
+```
+
+It uses:
+
+* **OpenCV** (>= 4.10, < 5.0)
+* **NumPy** (>= 2.2)
+* **Tkinter** (for GUI support)
+
+---
+
+## Installation
+
+Requires Python 3.10 or later.
+
+Install via pip:
+
+```bash
+pip install yeastautoscore
+```
+
+This will also install **OpenCV** and **NumPy** automatically.
+
+---
+
+## Usage
+
+After installation, run:
+
+```bash
+python -m yeastautoscore
+```
