@@ -1,0 +1,10 @@
+airflow/providers/zendesk/LICENSE,sha256=gXPVwptPlW1TJ4HSuG5OMPg-a3h43OGMkZRR1rpwfJA,10850
+airflow/providers/zendesk/__init__.py,sha256=SRj8MtmCod0kQe5X6cyT7TcmlDz6HKxawMqsxGP5zrE,1497
+airflow/providers/zendesk/get_provider_info.py,sha256=tiXFxBArjJN1bX_waeTl6h7rJVWZ2HLv66hBQaIAT7I,1843
+airflow/providers/zendesk/version_compat.py,sha256=GCUyJVyS3oRnTWS28CiddLjmGgtyENK1obKg-pkcCLs,1297
+airflow/providers/zendesk/hooks/__init__.py,sha256=mlJxuZLkd5x-iq2SBwD3mvRQpt3YR7wjz_nceyF1IaI,787
+airflow/providers/zendesk/hooks/zendesk.py,sha256=ygl6r2TG8hBJgH8iyS9Zs-5lFmrauJGU3R2jLNM4XWg,4944
+apache_airflow_providers_zendesk-4.10.3rc1.dist-info/entry_points.txt,sha256=g-reNvSxl2TqOKMKUrK2cuRy9cpsNLeHfmGh5w0nVCg,103
+apache_airflow_providers_zendesk-4.10.3rc1.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+apache_airflow_providers_zendesk-4.10.3rc1.dist-info/METADATA,sha256=al_S7vRlGf8toKa4jaI4ObBejDjTiv_FkYspssMn69I,5213
+apache_airflow_providers_zendesk-4.10.3rc1.dist-info/RECORD,,
