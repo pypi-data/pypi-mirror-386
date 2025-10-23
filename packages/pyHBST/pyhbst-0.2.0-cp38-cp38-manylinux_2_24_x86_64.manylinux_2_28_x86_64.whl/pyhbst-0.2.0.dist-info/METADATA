@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: pyHBST
+Version: 0.2.0
+Summary: pyHBST - Python bindings for fast incremental feature matching using Hamming Binary Search Trees
+Author: Steffen Urban
+Author-email: urbste@googlemail.com
+License-File: LICENSE
+
