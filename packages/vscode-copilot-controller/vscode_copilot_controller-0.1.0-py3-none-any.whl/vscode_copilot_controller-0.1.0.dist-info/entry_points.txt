@@ -1,0 +1,2 @@
+[console_scripts]
+vscode-copilot-controller = vscode_copilot_controller.cli:main
