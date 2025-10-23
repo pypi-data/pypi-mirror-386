@@ -1,0 +1,178 @@
+# Git Hotspot AI
+
+A lightweight CLI tool for analyzing git hotspots and triggering AI post-processing tasks.
+
+## Features
+
+- **Git Hotspot Analysis**: Identify the most frequently modified files in your repository
+- **Flexible Filtering**: Filter by time range, file patterns, and minimum commit counts
+- **AI Task Integration**: Trigger AI-powered analysis tasks on hotspot files
+- **Configurable Output**: Select top files by percentage or absolute count
+- **Dry Run Mode**: Preview results without executing AI tasks
+
+## Installation
+
+### From Source
+
+```bash
+git clone https://github.com/yourusername/git-hotspot-ai.git
+cd git-hotspot-ai
+pip install -e .
+```
+
+### Development Installation
+
+```bash
+git clone https://github.com/yourusername/git-hotspot-ai.git
+cd git-hotspot-ai
+pip install -e ".[dev]"
+```
+
+## Usage
+
+### Basic Usage
+
+```bash
+# analyze current directory
+git-hotspot-ai
+
+# analyze specific repository
+git-hotspot-ai --repo /path/to/repo
+
+# show top 20 files
+git-hotspot-ai --top 20
+
+# show top 15% of files
+git-hotspot-ai --top 15%
+
+# dry run (preview without AI tasks)
+git-hotspot-ai --dry-run
+```
+
+### Advanced Options
+
+```bash
+# analyze files modified in the last 6 months
+git-hotspot-ai --since "6 months ago"
+
+# ignore test files and documentation
+git-hotspot-ai --ignore "tests/*,docs/*,*.md"
+
+# only consider files with at least 5 commits
+git-hotspot-ai --min-commits 5
+
+# run specific AI tasks
+git-hotspot-ai --tasks "annotate,structure,performance"
+```
+
+### Command Line Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--repo` | Path to git repository | Current directory |
+| `--top` | Top files to select (count or percentage) | `10%` |
+| `--tasks` | Comma-separated AI tasks | `annotate,structure,skills,performance,mvp` |
+| `--since` | Git time filter (e.g., "6 months ago") | None |
+| `--dry-run` | Preview without AI tasks | False |
+| `--ignore` | Glob patterns to ignore | Empty |
+| `--min-commits` | Minimum commit count | 1 |
+
+## AI Tasks
+
+The tool supports the following AI tasks:
+
+- **annotate**: Add code annotations and comments
+- **structure**: Analyze and improve code structure
+- **skills**: Identify required skills and expertise
+- **performance**: Analyze performance characteristics
+- **mvp**: Generate MVP recommendations
+
+## How It Works
+
+1. **Git Analysis**: Uses `git log --numstat` to collect file modification statistics
+2. **Scoring**: Combines commit count and line changes to score files
+3. **Filtering**: Applies time range, ignore patterns, and minimum commit filters
+4. **Selection**: Selects top files based on percentage or count
+5. **AI Dispatch**: Triggers configured AI tasks on selected files
+
+## Scoring Algorithm
+
+Files are scored using the formula:
+```
+score = commit_count + 0.1 * line_changes
+```
+
+This balances the frequency of changes with the magnitude of changes.
+
+## Examples
+
+### Find Most Active Files
+
+```bash
+# top 10 most active files
+git-hotspot-ai --top 10
+
+# top 5% of files with at least 3 commits
+git-hotspot-ai --top 5% --min-commits 3
+```
+
+### Analyze Recent Changes
+
+```bash
+# files modified in last 3 months
+git-hotspot-ai --since "3 months ago"
+
+# recent changes excluding tests
+git-hotspot-ai --since "1 month ago" --ignore "test_*,*_test.py"
+```
+
+### Development Workflow
+
+```bash
+# preview what would be analyzed
+git-hotspot-ai --dry-run --top 20
+
+# run AI analysis on top files
+git-hotspot-ai --top 20 --tasks "annotate,structure"
+```
+
+## Development
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Code Formatting
+
+```bash
+black git_hotspot_ai/
+isort git_hotspot_ai/
+```
+
+### Type Checking
+
+```bash
+mypy git_hotspot_ai/
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Changelog
+
+### 0.1.0
+- Initial release
+- Basic git hotspot analysis
+- CLI interface
+- AI task dispatch framework
