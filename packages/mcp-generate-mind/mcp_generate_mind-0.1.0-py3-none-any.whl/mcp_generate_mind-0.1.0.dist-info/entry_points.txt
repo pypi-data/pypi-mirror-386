@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-generate-mind = mcp-generate-mind:main
