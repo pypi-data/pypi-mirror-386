@@ -1,0 +1,99 @@
+# ---- All project specifications ---- #
+[project]
+name = "torchforge"
+description = "A PyTorch native platform for post-training generative AI models"
+readme = "README.md"
+requires-python = ">=3.10, <3.13"
+license = {file = "LICENSE"}
+version = "0.1.0rc1"
+authors = [
+    { name = "PyTorch Team", email = "packages@pytorch.org" },
+]
+keywords = ["pytorch", "training", "llm"]
+dependencies = [
+    # PyTorch
+    "torchdata>=0.8.0",
+    "torchtitan",
+    # vLLM
+    # TODO: pin specific vllm version
+    #"vllm==0.10.0",
+    # Hugging Face integrations
+    "datasets>=2.21.0",
+    "tokenizers",
+    # Miscellaneous
+    "omegaconf",
+    "wandb",
+    "hf_transfer",
+]
+#dynamic = ["version"]
+
+[project.urls]
+GitHub = "https://github.com/pytorch-labs/forge"
+Documentation = "https://github.com/pytorch-labs/forge/tree/main/docs"
+Issues = "https://github.com/pytorch-labs/forge/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "pytest-timeout",
+    "tensorboard",
+    "expecttest",
+    "tomli>=1.1.0",
+    "anyio",
+    "pytest-asyncio",
+    "multiprocess",
+]
+oss = [
+    "torch",
+    "torchmonarch-nightly==2025.8.1",
+    "torchstore",
+]
+
+# ---- Explicit project build information ---- #
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["forge*"]
+
+[tool.pytest.ini_options]
+addopts = ["--showlocals"]  # show local variables in tracebacks
+pythonpath = "."
+
+[tool.uv.workspace]
+members = [
+    "forge",
+]
+
+# pytorch
+# TODO: get auto backend to work
+[[tool.uv.index]]
+name = "pytorch-nightly-cu129"
+url  = "https://download.pytorch.org/whl/nightly/cu129"
+#explicit = true
+
+# vllm
+# [[tool.uv.index]]
+# name = "vllm-nightly"
+# url = "https://wheels.vllm.ai/nightly"
+# explicit = true
+
+[tool.uv.sources]
+torchtitan = { index = "pytorch-nightly-cu129" }
+torch = { index = "pytorch-nightly-cu129" }
+torchstore = { git = "ssh://git@github.com/meta-pytorch/torchstore.git" }
+#vllm = { index = "vllm-nightly" }
+
+[tool.uv]
+# TODO: revert to stricter default uv strategy
+index-strategy = "unsafe-best-match"
+prerelease = "allow"
+# TODO: add more backends
+environments = [
+    "sys_platform == 'linux'",
+]
+# override-dependencies = ["torch>2.7.1", "torchaudio>=2.7.1", "torchvision>=0.22.0"]
