@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs-ebs-mcp-server = awslabs_ebs_mcp_server.main:main
