@@ -1,0 +1,2 @@
+[console_scripts]
+unicode-sanity = unicode_sanity.cli:main
