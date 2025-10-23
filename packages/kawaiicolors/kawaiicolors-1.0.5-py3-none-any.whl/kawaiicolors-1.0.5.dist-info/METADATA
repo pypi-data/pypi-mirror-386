@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: kawaiicolors
+Version: 1.0.5
+Summary: color lib dats kewlio
+Author: g4
+Author-email: meowmeow@1337.care
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-python
+Dynamic: summary
