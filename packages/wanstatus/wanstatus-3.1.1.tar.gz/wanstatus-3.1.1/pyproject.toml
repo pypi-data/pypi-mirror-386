@@ -1,0 +1,38 @@
+[project]
+name = 'wanstatus'
+version = '3.1.1'
+    # 3.1.1 - pyproject.toml tuning
+description = 'Monitor WAN-side internet access and WAN IP address changes on a home network'
+readme = 'README.md'
+requires-python = '>=3.9'                   # RHEL 9 uses py3.9
+authors = [ {name = 'Chris Nelson', email = 'github@cjnaz.com'} ]
+license = {file = 'LICENSE.txt'}
+dependencies = [
+    'requests',
+    'cjnfuncs >= 3.0.1',
+    ]
+keywords = ['cjnaz', 'lan', 'wan', 'router', 'pfsense', 'dd-wrt', 'monitor']
+classifiers = [                             # https://pypi.org/classifiers/
+    'Topic :: System :: Networking :: Monitoring',
+    ]
+
+
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+
+[project.scripts]
+wanstatus = 'wanstatus.wanstatus:cli'
+
+
+[project.urls]
+repository = 'https://github.com/cjnaz/wanstatus'
+
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+
+[tool.setuptools.package-data]
+'*' = ['deployment_files/*']
