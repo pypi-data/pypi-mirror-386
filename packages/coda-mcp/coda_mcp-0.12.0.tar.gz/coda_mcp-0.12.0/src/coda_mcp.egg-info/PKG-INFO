@@ -1,0 +1,350 @@
+Metadata-Version: 2.4
+Name: coda-mcp
+Version: 0.12.0
+Summary: MCP server for Coda document integration
+Author-email: Liminal Commons <team@liminalcommons.org>
+License: MIT
+Project-URL: Homepage, https://github.com/liminalcommons/mcp-server-coda
+Project-URL: Documentation, https://github.com/liminalcommons/mcp-server-coda/tree/main/docs
+Project-URL: Repository, https://github.com/liminalcommons/mcp-server-coda.git
+Project-URL: Issues, https://github.com/liminalcommons/mcp-server-coda/issues
+Keywords: mcp,coda,model-context-protocol,ai,integration
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic>=2.7
+Requires-Dist: mcp==1.13.1
+Requires-Dist: codaio>=0.6.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: pytest-anyio>=0.0.0; extra == "dev"
+Requires-Dist: pytest-docker>=3.1.0; extra == "dev"
+Requires-Dist: pytest-timeout>=2.2.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: pytest-bdd>=7.0.0; extra == "dev"
+Requires-Dist: hypothesis>=6.100.0; extra == "dev"
+Requires-Dist: requests>=2.31.0; extra == "dev"
+Requires-Dist: responses>=0.24.0; extra == "dev"
+Requires-Dist: jsonschema>=4.21.0; extra == "dev"
+Provides-Extra: security
+Requires-Dist: pip-audit>=2.0; extra == "security"
+Requires-Dist: bandit>=1.7; extra == "security"
+Requires-Dist: ruff>=0.1; extra == "security"
+Requires-Dist: cyclonedx-bom>=4.0; extra == "security"
+Dynamic: license-file
+
+# Coda MCP Server
+
+> **MCP server for Coda document integration**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![MCP 1.13.1](https://img.shields.io/badge/MCP-1.13.1-green.svg)](https://modelcontextprotocol.io)
+
+## Overview
+
+`coda-mcp` is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that provides **54 tools** for integrating with [Coda](https://coda.io) documents. It enables AI agents to interact with Coda docs, tables, rows, pages, formulas, controls, automations, permissions, categories, account management, analytics, and webhooks through a standardized protocol.
+
+**Extracted from [chora-workspace](https://github.com/liminalcommons/chora-workspace) v0.6.1** for independent release cycle per [ADR-0008: 3-Layer Architecture](https://github.com/liminalcommons/chora-workspace/blob/main/docs/reference/architecture/ADR-0008-modularization-boundaries.md).
+
+## Features
+
+### 54 MCP Tools Across 12 Categories
+
+| Category | Tools | Examples |
+|----------|-------|----------|
+| **Documents** (5 tools) | Document management | `list_coda_docs`, `get_coda_doc`, `create_coda_document`, `update_coda_document`, `delete_coda_document` |
+| **Tables** (5 tools) | Table operations | `list_coda_tables`, `get_coda_table`, `create_coda_table`, `list_coda_columns`, `get_coda_column` |
+| **Rows** (6 tools) | Row CRUD operations | `list_coda_rows`, `get_coda_row`, `create_coda_row`, `update_coda_row`, `delete_coda_row`, `bulk_delete_coda_rows` |
+| **Pages** (8 tools) | Page content management | `list_coda_pages`, `get_coda_page`, `create_coda_page`, `update_coda_page`, `delete_coda_page`, `get_coda_page_content`, `update_coda_page_content`, `export_coda_page` |
+| **Formulas** (2 tools) | Formula inspection | `list_coda_formulas`, `get_coda_formula` |
+| **Controls** (5 tools) | Interactive controls | `list_coda_controls`, `get_coda_control`, `list_coda_control_types`, `create_coda_control`, `update_coda_control` |
+| **Automations** (4 tools) | Automation triggers | `list_coda_automations`, `trigger_coda_automation`, `push_coda_button`, `get_coda_mutation_status` |
+| **Permissions** (6 tools) | Access control | `list_coda_permissions`, `get_coda_permissions`, `grant_coda_permission`, `revoke_coda_permission`, `publish_coda_doc`, `unpublish_coda_doc` |
+| **Categories** (2 tools) | Gallery categories | `list_coda_categories`, `get_coda_category` |
+| **Account** (3 tools) | Identity & tokens | `get_coda_whoami`, `get_coda_account`, `list_coda_api_tokens` |
+| **Analytics** (2 tools) | Usage metrics | `get_coda_doc_analytics`, `list_coda_doc_analytics_summary` |
+| **Webhooks** (4 tools) | Real-time events | `list_coda_webhooks`, `create_coda_webhook`, `get_coda_webhook`, `delete_coda_webhook` |
+
+Plus 2 utility tools: `ping` (connectivity testing), `calculate` (arithmetic operations)
+
+### Transport & Architecture
+
+- **Protocol:** MCP 1.13.1 (Model Context Protocol)
+- **Transport:** stdio (standard input/output)
+- **Architecture:** FastMCP-based server
+- **API:** Coda API v1 integration via `codaio` library
+
+### AI-Native Features (v0.8.0+)
+
+- **🤖 AGENTS.md** - Machine-readable instructions for AI coding agents
+  - Comprehensive project overview (54 tools, 12 categories, 172 tests)
+  - Development workflows (add tool, fix bug, run tests)
+  - Critical implementation patterns (async operations, error handling)
+  - Located at project root: [`AGENTS.md`](AGENTS.md)
+
+- **🧠 Agent Memory System** - Cross-session learning infrastructure
+  - Event log for operation history (`.chora/memory/events/`)
+  - Knowledge graph for structured learnings (`.chora/memory/knowledge/`)
+  - Agent profiles for capability tracking (`.chora/memory/profiles/`)
+  - See [`.chora/memory/README.md`](.chora/memory/README.md) for details
+
+- **🗺️ Strategic Planning** - Long-term capability evolution
+  - Product roadmap with committed features ([`ROADMAP.md`](ROADMAP.md))
+  - Vision documents for exploratory directions ([`dev-docs/vision/`](dev-docs/vision/))
+  - Decision frameworks for future capabilities
+  - Quarterly review process
+
+**Built with:** [chora-base](https://github.com/liminalcommons/chora-base) template (v1.8.1)
+
+## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install coda-mcp
+```
+
+### From Git
+
+```bash
+pip install git+https://github.com/liminalcommons/mcp-server-coda.git@v0.7.1
+```
+
+### For Development
+
+```bash
+git clone https://github.com/liminalcommons/mcp-server-coda.git
+cd mcp-server-coda
+pip install -e .[dev]
+```
+
+## Quick Start
+
+### 1. Get Coda API Key
+
+1. Go to https://coda.io/account
+2. Navigate to "API Settings"
+3. Generate a new API key
+4. Copy the key
+
+### 2. Set Environment Variable
+
+```bash
+export CODA_API_KEY="your-coda-api-key-here"
+```
+
+### 3. Run the Server
+
+```bash
+coda-mcp
+```
+
+The server will start in stdio mode, ready to receive MCP requests.
+
+### 4. Configure MCP Client
+
+#### Claude Desktop
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "coda": {
+      "command": "coda-mcp",
+      "env": {
+        "CODA_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### Cursor
+
+Add to `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "coda": {
+      "command": "coda-mcp",
+      "env": {
+        "CODA_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### Using MCP Inspector (Testing)
+
+```bash
+npx @modelcontextprotocol/inspector coda-mcp
+```
+
+## Usage Examples
+
+Once configured, your AI assistant can interact with Coda:
+
+```
+User: "List my Coda documents"
+AI: [calls list_coda_docs tool]
+
+User: "Create a new table called 'Tasks' in my Project doc"
+AI: [calls create_coda_table tool with appropriate parameters]
+
+User: "Add a row to the Tasks table with name 'Deploy v1.0' and status 'In Progress'"
+AI: [calls create_coda_row tool]
+
+User: "Search for documents about 'Q4 Planning'"
+AI: [calls list_coda_docs tool with query filter]
+```
+
+## Console Scripts
+
+The package provides 3 console scripts:
+
+### `coda-mcp`
+Main MCP server (stdio transport)
+
+```bash
+coda-mcp
+```
+
+### `mcpctl`
+MCP registry management utility
+
+```bash
+mcpctl list              # List registered MCP servers
+mcpctl add <name> <url>  # Add server to registry
+mcpctl remove <name>     # Remove server from registry
+```
+
+### `mcp-configure-clients`
+Generate client configuration files
+
+```bash
+mcp-configure-clients --client claude    # Generate Claude Desktop config
+mcp-configure-clients --client cursor    # Generate Cursor config
+mcp-configure-clients --client all       # Generate all configs
+```
+
+## Configuration
+
+### Environment Variables
+
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `CODA_API_KEY` | Yes | - | Your Coda API key |
+| `CODA_API_BASE` | No | `https://coda.io/apis/v1` | Coda API base URL |
+
+### Rate Limiting
+
+The server includes built-in rate limiting to respect Coda API limits:
+- Default: 10 requests/second
+- Configurable via `rate_limiter.py`
+
+## Documentation
+
+- **[API Reference](docs/reference/api/tools.md)** - Complete tool documentation
+- **[Architecture](docs/explanation/architecture.md)** - Server architecture details
+- **[Testing Philosophy](docs/explanation/testing-philosophy.md)** - Testing approach
+- **[How-to Guides](docs/how-to/)** - Task-oriented guides
+
+## Development
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Running Security Scans
+
+```bash
+pip install -e .[security]
+bandit -r src/coda_mcp/
+ruff check src/coda_mcp/
+pip-audit
+```
+
+### Building Package
+
+```bash
+pip install build
+python -m build
+```
+
+## Telemetry (Optional)
+
+The server optionally integrates with [chora-platform](https://github.com/liminalcommons/chora-platform) for telemetry:
+
+```bash
+pip install coda-mcp[platform]
+```
+
+Event categories:
+- `coda.tool.invoked` - Tool execution events
+- `coda.api.called` - Coda API calls
+- `coda.error.occurred` - Error tracking
+- `coda.rate_limit.hit` - Rate limit warnings
+
+## Related Projects
+
+- **[chora-base](https://github.com/liminalcommons/chora-base)** - Python project template for AI-native development (v0.8.0 infrastructure)
+- **[chora-workspace](https://github.com/liminalcommons/chora-workspace)** - Development workspace (original source)
+- **[chora-platform](https://github.com/liminalcommons/chora-platform)** - Platform standards and tooling
+- **[mcp-orchestration](https://github.com/liminalcommons/mcp-orchestration)** - MCP registry management
+- **[platform-labcoat](https://github.com/liminalcommons/platform-labcoat)** - Observability framework
+
+## Architecture Decision Records
+
+- **[ADR-0005: MCP Server Multi-Client Architecture](https://github.com/liminalcommons/chora-workspace/blob/main/docs/reference/architecture/ADR-0005-mcp-multi-client-architecture.md)**
+- **[ADR-0008: 3-Layer Architecture](https://github.com/liminalcommons/chora-workspace/blob/main/docs/reference/architecture/ADR-0008-modularization-boundaries.md)**
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details
+
+## Contributing
+
+Contributions welcome! Please:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Support
+
+- **Issues:** [GitHub Issues](https://github.com/liminalcommons/mcp-server-coda/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/liminalcommons/mcp-server-coda/discussions)
+- **Security:** See [SECURITY.md](SECURITY.md) for reporting vulnerabilities
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release history.
+
+## Acknowledgments
+
+- Originally developed as part of [chora-workspace](https://github.com/liminalcommons/chora-workspace) v0.3.1
+- Extracted v0.4.0 (2025-10-12) for independent release cycle
+- Built with [FastMCP](https://github.com/jlowin/fastmcp) and [Model Context Protocol](https://modelcontextprotocol.io)
+- Coda API integration via [codaio](https://github.com/Blasterai/codaio)
+
+---
+
+**Version:** 0.8.0
+**Status:** Beta
+**Python:** 3.11+
+**License:** MIT
