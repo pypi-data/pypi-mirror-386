@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "meshtagsplot"
+version = "0.0.6"
+authors = [
+	{ name="Raphaël Bulle", email="raphael.bulle@inria.fr" },
+]
+maintainers = [
+	{ name="Raphaël Bulle", email="raphael.bulle@inria.fr" }
+]
+description = "A convenience script using matplotlib to plot dolfinx mesh tags."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["matplotlib"]
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"Operating System :: OS Independent",
+]
+license = "GPL-3.0"
+license-files = ["COPYING*"]
+
+[project.urls]
+Homepage = "https://gitlab.com/rbulle/tags_plot"
+Issues = "https://gitlab.com/rbulle/tags_plot/-/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/meshtagsplot.py"]

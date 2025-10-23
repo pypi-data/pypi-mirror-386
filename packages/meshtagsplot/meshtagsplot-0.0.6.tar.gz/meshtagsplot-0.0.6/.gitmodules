@@ -1,0 +1,4 @@
+[submodule "phiFEM-fenicsx"]
+	path = phiFEM-fenicsx
+	url = git@github.com:PhiFEM/phiFEM-fenicsx.git
+	ignore = untracked
