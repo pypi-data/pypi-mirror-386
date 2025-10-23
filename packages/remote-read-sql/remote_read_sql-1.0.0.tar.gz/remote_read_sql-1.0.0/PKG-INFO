@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: remote-read-sql
+Version: 1.0.0
+Summary: Securely read sql into a pandas dataframe from a remote mysql DB
+Keywords: pandas,ssh,mysql,remote,dataframe
+Author: Erik van Widenfelt
+Author-email: Erik van Widenfelt <ew2789@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: mysql-connector-python>=9.5.0
+Requires-Dist: pandas>=2.3.3
+Requires-Dist: paramiko>=4.0.0
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: sphinx>=8.2.3
+Requires-Dist: sqlalchemy>=2.0.44
+Requires-Python: >=3.14
+Description-Content-Type: text/markdown
+
+# remote_read_sql
+Read SQL into a pandas data frame from a remote server
