@@ -1,0 +1,4 @@
+colorama
+lxml>=4.2.3
+packaging
+polib==1.2.*
