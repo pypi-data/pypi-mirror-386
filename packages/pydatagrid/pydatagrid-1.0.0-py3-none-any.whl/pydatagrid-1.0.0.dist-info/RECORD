@@ -1,0 +1,11 @@
+pydatagrid/__init__.py,sha256=cxjJyVQ23CYW2qxKCZosJuIkpFa3HOrOoYSmjmVXpZA,305
+pydatagrid/datagrid.py,sha256=vTedooZUdq861xUGeewQr6qnP-gcM_8v0d97aUIND0w,11567
+pydatagrid/flask_integration.py,sha256=PF5Oy3xs_ug5FqgVbiGoy0B06a6ZIRriO4D1iV_e8dg,9045
+pydatagrid/static/css/datagrid.css,sha256=gIu_ch3dHHka9G8ZuL8kL8cLMo7xocEXPVHje_GVCko,11181
+pydatagrid/static/js/datagrid.js,sha256=WV8ewM64I7jy1avXZ7GqkCcnBBn41LLlTgODckI84rk,33984
+pydatagrid/templates/datagrid.html,sha256=zsAXAuk3lODiErjLRDR3aOFjFUWsEeAXhCAkMfIHQf4,3805
+pydatagrid-1.0.0.dist-info/LICENSE,sha256=PG9BmBcQ8yXoCSq8dYct6vmvXeqi9XoDRTuh19L3y1c,1088
+pydatagrid-1.0.0.dist-info/METADATA,sha256=MmpK5GTR8qlkmSLqA3LUsLLC6Zg07GV9DCgkxbygunE,14638
+pydatagrid-1.0.0.dist-info/WHEEL,sha256=iAkIy5fosb7FzIOwONchHf19Qu7_1wCWyFNR5gu9nU0,91
+pydatagrid-1.0.0.dist-info/top_level.txt,sha256=5M_q3vHB4YpTiblBn4sDthQ3GYWbhxJ9qh6VYPEru8k,11
+pydatagrid-1.0.0.dist-info/RECORD,,
