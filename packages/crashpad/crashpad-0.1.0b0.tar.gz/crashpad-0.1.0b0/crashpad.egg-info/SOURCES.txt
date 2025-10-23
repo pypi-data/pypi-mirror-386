@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+crashpad/__init__.py
+crashpad/api_call.py
+crashpad/django_sdk.py
+crashpad/error_integration.py
+crashpad/error_processing.py
+crashpad.egg-info/PKG-INFO
+crashpad.egg-info/SOURCES.txt
+crashpad.egg-info/dependency_links.txt
+crashpad.egg-info/top_level.txt

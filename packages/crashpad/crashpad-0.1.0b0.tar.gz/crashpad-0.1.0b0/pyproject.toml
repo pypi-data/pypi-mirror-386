@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crashpad"
+version = "0.1.0-beta"
+description = "A soft landing for your Django crashes - Error tracking SDK for Django applications"
+readme = "README.md"
+requires-python = ">=3.6"
+license = "MIT"
+keywords = ["django", "error-tracking", "logging", "monitoring", "crash-reporting", "exception-tracking"]
+authors = [
+    {name = "Crashpad Team"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Logging",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/alamin040246/crashpad"
+Repository = "https://github.com/alamin040246/crashpad"
+"Bug Tracker" = "https://github.com/alamin040246/crashpad/issues"
+
