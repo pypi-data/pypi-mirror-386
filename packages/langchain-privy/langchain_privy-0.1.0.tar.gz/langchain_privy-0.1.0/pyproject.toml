@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-privy"
+version = "0.1.0"
+description = "LangChain integration for Privy embedded wallets"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Privy", email = "support@privy.io"}
+]
+keywords = ["langchain", "privy", "wallets", "web3", "blockchain", "ai-agents"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "langchain-core>=0.1.0",
+    "requests>=2.31.0",
+    "pydantic>=2.0.0",
+    "tenacity>=8.0.0",  # For retry logic with exponential backoff
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-mock>=3.11.1",
+    "black>=23.7.0",
+    "mypy>=1.5.0",
+    "ruff>=0.0.287",
+]
+
+[project.urls]
+Homepage = "https://github.com/privy-io/privy"
+Documentation = "https://docs.privy.io"
+Repository = "https://github.com/privy-io/privy"
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_privy"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311', 'py312']
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+asyncio_mode = "auto"
