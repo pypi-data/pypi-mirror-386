@@ -1,0 +1,2 @@
+[console_scripts]
+ipr = pori_python.ipr.main:command_interface
