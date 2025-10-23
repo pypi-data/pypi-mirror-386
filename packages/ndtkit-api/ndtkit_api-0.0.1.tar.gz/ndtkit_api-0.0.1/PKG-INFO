@@ -1,0 +1,127 @@
+Metadata-Version: 2.4
+Name: ndtkit_api
+Version: 0.0.1
+Summary: This Python API provides a high-level interface to interact with the NDTkit desktop application. It allows developers to script and automate NDTkit features remotely, leveraging the full power of the underlying Java application through a simple and pythonic library.
+Author-email: Cédric BERTRAND <cedric.bertrand@testia.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Requires-Python: >=3.11.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: py4j
+Dynamic: license-file
+
+# NDTkit Python API
+
+![Python API for NDTkit](https://img.shields.io/badge/API-Python-blue.svg)
+![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+This Python API provides a high-level interface to interact with the NDTkit desktop application. It allows developers to script and automate NDTkit features remotely, leveraging the full power of the underlying Java application through a simple and pythonic library.
+
+## How it Works ⚙️
+
+The API acts as a client that communicates with a dedicated socket server running within the NDTkit Java application.
+
+1.  **Python Call**: A function is called in Python (e.g., `NDTKitCScanInterface.open_cscan(...)`).
+2.  **JSON Serialization**: The call (class name, method name, parameters) is serialized into a JSON object.
+3.  **Socket Communication**: The JSON payload is sent over a TCP socket to the Java server.
+4.  **Java Execution**: The server deserializes the request, invokes the corresponding Java API method using reflection, and waits for the result.
+5.  **Return Value**: The result from the Java method is serialized back to JSON and sent to the Python client, which deserializes it into a Python object (like a `NICartographyFrameCScan` instance).
+
+## Prerequisites
+
+Before using this API, you must have:
+
+1.  **Python 3.9+** installed.
+2.  The **NDTkit desktop application** installed.
+3.  The Java socket server for the API must be running. The Python API can automatically launch it if configured correctly.
+
+## 🚀 Installation & Configuration
+
+1.  **Clone the repository** (or add it to your project). This library is not on PyPI.
+
+2.  **Configure the connection**: At the root of the `apipython` package, you will find a `config` directory. You need to edit the `config.ini` file.
+
+    ```ini
+    [Parameters]
+    SERVER_HOST = 127.0.0.1
+    SERVER_PORT = 32146
+    MESSAGE_TYPE = 10
+
+    # IMPORTANT: Update this path to point to your serverMode script
+    SOCKET_SERVER_COMMAND = <NDTKIT_INSTALL_FOLDER>/NDTkit.vbs # Alternative: <NDTKIT_INSTALL_FOLDER>/modules/serverMode/serverMode.bat
+
+    SERVER_CONNECTION_TIMEOUT = 120
+    ```
+
+    - **`SERVER_HOST`**: The IP address of the machine running NDTkit. Use `127.0.0.1` if it's on the same machine.
+    - **`SERVER_PORT`**: The port for the socket communication. This must match the port the NDTkit server is listening on.
+    - **`SOCKET_SERVER_COMMAND`**: **This is the most critical setting.** It's the command used to launch the Java socket server. The Python API will execute this command if it cannot connect to the server.
+
+## Usage Example
+
+Here is a simple example showing how to open a C-Scan, modify a pixel, and save it to a new file.
+
+```python
+# examples.py
+
+import NDTKitCScanInterface
+from model.frame.NICartographyFrameCScan import NICartographyFrameCScan
+
+def change_pixel_value(input_file: str, output_file: str):
+    """
+    Opens a C-Scan, modifies the value of the first pixel, saves it,
+    and re-opens it for display.
+    """
+    print(f"Opening C-Scan: {input_file}")
+    # The server is launched automatically if not running
+    cscan = NDTKitCScanInterface.openCScan(input_file)
+
+    if not cscan:
+        print("Failed to open C-Scan.")
+        return
+
+    print(f"C-Scan opened successfully with UUID: {cscan.get_uuid()}")
+
+    print("Retrieving data matrix...")
+    data = cscan.get_data()
+    print(f"Original value at [0][0]: {data[0][0]}")
+
+    # Modify the data
+    data[0][0] = 12.0
+    print(f"Setting new value at [0][0] to 12.0")
+    cscan.set_data(data)
+
+    print(f"Saving modified C-Scan to: {output_file}")
+    NDTKitCScanInterface.saveCscan(cscan, output_file)
+
+    print("Re-opening the saved C-Scan to verify.")
+    NDTKitCScanInterface.openCScan(output_file, displayResult=True)
+    print("Done.")
+
+
+if __name__ == "__main__":
+    # Make sure to use paths that are valid on your system
+    input_cscan_path = "D:/Data/NKC/dd_carto.nkc"
+    output_cscan_path = "D:/tmp/modified_cscan.nkc"
+    change_pixel_value(input_cscan_path, output_cscan_path)
+```
+
+## A class/method available in the Java API which is not appearing in this Python API
+
+It can reachable anyway, it's just the auto-completion of your IDE that is not working. Actually this Python API is using [py4j](https://www.py4j.org/) that allows to access any Java API function.
+Here's an example on how to access to `agi.ndtkit.api.NDTKitCScanInterface.openCScan(String)` without using this wrapper project:
+
+```python
+from ndtkit_socket_connection import gateway
+
+
+gateway.jvm.agi.ndtkit.api.NDTKitCScanInterface.openCScan("path/to/my/cscan")
+
+```
+
+So please refers to the NDTkit Javadoc to have an exhaustive look at all the available actions and call them using this solution if they are not available directly in this Python API.
