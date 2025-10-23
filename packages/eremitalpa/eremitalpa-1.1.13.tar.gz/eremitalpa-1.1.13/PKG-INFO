@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: eremitalpa
+Version: 1.1.13
+Summary: Plot dendropy trees
+Author-email: David Pattinson <david.pattinson@wisc.edu>
+Project-URL: Repository, https://github.com/davipatti/eremitalpa
+Project-URL: Documentation, https://davipatti.github.io/eremitalpa
+Requires-Dist: adjustText
+Requires-Dist: arviz
+Requires-Dist: biopython
+Requires-Dist: dendropy
+Requires-Dist: IPython
+Requires-Dist: matplotlib
+Requires-Dist: more-itertools
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: plotly
+Requires-Dist: tqdm
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: pytest-subtests; extra == "dev"
+Requires-Dist: pdoc3; extra == "dev"
