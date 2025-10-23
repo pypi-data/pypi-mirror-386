@@ -1,0 +1,19 @@
+[project]
+name = "perdream-weather-mcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "awardhuang", email = "awardhuang@tencent.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "mcp[cli]>=1.18.0",
+]
+
+[project.scripts]
+perdream-weather-mcp = "perdream_weather_mcp:main"
+
+[build-system]
+requires = ["uv_build>=0.9.4,<0.10.0"]
+build-backend = "uv_build"
