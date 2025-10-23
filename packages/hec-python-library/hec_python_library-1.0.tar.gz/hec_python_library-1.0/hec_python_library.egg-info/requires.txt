@@ -1,0 +1,11 @@
+lxml>=6.0.0
+numpy>=1.26.4
+pandas>=2.2.2
+Pint>=0.24.3
+Pint-pandas>=0.6.2
+tzlocal>=5.2
+
+[docs]
+sphinx
+sphinx_rtd_theme
+sphinx-design
