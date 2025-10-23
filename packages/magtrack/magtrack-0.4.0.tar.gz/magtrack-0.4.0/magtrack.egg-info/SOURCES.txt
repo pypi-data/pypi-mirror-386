@@ -1,0 +1,15 @@
+README.md
+license
+pyproject.toml
+magtrack/__init__.py
+magtrack/core.py
+magtrack/utils.py
+magtrack.egg-info/PKG-INFO
+magtrack.egg-info/SOURCES.txt
+magtrack.egg-info/dependency_links.txt
+magtrack.egg-info/requires.txt
+magtrack.egg-info/top_level.txt
+tests/test_binmean.py
+tests/test_gaussian.py
+tests/test_gaussian_2d.py
+tests/test_pearson.py

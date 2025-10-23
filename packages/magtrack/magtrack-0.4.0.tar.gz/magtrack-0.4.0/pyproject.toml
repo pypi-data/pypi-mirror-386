@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magtrack"
+description = "Convert images of beads into XYZ positions"
+version = "0.4.0"
+readme = "README.md"
+authors = [
+    {name = "James London", email = "7jameslondon@gmail.com" }
+]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0"
+license-files = ["license"]
+dependencies = ["numpy", "scipy", "cupy-cuda12x"]
+
+[project.urls]
+Homepage = "https://github.com/7jameslondon/MagTrack"
+Issues = "https://github.com/7jameslondon/MagTrack/issues"
+
+[tool.setuptools]
+packages = ["magtrack"]
