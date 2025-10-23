@@ -1,0 +1,2 @@
+[console_scripts]
+fraggle = fraggle:cli_wrapper
