@@ -1,0 +1,3 @@
+pydantic>=2.12.2
+nested-diff>=1.8.0
+requests>=2.32.4
