@@ -1,0 +1,217 @@
+Metadata-Version: 2.4
+Name: pydust_utils
+Version: 0.1.6
+Summary: Python utilities for DUST pre- and postprocessing
+Author-email: Alessandro Cocco <alessandro.cocco@polimi.it>
+License: MIT
+Project-URL: Homepage, https://www.dust.polimi.it/
+Project-URL: Repository, https://public.gitlab.polimi.it/DAER/dust
+Project-URL: Issues, https://public.gitlab.polimi.it/DAER/dust/-/issues
+Keywords: aerodynamics,cfd,dust,mesh-generation,post-processing
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: AeroSandbox>=4.2.0
+Requires-Dist: pyvista>=0.43.0
+Requires-Dist: pyvistaqt>=0.11.0
+Requires-Dist: matplotlib>=3.5.0
+Requires-Dist: seaborn>=0.12.0
+Requires-Dist: jupyter>=1.0.0
+Requires-Dist: ipywidgets>=8.0.0
+Requires-Dist: ipympl>=0.9.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Requires-Dist: black>=23.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=5.0; extra == "docs"
+Requires-Dist: sphinx-book-theme>=1.0; extra == "docs"
+Requires-Dist: sphinx-autodoc-typehints>=1.23; extra == "docs"
+Requires-Dist: numpydoc>=1.5; extra == "docs"
+
+# PyDUST Utils
+
+[![PyPI version](https://badge.fury.io/py/pydust-utils.svg)](https://pypi.org/project/pydust-utils/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com/yourusername/pydust-utils)
+[![Tests](https://img.shields.io/badge/tests-111%20passed-brightgreen.svg)](https://github.com/yourusername/pydust-utils)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Python utilities for DUST pre- and post-processing.
+
+## Features
+
+- **Mesh Generation**: Create pointwise and parametric meshes for DUST simulations
+- **C81 Airfoil Data**: Generate aerodynamic tables using NeuralFoil/AeroSandbox
+- **Post-Processing**: Parse and analyze DUST output files (sectional loads, probes, integral forces)
+- **Type-Safe**: Full type hints with mypy compliance
+- **Well-Tested**: 95% test coverage with 111+ tests
+
+## Installation
+
+**Simple installation from PyPI:**
+
+```bash
+pip install pydust-utils
+```
+
+**For development:**
+
+```bash
+git clone git@gitlab.com:Alecocco.1994/dust-private.git
+cd dust-private/pydust_utils
+pip install -e ".[dev,docs]"
+```
+
+## Quick Start
+
+### Mesh Generation
+
+```python
+from pydust_utils.build_mesh import Point, Line, MeshConfig, PointwiseMesh
+
+# Create mesh configuration
+config = MeshConfig(
+    title='Wing Mesh',
+    el_type='v',  # vortex-lattice
+    nelem_chord=20,
+    type_chord='cosine_le'
+)
+
+# Define wing geometry with points
+points = [
+    Point(1, [0.0, 0.0, 0.0], 1.0, 0.0, 'naca0012', 'naca0012'),
+    Point(2, [0.0, 5.0, 0.5], 0.8, -2.0, 'naca0012', 'naca0012'),
+]
+
+# Connect points with lines
+lines = [
+    Line('spline', 10, [1, 2], 'uniform')
+]
+
+# Generate mesh file
+mesh = PointwiseMesh(config, points, lines)
+mesh.write('wing.in')
+```
+
+### C81 Airfoil Data Generation
+
+```python
+from pydust_utils.c81generator import generate_airfoil_data
+
+# Generate C81 aerodynamic table
+airfoil = generate_airfoil_data(
+    file_name='naca0012',
+    pathprofile='airfoils/',
+    reynolds=1e6,
+    mach_range=(0.0, 0.3),
+    n_mach=10,
+    mbdynformat=False  # Use DUST format
+)
+```
+
+### Post-Processing
+
+```python
+from pydust_utils import read_sectional, read_probes, read_integral
+
+# Read sectional loads
+sectional_data = read_sectional('sectional_loads.dat')
+print(sectional_data.sec.shape)  # (n_time, n_sec)
+
+# Read probe velocities
+probe_data = read_probes('probes_velocity.dat')
+print(probe_data.velocities.shape)  # (n_time, n_probes, 3)
+
+# Read integral loads
+integral_data = read_integral('integral_loads.dat')
+lift = integral_data.forces[:, 2]  # Extract lift force
+```
+
+## Available Features
+
+### Mesh Generation (`build_mesh`)
+- **Pointwise meshes**: Define geometry with specific control points
+- **Parametric meshes**: Use sections and regions for automatic interpolation
+- **Multiple element types**: Vortex-lattice ('v'), lifting-line ('l'), panel ('p')
+- **Advanced distributions**: Uniform, cosine, geometric series with refinement options
+
+### Airfoil Data (`c81generator`)
+- **C81 table generation**: Create aerodynamic coefficient tables
+- **NeuralFoil integration**: Use neural networks for predictions
+- **Multiple Reynolds numbers**: Support for Re-dependent tables
+- **DUST and MBDyn formats**: Compatible with multiple solvers
+
+### Post-Processing (`parse_postpro_files`)
+- `read_sectional` - Sectional aerodynamic loads
+- `read_probes` - Velocity probe data
+- `read_chordwise` - Chordwise pressure distributions
+- `read_integral` - Integral loads and forces
+- `read_hinge` - Hinge loads for control surfaces
+
+## Documentation
+
+- **PyPI**: https://pypi.org/project/pydust-utils/
+- **Online Docs**: https://alecocco.1994.gitlab.io/dust-private/ (GitLab Pages)
+
+Build documentation locally:
+
+```bash
+cd pydust_utils
+pip install -e ".[docs]"
+sphinx-build -b html docs/source docs/build/html
+```
+
+## Running Tests
+
+```bash
+pip install -e ".[dev]"
+pytest tests/
+```
+
+**Current Status**: 111 tests, 95% coverage ✅
+
+## Contributing
+
+This package is developed and maintained by the DUST team at Politecnico di Milano.
+
+## Publishing
+
+Build and upload to PyPI (maintainers only):
+
+```bash
+# Build distribution
+pip install build
+python -m build
+
+# Upload to PyPI
+pip install twine
+twine upload dist/*
+```
+
+## Links
+
+- **PyPI Package**: https://pypi.org/project/pydust-utils/
+- **Documentation**: https://alecocco.1994.gitlab.io/dust-private/
+- **DUST Homepage**: https://www.dust.polimi.it/
+- **Repository**: https://public.gitlab.polimi.it/DAER/dust
+
+## License
+
+MIT License - Copyright (c) 2025 Alessandro Cocco, Politecnico di Milano
+
+---
+
+**Made with ❤️ by the DUST team at Politecnico di Milano**
