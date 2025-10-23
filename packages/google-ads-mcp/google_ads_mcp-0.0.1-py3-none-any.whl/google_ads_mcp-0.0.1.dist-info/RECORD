@@ -1,0 +1,15 @@
+ads_mcp/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ads_mcp/coordinator.py,sha256=VzaeAmgx7FBzSUUWeSsPSX45NncI31KHU42AgU6iiuo,876
+ads_mcp/gaql_resources.json,sha256=y7DNnGVajyPi3zby3HT5oqh-xFJSdhynZ0ZNfJkEil8,398259
+ads_mcp/mcp_header_interceptor.py,sha256=nt9EycVVpT3f7emGUYWAEFeFWgGPtD8gJbe3FHa_n6I,3751
+ads_mcp/server.py,sha256=xpD0Y6lZ2rGfnqXYSpiAYteELgh_yfyzrGkFTty-VJc,1019
+ads_mcp/update_references.py,sha256=0WNKxSsaxQ00gAk5A2rmrK6zvnYk8zZMbA8L2fRatd8,3482
+ads_mcp/utils.py,sha256=9sOpRTB1GRCsELrRG9Y06zO7nHIYcT-GOAFwyy7W8xw,3278
+ads_mcp/tools/core.py,sha256=jqC0qnnlO3LhryKB14tD4B6HKE6kjtVru540Jyro1DM,1356
+ads_mcp/tools/search.py,sha256=7-mJERrbTRDqZNUdZy85UgbefNvaQsiMYe5S3qfdGd4,4432
+google_ads_mcp-0.0.1.dist-info/licenses/LICENSE,sha256=xiocxi6F5RoY3dWQlw4D_-RwF2UwM8xRV4H9tEWnql4,11352
+google_ads_mcp-0.0.1.dist-info/METADATA,sha256=OQMwo9w501rCbiyHIIvBb5mKZZtSgHh-yYG5AyMrcIk,8074
+google_ads_mcp-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+google_ads_mcp-0.0.1.dist-info/entry_points.txt,sha256=V4Bm_jm-msF9WorU4N76hWiOc8SGDORr5Za7UOTDFWk,142
+google_ads_mcp-0.0.1.dist-info/top_level.txt,sha256=gSI9fHa3R34nUeDbTFznhBJw5T0Q6ZRnwqfJ2U1ywKE,8
+google_ads_mcp-0.0.1.dist-info/RECORD,,
