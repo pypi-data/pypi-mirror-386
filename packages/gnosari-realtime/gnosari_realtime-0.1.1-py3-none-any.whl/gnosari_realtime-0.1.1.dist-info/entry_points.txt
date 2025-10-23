@@ -1,0 +1,3 @@
+[console_scripts]
+gnosari-realtime-server=gnosari_realtime.server.main:main
+
