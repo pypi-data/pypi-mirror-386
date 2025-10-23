@@ -1,0 +1,2 @@
+[console_scripts]
+pyhiv = pyhiv.cli:cli
