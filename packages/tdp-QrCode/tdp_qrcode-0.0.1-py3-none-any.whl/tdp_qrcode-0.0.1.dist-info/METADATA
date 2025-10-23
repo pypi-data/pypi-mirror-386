@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: tdp-QrCode
+Version: 0.0.1
+Summary: A prefab for TouchDesigner-Projects that will be complelty managed and run by UV.
+Author-email: Wieland Hilker <wieland@plusplus.one>
+Project-URL: Website, https://plusplus.one
+Project-URL: Repository, https://github.com/PlusPlusOneGmbH/tdp-QrCode
+Keywords: TouchDesigner,TOP,QrCode
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: qrcode[pil]>=8.2
+Dynamic: license-file
+
+# TDP QR-CodeGenerator
+Fully implements the TDP Structure.
+
+```uv add tdp-QrCode``` or ```pip install tdp-QrCode```
+
+Use ```mod.TdQrcode.ToxFile``` as refference to implement the external tox.
