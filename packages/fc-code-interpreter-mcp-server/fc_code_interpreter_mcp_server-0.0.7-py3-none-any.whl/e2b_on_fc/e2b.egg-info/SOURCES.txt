@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+e2b/__init__.py
+e2b/connection_config.py
+e2b/exceptions.py
+e2b.egg-info/PKG-INFO
+e2b.egg-info/SOURCES.txt
+e2b.egg-info/dependency_links.txt
+e2b.egg-info/requires.txt
+e2b.egg-info/top_level.txt
