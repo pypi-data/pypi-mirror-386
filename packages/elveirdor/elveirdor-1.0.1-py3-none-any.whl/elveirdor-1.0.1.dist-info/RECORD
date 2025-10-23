@@ -1,0 +1,15 @@
+elveirdor/__init__.py,sha256=XEqb2aiIn8fzGE68Mph4ck1FtQqsR_am0wRWvrYPffQ,22
+elveirdor/cli.py,sha256=MFav87Gcjs9ICtTMJ175ciafhjw02jpxgkTkl_nPsbI,520
+elveirdor/decode.py,sha256=r2_9mpymGPh6Y5QKhHj-tXXqW3DjrmlfAIkMWXwKxHw,451
+elveirdor/export.py,sha256=Ueh6KTothvFnhyw5tW2hGSa0--cs388Bprlhq7U931Y,596
+elveirdor/grid.py,sha256=B37_UemiEG-40OoNFXZ5scmnTCmJ3nU8p6VE2xfv6nE,171
+elveirdor/mosaic.py,sha256=M2-_lDC3mcsC3sqdZyXdTPQhPv26BKLM1PMDt1C4yqY,1221
+elveirdor/pipeline.py,sha256=GDFkqA7wevNuldZxKouNvq1Dcg-jqOwZ0s-bGhDudbo,609
+elveirdor/run_elveirdor.py,sha256=Vp-9sF5xj6wRI7P6zbL1LXxHu4UIJcJuG-xc-xll7CI,4437
+elveirdor/core/__init__.py,sha256=n3EuV247zo_oSb4RAvr1IlPw4jeBw_Mnm0Rkx4ElYXk,102
+elveirdor/core/engine.py,sha256=TChtoRcIrg0yOIa-TPX60u4dOXhTPtFU-rdQkK5HRQU,497
+elveirdor-1.0.1.dist-info/METADATA,sha256=hs1wDtWU1wU2HdlOE1casxsBLbiximDDoui7POGykWo,354
+elveirdor-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+elveirdor-1.0.1.dist-info/entry_points.txt,sha256=LFonT7gaVfxqNuQK2LRkqPfS9NB3oBdBjxr4n709L-I,49
+elveirdor-1.0.1.dist-info/top_level.txt,sha256=vagbTn6enYrJwyOlj3IMZ-LknrsClEn5jS7GACbGdyE,10
+elveirdor-1.0.1.dist-info/RECORD,,
