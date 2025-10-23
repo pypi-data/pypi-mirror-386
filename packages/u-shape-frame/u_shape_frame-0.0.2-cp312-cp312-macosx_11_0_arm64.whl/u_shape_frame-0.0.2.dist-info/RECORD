@@ -1,0 +1,12 @@
+u_shape_frame/__init__.py,sha256=xy5icTVL_-T_uZleOq5SPoLjDLVLWIK0U8whN-ij6kI,21
+u_shape_frame/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+u_shape_frame/core/dataflow.cpython-312-darwin.so,sha256=p9sEv3-BkA9xK2etEf6tN9BKQe_ig9w4eNwlGjIqmIs,79520
+u_shape_frame/core/engine.cpython-312-darwin.so,sha256=d8uqgmGmNVzmrAt3TR5cmQOWJFvnaHQIQj5-NT4gc-0,81232
+u_shape_frame/core/procession.cpython-312-darwin.so,sha256=NCUJwQCKOb_tZ39PB3xwOxUxUTIQcKbb0WY1Ahtzx9g,96784
+u_shape_frame/core/processor.cpython-312-darwin.so,sha256=6B_D5ptAn_eAEginfWLi10eCAccR2yhM2cyPMu1MAHY,80032
+u_shape_frame/core/workflow.cpython-312-darwin.so,sha256=7g7lfDntQfJfSCyKSO3l2VL3jk-gPkQN91wDe35YH90,79696
+u_shape_frame/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+u_shape_frame-0.0.2.dist-info/METADATA,sha256=c7BQprSuDCDupMv5h7WBGChAmiSfZUhlKBj0ppCi1H0,7285
+u_shape_frame-0.0.2.dist-info/WHEEL,sha256=VujM3ypTCyUW6hcTDdK2ej0ARVMxlU1Djlh_zWnDgqk,109
+u_shape_frame-0.0.2.dist-info/top_level.txt,sha256=5XxIfCADHrFA-tIoRRDri43owUVW3dRAUvHtuLEalhs,14
+u_shape_frame-0.0.2.dist-info/RECORD,,

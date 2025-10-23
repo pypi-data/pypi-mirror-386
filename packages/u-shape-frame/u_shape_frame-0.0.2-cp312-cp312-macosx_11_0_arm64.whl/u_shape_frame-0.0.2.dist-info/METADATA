@@ -1,0 +1,258 @@
+Metadata-Version: 2.2
+Name: u-shape-frame
+Version: 0.0.2
+Summary: A U-shaped middleware framework for building data processing pipelines
+Home-page: https://github.com/al6nlee/u-shape-frame
+Author: alan
+Author-email: alanlee.snao@gmail.com
+Project-URL: Bug Reports, https://github.com/al6nlee/u-shape-frame/issues
+Project-URL: Source, https://github.com/al6nlee/u-shape-frame
+Keywords: middleware pipeline dataflow u-shape processor
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: cffi==1.17.1
+Requires-Dist: cryptography==44.0.2
+Requires-Dist: Cython==3.0.12
+Requires-Dist: filelock==3.17.0
+Requires-Dist: pip==25.0
+Requires-Dist: pycparser==2.22
+Requires-Dist: setuptools==75.8.0
+Requires-Dist: wheel==0.45.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# U-Shape Frame
+
+A lightweight U-shaped middleware framework for building data processing pipelines with a unique bidirectional flow pattern.
+
+## Overview
+
+U-Shape Frame is a Python framework that implements a U-shaped processing architecture, where data flows down through a series of processors during the input phase, and then flows back up in reverse order during the output phase. This pattern is particularly useful for building middleware chains, request/response handlers, and data transformation pipelines.
+
+## Key Features
+
+- **U-Shaped Flow Pattern**: Data flows down through processors in forward order (input phase) and back up in reverse order (output phase)
+- **Stateless Processors**: Clean, reusable processor components with separated input/output logic
+- **Workflow Management**: Create and manage multiple processing workflows with different processor chains
+- **Context Sharing**: Share data between processors through a dataflow context
+- **Easy Registration**: Simple processor registration and workflow creation through the Engine
+
+## Installation
+
+```bash
+pip install u-shape-frame
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/al6nlee/u-shape-frame.git
+cd u-shape-frame
+pip install -r requirements.txt
+python setup.py install
+```
+
+## Quick Start
+
+### 1. Define Your Processors
+
+```python
+from u_shape_frame.core.processor import Processor
+
+class LoggingProcessor(Processor):
+    """Log input and output"""
+    name = "Logging"
+
+    def input(self, dataflow):
+        print(f"Request started with: {dataflow.input}")
+        dataflow.set_context("start_time", time.time())
+
+    def output(self, dataflow):
+        duration = time.time() - dataflow.get_context("start_time")
+        print(f"Request completed in {duration}s")
+
+class ValidationProcessor(Processor):
+    """Validate data"""
+    name = "Validation"
+
+    def input(self, dataflow):
+        if "text" not in dataflow.input:
+            raise ValueError("Missing 'text' field")
+
+    def output(self, dataflow):
+        result = dataflow.get_output()
+        if not result:
+            raise ValueError("Output cannot be empty")
+
+class TransformProcessor(Processor):
+    """Transform data"""
+    name = "Transform"
+
+    def input(self, dataflow):
+        text = dataflow.input["text"].strip()
+        dataflow.set_context("cleaned_text", text)
+
+    def output(self, dataflow):
+        text = dataflow.get_context("cleaned_text")
+        result = f"PROCESSED: {text.upper()}"
+        dataflow.set_output(result)
+```
+
+### 2. Create and Run a Workflow
+
+```python
+from u_shape_frame.core.engine import Engine
+
+# Create engine and register processors
+engine = Engine()
+engine.register_processor(LoggingProcessor)
+engine.register_processor(ValidationProcessor)
+engine.register_processor(TransformProcessor)
+
+# Create workflow with processor chain
+workflow = engine.create_workflow(
+    "RequestPipeline",
+    ["Logging", "Validation", "Transform"]
+)
+
+# Create a procession and run
+procession = workflow.create_procession()
+result = procession.run({"text": "  hello world  "})
+
+print(f"Result: {result.output}")
+# Output: PROCESSED: HELLO WORLD
+```
+
+## How It Works
+
+The U-shaped flow pattern processes data in two phases:
+
+```
+Input Phase (Down):
+    Logging.input()
+        Validation.input()
+            Transform.input()
+
+Output Phase (Up - Reverse Order):
+            Transform.output()
+        Validation.output()
+    Logging.output()
+```
+
+This pattern is similar to middleware in web frameworks like Express.js or Django, where each layer can:
+- Preprocess data on the way down (input phase)
+- Postprocess data on the way up (output phase)
+- Share context between phases
+- Validate at appropriate layers
+
+## Architecture
+
+![U-Shape Frame Architecture](./docs/u-shape-frame-architecture.png)
+
+## Core Components
+
+### Processor
+Abstract base class for creating processing units. Each processor must implement:
+- `input(dataflow)`: Called during the downward phase
+- `output(dataflow)`: Called during the upward phase
+
+### Engine
+Global runtime container that manages:
+- Processor registration
+- Workflow creation
+- Processor instance lifecycle
+
+### Workflow
+Defines a processing pipeline by:
+- Organizing processors in a specific order
+- Creating processions for execution
+
+### Procession
+Executes a single run of a workflow:
+- Runs processors in forward order (input phase)
+- Runs processors in reverse order (output phase)
+- Manages dataflow between processors
+
+### Dataflow
+Carries data through the processing pipeline:
+- Stores input data
+- Shares context between processors
+- Holds final output
+
+## Use Cases
+
+- **Request/Response Middleware**: Web request processing with logging, authentication, validation, and transformation
+- **Data Pipelines**: ETL processes with validation and transformation steps
+- **Event Processing**: Event handlers with pre/post processing hooks
+- **API Gateways**: Request preprocessing and response postprocessing
+
+## Requirements
+
+- Python >= 3.10
+- Cython >= 3.0.12
+- cffi >= 1.17.1
+
+See `requirements.txt` for full dependencies.
+
+## Development
+
+### Running Tests
+
+```bash
+cd tests
+python run.py
+```
+
+### Building from Source
+
+```bash
+# Standard installation
+python setup.py install
+
+# Build with Cython
+python setup.py build_ext
+
+# Create distribution
+python setup.py bdist_wheel
+```
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Links
+
+- **GitHub**: https://github.com/al6nlee/u-shape-frame
+- **Bug Reports**: https://github.com/al6nlee/u-shape-frame/issues
+- **Author**: alan (alanlee.snao@gmail.com)
+
+## Changelog
+
+### 0.0.1 (Initial Release)
+- U-shaped flow pattern implementation
+- Core processor, engine, workflow, and procession components
+- Basic example processors
+- Cython build support
