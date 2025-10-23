@@ -1,0 +1,17 @@
+mkdocs_fedi_comments/FediverseLogo.svg,sha256=DetA3Rdre6eaMFiafuyBllagEsMlFEYfq0UqA38HKFY,19735
+mkdocs_fedi_comments/__init__.py,sha256=Dzu-Z7COPAqFjloZXUReDm_5IHyHJr2_1-bubhbvUm4,1792
+mkdocs_fedi_comments/actor.py,sha256=5uOdz4HGgXYcs57zaJbJWvuVMtYBNIkKLOVZ0TP0U2w,486
+mkdocs_fedi_comments/config.py,sha256=B7_KIgaAlXMvbkV5R6KgcIorTj6JNAJstNrB2CCPnB8,212
+mkdocs_fedi_comments/file_maker.py,sha256=RKFjkBapWTQceDVFiuWdi-boWFmz4jKs9YBq-7UdiuQ,542
+mkdocs_fedi_comments/link_maker.py,sha256=dxbZaAI8bh2qHngkzB7HRjiSLS2u8SU90nVNk6aHnCE,546
+mkdocs_fedi_comments/test_actor.py,sha256=AKUeKGt36PKaDeb4WD9ACCdNyQ08BjUL1Uc1PJV9Gec,272
+mkdocs_fedi_comments/test_link_maker.py,sha256=AcpDd37RBSbcmUxrNGbM8rLwEGLR6-B5qbTOmLV1tu4,763
+mkdocs_fedi_comments/version.py,sha256=Wzf5T3NBDfhQoTnhnRNHSlAsE0XMqbclXG-M81Vas70,22
+mkdocs_fedi_comments/assets/dist/comments.js,sha256=qIibjOix2WH4_ZeqKx5ZF1jROl-AxItUpPqr2QjFGCQ,391762
+mkdocs_fedi_comments/overrides/main.html,sha256=AtrwBdqyg1EGqDPEKDe-wPvurL334ZJJV3iT6iHPjxI,353
+mkdocs_fedi_comments/overrides/partials/actions.html,sha256=SxOQHsnaP9zUPA3Qp-bWdKTq68wp2Gkp-IGjA-rOtKw,308
+mkdocs_fedi_comments/overrides/partials/comments.html,sha256=vrgvG4hP5m2jJLPKlsiDSt8Lsbaik-4fY5CoJW2Y81k,260
+mkdocs_fedi_comments-0.1.4.dist-info/METADATA,sha256=j-i5AG8xC7c1tcE2yle7Lvy2bbcdUCK31qZW_ikU-q8,2333
+mkdocs_fedi_comments-0.1.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mkdocs_fedi_comments-0.1.4.dist-info/entry_points.txt,sha256=eUBNn8vI9M1jzSNjRFs2_Y4_KEWLyCQV66fzaqiODLI,61
+mkdocs_fedi_comments-0.1.4.dist-info/RECORD,,
