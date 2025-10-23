@@ -1,0 +1,374 @@
+# Device Simulator
+
+A comprehensive IoT device simulator that connects to Azure IoT Hub and IoT Platform servers. This simulator can provision devices, monitor device twins, send telemetry data, and handle commands according to device type schemas.
+
+## Features
+
+### 🔧 Device Configuration
+
+- **Local Configuration**: Load device configuration from local files if already configured
+- **Interactive CLI Setup**: Command-line interface for device configuration and management
+- **OAuth2 Authentication**: Secure authentication with IoT Platform server
+- **Device Provisioning**: Automatic device creation in IoT Hub
+- **Configuration Management**: Get and set device configurations through IoT Hub
+- **Schema Management**: Download and cache device type schemas locally
+
+### 🔌 Connectivity
+
+- **Azure IoT Hub Integration**: Connect to IoT Hub using device connection strings
+- **Gateway Support**: Connect through configured gateways
+- **SAS Token Authentication**: Secure device authentication
+
+### 📊 Device Twin Monitoring
+
+- **Desired Properties**: Listen for twin configuration changes from IoT Hub
+- **Reported Properties**: Update device status and configurations to IoT Hub only if reported section of the device is empty
+- **Default Configurations**: Apply schema-based default values and sync with IoT Hub
+
+### 📡 Telemetry (D2C Messages)
+
+- **Message Types**:
+  - 🚨 **Events**: Critical notifications and warnings
+  - 📈 **Measurements**: Sensor readings and metrics
+  - ⚡ **Status**: Device health and operational status
+  - 🔧 **FW Debug**: Firmware debugging and diagnostic information
+- **Scheduled Transmission**: Configurable intervals for each message type, on each trigger all the messages of this type will be sent (all events/meausrement/etc)
+- **Schema Compliance**: Values generated according to device type schema
+- **Data Continuity**: Coordinated values based on previous messages
+
+### 🎯 Command Handling (C2D)
+
+- **Command Reception**: Process commands from IoT Platform
+- **Schema Validation**: Verify commands against device type schema
+- **Response Generation**: Automatic success responses when required
+
+## Prerequisites
+
+- Python 3.8 or higher
+- pip package manager
+- Virtual environment
+- Azure IoT Hub instance
+- IoT Platform server with OAuth2 support
+- Device type schemas in IoT Platform server
+
+## Installation
+
+### Quick Setup (Recommended)
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd iot-device-simulator
+
+# Run setup script
+# Windows:
+setup.bat
+# Linux/macOS:
+bash setup.sh
+```
+
+The setup script will:
+1. Create a virtual environment
+2. Install the package in development mode with all dependencies
+3. Copy configuration template
+4. Set up logging directory
+
+### Manual Installation
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+
+# Install package in development mode with all dependencies
+pip install -e ".[dev]"
+
+# Copy configuration template
+copy config\config.template.json config\config.json  # Windows
+# cp config/config.template.json config/config.json  # Linux/macOS
+```
+
+## Configuration
+
+### Local Device Configuration
+
+If you have existing device configuration, create these files:
+
+**`config/device-config.json`**
+
+```json
+{
+  "deviceId": "your-device-id",
+  "gatewayId": "your-gateway-id",
+  "deviceType": "your-device-type",
+  "lastUpdated": "2025-08-24T10:30:00Z"
+}
+```
+
+**`schemas/device-type-schema.json`**
+
+### Application Configuration
+
+**`config/config.json`**
+
+```json
+{
+  "iotPlatform": {
+    "baseUrl": "https://your-iot-platform.com",
+    "oauth2": {
+      "clientId": "your-client-id",
+      "authorization_endpoint": "https://your-authority.your-region.cloudapp.azure.com/application/o/authorize/",
+      "token_endpoint": "https://your-authority.your-region.cloudapp.azure.com/application/o/token/"
+    }
+  },
+  "messaging": {
+    "intervals": {
+      "measurement": 60,
+      "sw_logs": 180,
+      "state": 120,
+      "events": 300
+    },
+    "enabled": {
+      "measurement": true,
+      "sw_logs": false,
+      "state": true,
+      "events": true
+    }
+  }
+}
+```
+
+### Message Type Configuration
+
+The `messaging` configuration has two sections:
+
+- **`intervals`**: How often each message type is sent (in seconds)
+- **`enabled`**: Whether each message type should be sent at all
+
+**Message Types:**
+
+- **measurement**: Sensor readings and metrics
+- 🔧 **sw_logs**: Software logs and debugging information
+- 🔄 **state**: Device state and operational status
+- ⚠️ **events**: Event notifications and alerts
+
+**Default Settings:**
+
+- All message types are **enabled** by default except `sw_logs` (disabled)
+- You can disable any message type by setting its `enabled` value to `false`
+- Disabled message types will not generate telemetry tasks, saving resources
+
+## Usage
+
+### 1. Start the Simulator
+
+```bash
+# Activate virtual environment first (if not already active)
+# Windows:
+venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+
+# Start the simulator (modern way)
+iot-simulator
+
+# Alternative way
+python main.py
+```
+
+### 2. Device Configuration Flow
+
+#### Option A: Pre-configured Device
+
+If `config/device-config.json` and corresponding schema exist:
+
+- ✅ Device automatically starts tracking
+- 🔗 Connects to IoT Hub using stored connection string
+- 📊 Begins twin monitoring and telemetry transmission
+
+#### Option B: New Device Setup
+
+If no local configuration exists:
+
+1. **🌐 CLI-based Authorization**
+
+   - Follow OAuth2 login prompts in terminal
+   - Authenticate with IoT Platform credentials via browser
+   - Grant device management permissions
+
+2. **⚙️ Device Configuration via CLI**
+
+   - **Fill Device Details**:
+
+     - Enter Device ID through command prompts
+     - Select from available Managed Groups (displayed in terminal)
+     - Choose Device Type from server list (interactive menu)
+     - Provision new device in IoT Hub
+     - Set initial configurations in IoT Hub device twin
+
+   - **OR Choose Existing Device**:
+     - Select from available devices list displayed in terminal
+     - Get device configurations from IoT Hub device twin
+     - Get selected device data from server: id, gateway id, managed-group, type.
+
+3. **💾 Schema Download**
+   - Device type schema downloaded from IoT Platform
+   - Configuration saved locally for future use
+
+### 3. Runtime Operations
+
+#### Twin Configuration Monitoring
+
+```
+[TWIN] Listening for desired property changes from IoT Hub...
+[TWIN] Applied default configurations from schema to IoT Hub
+[TWIN] Desired property updated from IoT Hub: telemetryInterval = 45
+[TWIN] Reported property set to IoT Hub: telemetryInterval = 45
+```
+
+#### Telemetry Transmission
+
+```
+[D2C] Sending measurement: {"temperature": 23.5, "humidity": 65.2}
+[D2C] Sending status: {"batteryLevel": 85, "signalStrength": -67}
+[D2C] Sending alert: {"type": "highTemperature", "value": 78.2}
+[D2C] Sending sw_logs: {"firmware_version": "1.2.3", "memory_usage": 65, "cpu_temp": 42}
+```
+
+#### Command Handling
+
+```
+[C2D] Received command: reboot
+[C2D] Command validated against schema
+[C2D] Sending response: {"status": "success", "timestamp": "2025-08-24T10:30:00Z"}
+```
+
+## Project Structure
+
+```
+device-simulator/
+├── src/
+│   ├── auth/                 # OAuth2 authentication
+│   ├── config/              # Configuration management
+│   ├── connectivity/         # IoT Hub connection
+│   ├── twin/                # Device Twin handling
+│   ├── telemetry/           # D2C message generation
+│   ├── commands/            # C2D command processing
+│   ├── cli/                 # Command-line interface for setup
+│   └── utils/               # Shared utilities
+├── config/
+│   ├── config.json          # Application configuration
+│   ├── device-config.json   # Device-specific config
+│   └── config.template.json # Configuration template
+├── schemas/                 # Device type schemas
+├── logs/                    # Application logs
+├── requirements.txt         # Python dependencies
+├── main.py                  # Application entry point
+└── README.md
+```
+
+## Logging
+
+The simulator provides detailed logging for all operations:
+
+- **🔐 Authentication**: OAuth2 flow, token management
+- **⚙️ Configuration**: Device setup, schema downloads
+- **🔗 Connectivity**: IoT Hub connections, reconnection attempts
+- **👥 Twin Operations**: Desired/reported property changes
+- **📡 Telemetry**: Message generation and transmission
+- **🎯 Commands**: Command reception and response generation
+
+Logs are written to both console and `logs/simulator.log` file.
+
+## Error Handling
+
+### Common Issues
+
+**Authentication Failures**
+
+```bash
+# Clear stored tokens
+del config\auth-tokens.json  # Windows
+# rm config/auth-tokens.json  # Linux/macOS
+python main.py
+```
+
+**Connection Issues**
+
+```bash
+# Verify connection string
+python -m src.utils.verify_connection
+```
+
+**Schema Validation Errors**
+
+```bash
+# Re-download schema
+python -m src.config.refresh_schema
+```
+
+## Development
+
+### Development Setup
+
+The project uses modern Python packaging with `pyproject.toml`. Development dependencies are automatically installed with the `[dev]` extra.
+
+```bash
+# Install in development mode with all tools
+pip install -e ".[dev]"
+```
+
+### Available Development Commands
+
+```bash
+# Code formatting
+black .                    # Format all Python files
+isort .                   # Sort imports
+
+# Linting
+ruff check .              # Fast Python linter
+mypy .                    # Type checking
+
+# Testing
+pytest                    # Run all tests
+pytest tests/ -v          # Verbose test output
+pytest --cov=simulator    # Run tests with coverage
+
+# Build and install
+pip install -e .          # Install package locally
+pip install -e ".[dev]"   # Install with dev dependencies
+```
+
+### Project Structure
+
+```
+├── pyproject.toml        # Modern Python packaging configuration
+├── main.py              # Legacy entry point (wrapper)
+├── simulator/           # Main package
+│   ├── main.py         # Primary application entry point
+│   ├── auth/           # OAuth2 authentication
+│   ├── config/         # Configuration management  
+│   ├── connectivity/   # IoT Hub client
+│   ├── device_setup/   # Device configuration
+│   ├── provisioning/   # API-based provisioning
+│   ├── telemetry/      # Telemetry sender
+│   ├── twin/           # Device twin manager
+│   └── utils/          # Utilities and logging
+├── config/             # Configuration files
+├── tests/              # Test suite
+└── logs/               # Application logs
+```
+
+**Entry Points:**
+- `iot-simulator` - Modern console command (recommended)
+- `python main.py` - Legacy compatibility wrapper
+- `python -m simulator.main` - Direct module execution
+
+---
+
+**Device Simulator** - Bridging the gap between IoT devices and cloud platforms with intelligent simulation and monitoring capabilities.
