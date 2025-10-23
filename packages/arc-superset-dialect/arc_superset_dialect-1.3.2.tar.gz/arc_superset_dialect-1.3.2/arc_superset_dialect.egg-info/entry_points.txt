@@ -1,0 +1,2 @@
+[sqlalchemy.dialects]
+arc.json = arc_dialect_json:ArcDialect
