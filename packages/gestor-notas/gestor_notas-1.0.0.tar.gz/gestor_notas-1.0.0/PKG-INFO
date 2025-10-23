@@ -1,0 +1,245 @@
+Metadata-Version: 2.4
+Name: gestor_notas
+Version: 1.0.0
+Summary: Un gestor de notas en consola con persistencia mediante Pickle.
+Home-page: https://github.com/aurisssssdev/gestor_notas
+Author: Aurisssss
+Author-email: aurisssss@protonmail.com
+Project-URL: PyPI, https://pypi.org/project/gestor-notas/
+Project-URL: Bug Tracker, https://github.com/aurisssssdev/gestor_notas/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-python
+Dynamic: summary
+
+# 📝 Gestor de Notas
+
+**Gestor de Notas** es una aplicación de consola en **Python 3** que permite **crear, buscar, editar, eliminar y cargar notas** fácilmente desde un menú interactivo.  
+Las notas se guardan automáticamente en un archivo persistente (`notas.pkl`) utilizando el módulo `pickle`.
+
+---
+
+## 🚀 Instalación
+
+Instala el paquete desde **PyPI** con:
+
+```bash
+pip install --break-system-packages gestor_notas
+```
+
+O instálalo localmente (si tienes el código fuente):
+
+```bash
+pip install .
+```
+
+---
+
+## ⚙️ Uso rápido
+
+Ejecuta el programa directamente desde la terminal:
+
+```bash
+gestor_notas
+```
+
+> 💡 También puedes ejecutarlo manualmente con:
+> ```bash
+> python3 -m gestor_notas.main
+> ```
+
+---
+
+## 📖 Menú principal
+
+Cuando inicies el programa, verás un menú similar a este:
+
+```
+---------------------
+	MENÚ
+---------------------
+1. Cargar notas desde archivo
+2. Ver todas las notas
+3. Agregar una nota
+4. Buscar texto en una nota
+5. Editar una nota
+6. Abrir nota por número de índice
+7. Eliminar notas
+8. Salir
+```
+
+A continuación se explica cada opción 👇
+
+---
+
+## 🧩 Explicación de cada opción
+
+### 1️⃣ Cargar notas desde archivo
+Permite importar varias notas desde un archivo de texto (`tareas.txt` por defecto).  
+Cada línea del archivo se convertirá en una nota independiente.
+
+**Ejemplo de `tareas.txt`:**
+```
+revisar correo -> Pendiente
+preparar reunión >> Hecho
+actualizar sistema -> En progreso
+```
+
+**Flujo:**
+- Si no escribes nombre, se usa `tareas.txt` por defecto.  
+- Si el archivo no existe, mostrará un mensaje de error.
+
+---
+
+### 2️⃣ Ver todas las notas
+Muestra una lista numerada de todas las notas guardadas en el sistema.
+
+Además, ofrece la opción de eliminar notas directamente:
+- Escribe el número de la nota → elimina solo esa.  
+- Escribe `all` → elimina **todas las notas** (requiere confirmación).  
+- Pulsa Enter → no borra ninguna.
+
+---
+
+### 3️⃣ Agregar una nota
+Permite añadir una nueva nota al sistema.
+
+**Flujo:**
+1. Pregunta en qué posición deseas insertar la nota:
+   - Deja vacío (Enter) para agregarla al final.
+   - Indica un número (por ejemplo, `2`) para insertarla en esa posición.
+2. Luego pide el contenido de la nota.
+
+**Ejemplo:**
+```
+[+] Indica la posición donde insertar la nota (Enter para final): 1
+[+] Contenido de la nota: Llamar a Juan
+```
+
+---
+
+### 4️⃣ Buscar texto en una nota
+Busca coincidencias de texto dentro de todas las notas (sin importar mayúsculas o minúsculas).  
+Muestra las notas encontradas junto a su número de índice original.
+
+**Ejemplo:**
+```
+[+] Ingresa el texto a buscar en las notas: proyecto
+[+] Notas que coinciden con el texto:
+
+[3]: Revisar proyecto del cliente
+[8]: Proyecto nuevo -> Pendiente
+```
+
+También permite eliminar las notas encontradas (`número`, `all`, o Enter para cancelar).
+
+---
+
+### 5️⃣ Editar una nota
+Permite modificar el contenido de una nota existente.
+
+**Flujo:**
+1. Muestra la lista de notas actuales.  
+2. Pide el número de la nota a editar.  
+3. Solicita el nuevo contenido.
+
+**Ejemplo:**
+```
+[+] Indica el número de la nota a editar: 3
+[+] Nuevo contenido de la nota: Revisar proyecto finalizado
+```
+
+---
+
+### 6️⃣ Abrir nota por número de índice
+Muestra en pantalla el contenido de una nota específica, indicada por su número de índice.
+
+**Ejemplo:**
+```
+[+] Indica el número de índice a mostrar: 4
+Nota #4:
+buscar redes wifi >> Pendiente
+```
+
+---
+
+### 7️⃣ Eliminar notas
+Permite eliminar notas individuales o todas las existentes.
+
+- Introduce un número → elimina esa nota (con confirmación).
+- Escribe `all` → elimina todas las notas (requiere confirmación).
+- Pulsa Enter → cancela la operación.
+
+**Ejemplo:**
+```
+[?] ¿Deseas eliminar alguna nota? (número, 'all' o Enter para no): all
+[!] ¿Seguro que deseas eliminar TODAS las notas? (s/n): s
+[+] Todas las notas han sido eliminadas.
+```
+
+---
+
+### 8️⃣ Salir
+Termina el programa de forma segura.
+
+---
+
+## 🧠 Atajos útiles
+
+- **Enter** → Avanza al siguiente paso sin limpiar pantalla.  
+- **Ctrl+L** → Limpia la pantalla y vuelve a mostrar el menú principal.
+
+---
+
+## 📦 Estructura del proyecto
+
+```
+gestor_notas/
+├── gestor_notas/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── notas.py
+│   └── gestor_notas.py
+│   └── tareas.txt
+├── README.md
+├── LICENSE
+├── setup.py
+├── setup.cfg
+└── pyproject.toml
+```
+
+---
+
+## 🧑‍💻 Autor
+
+**Aurisssss**  
+📧 aurisssssprotonmail.com  
+🌐 [GitHub](https://github.com/aurisssss)
+🌐 [Pypi] (https://pypi.org/search/?q=aurisssss)
+
+Créditos:
+Este proyecto nace de un pequeño proyecto que se realizó en una clase de la academia www.Hack4u.io, que posteriormente añadí varias funciones nuevas y modifiqué el codigo para mis necesidades...:
+    S4vitar >> propietario de la academia Hack4u
+
+---
+
+## ⚖️ Licencia
+
+Publicado bajo licencia **MIT**.  
+Eres libre de usar, modificar y distribuir este software con fines personales o educativos.
+
+---
+
+⭐ Si este proyecto te ha resultado útil, ¡no olvides dejar una estrella en GitHub! ⭐

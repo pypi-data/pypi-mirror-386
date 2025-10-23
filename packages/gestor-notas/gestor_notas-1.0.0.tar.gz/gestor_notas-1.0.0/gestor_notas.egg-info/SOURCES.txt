@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+gestor_notas/__init__.py
+gestor_notas/gestor_notas.py
+gestor_notas/main.py
+gestor_notas/notas.py
+gestor_notas.egg-info/PKG-INFO
+gestor_notas.egg-info/SOURCES.txt
+gestor_notas.egg-info/dependency_links.txt
+gestor_notas.egg-info/entry_points.txt
+gestor_notas.egg-info/not-zip-safe
+gestor_notas.egg-info/top_level.txt
