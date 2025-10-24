@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luxforge-foundry"
+version = "1.0.4"
+description = "Audit-grade logging and modular tooling for LuxForge Foundry systems"
+authors = [
+    { name = "LuxForge", email = "lab@luxforge.dev" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["keyboard"]
+
+[project.urls]
+Homepage = "https://github.com/lux-forge/foundry"
+Repository = "https://github.com/lux-forge/foundry"
+Issues = "https://github.com/lux-forge/foundry/issues"
