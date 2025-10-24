@@ -1,0 +1,42 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - "v*"  # Triggers on tags like v0.1.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+        id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Validate version matches tag
+        run: |
+            PYPROJECT_VERSION=$(grep '^version = ' pyproject.toml | cut -d'"' -f2)
+            TAG_VERSION=${GITHUB_REF#refs/tags/v}
+            if [ "$PYPROJECT_VERSION" != "$TAG_VERSION" ]; then
+            echo "Version mismatch: pyproject.toml ($PYPROJECT_VERSION) != tag ($TAG_VERSION)"
+            exit 1
+            fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Install dependencies from uv.lock
+        run: uv sync --no-dev
+
+      - name: Build package
+        run: |
+          uv pip install --upgrade build
+          uv run python -m build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
