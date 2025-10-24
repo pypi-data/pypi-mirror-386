@@ -1,0 +1,3 @@
+[console_scripts]
+generate-manifests = ti.cli.generate_manifests:main
+validate-tei = ti.cli.validate_tei:main
