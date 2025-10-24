@@ -1,0 +1,4 @@
+[console_scripts]
+hogwarts-agent = hogwarts_ai_agent.__main__:main
+hogwarts-ai-agent = hogwarts_ai_agent.__main__:main
+hogwarts-playwright-agent = hogwarts_ai_agent.__main__:main
