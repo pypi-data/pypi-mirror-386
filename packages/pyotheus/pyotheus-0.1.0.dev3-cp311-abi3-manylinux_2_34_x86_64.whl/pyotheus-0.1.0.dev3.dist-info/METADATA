@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: pyotheus
+Version: 0.1.0.dev3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Rust
+Classifier: Topic :: System :: Monitoring
+License-File: LICENSE
+Author-email: Doug Davis <ddavis@ddavis.io>
+Maintainer-email: Doug Davis <ddavis@ddavis.io>
+License-Expression: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# pyotheus
+
+[![ci](https://github.com/douglasdavis/pyotheus/actions/workflows/ci.yml/badge.svg)](https://github.com/douglasdavis/pyotheus/actions/workflows/ci.yml)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyotheus)
+
+Prometheus client library for Python, built with
+[PyO3](https://pyo3.rs) and the [`prometheus_client`](https://docs.rs/prometheus-client/latest/prometheus_client/) crate.
+
