@@ -1,0 +1,37 @@
+release-date = "2022-03-17"
+
+[[entries]]
+id = "87f91954-3ff2-48f1-82cd-a3d551af283c"
+type = "feature"
+description = "Add `Type.get_orig_bases()`"
+author = "@NiklasRosenstein"
+
+[[entries]]
+id = "749c7398-3bbe-45e2-aeeb-bd70092695ed"
+type = "feature"
+description = "Add `Type.get_orig_bases_parametrized()`"
+author = "@NiklasRosenstein"
+
+[[entries]]
+id = "777d1f85-ea76-488a-8056-28ad8eebf01c"
+type = "fix"
+description = "Fix `infuse_type_parameters()` to replace sole `typeapi.TypeVar` instead of only occurrences in `typeapi.Type.args`"
+author = "@NiklasRosenstein"
+
+[[entries]]
+id = "1fb68bc1-7e94-480d-a5c6-a270c6759074"
+type = "fix"
+description = "Fix `infuse_type_parameters()` to replace sole `typeapi.TypeVar` instead of only occurrences in `typeapi.Type.args`"
+author = "@NiklasRosenstein"
+
+[[entries]]
+id = "75a3ceb3-4ad8-488c-8e06-629a8603c5d8"
+type = "fix"
+description = "Fix `Type.get_parameter_mapping()` return annotation"
+author = "@NiklasRosenstein"
+
+[[entries]]
+id = "5a42370a-4d14-4ac7-9f3b-e93fbc866bb5"
+type = "fix"
+description = "Fix `infuse_type_parameters()` to handle plain `typeapi.TypeVar` and not just the like in `typeapi.Type.args`"
+author = "@NiklasRosenstein"

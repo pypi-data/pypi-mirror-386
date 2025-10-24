@@ -1,0 +1,7 @@
+release-date = "2022-03-23"
+
+[[entries]]
+id = "8568e3ad-ee9e-4851-853b-c47ac75b1966"
+type = "feature"
+description = "add `typeapi.utils.unwrap()`"
+author = "@NiklasRosenstein"
