@@ -1,0 +1,15 @@
+heaserver/folderawss3/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+heaserver/folderawss3/awsservicelib.py,sha256=vOm0kIb3bUGdUciWDSmgjv3WaossOL_fgiBoucgmH6k,93329
+heaserver/folderawss3/fileservice.py,sha256=J21laoOAcj0wFHfolyXZltNOuxexA1EgxzbqI1VuI9w,103434
+heaserver/folderawss3/projectservice.py,sha256=RaXfcey7-370hrvJ3WBr_6MERRsczu9phUr0uK06DQ4,152385
+heaserver/folderawss3/service.py,sha256=NlgC8sae3an2iBc3CSb2xgje8TevOufEnMAqhroUrYI,180803
+heaserver/folderawss3/storageservice.py,sha256=zJkCBGUXuYbkO15QZTflFUvkKiPkQiBvAqNzx6ebN90,12426
+heaserver/folderawss3/trashservice.py,sha256=cTf82_adk3p6d6Aq-XCJthQkM4SYPfQf4OzYBR7PPsI,58327
+heaserver/folderawss3/util.py,sha256=eafpCBjusEfFJ7KyeTTl1XoF2KIweyMaLYzIvD0T-io,70024
+heaserver/folderawss3/wstl/all.json,sha256=JgP0pm-X9n0sino4WS8qVnawx7deyJZL5jDEkqjILsc,66143
+heaserver_folders_aws_s3-1.18.1.dist-info/licenses/LICENSE,sha256=7OGLr2mf4iOKsoeZ4ePSVZDkkPK3SlM00ZmlQF3EN7U,11625
+heaserver_folders_aws_s3-1.18.1.dist-info/METADATA,sha256=fSiBbdTFgzlmjBQnE1OIRymbDYB2ZILwRZzxFAzzo8w,17740
+heaserver_folders_aws_s3-1.18.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+heaserver_folders_aws_s3-1.18.1.dist-info/entry_points.txt,sha256=8YbDEMzEeVGqnIwNks4QaSSD5qmJ01fly_76Pfn2EsM,80
+heaserver_folders_aws_s3-1.18.1.dist-info/top_level.txt,sha256=NkEy5wN6upFmnDxEJ8pTX7gUpWeFPfDhk7zvlMeOv7M,10
+heaserver_folders_aws_s3-1.18.1.dist-info/RECORD,,
