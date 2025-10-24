@@ -1,0 +1,2 @@
+[console_scripts]
+gradio-mcp-agent-hack = app:main
