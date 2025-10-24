@@ -1,0 +1,63 @@
+# Doxyfile.in
+
+# Project information
+PROJECT_NAME           = @PROJECT_NAME@
+PROJECT_VERSION        = @PyProject_VERSION@
+OUTPUT_DIRECTORY       = @CMAKE_CURRENT_BINARY_DIR@
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+# Source code
+INPUT                  = @PROJECT_SOURCE_DIR@/include/urlparser.h @PROJECT_SOURCE_DIR@/include @PROJECT_SOURCE_DIR@/docs/cpp/mainpage.md @PROJECT_SOURCE_DIR@/docs/cpp/images
+FILE_PATTERNS          = *.cpp *.h *.hpp *.md *.svg
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = */tests*/* */build/* */dist/*
+
+# Documentation settings
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_PACKAGE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = NO
+HIDE_SCOPE_NAMES       = NO
+SHOW_INCLUDE_FILES     = YES
+SHOW_GROUPED_MEMB_INC  = YES
+SORT_MEMBER_DOCS       = YES
+SORT_BRIEF_DOCS        = YES
+SORT_MEMBERS_CTORS_1ST = YES
+SORT_GROUP_NAMES       = YES
+
+# Diagrams and graphs
+HAVE_DOT               = YES
+UML_LOOK               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_IMAGE_FORMAT       = SVG
+INTERACTIVE_SVG        = YES
+
+# HTML output
+HTML_DYNAMIC_SECTIONS  = YES
+HTML_TIMESTAMP         = YES
+SEARCHENGINE           = YES
+GENERATE_TREEVIEW      = YES
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
+HTML_COLORSTYLE        = LIGHT # required with Doxygen >= 1.9.5
+
+USE_MDFILE_AS_MAINPAGE = @PROJECT_SOURCE_DIR@/docs/cpp/mainpage.md
+
+# Image handling
+IMAGE_PATH             = @PROJECT_SOURCE_DIR@/docs/cpp/images
+
+# HTML styling with awesome-css
+HTML_EXTRA_STYLESHEET  = @PROJECT_SOURCE_DIR@/third_party/doxygen-awesome-css/doxygen-awesome.css
+HTML_EXTRA_FILES       = @PROJECT_SOURCE_DIR@/third_party/doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js \
+                         @PROJECT_SOURCE_DIR@/third_party/doxygen-awesome-css/doxygen-awesome-fragment-copy-button.js \
+                         @PROJECT_SOURCE_DIR@/third_party/doxygen-awesome-css/doxygen-awesome-paragraph-link.js \
+                         @PROJECT_SOURCE_DIR@/third_party/doxygen-awesome-css/doxygen-awesome-interactive-toc.js
+
+HTML_HEADER            = @PROJECT_SOURCE_DIR@/docs/cpp/header.html
+
+# End of Doxyfile.in
