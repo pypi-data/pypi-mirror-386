@@ -1,0 +1,2 @@
+[console_scripts]
+qc2plus = qc2plus.cli:main
