@@ -1,0 +1,3 @@
+[console_scripts]
+vldb-toolkits = vldb_toolkits.cli:main
+vldb_toolkits = vldb_toolkits.cli:main
