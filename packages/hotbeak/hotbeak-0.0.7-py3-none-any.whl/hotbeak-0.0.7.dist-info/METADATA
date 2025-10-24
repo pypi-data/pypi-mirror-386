@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: hotbeak
+Version: 0.0.7
+Summary: When your beak just won't cool down.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: daytona>=0.111.1
+Requires-Dist: deepagents>=0.1.1
+Requires-Dist: langchain>=1.0.0
+Requires-Dist: langchain-anthropic>=1.0.0
+Requires-Dist: pytest>=8.4.2
+Requires-Dist: pytest-asyncio>=1.2.0
+Requires-Dist: tavily-python>=0.7.12
+Requires-Dist: textual>=6.3.0
+
+# Hotbeak
