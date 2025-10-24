@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-aws-documentation = mcp_server_aws_documentation.main:main
