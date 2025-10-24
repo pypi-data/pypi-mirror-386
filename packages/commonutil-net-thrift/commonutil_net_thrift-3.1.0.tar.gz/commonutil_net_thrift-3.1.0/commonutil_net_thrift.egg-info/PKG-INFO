@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: commonutil-net-thrift
+Version: 3.1.0
+Summary: Helper routine for Thrift
+License-Expression: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# commonutil-net-thrift
+
+This package provides helper routines for Thrift RPC clients.

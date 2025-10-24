@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "commonutil-net-thrift"
+version = "3.1.0"	# REV-CONSTANT:rev 5d022db7d38f580a850cd995e26a6c2f
+description = "Helper routine for Thrift"
+readme = "README.md"
+requires-python = ">= 3.8"
+classifiers = [
+	"Development Status :: 5 - Production/Stable",
+	"Intended Audience :: Developers",
+	"Operating System :: POSIX",
+	"Programming Language :: Python :: 3.8",
+]
+license = "MIT"
+
+[tool.setuptools.packages.find]
+include = ["commonutil_net_thrift*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "*.pyi"]
