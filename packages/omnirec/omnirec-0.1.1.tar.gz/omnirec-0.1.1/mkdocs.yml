@@ -1,0 +1,93 @@
+site_name: OmniRec Docs
+site_url: https://omnirec.recommender-systems.com
+
+nav:
+  - Home: 
+      - Overview: index.md
+      - About Us: about_us.md
+  - User Guide:
+      - Getting Started: getting_started.md
+      - Loading Datasets: loading_datasets.md
+      - Datasets Overview: datasets_overview.md
+      - Preprocessing Pipeline: preprocessing.md
+      - Configure Algorithms: conf_algo.md
+      - Algorithms Overview: algorithms_overview.md
+      - Evaluator: evaluator.md
+      - Checkpointing and Results: checkpointing.md
+      - SLURM Integration: slurm_integration.md
+  - API Reference: API_references.md
+
+theme: 
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - content.code.copy
+    - navigation.sections
+    - toc.integrate
+  toc_depth: 2
+  palette:
+
+  # Palette toggle for automatic mode
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
+
+  # Palette toggle for light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default 
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+
+    primary: blue grey
+    accent: amber
+
+  # Palette toggle for dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    toggle:
+      icon: material/weather-night
+      name: Switch to system preference
+
+    primary: blue grey
+    accent: amber
+  
+  code:
+    highlight_theme: material
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            show_root_toc_entry: false
+            heading_level: 3
+            members_order: source
+            show_if_no_docstring: false
+            merge_init_into_class: true
+            show_symbol_type_heading: true
+            show_signature_annotations: true
+            show_signature: true
+            show_bases: true
+            filters:
+              - "!^_"
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
