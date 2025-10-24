@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+yoki/__init__.py
+yoki/cli.py
+yoki/config.py
+yoki/executor.py
+yoki/translator.py
+yoki/utils.py
+yoki_terminal.egg-info/PKG-INFO
+yoki_terminal.egg-info/SOURCES.txt
+yoki_terminal.egg-info/dependency_links.txt
+yoki_terminal.egg-info/entry_points.txt
+yoki_terminal.egg-info/requires.txt
+yoki_terminal.egg-info/top_level.txt

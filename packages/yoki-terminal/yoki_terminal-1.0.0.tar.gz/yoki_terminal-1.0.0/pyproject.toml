@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yoki-terminal"
+version = "1.0.0"
+description = "AI-powered natural language → terminal command converter"
+authors = [{name="Vivek Sharma"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.12.0",
+    "python-dotenv>=1.0.1",
+    "google-generativeai>=0.3.0"
+]
+
+[project.scripts]
+yoki = "yoki.cli:app"
