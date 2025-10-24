@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+osm_changeset_brain/__init__.py
+osm_changeset_brain/lorem_ipsum.py
+osm_changeset_brain.egg-info/PKG-INFO
+osm_changeset_brain.egg-info/SOURCES.txt
+osm_changeset_brain.egg-info/dependency_links.txt
+osm_changeset_brain.egg-info/top_level.txt
