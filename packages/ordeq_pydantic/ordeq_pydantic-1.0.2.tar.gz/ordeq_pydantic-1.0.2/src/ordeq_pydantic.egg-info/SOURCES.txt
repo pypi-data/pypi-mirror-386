@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/ordeq_pydantic/__init__.py
+src/ordeq_pydantic/_version.py
+src/ordeq_pydantic/json.py
+src/ordeq_pydantic/model.py
+src/ordeq_pydantic/py.typed
+src/ordeq_pydantic.egg-info/PKG-INFO
+src/ordeq_pydantic.egg-info/SOURCES.txt
+src/ordeq_pydantic.egg-info/dependency_links.txt
+src/ordeq_pydantic.egg-info/requires.txt
+src/ordeq_pydantic.egg-info/top_level.txt
