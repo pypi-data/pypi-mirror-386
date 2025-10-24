@@ -1,0 +1,12 @@
+mcp_package_hero/__init__.py,sha256=pDX7M7xDVE7b9anzT9GSf6F_kfVgn_CAi7XokBu2aG4,257
+mcp_package_hero/models.py,sha256=4nbFBZtrSPSM1msPrBTr-GeQdRFbqsfY19RR3tnptag,1780
+mcp_package_hero/registries/__init__.py,sha256=_cYEUfNFdC5tzYe8S52zrCslX9VZFD47u8nuBfBFKoU,236
+mcp_package_hero/registries/base.py,sha256=g1KhNN9Q_aizamS1bcPR9U649OrtUXbWVd8R2iR0qro,2127
+mcp_package_hero/registries/npm.py,sha256=TrsPW9j4XwcKqoEfhPEz78zb7UE3oA5szPQSxJMiQdE,2124
+mcp_package_hero/registries/pubdev.py,sha256=aBrUJEM5Q37Ru1b9GqXTvLHG-o9Ua0_yurppY9TSXB4,2133
+mcp_package_hero/registries/pypi.py,sha256=YfREIR2IqXNJyKRm1qyg3mDp8lYay33ZMPvk9IZIXMs,2121
+mcp_package_hero/server.py,sha256=Dbs7ldeMsaAm38cV49ucSMXDOumVRhMujNvNQErqH7k,4413
+mcp_package_hero-1.0.0.dist-info/WHEEL,sha256=n2u5OFBbdZvCiUKAmfnY1Po2j3FB_NWfuUlt5WiAjrk,79
+mcp_package_hero-1.0.0.dist-info/entry_points.txt,sha256=6oUggN3wYQ88eOu35abYBlZOsh-8n5WNRFr6G24lQH0,70
+mcp_package_hero-1.0.0.dist-info/METADATA,sha256=8qFq6XVGA7Nj5VcNDtgBqi0cnexpw8dh-cgp1_e-et0,8429
+mcp_package_hero-1.0.0.dist-info/RECORD,,
