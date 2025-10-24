@@ -1,0 +1,15 @@
+goldie/__about__.py,sha256=0jeX3I4lEAFZtjs3hyYSko79cUjswNAq8UT1T_VlOvQ,23
+goldie/__init__.py,sha256=-OIcH8XQxqWXuP5UURCP-HKE92yRUojVP9w82DrzkSM,1286
+goldie/comparison.py,sha256=k2-vDqVgXu4Ml_mEjfKKyybw-vPat0BJN_JWm8tPyys,11769
+goldie/diff.py,sha256=hGi9_7VCOOWTVvDs9snpo1cBh06y4vp2VpRG_cDUpzo,3037
+goldie/execution.py,sha256=2Lr2LKFuEuXoD9OBPQUtjLDIOHk5ulejR3LX9fG1HKA,3501
+goldie/testing.py,sha256=6iO3FMzvvJnb3Fln4efBajK5Ja1wj9Dey-V0QFkT2oI,6074
+goldie/update.py,sha256=S6RfOSq86oBWg34lTVjJuHfJvmEOquGS3QHRLvdZ4sU,130
+goldie/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+goldie/tests/test_diff.py,sha256=4uf9_HtuKks1RWbJFbmEBJEQJXLwT8HInOAOr_7bMZ8,947
+goldie/tests/testdata/comparison-1.txt,sha256=icmkU9QdDWIYjO_rYqki2R89k6ggaN1IX8s24R5W8eY,907
+goldie/tests/testdata/comparison-2.txt,sha256=3N-COXNMqQSepmUtnJLIH3hrr-yMEV6u5USurT1giaM,906
+goldie-0.1.8.dist-info/METADATA,sha256=i8V9XNC9niRJBxBuqU-o-Y8e1cGZAkRFP2bnTt6Edu4,4147
+goldie-0.1.8.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+goldie-0.1.8.dist-info/licenses/LICENSE,sha256=5oc3fYmanF8vrDh_sr9HgCxwsJv2sUvGvBIocbfwk08,1077
+goldie-0.1.8.dist-info/RECORD,,
