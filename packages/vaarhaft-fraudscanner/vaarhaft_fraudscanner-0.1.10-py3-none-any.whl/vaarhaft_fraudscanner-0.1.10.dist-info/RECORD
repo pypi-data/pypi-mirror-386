@@ -1,0 +1,14 @@
+vaarhaft/__init__.py,sha256=DRCzKoMCrvCHAg_AuSmLlERrXuda-0d2jE1tU6ysdCQ,140
+vaarhaft/fraudscanner/__init__.py,sha256=ePQVdVvgFRzo91ahJ0hk4Dy_wfUyjXxk9daIPXrZkVM,858
+vaarhaft/fraudscanner/client.py,sha256=HkJezfDiy1k9U9LhjMss_1KSv3foJvJfIyrJn7MNB2Y,14000
+vaarhaft/fraudscanner/config.py,sha256=DB-2ynPhNZq_TuZVcjQK7H1D-M5jEo6Bx-hPlkBGYCE,219
+vaarhaft/fraudscanner/request.py,sha256=1L0sbrH8EfszZ5UgryoX27HFK9KY88PorRiPq-iHlbA,9334
+vaarhaft/fraudscanner/response/__init__.py,sha256=j4MudOoLF1zbHWG_gcCGKZ0YI2U5kDXhm-yEvyBuo1Y,663
+vaarhaft/fraudscanner/response/base.py,sha256=nUXzQEKFRgFKXndvzOFXbk8KTz0TqygdamA7vuzVeos,4385
+vaarhaft/fraudscanner/response/enums.py,sha256=nm77Zw3jq5qwRHIqSZuzfCY-jhNfCkQ9YKJanbIeU0Q,1698
+vaarhaft/fraudscanner/response/models.py,sha256=WvTTChfw3vo8q2mBi869hZg7aVyX72mt0UPxo3wypOo,21654
+vaarhaft_fraudscanner-0.1.10.dist-info/licenses/LICENSE,sha256=8gNu1bE2kFdAMIa4xYL3a-QUj2KLv17PNBCzreI-h60,1064
+vaarhaft_fraudscanner-0.1.10.dist-info/METADATA,sha256=7XfTVHMhEbNq3DRjrTewsXttEgTLqmDJXWBMlSN86E4,6927
+vaarhaft_fraudscanner-0.1.10.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+vaarhaft_fraudscanner-0.1.10.dist-info/top_level.txt,sha256=S5E2T__yTT1cjQaDpv-nMDVcL4m4CWU2zGrowCzwdnw,9
+vaarhaft_fraudscanner-0.1.10.dist-info/RECORD,,
