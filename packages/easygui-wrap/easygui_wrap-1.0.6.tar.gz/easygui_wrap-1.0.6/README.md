@@ -1,0 +1,57 @@
+````markdown
+# 🎨 EasyGUI — Modern Python GUI Wrapper
+
+EasyGUI is a beginner-friendly GUI wrapper for Python using **Dear PyGui**, allowing minimal code GUIs with dynamic updates, tag-based access, and fullscreen viewport mode.
+
+## ⚡ Features
+- Hybrid callbacks (static + tag-based args)
+- Tag-based widget referencing
+- Fullscreen viewport with auto-resize
+- QOL helpers: `get_value`, `set_value`
+- Stylish options: colors, fonts, padding
+- Supports labels, entries, buttons, sliders, checkboxes
+
+## 🧰 Installation
+```bash
+pip install easygui_wrap==<latest version here>
+````
+
+## 🚀 Quick Start Example
+
+```python
+from easygui import EasyGUI
+
+def greet(name):
+    print(f"Hello {name}!")
+
+app = EasyGUI("Demo", (600,400), bg_color="lightblue", fullscreen_window=True, decorated=False)
+app.add_label("Enter your name:", fg="black", font_size=16)
+app.add_entry(tag="name")
+app.add_button("Say Hello", greet, args_tags=["name"], fg="white", bg="green", font_size=14)
+app.show()
+```
+
+## 🏷️ Widget Reference
+
+* `add_label(text, tag=None, fg=None)`
+* `add_entry(label="", tag=None, default_value="")`
+* `add_button(text, callback, args_tags=(), args=(), fg=None, bg=None, tag=None)`
+* `add_slider(label="", tag=None, min_value=0, max_value=100, default_value=0)`
+* `add_checkbox(label="", tag=None, default_value=False)`
+* `get_value(tag)` / `set_value(tag, value)`
+* `toggle_fullscreen(state=None)`
+
+## 🎨 Styling
+
+* Options: `fg`, `bg`, `font_size`, `bold`, `italic`, `padding`
+* Colors: named (`"red"`, `"blue"`, `"lightblue"`) or `[R,G,B]` / `[R,G,B,A]` lists
+
+## 💡 Advanced Tips
+
+* Use `args_tags` in buttons to fetch values from entries, sliders, or checkboxes automatically.
+* Fullscreen mode (`fullscreen_window=True`) keeps the GUI window synced to the viewport size.
+* Mix dynamic (tag-based) arguments and static arguments in callbacks freely.
+
+## 🧑‍💻 Author
+
+Created with ❤️ by **Zaik**. Simplified, styled, and powered by **EasyGUI**.

@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+easygui/__init__.py
+easygui/easygui.py
+easygui_wrap.egg-info/PKG-INFO
+easygui_wrap.egg-info/SOURCES.txt
+easygui_wrap.egg-info/dependency_links.txt
+easygui_wrap.egg-info/requires.txt
+easygui_wrap.egg-info/top_level.txt
