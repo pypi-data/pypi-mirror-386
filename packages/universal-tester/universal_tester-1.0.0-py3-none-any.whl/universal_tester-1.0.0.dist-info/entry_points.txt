@@ -1,0 +1,2 @@
+[console_scripts]
+universal-tester = universal_tester.cli:main
