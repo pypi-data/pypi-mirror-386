@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: accuralai-canonicalize
+Version: 0.1.0
+Summary: Canonicalization helpers and plugins for the AccuralAI LLM pipeline.
+Project-URL: homepage, https://github.com/accuralai/accuralai-canonicalize
+Project-URL: repository, https://github.com/accuralai/accuralai-canonicalize
+Author: AccuralAI Maintainers
+License: Apache-2.0
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: accuralai-core
+Requires-Dist: pydantic>=2.5
+Provides-Extra: dev
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-anyio; extra == 'dev'
+Requires-Dist: pytest-mock; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# accuralai-canonicalize
+
+`accuralai-canonicalize` provides canonicalization utilities and plugins used by the AccuralAI pipeline. The default plugin normalizes prompts, tags, and metadata, and generates deterministic cache keys so downstream stages receive consistent inputs.
+
+Install alongside `accuralai-core` to enable the `standard` canonicalizer:
+
+```bash
+pip install accuralai-core accuralai-canonicalize
+```
+
+After installation the `accuralai-core` CLI will automatically use the canonicalizer when you run:
+
+```bash
+accuralai-core generate --prompt "Hello there!"
+```
