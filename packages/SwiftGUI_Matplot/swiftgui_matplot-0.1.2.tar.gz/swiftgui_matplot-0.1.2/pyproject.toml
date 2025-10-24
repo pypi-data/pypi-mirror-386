@@ -1,0 +1,30 @@
+[project]
+name = "SwiftGUI_Matplot"
+version = "0.1.2"
+packages = [
+    { include = "SwiftGUI_Matplot", from = "src" }
+]
+authors = [
+  { name="Eric aka CheesecakeTV", email="cheesecaketv53+pypi@gmail.com" },
+]
+description = "An integration of matplotlib-figures into SwiftGUI"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "Apache-2.0"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "SwiftGUI",
+    "matplotlib",
+]
+[project.urls]
+Repository = "https://github.com/CheesecakeTV/SwiftGUI-Matplot"
+Documentation = "https://github.com/CheesecakeTV/SwiftGUI-Docs"
+issues = "https://github.com/CheesecakeTV/SwiftGUI/issues"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
