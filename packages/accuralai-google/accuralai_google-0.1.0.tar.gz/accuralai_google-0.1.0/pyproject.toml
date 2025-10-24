@@ -1,0 +1,31 @@
+[project]
+name = "accuralai-google"
+version = "0.1.0"
+description = "Google GenAI backend adapter for the AccuralAI orchestration pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "AccuralAI Maintainers" }]
+dependencies = [
+  "pydantic>=2.5",
+  "google-genai>=0.3.0",
+  "accuralai-core",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-anyio",
+  "pytest-mock",
+]
+
+[project.entry-points."accuralai_core.backends"]
+"google" = "accuralai_google.backend:build_google_backend"
+
+[project.urls]
+homepage = "https://github.com/accuralai/accuralai-google"
+repository = "https://github.com/accuralai/accuralai-google"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
