@@ -1,0 +1,4 @@
+[console_scripts]
+lbmd-analyze = lbmd_sota.cli:analyze
+lbmd-compare = lbmd_sota.cli:compare
+lbmd-demo = lbmd_sota.cli:main
