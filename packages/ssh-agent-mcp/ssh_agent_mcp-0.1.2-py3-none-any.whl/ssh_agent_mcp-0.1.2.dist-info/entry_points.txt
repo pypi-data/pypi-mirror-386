@@ -1,0 +1,2 @@
+[console_scripts]
+ssh-agent-mcp = main:cli
