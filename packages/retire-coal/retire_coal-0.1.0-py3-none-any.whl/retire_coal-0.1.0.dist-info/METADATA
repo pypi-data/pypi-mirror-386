@@ -1,0 +1,165 @@
+Metadata-Version: 2.4
+Name: retire-coal
+Version: 0.1.0
+Summary: A data-driven approach to strategizing US coal plant retirement using network analysis and contextual vulnerabilities.
+Author-email: Krv Labs <team@krv.ai>
+License: BSD-3-Clause
+Project-URL: Homepage, https://github.com/Krv-Analytics/retire/
+Keywords: coal,energy,retirement,network-analysis,policy,visualization
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: ipykernel>=6.30.1
+Requires-Dist: ipywidgets>=8.1.7
+Requires-Dist: matplotlib>=3.5.0
+Requires-Dist: nbformat>=5.10.4
+Requires-Dist: networkx>=2.8
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: pandas>=1.5.0
+Requires-Dist: plotly>=5.0.0
+Requires-Dist: scikit-learn>=1.1.0
+Requires-Dist: seaborn>=0.11.0
+Requires-Dist: thema>=0.1.3
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: flake8>=5.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: benson>=0.1.4; extra == "dev"
+Requires-Dist: tqdm>=4.67.1; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=5.0.0; extra == "docs"
+Requires-Dist: furo>=2022.6.21; extra == "docs"
+Requires-Dist: myst-parser>=0.18.0; extra == "docs"
+Requires-Dist: sphinx-autodoc-typehints>=1.19.0; extra == "docs"
+Requires-Dist: sphinx-autobuild>=2021.3.14; extra == "docs"
+Requires-Dist: sphinx-plotly-directive>=0.1.3; extra == "docs"
+Requires-Dist: jupyter-sphinx>=0.4.0; extra == "docs"
+Provides-Extra: notebooks
+Requires-Dist: jupyter>=1.0.0; extra == "notebooks"
+Requires-Dist: ipykernel>=6.0.0; extra == "notebooks"
+Requires-Dist: nbformat>=5.0.0; extra == "notebooks"
+Dynamic: license-file
+
+# Retire
+
+[![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Development Status](https://img.shields.io/badge/status-v0%20WIP-orange.svg)](https://github.com/your-org/retire)
+
+> **⚠️ Work in Progress**: This is a v0 release. Features and APIs may change.
+
+A Python package for US coal plant retirement analysis based on research published in _Nature Energy_. Provides data and analysis tools for understanding coal plant retirement strategies using contextual vulnerabilities.
+
+## Key Features
+
+- **Comprehensive Dataset**: Detailed coal plant data with operational and contextual factors
+- **Network Analysis**: Analyze plant relationships using similarity metrics
+- **Visualization Suite**: Rich plotting capabilities for retirement patterns
+- **Research Reproducibility**: Access to manuscript results and analysis
+
+## Quick Start
+
+### Installation
+
+```bash
+git clone https://github.com/Krv-Analytics/retire.git
+cd retire
+pip install uv
+uv sync
+```
+
+> **Note**: This package will soon be available as a pip-installable package.
+
+```bash
+pip install retire
+```
+
+### Basic Usage
+
+```python
+from retire import Retire, Explore
+
+# Load data and create analysis objects
+retire_obj = Retire()
+explore = Explore(retire_obj.graph, retire_obj.raw_df)
+
+# Visualize the network
+fig, ax = explore.drawGraph(col='ret_STATUS')
+
+# Create geographic map
+fig, ax = explore.drawMap()
+
+# Get manuscript results
+group_analysis = retire_obj.get_group_report()
+explanations = retire_obj.get_target_explanations()
+```
+
+## Documentation
+
+See the [full documentation](docs/) for detailed usage instructions:
+
+- [Usage Guide](docs/source/usage_guide.md) - Step-by-step tutorial
+- [Data Sources](docs/source/data_sources.md) - Available datasets
+- [Visualization Methods](docs/source/visualization_methods.md) - Plotting capabilities
+- [Configuration](docs/source/configuration.md) - Customization options
+
+## API Overview
+
+### Main Classes
+
+**`Retire`** - Main analysis class with data access and manuscript results
+**`Explore`** - Visualization toolkit for networks and geographic data
+
+### Data Loading
+
+```python
+from retire.data import load_dataset, load_clean_dataset, load_projection, load_graph
+```
+
+## Development
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Contributing
+
+This is a v0 WIP release. When contributing:
+
+1. **Test Coverage**: Write tests for new functionality
+2. **Documentation**: Update docs for API changes
+3. **Code Style**: Follow existing patterns and conventions
+
+## License
+
+This project is licensed under the BSD 3-Clause License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Citation
+
+If you use this package in your research, please cite:
+
+```bibtex
+@article{retire2025,
+  title={Strategies to Accelerate US Coal Power Phaseout Using Contextual Retirement Vulnerabilities},
+  author={Sidney Gathrid*, Jeremy Wayland*, Stuart Wayland,Ranjit Deshmukh,Grace Wu},
+  journal={Nature Energy},
+  year={2025},
+}
+```
+
+---
+
+**Note**: This package provides data and analysis tools for research purposes. Retirement strategies should be considered within broader energy policy and environmental justice contexts.
