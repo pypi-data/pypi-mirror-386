@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+recursive-include matsushiba_db *.py
+recursive-include matsushiba_db *.json
+recursive-include matsushiba_db *.txt
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
