@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+*.env
+backend/.env
+backend/terraform/terraform.tfvars
+backend/terraform/*.tfstate
+backend/terraform/*.tfstate.backup
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual environments - ALL variations
+venv/
+env/
+ENV/
+.venv/
+.pipenv/
+.poetry/
+**/env/
+**/*env*/
+
+# Terraform
+backend/terraform/.terraform/
+*.tfplan
+*.tfstate
+*.tfstate.backup
+
+# Machine Learning artifacts
+*.h5
+*.ckpt
+*.pth
+*.pt
+*.joblib
+*.pkl
+*.csv
+*.tsv
+*.npy
+*.npz
+*.log
+*.mlmodel
+
+# Data files
+data/
+datasets/
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test and coverage reports
+htmlcov/
+.coverage
+.tox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+local_run_script.sh
+terraform
+gcs-key.json
+.pyc

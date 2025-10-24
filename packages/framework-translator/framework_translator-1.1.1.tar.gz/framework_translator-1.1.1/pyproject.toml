@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "framework_translator"
+version = "1.1.1"
+description = "A powerful CLI tool and Python SDK for seamlessly translating code between machine learning frameworks (PyTorch, TensorFlow, JAX, Scikit-learn) using advanced AI models. Features authentication, translation history, and both command-line and programmatic interfaces for developers working across different ML ecosystems."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+  { name = "Eitan Tuchin", email = "eitantuchin@gmail.com" },
+  { name = "Vennela Reddy Singireddy", email = "vennela5@iastate.edu" },
+  { name = "Prashanth Kambalapally", email = "kambala@iastate.edu" },
+  { name = "Liban Ahmed", email = "lahmed@iastate.edu" },
+  { name = "Tirmidi Mohamed", email = "tmohamed@iastate.edu" }
+]
+keywords = ["LLM", "code-translation", "frameworks", "CLI", "machine-learning", "pytorch", "tensorflow", "jax", "scikit-learn", "AI", "code-generation"]
+dependencies = [
+  "openai>=1.109.1",
+  "termcolor>=3.1.0",
+  "platformdirs>=4.4.0",
+  "cryptography>=42.0.4",
+  "requests>=2.7.0",
+]
+
+[project.scripts]
+# Note: module path must match your package module. Keep aligned with your src/ tree.
+ft = "framework_translator.cli:main"
+
+[tool.hatch.version]
+path = "VERSION"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/framework_translator", "README.md", "LICENSE*", "VERSION"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/framework_translator"]
