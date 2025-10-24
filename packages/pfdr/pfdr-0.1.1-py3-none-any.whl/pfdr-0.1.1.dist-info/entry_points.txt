@@ -1,0 +1,2 @@
+[console_scripts]
+pfdr = pfdr.cli:main

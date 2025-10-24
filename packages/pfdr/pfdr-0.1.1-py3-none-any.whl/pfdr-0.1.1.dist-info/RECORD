@@ -1,0 +1,14 @@
+pfdr/__init__.py,sha256=ZKWRQt6LiQwwKk1rLdpNnVFQUBOAFPKTa0OCCpqXSf8,315
+pfdr/cli.py,sha256=sUPGc8OBOTSNx6GF9RfEWL3zR4wuAqZCS146IEqXqws,22235
+pfdr/config.py,sha256=gl5wnGX-wvGrlmhiciTePNZq0jPVVa4umWYvTRaYcic,6490
+pfdr/dblp.py,sha256=dkO0oKomnoNkXNxr5NLwDwF2vahgWtixBW6jPupMz3M,10632
+pfdr/deepseek.py,sha256=BnGA8grxcWtWBGfWH9r3XpXeuSpTG4x0v_abhuk1gmA,6286
+pfdr/models.py,sha256=f5LTByiiQUBi55Nm6xyrWpRNX1vxdBESoUSaAbbdSgQ,3513
+pfdr/state.py,sha256=whVVPiDoxgCaiOuXNOfC13E-YEqiYy5MFGUL6gg4CDQ,3847
+pfdr/storage.py,sha256=ov1k0SRfNtZahBgyPUXYTzsOvUCdOlJOHI-mwCewWXY,4354
+pfdr/tasks.py,sha256=n4kNIWk4xaOau0QuW3XwAcO26DoD5ABrzeO56uP_Zb0,4562
+pfdr-0.1.1.dist-info/METADATA,sha256=LPK7dF8ThpoZwRiKET4J3Y0WTItLqzMXnS4dq_i4lBE,2832
+pfdr-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pfdr-0.1.1.dist-info/entry_points.txt,sha256=BUdqQ_urCz2HdGnPjaODzC1BOFrjtHIfy_u6vEJ7i3U,39
+pfdr-0.1.1.dist-info/licenses/LICENSE,sha256=y63KnrCVqBre1em639C9Ur-UxQEURO_-nS8oIhceooA,1065
+pfdr-0.1.1.dist-info/RECORD,,
