@@ -1,0 +1,3 @@
+[console_scripts]
+openapi-slice-mcp = main:main
+openapi-slice-mcp-http = main:main_http
