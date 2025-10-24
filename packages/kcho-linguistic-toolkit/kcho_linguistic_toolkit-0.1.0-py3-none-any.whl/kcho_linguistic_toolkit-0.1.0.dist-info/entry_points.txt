@@ -1,0 +1,2 @@
+[console_scripts]
+kcho = kcho.kcho_app:cli
