@@ -1,0 +1,10 @@
+cvxpy==1.7.1
+more-itertools==10.8.0
+numpy==2.2.6
+scipy==1.15.3
+scs==3.2.7.post2
+picos==2.6.0
+networkx<4.0,>=3.4
+numba<0.63.0,>=0.62.0
+jupyter-sphinx<0.6.0,>=0.5.3
+matplotlib==3.10.1

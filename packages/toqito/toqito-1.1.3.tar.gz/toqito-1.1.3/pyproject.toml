@@ -1,0 +1,150 @@
+[project]
+name = "toqito"
+version = "1.1.3"
+description = "Python tools for the study of quantum information."
+readme = "README.md"
+requires-python = ">=3.10,<4"
+authors = [
+    { name = "Vincent Russo", email = "vincentrusso1@gmail.com" },
+]
+maintainers = [
+    { name = "Vincent Russo", email = "vincentrusso1@gmail.com" },
+    { name = "Purva Thakre", email = "quantum.purvat@gmail.com" },
+]
+keywords = ["quantum information", "quantum computing", "nonlocal games"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Quantum Computing",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "cvxpy==1.7.1",
+    "more-itertools==10.8.0",
+    "numpy==2.2.6",
+    "scipy==1.15.3",
+    "scs==3.2.7.post2",
+    "picos==2.6.0",
+    "networkx>=3.4,<4.0",
+    "numba>=0.62.0,<0.63.0",
+    "jupyter-sphinx>=0.5.3,<0.6.0",
+    "matplotlib==3.10.1",
+]
+
+[project.urls]
+homepage = "https://vprusso.github.io/toqito/"
+repository = "https://github.com/vprusso/toqito"
+
+[dependency-groups]
+dev = [
+    "pytest==8.4.0",
+    "pytest-cov==6.3.0",
+    "coverage==7.11.0",
+    "sympy==1.14.0",
+    "distlib==0.4.0",
+    "ipython==8.37.0",
+    "setuptools>65.5.1",
+    "pre-commit>=3.0.0",
+    "jupyter-sphinx>=0.5.3,<0.6.0",
+]
+lint = [
+    "flake8==7.3.0",
+    "flake8-docstrings==1.7.0",
+    "isort==7.0.0",
+    "myst-parser==4.0.1",
+    "pep8==1.7.1",
+    "ruff==0.14.0",
+    "mypy==1.18.1",
+]
+docs = [
+    "readthedocs-sphinx-ext",
+    "sphinx==8.1.3",
+    "sphinx-gallery==0.19.0",
+    "matplotlib==3.10.1",
+    "furo==2025.9.25",
+    "sphinxcontrib-bibtex==2.6.3",
+    "jupyter-sphinx>=0.5.3,<0.6.0",
+    "sphinx-autoapi==3.6.0",
+    "sphinx-copybutton==0.5.2",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.isort]
+py_version = "311"
+skip = [".gitignore", "__init__.py"]
+skip_glob = ["docs/*", ".github/*"]
+line_length = 120
+multi_line_output = 3
+use_parentheses = true
+order_by_type = true
+lines_between_types = 1
+include_trailing_comma = true
+split_on_trailing_comma = true
+group_by_package = true
+color_output = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["toqito*"]
+
+[build-system]
+requires = ["setuptools>=65.5.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+exclude = ["__init__.py"]
+line-length = 120
+target-version = "py312"
+force-exclude = true
+
+
+[tool.ruff.lint]
+select = ["I", "E", "W", "D", "PL", "F"]
+# ruff configuration
+# E, W -- pycodestyle
+# D -- pydocstyle
+# I -- isort
+# PL -- pylint
+# F -- pyflakes
+
+
+# Rules considered over other incompatible ones
+exclude = ["docs/conf.py"]
+
+
+ignore = ["D407", "D203", "D213", "D416", "PLR0912", "PLR0911", "PLR0915", "PLR2004", "PLR0913", "F811", "E203"]
+# Rules Ignored
+
+# D407 - Ignored because ==== under a section heading is considered as a missing underline.
+# pydocstyle considers ----- an underline.
+
+# D212 and D211 specially selected due to following incompatibilities
+# warning: `one-blank-line-before-class` (D203) and `no-blank-line-before-class` (D211) are incompatible. Ignoring `one-blank-line-before-class`.
+# warning: `multi-line-summary-first-line` (D212) and `multi-line-summary-second-line` (D213) are incompatible. Ignoring `multi-line-summary-second-line`.
+
+# D416 was adding a semicolon after some section headings when ruff's automated --fix was was used
+# As this was not added evenly after all section headings, we ignore this. 
+
+# PLR0912 -- Checks for functions or methods with too many branches. The default number is 12. 
+# PLR0911 -- Checks for functions or methods with too many return statements. The default number is 6.
+# PLR0915 -- Checks for functions or methods with too many statements. The default number is 50. 
+# PLR2004 -- Checks if an equality or an inequality is compared to a variable or a num (prefers variable pre)
+# PLR0913 Too many arguments in function definition
+# F811 -- Checks for variable definitions that redefine (or "shadow") unused variables 
+# E203 -- Whitespace before ':'. This rule conflicts with Black's formatting style.
+# It was removing definitions with the same name creating conflicts in test_is_stochastic.py
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["I001", "F401"]
+# I001 - skip checking Import block is un-sorted or un-formatted
+# F401 - Checks for unused imports, applying fixes to __init__.py currently under review
+# skip checking all the .py files in the examples gallery
+"docs/examples/*" = ["I", "E", "W", "D", "PL", "F"]
