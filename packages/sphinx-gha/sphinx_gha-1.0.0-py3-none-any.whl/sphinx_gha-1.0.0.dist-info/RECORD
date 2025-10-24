@@ -1,0 +1,11 @@
+sphinx_gha/__init__.py,sha256=WM67Uyhhm-V3ns5gVeqzOTrxABwu8lJ1-bfwUyvbxnQ,42
+sphinx_gha/action.py,sha256=aEB7ZrlWvp6TA3r7kpmDgPHyqxTmdYqOUfGnFGT9uxg,3929
+sphinx_gha/common.py,sha256=tV4PrjWLtcdQRFTjrF8C8UU2Z318rB8TDORtCsCobKk,13268
+sphinx_gha/ext.py,sha256=_Zzohp1T-7Fzgh5nH1NDJk3d8zs-YdImmSxzcm0du1s,5174
+sphinx_gha/git_ref.py,sha256=28A2fO3tagElwI8KtWGX7ZBYbYX6GFNljlrxLfhOMkQ,1218
+sphinx_gha/workflow.py,sha256=akgaF7x9_1qTCwPu_HyLHqJ8vwLs40cmpVCyW6bdgYc,2754
+sphinx_gha-1.0.0.dist-info/licenses/LICENSE.md,sha256=5l0CBCm95UvjfkPs8tvQ4JtWmg4L44KAqqEhjY54vEs,1111
+sphinx_gha-1.0.0.dist-info/METADATA,sha256=hmHpHGHHes_3BWLmIBs-n7qBMc7SJ2dTwxD3ye_eslg,1812
+sphinx_gha-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sphinx_gha-1.0.0.dist-info/top_level.txt,sha256=-z1Ji8I1kcimy1mBZMAD4zdGm5sctexCxngD9HO30NM,11
+sphinx_gha-1.0.0.dist-info/RECORD,,
