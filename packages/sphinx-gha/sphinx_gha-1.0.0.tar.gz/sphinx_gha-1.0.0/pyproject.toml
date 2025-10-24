@@ -1,0 +1,56 @@
+[build-system]
+requires = [
+    "setuptools>=64",
+    "setuptools_scm>=8",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sphinx-gha"
+description = "Sphinx extension for documenting Github-compatible actions"
+readme = "README.md"
+authors = [{ name = "Andrew Cassidy", email = "drewcassidy@me.com" }]
+license = "MIT"
+keywords = ["sphinx", "github-actions", "forgejo-actions"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+    "Topic :: Documentation",
+    "Topic :: Documentation :: Sphinx",
+    "Framework :: Sphinx"
+]
+
+requires-python = ">= 3.10"
+dependencies = [
+    "Sphinx >= 7.4",
+    "ruamel.yaml >= 0.18",
+    "myst-parser >= 3.0",
+    "gitpython >= 3.1.0"
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx-rtd-theme",
+    "sphinx-examples",
+    "sphinx-copybutton",
+]
+
+[project.urls]
+Source = "https://git.offworldcolonies.nexus/drewcassidy/sphinx-gha"
+Changelog = "https://git.offworldcolonies.nexus/drewcassidy/sphinx-gha/src/branch/main/CHANGELOG.md"
+Docs = "https://sphinx-gha.readthedocs.io/"
+
+[tool.setuptools_scm]
+fallback_version = "0.0.0"
+
+[tool.setuptools.packages.find]
+include = ["sphinx_gha*"]
+
+[tool.uv]
+cache-keys = [{ file = "pyproject.toml" }, { git = { commit = true } }]

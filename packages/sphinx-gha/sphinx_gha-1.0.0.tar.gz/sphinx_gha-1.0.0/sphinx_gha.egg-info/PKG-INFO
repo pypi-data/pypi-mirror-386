@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: sphinx-gha
+Version: 1.0.0
+Summary: Sphinx extension for documenting Github-compatible actions
+Author-email: Andrew Cassidy <drewcassidy@me.com>
+License-Expression: MIT
+Project-URL: Source, https://git.offworldcolonies.nexus/drewcassidy/sphinx-gha
+Project-URL: Changelog, https://git.offworldcolonies.nexus/drewcassidy/sphinx-gha/src/branch/main/CHANGELOG.md
+Project-URL: Docs, https://sphinx-gha.readthedocs.io/
+Keywords: sphinx,github-actions,forgejo-actions
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Classifier: Topic :: Documentation
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Framework :: Sphinx
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: Sphinx>=7.4
+Requires-Dist: ruamel.yaml>=0.18
+Requires-Dist: myst-parser>=3.0
+Requires-Dist: gitpython>=3.1.0
+Provides-Extra: docs
+Requires-Dist: sphinx-rtd-theme; extra == "docs"
+Requires-Dist: sphinx-examples; extra == "docs"
+Requires-Dist: sphinx-copybutton; extra == "docs"
+Dynamic: license-file
+
+# sphinx-gha
+[![Documentation Status](https://readthedocs.org/projects/sphinx-gha/badge/?version=latest)](https://sphinx-gha.readthedocs.io/en/latest/?badge=latest)
+[![CI Status](https://git.offworldcolonies.nexus/drewcassidy/sphinx-gha/badges/workflows/build.yml/badge.svg?branch=main&label=build)](https://git.offworldcolonies.nexus/drewcassidy/sphinx-gha/actions)
+[![PyPI version](https://img.shields.io/pypi/v/sphinx-gha)](https://pypi.org/project/sphinx-gha/)
+
+
+Sphinx extension for documenting Github-compatible actions
