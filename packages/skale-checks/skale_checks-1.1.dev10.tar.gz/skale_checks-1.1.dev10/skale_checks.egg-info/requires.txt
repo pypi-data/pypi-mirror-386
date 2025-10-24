@@ -1,0 +1,10 @@
+skale.py<8,>=7.6dev0
+elasticsearch<8,>=7.17.6
+PyYAML==6.0.3
+
+[dev]
+ruff>=0.5.5
+twine>=5.1.1
+
+[linter]
+ruff>=0.5.5
