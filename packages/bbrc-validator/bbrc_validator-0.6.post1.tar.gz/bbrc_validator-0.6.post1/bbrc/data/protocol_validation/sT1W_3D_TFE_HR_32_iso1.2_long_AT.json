@@ -1,0 +1,20 @@
+{
+    "xnat:imageScanData/scanner/manufacturer": "Philips Medical Systems",
+    "xnat:imageScanData/scanner/model": "Ingenia CX",
+    "xnat:mrScanData/parameters/flip": "8",
+    "xnat:mrScanData/parameters/orientation": "Sag",
+    "xnat:mrScanData/parameters/tr": "9.80000019073486",
+    "xnat:mrScanData/parameters/ti": "0.0",
+    "xnat:mrScanData/parameters/te": "3.034",
+    "xnat:mrScanData/parameters/imageType": "ORIGINAL\\PRIMARY\\M_FFE\\M\\FFE",
+    "xnat:mrScanData/parameters/scanSequence": "GR",
+    "xnat:mrScanData/parameters/seqVariant": "MP",
+    "xnat:mrScanData/parameters/scanOptions": "OTHER",
+    "xnat:mrScanData/parameters/acqType": "3D",
+    "xnat:mrScanData/parameters/voxelRes/x": "0.68181818723678",
+    "xnat:mrScanData/parameters/voxelRes/y": "0.68181818723678",
+    "xnat:mrScanData/parameters/voxelRes/z": "1.2",
+    "xnat:mrScanData/parameters/fov/x": "352",
+    "xnat:mrScanData/parameters/fov/y": "352",
+    "xnat:mrScanData/fieldStrength": "3.0"
+}
