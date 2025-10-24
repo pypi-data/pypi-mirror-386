@@ -1,0 +1,198 @@
+Metadata-Version: 2.4
+Name: vacasa-opentelemetry
+Version: 1.0.0
+Summary: OpenTelemetry helpers for Vacasa Python services
+License: MIT
+Author: Vacasa
+Author-email: engineering@vacasa.com
+Requires-Python: >=3.8.1,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: opentelemetry-api (>=1.20.0,<2.0.0)
+Requires-Dist: opentelemetry-exporter-otlp-proto-http (>=1.20.0,<2.0.0)
+Requires-Dist: opentelemetry-instrumentation-logging (>=0.41b0,<0.42)
+Requires-Dist: opentelemetry-sdk (>=1.20.0,<2.0.0)
+Requires-Dist: opentelemetry-semantic-conventions (>=0.41b0,<0.42)
+Project-URL: Homepage, https://github.com/Vacasa/node-util-ts-lib
+Project-URL: Repository, https://github.com/Vacasa/node-util-ts-lib
+Description-Content-Type: text/markdown
+
+# @vacasa/open-telemetry-py
+
+OpenTelemetry helpers for Vacasa Python services.
+
+## Installation
+
+### Using Poetry (Recommended)
+
+```bash
+poetry add vacasa-opentelemetry
+```
+
+### Using pip
+
+```bash
+pip install vacasa-opentelemetry
+```
+
+Or add to your `requirements.txt`:
+
+```
+vacasa-opentelemetry>=1.0.0
+```
+
+## Usage
+
+### Basic Initialization
+
+```python
+from vacasa_opentelemetry import init_telemetry
+
+# Initialize with defaults
+init_telemetry()
+```
+
+### Advanced Configuration
+
+```python
+from vacasa_opentelemetry import init_telemetry, OtelInitOptions
+
+# Initialize with custom options
+init_telemetry(OtelInitOptions(
+    service_name="my-python-service",
+    debug=True,
+    sampling_rate=0.5,
+    tags={
+        "environment": "production",
+        "version": "1.0.0"
+    },
+    metric_export_interval_millis=10000,
+    log_injection=True
+))
+```
+
+## Configuration
+
+### Environment Variables
+
+| Variable              | Description                      | Required | Default                 |
+| --------------------- | -------------------------------- | -------- | ----------------------- |
+| `OTEL_HOST_COLLECTOR` | OpenTelemetry collector endpoint | Yes      | -                       |
+| `OTEL_SERVICE_NAME`   | Service name for telemetry data  | No       | `vacasa-python-service` |
+| `OTEL_APM_ENABLED`    | Enable full APM instrumentation  | No       | `false`                 |
+
+### Options
+
+-   **service_name** (str): Override the service name
+-   **metric_export_interval_millis** (int): Metric export interval in milliseconds (default: 5000)
+-   **log_export_timeout_millis** (int): Log export timeout in milliseconds (default: 3000)
+-   **tags** (dict): Additional resource attributes/tags
+-   **debug** (bool): Enable debug logging (default: False)
+-   **sampling_rate** (float): Trace sampling rate 0.0-1.0 (default: 0.5 if APM enabled, else 0.0)
+-   **log_injection** (bool): Enable log correlation with traces (default: True)
+
+## Example
+
+```python
+import os
+import logging
+from vacasa_opentelemetry import init_telemetry, OtelInitOptions
+
+# Set environment variable
+os.environ["OTEL_HOST_COLLECTOR"] = "http://localhost:4318"
+os.environ["OTEL_APM_ENABLED"] = "true"
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Initialize OpenTelemetry
+init_telemetry(OtelInitOptions(
+    service_name="example-service",
+    tags={"team": "platform"}
+))
+
+# Your application code
+logger.info("Application started")
+```
+
+## Features
+
+-   **Automatic Instrumentation**: When `OTEL_APM_ENABLED=true`, automatically instruments common Python libraries
+-   **Log Injection**: Correlates logs with traces automatically
+-   **Graceful Shutdown**: Handles SIGTERM and SIGINT for proper telemetry flush
+-   **HTTP/OTLP Export**: Uses OpenTelemetry Protocol over HTTP
+
+## Development
+
+### Setup with Poetry
+
+```bash
+# Install Poetry
+curl -sSL https://install.python-poetry.org | python3 -
+
+# Clone and navigate to the project
+cd packages/open-telemetry-py
+
+# Install dependencies
+poetry install
+
+# Activate virtual environment
+poetry shell
+```
+
+### Local Setup (Alternative)
+
+```bash
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install in development mode
+pip install -e .
+```
+
+### Testing
+
+```bash
+# With Poetry
+poetry run pytest
+
+# With coverage
+poetry run pytest --cov=vacasa_opentelemetry
+
+# Without Poetry
+pytest
+```
+
+### Code Quality
+
+```bash
+# Format code
+poetry run black vacasa_opentelemetry/
+
+# Sort imports
+poetry run isort vacasa_opentelemetry/
+
+# Lint
+poetry run flake8 vacasa_opentelemetry/
+
+# Type check
+poetry run mypy vacasa_opentelemetry/
+```
+
+For more details on using Poetry, see [POETRY.md](POETRY.md).
+
+## License
+
+MIT
+
