@@ -1,0 +1,10 @@
+opentelemetry/__init__.py,sha256=yO13JSy8iWDGCN-VSyfjSIvSYdfFkMWN5jhJKy1mE3U,122
+opentelemetry/instrumentation/__init__.py,sha256=yO13JSy8iWDGCN-VSyfjSIvSYdfFkMWN5jhJKy1mE3U,122
+opentelemetry/instrumentation/gunicorn/__init__.py,sha256=yyTUjl1xeXFRwvpDK-WfVm9OOsTdJe-cm07AeZyXDls,15820
+opentelemetry/instrumentation/gunicorn/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+opentelemetry/instrumentation/gunicorn/version.py,sha256=g40ADnoHQhrd4ozmQLMfU-UO72nJVVrgVm_wxVAVC_w,597
+opentelemetry_instrumentation_gunicorn-0.1.0b0.dist-info/METADATA,sha256=f6pkpYwHGXeOhkv-fAUDv9_MzfbpVPWqUVpkX3NUh2U,3872
+opentelemetry_instrumentation_gunicorn-0.1.0b0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+opentelemetry_instrumentation_gunicorn-0.1.0b0.dist-info/entry_points.txt,sha256=2JfauBY0YylsoFi8EkaA0jw0eE3NlWK7B4IPh8tbzic,101
+opentelemetry_instrumentation_gunicorn-0.1.0b0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+opentelemetry_instrumentation_gunicorn-0.1.0b0.dist-info/RECORD,,

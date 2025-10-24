@@ -1,0 +1,2 @@
+[opentelemetry_instrumentors]
+gunicorn = opentelemetry.instrumentation.gunicorn:GunicornInstrumentor
