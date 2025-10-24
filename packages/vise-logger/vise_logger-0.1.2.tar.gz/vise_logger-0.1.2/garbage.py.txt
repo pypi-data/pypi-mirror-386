@@ -1,0 +1,160 @@
+# WHITESPACE_RE = re.compile(r'[\s\u00A0\u202F]+')
+
+IBAN_RE = re.compile(r'\b'     # shortest 15 (NO); longest 34 (ISO 13616); formats: https://www.oeffentlichen-dienst.de/images/M_images/iban-eu.gif
+    r'[A-Z]{2}'                # country code
+    r'\d{2}'                   # check digits
+    r'(?:\s?[A-Z0-9]){11,30}'  # BBAN flexible optional single spaces (detects BE68539007547034 BE68539007547034 as one IBAN)
+    r'\b',
+    re.IGNORECASE
+)
+
+    # Date of birth (several formats)
+    for rx in DATE_RE:
+        for m in rx.finditer(text):
+            dd = NON_DEC_RE.sub('', m.group(0))
+            if len(dd) >= 6:  # be lenient
+                enc = pseudonymize_digits(dd, user_key, user_id, "DATE")
+                # try to reinsert separators if same count of groups
+                rep = enc
+                if rx.pattern == r'\b\d{4}[-/]\d{2}[-/]\d{2}\b':
+                    rep = f"{enc[0:4]}-{enc[4:6]}-{enc[6:8]}"
+                def _mk(rep=rep):
+                    return rep
+                repls.append((m.start(), m.end(), _mk))
+
+def _add_address(m: re.Match, repls: List[MatchItem], user_key: str, user_id: str):
+#     number_span = m.span('number')
+#     def _number(m=m):
+#         return pseudonymize_to_base10(m.group('number'), user_key, user_id, "ADDR_NUMBER", 0) # TODO: for number and name, try packing number + name, then split off first byte for number
+#     repls.append((number_span[0], number_span[1], _number))
+#     if "name_first" in m.re.groupindex and m.group("name_first") is not None: # only anonymize name, not type ("Straße", "Avenue", etc)
+#         name_span = m.span('name_first')
+#         name = m.group('name_first')
+#     else:
+#         assert "name_second" in m.re.groupindex and m.group("name_second") is not None
+#         name_span = m.span('name_second')
+#         name = m.group('name_second')
+#     def _name(name=name):
+#         return pseudonymize_secret_block(name, user_key, user_id, "ADDR_NAME", allow_growth=True)
+#     repls.append((name_span[0], name_span[1], _name))
+
+
+def pseudonymize_secret_block(s: str, user_key: str, user_id: str, context: str, allow_growth: bool = False) -> str:
+    """Fallback pseudonymization for arbitrary secret-looking blobs (API keys, JWTs, etc.).
+
+    Encodes the full string to base62 and FF3-1 encrypts it under the provided context.
+    Optionally allows unbounded growth so very short inputs still meet the minimum domain size.
+    """
+    grow_len_limit = MAXINT if allow_growth else 0
+    return pseudonymize_to_base62(s, user_key, user_id, context, grow_len_limit=grow_len_limit)
+
+in ADDRESS_LEADING_NUM_RE french style:
+                r"(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ0-9'\".-]{2,}){0,4}"     # allow up to 4 more tokens
+
+
+pseudonymization.py:
+def _chunk_lengths_for_ff3(total_len: int, min_len: int, max_len: int) -> List[int]:
+    """Compute chunk sizes in [min_len, max_len] that sum to total_len.
+
+    Strategy: Prefer max_len chunks; if the remainder is 1..min_len-1, borrow
+    k = (min_len - rem) chars from previous chunk to make the last chunk valid.
+    """
+    if total_len == 0:
+        return []
+    if total_len <= max_len:
+        # Caller should ensure total_len >= min_len (via padding)
+        return [total_len]
+    sizes: List[int] = []
+    full = total_len // max_len
+    rem = total_len % max_len
+    if rem == 0:
+        return [max_len] * full
+    if rem >= min_len:
+        sizes = [max_len] * full + [rem]
+    else:
+        # Need to borrow from the previous full chunk
+        k = min_len - rem
+        if full == 0 or k >= max_len:  # defensive, should not happen
+            return [total_len]
+        sizes = [max_len] * (full - 1) + [max_len - k, rem + k]
+    return sizes
+
+def _ff3_encrypt_blocks(b62: str, user_key: str, user_id: str, context: str) -> str:
+    min_len = min_len_for_radix(len(ALPHA_DECAZaz_62))
+    max_len = 32  # ff3 library constraint
+    sizes = _chunk_lengths_for_ff3(len(b62), min_len, max_len)
+    out: List[str] = []
+    pos = 0
+    for i, sz in enumerate(sizes):
+        chunk = b62[pos:pos+sz]
+        # Derive per-chunk context to avoid patterns across blocks
+        ctx_i = f"{context}#{i}"
+        out.append(ff3_encrypt(chunk, ALPHA_DECAZaz_62, user_key, user_id, ctx_i))
+        pos += sz
+    return "".join(out)
+
+def _ff3_decrypt_blocks(b62_ct: str, user_key: str, user_id: str, context: str) -> str:
+    min_len = min_len_for_radix(len(ALPHA_DECAZaz_62))
+    max_len = 32
+    sizes = _chunk_lengths_for_ff3(len(b62_ct), min_len, max_len)
+    out: List[str] = []
+    pos = 0
+    for i, sz in enumerate(sizes):
+        chunk = b62_ct[pos:pos+sz]
+        ctx_i = f"{context}#{i}"
+        out.append(ff3_decrypt(chunk, ALPHA_DECAZaz_62, user_key, user_id, ctx_i))
+        pos += sz
+    return "".join(out)
+
+def pseudonymize_to_base62(s: str, user_key: str, user_id: str, context: str, grow_len_limit: int = None) -> str:
+    """Pseudonymize arbitrary text to base62 with FF3-1 over radix-62.
+
+    Default behavior grows/pads short inputs to the minimum domain length so
+    that FF3 constraints are satisfied, and supports arbitrarily long strings
+    via chunked encryption.
+    """
+    if grow_len_limit is None:
+        grow_len_limit = MAXINT
+    b62 = _str_to_base62(s)
+    min_len = min_len_for_radix(len(ALPHA_DECAZaz_62))
+    if len(b62) < min_len:
+        b62 = _pad_with_marker(b62, user_id, f"{context}_PAD", min_len, grow_len_limit, ALPHA_DECAZaz_62)
+    # Encrypt in FF3-sized blocks
+    return _ff3_encrypt_blocks(b62, user_key, user_id, context)
+
+def depseudonymize_from_base62(s: str, user_key: str, user_id: str, context: str, grow_len: bool = True) -> str:
+    # Decrypt in FF3-sized blocks
+    decrypted = _ff3_decrypt_blocks(s, user_key, user_id, context)
+    if grow_len:
+        try:
+            decrypted = _unpad_with_marker(decrypted)
+        except Exception:
+            # If marker invalid (e.g., wrong key/id/context), leave as-is
+            pass
+    # Decode to UTF-8 but avoid raising on invalid bytes (wrong key/id cases)
+    return _from_base62_loose(decrypted)
+
+pseudonymize_mac:
+...
+    # ct_iter = iter(ct)
+    # result: List[str] = []
+    # hex_seen, replaced = 0,0
+    # for ch in raw:
+    #     if ch in string.hexdigits:
+    #         if hex_seen < 6:
+    #             result.append(ch)
+    #         else:
+    #             try:
+    #                 nxt = next(ct_iter)
+    #             except StopIteration:
+    #                 # return pseudonymize_secret_block(raw, user_key, user_id, "MAC_FALLBACK_DEPLETED", allow_growth=True)
+    #                 raise ValueError("Internal error: FF3-1 ciphertext too short")
+    #             result.append(nxt.upper() if ch.isupper() else nxt.lower())
+    #             replaced += 1
+    #         hex_seen += 1
+    #     else:
+    #         result.append(ch)
+    # if replaced != len(dev_hex):
+    #     # return pseudonymize_secret_block(raw, user_key, user_id, "MAC_FALLBACK_LEN", allow_growth=True)
+    #     raise ValueError("Internal error: FF3-1 ciphertext length mismatch")
+    # return "".join(result)

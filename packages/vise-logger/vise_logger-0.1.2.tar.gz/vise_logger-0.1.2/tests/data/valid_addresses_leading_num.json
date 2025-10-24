@@ -1,0 +1,754 @@
+[
+    {
+        "addr": "1600 Pennsylvania Avenue",
+        "number": "1600",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Pennsylvania",
+        "type": "Avenue"
+    },
+    {
+        "addr": "10 Downing Street",
+        "number": "10",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Downing",
+        "type": "Street"
+    },
+    {
+        "addr": "221B Baker Street",
+        "number": "221B",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Baker",
+        "type": "Street"
+    },
+    {
+        "addr": "123-125 Baker Street",
+        "number": "123-125",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Baker",
+        "type": "Street"
+    },
+    {
+        "addr": "42a Main St.",
+        "number": "42a",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Main",
+        "type": "St."
+    },
+    {
+        "addr": "80000 King Rd.",
+        "number": "80000",
+        "country": "uk",
+        "style": "name_first",
+        "name": "King",
+        "type": "Rd."
+    },
+    {
+        "addr": "350 Market Dr.",
+        "number": "350",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Market",
+        "type": "Dr."
+    },
+    {
+        "addr": "77 Sunset Blvd.",
+        "number": "77",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Sunset",
+        "type": "Blvd."
+    },
+    {
+        "addr": "64 Park Pl.",
+        "number": "64",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Park",
+        "type": "Pl."
+    },
+    {
+        "addr": "59 Pine Ct.",
+        "number": "59",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Pine",
+        "type": "Ct."
+    },
+    {
+        "addr": "73 Cedar Sq.",
+        "number": "73",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Cedar",
+        "type": "Sq."
+    },
+    {
+        "addr": "33/5 Oak Terrace",
+        "number": "33/5",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Oak",
+        "type": "Terrace"
+    },
+    {
+        "addr": "33-34/1 Oak Terr.",
+        "number": "33-34/1",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Oak",
+        "type": "Terr."
+    },
+    {
+        "addr": "99999/9 Oxford Cir.",
+        "number": "99999/9",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Oxford",
+        "type": "Cir."
+    },
+    {
+        "addr": "01 Pacific Hwy.",
+        "number": "01",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Pacific",
+        "type": "Hwy."
+    },
+    {
+        "addr": "500 Coastal Rte.",
+        "number": "500",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Coastal",
+        "type": "Rte."
+    },
+    {
+        "addr": "88 Elm Ln.",
+        "number": "88",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Elm",
+        "type": "Ln."
+    },
+    {
+        "addr": "12a-14c Oak Terrace",
+        "number": "12a-14c",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Oak",
+        "type": "Terrace"
+    },
+    {
+        "addr": "24 O'Connell Street",
+        "number": "24",
+        "country": "irish",
+        "style": "name_first",
+        "name": "O'Connell",
+        "type": "Street"
+    },
+    {
+        "addr": "17A–17B Queen Street",
+        "number": "17A–17B",
+        "country": "nz",
+        "style": "name_first",
+        "name": "Queen",
+        "type": "Street"
+    },
+    {
+        "addr": "4/27 Wharf Road",
+        "number": "4/27",
+        "country": "australian",
+        "style": "name_first",
+        "name": "Wharf",
+        "type": "Road"
+    },
+    {
+        "addr": "102B—103A George Street",
+        "number": "102B—103A",
+        "country": "australian",
+        "style": "name_first",
+        "name": "George",
+        "type": "Street"
+    },
+    {
+        "addr": "550 King Street",
+        "number": "550",
+        "country": "canadian",
+        "style": "name_first",
+        "name": "King",
+        "type": "Street"
+    },
+    {
+        "addr": "120A Bloor Street",
+        "number": "120A",
+        "country": "canadian",
+        "style": "name_first",
+        "name": "Bloor",
+        "type": "Street"
+    },
+    {
+        "addr": "3000 Park Avenue",
+        "number": "3000",
+        "country": "us",
+        "style": "name_first",
+        "name": "Park",
+        "type": "Avenue"
+    },
+    {
+        "addr": "911 Sunset Boulevard",
+        "number": "911",
+        "country": "us",
+        "style": "name_first",
+        "name": "Sunset",
+        "type": "Boulevard"
+    },
+    {
+        "addr": "75 Market Street",
+        "number": "75",
+        "country": "singapore",
+        "style": "name_first",
+        "name": "Market",
+        "type": "Street"
+    },
+    {
+        "addr": "8-9/7 Anson Road",
+        "number": "8-9/7",
+        "country": "singapore",
+        "style": "name_first",
+        "name": "Anson",
+        "type": "Road"
+    },
+    {
+        "addr": "1 - 2 Fullerton Road",
+        "number": "1 - 2",
+        "country": "singapore",
+        "style": "name_first",
+        "name": "Fullerton",
+        "type": "Road"
+    },
+    {
+        "addr": "12 / 1 Battery Road",
+        "number": "12 / 1",
+        "country": "singapore",
+        "style": "name_first",
+        "name": "Battery",
+        "type": "Road"
+    },
+    {
+        "addr": "50 Robinson Road",
+        "number": "50",
+        "country": "singapore",
+        "style": "name_first",
+        "name": "Robinson",
+        "type": "Road"
+    },
+    {
+        "addr": "60 Cecil Street",
+        "number": "60",
+        "country": "singapore",
+        "style": "name_first",
+        "name": "Cecil",
+        "type": "Street"
+    },
+    {
+        "addr": "9 Queen's Road Central",
+        "number": "9",
+        "country": "hongkong",
+        "style": "name_first",
+        "name": "Queen's",
+        "type": "Road"
+    },
+    {
+        "addr": "25 Des Voeux Road Central",
+        "number": "25",
+        "country": "hongkong",
+        "style": "name_first",
+        "name": "Des Voeux",
+        "type": "Road"
+    },
+    {
+        "addr": "88 Connaught Road Central",
+        "number": "88",
+        "country": "hongkong",
+        "style": "name_first",
+        "name": "Connaught",
+        "type": "Road"
+    },
+    {
+        "addr": "12 Pedder Street",
+        "number": "12",
+        "country": "hongkong",
+        "style": "name_first",
+        "name": "Pedder",
+        "type": "Street"
+    },
+    {
+        "addr": "6 Park Place",
+        "number": "6",
+        "country": "us",
+        "style": "name_first",
+        "name": "Park",
+        "type": "Place"
+    },
+    {
+        "addr": "45 Maple Lane",
+        "number": "45",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Maple",
+        "type": "Lane"
+    },
+    {
+        "addr": "300 Harbor Square",
+        "number": "300",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Harbor",
+        "type": "Square"
+    },
+    {
+        "addr": "18 Forest Path",
+        "number": "18",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Forest",
+        "type": "Path"
+    },
+    {
+        "addr": "90 River Crescent",
+        "number": "90",
+        "country": "uk",
+        "style": "name_first",
+        "name": "River",
+        "type": "Crescent"
+    },
+    {
+        "addr": "22 Fisherman's Wharf",
+        "number": "22",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Fisherman's",
+        "type": "Wharf"
+    },
+    {
+        "addr": "1 Place de la Concorde",
+        "number": "1",
+        "country": "france",
+        "style": "type_first",
+        "name": "de la Concorde",
+        "type": "Place"
+    },
+    {
+        "addr": "12/4 Rue de Lille",
+        "number": "12/4",
+        "country": "france",
+        "style": "type_first",
+        "name": "de Lille",
+        "type": "Rue"
+    },
+    {
+        "addr": "55 Rue de Rivoli",
+        "number": "55",
+        "country": "france",
+        "style": "type_first",
+        "name": "de Rivoli",
+        "type": "Rue"
+    },
+    {
+        "addr": "5 Boulevard Haussmann",
+        "number": "5",
+        "country": "france",
+        "style": "type_first",
+        "name": "Haussmann",
+        "type": "Boulevard"
+    },
+    {
+        "addr": "12 Avenue Victor",
+        "number": "12",
+        "country": "france",
+        "style": "type_first",
+        "name": "Victor",
+        "type": "Avenue"
+    },
+    {
+        "addr": "7 Allée Acacias",
+        "number": "7",
+        "country": "france",
+        "style": "type_first",
+        "name": "Acacias",
+        "type": "Allée"
+    },
+    {
+        "addr": "18 Chemin Duval",
+        "number": "18",
+        "country": "france",
+        "style": "type_first",
+        "name": "Duval",
+        "type": "Chemin"
+    },
+    {
+        "addr": "14 Quai Voltaire",
+        "number": "14",
+        "country": "france",
+        "style": "type_first",
+        "name": "Voltaire",
+        "type": "Quai"
+    },
+    {
+        "addr": "30 Cours Mirabeau",
+        "number": "30",
+        "country": "france",
+        "style": "type_first",
+        "name": "Mirabeau",
+        "type": "Cours"
+    },
+    {
+        "addr": "6 Boulevard des Capucines",
+        "number": "6",
+        "country": "france",
+        "style": "type_first",
+        "name": "des Capucines",
+        "type": "Boulevard"
+    },
+    {
+        "addr": "21 Rue du Faubourg",
+        "number": "21",
+        "country": "france",
+        "style": "type_first",
+        "name": "du Faubourg",
+        "type": "Rue"
+    },
+    {
+        "addr": "3 Rue de la Paix",
+        "number": "3",
+        "country": "france",
+        "style": "type_first",
+        "name": "de la Paix",
+        "type": "Rue"
+    },
+    {
+        "addr": "11 Rue d'Antibes",
+        "number": "11",
+        "country": "france",
+        "style": "type_first",
+        "name": "d'Antibes",
+        "type": "Rue"
+    },
+    {
+        "addr": "9 Avenue Victor-Hugo",
+        "number": "9",
+        "country": "france",
+        "style": "type_first",
+        "name": "Victor-Hugo",
+        "type": "Avenue"
+    },
+    {
+        "addr": "4 Allée des Tilleuls",
+        "number": "4",
+        "country": "france",
+        "style": "type_first",
+        "name": "des Tilleuls",
+        "type": "Allée"
+    },
+    {
+        "addr": "7 Chemin des Érables",
+        "number": "7",
+        "country": "france",
+        "style": "type_first",
+        "name": "des Érables",
+        "type": "Chemin"
+    },
+    {
+        "addr": "2 Quai des Fleurs",
+        "number": "2",
+        "country": "france",
+        "style": "type_first",
+        "name": "des Fleurs",
+        "type": "Quai"
+    },
+    {
+        "addr": "5 Cours Lafayette",
+        "number": "5",
+        "country": "france",
+        "style": "type_first",
+        "name": "Lafayette",
+        "type": "Cours"
+    },
+    {
+        "addr": "15 Impasse des Lilas",
+        "number": "15",
+        "country": "france",
+        "style": "type_first",
+        "name": "des Lilas",
+        "type": "Impasse"
+    },
+    {
+        "addr": "2 Boulevard Rainier",
+        "number": "2",
+        "country": "monaco",
+        "style": "type_first",
+        "name": "Rainier",
+        "type": "Boulevard"
+    },
+    {
+        "addr": "1 Avenue Princesse Grace",
+        "number": "1",
+        "country": "monaco",
+        "style": "type_first",
+        "name": "Princesse Grace",
+        "type": "Avenue"
+    },
+    {
+        "addr": "4 Place du Casino",
+        "number": "4",
+        "country": "monaco",
+        "style": "type_first",
+        "name": "du Casino",
+        "type": "Place"
+    },
+    {
+        "addr": "22 Triq ir-Repubblika",
+        "number": "22",
+        "country": "malta",
+        "style": "type_first",
+        "name": "ir-Repubblika",
+        "type": "Triq"
+    },
+    {
+        "addr": "1 Triq il-Merkanti",
+        "number": "1",
+        "country": "malta",
+        "style": "type_first",
+        "name": "il-Merkanti",
+        "type": "Triq"
+    },
+    {
+        "addr": "123 Jalan Besar",
+        "number": "123",
+        "country": "singapore",
+        "style": "type_first",
+        "name": "Besar",
+        "type": "Jalan"
+    },
+    {
+        "addr": "75 Jalan Besar",
+        "number": "75",
+        "country": "singapore",
+        "style": "type_first",
+        "name": "Besar",
+        "type": "Jalan"
+    },
+    {
+        "addr": "5 Jalan Sultan",
+        "number": "5",
+        "country": "singapore",
+        "style": "type_first",
+        "name": "Sultan",
+        "type": "Jalan"
+    },
+    {
+        "addr": "12 Lorong Mambong",
+        "number": "12",
+        "country": "singapore",
+        "style": "type_first",
+        "name": "Mambong",
+        "type": "Lorong"
+    },
+    {
+        "addr": "7 Lorong Liput",
+        "number": "7",
+        "country": "singapore",
+        "style": "type_first",
+        "name": "Liput",
+        "type": "Lorong"
+    },
+    {
+        "addr": "3 Sqaq il-MUSEUM",
+        "number": "3",
+        "country": "malta",
+        "style": "type_first",
+        "name": "il-MUSEUM",
+        "type": "Sqaq"
+    },
+    {
+        "addr": "8 Pjazza San Ġorġ",
+        "number": "8",
+        "country": "malta",
+        "style": "type_first",
+        "name": "San Ġorġ",
+        "type": "Pjazza"
+    },
+    {
+        "addr": "14 Misrah il-Propjetà",
+        "number": "14",
+        "country": "malta",
+        "style": "type_first",
+        "name": "il-Propjetà",
+        "type": "Misrah"
+    },
+    {
+        "addr": "22 Bd des Moulins",
+        "number": "22",
+        "country": "monaco",
+        "style": "type_first",
+        "name": "des Moulins",
+        "type": "Bd"
+    },
+    {
+        "addr": "4 Place du Casino",
+        "number": "4",
+        "country": "monaco",
+        "style": "type_first",
+        "name": "du Casino",
+        "type": "Place"
+    },
+    {
+        "addr": "5 High Street",
+        "number": "5",
+        "country": "uk",
+        "style": "name_first",
+        "name": "High",
+        "type": "Street"
+    },
+    {
+        "addr": "22 Oxford Road",
+        "number": "22",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Oxford",
+        "type": "Road"
+    },
+    {
+        "addr": "9 Queen's Road",
+        "number": "9",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Queen's",
+        "type": "Road"
+    },
+    {
+        "addr": "221B Baker Street",
+        "number": "221B",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Baker",
+        "type": "Street"
+    },
+    {
+        "addr": "24 O'Connell Street",
+        "number": "24",
+        "country": "ireland",
+        "style": "name_first",
+        "name": "O'Connell",
+        "type": "Street"
+    },
+    {
+        "addr": "7 Grafton Street",
+        "number": "7",
+        "country": "ireland",
+        "style": "name_first",
+        "name": "Grafton",
+        "type": "Street"
+    },
+    {
+        "addr": "6 Allée des Bougainvilliers",
+        "number": "6",
+        "country": "monaco",
+        "style": "type_first",
+        "name": "des Bougainvilliers",
+        "type": "Allée"
+    },
+    {
+        "addr": "4 Church Lane",
+        "number": "4",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Church",
+        "type": "Lane"
+    },
+    {
+        "addr": "8 Cedar Close",
+        "number": "8",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Cedar",
+        "type": "Close"
+    },
+    {
+        "addr": "3 King's Court",
+        "number": "3",
+        "country": "uk",
+        "style": "name_first",
+        "name": "King's",
+        "type": "Court"
+    },
+    {
+        "addr": "6 Market Place",
+        "number": "6",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Market",
+        "type": "Place"
+    },
+    {
+        "addr": "10 Hanover Square",
+        "number": "10",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Hanover",
+        "type": "Square"
+    },
+    {
+        "addr": "12 Queen's Terrace",
+        "number": "12",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Queen's",
+        "type": "Terrace"
+    },
+    {
+        "addr": "5 Park Way",
+        "number": "5",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Park",
+        "type": "Way"
+    },
+    {
+        "addr": "7 Royal Crescent",
+        "number": "7",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Royal",
+        "type": "Crescent"
+    },
+    {
+        "addr": "9 Elm Drive",
+        "number": "9",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Elm",
+        "type": "Drive"
+    },
+    {
+        "addr": "2 Birdcage Mews",
+        "number": "2",
+        "country": "uk",
+        "style": "name_first",
+        "name": "Birdcage",
+        "type": "Mews"
+    },
+    {
+        "addr": "5 Eden Quay",
+        "number": "5",
+        "country": "ireland",
+        "style": "name_first",
+        "name": "Eden",
+        "type": "Quay"
+    }
+]
