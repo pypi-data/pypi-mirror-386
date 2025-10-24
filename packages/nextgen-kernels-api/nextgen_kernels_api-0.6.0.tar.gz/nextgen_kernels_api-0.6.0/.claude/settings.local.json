@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(jupyter server extension enable nextgen_kernels_api)",
+      "Bash(python:*)",
+      "Bash(jupyter server extension enable nextgen_kernels_api --py --sys-prefix)",
+      "Bash(jupyter server extension list)",
+      "Bash(twine check:*)",
+      "Bash(twine upload:*)",
+      "WebFetch(domain:jupyter-client.readthedocs.io)",
+      "Bash(git add:*)",
+      "Bash(git mv:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nRename KernelClientRegistry to KernelClientManager\n\nRenames KernelClientRegistry to KernelClientManager to align with\nJupyter Server naming conventions (e.g., MultiKernelManager,\nKernelManager).\n\nChanges:\n- Renamed client_registry.py to client_manager.py\n- Updated class name from KernelClientRegistry to KernelClientManager\n- Updated all imports and references throughout the codebase\n- Updated method names: _get_client_registry() -> _get_client_manager()\n- Updated settings key: \"client_registry\" -> \"client_manager\"\n- Updated README and documentation to reflect new naming\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
