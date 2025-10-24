@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: wechat_enterprise_sdk
+Version: 0.4.4
+Home-page: https://github.com/somenzz/wechat_enterprise
+Author: somenzz
+Author-email: somenzz@163.com
+License: MIT
+Keywords: python wechat enterprise,wechat_enterprise,send message
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: requests_toolbelt
+
+# 用 Python 发送企业微信消息
+
+支持发送：
+- 文本
+- 文件
+- 图片
+- MarkDown
+
+## 安装
+```sh
+pip install wechat-enterprise-sdk
+```
+
+## 使用
+
+获取的 access_token 会保存在 ./tmp/cache.json 里面，避免高频率获取 access_token。
+
+```python
+from wechat_enterprise import WechatEnterprise
+we = WechatEnterprise(
+    corpid="ww2563f***********",  # 企业 ID
+    appid="100****3",  # 企业应用 ID
+    corpsecret="*********************",  # 企业应用 Secret
+)
+
+#接收者 ID，在企业微信通讯录中查看
+receivers = ["ZhengZheng", "DaZhengGe"]
+# 发送 文本
+re = we.send_text("来息 somenzz 的消息", receivers)
+re 就是企业微信返回的数据，用于判断发送是否成功或失败的原因。
+# 发送 Markdown
+we.send_markdown("# Markdown", receivers)
+# 发送图片
+we.send_image("/Users/aaron/Downloads/images.jpeg", receivers)
+# 发送文件
+we.send_file("./wechat_enterprise.py", receivers)
+# 根据手机号获取企业微信账号：
+userid = we.get_userid("138********")
+we.send_text("hello",[userid,])
+```
+
+## todo
+
+添加企业微信的其他实用功能
+
+## 联系我
+
+添加微信 「somenzz-enjoy」 备注 「github」
+
+个人公众号 「Python七号」，微信搜一搜关注。
