@@ -1,0 +1,17 @@
+*.egg-info
+*.iml
+*.pyc
+*.swp
+.DS_Store
+/.cache
+/.coverage
+/.idea
+/.medikit
+/.release
+/.virtualenv-python*
+/.wheels
+/build
+/dist
+/docs/_build
+/htmlcov
+/roadmap-2.0.rst
