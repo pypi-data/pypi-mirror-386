@@ -1,0 +1,9 @@
+riskcal/__init__.py,sha256=4126bd51e70547978eb18bf4517cc2861468510a8bcf659cf9a65e12dbd7ad56,371
+riskcal/blackbox.py,sha256=cf830266ecfbb7f35f9ccad3b0123d083937d992b27a474f7aff38dd3418ddf2,7638
+riskcal/conversions.py,sha256=9ee8d0e494cb2c3a869aaeb1ae9622de7dc1d20c73a189da68c5c6b5dfaa5c95,4719
+riskcal/dpsgd.py,sha256=43773be80ed9bb7e3b6ae675b869bc4bac9da72b3d0c8310eaa2da70f6296748,11121
+riskcal/plrv.py,sha256=cd49beec8ba0c826a1f05731fc12b9534d38fbcf12ebc394ad5acd30430edc84,19430
+riskcal-1.2.1.dist-info/licenses/LICENSE,sha256=d53c7df4164cbe81f99580640f627f3d56b8eecc955fdbecd5e1463aa9a3b098,1063
+riskcal-1.2.1.dist-info/WHEEL,sha256=ab6157bc637547491fb4567cd7ddf26b04d63382916ca16c29a5c8e94c9c9ef7,79
+riskcal-1.2.1.dist-info/METADATA,sha256=5487b5f91996de32195a4c414f608ed2ab106c09561192e4643ed14eb98c5832,4725
+riskcal-1.2.1.dist-info/RECORD,,
