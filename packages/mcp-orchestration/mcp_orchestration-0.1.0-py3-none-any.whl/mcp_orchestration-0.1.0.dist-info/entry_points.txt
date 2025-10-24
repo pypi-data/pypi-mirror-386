@@ -1,0 +1,3 @@
+[console_scripts]
+mcp-orchestration = mcp_orchestrator.mcp.server:main
+mcp-orchestration-init = mcp_orchestrator.cli_init:init_configs
