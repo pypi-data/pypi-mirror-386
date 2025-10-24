@@ -1,0 +1,3 @@
+[console_scripts]
+zwx-mcp-test = zwx_mcp_test:main
+
