@@ -1,0 +1,12 @@
+PyRoxy/__init__.py,sha256=1pdbzX9FHWoQrS3QO844CKwxrIbZpPIqqBDfsZu5BnQ,8174
+PyRoxy/Exceptions/__init__.py,sha256=m4zNng1MYXmRDEhtCo041JSYJPHhZPxCf77CVnlnOr8,464
+PyRoxy/GeoIP/__init__.py,sha256=96ntxAcXWguhrj7MGExXAGP9G21nQDMuVPZUstKtnSw,339
+PyRoxy/GeoIP/Sqlite/COPYRIGHT.txt,sha256=5Jfj9uXVSRB8BFVn48s4ouRBDgKW76hW6G2ZOTQ6TtE,55
+PyRoxy/GeoIP/Sqlite/GeoLite2-Country.mmdb,sha256=CQhlWlzr66dwYLeuFOfSBRlou_JvUG3br5187z0LNBY,5769066
+PyRoxy/GeoIP/Sqlite/LICENSE.txt,sha256=X3ytH-WEw1FQPCZyOcf0oKYO4tSnOgZCwPfKEXLSFXM,398
+PyRoxy/Tools/__init__.py,sha256=_-y4_IItD-v52BPpL_90JPtJY3Yw76a3ci_D9I2LdoM,2417
+pyroxy_real2-1.0b5.dist-info/licenses/LICENSE.md,sha256=TQcY1huD3biGRWcXZsFPaIqnvscOBx9FADd2SuC7wU4,1066
+pyroxy_real2-1.0b5.dist-info/METADATA,sha256=tAFVyvmEJBEw0an0mK10nWx9o2jEImFvzEcj0D28dWA,376
+pyroxy_real2-1.0b5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pyroxy_real2-1.0b5.dist-info/top_level.txt,sha256=FeI9Yxj-xV4siTK-Ap3LgZnyLUEQfWywQ-2lqNj81ic,7
+pyroxy_real2-1.0b5.dist-info/RECORD,,
