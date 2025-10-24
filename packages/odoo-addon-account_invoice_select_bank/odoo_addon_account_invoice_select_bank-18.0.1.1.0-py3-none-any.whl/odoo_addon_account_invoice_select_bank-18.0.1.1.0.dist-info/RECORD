@@ -1,0 +1,14 @@
+odoo/addons/account_invoice_select_bank/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+odoo/addons/account_invoice_select_bank/README.rst,sha256=0GxCnlg7l77bZ_N80FvRQqof6oMMTLaNkPiAz1dM3jc,762
+odoo/addons/account_invoice_select_bank/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/account_invoice_select_bank/__manifest__.py,sha256=3gbf0_exVpIY0awVOIzKAWxXu26WvtsyeTCenfjPwCg,434
+odoo/addons/account_invoice_select_bank/images/screen.png,sha256=iHFtYOG7nhY0NQAAajPUjytoGt8P2KHwdCidPVBVNKk,1054012
+odoo/addons/account_invoice_select_bank/models/__init__.py,sha256=9829nnQdRNsJmZEDfsGtCQQqM2W0JuYarPptYP2zJzU,27
+odoo/addons/account_invoice_select_bank/models/account_move.py,sha256=f5eJt0AahnXRKFBE1YYYfB4ddduz7SjZWyjkx5JyQJ4,696
+odoo/addons/account_invoice_select_bank/static/description/icon.png,sha256=5TowYYN8cWXqBAasznGpstK-rIA3K5JG6hcrVoPoLzQ,2809
+odoo/addons/account_invoice_select_bank/static/description/index.html,sha256=2pKaVew5Ew8nxtuBagEuQHd1L0Pd2d9mVUMQjFZdMzA,17450
+odoo/addons/account_invoice_select_bank/tests/TEST_INSTRUCTIONS.rst,sha256=7IkWhdxgb2iHFXrscmz3I0nPAmGHAv_QvIZubDUuAPE,461
+odoo_addon_account_invoice_select_bank-18.0.1.1.0.dist-info/METADATA,sha256=TZwuDtcysVNIfpGEsiP44V4iPPsmXUI-zZAONyM04rw,1260
+odoo_addon_account_invoice_select_bank-18.0.1.1.0.dist-info/WHEEL,sha256=ZhOvUsYhy81Dx67gN3TV0RchQWBIIzutDZaJODDg2Vo,81
+odoo_addon_account_invoice_select_bank-18.0.1.1.0.dist-info/top_level.txt,sha256=QE6RBQ0QX5f4eFuUcGgU5Kbq1A_qJcDs-e_vpr6pmfU,4
+odoo_addon_account_invoice_select_bank-18.0.1.1.0.dist-info/RECORD,,
