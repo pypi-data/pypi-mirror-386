@@ -1,0 +1,40 @@
+[project]
+name = "residuum"
+version = "0.1.0.a1"
+license = { file = "src/LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+    "lxml",
+    "psims",
+    "pydantic",
+    "pyteomics",
+    "rdkit",
+    "sqlalchemy",
+    "typer",
+    "jinja2",
+]
+
+[dependency-groups]
+dev = ["pytest", "ruff", "ty"]
+docs = [
+    "numpydoc>=1,<2",
+    "sphinx_rtd_theme",
+    "sphinx-autobuild",
+    "sphinx_mdinclude",
+    "sphinx",
+]
+jupyter = ["ipykernel", "ipywidgets"]
+
+[project.scripts]
+residuum = "residuum.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.9.4,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 99
+target-version = 'py311'
+
+[tool.ruff.lint]
+extend-select = ["T201", "T203"]
