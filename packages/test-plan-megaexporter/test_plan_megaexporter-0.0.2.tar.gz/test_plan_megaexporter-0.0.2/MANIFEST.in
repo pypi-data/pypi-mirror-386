@@ -1,0 +1,2 @@
+recursive-include test_plan_megaexporter/templates *
+recursive-include test_plan_megaexporter/static *
