@@ -1,0 +1,19 @@
+herostools.helper
+=================
+
+.. py:module:: herostools.helper
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   herostools.helper.log
+
+
+Module Contents
+---------------
+
+.. py:data:: log
+
