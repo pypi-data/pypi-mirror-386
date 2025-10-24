@@ -1,0 +1,12 @@
+__pycache__
+.envrc
+.luarc.json
+*.log
+runs/*.jsonl
+src/lua_old
+balatrobot_old.lua
+scripts
+dump
+coverage.xml
+.coverage
+balatro
