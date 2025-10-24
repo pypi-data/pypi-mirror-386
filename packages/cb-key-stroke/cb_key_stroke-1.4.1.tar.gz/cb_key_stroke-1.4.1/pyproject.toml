@@ -1,0 +1,67 @@
+[build-system]
+requires = [
+    "hatchling",
+]
+
+build-backend = "hatchling.build"
+
+
+
+[project]
+name = "cb_key_stroke"
+
+description = "The python key stroke module to capture a key stroke and do something useful (e.g. terminating an application). It works an all platforms"
+
+readme = "README.md"
+
+authors = [{ name="Thomas", email="Thomas@chriesibaum.dev" }]
+
+requires-python = ">=3.12"
+
+license = { file="LICENSE" }
+
+dynamic = [
+    "version"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "select; platform_system == 'linux'",
+    "tty; platform_system == 'linux'",
+    "termios; platform_system == 'linux'",
+    "msvcrt; platform_system == 'windows'"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/chriesibaum/cb_key_stroke"
+Documentation = "https://chriesibaum.github.io/cb_key_stroke/"
+Repository = "https://github.com/chriesibaum/cb_key_stroke"
+
+[tool.hatch.version]
+path = "cb_key_stroke/__init__.py"
+
+
+
+
+[project.optional-dependencies]
+dev = [
+    "hatch",
+    "autopep8",
+    "pycodestyle",
+    "flake8",
+    "pylint",
+    "bandit",
+    "sphinx",
+    "sphinx-inline-tabs",
+    "sphinx-copybutton",
+    "sphinx-rtd-theme",
+    "m2r2",
+
+]
+
