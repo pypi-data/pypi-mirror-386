@@ -1,0 +1,2 @@
+[console_scripts]
+fdown = fdown_api.console:main
