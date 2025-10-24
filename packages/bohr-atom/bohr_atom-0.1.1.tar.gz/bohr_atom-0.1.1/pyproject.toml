@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bohr-atom"
+version = "0.1.1"
+description = "Una librería para cálculos y visualizaciones del modelo atómico de Bohr"
+readme = "README.md"
+authors = [
+    {name = "Maria Moreno", email = "maamorenor@udistrital.edu.co"},
+    { name = "Juan", email = "juan@example.com" }
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+keywords = ["physics", "bohr", "atom", "quantum", "hydrogen"]
+dependencies = [
+    "numpy>=1.20.0",
+    "matplotlib>=3.3.0",
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Almarm-r/bohr_atom"
+Documentation = "https://github.com/Almarm-r//bohr-atom#readme"
+Repository = "https://github.com/Almarm-r//bohr-atom"
+Issues = "https://github.com/Almarm-r//bohr-atom/issues"
+
+[tool.setuptools]
+packages = ["bohr_atom"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=bohr_atom --cov-report=html --cov-report=term"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
