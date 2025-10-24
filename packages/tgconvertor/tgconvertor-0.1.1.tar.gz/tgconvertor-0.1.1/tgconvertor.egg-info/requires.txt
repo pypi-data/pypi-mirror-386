@@ -1,0 +1,11 @@
+typer>=0.9.0
+rich>=13.0.0
+typing-extensions>=4.0.0
+opentele
+aiosqlite
+
+[kurigram]
+kurigram
+
+[pyrogram]
+pyrogram
