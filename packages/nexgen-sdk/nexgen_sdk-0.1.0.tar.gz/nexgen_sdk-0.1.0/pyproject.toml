@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexgen-sdk"
+version = "0.1.0"
+description = "A custom Python SDK for interacting with AI models, compatible with OpenAI's API format"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Dhruv Karnwal", email = "kdhruv.fsd@gmail.com" }
+]
+keywords = ["ai", "openai", "sdk", "machine-learning", "nlp", "llm", "chatbot"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "httpx>=0.23.0,<1.0.0",
+    "typing_extensions>=3.7.4; python_version < '3.8'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.20.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=0.950",
+    "tox>=3.25.0",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Dhruv1969Karnwal/ai-sdk-python"
+Documentation = "https://ai-sdk.readthedocs.io"
+Repository = "https://github.com/Dhruv1969Karnwal/ai-sdk-python.git"
+Issues = "https://github.com/Dhruv1969Karnwal/ai-sdk-python/issues"
+
+[tool.setuptools.packages.find]
+include = ["ai_sdk*"]
+exclude = ["tests*", "examples*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+
+[tool.mypy]
+python_version = "3.7"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
