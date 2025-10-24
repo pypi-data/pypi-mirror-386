@@ -1,0 +1,120 @@
+[build-system]
+requires = [
+  "hatchling>=1.27.0,<2.0",
+  "hatch-vcs>=0.4.0,<0.5.0",
+  "ruff==0.11.2",
+  "pyright>=1.1.398,<1.2.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "jitxlib-parts"
+dynamic = ["version"]
+dependencies = [
+  "black==25.1.0",
+  "dataclasses-json==0.6.7",
+  "jitx>=4.0.0,<4.1",
+  "jitxlib-standard>=4.0.0,<4.1",
+  "websockets>=11.0.0",
+]
+requires-python = ">=3.12"
+authors = [
+  {name = "JITX"}
+]
+maintainers = [
+  {name = "JITX"}
+]
+description = "Python interface to JITX parts database"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://jitx.com"
+Documentation = "https://docs.jitx.com"
+
+[tool]
+
+# tests: run "hatch test --cover"
+[tool.hatch.envs.test]
+dependencies = [
+  "coverage[toml]>=7.0,<8.0",
+  "pytest>=8.4.0,<9.0",
+  "pytest-cov>=7.0,<8.0",
+  "shapely>=2.1.0,<3.0",
+]
+
+[tool.hatch.envs.hatch-test]
+randomize = true
+parallel = false
+installer = "pip"
+extra-args = ["-vv", "-m", "not integration"]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.12", "3.13", "3.14"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.version]
+source = "vcs"
+fallback-version = "0.0.0+undefined"
+
+# formatting: run "hatch fmt --check"
+[tool.hatch.envs.hatch-static-analysis]
+dependencies = ["ruff==0.11.2"]
+config-path = "none"  # don't use hatch defaults
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+# To enable:
+# UP, TC
+select = ["E", "F", "W", "A", "B", "C"]
+# E501 line too long - let ruff format handle that
+# A002 variable shadowing built-in (id, min, max)
+# A005 builtin module shadowing (false positive)
+# C901 mccabe complexity check, limits to 10
+ignore = ["E501", "A005", "C901", "A002"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+skip-magic-trailing-comma = false
+
+[tool.pyright]
+typeCheckingMode = "basic"
+reportMissingImports = "warning"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/jitxlib"]
+
+# pyright: run "hatch run types:check"
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "pyright>=1.1.0",
+  "pytest>=8.4.0,<9.0",
+  "sphinx>=8.1.0,<9.0",
+]
+
+[tool.hatch.envs.types.scripts]
+check = "pyright ."
+stats = "pyright --stats ."
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers"
+markers = [
+    "integration: marks tests as integration tests (deselect with '-m \"not integration\"')",
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
+testpaths = ["tests"]
+
+[tool.coverage.report]
+ignore_errors = true
