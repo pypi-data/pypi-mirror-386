@@ -1,0 +1,3 @@
+[console_scripts]
+bonchcli=bonchcli.bonchcli:sync_main
+
