@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: deadend_cli
+Version: 0.0.10
+Summary: AI agent CLI for security research
+Author-email: Yassine Bargach <yassine.bargach@proton.me>
+Requires-Python: >=3.11
+Requires-Dist: cli
+Requires-Dist: deadend-prompts
+Requires-Dist: deadend-sdk
+Requires-Dist: eval

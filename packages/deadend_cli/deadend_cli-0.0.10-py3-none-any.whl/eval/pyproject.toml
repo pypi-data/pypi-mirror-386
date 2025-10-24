@@ -1,0 +1,22 @@
+[project]
+name = "eval"
+dynamic = ["version"]
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Yassine Bargach", email = "bargach.y@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "deadend_cli"
+]
+
+[project.scripts]
+eval = "eval:eval"
+
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
