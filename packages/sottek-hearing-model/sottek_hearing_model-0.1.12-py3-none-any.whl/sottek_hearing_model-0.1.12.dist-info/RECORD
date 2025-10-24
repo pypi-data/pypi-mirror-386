@@ -1,0 +1,12 @@
+sottek_hearing_model/__init__.py,sha256=mOUGtGu0lwZ4vFLPGiKuVkri9tkUMzxqUXhUhQzGH_Y,475
+sottek_hearing_model/filters.py,sha256=wt-XQAv2ZWTV57lRxWFhOHIKeiBUov8ZTRI2fWB7Cmw,5153
+sottek_hearing_model/plotting_tools.py,sha256=ODf2RpTLidO2k789MXcfI3ylBo0oNEx5cdHSU8deg2E,4109
+sottek_hearing_model/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sottek_hearing_model/shm_loudness_ecma.py,sha256=NtPmk-44IItCPHMJ42HXBugyi_H0L5vflFkUaZD0CQc,31365
+sottek_hearing_model/shm_reference_signals.py,sha256=oq1ppcslgBKgnHXBQ-luPm7g_El7sg0oDbwJwZB0Yz0,2888
+sottek_hearing_model/shm_roughness_ecma.py,sha256=LaQxi28bkTwofx9fjYopB-efcGnprtEWkcHNDO9fVCo,46738
+sottek_hearing_model/shm_subs.py,sha256=iaIOFQ5AFYHv21pEve-bLv-9TKZad_qybi0fE8k0vTQ,47250
+sottek_hearing_model/shm_tonality_ecma.py,sha256=PGkD0OeP1AHpIlD0eR6hvegb5jWsxvJ6wpz2k_ORskQ,38295
+sottek_hearing_model-0.1.12.dist-info/WHEEL,sha256=eh7sammvW2TypMMMGKgsM83HyA_3qQ5Lgg3ynoecH3M,79
+sottek_hearing_model-0.1.12.dist-info/METADATA,sha256=8IDCvqkRFvbXjwVrG0gUhskkTEjXQuQob3_0soDqW-c,6828
+sottek_hearing_model-0.1.12.dist-info/RECORD,,
