@@ -1,0 +1,3 @@
+{
+    "serverConfig": "{\"mcpServers\":{\"baidu-mcp-server\":{\"command\":\"uvx\",\"args\":[\"--from\",\"iflow-mcp_baidu-mcp-server\",\"baidu-mcp-server\"],\"values\":{}}}}"
+}
