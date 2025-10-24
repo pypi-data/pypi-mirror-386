@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/shared_allocator/__init__.py
+src/shared_allocator/bump.py
+src/shared_allocator/freelist.py
+src/shared_allocator/slab.py
+src/shared_allocator.egg-info/PKG-INFO
+src/shared_allocator.egg-info/SOURCES.txt
+src/shared_allocator.egg-info/dependency_links.txt
+src/shared_allocator.egg-info/top_level.txt
+tests/test_benchmarks.py
