@@ -1,0 +1,34 @@
+build/*
+.eggs/*
+snowexsql.egg-info/*
+dist/*
+*.db
+**/__pycache__/**
+*.cpg
+*.dbf
+*.prj
+*.shp
+*.shx
+
+docs/modules.rst
+docs/snowexsql.rst
+docs/_build/*
+
+**/.ipynb_checkpoints/*
+
+# Database credential information
+credentials.json
+
+# Test related files
+.coverage
+coverage.xml
+htmlcov/*
+
+.idea/
+.vscode/
+scripts/download/data/*
+*.egg-info
+
+# Version
+_version.py
+
