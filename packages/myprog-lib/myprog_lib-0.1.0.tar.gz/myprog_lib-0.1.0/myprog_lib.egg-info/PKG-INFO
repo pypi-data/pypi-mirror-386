@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: myprog-lib
+Version: 0.1.0
+Summary: A simple library for program name lookup
+Author: Deepak M
+Requires-Python: >=3.6
