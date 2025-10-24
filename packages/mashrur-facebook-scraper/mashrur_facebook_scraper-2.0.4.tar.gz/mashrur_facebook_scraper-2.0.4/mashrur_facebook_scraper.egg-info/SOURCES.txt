@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+example_usage.py
+requirements.txt
+setup.py
+setup_cython.py
+mashrur_facebook_scraper/__init__.py
+mashrur_facebook_scraper/scraper_core.py
+mashrur_facebook_scraper/simple.py
+mashrur_facebook_scraper.egg-info/PKG-INFO
+mashrur_facebook_scraper.egg-info/SOURCES.txt
+mashrur_facebook_scraper.egg-info/dependency_links.txt
+mashrur_facebook_scraper.egg-info/not-zip-safe
+mashrur_facebook_scraper.egg-info/requires.txt
+mashrur_facebook_scraper.egg-info/top_level.txt
