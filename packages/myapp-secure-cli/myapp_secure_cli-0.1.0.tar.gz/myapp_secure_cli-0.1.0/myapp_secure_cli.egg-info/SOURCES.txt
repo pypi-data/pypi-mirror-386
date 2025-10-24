@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+myapp/__init__.py
+myapp/cli.py
+myapp_secure_cli.egg-info/PKG-INFO
+myapp_secure_cli.egg-info/SOURCES.txt
+myapp_secure_cli.egg-info/dependency_links.txt
+myapp_secure_cli.egg-info/entry_points.txt
+myapp_secure_cli.egg-info/requires.txt
+myapp_secure_cli.egg-info/top_level.txt
