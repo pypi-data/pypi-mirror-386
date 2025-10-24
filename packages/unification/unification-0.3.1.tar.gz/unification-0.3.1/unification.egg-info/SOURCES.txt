@@ -1,0 +1,14 @@
+LICENSE.txt
+README.rst
+setup.py
+unification/__init__.py
+unification/core.py
+unification/dispatch.py
+unification/more.py
+unification/util.py
+unification/variable.py
+unification.egg-info/PKG-INFO
+unification.egg-info/SOURCES.txt
+unification.egg-info/dependency_links.txt
+unification.egg-info/not-zip-safe
+unification.egg-info/top_level.txt
