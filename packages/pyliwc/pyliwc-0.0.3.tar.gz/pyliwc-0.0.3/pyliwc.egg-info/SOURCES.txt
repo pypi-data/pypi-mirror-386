@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+settings.ini
+setup.py
+pyliwc/__init__.py
+pyliwc/_modidx.py
+pyliwc/core.py
+pyliwc.egg-info/PKG-INFO
+pyliwc.egg-info/SOURCES.txt
+pyliwc.egg-info/dependency_links.txt
+pyliwc.egg-info/entry_points.txt
+pyliwc.egg-info/not-zip-safe
+pyliwc.egg-info/requires.txt
+pyliwc.egg-info/top_level.txt
