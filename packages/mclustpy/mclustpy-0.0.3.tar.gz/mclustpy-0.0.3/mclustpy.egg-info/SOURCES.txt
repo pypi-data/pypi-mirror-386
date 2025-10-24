@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+mclustpy/__init__.py
+mclustpy/model.py
+mclustpy.egg-info/PKG-INFO
+mclustpy.egg-info/SOURCES.txt
+mclustpy.egg-info/dependency_links.txt
+mclustpy.egg-info/requires.txt
+mclustpy.egg-info/top_level.txt
+tests/test_mclustpy.py
