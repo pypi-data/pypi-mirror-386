@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: typer-invoke
+Version: 0.0.1
+Summary: Simplified invokation of typer apps from any directory.
+Author: Joao Coelho
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 4 - Beta
+License-File: LICENSE.txt
+Requires-Dist: pytest>=7.0.0
+Project-URL: Home, https://github.com/joaonc/typer-invoke
+
+# typer-invoke
+
+Simplified invokation of typer apps from any directory.
+
