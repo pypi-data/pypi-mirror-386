@@ -1,0 +1,3 @@
+[console_scripts]
+whatsapp-mcp=whatsapp_mcp:main
+
