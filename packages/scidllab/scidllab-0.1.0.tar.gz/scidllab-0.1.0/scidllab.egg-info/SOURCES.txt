@@ -1,0 +1,13 @@
+pyproject.toml
+scidllab/__init__.py
+scidllab/ex1.py
+scidllab/ex2.py
+scidllab/ex3.py
+scidllab/ex3a.py
+scidllab/ex4.py
+scidllab/ex5.py
+scidllab.egg-info/PKG-INFO
+scidllab.egg-info/SOURCES.txt
+scidllab.egg-info/dependency_links.txt
+scidllab.egg-info/requires.txt
+scidllab.egg-info/top_level.txt
