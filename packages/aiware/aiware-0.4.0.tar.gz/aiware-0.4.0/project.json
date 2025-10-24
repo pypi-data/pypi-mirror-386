@@ -1,0 +1,58 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "root": "packages/py/aiware",
+  "name": "aiware-py",
+  "tags": ["python"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "uv build --out-dir dist"
+      },
+      "inputs": [
+        "{projectRoot}/src",
+        "{projectRoot}/pyproject.toml"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "generate-graphql": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "uv run ./src/aiware/_internal/generators/aiware_graphql.py"
+      },
+      "outputs": [
+        "{projectRoot}/src/aiware/graphql/client_generated"
+      ]
+    },
+    "generate-search": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "uv run ./src/aiware/_internal/generators/aiware_search_types.py"
+      },
+      "outputs": [
+        "{projectRoot}/src/aiware/search/_models_generated.py"
+      ]
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "uv run pytest tests"
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "uv publish"
+      }
+    }
+  }
+}
