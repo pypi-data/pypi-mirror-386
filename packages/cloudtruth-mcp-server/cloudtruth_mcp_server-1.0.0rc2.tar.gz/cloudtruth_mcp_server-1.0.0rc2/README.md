@@ -1,0 +1,316 @@
+# CloudTruth MCP Server
+
+**Model Context Protocol server for CloudTruth configuration and secrets management**
+
+Version 1.0.0
+
+---
+
+## Overview
+
+The CloudTruth MCP Server provides AI agents and coding assistants with secure, context-aware access to CloudTruth's centralized configuration and secrets management platform. By implementing the Model Context Protocol (MCP), this server enables any MCP-compatible AI tool (Claude Code, VS Code extensions, Cursor, etc.) to seamlessly retrieve parameters, templates, and secrets needed for development workflows—without manual credential copying or context switching.
+
+### Key Features
+
+- **🔐 Secure by Default**: Secrets masked unless explicitly requested
+- **🌍 Universal Compatibility**: Works with any MCP-compatible AI client
+- **☁️ Flexible Deployment**: Supports both CloudTruth Cloud and self-hosted instances
+- **⚡ High Performance**: Intelligent caching with sub-second response times
+- **📋 Complete Coverage**: 10 tools, 5 resources, 4 prompts for full CloudTruth functionality
+- **🔍 Point-in-Time Queries**: Access configuration snapshots via tags
+- **📤 Multiple Export Formats**: JSON, .env, YAML exports
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- Python 3.11 or higher
+- CloudTruth account with API key
+- MCP-compatible client (e.g., Claude Code)
+
+### Installation
+
+```bash
+# Clone repository (or install from PyPI when published)
+git clone https://github.com/cloudtruth/mcp-server.git
+cd mcp-server
+
+# Install with pip
+pip install -e .
+
+# Or use poetry/pipenv
+poetry install
+```
+
+### Configuration
+
+Create configuration file:
+
+```bash
+mkdir -p ~/.config/cloudtruth
+cat > ~/.config/cloudtruth/mcp-config.json << EOF
+{
+  "api_key": "ct-YOUR-API-KEY-HERE",
+  "api_base_url": "https://api.cloudtruth.io",
+  "default_project": "my-application",
+  "default_environment": "development"
+}
+EOF
+
+# Secure the configuration file
+chmod 600 ~/.config/cloudtruth/mcp-config.json
+```
+
+### Configure MCP Client
+
+Add to your MCP client configuration (e.g., Claude Code):
+
+```json
+{
+  "mcpServers": {
+    "cloudtruth": {
+      "command": "python",
+      "args": ["-m", "cloudtruth_mcp.server"],
+      "env": {}
+    }
+  }
+}
+```
+
+### Test Installation
+
+```bash
+# Test with MCP Inspector
+npx @modelcontextprotocol/inspector python -m cloudtruth_mcp.server
+```
+
+---
+
+## Documentation
+
+Complete documentation is available in the `docs/` directory:
+
+- **[PRD.md](docs/PRD.md)** - Product requirements and use cases
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - System architecture with diagrams
+- **[API_SPECIFICATION.md](docs/API_SPECIFICATION.md)** - Complete API reference for all tools/resources/prompts
+- **[IMPLEMENTATION_GUIDE.md](docs/IMPLEMENTATION_GUIDE.md)** - Step-by-step implementation instructions
+- **[SECURITY_SPECIFICATION.md](docs/SECURITY_SPECIFICATION.md)** - Security requirements and best practices
+- **[DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md)** - Installation and deployment instructions
+- **[CLOUDTRUTH_API_REFERENCE.md](docs/CLOUDTRUTH_API_REFERENCE.md)** - CloudTruth API endpoint reference
+- **[DATA_MODELS.md](docs/DATA_MODELS.md)** - Data structures and schemas
+- **[ACTIVITY_DIAGRAMS.md](docs/ACTIVITY_DIAGRAMS.md)** - Workflow diagrams
+
+---
+
+## Usage Examples
+
+### Retrieve Database Credentials
+
+```json
+{
+  "tool": "get_parameter",
+  "arguments": {
+    "project": "my-app",
+    "parameter_name": "DATABASE_URL",
+    "environment": "staging",
+    "include_secrets": true
+  }
+}
+```
+
+### Get All Configuration for Environment
+
+```json
+{
+  "tool": "export_parameters",
+  "arguments": {
+    "project": "my-app",
+    "environment": "production",
+    "format": "dotenv",
+    "include_secrets": true
+  }
+}
+```
+
+### Preview Configuration Template
+
+```json
+{
+  "tool": "preview_template",
+  "arguments": {
+    "project": "my-app",
+    "environment": "production",
+    "template_body": "DATABASE_URL={{DATABASE_URL}}\nAPI_KEY={{API_KEY}}"
+  }
+}
+```
+
+### Compare Environments
+
+```json
+{
+  "prompt": "compare-environments",
+  "arguments": {
+    "project": "my-app",
+    "environment1": "staging",
+    "environment2": "production"
+  }
+}
+```
+
+---
+
+## Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `list_projects` | List all accessible projects |
+| `list_environments` | List all environments with hierarchy |
+| `get_parameter` | Get single parameter value |
+| `get_parameters` | Get all parameters for project/environment |
+| `set_parameter` | Set or update parameter value |
+| `create_parameter` | Create new parameter |
+| `delete_parameter` | Delete parameter |
+| `preview_template` | Render template with parameters |
+| `create_tag` | Create point-in-time snapshot |
+| `export_parameters` | Export parameters in various formats |
+
+See [API_SPECIFICATION.md](docs/API_SPECIFICATION.md) for complete details.
+
+---
+
+## Security
+
+This server implements defense-in-depth security:
+
+- ✅ API keys stored in secured configuration file (permissions 600)
+- ✅ Secrets masked by default in all responses
+- ✅ All API communication over HTTPS with certificate validation
+- ✅ Secret access logging for audit trail
+- ✅ Input validation on all parameters
+- ✅ Rate limiting to prevent API abuse
+- ✅ Log sanitization to prevent credential leakage
+
+See [SECURITY_SPECIFICATION.md](docs/SECURITY_SPECIFICATION.md) for details.
+
+---
+
+## Development
+
+### Setup Development Environment
+
+```bash
+# Clone repository
+git clone https://github.com/cloudtruth/mcp-server.git
+cd mcp-server
+
+# Install with dev dependencies
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+
+# Run linting
+black src/ tests/
+ruff check src/ tests/
+mypy src/
+
+# Generate coverage report
+pytest --cov --cov-report=html
+```
+
+### Project Structure
+
+```
+cloudtruth-mcp-server/
+├── src/
+│   └── cloudtruth_mcp/
+│       ├── server.py          # Main MCP server
+│       ├── client.py          # CloudTruth API client
+│       ├── config.py          # Configuration management
+│       ├── tools.py           # Tool implementations
+│       ├── resources.py       # Resource handlers
+│       ├── prompts.py         # Prompt templates
+│       ├── cache.py           # Caching layer
+│       ├── models.py          # Data models
+│       ├── errors.py          # Error handling
+│       └── utils.py           # Utilities
+├── tests/
+├── docs/
+├── config/
+├── pyproject.toml
+└── README.md
+```
+
+---
+
+## Troubleshooting
+
+### Server Won't Start
+
+**Problem**: `Configuration file not found`
+
+**Solution**: Create `~/.config/cloudtruth/mcp-config.json` with your API key
+
+**Problem**: `Authentication failed`
+
+**Solution**: Verify your API key is correct and has not been revoked
+
+### Cannot Retrieve Parameters
+
+**Problem**: `Parameter not found`
+
+**Solution**: Verify the parameter exists in CloudTruth and you have access to the project
+
+**Problem**: `Permission denied`
+
+**Solution**: Check that your API key has appropriate permissions for the resource
+
+### Performance Issues
+
+**Problem**: Slow responses
+
+**Solution**:
+- Check `cache_ttl_seconds` configuration
+- Verify network connectivity to CloudTruth API
+- Review CloudTruth API rate limits
+
+---
+
+## Contributing
+
+We welcome contributions! Please see our contributing guidelines.
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with tests
+4. Submit a pull request
+
+---
+
+## License
+
+MIT License - see LICENSE file for details
+
+---
+
+## Support
+
+- **Documentation**: [docs/](docs/)
+- **Issues**: [GitHub Issues](https://github.com/cloudtruth/mcp-server/issues)
+- **CloudTruth Docs**: https://docs.cloudtruth.com
+- **MCP Specification**: https://modelcontextprotocol.io
+
+---
+
+## Changelog
+
+### Version 1.0.0 (2025-10-23)
+- Initial release
+- 10 tools for parameter management
+- 5 resource types
+- 4 workflow prompts
+- Full CloudTruth Cloud and self-hosted support
+- Comprehensive security features

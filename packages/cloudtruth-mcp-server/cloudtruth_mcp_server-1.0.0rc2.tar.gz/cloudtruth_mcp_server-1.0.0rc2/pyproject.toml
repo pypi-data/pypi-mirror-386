@@ -1,0 +1,54 @@
+[project]
+name = "cloudtruth-mcp-server"
+version = "1.0.0-rc2"
+description = "MCP server for CloudTruth configuration and secrets management"
+authors = [{name = "CloudTruth", email = "support@cloudtruth.com"}]
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.25.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+cloudtruth-mcp-server = "cloudtruth_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+warn_unused_configs = true
+ignore_missing_imports = true
+# Note: Strict mode disabled for v1.0.0 - will enable in future release
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src/cloudtruth_mcp --cov-report=html --cov-report=term"
