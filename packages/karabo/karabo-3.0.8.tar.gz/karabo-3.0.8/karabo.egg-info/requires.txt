@@ -1,0 +1,17 @@
+karabo.karathon==3.0.8
+
+[bound]
+karabo.bound==3.0.8
+
+[cpp]
+karabo.cpp==3.0.8
+
+[full]
+karabo.bound==3.0.8
+karabo.services[with_cpp]==3.0.8
+
+[karathon]
+karabo.karathon==3.0.8
+
+[services]
+karabo.services==3.0.8
