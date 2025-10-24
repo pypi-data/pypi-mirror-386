@@ -1,0 +1,13 @@
+beads_mcp/__init__.py,sha256=kQsVXFpCK0f1zLIrnSO4l9oAFT4ne4utEj-6OWCSsQM,221
+beads_mcp/__main__.py,sha256=XvurCEMvZUf8CJYGU_RrqKvpb8MG-sC3yPBmXSKAMU8,127
+beads_mcp/bd_client.py,sha256=g35TO9I-sARibFwa6SygM8hpgNh3myfec4Sd-BuThjM,23398
+beads_mcp/bd_daemon_client.py,sha256=bY3pM-zCAklOpQmhX_9qhN-gSRk1lzq5SRrY632-ip0,14228
+beads_mcp/config.py,sha256=Q4OcebQduk86OmoBNtU5Bhuegmte8an4YrzEgchdL78,4565
+beads_mcp/models.py,sha256=Y7BD6lxgrllwnr_RJhZxidqfjj9cayhxxivbNDDyJEA,4018
+beads_mcp/server.py,sha256=WsIF8YISGwgkEqF0YwsOXi3zHapFd_5UoB7Yy-7jNzI,14136
+beads_mcp/tools.py,sha256=ECKZSF_tdcq5LvOdmPQJlbm6O-KeBRc6_nsUc3k0BO0,10806
+beads_mcp-0.15.0.dist-info/METADATA,sha256=PS-EV61glsSFh5jHirWT1hBj0woXeyFiSOVKTJA4r7U,6042
+beads_mcp-0.15.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+beads_mcp-0.15.0.dist-info/entry_points.txt,sha256=UcwM-1tg5iwUtOwLK03BpqPFbYn5uj0DQsxH4FvRTaM,52
+beads_mcp-0.15.0.dist-info/licenses/LICENSE,sha256=yqLGDvu_ceGLRe9gBqGCE_ikJVSyNa-IiD9vHsJAt9s,1075
+beads_mcp-0.15.0.dist-info/RECORD,,
