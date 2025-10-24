@@ -1,0 +1,135 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "universal-tester"
+version = "1.0.0"
+description = "AI-powered automatic test case generation for Java and Kotlin projects"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Senthil Kumar Thanapal", email = "senthilthepro@hotmail.com"}
+]
+keywords = [
+    "testing", 
+    "test-generation", 
+    "junit", 
+    "java", 
+    "kotlin", 
+    "ai", 
+    "llm", 
+    "automation",
+    "spring-boot",
+    "mockito"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Java",
+    "Programming Language :: Other",
+    "Framework :: AsyncIO",
+]
+
+dependencies = [
+    "langchain>=0.1.0,<0.3.0",
+    "langchain-openai>=0.1.0,<0.3.0",
+    "langchain-community>=0.0.30,<0.3.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "typing-extensions>=4.0.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# CLI and UI applications
+cli = [
+    "chainlit>=1.1.0",
+]
+
+# Additional LLM providers
+google = [
+    "langchain-google-genai>=0.0.3",
+    "google-generativeai>=0.3.0",
+]
+
+# Development dependencies
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+]
+
+# All optional dependencies
+all = [
+    "universal-tester[cli,google,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/universal-tester"
+Documentation = "https://github.com/yourusername/universal-tester/blob/main/README.md"
+Repository = "https://github.com/yourusername/universal-tester"
+Issues = "https://github.com/yourusername/universal-tester/issues"
+
+[project.scripts]
+universal-tester = "universal_tester.cli:main"
+
+[project.entry-points."console_scripts"]
+universal-tester = "universal_tester.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["universal_tester*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+universal_tester = ["py.typed"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"

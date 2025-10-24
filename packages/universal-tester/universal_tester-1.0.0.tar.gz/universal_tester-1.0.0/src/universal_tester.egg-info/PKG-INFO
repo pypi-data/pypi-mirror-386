@@ -1,0 +1,120 @@
+Metadata-Version: 2.4
+Name: universal-tester
+Version: 1.0.0
+Summary: AI-powered automatic test case generation for Java and Kotlin projects
+Author-email: Senthil Kumar Thanapal <senthilthepro@hotmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/universal-tester
+Project-URL: Documentation, https://github.com/yourusername/universal-tester/blob/main/README.md
+Project-URL: Repository, https://github.com/yourusername/universal-tester
+Project-URL: Issues, https://github.com/yourusername/universal-tester/issues
+Keywords: testing,test-generation,junit,java,kotlin,ai,llm,automation,spring-boot,mockito
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Java
+Classifier: Programming Language :: Other
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: langchain<0.3.0,>=0.1.0
+Requires-Dist: langchain-openai<0.3.0,>=0.1.0
+Requires-Dist: langchain-community<0.3.0,>=0.0.30
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: typing-extensions>=4.0.0
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: cli
+Requires-Dist: chainlit>=1.1.0; extra == "cli"
+Provides-Extra: google
+Requires-Dist: langchain-google-genai>=0.0.3; extra == "google"
+Requires-Dist: google-generativeai>=0.3.0; extra == "google"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: build>=0.10.0; extra == "dev"
+Requires-Dist: twine>=4.0.0; extra == "dev"
+Provides-Extra: all
+Requires-Dist: universal-tester[cli,dev,google]; extra == "all"
+Dynamic: license-file
+
+# Universal Tester - Core Library
+
+This folder contains the **core library** that will be published to PyPI.
+
+## 📦 What's Inside
+
+This is the pip-installable package that provides:
+- Core test generation engine
+- LLM provider abstractions  
+- Import detectors for Java/Kotlin
+- Prompt templates
+- Basic CLI interface
+
+## 🚀 Publishing to PyPI
+
+```powershell
+# Validate structure
+python validate_package.py
+
+# Build the package
+.\build_package.ps1
+
+# Publish to TestPyPI (test first)
+python publish_package.py --test
+
+# Publish to PyPI (production)
+python publish_package.py
+```
+
+## 📚 Documentation
+
+- `README_PYPI.md` - Package README for PyPI page
+- `PYPI_PUBLISHING_GUIDE.md` - Complete publishing guide
+- `QUICKSTART.md` - Quick reference
+- `READY_TO_PUBLISH.md` - Publishing checklist
+
+## 🎯 After Publishing
+
+Users can install with:
+```bash
+pip install universal-tester
+```
+
+And use in their code:
+```python
+from universal_tester import LLMFactory, process_java_zip_enhanced_core
+```
+
+## 📁 Structure
+
+```
+universal-tester-lib/
+├── src/
+│   └── universal_tester/     # Main package
+│       ├── core.py           # Test generation engine
+│       ├── cli.py            # CLI entry point
+│       ├── llm/              # LLM providers
+│       ├── detectors/        # Import detection
+│       └── prompts/          # Prompt templates
+├── pyproject.toml            # Package metadata
+├── build_package.py          # Build script
+├── publish_package.py        # Publish script
+└── README_PYPI.md           # PyPI README
+```
+
+## 🔗 Related
+
+See `../universal-tester-app/` for the Chainlit UI application that uses this library.
