@@ -1,0 +1,15 @@
+./.gitignore,sha256=7yuZP75MrPvvzG8YvSl4yNvVPw3UC484JsOPXuxToFU,453
+./.python-version,sha256=Auc1s9_hwygz61ULf_j_oX9fK8P6HnuuYaj1o4g845g,5
+./PKG-INFO,sha256=O27fMP-dBXXpQyZrv3fHzb-iXzgUjZSrHQMftZtAunU,2756
+./README.md,sha256=hwngYhptSQDBWoxZKWgi_AQK-qX-p_IfH2zdmfXcCho,1821
+./__init__.py,sha256=iHNoFczmdSS8Ap2Xkzj3nmiHF2dtMVlF2kjDdrzAePw,78
+./main.py,sha256=ALRCwp9ACxlSg_04pTEynlBpNItJyzu1cOW1Bgad6CM,11136
+./models.py,sha256=QdGF37ToypiJxbINKb7EQUV3ViwEqHGE0Lc8SphRLxQ,1333
+./pyproject.toml,sha256=B_RMf1bsAkV2YwBG_hoEeM7b9DmDc2eL3qIvOuzHf2A,1271
+./remote_main.py,sha256=eR3nBMtogpzDjQljkKwZ-LBcSB4YIbo3EAJN5eUFjn0,8871
+./test-pre-publish-simple.ps1,sha256=0wA5tWuBa_cioWKfxg_awcztbzlbtmtQWeATVRmHZjY,4684
+./uv.lock,sha256=PNmxPP-ZrjBI3jBm3A7vKr5d3b732jWzWYLC-k9hmZ0,135511
+demo_mcp_server-1.0.1.dist-info/METADATA,sha256=O27fMP-dBXXpQyZrv3fHzb-iXzgUjZSrHQMftZtAunU,2756
+demo_mcp_server-1.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+demo_mcp_server-1.0.1.dist-info/entry_points.txt,sha256=357GZld9Hjq70QMv0gmcU9az-4SSD_nAjGvsg07WO1Y,59
+demo_mcp_server-1.0.1.dist-info/RECORD,,
