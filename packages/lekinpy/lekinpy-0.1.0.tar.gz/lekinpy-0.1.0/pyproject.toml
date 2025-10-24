@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lekinpy"
+version = "0.1.0"
+description = "A Python library for job shop scheduling compatible with LEKIN and JSON formats."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Ruturaj Vasant Tambe", email = "rvt2018@nyu.edu" }]
+keywords = ["scheduling", "job shop", "lekin", "optimization"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Mathematics"
+]
+# Only true runtime dependencies (keep core lightweight)
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0"
+]
+
+[project.optional-dependencies]
+# Users who want plotting can opt-in instead of pulling matplotlib for everyone.
+plot = ["matplotlib>=3.8"]
+
+[project.urls]
+Homepage = "https://github.com/Ruturaj-Vasant/Lekin_Python"
+
+[tool.setuptools.packages.find]
+include = ["lekinpy*"]
+exclude = ["Data*", "Data2*", "examples*", "tests*"]
+
+# No package data included; only Python code under lekinpy/

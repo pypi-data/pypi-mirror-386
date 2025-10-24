@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+prune examples
+prune Data
+prune Data2
+recursive-include lekinpy/data *.job *.mch
