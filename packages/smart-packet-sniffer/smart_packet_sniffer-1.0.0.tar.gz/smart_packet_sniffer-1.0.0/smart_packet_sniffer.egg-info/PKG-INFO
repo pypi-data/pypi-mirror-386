@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: smart-packet-sniffer
+Version: 1.0.0
+Summary: Advanced network security monitoring with real-time threat detection
+Home-page: https://github.com/harshu07-collab/smart-packet-sniffer
+Author: Harsh Gupta
+Author-email: tech.savvy.harsh@gmail.com
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: scapy>=2.5.0
+Requires-Dist: flask>=3.0.0
+Requires-Dist: flask-socketio>=5.3.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: plotly>=5.17.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: psutil>=5.9.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: python-dateutil>=2.8.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+\# Smart Packet Sniffer
+
+Advanced network security monitoring with real-time threat detection.
+
+
+
