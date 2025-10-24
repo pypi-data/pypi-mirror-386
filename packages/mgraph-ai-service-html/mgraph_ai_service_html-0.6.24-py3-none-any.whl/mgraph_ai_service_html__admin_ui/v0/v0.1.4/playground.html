@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Playground - HTML Service</title>
+
+    <!-- v0.1.1 Styles (no duplication) -->
+    <link rel="stylesheet" href="../v0.1.1/css/common.css">
+    <link rel="stylesheet" href="../v0.1.1/css/playground.css">
+
+    <!--
+        Import Map: Redirect v0.1.2 config imports to v0.1.3 config
+        This allows v0.1.2 code to run unchanged while using v0.1.3's JSON-based config
+
+        Key Innovation: Zero code duplication - v0.1.2 files reference v0.1.3 config automatically!
+    -->
+    <script type="importmap">
+    {
+      "imports": { "../v0.1.2/js/config/Endpoints__Config.js"   : "../v0.1.3/js/config/Endpoints__Config.js",
+                   "../../v0.1.2/js/config/Endpoints__Config.js": "../v0.1.3/js/config/Endpoints__Config.js"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <top-nav current-page="playground"></top-nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="page-header">
+            <h1>🎮 Transformation Playground</h1>
+            <p class="subtitle">Interactive testing of HTML transformation endpoints</p>
+        </header>
+
+        <!-- Main Playground Area -->
+        <div class="playground-layout">
+            <!-- Input Panel -->
+            <section class="panel input-panel">
+                <html-input id="html-input"></html-input>
+            </section>
+
+            <!-- Controls Panel -->
+            <section class="panel controls-panel">
+                <transformation-selector id="transformation-selector"></transformation-selector>
+            </section>
+
+            <!-- Output Panel -->
+            <section class="panel output-panel">
+                <output-viewer id="output-viewer"></output-viewer>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.4 (IFD Compliant - Output Type Fix)</p>
+        </footer>
+    </div>
+
+    <!-- v0.1.1 Components (non-module - unchanged from previous versions) -->
+    <script src="../v0.1.1/components/top-nav/top-nav.js"></script>
+    <script src="../v0.1.1/components/html-input/html-input.js"></script>
+
+     <!-- v0.1.4 Fixed Output Viewer -->
+    <script type="module" src="./components/output-viewer/output-viewer.js"></script>
+
+
+    <!--
+        v0.1.4 Module Entry Point (uses v0.1.3 playground.js with fixed output handling)
+    -->
+    <script type="module" src="./js/playground.js"></script>
+
+    <script src="../v0.1.3/debug/debug-utils.js"></script>
+</body>
+</html>

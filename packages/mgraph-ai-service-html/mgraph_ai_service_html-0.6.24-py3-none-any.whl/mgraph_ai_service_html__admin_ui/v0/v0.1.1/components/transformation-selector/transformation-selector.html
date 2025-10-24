@@ -1,0 +1,46 @@
+<div class="transformation-container">
+    <h3>⚙️ Select Transformation</h3>
+    
+    <div class="selector-group">
+        <label for="endpoint-selector">Endpoint:</label>
+        <select id="endpoint-selector" class="endpoint-selector">
+            <option value="">-- Select Transformation --</option>
+            <optgroup label="HTML Transformations">
+                <option value="html-to-dict">HTML → Dict</option>
+                <option value="html-to-text-nodes">HTML → Text Nodes</option>
+                <option value="html-to-tree-view">HTML → Tree View</option>
+                <option value="html-to-html-hashes">HTML → HTML (Hashes)</option>
+                <option value="html-to-html-xxx">HTML → HTML (XXX)</option>
+            </optgroup>
+            <optgroup label="Dict Operations">
+                <option value="dict-to-html">Dict → HTML</option>
+                <option value="dict-to-text-nodes">Dict → Text Nodes</option>
+                <option value="dict-to-tree-view">Dict → Tree View</option>
+            </optgroup>
+            <optgroup label="Hash Operations">
+                <option value="hashes-to-html">Hashes → HTML</option>
+            </optgroup>
+        </select>
+    </div>
+    
+    <div id="endpoint-info" class="endpoint-info" style="display: none;">
+        <div class="info-box">
+            <strong>Description:</strong> <span id="endpoint-description"></span>
+        </div>
+    </div>
+    
+    <div id="config-panel" class="config-panel" style="display: none;">
+        <!-- Max depth slider (for applicable endpoints) -->
+        <div class="config-item">
+            <label for="max-depth-slider">Max Depth:</label>
+            <div class="slider-container">
+                <input type="range" id="max-depth-slider" min="1" max="512" value="256" step="1">
+                <span id="max-depth-value" class="slider-value">256</span>
+            </div>
+        </div>
+    </div>
+    
+    <button id="transform-btn" class="btn btn-primary transform-btn" disabled>
+        ▶️ Transform
+    </button>
+</div>

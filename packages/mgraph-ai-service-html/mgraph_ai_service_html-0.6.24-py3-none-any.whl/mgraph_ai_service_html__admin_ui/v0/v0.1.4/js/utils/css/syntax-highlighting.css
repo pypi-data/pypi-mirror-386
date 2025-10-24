@@ -1,0 +1,66 @@
+/**
+ * Syntax Highlighter Styles - v0.1.4
+ *
+ * Chrome DevTools inspired syntax highlighting
+ * Colors match Chrome's Elements inspector
+ */
+
+/* JSON Syntax Highlighting */
+.json-key {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+.json-string {
+    color: #008000;
+}
+
+.json-number {
+    color: #0000ff;
+}
+
+.json-boolean {
+    color: #cc00cc;
+    font-weight: bold;
+}
+
+/* HTML Syntax Highlighting - Chrome DevTools Style */
+.html-tag {
+    color: #881280;      /* Dark magenta/maroon - matches Chrome tag names */
+    font-weight: normal;
+}
+
+.html-attr {
+    color: #994500;      /* Brown/orange - matches Chrome attribute names */
+    font-weight: normal;
+}
+
+.html-string {
+    color: #1a1aa6;      /* Blue - matches Chrome attribute values */
+    font-weight: normal;
+}
+
+.html-punctuation {
+    color: #5a5a5a;      /* Gray - matches Chrome brackets and = */
+    font-weight: normal;
+}
+
+.html-doctype {
+    color: #888;         /* Light gray for DOCTYPE */
+    font-weight: normal;
+}
+
+/* Output formatting */
+.syntax-output {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* Text content (between tags) stays black by default */
+.html-output,
+.json-output,
+.text-output {
+    color: #000;         /* Black text content like Chrome */
+}

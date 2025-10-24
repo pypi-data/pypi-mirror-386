@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Service Admin - Dashboard</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <top-nav current-page="index"></top-nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="page-header">
+            <h1>🔧 HTML Transformation Service</h1>
+            <p class="subtitle">Interactive API testing and documentation</p>
+        </header>
+
+        <!-- Service Info Card -->
+        <section class="card" id="service-info">
+            <!-- Will be populated by dashboard.js -->
+        </section>
+
+        <!-- API Endpoints Overview -->
+        <section class="card" id="endpoints-overview">
+            <!-- Will be populated by dashboard.js -->
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="card" id="quick-actions">
+            <!-- Will be populated by dashboard.js -->
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.1</p>
+        </footer>
+    </div>
+
+    <!-- Components -->
+    <script src="./components/top-nav/top-nav.js"></script>
+
+    <!-- Services -->
+    <script src="./js/services/api-client.js"></script>
+    
+    <!-- Main App -->
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>

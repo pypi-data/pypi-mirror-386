@@ -1,0 +1,67 @@
+/**
+ * Column Actions Styles - v0.1.7
+ * Shared styles for action buttons below column headers
+ */
+
+.column-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+}
+
+.column-actions button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.column-actions .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.column-actions .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.column-actions .btn-secondary {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.column-actions .btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+.column-actions .btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.column-actions .btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Ensure column-content takes remaining space */
+.column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.column-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}

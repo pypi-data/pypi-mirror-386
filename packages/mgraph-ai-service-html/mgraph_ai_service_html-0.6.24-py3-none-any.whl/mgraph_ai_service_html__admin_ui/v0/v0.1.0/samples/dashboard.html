@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Service Dashboard - Admin UI</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    
+    <!-- Services -->
+    <script src="../js/services/api-client.js"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>🔧 HTML Transformation Service</h1>
+            <p>Interactive admin interface for testing and exploring HTML transformation capabilities</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        
+        <!-- Statistics -->
+        <section class="stats-section mb-xl">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value" id="total-endpoints">-</span>
+                    <span class="stat-label">Total Endpoints</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="endpoint-categories">-</span>
+                    <span class="stat-label">Endpoint Categories</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="sample-files">-</span>
+                    <span class="stat-label">Sample Files</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">v0.1.0</span>
+                    <span class="stat-label">Current Version</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions mb-xl">
+            <h2 class="mb-lg">Quick Actions</h2>
+            <div class="grid grid-cols-3">
+                <div class="action-card" onclick="navigateToPlayground()">
+                    <div class="icon">🎮</div>
+                    <h3>Transformation Playground</h3>
+                    <p>Test all transformations with interactive samples</p>
+                    <span class="badge badge-primary">Coming in v0.1.1</span>
+                </div>
+                
+                <div class="action-card" onclick="viewSample('/html-service/v0/v0.1.0/samples/simple.html')">
+                    <div class="icon">📄</div>
+                    <h3>View Simple Sample</h3>
+                    <p>Minimal HTML structure for basic testing</p>
+                    <span class="badge badge-success">Available Now</span>
+                </div>
+                
+                <div class="action-card" onclick="viewSample('/html-service/v0/v0.1.0/samples/complex.html')">
+                    <div class="icon">🗂️</div>
+                    <h3>View Complex Sample</h3>
+                    <p>Deeply nested structure for stress testing</p>
+                    <span class="badge badge-success">Available Now</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Available Endpoints -->
+        <section class="endpoints-section mb-xl">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Available API Endpoints</h2>
+                    <p class="card-subtitle">All transformation capabilities provided by the service</p>
+                </div>
+                <div class="card-body">
+                    <div id="endpoints-container">
+                        <!-- Populated by dashboard.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sample Files -->
+        <section class="samples-section mb-xl">
+            <h2 class="mb-lg">Pre-loaded Sample Files</h2>
+            <div class="samples-grid">
+                <!-- Simple Sample -->
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <h3>📄 Simple HTML</h3>
+                        <div class="sample-meta">simple.html</div>
+                    </div>
+                    <div class="sample-body">
+                        <p>Minimal HTML document with basic structure. Perfect for quick tests.</p>
+                        <div class="sample-stats">
+                            <div class="sample-stat">
+                                <span class="label">Text Nodes</span>
+                                <span class="value">~15</span>
+                            </div>
+                            <div class="sample-stat">
+                                <span class="label">Max Depth</span>
+                                <span class="value">5</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary view-sample-btn" data-sample-path="/html-service/v0/v0.1.0/samples/simple.html">
+                            View Sample
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Complex Sample -->
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <h3>🗂️ Complex Nested</h3>
+                        <div class="sample-meta">complex.html</div>
+                    </div>
+                    <div class="sample-body">
+                        <p>Deeply nested structure with tables, lists, and mixed content for stress testing.</p>
+                        <div class="sample-stats">
+                            <div class="sample-stat">
+                                <span class="label">Text Nodes</span>
+                                <span class="value">100+</span>
+                            </div>
+                            <div class="sample-stat">
+                                <span class="label">Max Depth</span>
+                                <span class="value">15+</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary view-sample-btn" data-sample-path="/html-service/v0/v0.1.0/samples/complex.html">
+                            View Sample
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Sample -->
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <h3>📊 Dashboard</h3>
+                        <div class="sample-meta">dashboard.html</div>
+                    </div>
+                    <div class="sample-body">
+                        <p>Self-referential sample - transform this dashboard page itself!</p>
+                        <div class="sample-stats">
+                            <div class="sample-stat">
+                                <span class="label">Text Nodes</span>
+                                <span class="value">50+</span>
+                            </div>
+                            <div class="sample-stat">
+                                <span class="label">Max Depth</span>
+                                <span class="value">10+</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary view-sample-btn" data-sample-path="/html-service/v0/v0.1.0/samples/dashboard.html">
+                            View Sample
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Info -->
+        <section class="info-section mb-xl">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">About This Service</h2>
+                </div>
+                <div class="card-body">
+                    <p class="mb-md">
+                        The HTML Transformation Service provides a comprehensive API for parsing, 
+                        analyzing, and manipulating HTML documents. Key capabilities include:
+                    </p>
+                    
+                    <div class="grid grid-cols-2 mb-md">
+                        <div>
+                            <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">🔍 Parsing</h3>
+                            <ul style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8;">
+                                <li>Convert HTML to structured dictionary</li>
+                                <li>Extract DOM tree with full nesting</li>
+                                <li>Preserve all element attributes</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">📝 Text Processing</h3>
+                            <ul style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8;">
+                                <li>Extract all text nodes with hashes</li>
+                                <li>Enable semantic text modification</li>
+                                <li>Privacy masking and debugging</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">🔄 Reconstruction</h3>
+                            <ul style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8;">
+                                <li>Rebuild HTML from dictionary</li>
+                                <li>Apply text modifications via hashes</li>
+                                <li>Round-trip validation</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">🎯 Analysis</h3>
+                            <ul style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.8;">
+                                <li>Format as readable lines</li>
+                                <li>Count nodes and depth</li>
+                                <li>Identify structure patterns</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <strong>💡 Pro Tip:</strong> Start with the Simple sample to understand basic transformations, 
+                        then move to Complex sample for edge cases. The Playground (v0.1.1) will provide 
+                        interactive testing for all endpoints!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                HTML Transformation Service Admin UI v0.1.0 | 
+                Built with <a href="#" onclick="alert('IFD: Iterative Flow Development - Zero dependencies, native web platform!'); return false;">IFD Methodology</a> | 
+                Zero External Dependencies
+            </p>
+        </div>
+    </footer>
+
+    <!-- Dashboard Logic -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

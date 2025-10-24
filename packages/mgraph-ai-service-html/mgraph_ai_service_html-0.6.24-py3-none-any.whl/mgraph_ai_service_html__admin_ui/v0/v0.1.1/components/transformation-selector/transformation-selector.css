@@ -1,0 +1,107 @@
+.transformation-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.transformation-container h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+}
+
+.selector-group {
+    margin-bottom: 20px;
+}
+
+.selector-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.endpoint-selector {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    background: white;
+}
+
+.endpoint-selector:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.endpoint-info {
+    margin: 15px 0;
+}
+
+.info-box {
+    background: #e7f3ff;
+    border-left: 4px solid #3b82f6;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+.config-panel {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 5px;
+}
+
+.config-item {
+    margin-bottom: 15px;
+}
+
+.config-item:last-child {
+    margin-bottom: 0;
+}
+
+.config-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider-container input[type="range"] {
+    flex: 1;
+    cursor: pointer;
+}
+
+.slider-value {
+    min-width: 40px;
+    text-align: center;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.transform-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.transform-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.transform-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}

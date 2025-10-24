@@ -1,0 +1,25 @@
+<div class="column" data-mode="edit">
+    <column-header
+        title="Original HTML"
+        icon="📝"
+        modes="view,edit"
+        active-mode="view"
+        column-id="original"
+    >
+        <button slot="actions" class="btn-small btn-danger" id="btn-clear">Clear</button>
+    </column-header>
+
+    <div class="column-content">
+        <sample-selector></sample-selector>
+
+        <!-- Edit Mode -->
+        <div class="mode-container mode-edit" style="display: none;">
+            <html-edit-mode></html-edit-mode>
+        </div>
+
+        <!-- View Mode -->
+        <div class="mode-container mode-view">
+            <html-view-mode></html-view-mode>
+        </div>
+    </div>
+</div>

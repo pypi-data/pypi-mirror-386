@@ -1,0 +1,50 @@
+/**
+ * JSON Edit Mode Styles - v0.1.6
+ */
+
+.json-edit-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.json-edit-header {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.json-textarea {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    resize: none;
+    overflow: auto;
+    background: white;
+    transition: border-color 0.2s ease;
+}
+
+.json-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.json-textarea.json-error {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+.json-textarea.json-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}

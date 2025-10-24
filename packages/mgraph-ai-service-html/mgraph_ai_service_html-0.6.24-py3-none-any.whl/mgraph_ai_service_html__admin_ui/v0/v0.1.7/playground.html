@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Playground - HTML Service</title>
+
+    <!-- v0.1.1 Common Styles (base theme) -->
+    <link rel="stylesheet" href="../v0.1.1/css/common.css">
+
+    <!-- v0.1.7 Dark background -->
+    <link rel="stylesheet" href="../v0.1.7/css/custom-theme.css">
+
+
+    <!-- v0.1.6 Playground Grid Layout -->
+    <link rel="stylesheet" href="../v0.1.6/css/playground.css">
+
+    <!-- v0.1.7 Column Actions (buttons below headers) -->
+    <link rel="stylesheet" href="../v0.1.7/css/column-actions.css">
+
+    <!-- v0.1.6 Component Styles (loaded by components) -->
+    <link rel="stylesheet" href="../v0.1.6/components/mode-tabs/mode-tabs.css">
+</head>
+<body>
+    <!-- Top Navigation (from v0.1.1) -->
+    <top-nav current-page="playground"></top-nav>
+
+    <div class="container">
+        <!-- Playground Controller (Orchestrator from v0.1.6) -->
+        <playground-controller></playground-controller>
+
+        <!-- Header with Status Messages -->
+        <header class="page-header">
+            <div class="header-left">
+                <span class="version-badge">v0.1.7</span>
+                <h1>🎮 Transformation Playground</h1>
+            </div>
+
+            <div class="header-right">
+                <div id="status-message" class="status-message" style="display: none;">
+                    <!-- Status messages appear here -->
+                </div>
+            </div>
+        </header>
+
+        <!-- 3-Column Grid Layout with Components -->
+        <div class="playground-grid">
+            <!-- Column 1: Original HTML (from v0.1.6) -->
+            <column-original></column-original>
+
+            <!-- Column 2: Layout & Content Objects (from v0.1.6) -->
+            <column-middle></column-middle>
+
+            <!-- Column 3: Created HTML (v0.1.7 - with preview modes) -->
+            <column-created></column-created>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.7 (HTML Preview)</p>
+        </footer>
+    </div>
+
+    <!-- Debug Panel (updated in v0.1.7) -->
+    <debug-panel></debug-panel>
+
+    <!-- Scripts -->
+    <!-- Navigation component (from v0.1.1) -->
+    <script src="../v0.1.1/components/top-nav/top-nav.js"></script>
+
+    <!-- v0.1.7 Mode Tabs (Fixed for code/preview/split modes) -->
+    <script type="module" src="../v0.1.7/components/mode-tabs/mode-tabs.js"></script>
+
+    <!-- v0.1.6 Shared Components (Web Components - auto-register) -->
+    <script type="module" src="../v0.1.6/components/columns-shared/column-header/column-header.js"></script>
+
+    <!-- v0.1.6 Column Original (reused) -->
+    <script type="module" src="../v0.1.6/components/column-original/column-original.js"></script>
+    <script type="module" src="../v0.1.6/components/column-original/sample-selector/sample-selector.js"></script>
+    <script type="module" src="../v0.1.6/components/column-original/html-edit-mode/html-edit-mode.js"></script>
+    <script type="module" src="../v0.1.6/components/column-original/html-view-mode/html-view-mode.js"></script>
+
+    <!-- v0.1.6 Column Middle (reused) -->
+    <script type="module" src="../v0.1.6/components/column-middle/column-middle.js"></script>
+    <script type="module" src="../v0.1.6/components/column-middle/json-view-mode/json-view-mode.js"></script>
+    <script type="module" src="../v0.1.6/components/column-middle/json-edit-mode/json-edit-mode.js"></script>
+
+    <!-- v0.1.7 Column Created (NEW - with preview modes) -->
+    <script type="module" src="../v0.1.7/components/column-created/column-created.js"></script>
+
+    <!-- v0.1.7 HTML Preview Mode (NEW) -->
+    <script type="module" src="../v0.1.7/components/column-created/html-preview-mode/html-preview-mode.js"></script>
+
+    <!-- v0.1.7 Debug Panel (top-right, collapsible) -->
+    <script type="module" src="../v0.1.7/components/debug-panel/debug-panel.js"></script>
+
+    <!-- v0.1.6 Playground Controller (Orchestrator - loads last, reused) -->
+    <script type="module" src="../v0.1.6/components/playground-controller/playground-controller.js"></script>
+</body>
+</html>
