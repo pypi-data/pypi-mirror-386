@@ -1,0 +1,14 @@
+include README.md
+include LICENSE
+include MANIFEST.in
+recursive-include securechat *.py
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.pyo
+global-exclude *.log
+global-exclude *.crt
+global-exclude *.key
+global-exclude *_keys.json
+exclude test_*.py
+exclude check_db.py
+exclude setup_securechat.py
