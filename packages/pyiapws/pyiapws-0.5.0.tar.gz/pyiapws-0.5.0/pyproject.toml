@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyiapws"
+dynamic = ["version"]
+authors = [{name = "Milan Skocic", email = "milan.skocic@gmail.com"}]
+description = "pyiapws: IAPWS for python."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies  = ["numpy>=1.23"]
+license = "MIT"
+classifiers=["Development Status :: 5 - Production/Stable",
+             "Intended Audience :: Science/Research"]
+
+[project.urls]
+Documentation = "https://milanskocic.github.io/iapws/index.html"
+Source = "https://github.com/MilanSkocic/iapws"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pyiapws = ["libiapws.*", "libgfortran*", "libquadmath*", "libgcc_s*", "libwinpthread*"]
+
+[project.optional-dependencies]
+test = ["pytest"]
