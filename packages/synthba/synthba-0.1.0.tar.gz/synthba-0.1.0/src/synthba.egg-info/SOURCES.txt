@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/synthba/__init__.py
+src/synthba/cli.py
+src/synthba/registration.py
+src/synthba/skull_stripping.py
+src/synthba/synthba.py
+src/synthba.egg-info/PKG-INFO
+src/synthba.egg-info/SOURCES.txt
+src/synthba.egg-info/dependency_links.txt
+src/synthba.egg-info/entry_points.txt
+src/synthba.egg-info/requires.txt
+src/synthba.egg-info/top_level.txt
