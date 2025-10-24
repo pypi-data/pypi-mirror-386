@@ -1,0 +1,14 @@
+loopbot/__init__.py,sha256=0HQjj8GlhsREAP8IDfya2n0W5yoOXXsm6Gl9xSPvcjU,525
+loopbot/_cli.py,sha256=xGsk0rhRORHCwVaGL_fjfDiBmWqzlJxNf_IsjcxbRF0,2764
+loopbot/agent.py,sha256=ArSKBcwalQCY31sm20ax96Y3mZ4onvbOBYcwP6QxlMM,7602
+loopbot/client.py,sha256=UQyEqEWY8_pQcCWgM4TDeIInb4waiRsPsAmarrfTSlU,2698
+loopbot/errors.py,sha256=LUR3mTmg7mJWt0RcIYnDsi46M7qJzwzjRnozgy4jQ0E,623
+loopbot/events.py,sha256=7zPxobSX1-sjV6Oy4dsSoodsfsfSQEN4P7uxgMwbca4,3141
+loopbot/permissions.py,sha256=hnHOSWuU1ByylDjJsFgGDELJvGq39i16aOf8jvtWLRc,1461
+loopbot/response.py,sha256=MgewHN7P2IsDFFX0qVeWaCXPn7GnWdUAVUN-jM4yfUo,963
+loopbot/structured.py,sha256=mK8dg_NwxAyVpEcRzuwe97hK3r4XbRIB5bkaNfCBItw,1797
+loopbot/usage.py,sha256=5NxDepfp8cx5UNbLmjzC-MLHY2UWEi1y_J610dY510g,211
+loopbot-0.0.0.dev0.dist-info/METADATA,sha256=nk0M45Pt0pT8SM-5tDYvnCw-LT2mzm7DT_y1X-gPkf8,8053
+loopbot-0.0.0.dev0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+loopbot-0.0.0.dev0.dist-info/licenses/LICENSE,sha256=m27ZB1_XmiVTyKp2lWKHUmSA3ncEQmlsl-sdgxVMtPc,1058
+loopbot-0.0.0.dev0.dist-info/RECORD,,
