@@ -1,0 +1,7 @@
+numpy
+xarray
+scipy
+tqdm
+requests
+netcdf4
+h5netcdf
