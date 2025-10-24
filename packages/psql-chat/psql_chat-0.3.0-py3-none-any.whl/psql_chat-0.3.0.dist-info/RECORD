@@ -1,0 +1,15 @@
+psql_chat/__init__.py,sha256=_DcyEuoGwg9K26086o7LQlyQCriVriHx5PrRoQDNojw,484
+psql_chat/config.py,sha256=0eWYVEAikXa5-JssnW8vQcrNDPrRvKhpm4I0u5d9_wc,717
+psql_chat/context7.py,sha256=Y4F1qtA16CZVUp7W1v12Ku3ZvJ9v6jpaAMqbS6MY7Xo,1310
+psql_chat/database.py,sha256=rahO_knyDOGg1OMpJ7JmYHuvKe5Aai1G_M41NOU74ME,11467
+psql_chat/llm.py,sha256=qN5Lzic8eCnyinVOAdmbwhOQfO-7fwJzEVFg3iFlkrY,12098
+psql_chat/main.py,sha256=CQQ0CCAgTt7P7drN4zNldR6MMUiq-Ze7VadPvCeolKM,12442
+psql_chat/py.typed,sha256=HkSIYvn-aFTerrE1bAjmzp_48TNC1eRBUOaleehbBO8,34
+psql_chat/rich_formatting.py,sha256=-D7VxC1pkP8ssFYUrcjtuRSI4oVriJAwHMQ0oq2-RVk,5747
+psql_chat/sql_utils.py,sha256=JUH0aEbU2kFD97vK3zj8xluIqCkhYD9iklxw_6KcKFY,924
+psql_chat-0.3.0.dist-info/licenses/LICENSE,sha256=5isPfGiolyh5WIlwrPaw35_Wqp9rN5k427V4bC81JYk,1220
+psql_chat-0.3.0.dist-info/METADATA,sha256=z1Am1kyGepgTxo8zEdR1srz4OC07QDsZiauEroadMbI,3803
+psql_chat-0.3.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+psql_chat-0.3.0.dist-info/entry_points.txt,sha256=Bgb2Iu4BxlxSVyiUf7jHe9MFPvMCIefU38RAt4MqF24,50
+psql_chat-0.3.0.dist-info/top_level.txt,sha256=qsuIbV3aSrwqJfNXF7jpXAkyzBgz1puVPyQz0NPxCh0,10
+psql_chat-0.3.0.dist-info/RECORD,,
