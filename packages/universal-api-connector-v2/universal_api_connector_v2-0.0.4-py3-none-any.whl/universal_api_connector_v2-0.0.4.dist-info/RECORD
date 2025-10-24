@@ -1,0 +1,11 @@
+universal_api_connector/__init__.py,sha256=BG6p3ewcrwEMmVSgKYP2gzSB_5pzvw0ZW-CYRQCiaO4,1051
+universal_api_connector/connector.py,sha256=n5Hk9Za4pMULBsF_FILOWw9ejjvb6bHZaCN3AdpSHJI,12446
+universal_api_connector/exceptions.py,sha256=9ZRhZyuJv7hZVMX1hLQFfh87PlPDtvDgfbcKEmqxSnk,727
+universal_api_connector/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+universal_api_connector/utils/logger.py,sha256=7DF_8F0CWyWpos1GhzYP6Vehd4-JCPsFNpFjIft9Pmg,1862
+universal_api_connector/utils/validators.py,sha256=Jr8eUJSu_wTBltWkvNrVAYSg00JfEdXqX5ykTm0pLSQ,1555
+universal_api_connector_v2-0.0.4.dist-info/licenses/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+universal_api_connector_v2-0.0.4.dist-info/METADATA,sha256=LQjWOc0axucKffvZtr7G6v3r7EOFzg94y0C7g5pE7Cg,1558
+universal_api_connector_v2-0.0.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+universal_api_connector_v2-0.0.4.dist-info/top_level.txt,sha256=QyOuNjE6Cp3xJGvAkYx0xagcNWShcYuqMT4xViSp3Vg,24
+universal_api_connector_v2-0.0.4.dist-info/RECORD,,
