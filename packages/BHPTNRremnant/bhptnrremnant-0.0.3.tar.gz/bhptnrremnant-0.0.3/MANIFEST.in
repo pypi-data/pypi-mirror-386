@@ -1,0 +1,5 @@
+# in addition to standard files included by distutils setup.py, include these files 
+include README.md
+include LICENSE
+recursive-include BHPTNRremnant/data *
+recursive-include BHPTNRremnant *.py
