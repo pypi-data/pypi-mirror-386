@@ -1,0 +1,3 @@
+[console_scripts]
+universal-tester = universal_tester.cli:main
+universal-tester-ui = universal_tester.ui.main:main
