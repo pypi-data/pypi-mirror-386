@@ -1,0 +1,13 @@
+sigscale_ocs/__init__.py,sha256=okz0jyyWyM1VDNdh_ccyKH0Xi-jD_6AGnjDbd6jxH5E,760
+sigscale_ocs/balance.py,sha256=AIpgi4Fr4n9kTnEg1_WI3DS-5TzUo0oiqNzFGMsuEBU,5888
+sigscale_ocs/client.py,sha256=R61s3rAqX9kf-R84H8INk_R3ILN5GSQKuIJSmgu6CEU,5127
+sigscale_ocs/exceptions.py,sha256=xEfPonJbowd_KWLQDlFUzDHMVBaa9aXSlLxf2l6_EYc,781
+sigscale_ocs/models.py,sha256=AsE7qPee00YRRi94WKlpnkTnL70c62JbXPhIlG0n-iE,1210
+sigscale_ocs/product_catalog.py,sha256=KZ0FhC00fXrpOOHKci8cywkc8nQYTP9CLuFEBLXjBm8,3082
+sigscale_ocs/product_inventory.py,sha256=sk5o03gSHLCyOmJNqXMmCam0HwyW-ISvEuqrc2zgw-c,2911
+sigscale_ocs/service_inventory.py,sha256=rX3VxFlPXjCFl4FyKfM1INCND812eui5ZZlo1IHpY3Y,2952
+sigscale_ocs_api-0.1.0.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+sigscale_ocs_api-0.1.0.dist-info/METADATA,sha256=zx5PMrOKqH09E-3Lre23YitRXfWftDvDU1iRjHmeLGQ,8707
+sigscale_ocs_api-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sigscale_ocs_api-0.1.0.dist-info/top_level.txt,sha256=C2ylwWD1OwX_0z758UxyRtaS6jsuNZFHA9aeA-lHmJk,13
+sigscale_ocs_api-0.1.0.dist-info/RECORD,,
