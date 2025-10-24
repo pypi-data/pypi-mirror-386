@@ -1,0 +1,328 @@
+# showtracetable
+
+Python スクリプトの実行をフックして、読みやすい「トレース表（step | source | 変数 | output）」をコンソール表示し、同時に CSV へ保存する軽量ツールです。教育用途・デバッグ用途に向けて、行ごとのローカル変数と出力の推移を簡潔に確認できます。
+
+主な特徴
+
+- どんな .py ファイルでも実行しながらトレース表を自動生成
+- 変化のない列やノイズ列（関数/モジュールなど）を自動で折りたたみ、可読性を重視
+- CSV はテーブルの見た目に依存せず、内部データから直接生成（安全・正確）
+- 長い値はデフォルト省略、必要なら省略なしのフル CSV（--csv-full）に対応
+- 相対 import の失敗を回避するフォールバック（モジュール実行）を内蔵
+- Windows では CSV を UTF-8 BOM 付きで保存（Excel 互換）
+
+## インストール
+
+開発中（editable インストール）:
+
+```powershell
+pip install -e .
+```
+
+## クイックスタート（最短）
+
+```powershell
+python -m showtracetable path\to\script.py
+```
+
+これは簡易サブコマンド `show` のショートフォームです。実行するとコンソールにトレース表が表示され、同時にカレントディレクトリへ `<スクリプト名>.trace.csv` が保存されます。
+
+Python から直接使う場合:
+
+```python
+from showtracetable import trace_file
+trace_file('fe_exam_samples/python/level1_average.py', table=True)
+```
+
+## 対応対象（Supported targets）
+
+- 標準的な Python スクリプト（.py）であればほぼ対応します。
+- スクリプトは `__main__` として実行され、行イベントや出力を収集します。
+- 相対 import 前提のスクリプトは、必要に応じて「モジュールとして実行」に切替を試みます（失敗時は元の例外）。
+
+向いている用途の例:
+
+- 小さな学習用スクリプトや演習コードの可視化
+- トップレベルで動く短めのユーティリティ
+- 実行の流れと値の変化のざっくり把握
+
+注意:
+
+- C 拡張の内部（NumPy など）は Python トレーサの対象外です。
+- マルチスレッド内の処理は現状追跡しません（メインスレッドのみ）。
+- `subprocess` など別プロセスでの処理は対象外です。
+
+## 関数だけを安全に呼ぶ（任意）
+
+CLI で `--call 関数名` を指定すると、対象スクリプト内の特定関数のみを呼び出せます。
+`--call-isolate` を併用すると、トップレベルの副作用を避けるために「インポート/定義/単純代入」だけを実行してから関数を呼ぶベストエフォートの分離モードを試みます。
+
+`--call-isolate` の注意:
+
+- すべてのコードパターンで完全分離を保証するものではありません。
+- 分離に成功すれば副作用を避けたまま関数を実行します。
+- 分離に失敗し、かつ `--call-isolate` を付けている場合は、安全のため通常実行へフォールバックせず、実行をスキップして警告を出します。
+
+確実性が必要なら、スクリプトを `if __name__ == '__main__':` でガードし、単純に `--call` のみを使うことを推奨します。
+
+Example (trace any script):
+
+```powershell
+python -m showtracetable path\to\your_script.py
+```
+
+## 簡易（show）と上級（trace）の使い分け
+
+日常的にさっとトレースしたい場合は、簡易サブコマンド `show`（サブコマンドを省略した従来の呼び出し）を使うと最小のオプションで実行できます。
+
+- 簡易（推奨、素早く結果がほしい場合）
+
+```powershell
+python -m showtracetable path\to\script.py
+```
+
+この `show` ワークフローは、指定したスクリプトをトレースしてトレース表を生成します。フローチャート機能は削除されました。さらに `show` は既定で CSV をカレントディレクトリに保存します（`<スクリプト名>.trace.csv`）。
+
+テーブル表示では、すべての行で値が変化しない変数列を自動的に折りたたむため、変化のある値に集中できます。一定値でも列を維持したい場合は `--table-keep-const` を指定してください。
+
+便利なオプション（show/trace 共通）
+
+- `--include-stdlib` 標準ライブラリのフレームも含める
+- `--major-steps` CSV を関数の call/return など主要ステップ中心に簡略化（コンソール表示は通常通り）
+- `--csv-full` CSV の省略（…）を無効化し、長い値や複数行の文字列もそのまま出力
+
+例（CSV を完全出力で保存）:
+
+```powershell
+python -m showtracetable show path\to\script.py --csv-full
+```
+
+- 上級（詳細表示やカスタム出力が必要な場合）
+
+`trace` サブコマンドはトレース表（テーブルや JSON）を細かく制御したいときに使います。
+
+例：トレース表（詳細）を表示する
+
+```powershell
+python -m showtracetable trace path\to\script.py --table
+```
+
+簡易（show）は日常のワークフロー用、`trace` は詳細表示用にお使いください。
+
+## CSV 出力の仕様（重要）
+
+- 生成場所/名前: カレントディレクトリに `<スクリプト名>.trace.csv` として保存します（`show` は常に有効、`trace` は `--csv` で有効）。
+- 生成経路: テーブル文字列の整形には依存せず、内部の追跡データから直接 CSV を構築するため、見た目の調整による欠落や桁詰めの影響を受けません。
+- 既定の可読性調整:
+	- 変数セルは約 30 文字で省略（`...`）します。
+	- 値の整形（repr/str）は長大な場合に上限（既定 ~60 文字）で省略します。
+	- これらはコンソールの可読性を重視した既定値です。
+- 完全出力モード: `--csv-full` を付けると、上記の省略を無効化し、CSV では長い値や複数行の文字列もそのまま書き出します（Excel などでも扱いやすいよう Windows では UTF-8 BOM 付きで保存）。
+
+## ファイル保存時の挙動（重要）
+
+`--table` や `--out` と組み合わせてトレース結果をファイルへ保存する場合、生成されるテキストファイル（`.trace.txt`）や JSON ファイル（`.trace.json`）は、収集されたすべてのステップを保持して上書きされます。
+
+端末表示は幅や空列の省略などで見やすく調整されますが、CSV についてはテーブルの見た目に依存せず内部データから直接出力します。`--csv-full` 指定時は省略を行わず完全な値を保存します。
+
+## ステップの再マッピング（表示用）
+
+実行時に収集される内部ステップ番号は実行の経過に基づく番号です。表示や比較を分かりやすくするため、JSON 出力時にステップ番号を実行順で 1..N の連番へ置き換える `--remap-steps` オプションを用意しています。
+
+例: JSON に再マップしてファイルに保存
+
+```powershell
+python -m showtracetable trace fe_exam_samples\python\level1_average.py --format json --remap-steps > level1_average.remap.json
+```　　 
+
+このオプションは `line_events` と `outputs` の `step` 値を再マップします。`.trace.txt`（テキスト表）も表示用に連番でレンダリングされますが、構造化データが必要な場合は JSON 出力に `--remap-steps` を付けると便利です。
+
+
+
+<!-- Flowchart support removed -->
+
+
+## CLI サブコマンドと主なオプション
+
+### サブコマンド
+
+- `show`（デフォルト）: 最小オプションでトレース表を表示し、CSV を自動保存します。
+- `trace`: 出力形式（text/json）やレイアウト、保存の有無を細かく制御します。
+
+### 共通の主なオプション
+
+- `--project-root`, `-p` : 指定したディレクトリ配下のファイルのみ表示します。指定しない場合でも Python 標準ライブラリのフレームは自動的に省かれますが、プロジェクト外のサードパーティ モジュールは表示される可能性があります。ターゲットスクリプトが標準ライブラリ配下にあっても常に記録されます。
+- `--include-stdlib` : 標準ライブラリのフレームも含めて出力したい場合に指定します（デフォルトでは除外）。
+- `--table` / `--no-table` : トレース表の表示（および CSV 出力）を有効／無効化します。`show` では既定 ON、`trace` でも既定 ON です。
+- `--table-auto`, `--table-top`, `--table-pager`, `--table-page-size` : 変数列の自動選択やページングなど、トレース表のレイアウトを調整します。
+- `--table-keep-const` : すべての行で同じ値を持つ変数列も表示に残します（指定しない場合は非表示）。
+- `--format`, `--color`, `--width`, `--csv`, `--major-steps`, `--csv-full` など : 出力形式やフィルタを制御します。`--major-steps` は主に CSV を簡略表示にします。`--csv-full` は CSV の省略を無効化します。詳細は `python -m showtracetable trace --help` を参照してください。
+
+追加の便利なオプション:
+
+- `--step-over` : テーブル表示時に関数の内部へは入り込まず、トップレベルのソース行を1行ずつ進めて表示します。関数呼び出しは1行として表示され、その呼び出し時の引数がコラムとして追加されます（存在する場合）。
+
+例:
+
+```
+python -m showtracetable fe_exam_samples\python\level1_binary_search.py -p . --table --step-over
+```
+
+この実行は、トップレベル行（モジュールレベル）を1ステップずつ表示し、関数呼び出し行では呼び出し時の引数を列に表示します。
+
+- --format, -f : `text`（ASCII）または `json`（構造化出力）を選べます（デフォルト: text）
+- --color/--no-color : ANSI カラーを有効/無効にします（デフォルト: 有効）
+- --width : ASCII 描画の横幅目安（デフォルト: 80）
+
+### JSON 出力例
+
+```powershell
+python -m showtracetable fe_exam_samples\python\level1_average.py -p . -f json
+```
+
+### テキスト表示の調整
+
+- `--color/--no-color` : ANSI カラーを有効/無効にします（デフォルト: 有効）
+- `--width` : ASCII 描画の幅の目安（デフォルト: 80）
+
+
+## fe_exam_samples の一覧
+
+本リポジトリには、学習・可視化用のサンプルスクリプト集 `fe_exam_samples/python` を同梱しています。レベル別に整理された代表的なアルゴリズムや小課題を、トレーサでそのまま可視化できます。
+
+Level 1（基本）
+
+- `fe_exam_samples/python/level1_average.py`
+- `fe_exam_samples/python/level1_binary_search.py`
+- `fe_exam_samples/python/level1_bubble_sort.py`
+- `fe_exam_samples/python/level1_celsius_to_fahrenheit.py`
+- `fe_exam_samples/python/level1_countdown.py`
+- `fe_exam_samples/python/level1_count_digits.py`
+- `fe_exam_samples/python/level1_digit_sum.py`
+- `fe_exam_samples/python/level1_even_numbers.py`
+- `fe_exam_samples/python/level1_factorial.py`
+- `fe_exam_samples/python/level1_fibonacci.py`
+- `fe_exam_samples/python/level1_gcd.py`
+- `fe_exam_samples/python/level1_hello_name.py`
+- `fe_exam_samples/python/level1_insertion_sort.py`
+- `fe_exam_samples/python/level1_is_anagram.py`
+- `fe_exam_samples/python/level1_lcm.py`
+- `fe_exam_samples/python/level1_linear_search.py`
+- `fe_exam_samples/python/level1_list_sum.py`
+- `fe_exam_samples/python/level1_max_of_two.py`
+- `fe_exam_samples/python/level1_min_of_list.py`
+- `fe_exam_samples/python/level1_multiplication_table.py`
+- `fe_exam_samples/python/level1_palindrome.py`
+- `fe_exam_samples/python/level1_prime_check.py`
+- `fe_exam_samples/python/level1_reverse_string.py`
+- `fe_exam_samples/python/level1_second_largest.py`
+- `fe_exam_samples/python/level1_selection_sort.py`
+- `fe_exam_samples/python/level1_sign_checker.py`
+- `fe_exam_samples/python/level1_string_length.py`
+- `fe_exam_samples/python/level1_sum_to_n.py`
+- `fe_exam_samples/python/level1_unique_characters.py`
+- `fe_exam_samples/python/level1_unique_elements.py`
+- `fe_exam_samples/python/level1_vowel_count.py`
+
+Level 2（標準アルゴリズム・配列/文字列処理 など）
+
+- `fe_exam_samples/python/level2_binary_search_bounds.py`
+- `fe_exam_samples/python/level2_bracket_validation.py`
+- `fe_exam_samples/python/level2_fe_r01_autumn_inventory_forecast.py`
+- `fe_exam_samples/python/level2_fe_r01_spring_text_statistics.py`
+- `fe_exam_samples/python/level2_fe_r02_autumn_packet_scheduler.py`
+- `fe_exam_samples/python/level2_fe_r02_spring_task_dependency.py`
+- `fe_exam_samples/python/level2_greedy_coin_change.py`
+- `fe_exam_samples/python/level2_group_anagrams.py`
+- `fe_exam_samples/python/level2_interval_merge.py`
+- `fe_exam_samples/python/level2_matrix_transpose.py`
+- `fe_exam_samples/python/level2_run_length_encoding.py`
+- `fe_exam_samples/python/level2_topk_words.py`
+
+Level 3（応用：グラフ/動的計画法 など）
+
+- `fe_exam_samples/python/level3_fe_r03_autumn_resource_allocation.py`
+- `fe_exam_samples/python/level3_fe_r03_spring_sensor_alert.py`
+- `fe_exam_samples/python/level3_fe_r04_spring_log_parser.py`
+- `fe_exam_samples/python/level3_fe_r05_autumn_route_planning.py`
+- `fe_exam_samples/python/level3_fe_r05_autumn_sequence_analysis.py`
+- `fe_exam_samples/python/level3_fe_r06_autumn_critical_path.py`
+- `fe_exam_samples/python/level3_fe_r06_autumn_graph_shortest_path.py`
+- `fe_exam_samples/python/level3_fe_r06_autumn_weighted_interval_scheduling.py`
+- `fe_exam_samples/python/level3_fe_r06_spring_edit_distance.py`
+- `fe_exam_samples/python/level3_fe_r06_spring_knapsack_01.py`
+- `fe_exam_samples/python/level3_fe_r06_spring_max_flow.py`
+
+各スクリプトは `python -m showtracetable <path/to/sample.py>` でそのまま可視化できます（`show` 既定、CSV 自動保存）。詳細制御をしたい場合は `trace` サブコマンドをご利用ください。
+
+
+## 典型的な出力例（スクリーンショット相当）
+
+実際の端末出力イメージをいくつか掲載します（必要に応じて画像スクリーンショットも `docs/screenshots/` 配下に追加可能です）。
+
+例1: Level 1 - 平均の計算（`level1_average.py`）
+
+```text
+step | source               | values       | output
+-----+----------------------+--------------+---------------------------
+1    | level1_average.py:27 | -            | -
+2    | level1_average.py:28 | [10, 20, 30] | データ: [10, 20, 30]
+平均: 20.0
+CSV file saved: level1_average.trace.csv
+```
+
+例2: Level 1 - 二分探索（`level1_binary_search.py`）
+
+```text
+step | source                     | arr                 | hi | lo | mid | output
+-----+----------------------------+---------------------+----+----+-----+-------
+1    | level1_binary_search.py:24 | [1, 3, 5, 7, 9, 11] | -  | -  | -   | -
+2    | level1_binary_search.py:10 | -                   | -  | -  | -   | -
+3    | level1_binary_search.py:11 | -                   | 5  | 0  | -   | -
+4    | level1_binary_search.py:12 | -                   | 5  | 0  | -   | -
+5    | level1_binary_search.py:13 | -                   | 5  | 0  | 2   | -
+...
+14   | level1_binary_search.py:12 | -                   | 3  | 3  | 4   | -
+15   | level1_binary_search.py:13 | -                   | 3  | 3  | 3   | -
+16   | level1_binary_search.py:14 | -                   | 3  | 3  | 3   | 3
+CSV file saved: level1_binary_search.trace.csv
+```
+
+例3: Level 3 - クリティカルパス（`level3_fe_r06_autumn_critical_path.py`）
+
+```text
+step | source                                   | u   | adj   | dur   | ...
+-----+------------------------------------------+-----+-------+-------+-----
+1    | level3_fe_r06_autumn_critical_path.py:72 | -   | -     | -     | -
+2    | level3_fe_r06_autumn_critical_path.py:73 | -   | -     | -     | -
+3    | level3_fe_r06_autumn_critical_path.py:74 | -   | -     | {...} | -
+...
+project duration: 10
+critical path: S->A->C->D->T
+CSV file saved: level3_fe_r06_autumn_critical_path.trace.csv
+```
+
+補足:
+
+- CSV は Excel で開きやすいよう Windows では UTF-8 BOM 付きで保存されます。
+- より長い値や複数行文字列を完全に残したい場合は `--csv-full` をお使いください。
+
+
+## よくある質問 / 制約とヒント
+
+- 標準ライブラリも見たい
+	- `--include-stdlib` を付けてください。
+- 変数が多くて横長になる
+	- 変化のない列は自動で隠れます。さらに `--table-auto` と `--table-top N` で主要な変数だけ表示できます。
+- 値が長くて CSV が途中で切れる
+	- `--csv-full` を使うと、省略せずフルで保存します（複数行も保持）。
+- input を使うプログラムが止まる
+	- 対話入力を行う部分はテスト/トレースに不向きです。関数に切り出し `--call` でその関数だけ実行する、などを検討してください。
+- 実行が重くなる
+	- 行トレースはオーバーヘッドがあります。全体の流れだけ見たい場合は `--major-steps` を併用してください。
+
+制約:
+
+- Python バイトコードのみ対象（C 拡張は不可）。
+- マルチスレッドは未対応（メインスレッドのみ）。
+- サブプロセスは対象外。

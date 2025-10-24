@@ -1,0 +1,2 @@
+[console_scripts]
+showtracetable = showtracetable.__main__:main

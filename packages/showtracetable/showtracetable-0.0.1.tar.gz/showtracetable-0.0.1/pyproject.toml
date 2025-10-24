@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "showtracetable"
+version = "0.0.1"
+description = "Console tracer that renders simple call-traces of Python programs as ASCII diagrams"
+readme = "README.md"
+authors = [ { name = "hayashikunita" } ]
+# SPDX 形式のライセンス表記に変更（setuptools の非推奨警告回避）
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.8"
+dependencies = []
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Education",
+]
+keywords = ["trace", "tracer", "debug", "education", "teaching", "csv", "python", "step", "visualization"]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7",
+    "pytest-cov>=4",
+]
+
+[tool.ruff]
+line-length = 140
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "preserve"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[project.urls]
+Homepage = "https://github.com/hayashikunita/showtracetable"
+Repository = "https://github.com/hayashikunita/showtracetable"
+Issues = "https://github.com/hayashikunita/showtracetable/issues"
+
+[project.scripts]
+showtracetable = "showtracetable.__main__:main"
+
+# setuptools 設定: パッケージ検出を明示し、不要ディレクトリを除外
+ [tool.setuptools]
+
+[tool.setuptools.packages.find]
+include = [
+    "showtracetable*",
+    "fe_exam_samples*",
+]
+exclude = [
+    "tmp_samples*",
+    "tests*",
+    "scripts*",
+    "*.egg-info*",
+    ".venv*",
+    "venv*",
+]
