@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyustc"
+version = "0.4.0"
+authors = [
+  { name="XeF2", email="xef2@mail.ustc.edu.cn" },
+]
+description = "A Python package that allows for quick use of USTC network services"
+readme = "README.md"
+dependencies = [
+  "requests",
+  "pycryptodome",
+  "fake-useragent",
+  "beautifulsoup4",
+]
+requires-python = ">=3.11"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.optional-dependencies]
+browser = [
+  "selenium",
+]
+
+[project.urls]
+Homepage = "https://github.com/USTC-XeF2/pyustc"
+Issues = "https://github.com/USTC-XeF2/pyustc/issues"
+
+[tool.ruff]
+select = [
+  "F",
+  "E",
+  "W",
+  "I",
+  "UP",
+  "N",
+  "PL",
+  "PERF",
+  "RUF",
+]
+ignore = ["E501"]

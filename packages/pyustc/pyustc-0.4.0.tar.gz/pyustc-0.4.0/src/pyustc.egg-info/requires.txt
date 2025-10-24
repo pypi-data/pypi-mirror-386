@@ -1,0 +1,7 @@
+requests
+pycryptodome
+fake-useragent
+beautifulsoup4
+
+[browser]
+selenium
