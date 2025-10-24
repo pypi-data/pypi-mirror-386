@@ -1,0 +1,13 @@
+adif_parser>0.1.0
+jinja2
+toml
+
+[dev]
+build
+flake8
+ipdb
+ipython
+isort
+mypy
+pre-commit
+pylint
