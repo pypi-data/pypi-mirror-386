@@ -1,0 +1,2 @@
+[console_scripts]
+swecli = swecli.cli:main
