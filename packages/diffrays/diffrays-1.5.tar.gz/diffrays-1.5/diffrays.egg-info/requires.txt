@@ -1,0 +1,4 @@
+flask>=2.0.0
+tqdm>=4.60.0
+ida-domain>=0.1.0
+requests
