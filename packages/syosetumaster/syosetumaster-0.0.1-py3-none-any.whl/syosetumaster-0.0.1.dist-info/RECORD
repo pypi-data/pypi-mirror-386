@@ -1,0 +1,17 @@
+syosetumaster/__init__.py,sha256=_p_pkobFxFxW3W8sOS5oybpbl2dD3uUzNs12aK8032Q,60
+syosetumaster/syosetumaster.py,sha256=BpVcafg2GxlvGlcy_OfAtkGhp1dxSKErSmFIs2THfrc,29889
+syosetumaster/crawl/__init__.py,sha256=YxSGhWrgGF-a7Ajf3G1g3AyurxHh8F0zIRKCp0qJad0,47
+syosetumaster/crawl/crawl.py,sha256=6Res7YDNb9oWacl-iEbjJDc9tbVvFPbcE7C7Dzv2CbY,4322
+syosetumaster/local/__init__.py,sha256=Jlsxfn2FM32FHYGdcXCQlYeRDi2YBVo4zY20Y9iv_gg,137
+syosetumaster/local/baselocal.py,sha256=__qLrjFP8jYTqMrbLrmgzZ-RRA_c6BrF3bbUjCn3SA0,4134
+syosetumaster/local/util.py,sha256=BoOlilrYnVMoM0XG1xGBaJEmBX_0Z41-aaE5iuAm-Kc,677
+syosetumaster/novel/__init__.py,sha256=0gl9s02heLFXLTdXAlE8Ipqpe5RG6dKDb2LgABFKYKo,89
+syosetumaster/novel/novel.py,sha256=38RcDIOMKgzjeiyXejPfUUtQzCJNSFxMjpnmQIBAvaQ,14997
+syosetumaster/translate_gpt_IO/__init__.py,sha256=NelVqoiHdT7n6Hwyf0UmCCpdB1g_FkhCGSJ32Lyo4dE,76
+syosetumaster/translate_gpt_IO/translate_gpt_IO.py,sha256=Q98OoE4hK7yF8DYXe3DHaLZqMRjL82MVrP0nkMSDSwU,7840
+syosetumaster/translate_gpt_IO/gpt_IO/__init__.py,sha256=G4C90nvdUzWnKqZFjJIeKLl74Zn_IvPMyrNLKjDa2VY,46
+syosetumaster/translate_gpt_IO/gpt_IO/gpt_IO.py,sha256=3EjOMZGoCEvtCh8ao3NHb42tPAi9XcHAQ94IApYGzSU,7124
+syosetumaster-0.0.1.dist-info/METADATA,sha256=PhEzFR5bzxrOBBssXfApl5wGBmrXX9ipaz6fpmgOrv4,456
+syosetumaster-0.0.1.dist-info/WHEEL,sha256=R0nc6qTxuoLk7ShA2_Y-UWkN8ZdfDBG2B6Eqpz2WXbs,91
+syosetumaster-0.0.1.dist-info/top_level.txt,sha256=rxRTA6lZe03-pLmZ8bqr3WlQE_bda9DQHc946mWBDdA,14
+syosetumaster-0.0.1.dist-info/RECORD,,
