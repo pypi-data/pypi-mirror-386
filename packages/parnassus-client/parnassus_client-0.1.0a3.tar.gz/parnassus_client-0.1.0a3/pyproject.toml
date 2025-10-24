@@ -1,0 +1,31 @@
+[project]
+name = "parnassus-client"
+version = "0.1.0a3"
+description = ""
+authors = [
+    {name = "MigoXV",email = "1695587905@qq.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "grpcio<=1.75.1",
+    "grpcio-tools<=1.75.1",
+    "numpy",
+    "tqdm",
+    "matplotlib",
+    "seaborn",
+    "typer",
+    "protobuf",
+]
+
+[tool.poetry]
+packages = [{include = "parnassus_client", from = "src"}]
+
+[[tool.poetry.source]]
+name = "tuna"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
