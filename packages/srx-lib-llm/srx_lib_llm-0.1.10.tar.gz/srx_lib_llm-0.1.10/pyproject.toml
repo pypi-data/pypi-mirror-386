@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling==1.18.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "srx-lib-llm"
+version = "0.1.10"
+description = "LLM helpers for SRX services: ChatOpenAI wrapper, tool base and Tavily tool"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "SRX", email = "dev@srx.id" }]
+dependencies = [
+  "openai>=1.65.5,<2",
+  "langchain>=0.3.27,<0.4",
+  "langchain-core>=0.3.79,<0.4",
+  "langchain-community>=0.3.27,<0.4",
+  "langchain-openai>=0.3.30,<0.4",
+  "tavily-python>=0.4.0,<0.5",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/srx_lib_llm"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
