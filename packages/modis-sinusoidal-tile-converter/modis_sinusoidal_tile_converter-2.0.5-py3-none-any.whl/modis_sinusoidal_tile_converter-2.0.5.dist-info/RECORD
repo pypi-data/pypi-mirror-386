@@ -1,0 +1,11 @@
+modis_sinusoidal_tile_converter/__init__.py,sha256=KVZAU2-BU6Xms8nn454ad9vr7TKQlHcJTl6KUbRnLX0,241
+modis_sinusoidal_tile_converter/constant.py,sha256=PKWhdMWzjwmYsoEuTx-ldhG8fSoMRyNmRRIhtuCR7Ag,3340
+modis_sinusoidal_tile_converter/convert.py,sha256=iV9Zw5mPeq-Hwc8zaDVQx9FKsdsq3BR_qEJxhKCa6Nk,1457
+modis_sinusoidal_tile_converter/renderer.py,sha256=8iuaNk2-YAnoxAql9vYSMw0lpwmWp_tXK6ThnyDL8Sc,2622
+modis_sinusoidal_tile_converter/sinusoidal.py,sha256=-W8g5RZyzIegDQlRK51am5kwVaht7i7ePIxAx-fID2c,11853
+modis_sinusoidal_tile_converter/webmercator.py,sha256=UK0qf-dXpNniCD4Jmm5b9KrXueFrNndY_4i8swFOzXo,3298
+modis_sinusoidal_tile_converter-2.0.5.dist-info/licenses/LICENSE,sha256=YF6QR6Vjxcg5b_sYIyqkME7FZYau5TfEUGTG-0JeRK0,35129
+modis_sinusoidal_tile_converter-2.0.5.dist-info/METADATA,sha256=wEymk4W5NFO4l3zdR4WplJ2XTYZrfabxJVxzRVkTyL0,44292
+modis_sinusoidal_tile_converter-2.0.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+modis_sinusoidal_tile_converter-2.0.5.dist-info/top_level.txt,sha256=9KcFwQiWaqUm_o_kHpwEkpeMEOKUroFpWjYLPjV0Zqw,32
+modis_sinusoidal_tile_converter-2.0.5.dist-info/RECORD,,
