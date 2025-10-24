@@ -1,0 +1,110 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swe-cli"
+version = "0.1.1"
+description = "AI-powered command-line tool for accelerated development workflows"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "SWE-CLI Team", email = "bdqnghi@gmail.com"}
+]
+maintainers = [
+    {name = "SWE-CLI Team", email = "bdqnghi@gmail.com"}
+]
+keywords = [
+    "ai",
+    "coding-assistant",
+    "cli",
+    "developer-tools",
+    "code-generation",
+    "llm",
+    "automation",
+    "software-engineering",
+    "mcp",
+    "agentic-systems"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "pydantic>=2.12.3",
+    "rich>=14.2.0",
+    "prompt-toolkit>=3.0.52",
+    "httpx>=0.28.1",
+    "requests>=2.32.5",
+    "beautifulsoup4>=4.14.2",
+    "gitpython>=3.1.45",
+    "python-dotenv>=1.1.1",
+    "tiktoken>=0.12.0",
+    "fastmcp>=2.12.5",
+    "playwright>=1.55.0",
+    "pillow>=10.0.0",
+    "fastapi>=0.119.1",
+    "uvicorn>=0.38.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "black>=25.9.0",
+    "ruff>=0.14.1",
+    "mypy>=1.18.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/swe-cli/swe-cli"
+Documentation = "https://github.com/swe-cli/swe-cli#readme"
+Repository = "https://github.com/swe-cli/swe-cli"
+"Bug Tracker" = "https://github.com/swe-cli/swe-cli/issues"
+Changelog = "https://github.com/swe-cli/swe-cli/releases"
+
+[project.scripts]
+swecli = "swecli.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["swecli*"]
+exclude = ["tests*", "docs*", "_archived_tests*"]
+
+[tool.setuptools.package-data]
+swecli = [
+    "config/**/*.json",
+    "prompts/**/*.txt",
+    "prompts/**/*.md",
+    "commands/**/*.txt",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
