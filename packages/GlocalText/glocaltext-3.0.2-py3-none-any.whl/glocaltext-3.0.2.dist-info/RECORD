@@ -1,0 +1,17 @@
+glocaltext/__init__.py,sha256=S7cBrxrSrvsMa7j5bd__EYni03hJBOxhLZVihqsPKhE,319
+glocaltext/__main__.py,sha256=q0jdltSOkV239FFTUgFe7u-ZQCy7Z_wXvLSg7DAjcng,2112
+glocaltext/config.py,sha256=B5eH28kgrCflT_l6T70NkCmp0f64ffxmP5N_vTMj3r0,9503
+glocaltext/models.py,sha256=LbUssxJUXvR-QD9Rw4FKzoNAIyLRABok8TS5uTVAIFA,2310
+glocaltext/reporting.py,sha256=2Zk6wpSujB1HSqG0MgtKZbuX8NKUc16LoxkhGhWL9y4,4942
+glocaltext/translate.py,sha256=xY9gqB2iF9xQpQUuC1rNYCnQ7YxnIz-oRo1Z1AZNnyY,9043
+glocaltext/workflow.py,sha256=ap8OzOpQAllnATvI1Bjn-KakmWEwhwMNKF8ONdGtfWU,13943
+glocaltext/translators/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+glocaltext/translators/base.py,sha256=nFkpCk38623gytaS1xQWvpo3wyhguaiKRB-XrWu2lhU,979
+glocaltext/translators/gemini_translator.py,sha256=5GFvkw0MfccUyVcwCMw0xwuTLBMlmZCvhM_MekPtCk8,8315
+glocaltext/translators/google_translator.py,sha256=ia9rVh-fNLYpYYOCtqUkDTzmlGdspEhD065EszburTE,1948
+glocaltext-3.0.2.dist-info/licenses/LICENSE,sha256=48Vc4iAwiDuDMy9rBS1ddoeDEOBIJ6YPkv5QexFjQtk,1071
+glocaltext-3.0.2.dist-info/METADATA,sha256=Ejh6kRY4NaPcqMBCHnpCdBqVmNDS-grrZ0rJIP31nws,577
+glocaltext-3.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+glocaltext-3.0.2.dist-info/entry_points.txt,sha256=qtaCxmhQj2djp0hVWdy3H2Q03539dOnI5hjgGCI1NAc,56
+glocaltext-3.0.2.dist-info/top_level.txt,sha256=AE88jN75nXnxQLm95o4rLWQVz6_loJsaFa2fTwxkh6o,11
+glocaltext-3.0.2.dist-info/RECORD,,
