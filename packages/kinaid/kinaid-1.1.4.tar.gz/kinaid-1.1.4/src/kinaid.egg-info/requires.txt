@@ -1,0 +1,15 @@
+biopython==1.79
+numpy
+scipy
+scikit-learn
+pandas
+tqdm
+plotly
+statsmodels
+dash
+dash_cytoscape
+mpire
+python-calamine
+xlsxwriter
+openpyxl
+pyxlsb
