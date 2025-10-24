@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: llm-sim-eval
+Version: 0.1.2
+Summary: Add your description here
+Author-email: Iliya Zhechev <iliya.zhechev@redis.com>
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+`llm-sim-eval` front
+
+Build
+`uv build`
+
+Publish
+`uv run twine upload --repository pypi dist/*`
