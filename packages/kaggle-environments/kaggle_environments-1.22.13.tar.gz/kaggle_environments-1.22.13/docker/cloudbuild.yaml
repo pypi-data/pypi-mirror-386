@@ -1,0 +1,90 @@
+steps:
+  - id: "build-cpu-image"
+    name: "gcr.io/cloud-builders/docker"
+    env: ["DOCKER_BUILDKIT=1"]
+    args:
+      [
+        "build",
+        "--file",
+        "docker/Dockerfile",
+        "--target",
+        "cpu",
+        "--tag",
+        "gcr.io/kaggle-images/python-simulations",
+        "--cache-from",
+        "gcr.io/kaggle-images/python-simulations:latest",
+        "--build-arg",
+        "BASE_IMAGE=gcr.io/kaggle-images/python:latest",
+        ".",
+      ]
+    waitFor: ["-"]
+
+  - id: "build-gpu-image"
+    name: "gcr.io/cloud-builders/docker"
+    env: ["DOCKER_BUILDKIT=1"]
+    args:
+      [
+        "build",
+        "--file",
+        "docker/Dockerfile",
+        "--target",
+        "gpu",
+        "--tag",
+        "gcr.io/kaggle-gpu-images/python-simulations",
+        "--cache-from",
+        "gcr.io/kaggle-gpu-images/python-simulations:latest",
+        "--build-arg",
+        "BASE_IMAGE=gcr.io/kaggle-gpu-images/python:latest",
+        ".",
+      ]
+    waitFor: ["-"]
+
+  - id: "test-cpu-image"
+    name: "gcr.io/kaggle-images/python-simulations"
+    waitFor: ["build-cpu-image"]
+    entrypoint: "pytest"
+    args: ["kaggle_environments"]
+
+  - id: "publish-to-pypi"
+    name: "python:3.11-slim"
+    entrypoint: "bash"
+    args: ["docker/cicd-publish-to-pypi.sh"]
+    waitFor: ["test-cpu-image"]
+    secretEnv: ["PYPI_TOKEN"]
+
+  - id: "deploy-to-cloud-functions"
+    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    waitFor: ["publish-to-pypi"]
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        if [ -f /workspace/published_new_version.flag ]; then
+          echo "✅ New version was published. Deploying update to Cloud Functions."
+          gcloud functions deploy kaggle-simulations-v2 \
+            --gen2 \
+            --runtime python311 \
+            --region us-central1 \
+            --source ./docker/cloud-run-source \
+            --entry-point main \
+            --trigger-http \
+            --project kaggle-comps-prod-eval
+          # This also implicitly routes 100% of traffic to the new version
+        else
+          echo "⏩ No new version was published. Skipping Cloud Function deployment."
+        fi
+
+images:
+  - "gcr.io/kaggle-images/python-simulations"
+  - "gcr.io/kaggle-gpu-images/python-simulations"
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/kaggle-cicd/secrets/pypi-token/versions/latest
+      env: "PYPI_TOKEN"
+
+options:
+  pool:
+    name: "projects/kaggle-cicd/locations/us-east1/workerPools/kaggle-cloud-builders"
+
+timeout: "3600s"
