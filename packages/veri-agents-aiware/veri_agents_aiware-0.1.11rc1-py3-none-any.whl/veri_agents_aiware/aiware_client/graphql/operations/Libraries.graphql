@@ -1,0 +1,9 @@
+query GetLibraries($limit: Int = 100, $offset: Int = 0) {
+  libraries(limit: $limit, offset: $offset) {
+    records {
+      id
+      name
+      libraryTypeId
+    }
+  }
+}

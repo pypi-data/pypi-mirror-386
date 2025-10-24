@@ -1,0 +1,19 @@
+query Get_Recent_Tdos($fromDateTime: DateTime!, $toDateTime: DateTime!, $limit: Int = 30) {
+  temporalDataObjects(
+    dateTimeFilter: {
+      fromDateTime: $fromDateTime,
+      toDateTime: $toDateTime,
+      field: createdDateTime,
+    },
+    orderBy: createdDateTime,
+    orderDirection: desc,
+    limit: $limit
+  ) {
+    records {
+      id
+      name
+      createdDateTime
+      modifiedDateTime
+    }
+  }
+}

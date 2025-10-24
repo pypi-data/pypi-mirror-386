@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: veri-agents-aiware
+Version: 0.1.11rc1
+Summary: Veritone Agents Toolkit: aiWARE-related tools
+Author-email: Markus Toman <mtoman@veritone.com>, Teo Boley <tboley@veritone.com>
+Requires-Python: >=3.12
+Requires-Dist: aiware>=0.4.0
+Requires-Dist: async-lru>=2.0.5
+Requires-Dist: veri-agents-common[graphql,langchain-openai,langgraph,polars]>=0.1.4
+Requires-Dist: veri-agents-knowledgebase>=0.1.11
+Provides-Extra: all
+Provides-Extra: dev

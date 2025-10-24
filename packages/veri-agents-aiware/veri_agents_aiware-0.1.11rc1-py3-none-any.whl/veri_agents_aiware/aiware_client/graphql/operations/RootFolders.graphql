@@ -1,0 +1,8 @@
+query Get_Root_Folders {
+  rootFolders {
+    id
+    name
+    rootFolderTypeId
+    ownerId
+  }
+}
