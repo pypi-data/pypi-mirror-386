@@ -1,0 +1,12 @@
+django_tos_uploader-1.1.1.dist-info/licenses/LICENSE,sha256=rMa5HqWuJXRrkyJYbgJy5HJidm6gNgF8BWArx6m4TFc,1092
+tos_uploader/__init__.py,sha256=xqsbLaf407HDpjVHaMIRZsZcDUZkncUaCiIP2iMdzlc,83
+tos_uploader/apps.py,sha256=6bMDTKdYpx94FbQMHz1tLanBNzSWcrhMfi7HQkBA6CM,196
+tos_uploader/fields.py,sha256=KkD12wO8WUd5tx9roE1NgxtKCQS-A0BkB42GZgGbO7Q,4031
+tos_uploader/widgets.py,sha256=REM-ss-GkG2gDBtAarM-zKlrbD-kQa2LZ25rtXneGUM,2212
+tos_uploader/static/tos_uploader/css/uploader.css,sha256=jk-JVL2IgjU3PHcauXgpHmZrMfLOGQh_15GrSVuaYyk,8476
+tos_uploader/static/tos_uploader/js/uploader.js,sha256=QhER3NWUSfZl7f1GM_2MoA9LJhqxjiBtiPCH6C4wGrs,32066
+tos_uploader/templates/tos_uploader/widget.html,sha256=XCcY7lOyHSPJ5tetpjUcpy3j9U1AEWjx3Xgunnf1feg,4579
+django_tos_uploader-1.1.1.dist-info/METADATA,sha256=tYCUFuWr2MqZWwNgSAyg5pK8VuXq4AWBR8wBFvQGeak,6177
+django_tos_uploader-1.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+django_tos_uploader-1.1.1.dist-info/top_level.txt,sha256=8rkcm8RW65bCF_7mZ-TFOVwR3Dhf97Vm2PWEdJ4BOPU,13
+django_tos_uploader-1.1.1.dist-info/RECORD,,
