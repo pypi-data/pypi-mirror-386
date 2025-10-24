@@ -1,0 +1,94 @@
+# Attack Data Ingestor Configuration
+
+# VictoriaLogs Configuration
+victorialogs:
+  url: "http://localhost:9428"
+  timeout: 30
+  retries: 3
+  batch_size: 1000
+
+# Attack Data Configuration
+attack_data:
+  path: "attack_data/attack_data"
+  include_patterns:
+    - "*.yml"
+    - "*.yaml"
+  exclude_patterns:
+    - "*.zip"
+    - "*.tar.gz"
+    - "*.log.gz"
+
+# Processing Configuration
+processing:
+  max_workers: 4
+  chunk_size: 10000
+  memory_limit_mb: 1024
+
+# Log Parsing Configuration
+parsing:
+  # Supported log types and their parsers
+  log_types:
+    windows_event:
+      - "XmlWinEventLog"
+      - "windows-security"
+      - "windows-sysmon"
+    crowdstrike:
+      - "crowdstrike:events:sensor"
+    generic:
+      - "unknown"
+      - "other"
+  
+  # Field mappings for different log types
+  field_mappings:
+    windows_event:
+      timestamp: "timestamp"
+      event_id: "event_id"
+      computer: "computer"
+      user: "user"
+      process: "process"
+    
+    crowdstrike:
+      timestamp: "timestamp"
+      event_type: "event_type"
+      computer_name: "ComputerName"
+      user_name: "UserName"
+      process_name: "ProcessName"
+
+# Output Configuration
+output:
+  # VictoriaLogs stream labels
+  stream_labels:
+    source: "attack_data"
+    dataset: "mitre_attack"
+  
+  # Metadata fields to include
+  metadata_fields:
+    - "dataset_id"
+    - "dataset_description"
+    - "mitre_technique"
+    - "author"
+    - "date"
+    - "environment"
+
+# Performance Tuning
+performance:
+  # Connection pool settings
+  connection_pool_size: 10
+  connection_pool_maxsize: 20
+  
+  # Batch processing
+  batch_timeout: 5  # seconds
+  max_batch_size: 5000
+  
+  # Memory management
+  gc_frequency: 1000  # run garbage collection every N batches
+
+# Monitoring and Logging
+monitoring:
+  log_level: "INFO"
+  progress_interval: 100  # log progress every N datasets
+  stats_interval: 10  # print stats every N seconds
+  
+  # Error handling
+  max_errors: 100
+  error_threshold: 0.1  # stop if error rate exceeds 10%

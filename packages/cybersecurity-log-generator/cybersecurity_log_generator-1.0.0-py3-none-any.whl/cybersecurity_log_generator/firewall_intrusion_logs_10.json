@@ -1,0 +1,294 @@
+{
+  "total_logs": 10,
+  "log_type": "firewall",
+  "time_range": "2h",
+  "generated_at": "2025-10-16T04:06:37.087933",
+  "severity_distribution": {
+    "low": 9,
+    "high": 1
+  },
+  "logs": [
+    {
+      "id": "160a0e02-7098-4628-bec5-8a34590f6b78",
+      "timestamp": "2025-10-16T04:06:37.087933",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: TCP connection from 69.57.10.135:80 to 10.2.226.242:443",
+      "severity": "low",
+      "source_ip": "69.57.10.135",
+      "source_port": 26449,
+      "destination_ip": "10.2.226.242",
+      "destination_port": 443,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "TCP",
+        "source_port": 80,
+        "destination_port": 443,
+        "bytes": 1287,
+        "packets": 3,
+        "rule_id": "FW-978",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "0aebe4cc-2d90-4e36-be50-eab3f31a925d",
+      "timestamp": "2025-10-16T04:06:37.088458",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: ESP connection from 15.58.204.54:1754 to 10.242.208.197:18275",
+      "severity": "low",
+      "source_ip": "15.58.204.54",
+      "source_port": 587,
+      "destination_ip": "10.242.208.197",
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "ESP",
+        "source_port": 1754,
+        "destination_port": 18275,
+        "bytes": 1092,
+        "packets": 10,
+        "rule_id": "FW-605",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "2cd0df71-b957-4d7b-a993-992942474596",
+      "timestamp": "2025-10-16T04:06:37.088636",
+      "log_type": "firewall",
+      "message": "Firewall DROP: Denial of service attack from 88.105.144.111:13111 to 10.88.159.52:40111 via GRE",
+      "severity": "high",
+      "source_ip": "88.105.144.111",
+      "source_port": 143,
+      "destination_ip": "10.88.159.52",
+      "destination_port": 143,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "DROP",
+        "protocol": "GRE",
+        "source_port": 13111,
+        "destination_port": 40111,
+        "bytes": 339,
+        "packets": 9,
+        "rule_id": "FW-261",
+        "security_event": true,
+        "event_type": "dos_attack"
+      },
+      "tags": [
+        "firewall",
+        "security",
+        "dos_attack"
+      ]
+    },
+    {
+      "id": "985a9d40-1687-4b9c-8db9-2ec39116efd9",
+      "timestamp": "2025-10-16T04:06:37.088767",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: UDP connection from 154.178.147.243:53 to 10.235.3.13:25855",
+      "severity": "low",
+      "source_ip": "154.178.147.243",
+      "source_port": 587,
+      "destination_ip": "10.235.3.13",
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "UDP",
+        "source_port": 53,
+        "destination_port": 25855,
+        "bytes": 1072,
+        "packets": 5,
+        "rule_id": "FW-241",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "d0b80383-cb99-435b-b3d3-78150e6f70f8",
+      "timestamp": "2025-10-16T04:06:37.088827",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: UDP connection from 3.200.171.120:18184 to 172.18.218.167:68",
+      "severity": "low",
+      "source_ip": "3.200.171.120",
+      "source_port": 143,
+      "destination_ip": "172.18.218.167",
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "UDP",
+        "source_port": 18184,
+        "destination_port": 68,
+        "bytes": 1304,
+        "packets": 9,
+        "rule_id": "FW-288",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "d5cad595-0059-454b-81b2-9bcca8557fed",
+      "timestamp": "2025-10-16T04:06:37.089178",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: TCP connection from 128.42.242.89:587 to 192.168.87.35:143",
+      "severity": "low",
+      "source_ip": "128.42.242.89",
+      "source_port": 995,
+      "destination_ip": "192.168.87.35",
+      "destination_port": 143,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "TCP",
+        "source_port": 587,
+        "destination_port": 143,
+        "bytes": 1496,
+        "packets": 2,
+        "rule_id": "FW-769",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "6eaac202-6a2a-4321-ae55-1c789bfd03ca",
+      "timestamp": "2025-10-16T04:06:37.089234",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: TCP connection from 178.9.211.21:995 to 172.18.8.107:21",
+      "severity": "low",
+      "source_ip": "178.9.211.21",
+      "source_port": 443,
+      "destination_ip": "172.18.8.107",
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "TCP",
+        "source_port": 995,
+        "destination_port": 21,
+        "bytes": 456,
+        "packets": 5,
+        "rule_id": "FW-304",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "fba6c4d9-a184-4a83-8ed3-12e49415b380",
+      "timestamp": "2025-10-16T04:06:37.089397",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: TCP connection from 199.93.124.233:22 to 10.226.65.144:443",
+      "severity": "low",
+      "source_ip": "199.93.124.233",
+      "source_port": 53530,
+      "destination_ip": "10.226.65.144",
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "TCP",
+        "source_port": 22,
+        "destination_port": 443,
+        "bytes": 497,
+        "packets": 1,
+        "rule_id": "FW-681",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "1ca744c0-54c9-4062-b47f-4cf2a2abfe66",
+      "timestamp": "2025-10-16T04:06:37.089447",
+      "log_type": "firewall",
+      "message": "Firewall DENY: TCP connection from 91.52.29.77:45733 to 172.20.20.198:993",
+      "severity": "low",
+      "source_ip": "91.52.29.77",
+      "source_port": 995,
+      "destination_ip": "172.20.20.198",
+      "destination_port": 21,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "DENY",
+        "protocol": "TCP",
+        "source_port": 45733,
+        "destination_port": 993,
+        "bytes": 763,
+        "packets": 7,
+        "rule_id": "FW-591",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    },
+    {
+      "id": "0a96dfb9-f615-4448-ae2b-82ddc0b34854",
+      "timestamp": "2025-10-16T04:06:37.089495",
+      "log_type": "firewall",
+      "message": "Firewall ALLOW: ICMP connection from 74.180.244.60:63842 to 10.246.180.18:55006",
+      "severity": "low",
+      "source_ip": "74.180.244.60",
+      "source_port": 53,
+      "destination_ip": "10.246.180.18",
+      "destination_port": 22,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "action": "ALLOW",
+        "protocol": "ICMP",
+        "source_port": 63842,
+        "destination_port": 55006,
+        "bytes": 334,
+        "packets": 9,
+        "rule_id": "FW-301",
+        "security_event": false
+      },
+      "tags": [
+        "firewall",
+        "normal"
+      ]
+    }
+  ]
+}

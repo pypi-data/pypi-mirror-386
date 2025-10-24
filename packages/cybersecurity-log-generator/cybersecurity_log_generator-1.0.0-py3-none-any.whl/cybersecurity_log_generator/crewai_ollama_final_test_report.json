@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-10-17T22:14:44.748807",
+  "ollama_config": {
+    "base_url": "http://localhost:11434",
+    "model": "gemma3:4b"
+  },
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 2,
+    "failed_tests": 2,
+    "success_rate": 50.0
+  },
+  "results": [
+    {
+      "test": "ollama_direct",
+      "status": "success",
+      "model": "gemma3:4b",
+      "response": "Test successful"
+    },
+    {
+      "test": "mcp_connection_only",
+      "status": "success",
+      "tools_available": 13,
+      "tools": [
+        "generate_logs",
+        "generate_attack_campaign",
+        "generate_correlated_events",
+        "generate_pillar_logs",
+        "generate_campaign_logs",
+        "generate_correlated_logs",
+        "generate_siem_priority_logs",
+        "get_siem_categories",
+        "generate_comprehensive_siem_logs",
+        "get_supported_log_types",
+        "get_supported_pillars",
+        "export_logs",
+        "analyze_log_patterns"
+      ]
+    },
+    {
+      "test": "crewai_with_correct_ollama",
+      "status": "failed",
+      "error": "litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model={'model': 'ollama/gemma3:4b', 'api_base': 'http://localhost:11434', 'temperature': 0.7, 'max_tokens': 1000, 'timeout': 60}\n Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers"
+    },
+    {
+      "test": "crewai_mcp_with_correct_ollama",
+      "status": "failed",
+      "error": "litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model={'model': 'ollama/gemma3:4b', 'api_base': 'http://localhost:11434', 'temperature': 0.7, 'max_tokens': 1000, 'timeout': 60}\n Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers"
+    }
+  ]
+}

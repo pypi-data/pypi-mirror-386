@@ -1,0 +1,444 @@
+[
+  {
+    "id": "471486d6-347b-4be6-ac9d-57fd035a6536",
+    "timestamp": "2025-10-16 16:45:08.611847",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "134.40.217.210",
+      "port": 25,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "172.21.29.201",
+      "port": 143,
+      "hostname": "web-25.miller-ramos.com",
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall DROP: TCP connection from 134.40.217.210:80 to 172.21.29.201:53",
+    "raw_data": {
+      "action": "DROP",
+      "protocol": "TCP",
+      "source_port": 80,
+      "destination_port": 53,
+      "bytes": 194,
+      "packets": 3,
+      "rule_id": "FW-729",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "ae80d66a-d0fa-4df5-9d18-4efadae139b5",
+    "timestamp": "2025-10-16 16:45:08.612091",
+    "log_type": "firewall",
+    "severity": "medium",
+    "source": {
+      "ip_address": "201.42.22.244",
+      "port": 56420,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "192.168.214.25",
+      "port": 22,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall DENY: Suspicious connection pattern from 201.42.22.244:36090 to 192.168.214.25:162 via UDP",
+    "raw_data": {
+      "action": "DENY",
+      "protocol": "UDP",
+      "source_port": 36090,
+      "destination_port": 162,
+      "bytes": 1347,
+      "packets": 3,
+      "rule_id": "FW-811",
+      "security_event": true,
+      "event_type": "suspicious_connection"
+    },
+    "tags": [
+      "firewall",
+      "security",
+      "suspicious_connection"
+    ],
+    "threat_actor": null,
+    "attack_tactic": "impact",
+    "attack_technique": "suspicious_connection",
+    "ioc_type": null,
+    "confidence_score": 0.9301577235258298,
+    "false_positive_probability": 0.07131357246295555
+  },
+  {
+    "id": "2dbb92d6-20f4-4dca-a483-7e92f449cc70",
+    "timestamp": "2025-10-16 16:45:08.612190",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "108.138.179.137",
+      "port": 110,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "172.18.114.249",
+      "port": 465,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall ALLOW: TCP connection from 108.138.179.137:80 to 172.18.114.249:22",
+    "raw_data": {
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "source_port": 80,
+      "destination_port": 22,
+      "bytes": 1082,
+      "packets": 5,
+      "rule_id": "FW-866",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "46823452-cc96-427c-9370-8011ea5aa9ea",
+    "timestamp": "2025-10-16 16:45:08.612381",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "75.248.141.17",
+      "port": 35327,
+      "hostname": "laptop-82.anderson.com",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "10.162.150.132",
+      "port": 21744,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall ALLOW: TCP connection from 75.248.141.17:45499 to 10.162.150.132:24394",
+    "raw_data": {
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "source_port": 45499,
+      "destination_port": 24394,
+      "bytes": 83,
+      "packets": 7,
+      "rule_id": "FW-619",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "45ddca20-549c-4924-becb-e0c9605de5c3",
+    "timestamp": "2025-10-16 16:45:08.612680",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "173.242.129.70",
+      "port": 465,
+      "hostname": "db-77.young.biz",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "10.127.158.62",
+      "port": 12729,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall DROP: TCP connection from 173.242.129.70:465 to 10.127.158.62:37827",
+    "raw_data": {
+      "action": "DROP",
+      "protocol": "TCP",
+      "source_port": 465,
+      "destination_port": 37827,
+      "bytes": 827,
+      "packets": 5,
+      "rule_id": "FW-570",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "f5e303e8-4495-44bc-8880-a4ae9d4380d6",
+    "timestamp": "2025-10-16 16:45:08.612968",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "49.146.97.169",
+      "port": 443,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "192.168.167.181",
+      "port": 995,
+      "hostname": "lt-13.anderson.org",
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall DROP: UDP connection from 49.146.97.169:60953 to 192.168.167.181:68",
+    "raw_data": {
+      "action": "DROP",
+      "protocol": "UDP",
+      "source_port": 60953,
+      "destination_port": 68,
+      "bytes": 659,
+      "packets": 10,
+      "rule_id": "FW-121",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "7662c3a3-9c28-43d4-88f3-40b59348f9b3",
+    "timestamp": "2025-10-16 16:45:08.613126",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "91.135.34.73",
+      "port": 26186,
+      "hostname": "db-92.mcfarland.com",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "172.20.104.127",
+      "port": 35525,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall DROP: UDP connection from 91.135.34.73:514 to 172.20.104.127:48622",
+    "raw_data": {
+      "action": "DROP",
+      "protocol": "UDP",
+      "source_port": 514,
+      "destination_port": 48622,
+      "bytes": 385,
+      "packets": 5,
+      "rule_id": "FW-458",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "8242b791-8a98-43cc-8f1c-aaece4372c71",
+    "timestamp": "2025-10-16 16:45:08.613344",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "152.111.225.202",
+      "port": 465,
+      "hostname": "lt-61.gibson-brown.com",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "172.30.32.197",
+      "port": 63848,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall ALLOW: TCP connection from 152.111.225.202:587 to 172.30.32.197:443",
+    "raw_data": {
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "source_port": 587,
+      "destination_port": 443,
+      "bytes": 325,
+      "packets": 7,
+      "rule_id": "FW-334",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "c5390097-3bcc-42a0-97ba-0164cbb34827",
+    "timestamp": "2025-10-16 16:45:08.613624",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "39.122.221.240",
+      "port": 443,
+      "hostname": "web-53.chapman.com",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "172.22.182.170",
+      "port": 21,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall ALLOW: TCP connection from 39.122.221.240:28394 to 172.22.182.170:110",
+    "raw_data": {
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "source_port": 28394,
+      "destination_port": 110,
+      "bytes": 1335,
+      "packets": 1,
+      "rule_id": "FW-535",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "7f71bb21-1334-4515-8106-d8d6a565e0ba",
+    "timestamp": "2025-10-16 16:45:08.613695",
+    "log_type": "firewall",
+    "severity": "low",
+    "source": {
+      "ip_address": "201.245.230.8",
+      "port": 80,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "10.26.104.8",
+      "port": 22,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Firewall ALLOW: TCP connection from 201.245.230.8:22 to 10.26.104.8:24022",
+    "raw_data": {
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "source_port": 22,
+      "destination_port": 24022,
+      "bytes": 562,
+      "packets": 9,
+      "rule_id": "FW-158",
+      "security_event": false
+    },
+    "tags": [
+      "firewall",
+      "normal"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  }
+]
