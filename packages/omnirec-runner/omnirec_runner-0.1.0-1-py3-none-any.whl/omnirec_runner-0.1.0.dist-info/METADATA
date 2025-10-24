@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: omnirec-runner
+Version: 0.1.0
+Summary: This package is part of the omnirec package. Please look there for more details.
+Project-URL: Homepage, https://omnirec.recommender-systems.com/
+Project-URL: Documentation, https://omnirec.recommender-systems.com/getting_started/
+Project-URL: Repository, https://github.com/ISG-Siegen/OmniRec
+Author-email: "Intelligent Systems Group (ISG)" <pypi@isg.beel.org>
+Requires-Python: >=3.6
+Requires-Dist: rpyc>=6.0.2
+Description-Content-Type: text/markdown
+
+# OmniRec Runner
+This package is part of OmniRec, please visit [omnirec.recommender-systems.com](https://omnirec.recommender-systems.com) for comprehensive documentation.
