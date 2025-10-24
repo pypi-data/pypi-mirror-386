@@ -1,0 +1,14 @@
+include *.rst
+include *.txt
+include .coveragerc
+include buildout.cfg
+include pytest.ini
+include tox.ini
+
+recursive-include src *.js
+recursive-include src *.po
+recursive-include src *.mo
+recursive-include src *.pt
+recursive-include src *.rst
+recursive-include src *.txt
+recursive-include src *.zcml
