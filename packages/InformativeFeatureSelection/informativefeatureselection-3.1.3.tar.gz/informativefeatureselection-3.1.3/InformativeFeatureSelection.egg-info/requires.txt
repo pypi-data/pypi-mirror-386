@@ -1,0 +1,8 @@
+numpy~=1.21
+scikit-learn~=0.24.2
+setuptools~=58.0.4
+opencv-python-headless~=4.5.3.56
+numba~=0.57.1
+
+[smart]
+segment_anything==1.0
