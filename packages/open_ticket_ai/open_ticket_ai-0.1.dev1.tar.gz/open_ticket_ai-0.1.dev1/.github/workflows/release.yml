@@ -1,0 +1,52 @@
+name: Unified Release
+
+on:
+  push:
+    branches: [ dev ]
+    tags: [ v* ]
+  workflow_dispatch:
+
+env:
+  DOCKER_REPOSITORY: softotobo/open-ticket-ai
+  PYTHON_VERSION: '3.14'
+
+jobs:
+  release:
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - id: meta
+        run: echo "version=$(python scripts/resolve_version.py)" >> "$GITHUB_OUTPUT"
+
+      - run: |
+          rm -rf dist
+          mkdir -p dist
+          uv build --out-dir dist .
+          uv build --out-dir dist packages/otai_base
+          uv build --out-dir dist packages/otai_hf_local
+          uv build --out-dir dist packages/otai_otobo_znuny
+
+      - run: |
+          uv publish dist/*
+        continue-on-error: true
+
+      - uses: docker/login-action@v3
+        continue-on-error: true
+        with:
+          username: softotobo
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ env.DOCKER_REPOSITORY }}:${{ steps.meta.outputs.version }}
