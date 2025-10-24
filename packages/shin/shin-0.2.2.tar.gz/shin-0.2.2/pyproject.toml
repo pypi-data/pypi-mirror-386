@@ -1,0 +1,46 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "shin"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+version = "0.2.2"
+description = "Python implementation of Shin's method for calculating implied probabilities from bookmaker odds"
+authors = [
+    {name = "Maurice Berk", email = "maurice@mauriceberk.com"},
+]
+readme = "README.md"
+
+[project.urls]
+Repository = "https://github.com/mberk/shin"
+
+[tool.maturin]
+python-source = "python"
+
+[tool.mypy]
+python_version = "3.9"
+packages = ["shin", "tests"]
+enable_error_code = [
+    "explicit-override",
+    "ignore-without-code",
+    "possibly-undefined",
+    "redundant-expr",
+    "redundant-self",
+    "truthy-bool",
+    "truthy-iterable",
+    "unimported-reveal",
+    "unused-awaitable",
+]
+disallow_any_unimported = true
+show_error_codes = true
+strict = true
+warn_unreachable = true
