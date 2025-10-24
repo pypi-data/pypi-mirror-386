@@ -1,0 +1,167 @@
+Metadata-Version: 2.4
+Name: kafka-admin-service
+Version: 0.2.18
+Summary: KAFKA管理类，提供用户创建、删除、列表查询、修改密码，提供主题创建、删除、列表查询，提供权限创建、删除、列表查询等基础管理功能。
+Author: rRR0VrFP
+Maintainer: rRR0VrFP
+License: MIT
+Keywords: kafka admin service,kafka admin client
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scramp
+Requires-Dist: xmlrpcutils
+Requires-Dist: fastutils>=0.42.13
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: requires-dist
+Dynamic: summary
+
+# kafka_admin_service
+
+Kafka admin service class, provides basic management functions such as USER creation, USER deletion, USER listing all and USER password changing, TOPIC creation, TOPIC deletion, TOPIC listing all, and ACL creation, ACL deletion and ACL listing all.
+
+## Install
+
+```
+pip install kafka-admin-service
+```
+
+## KafkaAdminService methods
+
+- add_acl
+- change_password
+- create_topic
+- create_topic_and_topic_user
+- create_user
+- delete_acl
+- delete_all_topics
+- delete_all_users
+- delete_topic
+- delete_topic_user_acls
+- delete_user
+- get_acls
+- get_consumer_group_member_assignments
+- get_consumer_group_members
+- get_consumer_groups
+- get_kafka_log_dirs
+- get_kafka_version
+- get_topics
+- get_user_scrams
+- get_users
+- update_user
+- validate_user_password
+
+
+## Why always returns (returncode, stdout, stderr)?
+
+Because we use subprocess.Popen to call kafka's management command under kafka/bin folder. So `returncode` means the command exit status code, and `stdout` means the command's normal output, and `stderr` means the command's error output. 
+
+## Kafka server requirements.
+
+1. Kafka using scram auth.
+1. Zookeeper using NO auth.
+1. Set `workspace` to kafka's root folder. e.g. kafka's command is under folder /path/to/kafka/bin/, so the `workspace` should set to /path/to/kafka/.
+1. Create scram.jaas file, default to put it at `workspace`/config/scram.jaas, or set it's path in config file.
+1. Create scram.client.properties file, default to put it at `workspace`/config/scram.client.properties, or set it's path in config file.
+1. Because we need to call kafka's management commands, normally should install us on kafka server for easy.
+
+
+## Example of ./config/scram.jaas
+
+```
+KafkaServer {
+   org.apache.kafka.common.security.scram.ScramLoginModule required
+   username="admin"
+   password="xxxxxxxx";
+};
+
+KafkaClient {
+   org.apache.kafka.common.security.scram.ScramLoginModule required
+   username="admin"
+   password="xxxxxxxx";
+};
+```
+
+## Example of ./config/scram.client.properties
+
+```
+security.protocol=SASL_PLAINTEXT
+sasl.mechanism=SCRAM-SHA-256
+```
+
+## Example of application's config.yml
+
+```
+zookeeper: localhost:2181
+bootstrap_server: localhost:9092
+workspace: /apprun/kafka/
+command_config_file: "/apprun/config/scram.client.properties"
+default_kafka_opts: "-Djava.security.auth.login.config=/apprun/config/scram.jaas"
+topic_partitions: 16
+topic_replication_factor: 3
+apikeys:
+    xxxxxxx:
+        appid: xxxx
+        other-appinfo: xxx
+    yyyyyyy:
+        appid: yyyy
+        other-appinfo: yyy
+```
+
+## Start kafka-admin-server
+
+```
+kafka-admin-server --no-daemon -c config.yml start
+```
+
+## Releases
+
+### v0.1.1
+
+- First Release.
+
+### v0.1.3
+
+- Fix kafka commands' path check.
+- Add execute time log.
+
+### v0.1.7
+
+- Add get_user_scrams method.
+- Add validate_user_password method.
+- Fix license_files missing problem.
+- Doc update.
+
+### v0.1.9
+
+- Fix template format parameters missing problem.
+- Fix KAFKA_OPTS missing in calling execute() problem.
+
+### v0.2.1
+
+- Add kafka-admin-server based on xmlrpc.
+
+### v0.2.14
+
+- Add get_consumer_group_member_assignments api.
+- Add get_consumer_group_members api.
+- Add get_consumer_groups api.
+- Add get_kafka_version api.
+- Add get_kafka_log_dirs api.
+- Remove private methods.
+
+### v0.2.17
+
+- Add get_user_configs api。
