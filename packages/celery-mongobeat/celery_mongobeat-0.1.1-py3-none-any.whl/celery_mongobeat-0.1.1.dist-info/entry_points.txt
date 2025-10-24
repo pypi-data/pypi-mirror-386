@@ -1,0 +1,2 @@
+[celery.beat_schedulers]
+celery_mongobeat.schedulers:MongoScheduler = celery_mongobeat.beat:CustomMongoScheduler
