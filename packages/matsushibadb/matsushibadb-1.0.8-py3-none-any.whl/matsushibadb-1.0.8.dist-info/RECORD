@@ -1,0 +1,13 @@
+matsushiba_db/__init__.py,sha256=PsrUn4CuzAmrglFz9L8w0uIbxLdzfOp0pagy2fxhUxk,497
+matsushiba_db/async_client.py,sha256=bWhmdIg5fj641zetazxoBg4Yofc6ZIoynX5EqvnCMqk,1555
+matsushiba_db/cli.py,sha256=bup4YBTGPkYsP1_7X9mdGYal30SHBanidCl9spvkttY,1109
+matsushiba_db/client.py,sha256=1bioHrzOofWQvwiAAlDYfd0p23wIeWFWLIZ2amQhtHk,13638
+matsushiba_db/init.py,sha256=c49ng2iPkEjT8exah3vCEKfQUl_8LTahEDdVXk1Sd-I,14126
+matsushiba_db/server.py,sha256=pEJ_iDKwFSLl1xHc9gpArgQaGWFIvueu7lPf-00DL5A,42961
+matsushiba_db/welcome.py,sha256=n8wT1tI1rD8bUx1I9E74KyjoT41FkmP1PeI1US2iEqc,3377
+matsushibadb-1.0.8.dist-info/licenses/LICENSE,sha256=OhCe6lkWmdk_WJIU4K1GZUh-kshrQVpREpJV4vkOhcE,186
+matsushibadb-1.0.8.dist-info/METADATA,sha256=ufPCWI6nCC1fSFhdVn3qXbqdziIVOFVBpY0V7RKn08g,11799
+matsushibadb-1.0.8.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+matsushibadb-1.0.8.dist-info/entry_points.txt,sha256=41pU4LOm5S3Sn4DMn-EKZrPorv5_IRabjiFtRhG4IGA,196
+matsushibadb-1.0.8.dist-info/top_level.txt,sha256=0RjbG3j-3lRNWVFCDwOdAj2XkcR5qTKwAujprRVi7sE,14
+matsushibadb-1.0.8.dist-info/RECORD,,
