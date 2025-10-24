@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+kicad_symbol_merge/__init__.py
+kicad_symbol_merge/merge.py
+kicad_symbol_merge.egg-info/PKG-INFO
+kicad_symbol_merge.egg-info/SOURCES.txt
+kicad_symbol_merge.egg-info/dependency_links.txt
+kicad_symbol_merge.egg-info/entry_points.txt
+kicad_symbol_merge.egg-info/top_level.txt

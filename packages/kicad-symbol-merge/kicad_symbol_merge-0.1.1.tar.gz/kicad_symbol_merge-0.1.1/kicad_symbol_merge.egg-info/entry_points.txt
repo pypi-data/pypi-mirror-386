@@ -1,0 +1,2 @@
+[console_scripts]
+kicad-symbol-merge = kicad_symbol_merge.merge:main
