@@ -1,0 +1,70 @@
+name: Chora CI
+
+on:
+  push:
+    branches: [ main, "feature/**", "fix/**" ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Run validators
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m mcp_orchestrator.cli manifest-validate manifests/star.yaml
+          python -m mcp_orchestrator.cli behavior-validate docs/capabilities/behaviors
+          python -m mcp_orchestrator.cli scenario-validate manifests/star.yaml
+
+      - name: Run tests
+        env:
+          PYTHONPATH: src
+        run: |
+          pytest -q
+
+      - name: Generate overview
+        run: |
+          python scripts/generate_repo_overview.py manifests/star.yaml -o docs/reference/overview.md
+
+      - name: Check overview freshness
+        run: |
+          # Fail if overview changed (i.e., stale in repo)
+          git diff --exit-code -- docs/reference/overview.md || (echo "Overview is stale. Run the generator locally and commit the result." && exit 1)
+
+      - name: Upload artifacts (telemetry + overview)
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-artifacts
+          path: |
+            var/telemetry/events.jsonl
+            docs/reference/overview.md
+
+      - name: Package liminal bundle
+        run: |
+          mkdir -p var/bundles/liminal
+          zip -j var/bundles/liminal/mcp-orchestration-bundle.zip \
+            manifests/star.yaml \
+            docs/reference/overview.md \
+            docs/reference/signals/SIG-capability-onboard.md \
+            var/telemetry/events.jsonl || true
+
+      - name: Upload liminal bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: liminal-bundle
+          path: var/bundles/liminal/mcp-orchestration-bundle.zip

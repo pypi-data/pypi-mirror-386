@@ -1,0 +1,87 @@
+name: Documentation Quality
+
+on:
+  pull_request:
+    paths:
+      - 'user-docs/**'
+      - 'project-docs/**'
+      - 'dev-docs/**'
+      - 'DOCUMENTATION_STANDARD.md'
+      - 'scripts/validate_docs.py'
+      - 'scripts/generate_docs_map.py'
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'user-docs/**'
+      - 'project-docs/**'
+      - 'dev-docs/**'
+
+jobs:
+  validate-docs:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyYAML
+
+      - name: Validate documentation
+        run: |
+          python scripts/validate_docs.py
+
+      - name: Generate documentation map
+        run: |
+          python scripts/generate_docs_map.py
+
+      - name: Check if DOCUMENTATION_MAP.md is up to date
+        run: |
+          if ! git diff --exit-code DOCUMENTATION_MAP.md; then
+            echo "❌ DOCUMENTATION_MAP.md is out of date!"
+            echo "Run 'python scripts/generate_docs_map.py' and commit the changes."
+            exit 1
+          fi
+          echo "✅ DOCUMENTATION_MAP.md is up to date"
+
+
+test-docs-examples:
+    name: Test Documentation Examples
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+          pip install PyYAML
+
+      - name: Extract tests from documentation
+        run: |
+          python scripts/extract_tests.py
+
+      - name: Run extracted tests
+        run: |
+          if [ -f tests/integration/test_from_docs.py ]; then
+            pytest tests/integration/test_from_docs.py -v
+          else
+            echo "No tests extracted from documentation (no files with test_extraction: true)"
+          fi

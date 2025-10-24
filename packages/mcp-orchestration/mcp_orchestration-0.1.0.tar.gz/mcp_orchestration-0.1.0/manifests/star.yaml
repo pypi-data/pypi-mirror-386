@@ -1,0 +1,53 @@
+id: mcp-orchestration
+version: 0.0.1
+owner: team-mcp
+lifecycle_stage: operate
+inputs: []
+outputs:
+  - registry_state
+tags:
+  - chora
+  - capability-provider
+  - mcp
+  - registry
+  - orchestration
+dependencies:
+  - id: chora-validator
+    type: tool
+    version: ">=0.0.1"
+    scope: dev
+    optional: false
+  - id: mcp.runtime
+    type: service
+    version: ">=1.0.0"
+    scope: runtime
+    optional: true
+security_tier: moderate
+stability: beta
+adr_links: []
+validation_status:
+  last_run: null
+  result: pending
+  tool: chora-validator
+capabilities:
+  - id: mcp.registry.manage
+    behaviors:
+      - ref: docs/capabilities/mcp-registry-manage.md
+        id: MCP.REGISTRY.MANAGE
+        status: draft
+telemetry:
+  signals:
+    - id: SIG.capability.mcp.registry.onboard
+      doc: docs/reference/signals/SIG-capability-onboard.md
+      owner: team-mcp
+      status: in_progress
+      last_update: 2025-10-05
+value_scenarios:
+  - id: mcp.registry.manage.create-doc
+    title: Create registry documentation entry
+    capability: mcp.registry.manage
+    guide: docs/how-to/create-doc.md
+    tests:
+      - tests/value-scenarios/test_create_doc.py
+      - docs/capabilities/behaviors/mcp-registry-manage.feature
+    status: ready

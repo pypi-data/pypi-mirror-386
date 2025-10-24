@@ -1,0 +1,21 @@
+_commit: v2.0.9
+_src_path: gh:liminalcommons/chora-base
+author_email: victor@liminalcommons.org
+author_name: Victor Piper
+github_username: liminalcommons
+include_agents_md: true
+include_cli: true
+include_contributing: true
+include_development_docs: true
+include_docker: false
+include_github_actions: true
+include_justfile: true
+include_memory_system: true
+include_pre_commit: true
+include_tests: true
+include_troubleshooting: true
+license: MIT
+project_description: MCP server orchestration and management tools
+project_name: mcp-orchestration
+project_type: mcp_server
+python_version: '3.12'
