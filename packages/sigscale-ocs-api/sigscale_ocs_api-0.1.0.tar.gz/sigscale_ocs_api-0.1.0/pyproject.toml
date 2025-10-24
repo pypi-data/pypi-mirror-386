@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sigscale-ocs-api"
+version = "0.1.0"
+description = "A Python client for the Sigscale OCS API"
+authors = [
+    { name = "Keegan White", email = "keeganthomaswhite@gmail.com" }
+]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.25.1",
+    "python-dotenv>=0.19.0"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Communications :: Telephony",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+keywords = ["sigscale", "ocs", "api", "telecom", "billing", "tmf", "openapi"]
+
+[project.urls]
+Homepage = "https://github.com/keeganwhite/sigscale-ocs-api"
+"Bug Reports" = "https://github.com/keeganwhite/sigscale-ocs-api/issues"
+Source = "https://github.com/keeganwhite/sigscale-ocs-api"
+Documentation = "https://github.com/keeganwhite/sigscale-ocs-api#readme"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.2.4",
+    "pytest-cov>=2.12.1",
+    "flake8>=3.9.2",
+    "mypy>=0.910",
+    "black>=21.5b2",
+    "types-requests>=2.25.0"
+]
+
+[tool.setuptools]
+packages = ["sigscale_ocs"]
+
+[tool.setuptools.package-dir]
+sigscale_ocs = "src/sigscale_ocs"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
