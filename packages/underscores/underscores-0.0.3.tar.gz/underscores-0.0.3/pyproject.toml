@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "underscores"
+dynamic = ["version"]
+description = "_ allows you to write Python code using only _."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE.txt"]
+requires-python = ">=3.9"
+authors = [{ name = "Lemonyte" }]
+keywords = ["_", "underscore", "encoding", "joke"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Repository = "https://github.com/lemonyte/_"
+
+[project.scripts]
+_ = "underscores.__main__:cmd"
+
+[dependency-groups]
+dev = [
+    "pre-commit~=4.3.0",
+    "pytest-cov~=7.0.0",
+    "pytest~=8.4.2",
+    "setuptools>=61",
+]
+
+[tool.setuptools]
+package-data = { underscores = ["py.typed"] }
+
+[tool.setuptools.dynamic]
+version = { attr = "underscores.__version__" }
+
+[tool.ruff]
+src = ["src"]
+exclude = ["tests/code/**"]
+line-length = 119
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["A", "D", "T"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/*" = ["S101", "S603"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+exclude = ["tests/code/**"]

@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+src/underscores/_.pth
+src/underscores/_.py
+src/underscores/__init__.py
+src/underscores/__main__.py
+src/underscores/py.typed
+src/underscores.egg-info/PKG-INFO
+src/underscores.egg-info/SOURCES.txt
+src/underscores.egg-info/dependency_links.txt
+src/underscores.egg-info/entry_points.txt
+src/underscores.egg-info/top_level.txt
+tests/test_underscores.py
