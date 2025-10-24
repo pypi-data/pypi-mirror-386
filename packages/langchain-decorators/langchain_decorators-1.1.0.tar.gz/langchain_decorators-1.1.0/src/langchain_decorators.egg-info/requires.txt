@@ -1,0 +1,8 @@
+typing-inspect
+langchain-core<2.0.0,>=1.0.0
+
+[dev]
+langgraph
+
+[langgraph]
+langgraph
