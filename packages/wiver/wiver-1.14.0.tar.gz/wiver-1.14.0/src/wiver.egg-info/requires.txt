@@ -1,0 +1,12 @@
+cython
+numpy
+cythonarrays
+matrixconverters
+pandas
+xarray
+h5netcdf
+
+[test]
+pytest
+pytest-benchmark
+pytest-profile
