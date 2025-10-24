@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gradus-platform"
+version = "0.1.1"
+description = "Ferramentas Gradus"
+readme = "README.md"
+authors = [{ name = "William Nagano" }]
+license = { text = "Proprietary" }
+requires-python = ">=3.9"
+dependencies = ["boto3", "requests"]
+keywords = ["aws", "s3", "ecs", "callback", "gradus"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: Other/Proprietary License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://www.gradusconsultoria.com.br/"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gradus"]
