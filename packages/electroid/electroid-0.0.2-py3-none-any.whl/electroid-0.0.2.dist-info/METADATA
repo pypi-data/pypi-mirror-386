@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: electroid
+Version: 0.0.2
+Summary: Anthropomorphized electric power consumption.
+Author-email: Alexander Fedotov <alex.fedotov@aol.com>
+Project-URL: Homepage, https://github.com/alxfed/electroid
+Project-URL: Bug Tracker, https://github.com/alxfed/electroid/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# Electroid
+`electroid` is a Python library utilizing the anthropomorphized electric power consumption for tasks at hand.
+<pre>
+  pip install electroid
+</pre>
+Then:
+```Python
+  # Python
+  import electroid
+```
