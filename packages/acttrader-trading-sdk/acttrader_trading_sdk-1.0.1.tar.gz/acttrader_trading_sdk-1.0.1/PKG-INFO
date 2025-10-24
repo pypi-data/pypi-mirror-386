@@ -1,0 +1,733 @@
+Metadata-Version: 2.4
+Name: acttrader-trading-sdk
+Version: 1.0.1
+Summary: Official Python SDK for ActTrader Trading API
+Home-page: https://github.com/acttrader/python-trading-sdk
+Author: Act
+Author-email: support@acttrader.com
+Project-URL: Homepage, https://github.com/acttrader/python-sdk
+Project-URL: Bug Reports, https://github.com/acttrader/python-sdk/issues
+Project-URL: Source, https://github.com/acttrader/python-sdk
+Project-URL: Documentation, https://github.com/acttrader/python-sdk#readme
+Keywords: acttrader,trading,forex,api,sdk,trading-api,market-data,websocket,financial,broker
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.28.0
+Requires-Dist: websockets>=11.0.0
+Requires-Dist: aiohttp>=3.8.0
+Requires-Dist: asyncio-mqtt>=0.13.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: typing-extensions>=4.0.0
+Requires-Dist: requests-ntlm>=1.2.0
+Requires-Dist: python-dateutil>=2.8.0
+Requires-Dist: ujson>=5.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: flake8>=5.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# ActTrader SDK for Python
+
+Official Python SDK for ActTrader Trading API. This SDK provides a comprehensive interface to interact with ActTrader's REST API and WebSocket streaming services.
+
+## Features
+
+- 🔐 **Authentication** - Digest authentication and token-based session management
+- 💰 **Account Management** - Access account information and manage settings
+- 📊 **Market Data** - Get real-time and historical market data, symbols, and instruments
+- 📈 **Trading Operations** - Place, modify, and cancel orders; manage positions
+- 🎯 **Lots-Based Trading** - Trade with lots (auto-converts to quantity using contract size)
+- 💾 **Symbol Cache** - Auto-refreshing symbol cache (24-hour intervals)
+- 🔔 **Alerts** - Create and manage price alerts (deprecated)
+- 🌊 **WebSocket Streaming** - Real-time market data and trading events
+- 📘 **Type Hints** - Full Python type hints included
+- ⚡ **Async Support** - Modern async/await API
+
+## Installation
+
+```bash
+pip install acttrader-trading-sdk
+```
+
+## Quick Start
+
+### Initialize the SDK
+
+```python
+from acttrader import ActTrader
+
+# Option 1: Initialize with username and password for digest authentication
+client = ActTrader(
+    base_url='http://rest-api.sysfx.com:18001',
+    ws_url='ws://stream.sysfx.com:18002',  # Legacy: single WebSocket URL
+    username='your_username',
+    password='your_password'
+)
+
+# Option 2: Initialize with separate WebSocket URLs (recommended)
+client = ActTrader(
+    base_url='http://rest-api.sysfx.com:18001',
+    order_ws_url='ws://order-stream.sysfx.com:18002',    # Order updates stream
+    price_feed_ws_url='ws://pricefeed-stream.sysfx.com:18003',  # Price feed stream
+    username='your_username',
+    password='your_password'
+)
+
+# Option 3: Initialize with existing token
+client = ActTrader(
+    base_url='http://rest-api.sysfx.com:18001',
+    order_ws_url='ws://order-stream.sysfx.com:18002',
+    price_feed_ws_url='ws://pricefeed-stream.sysfx.com:18003',
+    token='your_existing_token'
+)
+
+# Authenticate and initialize symbol cache (required for lots-based trading)
+await client.auth.get_token(60)
+await client.initialize_symbol_cache()  # Auto-refreshes every 24 hours
+```
+
+## API Reference
+
+### Authentication
+
+#### Get Token
+
+```python
+# Get authentication token (requires username/password)
+result = await client.auth.get_token(60)  # 60 minutes lifetime
+token = result.result
+print('Token:', token)
+
+# Token is automatically stored in the client
+```
+
+#### Logout
+
+```python
+# Revoke current token
+await client.auth.logout()
+```
+
+#### Reset Password
+
+```python
+# Reset user password (sent via email)
+await client.auth.reset_password('user_login_id')
+```
+
+### Account Management
+
+#### Get Accounts
+
+```python
+# Get all accounts for current user
+result = await client.account.get_accounts()
+accounts = result.result
+
+for account in accounts:
+    print(f"Account {account.AccountID}:")
+    print(f"  Balance: {account.Balance} {account.Currency}")
+    print(f"  Used Margin: {account.UsedMargin}")
+```
+
+#### Change Password
+
+```python
+# Change user password
+await client.account.change_password('old_password', 'new_password')
+```
+
+### Market Data
+
+#### Get Instruments
+
+```python
+# Get all active instruments
+result = await client.market.get_instruments('Y')
+instruments = result.result
+
+for instrument in instruments:
+    print(f"{instrument.Name} ({instrument.Type})")
+```
+
+#### Get Symbols
+
+```python
+# Get trading symbols with current prices
+result = await client.market.get_symbols()
+symbols = result.result
+
+for symbol in symbols:
+    print(f"{symbol.Symbol}: Bid {symbol.Sell}, Ask {symbol.Buy}")
+```
+
+#### Get Detailed Symbol Information
+
+```python
+# Get symbols with detailed information (margin, commission, etc.)
+result = await client.market.get_symbols_detailed()
+details = result.result
+
+for detail in details:
+    print(f"{detail.Pair_label}:")
+    print(f"  Contract Size: {detail.Contract_size}")
+    print(f"  Min Volume: {detail.Min_volume}")
+    print(f"  Margin Rate: {detail.Margin_settings.Rate}%")
+```
+
+#### Get Price Shifts
+
+```python
+# Get price shifts for instruments
+result = await client.market.get_shifts()
+shifts = result.result
+```
+
+### Trading
+
+#### Place Market Order
+
+```python
+# Simple order without stop/limit/trail
+result = await client.trading.place_market_order({
+    'symbol': 'EURUSD',
+    'quantity': 100000,  # Direct quantity
+    'side': 1,  # 1 = buy, 0 = sell
+    'account': 100
+})
+
+# 🔥 NEW: Order with LOTS (recommended for forex trading)
+result2 = await client.trading.place_market_order({
+    'symbol': 'EURUSD',
+    'lots': 1.0,        # SDK converts to quantity automatically
+    'side': 1,
+    'account': 100,
+    'stop': 1.0800,     # Optional - stop loss
+    'limit': 1.1200,    # Optional - take profit
+    'trail': 10,        # Optional - trailing stop (in pips)
+    'commentary': 'Optional comment'
+})
+
+# Mini lot (0.1 lots)
+result3 = await client.trading.place_market_order({
+    'symbol': 'EURUSD',
+    'lots': 0.1,        # 0.1 lots = 10,000 quantity
+    'side': 1,
+    'account': 100
+})
+
+print('Order placed:', result.result.OrderID)
+```
+
+**Note:** 
+- Use **either** `lots` **or** `quantity`, not both
+- `stop`, `limit`, `trail`, and `commentary` are all optional
+- Symbol cache must be initialized to use lots: `await client.initialize_symbol_cache()`
+
+#### Place Pending Order
+
+```python
+# Place a pending order (Entry Stop or Entry Limit)
+result = await client.trading.place_pending_order({
+    'symbol': 'EURUSD',
+    'quantity': 1000,
+    'side': 0,  # 0 = sell, 1 = buy
+    'account': 100,
+    'price': 1.0950,
+    'stop': 1.1000,
+    'limit': 1.0900
+})
+```
+
+#### Place Stop/Limit Orders
+
+```python
+# Place stop loss on existing trade
+await client.trading.place_stop({
+    'trade': 12345,
+    'price': 1.0800
+})
+
+# Place stop using pips instead of price
+await client.trading.place_stop({
+    'trade': 12345,
+    'pips': 50
+})
+
+# Place take profit on existing trade
+await client.trading.place_limit({
+    'trade': 12345,
+    'price': 1.1200
+})
+
+# Place trailing stop
+await client.trading.place_trail({
+    'trade': 12345,
+    'trail': 10  # 10 pips
+})
+```
+
+#### Modify Order
+
+```python
+# Modify pending order
+await client.trading.modify_order(
+    247668792,  # Order ID
+    1.0080,     # New price
+    2000        # New quantity
+)
+```
+
+#### Cancel Order
+
+```python
+# Cancel pending order
+await client.trading.cancel_order(247668792)
+```
+
+#### Close Trade
+
+```python
+# Close open position
+result = await client.trading.close_trade(
+    247568770,  # Trade ID
+    1000,       # Quantity to close
+    'N'         # Hedge: 'Y' or 'N'
+)
+
+print('Closing order:', result.result.OrderID)
+```
+
+#### Hedge Trade
+
+```python
+# Hedge an open position
+result = await client.trading.hedge_trade(
+    247568770,  # Trade ID
+    1000        # Quantity to hedge
+)
+```
+
+#### Get Open Orders
+
+```python
+# Get all open orders
+result = await client.trading.get_open_orders()
+orders = result.result
+
+for order in orders:
+    print(f"Order {order.OrderID}:")
+    print(f"  {order.Symbol} {order.Side === 1 ? 'BUY' : 'SELL'}")
+    print(f"  Quantity: {order.Quantity} @ {order.Price}")
+    print(f"  Type: {order.Type}, Status: {order.Pending}")
+```
+
+#### Get Open Trades
+
+```python
+# Get all open positions
+result = await client.trading.get_open_trades()
+trades = result.result
+
+for trade in trades:
+    print(f"Trade {trade.TradeID}:")
+    print(f"  {trade.Symbol} {trade.Side === 1 ? 'BUY' : 'SELL'}")
+    print(f"  Quantity: {trade.Quantity} @ {trade.Price}")
+    print(f"  Commission: {trade.Commission}")
+```
+
+#### Get Trade History
+
+```python
+# Get historical trades
+result = await client.trading.get_trade_history({
+    'from_date': '2021-04-01T00:00',
+    'till': '2021-04-30T23:59',
+    'account': 100
+})
+
+history = result.result
+
+for trade in history:
+    print(f"Trade {trade.TradeID}:")
+    print(f"  Open: {trade.OpenPrice} -> Close: {trade.ClosePrice}")
+    print(f"  P&L: {trade.ProfitLoss}")
+```
+
+#### Get Removed Orders
+
+```python
+# Get removed orders history
+result = await client.trading.get_removed_orders({
+    'from_date': '2021-04-01T00:00',
+    'till': '2021-04-30T23:59',
+    'account': 100
+})
+```
+
+### Alerts (Deprecated)
+
+⚠️ **Note:** The alert module is deprecated. Please check with ActTrader for alternative solutions.
+
+```python
+# Get active alerts
+result = await client.alert.get_alerts()
+
+# Create alert
+alert_result = await client.alert.create_alert(
+    'EUR/USD',  # Symbol
+    1.1800,     # Price
+    'BID',      # Type: 'BID' or 'ASK'
+    'Target price'  # Commentary
+)
+
+# Modify alert
+await client.alert.modify_alert(123, 1.1850, 'BID', 'Updated target')
+
+# Remove alert
+await client.alert.remove_alert(123)
+
+# Get triggered alerts
+triggered = await client.alert.get_triggered_alerts(
+    '202109010000',  # From date (YYYYMMDDHH24MI)
+    '202109302359'   # Till date (YYYYMMDDHH24MI)
+)
+```
+
+### WebSocket Streaming
+
+Real-time market data and trading events via WebSocket. The SDK supports **two separate WebSocket streams** for optimal performance and separation of concerns:
+
+1. **Order Updates Stream** - Handles order events, trade events, account updates, and legacy ticker data
+2. **Price Feed Stream** - Handles price feed messages with OHLC data
+
+#### Dual WebSocket Setup (Recommended)
+
+```python
+# Create separate streaming clients
+order_stream = client.stream_orders()      # Order updates
+price_stream = client.stream_price_feed()   # Price feed data
+
+# Connect to order updates stream
+order_stream.on('connected', lambda: print('Order stream connected'))
+order_stream.on('order', lambda data: print('Order event:', data))
+order_stream.on('trade', lambda data: print('Trade event:', data))
+
+await order_stream.connect()
+await order_stream.subscribe(['EURUSD', 'GBPUSD'])
+
+# Connect to price feed stream
+price_stream.on('connected', lambda: print('Price feed stream connected'))
+price_stream.on('pricefeed', lambda data: print('Price feed with OHLC:', data))
+
+await price_stream.connect()
+await price_stream.subscribe(['EURUSD', 'GBPUSD'])
+```
+
+#### Legacy Single WebSocket (Deprecated)
+
+```python
+# Create streaming client (legacy approach)
+stream = client.stream()
+
+# Connect to WebSocket
+await stream.connect()
+
+# Handle connection events
+stream.on('connected', lambda: print('Connected to streaming server'))
+stream.on('disconnected', lambda: print('Disconnected from streaming server'))
+stream.on('error', lambda error: print('WebSocket error:', error))
+
+# Subscribe to symbols
+await stream.subscribe(['EURUSD', 'GBPUSD', 'USDJPY'])
+
+# Handle ticker updates (price changes) - Legacy format
+stream.on('ticker', lambda data: print('Ticker update:', data))
+
+# Handle price feed updates (new format with OHLC data)
+stream.on('pricefeed', lambda data: print('Price feed update:', data))
+
+# Handle order book updates
+stream.on('orderbook', lambda data: print('Order book update:', data))
+
+# Handle order events (insert/update/delete)
+stream.on('order', lambda data: print('Order event:', data))
+
+# Handle account balance updates
+stream.on('account', lambda data: print('Account update:', data))
+
+# Handle trade events
+stream.on('trade', lambda data: print('Trade event:', data))
+
+# Handle alert triggers
+stream.on('alert', lambda data: print('Alert triggered:', data))
+
+# Handle equity warnings
+stream.on('equity_warning', lambda data: print('Equity Warning!', data))
+
+# Unsubscribe from symbols
+await stream.unsubscribe(['USDJPY'])
+
+# Disconnect
+await stream.disconnect()
+```
+
+#### Message Formats
+
+The SDK supports two WebSocket message formats:
+
+**1. Legacy Ticker Format** (Order Updates)
+```python
+# Event: 'ticker'
+{
+    "event": "ticker",
+    "payload": [
+        {
+            "m": "EURUSD",
+            "time": "2025-10-15T11:25:34.092Z",
+            "bid": 1.16295,
+            "ask": 1.16302
+        }
+    ]
+}
+```
+
+**2. Price Feed Format** (Market Data with OHLC)
+```python
+# Event: 'pricefeed'
+{
+    "m": "ticker",
+    "d": [
+        {
+            "m": "EURUSD",
+            "time": "2025-10-15T11:25:34.092Z",
+            "bid": 1.16295,
+            "ask": 1.16302,
+            "day_open": 1.16064,
+            "day_high": 1.16453,
+            "day_low": 1.16012
+        }
+    ]
+}
+```
+
+**Usage Recommendation:**
+- Use `ticker` event for order updates and basic price data
+- Use `pricefeed` event for market data analysis with OHLC information
+
+## Complete Example
+
+```python
+import asyncio
+from acttrader import ActTrader
+
+async def main():
+    # Initialize client
+    client = ActTrader(
+        base_url='http://rest-api.sysfx.com:18001',
+        ws_url='ws://stream.sysfx.com:18002',
+        username='your_username',
+        password='your_password'
+    )
+    
+    try:
+        # Get authentication token
+        token_result = await client.auth.get_token(60)
+        print('Authenticated with token:', token_result.result)
+        
+        # Initialize symbol cache (required for lots-based trading)
+        await client.initialize_symbol_cache()
+        print('Symbol cache initialized')
+        
+        # Get accounts
+        accounts_result = await client.account.get_accounts()
+        accounts = accounts_result.result
+        print(f'Found {len(accounts)} accounts')
+        
+        # Get market symbols
+        symbols_result = await client.market.get_symbols()
+        symbols = symbols_result.result
+        print(f'Available symbols: {len(symbols)}')
+        
+        # Place a market order using LOTS (recommended)
+        order_result = await client.trading.place_market_order({
+            'symbol': 'EURUSD',
+            'lots': 0.1,       # 0.1 lots (auto-converted to quantity)
+            'side': 1,         # Buy
+            'account': accounts[0].AccountID,
+            'stop': 1.0800,    # Stop loss
+            'limit': 1.1200,   # Take profit
+            'commentary': 'Test order'
+        })
+        print('Order placed:', order_result.result.OrderID)
+        
+        # Get open trades
+        trades_result = await client.trading.get_open_trades()
+        print('Open trades:', len(trades_result.result))
+        
+        # Start streaming
+        stream = client.stream()
+        
+        def on_connected():
+            print('Streaming connected')
+            asyncio.create_task(stream.subscribe(['EURUSD', 'GBPUSD']))
+        
+        def on_ticker(data):
+            print('Price update:', data)
+        
+        stream.on('connected', on_connected)
+        stream.on('ticker', on_ticker)
+        
+        await stream.connect()
+        
+        # Keep process running
+        await asyncio.sleep(30)
+        
+        await stream.disconnect()
+        await client.auth.logout()
+        
+    except Exception as error:
+        print('Error:', error)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+## Error Handling
+
+All API methods return a response object with the following structure:
+
+```python
+class ApiResponse:
+    success: bool
+    message: Optional[str] = None
+    result: Optional[Any] = None
+```
+
+Example error handling:
+
+```python
+try:
+    result = await client.trading.place_market_order({
+        'symbol': 'EURUSD',
+        'quantity': 1000,
+        'side': 1,
+        'account': 100
+    })
+    
+    if result.success:
+        print('Order ID:', result.result.OrderID)
+    else:
+        print('Order failed:', result.message)
+except Exception as error:
+    print('API Error:', error)
+```
+
+## Type Hints
+
+This SDK is written with full Python type hints:
+
+```python
+from acttrader import ActTrader, Account, Symbol, Order, Trade, OrderSide, OrderType, ApiResponse
+
+# Full type safety
+client = ActTrader({...})
+
+result: ApiResponse[List[Account]] = await client.account.get_accounts()
+accounts: List[Account] = result.result
+```
+
+## API Endpoints
+
+All dates are in Eastern Time (EST/EDT)
+
+### REST API
+- Base URL: `http://rest-api.sysfx.com:18001/`
+- API Version: v2
+- Format: `/api/v2/{module}/{endpoint}`
+
+### WebSocket
+- URL: `ws://stream.sysfx.com:18002/`
+- Connection: `ws://stream.sysfx.com:18002/ws?token={your_token}`
+
+## Development
+
+### Build from Source
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Install in development mode
+pip install -e .
+```
+
+### Project Structure
+
+```
+acttrader-trading-sdk/
+├── acttrader/
+│   ├── __init__.py              # Main SDK entry point
+│   ├── main.py                  # Main ActTrader class
+│   ├── client.py                # HTTP client with authentication
+│   ├── types.py                 # Python type definitions
+│   ├── digest_auth.py           # Digest authentication
+│   ├── symbol_cache.py          # Symbol cache functionality
+│   └── modules/
+│       ├── __init__.py          # Module exports
+│       ├── auth.py              # Authentication module
+│       ├── account.py           # Account management module
+│       ├── market.py            # Market data module
+│       ├── trading.py           # Trading operations module
+│       ├── alert.py             # Alerts module (deprecated)
+│       └── streaming.py         # WebSocket streaming client
+├── examples/                    # Example scripts
+├── tests/                       # Test suite
+├── setup.py                     # Package setup
+├── requirements.txt             # Dependencies
+└── README.md                    # This file
+```
+
+## License
+
+ISC
+
+## Support
+
+For API documentation and support, please contact ActTrader.
+
+## Contributing
+
+Contributions are welcome! Please ensure your code follows the existing style and includes appropriate tests.
+
+---
+
+**Note:** This SDK requires valid ActTrader credentials and access to ActTrader API servers. All dates/times are in Eastern Time (EST/EDT).
