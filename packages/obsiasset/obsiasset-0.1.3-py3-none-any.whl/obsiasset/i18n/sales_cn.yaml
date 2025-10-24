@@ -1,0 +1,253 @@
+schema:
+  lang: cn
+  name: 销售
+  description: 销售数字化模板（客户/报价/案例/FAQ）
+  entities:
+    project: "0️⃣ 项目"
+    contract: "1️⃣ 合同"
+    quotation: "2️⃣ 报价"
+    receipt: "3️⃣ 回单"
+    invoice: "4️⃣ 发票"
+    support: "5️⃣ 售后"
+    customer: "6️⃣ 客户"
+    product: "7️⃣ 产品"
+    notes: "9️⃣ 笔记"
+    settings: "🛠️ 配置"
+    asset: "资产"
+    asset_custom_properties: "自定义属性.md"
+    tmpl: "模板"
+    tmpl_meeting_notes: "模板_会议记录.md"
+    tmpl_customer: "模板_客户.md"
+    tmpl_contact: "模板_联系人.md"
+    tmpl_project: "模板_项目.md"
+    tmpl_product: "模板_产品.md"
+    automation: "自动化"
+    contact: "联系人"
+    project_board: "📊 项目看板.base"
+    task_list: "✈️ 任务列表.md"
+
+properties:
+  name: "姓名"
+  nickname: "称呼"
+  phone: "电话"
+  email: "邮箱"
+  crmid: "CRM-ID"
+  organization: "名称"
+  alias: "简称"
+  address: "地址"
+  taxid: "税号"
+  bank: "开户行"
+  account: "账号"
+  website: "官网"
+  discount: "折扣%"
+  contact: "联系人"
+  date: "日期"
+  location: "地点"
+  attendee: "出席人"
+  status: "状态"
+  customer: "客户"
+  dealer: "经销商"
+  link: "关联单"
+  product: "采购产品"
+  category: "产品类别"
+  amount: "总金额"
+  start_date: "开始日期"
+  report_date: "报备日期"
+  quotation_date: "报价日期"
+  contract_date: "合同签署日期"
+  payment_date: "付款日期"
+  shipment_date: "发货日期"
+  delivery_date: "收货日期"
+  invoice_date: "发票开具日期"
+
+property_values:
+  status:
+    - "🔴 丢单"
+    - "🔵 追踪中"
+    - "🟣 待定"
+    - "🟢 赢单"
+
+content:
+  meeting_notes_topic: "主题"
+  meeting_notes_summary: "摘要"
+  meeting_notes_highlight_1: "总结1"
+  meeting_notes_highlight_2: "总结2"
+  meeting_notes_action: "待办事项"
+  meeting_notes_item: "事项"
+  meeting_notes_owner: "责任人"
+  meeting_notes_due_date: "截止日期"
+  meeting_notes_status: "状态"
+  project_summary: "项目总结"
+  project_description: "背景、需求、选型"
+  project_reference: "项目资料"
+  project_document: "资料"
+  project_link: "文件链接"
+  project_quotation: "报价单"
+  project_contract: "合同"
+  project_receipt: "电子回单"
+  project_delivery: "发货单"
+  project_express: "运单"
+  project_invoice: "发票"
+  project_support: "售后"
+  project_board_view_name: "所有项目"
+
+sample:
+  contact:
+    - name: "刘小锋"
+      nickname: "刘总"
+      phone: "+1-555-1234"
+      email: ""
+    - name: "王美丽"
+      nickname: "王小姐"
+      phone: "+1-555-5678"
+      email: ""
+    - name: "张强"
+      nickname: "张工"
+      phone: "+1-555-9012"
+      email: ""
+    - name: "戴普林"
+      nickname: "戴经理"
+      phone: "+1-555-3456"
+      email: ""
+    - name: "臧桑特"
+      nickname: "臧先生"
+      phone: "+1-555-7890"
+      email: ""
+    - name: "李娜"
+      nickname: "李女士"
+      phone: "+1-555-6543"
+      email: ""
+    - name: "周杰伦"
+      nickname: "周先生"
+      phone: "+1-555-3210"
+      email: ""
+    - name: "郑秀文"
+      nickname: "郑小姐"
+      phone: "+1-555-0987"
+      email: ""
+    - name: "孙悟空"
+      nickname: "孙大圣"
+      phone: "+1-555-1122"
+      email: ""
+    - name: "诸葛亮"
+      nickname: "孔明"
+      phone: "+1-555-3344"
+      email: ""
+  customer:
+    - name: "安可公司"
+      alias: ["安可"]
+      discount: 10
+      contact: ["[[刘小锋]]"]
+    - name: "环球集团"
+      alias: ["环球"]
+      discount: 15
+      contact: ["[[王美丽]]"]
+    - name: "英特科技"
+      alias: ["英特"]
+      discount: 12
+      contact: ["[[张强]]"]
+    - name: "保护伞公司"
+      alias: ["保护伞"]
+      discount: 8
+      contact: ["[[戴普林]]"]
+    - name: "浩利科技"
+      alias: ["浩利"]
+      discount: 20
+      contact: ["[[臧桑特]]"]
+    - name: "星辉娱乐"
+      alias: ["星辉"]
+      discount: 18
+      contact: ["[[李娜]]"]
+  project:
+    - status: ["🔴 丢单"]
+      name: "项目甲"
+      customer: '"[[环球集团]]"'
+      dealer: '"[[张强]]"'
+      link: []
+      product: ["[[OBAM Pro]]", "[[OBAM Lite]]"]
+      amount: 50000
+      summary: "背景：制定新的营销策略。解决方案：全面的市场分析和活动执行。"
+      quotation: ""
+      contract: ""
+      express: ""
+      start_date: "2024-06-01"
+      contract_date: ""
+    - status: ["🔵 追踪中"]
+      name: "项目乙"
+      customer: '"[[英特科技]]"'
+      dealer: '"[[戴普林]]"'
+      link: ["[[项目甲]]"]
+      product: ["[[OBAM Enterprise]]"]
+      amount: 75000
+      summary: "背景：升级IT基础设施。解决方案：实施基于云的解决方案并增强网络安全。"
+      quotation: "[[报价单_乙.pdf]]"
+      contract: ""
+      express: ""
+      start_date: "2024-06-10"
+      contract_date: ""
+    - status: ["🔵 追踪中"]
+      name: "项目丙"
+      customer: '"[[安可公司]]"'
+      dealer: '"[[臧桑特]]"'
+      link: []
+      product: ["[[OBAM Pro]]"]
+      amount: 60000
+      summary: "背景：推出新产品线。解决方案：产品开发、市场调研和促销活动。"
+      quotation: "[[报价单_丙.pdf]]"
+      contract: ""
+      express: ""
+      start_date: "2024-06-15"
+      contract_date: ""
+    - status: ["🟢 赢单"]
+      name: "项目丁"
+      customer: '"[[保护伞公司]]"'
+      dealer: '"[[李娜]]"'
+      link: []
+      product: ["[[OBAM Enterprise]]", "[[OBAM Lite]]"]
+      amount: 85000
+      summary: "背景：拓展新市场。解决方案：市场分析、本地化策略和合作伙伴发展。"
+      quotation: "[[报价单_丁.pdf]]"
+      contract: "[[合同_丁.pdf]]"
+      express: "7890123456"
+      start_date: "2024-06-20"
+      contract_date: "2024-07-01"
+    - status: ["🟢 赢单"]
+      name: "项目戊"
+      customer: '"[[浩利科技]]"'
+      dealer: '"[[周杰伦]]"'
+      link: []
+      product: ["[[OBAM Pro]]"]
+      amount: 72000
+      summary: "背景：提升客户服务。解决方案：实施CRM系统并培训支持人员。"
+      quotation: "[[报价单_戊.pdf]]"
+      contract: "[[合同_戊.pdf]]"
+      express: "8901234567"
+      start_date: "2024-06-25"
+      contract_date: "2024-07-05"
+  meeting_notes:
+    - name: "2024-07-15 项目甲复盘会议"
+      item: '总结项目甲的得失，制定改进措施。'
+      owner: '"[[张强]]"'
+      due_date: "2024-07-15"
+      status: "X"
+    - name: "2024-07-20 客户战略会议"
+      item: '制定与"[[环球集团]]"的长期合作战略。'
+      owner: '"[[刘小锋]]"'
+      due_date: "2024-07-20"
+      status: "/"
+    - name: "2024-07-18 项目规划会议"  
+      item: '制定项目乙和项目丙的详细计划。'
+      owner: '"[[戴普林]]"'
+      due_date: "2024-07-18"
+      status: "/"
+    - name: "2024-07-22 合同评审会议" 
+      item: '审查与"[[保护伞公司]]"的合同条款。'
+      owner: '"[[臧桑特]]"'
+      due_date: "2024-07-22"
+      status: " "
+    - name: "2024-07-25 客户服务提升会议" 
+      item: '敲定"[[浩利科技]]"客户服务提升的项目计划。'
+      owner: '"[[周杰伦]]"'
+      due_date: "2024-07-25"
+      status: " "
+

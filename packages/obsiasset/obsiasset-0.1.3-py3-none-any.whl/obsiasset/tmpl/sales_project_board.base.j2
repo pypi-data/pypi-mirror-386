@@ -1,0 +1,20 @@
+filters:
+  and:
+    - file.folder == "{{ schema.entities.project }}"
+views:
+  - type: cards
+    name: {{ content.project_board_view_name }}
+    order:
+      - file.name
+      - {{ properties.customer }}
+      - {{ properties.dealer }}
+      - {{ properties.product }}
+      - {{ properties.discount }}
+      - {{ properties.amount }}
+      - {{ properties.status }}
+      - {{ properties.contract_date }}
+    sort:
+      - property: {{ properties.start_date}}
+        direction: ASC
+    columnSize:
+      file.name: 266

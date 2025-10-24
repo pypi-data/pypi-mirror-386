@@ -1,0 +1,253 @@
+schema:
+  lang: en
+  name: Sales
+  description: Sales Digitalization Template (Customer/Quotation/Project/FAQ)
+  entities:
+    project: "0️⃣ Project"
+    contract: "1️⃣ Contract"
+    quotation: "2️⃣ Quotation"
+    receipt: "3️⃣ Receipt"
+    invoice: "4️⃣ Invoice"
+    support: "5️⃣ Support"
+    customer: "6️⃣ Customer"
+    product: "7️⃣ Product"
+    notes: "9️⃣ Notes"
+    settings: "🛠️ Settings"
+    asset: "Asset"
+    asset_custom_properties: "Custom_Properties.md"
+    tmpl: "Templates"
+    tmpl_meeting_notes: "Template_Meeting_Notes.md"
+    tmpl_customer: "Template_Customer.md"
+    tmpl_contact: "Template_Contact.md"
+    tmpl_project: "Template_Project.md"
+    tmpl_product: "Template_Product.md"
+    automation: "Automation"
+    contact: "Contact"
+    project_board: "📊 Dashboard.base"
+    task_list: "✈️ ToDo.md"
+
+properties:
+  name: "Name"
+  nickname: "Nickname"
+  phone: "Phone"
+  email: "Email"
+  crmid: "CRM-ID"
+  organization: "Organization"
+  alias: "Alias"
+  address: "Address"
+  taxid: "Tax-ID"
+  bank: "Bank"
+  account: "Account"
+  website: "Website"
+  discount: "Discount %"
+  contact: "Contact"
+  date: "Date"
+  location: "Location"
+  attendee: "Attendee"
+  status: "Status"
+  customer: "Customer"
+  dealer: "Dealer"
+  link: "Link"
+  product: "Product"
+  category: "Category"
+  amount: "Amount"
+  start_date: "Start Date"
+  report_date: "Report Date"
+  quotation_date: "Quotation Date"
+  contract_date: "Contract Date"
+  payment_date: "Payment Date"
+  shipment_date: "Shipment Date"
+  delivery_date: "Delivery Date"
+  invoice_date: "Invoice Date"
+
+property_values:
+  status:
+    - "🔴 LOST"
+    - "🔵 ON-TRACK"
+    - "🟣 PENDING"
+    - "🟢 WON"
+
+content:
+  meeting_notes_topic: "Topic"
+  meeting_notes_summary: "Summary"
+  meeting_notes_highlight_1: "highlight 1"
+  meeting_notes_highlight_2: "highlight 2"
+  meeting_notes_action: "Action"
+  meeting_notes_item: "Item"
+  meeting_notes_owner: "Owner"
+  meeting_notes_due_date: "Due Date"
+  meeting_notes_status: "Status"
+  project_summary: "Summary"
+  project_description: "Background, requirement, solution"
+  project_reference: "Reference"
+  project_document: "Document"
+  project_link: "Link"
+  project_quotation: "Quotation"
+  project_contract: "Contract"
+  project_receipt: "Receipt"
+  project_delivery: "Delivery"
+  project_express: "Express"
+  project_invoice: "Invoice"
+  project_support: "Support"
+  project_board_view_name: "All Projects"
+
+sample:
+  contact:
+    - name: "Alice Johnson"
+      nickname: "Alice"
+      phone: "+1-555-1234"
+      email: ""
+    - name: "Bob Smith"
+      nickname: "Bob"
+      phone: "+1-555-5678"
+      email: ""
+    - name: "Charlie Brown"
+      nickname: "Charlie"
+      phone: "+1-555-8765"
+      email: ""
+    - name: "Diana Prince"
+      nickname: "Diana"
+      phone: "+1-555-4321"
+      email: ""
+    - name: "Ethan Hunt"
+      nickname: "Ethan"
+      phone: "+1-555-2468"
+      email: ""
+    - name: "Fiona Glenanne"
+      nickname: "Fiona"
+      phone: "+1-555-1357"
+      email: ""
+    - name: "George Bailey"
+      nickname: "George"
+      phone: "+1-555-9753"
+      email: ""
+    - name: "Hannah Montana"
+      nickname: "Hannah"
+      phone: "+1-555-8642"
+      email: ""
+    - name: "Ian Fleming"
+      nickname: "Ian"
+      phone: "+1-555-3579"
+      email: ""
+    - name: "Jasmine Rice"
+      nickname: "Jasmine"
+      phone: "+1-555-4682"
+      email: ""
+  customer:
+    - name: "Acme Corp"
+      alias: ["Acme"]
+      discount: 10
+      contact: ["[[Alice Johnson]]"]
+    - name: "Globex Inc"
+      alias: ["Globex"]
+      discount: 15
+      contact: ["[[Bob Smith]]"]
+    - name: "Initech"
+      alias: ["Initech"]
+      discount: 5
+      contact: ["[[Charlie Brown]]"]
+    - name: "Umbrella Corp"
+      alias: ["Umbrella"]
+      discount: 20
+      contact: ["[[Diana Prince]]"]
+    - name: "Hooli"
+      alias: ["Hooli"]
+      discount: 12
+      contact: ["[[Ethan Hunt]]"]
+    - name: "Stark Industries"
+      alias: ["Stark"]
+      discount: 18
+      contact: ["[[Fiona Glenanne]]"]
+  project:
+    - status: ["🔴 LOST"]
+      name: "Project Alpha"
+      customer: "'[[Acme Corp]]'"
+      dealer: "'[[Bob Smith]]'"
+      link: []
+      product: ["[[OBAM Pro]]", "[[OBAM Lite]]"]
+      amount: 50000
+      summary: "Background: Develop a new marketing strategy. Solution: Comprehensive market analysis and campaign execution."
+      quotation: ""
+      contract: ""
+      express: ""
+      start_date: "2024-06-01"
+      contract_date: ""
+    - status: ["🔵 ON-TRACK"]
+      name: "Project Beta"
+      customer: '"[[Globex Inc]]"'
+      dealer: '"[[Charlie Brown]]"'
+      link: ["[[Project Alpha]]"]
+      product: ["[[OBAM Enterprise]]"]
+      amount: 75000
+      summary: "Background: Upgrade IT infrastructure. Solution: Implement cloud-based solutions and enhance cybersecurity."
+      quotation: "[[quotation_beta.pdf]]"
+      contract: ""
+      express: ""
+      start_date: "2024-06-10"
+      contract_date: ""
+    - status: ["🔵 ON-TRACK"]
+      name: "Project Gamma"
+      customer: '"[[Initech]]"'
+      dealer: '"[[Diana Prince]]"'
+      link: []
+      product: ["[[OBAM Pro]]"]
+      amount: 60000
+      summary: "Background: Launch new product line. Solution: Product development, market research, and promotional activities."
+      quotation: "[[quotation_gamma.pdf]]"
+      contract: ""
+      express: ""
+      start_date: "2024-06-15"
+      contract_date: ""
+    - status: ["🟢 WON"]
+      name: "Project Delta"
+      customer: '"[[Umbrella Corp]]"'
+      dealer: '"[[Ethan Hunt]]"'
+      link: []
+      product: ["[[OBAM Enterprise]]", "[[OBAM Lite]]"]
+      amount: 85000
+      summary: "Background: Expand into new markets. Solution: Market analysis, localization strategies, and partnership development."
+      quotation: "[[quotation_delta.pdf]]"
+      contract: "[[contract_delta.pdf]]"
+      express: "7890123456"
+      start_date: "2024-06-20"
+      contract_date: "2024-07-01"
+    - status: ["🟢 WON"]
+      name: "Project Epsilon"
+      customer: '"[[Hooli]]"'
+      dealer: '"[[Fiona Glenanne]]"'
+      link: []
+      product: ["[[OBAM Pro]]"]
+      amount: 72000
+      summary: "Background: Improve customer service. Solution: Implement CRM system and train support staff."
+      quotation: "[[quotation_epsilon.pdf]]"
+      contract: "[[contract_epsilon.pdf]]"
+      express: "8901234567"
+      start_date: "2024-06-25"
+      contract_date: "2024-07-05"
+  meeting_notes:
+    - name: "2024-07-15 Sales Kickoff Meeting"
+      item: 'Follow up with "[[Alice Johnson]]" regarding project requirements.'
+      owner: '"[[Bob Smith]]"'
+      due_date: "2024-07-15"
+      status: "X"
+    - name: "2024-07-20 Client Strategy Session"
+      item: 'Prepare quotation for "[[Globex Inc]]" new project.'
+      owner: '"[[Charlie Brown]]"'
+      due_date: "2024-07-20"
+      status: "/"
+    - name: "2024-07-18 Project Planning Meeting"
+      item: 'Schedule meeting with "[[Initech]]" to discuss project timeline.'
+      owner: '"[[Diana Prince]]"'
+      due_date: "2024-07-18"
+      status: "/"
+    - name: "2024-07-22 Contract Review Meeting"
+      item: 'Review contract terms with "[[Umbrella Corp]]" legal team.'
+      owner: '"[[Ethan Hunt]]"'
+      due_date: "2024-07-22"
+      status: " "
+    - name: "2024-07-25 Customer Service Improvement Meeting"
+      item: 'Finalize project plan for "[[Hooli]]" customer service improvement.'
+      owner: '"[[Fiona Glenanne]]"'
+      due_date: "2024-07-25"
+      status: " "
+
