@@ -1,0 +1,145 @@
+Metadata-Version: 2.4
+Name: astrbot-injector
+Version: 0.1.0
+Summary: 基于wrapt的依赖注入库.
+Project-URL: Homepage, https://github.com/lightjunction/astrbotcanary
+Project-URL: Source, https://github.com/lightjunction/astrbotcanary
+Author-email: LIghtJUNction <LIghtJUNction.me@gmail.com>
+Requires-Python: >=3.13.8
+Requires-Dist: wrapt>=1.17.3
+Description-Content-Type: text/markdown
+
+# AstrbotInjector
+
+AstrbotInjector 是基于wrapt库的极简依赖注入库
+
+属于Astrbot Canary的子项目
+
+
+## 安装
+
+```bash
+pip install astrbot-injector
+
+uv pip install astrbot-injector
+
+# 添加到项目
+
+uv add astrbot-injector
+
+```
+
+## 使用方法
+
+### 1. 全局依赖注入
+
+全局依赖可以在整个应用中共享。首先，使用 `AstrbotInjector.set()` 设置全局依赖，然后用 `@AstrbotInjector.inject` 装饰器自动注入。
+
+```python
+from astrbot_injector import AstrbotInjector
+
+# 设置全局依赖
+AstrbotInjector.set("database", "MySQL Connection")
+AstrbotInjector.set("config", {"host": "localhost", "port": 3306})
+
+# 定义一个需要注入依赖的函数
+@AstrbotInjector.inject
+def connect_to_db(database: str, config: dict) -> str:
+    return f"Connected to {database} at {config['host']}:{config['port']}"
+
+# 调用函数，依赖会自动注入
+result = connect_to_db()
+print(result)  # 输出: Connected to MySQL Connection at localhost:3306
+```
+
+如果手动提供参数，注入器不会覆盖它们：
+
+```python
+result = connect_to_db(database="PostgreSQL")
+print(result)  # 输出: Connected to PostgreSQL at localhost:3306
+```
+
+### 2. 局部依赖注入
+
+局部依赖只在特定的注入器实例中有效，适合模块级别的依赖管理。
+
+```python
+# 创建局部注入器
+local_injector = AstrbotInjector("my_module")
+local_injector.set("logger", "FileLogger")
+local_injector.set("cache", "RedisCache")
+
+# 使用局部注入器装饰函数
+@local_injector.inject
+def process_data(logger: str, cache: str, data: str = "default") -> str:
+    return f"Processing {data} with {logger} and {cache}"
+
+# 调用函数
+result = process_data()
+print(result)  # 输出: Processing default with FileLogger and RedisCache
+```
+
+### 3. 类属性注入
+
+依赖注入器也可以为类属性注入值。
+
+```python
+# 设置全局依赖
+AstrbotInjector.set("service", "UserService")
+
+# 装饰类
+@AstrbotInjector.inject
+class MyController:
+    service: str | None = None
+    version: str = "1.0"
+
+# 检查类属性
+print(f"Service: {MyController.service}")  # 输出: Service: UserService
+print(f"Version: {MyController.version}")  # 输出: Version: 1.0
+```
+
+### 4. 方法注入
+
+支持类方法和静态方法的注入。
+
+```python
+# 设置依赖
+AstrbotInjector.set("validator", "EmailValidator")
+
+class UserManager:
+    @classmethod
+    @AstrbotInjector.inject
+    def validate_user(cls, validator: str, email: str) -> str:
+        return f"Validating {email} with {validator}"
+
+    @staticmethod
+    @AstrbotInjector.inject
+    def send_notification(validator: str, message: str) -> str:
+        return f"Sending notification: {message} via {validator}"
+
+# 调用方法
+print(UserManager.validate_user(email="user@example.com"))  # 输出: Validating user@example.com with EmailValidator
+print(UserManager.send_notification(message="Welcome!"))  # 输出: Sending notification: Welcome! via EmailValidator
+```
+
+### 5. 错误处理
+
+如果依赖不存在且未提供参数，会抛出 `TypeError`。
+
+```python
+@AstrbotInjector.inject
+def risky_function(missing_dep: str) -> str:
+    return f"Got {missing_dep}"
+
+# 这会抛出 TypeError
+try:
+    risky_function()
+except TypeError as e:
+    print(f"Error: {e}")  # 输出: Error: risky_function() missing 1 required positional argument: 'missing_dep'
+```
+
+## 总结
+
+`AstrbotInjector` 提供了一种简单的方式来管理依赖注入，支持全局和局部作用域，以及函数、方法和类属性的注入。它有助于减少代码中的硬编码依赖，提高代码的可测试性和可维护性。
+
+更多高级用法可以参考测试文件或源码。
