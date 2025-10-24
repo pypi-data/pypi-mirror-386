@@ -1,0 +1,42 @@
+
+
+Examples using ``traja.generate``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. start-sphx-glr-thumbnails
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Animate trajectories">
+
+.. only:: html
+
+  .. image:: /gallery/images/thumb/sphx_glr_animate_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_gallery_animate.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Animate trajectories</div>
+    </div>
+
+
+.. only:: not html
+
+ * :ref:`sphx_glr_gallery_animate.py`
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
