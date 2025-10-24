@@ -1,0 +1,147 @@
+# Copyright (C) 2025 JECI SARL
+#
+# This file is part of Pristy Support.
+#
+# Pristy Support is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+[project]
+name = "pristy-support"
+version = "1.0.1"
+description = "Audit and support tools for Pristy ECM installations"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "AGPL-3.0-or-later"}
+authors = [
+    { name = "Jérémie Lesage", email = "jeremie.lesage@jeci.fr" }
+]
+maintainers = [
+    { name = "Jérémie Lesage", email = "jeremie.lesage@jeci.fr" }
+]
+keywords = ["pristy", "alfresco", "audit", "support", "monitoring"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Systems Administration",
+]
+
+dependencies = [
+    "click>=8.0",
+    "tabulate>=0.9.0",
+    "jinja2>=3.0",
+    "psutil>=5.9.0",
+    "docker>=6.0.0",
+    "pyyaml>=6.0",
+    "python-dateutil>=2.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0",
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/pristy-oss/pristy-support"
+Documentation = "https://gitlab.com/pristy-oss/pristy-support/blob/main/README.md"
+Repository = "https://gitlab.com/pristy-oss/pristy-support.git"
+"Bug Tracker" = "https://gitlab.com/pristy-oss/pristy-support/issues"
+
+[project.scripts]
+pristy-support = "pristy_support.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "pristy-support"
+version = "1.0.1"
+description = "Audit and support tools for Pristy ECM installations"
+authors = ["Jérémie Lesage <jeremie.lesage@jeci.fr>"]
+maintainers = ["Jérémie Lesage <jeremie.lesage@jeci.fr>"]
+license = "AGPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://gitlab.com/pristy-oss/pristy-support"
+repository = "https://gitlab.com/pristy-oss/pristy-support"
+documentation = "https://gitlab.com/pristy-oss/pristy-support/blob/main/README.md"
+keywords = ["pristy", "alfresco", "audit", "support", "monitoring"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Systems Administration",
+]
+packages = [
+    { include = "pristy_support" }
+]
+include = [
+    "pristy_support/templates/*.j2",
+    "pristy_support/templates/*.html",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+click = "^8.0"
+tabulate = "^0.9.0"
+jinja2 = "^3.0"
+psutil = "^5.9.0"
+docker = "^6.0.0"
+pyyaml = "^6.0"
+python-dateutil = "^2.8.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+pytest-cov = "^4.0"
+black = "^23.0"
+flake8 = "^6.0"
+mypy = "^1.0"
+
+[tool.poetry.scripts]
+pristy-support = "pristy_support.cli:main"
+
+[tool.setuptools]
+packages = ["pristy_support", "pristy_support.modules", "pristy_support.exporters", "pristy_support.utils"]
+
+[tool.setuptools.package-data]
+pristy_support = ["templates/*.j2", "templates/*.html"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311", "py312", "py313"]
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=pristy_support --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
