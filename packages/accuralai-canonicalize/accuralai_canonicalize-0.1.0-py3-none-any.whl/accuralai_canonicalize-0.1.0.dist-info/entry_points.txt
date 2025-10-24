@@ -1,0 +1,2 @@
+[accuralai_core.canonicalizers]
+standard = accuralai_canonicalize.canonicalizer:build_standard_canonicalizer
