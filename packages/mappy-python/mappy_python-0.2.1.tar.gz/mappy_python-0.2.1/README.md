@@ -1,0 +1,112 @@
+# Reynard Mappy Python Bindings
+
+Python bindings for the Reynard mappy maplet data structures, providing space-efficient approximate key-value mappings with one-sided error guarantees.
+
+## Features
+
+- **Space-Efficient**: Approximate key-value mappings with minimal memory overhead
+- **One-Sided Error**: Guarantees that M[k] ≺ m[k] for application-specific ordering relations
+- **High Performance**: Built on Rust for maximum speed and efficiency
+- **Python Integration**: Seamless Python API with async support
+- **Quotient Filter**: Advanced quotient filter implementation for precise slot management
+
+## Installation
+
+```bash
+pip install reynard-mappy
+```
+
+## Quick Start
+
+```python
+import mappy_python
+
+# Create a maplet
+maplet = mappy_python.PyMaplet(capacity=1000, false_positive_rate=0.01)
+
+# Insert data
+maplet.insert("key1", 42)
+maplet.insert("key2", 100)
+
+# Query data
+value = maplet.query("key1")  # Returns 42
+contains = maplet.contains("key2")  # Returns True
+
+# Get statistics
+print(f"Length: {maplet.len()}")
+print(f"Load factor: {maplet.load_factor()}")
+print(f"Error rate: {maplet.error_rate()}")
+```
+
+## Engine Usage
+
+```python
+import mappy_python
+
+# Create engine configuration
+config = mappy_python.PyEngineConfig(
+    capacity=1000,
+    false_positive_rate=0.01,
+    persistence_mode="memory"
+)
+
+# Create engine
+engine = mappy_python.PyEngine(config)
+
+# Set data
+engine.set("key", b"value")
+
+# Get data
+value = engine.get("key")
+
+# Cleanup
+engine.close()
+```
+
+## Advanced Features
+
+### Quotient Filter Support
+
+The mappy-core library includes advanced quotient filter features for debugging and optimization:
+
+- **Precise Slot Finding**: Locate exact storage slots
+- **Run Detection**: Handle quotient filter runs with multiple fingerprints
+- **Shifting Support**: Account for linear probing and slot shifting
+- **Performance Analysis**: Understand memory access patterns
+
+### Configuration Options
+
+```python
+config = mappy_python.PyEngineConfig(
+    capacity=10000,                    # Maximum number of items
+    false_positive_rate=0.001,        # Desired false positive rate
+    persistence_mode="hybrid",         # Memory, disk, or hybrid
+    data_dir="./data",                # Data directory for persistence
+    memory_capacity=1024*1024*1024,   # Maximum memory usage (1GB)
+    ttl_enabled=True,                 # Enable TTL support
+    ttl_cleanup_interval_secs=60      # TTL cleanup interval
+)
+```
+
+## Performance
+
+- **Insert Performance**: 10-17 million operations/second
+- **Query Performance**: 16-45 million operations/second
+- **Memory Efficiency**: Linear scaling with 8 bytes/item overhead
+- **Cache Performance**: Optimized for sequential access patterns
+
+## Documentation
+
+For detailed documentation, see:
+
+- [API Reference](https://docs.rs/mappy-core)
+- [Technical Documentation](https://github.com/entropy-tamer/mappy)
+- [Research Paper](https://github.com/entropy-tamer/mappy/blob/main/RESEARCH.md)
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Contributing
+
+Contributions are welcome! Please see the main repository for contribution guidelines.
