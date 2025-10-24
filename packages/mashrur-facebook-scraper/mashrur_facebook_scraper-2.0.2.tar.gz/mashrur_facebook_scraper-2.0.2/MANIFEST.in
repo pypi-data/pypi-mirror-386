@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include requirements.txt
+include example_usage.py
+include compile_basic.bat
+include compile_advanced.bat
+include compile.sh
+recursive-include mashrur_facebook_scraper *.py
