@@ -1,0 +1,22 @@
+Metadata-Version: 2.3
+Name: parnassus-client
+Version: 0.1.0a2
+Summary: 
+Author: MigoXV
+Author-email: 1695587905@qq.com
+Requires-Python: >=3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: grpcio
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: protobuf
+Requires-Dist: seaborn
+Requires-Dist: tqdm
+Requires-Dist: typer
+Description-Content-Type: text/markdown
+
+
