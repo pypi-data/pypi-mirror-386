@@ -1,0 +1,60 @@
+Metadata-Version: 2.4
+Name: talklabs
+Version: 1.0.1
+Summary: TalkLabs SDK - ElevenLabs compatible Text-to-Speech API client
+Home-page: https://talklabs.com.br
+Author: Francisco Lima
+Author-email: franciscorllima@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.28.0
+Requires-Dist: websockets>=10.0
+Requires-Dist: pydantic>=2.0
+Requires-Dist: fastapi>=0.100.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# TalkLabs Python SDK
+
+SDK oficial da **TalkLabs** — compatível com a API ElevenLabs.
+
+Permite gerar áudio realista com vozes personalizadas e streaming em tempo real.
+
+## Instalação
+\`\`\`bash
+pip install talklabs
+\`\`\`
+
+## Exemplo de uso
+\`\`\`python
+from talklabs import TalkLabsClient
+
+client = TalkLabsClient(
+    api_key="YOUR_API_KEY",
+    base_url="https://api.talklabs.com.br"
+)
+
+audio = client.generate(
+    text="Olá do TalkLabs!",
+    voice="yasmin_alves"
+)
+
+with open("output.wav", "wb") as f:
+    f.write(audio)
+\`\`\`
+
+## Base URL
+- https://api.talklabs.com.br/v1
+
