@@ -1,0 +1,14 @@
+pysz/pyConfig.cpython-312-darwin.so,sha256=sT3iM7VMK9Se3DbHZ2XrWeMtfEDPhI-fEdt2z3XZJV8,207760
+pysz/pyConfig.pxd,sha256=CFSydJhYr2JDJn8WVE3Q9piIzkQJGQ1-aWWfmiFSbWw,1542
+pysz/__init__.py,sha256=pVnEppo1vj8BaByHDyrR-R3RFy0xKSRPQn_0sY0VHJ8,365
+pysz/sz.pxd,sha256=xORew_qS4CSoNqgjfrBoShi0XyER2yfx__h1p3C_x8E,751
+pysz/sz.pyx,sha256=7m4uSv8dn1wMgDm7JqD6xyEnR2G2xOTLNrxTEbSK8O4,9479
+pysz/pyConfig.pyx,sha256=YpHI4MBwKcsW36uH535C0niWceYExDCiOpWs2DVVIYY,6371
+pysz/pyConfigEnums.py,sha256=EXcJm8-UtbTi_XDG0D9Prx8DyuqlszYvs6SNrw6GEQU,467
+pysz/libzstd.dylib,sha256=AQgsXvWeIWakBGckHA18A-fkFcKwvBHrVOHu9JUVJNw,726656
+pysz/sz.cpython-312-darwin.so,sha256=Ue_WVpbUIxPkusXXavDAzyk85ghErqrIpU3AJGNn3u8,2305760
+pysz-1.0.2.dist-info/RECORD,,
+pysz-1.0.2.dist-info/WHEEL,sha256=V1loQ6TpxABu1APUg0MoTRBOzSKT5xVc3skizX-ovCU,136
+pysz-1.0.2.dist-info/top_level.txt,sha256=gVzV6zlUlXGQhU_pE9pA4uCghvzdr18fJejmbXbuZ_I,5
+pysz-1.0.2.dist-info/METADATA,sha256=JwF1d1GcCQPL8R5GQtp9tQSiXejtYXBfQktacFKgVKo,8326
+pysz-1.0.2.dist-info/licenses/LICENSE,sha256=a1SLaNaclFOQHsEwt1zvY5UsZXWkJLWAclIAqdrdM2k,2149
