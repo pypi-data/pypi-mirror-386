@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/global_object_factory/__init__.py
+src/global_object_factory/interfaces.py
+src/global_object_factory/object_factory.py
+src/global_object_factory.egg-info/PKG-INFO
+src/global_object_factory.egg-info/SOURCES.txt
+src/global_object_factory.egg-info/dependency_links.txt
+src/global_object_factory.egg-info/requires.txt
+src/global_object_factory.egg-info/top_level.txt
+tests/test_object_factory.py
