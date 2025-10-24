@@ -1,0 +1,2 @@
+[console_scripts]
+ct-sdk = ci.transparency.sdk.cli.main:main
