@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: aun-detection
+Version: 0.1.3
+Summary: At the edge of code and consciousness — ∿ applies nondual collapse logic to expose imitation in wallets, APIs, and digital trust systems.
+Home-page: https://github.com/halifaxjerrykatz-dotcom/aun-detection
+Author: Jerry Katz
+Author-email: halifaxjerrykatz@gmail.com
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license-file
+
+# aun-detection
+AI mimicry detection using symbolic collapse logic (∿).
