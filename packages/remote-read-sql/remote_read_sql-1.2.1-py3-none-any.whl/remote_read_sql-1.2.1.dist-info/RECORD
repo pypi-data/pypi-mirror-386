@@ -1,0 +1,10 @@
+remote_read_sql/__init__.py,sha256=CoqpYKcOB52Lb-6hOiHzjnCb30KVELZQ3Gj7RQ4py3I,346
+remote_read_sql/get_db_connection.py,sha256=137_0vNxujxooKTduVyK81zvLq3eaIXxYOgiMrypo0w,1293
+remote_read_sql/get_ssh_connection.py,sha256=3AET_ElWmDAO20aZZPpwYBAuuG1xreFZCtMTihRipfU,1820
+remote_read_sql/remote_connect.py,sha256=sj7cYaOuJ6JKU7MstbKl_QVv1uH9V7NLi5ZMfF8bRPQ,738
+remote_read_sql/remote_read_sql.py,sha256=3QhA-eMzFGg4tNt-hGdtb3o7GXQQ3dTJNbY1MA-SZ68,958
+remote_read_sql/safe_sql.py,sha256=WUiPBq7Wa_ys934IntVhZYpXUfuq0sX927GnYRDlnYw,1074
+remote_read_sql-1.2.1.dist-info/licenses/LICENSE,sha256=v34JPpBF5o7GwcrKOC3eepu7i9nY8MYGwhvroPOXl5A,1075
+remote_read_sql-1.2.1.dist-info/WHEEL,sha256=M6du7VZflc4UPsGphmOXHANdgk8zessdJG0DBUuoA-U,78
+remote_read_sql-1.2.1.dist-info/METADATA,sha256=kH0p1AhikqXjOPbufK7TUcD20N_L3sF2Q-efXSDTV1Q,4717
+remote_read_sql-1.2.1.dist-info/RECORD,,
