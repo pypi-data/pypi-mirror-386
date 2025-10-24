@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# VSCode
+.lsp
+.clj-kondo
+
+# Generated jar file
+src/gensql/gateway.jar
+
+# Gateway Files
+gateway/target/*
+gateway/.cpcache
