@@ -1,0 +1,2208 @@
+.gitattributes
+.gitignore
+.pre-commit-config.yaml
+.readthedocs.yaml
+.taplo.toml
+CHANGELOG.md
+CITATION.cff
+LICENSE
+README.md
+pyproject.toml
+release.py
+.github/workflows/release.yml
+.github/workflows/test.yml
+.github/workflows/update_citation.yml
+docs/Makefile
+docs/conf.py
+docs/index.rst
+docs/requirements.txt
+docs/_ext/simultipac_sphinx_extensions.py
+docs/_static/.keep
+docs/_static/k3d_tesla_example.html
+docs/_static/k3d_wr75_example.html
+docs/manual/examples_jupyter_notebooks.rst
+docs/manual/introduction.rst
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.117175810039043.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.156234413385391.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.19529302418232.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.232905015349388.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.271963626146317.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.311022222042084.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.350080817937851.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.389139413833618.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.428198039531708.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.465810030698776.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.504868626594543.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.543927252292633.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.582985818386078.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.622044444084167.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.661103069782257.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.698715031147003.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.737773656845093.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.776832222938538.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.815890848636627.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.854949474334717.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.894008040428162.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.931620061397552.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.970678627490997.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_0.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.00973725318909.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.04879581928253.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.08785450458527.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.12691307067871.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.16452503204346.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.20358371734619.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.24264228343964.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.28170084953308.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.32075941562653.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.35981810092926.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.39743006229401.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.43648862838745.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.47554731369019.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.51460587978363.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.55366444587708.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.59272313117981.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.63033509254456.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.669393658638.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.70845234394073.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.74751091003418.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.78656947612762.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.82562804222107.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.86324012279511.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.90229868888855.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.94135725498199.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_1.98041594028473.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.01947450637817.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.05853319168091.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.09614515304565.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.13520359992981.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.17426228523254.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.21332097053528.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.25237941741943.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.29143810272217.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.32905006408691.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.36810874938965.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.40716743469238.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.44622588157654.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.48528456687927.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.52434301376343.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.56195521354675.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.60101366043091.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.64007234573364.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.67913103103638.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.71818947792053.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.75724816322327.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.79486012458801.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.83391880989075.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.8729772567749.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.91203594207764.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.95109462738037.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_2.99015307426453.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.02776503562927.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.06682372093201.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.10588240623474.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.1449408531189.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.18399953842163.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.22305822372437.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.26067018508911.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.29972887039185.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.338787317276.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.37784600257874.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.41690468788147.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.45596313476563.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.49357509613037.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.53263378143311.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.57169246673584.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.61075091362.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.64980959892273.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.68886828422546.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.72648024559021.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.76553869247437.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.8045973777771.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.84365606307983.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.88271450996399.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.90586033463478E-02.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.92177319526672.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.95938515663147.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_3.9984438419342.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.03750228881836.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.07656097412109.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.11561965942383.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.15467834472656.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.19229030609131.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.23134899139404.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.27040719985962.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.30946588516235.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.34852457046509.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.38758325576782.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.42519521713257.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.4642539024353.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.50331258773804.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.54237079620361.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.58142948150635.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.62048816680908.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.65810012817383.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.69715881347656.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.7362174987793.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.77527618408203.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.81433486938477.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.85339307785034.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.89100503921509.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.93006372451782.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_4.96912240982056.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.00818109512329.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.04723978042603.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.08629846572876.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.12391042709351.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.16296863555908.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.20202732086182.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.24108600616455.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.28014469146729.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.31920337677002.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.35681533813477.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.3958740234375.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.43493223190308.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.47399091720581.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.51304960250854.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.55210828781128.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.58972024917603.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.62877893447876.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.66783761978149.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.70689630508423.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.7459545135498.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.78501319885254.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.82262516021729.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.86168384552002.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.90074253082275.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.93980121612549.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_5.97885990142822.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.0179181098938.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.05553007125854.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.09458875656128.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.13364744186401.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.17270612716675.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.21176481246948.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.25082349777222.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.28843545913696.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.32749366760254.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.36655235290527.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.40561103820801.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.44466972351074.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.48372840881348.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.52134037017822.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.56039905548096.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.59945774078369.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.63851594924927.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.677574634552.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.71663331985474.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.75424528121948.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.79330396652222.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.83236265182495.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.87142133712769.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.91047954559326.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.949538230896.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_6.98715019226074.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.02620887756348.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.06526756286621.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.10432624816895.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.14338493347168.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.18244314193726.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.220055103302.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.25911378860474.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.29817247390747.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.33723115921021.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.37628984451294.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.41534852981567.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.45296049118042.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.49201917648315.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.53107738494873.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.57013607025146.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.6091947555542.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.64680671691895.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.68586540222168.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.72492408752441.txt
+docs/manual/data/cst/Particle_Monitor/tesla_no_mp/position  monitor 1_7.81172066926956E-02.txt
+docs/manual/data/cst/WR75_reduced/.gitattributes
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.050194725394249.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.100059226155281.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.104682423174381.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.109305620193481.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.113928817212582.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.118221789598465.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.122844986617565.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.127468183636665.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.132091388106346.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.136384353041649.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.14100755751133.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.145630747079849.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.15025395154953.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.154546916484833.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.159170120954514.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.163793310523033.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.168416514992714.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.173039719462395.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.177332684397697.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.181955888867378.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.186579078435898.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.191202282905579.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.195495247840881.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.200118452310562.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.204741641879082.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.209364846348763.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.213657811284065.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.218281015753746.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.222904220223427.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.227527409791946.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.231820374727249.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.23644357919693.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.241066783666611.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.24568997323513.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.25031316280365.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.254606157541275.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.259229332208633.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.263852536678314.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.268475741147995.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.272768706083298.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.277391910552979.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.282015115022659.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.28663831949234.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.290931284427643.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.295554488897324.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.300177663564682.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.304800868034363.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.309093832969666.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.313717037439346.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.318340241909027.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.322963446378708.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.327586621046066.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.331879615783691.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.33650279045105.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.341125994920731.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.345749199390411.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.350042164325714.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.354665368795395.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.359288573265076.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.363911777734756.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.368204742670059.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.37282794713974.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.377451121807098.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.382074326276779.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.386367291212082.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.390990495681763.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.395613700151443.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.400236904621124.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.404860109090805.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.409153074026108.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.413776278495789.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.418399453163147.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.423022657632828.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.42731562256813.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.431938827037811.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.436562031507492.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.441185235977173.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.445478200912476.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.450101405382156.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.454724580049515.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.459347784519196.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.463640749454498.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.468263953924179.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.47288715839386.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.477510362863541.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.482133567333221.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.486426532268524.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.491049736738205.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.495672911405563.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.500296115875244.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.504589080810547.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.50921231508255.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.513835489749908.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.518458664417267.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.52275162935257.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.527374863624573.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.531998038291931.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.536621272563934.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.540914237499237.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.545537412166595.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.550160646438599.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.554783821105957.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.559406995773315.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.563699960708618.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.568323194980621.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.57294636964798.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.577569603919983.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.581862568855286.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.586485743522644.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.591108977794647.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.595732152462006.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.600025117397308.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.604648292064667.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.60927152633667.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.613894701004028.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.618187665939331.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.622810900211334.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.627434074878693.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.632057249546051.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.636680483818054.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.640973448753357.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.645596623420715.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.650219857692719.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.654843032360077.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.65913599729538.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.663759231567383.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.668382406234741.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.6730055809021.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.677298605442047.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.681921780109406.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.686544954776764.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.691168189048767.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.69546115398407.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.700084328651428.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.704707562923431.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.70933073759079.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.713953912258148.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.718246936798096.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.722870111465454.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.727493286132813.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.732116520404816.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.736409485340118.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.741032660007477.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.74565589427948.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.750279068946838.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.754572033882141.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.7591952085495.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.763818442821503.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.768441617488861.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.772734582424164.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.777357816696167.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.781980991363525.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.786604225635529.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.791227400302887.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.79552036523819.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.800143539905548.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.804766774177551.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.80938994884491.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.813682913780212.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.818306148052216.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.822929322719574.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.827552556991577.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.83184552192688.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.836468696594238.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.841091871261597.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.8457151055336.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.850008070468903.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.854631245136261.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.859254479408264.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.863877654075623.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.868500888347626.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.872793853282928.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.877417027950287.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.882040202617645.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.886663436889648.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.890956401824951.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.89557957649231.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.900202810764313.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.904825985431671.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.909118950366974.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.913742184638977.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.918365359306335.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.922988533973694.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.927281498908997.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.931904733181.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.936527907848358.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.941151142120361.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.94577431678772.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.950067281723022.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.954690515995026.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.959313690662384.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.963936865329742.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.968229830265045.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.972853064537048.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.977476239204407.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.98209947347641.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.986392438411713.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.991015613079071.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.995638847351074.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_0.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.00026202201843.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.00455498695374.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.00917816162109.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.01380133628845.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.0184246301651.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.02304780483246.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.02734076976776.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.03196394443512.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.03658711910248.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.04121029376984.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.04550325870514.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.05012655258179.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.05474972724915.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.0593729019165.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.06366586685181.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.06828904151917.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.07291233539581.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.07753551006317.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.08182847499847.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.08645164966583.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.09107482433319.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.09569799900055.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.1003212928772.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.1046142578125.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.10923743247986.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.11386060714722.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.11848378181458.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.12277674674988.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.12739992141724.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.13202321529388.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.13664638996124.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.14093935489655.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.1455625295639.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.15018570423126.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.15480887889862.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.15910196304321.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.16372513771057.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.16834831237793.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.17297148704529.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.17759466171265.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.18188762664795.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.1865109205246.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.19113409519196.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.19575726985931.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.20005023479462.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.20467340946198.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.20929658412933.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.21391987800598.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.21821284294128.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.22283601760864.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.227459192276.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.23208236694336.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.23637533187866.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.24099862575531.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.24562180042267.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.25024497509003.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.25486814975739.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.25916111469269.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.26378428936005.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.26840758323669.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.27303075790405.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.27732372283936.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.28194689750671.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.28657007217407.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.29119324684143.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.29548621177673.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.30010950565338.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.30473268032074.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.3093558549881.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.3136488199234.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.31827199459076.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.32289516925812.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.32751846313477.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.33214163780212.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.33643460273743.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.34105777740479.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.34568095207214.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.35030424594879.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.35459721088409.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.35922038555145.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.36384356021881.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.36846673488617.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.37275969982147.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.37738287448883.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.38200616836548.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.38662934303284.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.38695957139134E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.39092230796814.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.3955454826355.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.40016865730286.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.40479183197021.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.40941512584686.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.41370809078217.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.41833126544952.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.42295444011688.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.42757761478424.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.43187057971954.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.43649387359619.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.44111704826355.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.44574022293091.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.45003318786621.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.45465636253357.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.45927953720093.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.46390283107758.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.46819579601288.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.47281897068024.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.4774421453476.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.48206532001495.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.48668849468231.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.49098145961761.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.49560475349426.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.50022792816162.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.50485110282898.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.50914406776428.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.51376724243164.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.518390417099.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.52301371097565.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.52730667591095.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.53192985057831.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.53655302524567.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.54117619991302.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.54546916484833.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.55009245872498.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.55471563339233.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.55933880805969.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.56396198272705.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.56825494766235.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.57287812232971.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.57750141620636.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.58212459087372.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.58641755580902.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.59104073047638.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.59566390514374.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.6002870798111.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.60458016395569.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.60920333862305.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.61382651329041.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.61844968795776.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.62274265289307.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.62736582756042.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.63198912143707.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.63661229610443.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.64123547077179.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.64552843570709.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.65015161037445.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.65477478504181.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.65939807891846.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.66369104385376.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.66831421852112.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.67293739318848.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.67756056785583.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.68185353279114.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.6864767074585.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.69110000133514.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.6957231760025.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.70001614093781.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.70463931560516.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.70926249027252.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.71388578414917.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.71850895881653.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.72280192375183.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.72742509841919.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.73204827308655.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.73667144775391.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.74096441268921.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.74558770656586.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.75021088123322.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.75483405590057.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.75912702083588.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.76375019550323.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.76837337017059.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.77299666404724.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.77728962898254.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.7819128036499.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.78653597831726.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.79115915298462.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.79578232765198.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.80007541179657.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.80469858646393.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.80932176113129.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.81394493579865.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.81823790073395.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.82286107540131.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.82748436927795.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.83210754394531.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.83640050888062.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.84102368354797.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.84564685821533.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.84927936643362E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.85027003288269.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.85456299781799.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.85918629169464.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.863809466362.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.86843264102936.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.87305581569672.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.87734878063202.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.88197195529938.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.88659524917603.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.89121842384338.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.89551138877869.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.90013456344604.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.9047577381134.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.90938103199005.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.91367399692535.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.91829717159271.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.92292034626007.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.92754352092743.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.93183648586273.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.93645966053009.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.94108295440674.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.9457061290741.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.95032930374146.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.95462226867676.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.95924544334412.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.96386861801147.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.96849191188812.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.97278487682343.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.97740805149078.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.98203122615814.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.9866544008255.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.9909473657608.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_1.99557065963745.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.00019383430481.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.00481700897217.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.00910997390747.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.01373314857483.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.01835632324219.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.02297949790955.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.0276026725769.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.03189563751221.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.03651905059814.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.0411422252655.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.04576539993286.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.05005836486816.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.05468153953552.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.05930471420288.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.06392788887024.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.06822085380554.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.0728440284729.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.07746720314026.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.08209037780762.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.08638334274292.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.09100651741028.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.09562993049622.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.10025310516357.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.10454607009888.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.10916924476624.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.11379241943359.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.11841559410095.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.12303876876831.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.12733173370361.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.13195490837097.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.13657808303833.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.14120125770569.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.14549422264099.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.15011763572693.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.15474081039429.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.15936398506165.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.16365694999695.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.16828012466431.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.17290329933167.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.17752647399902.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.18181943893433.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.18644261360168.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.19106578826904.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.1956889629364.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.20031213760376.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.20460534095764.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.209228515625.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.21385169029236.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.21847486495972.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.22276782989502.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.22739100456238.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.23201417922974.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.23663735389709.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.2409303188324.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.24555349349976.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.25017666816711.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.25479984283447.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.25909280776978.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.26371622085571.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.26833939552307.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.27296257019043.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.27758574485779.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.27857641875744E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.28187870979309.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.28650188446045.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.29112505912781.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.29574823379517.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.30004119873047.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.30466437339783.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.30928754806519.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.31391096115112.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.31820392608643.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.32282710075378.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.32745027542114.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.3320734500885.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.3363664150238.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.34098958969116.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.34561276435852.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.35023593902588.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.35485911369324.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.35915207862854.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.3637752532959.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.36839842796326.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.37302184104919.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.3773148059845.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.38193798065186.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.38656115531921.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.39118432998657.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.39547729492188.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.40010046958923.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.40472364425659.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.40934681892395.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.41363978385925.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.41826295852661.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.42288613319397.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.42750954627991.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.43213272094727.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.43642568588257.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.44104886054993.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.44567203521729.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.45029520988464.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.45458817481995.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.4592113494873.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.46383452415466.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.46845769882202.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.47275066375732.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.47737383842468.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.48199725151062.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.48662042617798.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.49091339111328.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.49553656578064.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.500159740448.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.50478291511536.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.50940608978271.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.51369905471802.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.51832222938538.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.52294540405273.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.52756857872009.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.5318615436554.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.53648471832275.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.54110813140869.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.54573130607605.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.55002427101135.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.55464744567871.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.55927062034607.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.56389379501343.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.56818675994873.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.57280993461609.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.57743310928345.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.58205628395081.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.58667945861816.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.59097242355347.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.5955958366394.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.60021901130676.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.60484218597412.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.60913515090942.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.61375832557678.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.61838150024414.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.6230046749115.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.6272976398468.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.63192081451416.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.63654398918152.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.64116716384888.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.64546012878418.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.65008330345154.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.65470671653748.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.65932989120483.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.66395306587219.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.6682460308075.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.67286920547485.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.67749238014221.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.68211555480957.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.68640851974487.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.69103169441223.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.69565486907959.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.70027804374695.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.70457100868225.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.70919442176819.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.71381759643555.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.71844077110291.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.72273373603821.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_2.74089630693197E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_3.20321619510651E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_3.66553589701653E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_4.09483276307583E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_4.55715283751488E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_4.62319841608405E-03.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_5.48179261386395E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_5.91108947992325E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_6.37340918183327E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_6.83572888374329E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_7.29804933071136E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_7.72734582424164E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_8.18966552615166E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_8.65198597311974E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_9.11430567502975E-02.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_9.2463968321681E-03.txt
+docs/manual/data/cst/WR75_reduced/Export/3d/position  monitor 1_9.57662537693977E-02.txt
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/Model.prj
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/PC_integration.json
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/Parameters.json
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/desettings.ini
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/pinned_tuner_variables.cfg
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/pinned_variables.cfg
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/simulationproperties.docstore
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/simulationproperties.json
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Load Particle Info.r1d
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.abi
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.ads
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.alc
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.bwc
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.dib
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.dsn
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.fct
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.gdc
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.hid
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.jopt
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.mod
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.pim
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.rpp
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.sjson
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/Model.sweep
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/anchorpoints.json
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/extfield_2.m3c
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/extfield_3.m3c
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/plot_settings.rps
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/3D/position  monitor 1.r1d
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/DS/Model.dib
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/DS/Model.dsn
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/DS/Model.dss
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/DS/assemblyImport3DX.json
+docs/manual/data/cst/WR75_reduced/wr75_pic/Model/DS/schematic.xml
+docs/manual/data/cst/WR75_reduced/wr75_pic/Result/Model.res
+docs/manual/data/cst/WR75_reduced/wr75_pic/Result/Storage.sdb
+docs/manual/data/cst/WR75_reduced/wr75_pic/Result/db.parmap
+docs/manual/data/cst/WR75_reduced/wr75_pic/Result/DS/db.parmap
+docs/manual/data/cst/WR75_reduced/wr75_pic/Result/DS/model.res
+docs/manual/data/cst/WR75_reduced/wr75_pic/Result/MS/Model.mspx
+docs/manual/data/cst/WR75_reduced/wr75_pic/Result/MS/Model.sat
+docs/manual/data/cst/WR75_reduced/wr75_pic/Temp/ThreadInfo.txt
+docs/manual/data/cst/WR75_reduced/wr75_pic/Temp/modelermeasurements.sconf
+docs/manual/data/cst/WR75_reduced/wr75_pic/Temp/resourceusage.sconf
+docs/manual/images/collision_angle_distribution.png
+docs/manual/images/collision_energy_distribution.png
+docs/manual/images/emission_energy_distribution.png
+docs/manual/images/exp_growth_cst.png
+docs/manual/images/exp_growth_spark.png
+docs/manual/images/trajectories_1.png
+docs/manual/images/trajectories_2.png
+docs/manual/notebooks/compute_exp_growth_cst.ipynb
+docs/manual/notebooks/compute_exp_growth_spark.ipynb
+docs/manual/notebooks/particle_monitor.ipynb
+docs/manual/notebooks/particle_monitor.py
+docs/manual/notebooks/.ipynb_checkpoints/particle_monitor_wr75-checkpoint.ipynb
+docs/simultipac/modules.rst
+docs/simultipac/simultipac.constants.rst
+docs/simultipac/simultipac.cst.helper.rst
+docs/simultipac/simultipac.cst.rst
+docs/simultipac/simultipac.cst.simulation_results.rst
+docs/simultipac/simultipac.particle_monitor.collisions.rst
+docs/simultipac/simultipac.particle_monitor.collisions.util.rst
+docs/simultipac/simultipac.particle_monitor.collisions.vedo_mesh_collisions.rst
+docs/simultipac/simultipac.particle_monitor.converters.rst
+docs/simultipac/simultipac.particle_monitor.particle.rst
+docs/simultipac/simultipac.particle_monitor.particle_monitor.rst
+docs/simultipac/simultipac.particle_monitor.rst
+docs/simultipac/simultipac.particle_monitor.vector.rst
+docs/simultipac/simultipac.plotter.default.rst
+docs/simultipac/simultipac.plotter.plotter.rst
+docs/simultipac/simultipac.plotter.rst
+docs/simultipac/simultipac.rst
+docs/simultipac/simultipac.simulation_results.rst
+docs/simultipac/simultipac.simulation_results.simulation_results.rst
+docs/simultipac/simultipac.simulation_results.simulations_results.rst
+docs/simultipac/simultipac.spark3d.rst
+docs/simultipac/simultipac.spark3d.simulation_results.rst
+docs/simultipac/simultipac.types.rst
+docs/simultipac/simultipac.util.exponential_growth.rst
+docs/simultipac/simultipac.util.log_manager.rst
+docs/simultipac/simultipac.util.rst
+docs/simultipac/simultipac.util.singleton.rst
+examples/analyze_cst.py
+examples/analyze_cst_particle_monitor.py
+examples/analyze_spark3d.py
+examples/cst/Export_Parametric/0306-3992326/Adimensional e.txt
+examples/cst/Export_Parametric/0306-3992326/Adimensional h.txt
+examples/cst/Export_Parametric/0306-3992326/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-3992326/Parameters.txt
+examples/cst/Export_Parametric/0306-3992326/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-3992326/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-3992326/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-3992326/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4107820/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4107820/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4107820/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4107820/Parameters.txt
+examples/cst/Export_Parametric/0306-4107820/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4107820/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4107820/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4107820/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4168121/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4168121/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4168121/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4168121/Parameters.txt
+examples/cst/Export_Parametric/0306-4168121/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4168121/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4168121/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4168121/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4227656/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4227656/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4227656/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4227656/Parameters.txt
+examples/cst/Export_Parametric/0306-4227656/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4227656/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4227656/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4227656/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4289148/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4289148/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4289148/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4289148/Parameters.txt
+examples/cst/Export_Parametric/0306-4289148/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4289148/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4289148/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4289148/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4348185/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4348185/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4348185/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4348185/Parameters.txt
+examples/cst/Export_Parametric/0306-4348185/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4348185/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4348185/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4348185/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4406570/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4406570/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4406570/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4406570/Parameters.txt
+examples/cst/Export_Parametric/0306-4406570/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4406570/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4406570/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4406570/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4465570/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4465570/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4465570/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4465570/Parameters.txt
+examples/cst/Export_Parametric/0306-4465570/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4465570/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4465570/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4465570/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4525594/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4525594/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4525594/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4525594/Parameters.txt
+examples/cst/Export_Parametric/0306-4525594/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4525594/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4525594/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4525594/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4584888/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4584888/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4584888/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4584888/Parameters.txt
+examples/cst/Export_Parametric/0306-4584888/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4584888/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4584888/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4584888/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4644769/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4644769/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4644769/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4644769/Parameters.txt
+examples/cst/Export_Parametric/0306-4644769/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4644769/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4644769/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4644769/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4705437/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4705437/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4705437/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4705437/Parameters.txt
+examples/cst/Export_Parametric/0306-4705437/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4705437/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4705437/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4705437/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4764459/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4764459/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4764459/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4764459/Parameters.txt
+examples/cst/Export_Parametric/0306-4764459/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4764459/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4764459/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4764459/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4823515/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4823515/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4823515/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4823515/Parameters.txt
+examples/cst/Export_Parametric/0306-4823515/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4823515/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4823515/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4823515/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4880864/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4880864/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4880864/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4880864/Parameters.txt
+examples/cst/Export_Parametric/0306-4880864/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4880864/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4880864/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4880864/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-4939585/Adimensional e.txt
+examples/cst/Export_Parametric/0306-4939585/Adimensional h.txt
+examples/cst/Export_Parametric/0306-4939585/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-4939585/Parameters.txt
+examples/cst/Export_Parametric/0306-4939585/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-4939585/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-4939585/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-4939585/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5001257/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5001257/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5001257/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5001257/Parameters.txt
+examples/cst/Export_Parametric/0306-5001257/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5001257/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5001257/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5001257/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5059328/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5059328/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5059328/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5059328/Parameters.txt
+examples/cst/Export_Parametric/0306-5059328/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5059328/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5059328/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5059328/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5119664/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5119664/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5119664/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5119664/Parameters.txt
+examples/cst/Export_Parametric/0306-5119664/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5119664/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5119664/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5119664/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5177902/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5177902/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5177902/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5177902/Parameters.txt
+examples/cst/Export_Parametric/0306-5177902/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5177902/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5177902/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5177902/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5236999/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5236999/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5236999/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5236999/Parameters.txt
+examples/cst/Export_Parametric/0306-5236999/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5236999/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5236999/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5236999/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5296009/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5296009/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5296009/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5296009/Parameters.txt
+examples/cst/Export_Parametric/0306-5296009/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5296009/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5296009/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5296009/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5354518/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5354518/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5354518/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5354518/Parameters.txt
+examples/cst/Export_Parametric/0306-5354518/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5354518/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5354518/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5354518/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5412459/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5412459/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5412459/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5412459/Parameters.txt
+examples/cst/Export_Parametric/0306-5412459/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5412459/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5412459/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5412459/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5473294/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5473294/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5473294/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5473294/Parameters.txt
+examples/cst/Export_Parametric/0306-5473294/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5473294/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5473294/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5473294/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5532300/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5532300/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5532300/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5532300/Parameters.txt
+examples/cst/Export_Parametric/0306-5532300/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5532300/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5532300/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5532300/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5591832/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5591832/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5591832/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5591832/Parameters.txt
+examples/cst/Export_Parametric/0306-5591832/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5591832/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5591832/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5591832/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5648918/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5648918/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5648918/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5648918/Parameters.txt
+examples/cst/Export_Parametric/0306-5648918/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5648918/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5648918/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5648918/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5708066/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5708066/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5708066/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5708066/Parameters.txt
+examples/cst/Export_Parametric/0306-5708066/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5708066/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5708066/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5708066/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5768516/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5768516/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5768516/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5768516/Parameters.txt
+examples/cst/Export_Parametric/0306-5768516/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5768516/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5768516/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5768516/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5826987/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5826987/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5826987/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5826987/Parameters.txt
+examples/cst/Export_Parametric/0306-5826987/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5826987/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5826987/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5826987/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5888029/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5888029/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5888029/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5888029/Parameters.txt
+examples/cst/Export_Parametric/0306-5888029/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5888029/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5888029/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5888029/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-5947658/Adimensional e.txt
+examples/cst/Export_Parametric/0306-5947658/Adimensional h.txt
+examples/cst/Export_Parametric/0306-5947658/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-5947658/Parameters.txt
+examples/cst/Export_Parametric/0306-5947658/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-5947658/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-5947658/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-5947658/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6007123/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6007123/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6007123/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6007123/Parameters.txt
+examples/cst/Export_Parametric/0306-6007123/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6007123/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6007123/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6007123/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6068572/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6068572/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6068572/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6068572/Parameters.txt
+examples/cst/Export_Parametric/0306-6068572/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6068572/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6068572/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6068572/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6127309/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6127309/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6127309/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6127309/Parameters.txt
+examples/cst/Export_Parametric/0306-6127309/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6127309/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6127309/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6127309/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6187944/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6187944/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6187944/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6187944/Parameters.txt
+examples/cst/Export_Parametric/0306-6187944/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6187944/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6187944/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6187944/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6228591/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6228591/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6228591/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6228591/Parameters.txt
+examples/cst/Export_Parametric/0306-6228591/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6228591/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6228591/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6228591/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6287869/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6287869/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6287869/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6287869/Parameters.txt
+examples/cst/Export_Parametric/0306-6287869/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6287869/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6287869/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6287869/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6328682/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6328682/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6328682/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6328682/Parameters.txt
+examples/cst/Export_Parametric/0306-6328682/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6328682/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6328682/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6328682/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6368849/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6368849/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6368849/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6368849/Parameters.txt
+examples/cst/Export_Parametric/0306-6368849/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6368849/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6368849/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6368849/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6410057/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6410057/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6410057/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6410057/Parameters.txt
+examples/cst/Export_Parametric/0306-6410057/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6410057/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6410057/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6410057/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6469061/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6469061/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6469061/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6469061/Parameters.txt
+examples/cst/Export_Parametric/0306-6469061/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6469061/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6469061/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6469061/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6508213/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6508213/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6508213/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6508213/Parameters.txt
+examples/cst/Export_Parametric/0306-6508213/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6508213/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6508213/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6508213/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6569759/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6569759/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6569759/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6569759/Parameters.txt
+examples/cst/Export_Parametric/0306-6569759/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6569759/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6569759/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6569759/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6609518/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6609518/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6609518/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6609518/Parameters.txt
+examples/cst/Export_Parametric/0306-6609518/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6609518/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6609518/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6609518/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6669037/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6669037/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6669037/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6669037/Parameters.txt
+examples/cst/Export_Parametric/0306-6669037/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6669037/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6669037/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6669037/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6731614/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6731614/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6731614/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6731614/Parameters.txt
+examples/cst/Export_Parametric/0306-6731614/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6731614/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6731614/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6731614/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6790454/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6790454/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6790454/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6790454/Parameters.txt
+examples/cst/Export_Parametric/0306-6790454/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6790454/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6790454/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6790454/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6831049/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6831049/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6831049/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6831049/Parameters.txt
+examples/cst/Export_Parametric/0306-6831049/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6831049/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6831049/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6831049/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6892606/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6892606/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6892606/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6892606/Parameters.txt
+examples/cst/Export_Parametric/0306-6892606/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6892606/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6892606/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6892606/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6935624/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6935624/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6935624/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6935624/Parameters.txt
+examples/cst/Export_Parametric/0306-6935624/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6935624/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6935624/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6935624/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-6994819/Adimensional e.txt
+examples/cst/Export_Parametric/0306-6994819/Adimensional h.txt
+examples/cst/Export_Parametric/0306-6994819/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-6994819/Parameters.txt
+examples/cst/Export_Parametric/0306-6994819/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-6994819/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-6994819/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-6994819/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7057366/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7057366/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7057366/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7057366/Parameters.txt
+examples/cst/Export_Parametric/0306-7057366/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7057366/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7057366/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7057366/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7097607/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7097607/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7097607/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7097607/Parameters.txt
+examples/cst/Export_Parametric/0306-7097607/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7097607/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7097607/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7097607/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7136991/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7136991/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7136991/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7136991/Parameters.txt
+examples/cst/Export_Parametric/0306-7136991/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7136991/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7136991/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7136991/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7195973/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7195973/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7195973/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7195973/Parameters.txt
+examples/cst/Export_Parametric/0306-7195973/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7195973/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7195973/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7195973/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7258836/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7258836/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7258836/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7258836/Parameters.txt
+examples/cst/Export_Parametric/0306-7258836/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7258836/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7258836/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7258836/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7322203/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7322203/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7322203/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7322203/Parameters.txt
+examples/cst/Export_Parametric/0306-7322203/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7322203/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7322203/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7322203/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7381798/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7381798/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7381798/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7381798/Parameters.txt
+examples/cst/Export_Parametric/0306-7381798/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7381798/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7381798/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7381798/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7441685/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7441685/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7441685/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7441685/Parameters.txt
+examples/cst/Export_Parametric/0306-7441685/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7441685/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7441685/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7441685/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7502087/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7502087/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7502087/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7502087/Parameters.txt
+examples/cst/Export_Parametric/0306-7502087/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7502087/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7502087/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7502087/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7560514/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7560514/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7560514/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7560514/Parameters.txt
+examples/cst/Export_Parametric/0306-7560514/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7560514/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7560514/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7560514/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7621112/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7621112/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7621112/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7621112/Parameters.txt
+examples/cst/Export_Parametric/0306-7621112/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7621112/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7621112/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7621112/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7679780/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7679780/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7679780/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7679780/Parameters.txt
+examples/cst/Export_Parametric/0306-7679780/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7679780/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7679780/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7679780/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7730971/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7730971/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7730971/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7730971/Parameters.txt
+examples/cst/Export_Parametric/0306-7730971/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7730971/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7730971/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7730971/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7775566/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7775566/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7775566/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7775566/Parameters.txt
+examples/cst/Export_Parametric/0306-7775566/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7775566/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7775566/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7775566/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7818497/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7818497/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7818497/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7818497/Parameters.txt
+examples/cst/Export_Parametric/0306-7818497/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7818497/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7818497/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7818497/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7861427/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7861427/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7861427/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7861427/Parameters.txt
+examples/cst/Export_Parametric/0306-7861427/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7861427/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7861427/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7861427/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7901188/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7901188/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7901188/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7901188/Parameters.txt
+examples/cst/Export_Parametric/0306-7901188/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7901188/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7901188/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7901188/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7941441/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7941441/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7941441/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7941441/Parameters.txt
+examples/cst/Export_Parametric/0306-7941441/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7941441/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7941441/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7941441/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-7982557/Adimensional e.txt
+examples/cst/Export_Parametric/0306-7982557/Adimensional h.txt
+examples/cst/Export_Parametric/0306-7982557/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-7982557/Parameters.txt
+examples/cst/Export_Parametric/0306-7982557/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-7982557/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-7982557/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-7982557/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8023898/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8023898/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8023898/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8023898/Parameters.txt
+examples/cst/Export_Parametric/0306-8023898/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8023898/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8023898/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8023898/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8064453/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8064453/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8064453/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8064453/Parameters.txt
+examples/cst/Export_Parametric/0306-8064453/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8064453/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8064453/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8064453/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8105073/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8105073/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8105073/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8105073/Parameters.txt
+examples/cst/Export_Parametric/0306-8105073/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8105073/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8105073/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8105073/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8146353/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8146353/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8146353/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8146353/Parameters.txt
+examples/cst/Export_Parametric/0306-8146353/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8146353/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8146353/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8146353/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8186536/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8186536/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8186536/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8186536/Parameters.txt
+examples/cst/Export_Parametric/0306-8186536/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8186536/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8186536/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8186536/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8226819/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8226819/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8226819/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8226819/Parameters.txt
+examples/cst/Export_Parametric/0306-8226819/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8226819/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8226819/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8226819/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8268445/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8268445/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8268445/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8268445/Parameters.txt
+examples/cst/Export_Parametric/0306-8268445/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8268445/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8268445/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8268445/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8311066/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8311066/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8311066/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8311066/Parameters.txt
+examples/cst/Export_Parametric/0306-8311066/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8311066/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8311066/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8311066/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8351443/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8351443/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8351443/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8351443/Parameters.txt
+examples/cst/Export_Parametric/0306-8351443/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8351443/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8351443/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8351443/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8394903/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8394903/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8394903/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8394903/Parameters.txt
+examples/cst/Export_Parametric/0306-8394903/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8394903/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8394903/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8394903/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8437002/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8437002/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8437002/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8437002/Parameters.txt
+examples/cst/Export_Parametric/0306-8437002/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8437002/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8437002/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8437002/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8478536/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8478536/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8478536/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8478536/Parameters.txt
+examples/cst/Export_Parametric/0306-8478536/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8478536/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8478536/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8478536/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8523389/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8523389/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8523389/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8523389/Parameters.txt
+examples/cst/Export_Parametric/0306-8523389/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8523389/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8523389/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8523389/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8565427/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8565427/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8565427/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8565427/Parameters.txt
+examples/cst/Export_Parametric/0306-8565427/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8565427/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8565427/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8565427/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0306-8607761/Adimensional e.txt
+examples/cst/Export_Parametric/0306-8607761/Adimensional h.txt
+examples/cst/Export_Parametric/0306-8607761/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0306-8607761/Parameters.txt
+examples/cst/Export_Parametric/0306-8607761/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0306-8607761/TD Total solver time.txt
+examples/cst/Export_Parametric/0306-8607761/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0306-8607761/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0031094/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0031094/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0031094/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0031094/Parameters.txt
+examples/cst/Export_Parametric/0307-0031094/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0031094/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0031094/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0031094/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0094302/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0094302/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0094302/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0094302/Parameters.txt
+examples/cst/Export_Parametric/0307-0094302/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0094302/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0094302/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0094302/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0154219/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0154219/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0154219/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0154219/Parameters.txt
+examples/cst/Export_Parametric/0307-0154219/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0154219/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0154219/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0154219/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0216398/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0216398/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0216398/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0216398/Parameters.txt
+examples/cst/Export_Parametric/0307-0216398/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0216398/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0216398/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0216398/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0274333/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0274333/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0274333/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0274333/Parameters.txt
+examples/cst/Export_Parametric/0307-0274333/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0274333/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0274333/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0274333/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0337015/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0337015/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0337015/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0337015/Parameters.txt
+examples/cst/Export_Parametric/0307-0337015/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0337015/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0337015/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0337015/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0397678/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0397678/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0397678/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0397678/Parameters.txt
+examples/cst/Export_Parametric/0307-0397678/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0397678/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0397678/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0397678/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0452321/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0452321/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0452321/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0452321/Parameters.txt
+examples/cst/Export_Parametric/0307-0452321/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0452321/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0452321/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0452321/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0500898/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0500898/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0500898/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0500898/Parameters.txt
+examples/cst/Export_Parametric/0307-0500898/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0500898/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0500898/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0500898/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0543407/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0543407/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0543407/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0543407/Parameters.txt
+examples/cst/Export_Parametric/0307-0543407/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0543407/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0543407/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0543407/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0590201/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0590201/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0590201/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0590201/Parameters.txt
+examples/cst/Export_Parametric/0307-0590201/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0590201/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0590201/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0590201/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0644952/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0644952/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0644952/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0644952/Parameters.txt
+examples/cst/Export_Parametric/0307-0644952/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0644952/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0644952/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0644952/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0697003/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0697003/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0697003/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0697003/Parameters.txt
+examples/cst/Export_Parametric/0307-0697003/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0697003/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0697003/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0697003/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0751018/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0751018/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0751018/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0751018/Parameters.txt
+examples/cst/Export_Parametric/0307-0751018/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0751018/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0751018/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0751018/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0806424/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0806424/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0806424/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0806424/Parameters.txt
+examples/cst/Export_Parametric/0307-0806424/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0806424/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0806424/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0806424/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0860837/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0860837/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0860837/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0860837/Parameters.txt
+examples/cst/Export_Parametric/0307-0860837/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0860837/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0860837/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0860837/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0914812/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0914812/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0914812/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0914812/Parameters.txt
+examples/cst/Export_Parametric/0307-0914812/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0914812/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0914812/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0914812/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-0967851/Adimensional e.txt
+examples/cst/Export_Parametric/0307-0967851/Adimensional h.txt
+examples/cst/Export_Parametric/0307-0967851/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-0967851/Parameters.txt
+examples/cst/Export_Parametric/0307-0967851/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-0967851/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-0967851/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-0967851/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1021996/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1021996/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1021996/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1021996/Parameters.txt
+examples/cst/Export_Parametric/0307-1021996/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1021996/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1021996/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1021996/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1072686/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1072686/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1072686/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1072686/Parameters.txt
+examples/cst/Export_Parametric/0307-1072686/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1072686/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1072686/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1072686/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1121722/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1121722/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1121722/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1121722/Parameters.txt
+examples/cst/Export_Parametric/0307-1121722/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1121722/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1121722/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1121722/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1168629/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1168629/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1168629/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1168629/Parameters.txt
+examples/cst/Export_Parametric/0307-1168629/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1168629/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1168629/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1168629/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1213015/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1213015/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1213015/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1213015/Parameters.txt
+examples/cst/Export_Parametric/0307-1213015/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1213015/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1213015/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1213015/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1257606/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1257606/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1257606/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1257606/Parameters.txt
+examples/cst/Export_Parametric/0307-1257606/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1257606/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1257606/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1257606/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1300931/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1300931/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1300931/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1300931/Parameters.txt
+examples/cst/Export_Parametric/0307-1300931/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1300931/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1300931/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1300931/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1344598/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1344598/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1344598/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1344598/Parameters.txt
+examples/cst/Export_Parametric/0307-1344598/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1344598/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1344598/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1344598/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1386297/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1386297/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1386297/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1386297/Parameters.txt
+examples/cst/Export_Parametric/0307-1386297/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1386297/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1386297/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1386297/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1428344/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1428344/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1428344/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1428344/Parameters.txt
+examples/cst/Export_Parametric/0307-1428344/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1428344/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1428344/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1428344/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1470348/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1470348/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1470348/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1470348/Parameters.txt
+examples/cst/Export_Parametric/0307-1470348/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1470348/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1470348/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1470348/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1513365/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1513365/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1513365/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1513365/Parameters.txt
+examples/cst/Export_Parametric/0307-1513365/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1513365/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1513365/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1513365/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1582301/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1582301/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1582301/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1582301/Parameters.txt
+examples/cst/Export_Parametric/0307-1582301/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1582301/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1582301/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1582301/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1650792/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1650792/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1650792/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1650792/Parameters.txt
+examples/cst/Export_Parametric/0307-1650792/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1650792/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1650792/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1650792/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1718357/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1718357/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1718357/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1718357/Parameters.txt
+examples/cst/Export_Parametric/0307-1718357/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1718357/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1718357/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1718357/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1783644/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1783644/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1783644/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1783644/Parameters.txt
+examples/cst/Export_Parametric/0307-1783644/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1783644/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1783644/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1783644/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1850650/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1850650/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1850650/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1850650/Parameters.txt
+examples/cst/Export_Parametric/0307-1850650/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1850650/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1850650/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1850650/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1916307/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1916307/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1916307/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1916307/Parameters.txt
+examples/cst/Export_Parametric/0307-1916307/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1916307/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1916307/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1916307/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-1982163/Adimensional e.txt
+examples/cst/Export_Parametric/0307-1982163/Adimensional h.txt
+examples/cst/Export_Parametric/0307-1982163/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-1982163/Parameters.txt
+examples/cst/Export_Parametric/0307-1982163/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-1982163/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-1982163/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-1982163/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2038903/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2038903/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2038903/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2038903/Parameters.txt
+examples/cst/Export_Parametric/0307-2038903/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2038903/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2038903/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2038903/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2090990/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2090990/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2090990/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2090990/Parameters.txt
+examples/cst/Export_Parametric/0307-2090990/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2090990/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2090990/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2090990/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2143299/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2143299/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2143299/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2143299/Parameters.txt
+examples/cst/Export_Parametric/0307-2143299/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2143299/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2143299/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2143299/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2238739/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2238739/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2238739/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2238739/Parameters.txt
+examples/cst/Export_Parametric/0307-2238739/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2238739/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2238739/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2238739/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2383545/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2383545/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2383545/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2383545/Parameters.txt
+examples/cst/Export_Parametric/0307-2383545/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2383545/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2383545/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2383545/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2564355/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2564355/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2564355/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2564355/Parameters.txt
+examples/cst/Export_Parametric/0307-2564355/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2564355/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2564355/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2564355/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2706411/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2706411/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2706411/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2706411/Parameters.txt
+examples/cst/Export_Parametric/0307-2706411/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2706411/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2706411/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2706411/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-2856127/Adimensional e.txt
+examples/cst/Export_Parametric/0307-2856127/Adimensional h.txt
+examples/cst/Export_Parametric/0307-2856127/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-2856127/Parameters.txt
+examples/cst/Export_Parametric/0307-2856127/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-2856127/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-2856127/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-2856127/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3001835/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3001835/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3001835/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3001835/Parameters.txt
+examples/cst/Export_Parametric/0307-3001835/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3001835/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3001835/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3001835/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3141273/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3141273/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3141273/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3141273/Parameters.txt
+examples/cst/Export_Parametric/0307-3141273/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3141273/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3141273/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3141273/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3271503/Parameters.txt
+examples/cst/Export_Parametric/0307-3271503/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3271503/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3271503/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3271503/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3420285/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3420285/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3420285/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3420285/Parameters.txt
+examples/cst/Export_Parametric/0307-3420285/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3420285/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3420285/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3420285/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3542313/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3542313/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3542313/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3542313/Parameters.txt
+examples/cst/Export_Parametric/0307-3542313/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3542313/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3542313/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3542313/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3638864/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3638864/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3638864/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3638864/Parameters.txt
+examples/cst/Export_Parametric/0307-3638864/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3638864/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3638864/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3638864/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3720130/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3720130/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3720130/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3720130/Parameters.txt
+examples/cst/Export_Parametric/0307-3720130/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3720130/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3720130/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3720130/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3785550/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3785550/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3785550/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3785550/Parameters.txt
+examples/cst/Export_Parametric/0307-3785550/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3785550/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3785550/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3785550/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3843571/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3843571/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3843571/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3843571/Parameters.txt
+examples/cst/Export_Parametric/0307-3843571/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3843571/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3843571/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3843571/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3897854/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3897854/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3897854/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3897854/Parameters.txt
+examples/cst/Export_Parametric/0307-3897854/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3897854/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3897854/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3897854/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3948565/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3948565/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3948565/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3948565/Parameters.txt
+examples/cst/Export_Parametric/0307-3948565/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3948565/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3948565/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3948565/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-3997427/Adimensional e.txt
+examples/cst/Export_Parametric/0307-3997427/Adimensional h.txt
+examples/cst/Export_Parametric/0307-3997427/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-3997427/Parameters.txt
+examples/cst/Export_Parametric/0307-3997427/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-3997427/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-3997427/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-3997427/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4043423/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4043423/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4043423/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4043423/Parameters.txt
+examples/cst/Export_Parametric/0307-4043423/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4043423/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4043423/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4043423/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4087743/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4087743/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4087743/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4087743/Parameters.txt
+examples/cst/Export_Parametric/0307-4087743/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4087743/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4087743/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4087743/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4131634/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4131634/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4131634/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4131634/Parameters.txt
+examples/cst/Export_Parametric/0307-4131634/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4131634/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4131634/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4131634/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4273434/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4273434/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4273434/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4273434/Parameters.txt
+examples/cst/Export_Parametric/0307-4273434/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4273434/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4273434/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4273434/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4393854/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4393854/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4393854/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4393854/Parameters.txt
+examples/cst/Export_Parametric/0307-4393854/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4393854/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4393854/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4393854/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4491002/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4491002/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4491002/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4491002/Parameters.txt
+examples/cst/Export_Parametric/0307-4491002/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4491002/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4491002/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4491002/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4586596/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4586596/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4586596/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4586596/Parameters.txt
+examples/cst/Export_Parametric/0307-4586596/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4586596/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4586596/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4586596/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4668508/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4668508/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4668508/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4668508/Parameters.txt
+examples/cst/Export_Parametric/0307-4668508/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4668508/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4668508/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4668508/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4765453/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4765453/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4765453/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4765453/Parameters.txt
+examples/cst/Export_Parametric/0307-4765453/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4765453/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4765453/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4765453/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4869141/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4869141/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4869141/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4869141/Parameters.txt
+examples/cst/Export_Parametric/0307-4869141/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4869141/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4869141/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4869141/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-4958427/Adimensional e.txt
+examples/cst/Export_Parametric/0307-4958427/Adimensional h.txt
+examples/cst/Export_Parametric/0307-4958427/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-4958427/Parameters.txt
+examples/cst/Export_Parametric/0307-4958427/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-4958427/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-4958427/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-4958427/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-5064227/Adimensional e.txt
+examples/cst/Export_Parametric/0307-5064227/Adimensional h.txt
+examples/cst/Export_Parametric/0307-5064227/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-5064227/Parameters.txt
+examples/cst/Export_Parametric/0307-5064227/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-5064227/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-5064227/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-5064227/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/cst/Export_Parametric/0307-5216540/Adimensional e.txt
+examples/cst/Export_Parametric/0307-5216540/Adimensional h.txt
+examples/cst/Export_Parametric/0307-5216540/E_acc in MV per m.txt
+examples/cst/Export_Parametric/0307-5216540/Parameters.txt
+examples/cst/Export_Parametric/0307-5216540/TD Number of mesh cells.txt
+examples/cst/Export_Parametric/0307-5216540/TD Total solver time.txt
+examples/cst/Export_Parametric/0307-5216540/ParticleInfo [PIC]/Emitted Secondaries.txt
+examples/cst/Export_Parametric/0307-5216540/ParticleInfo [PIC]/Particle vs. Time.txt
+examples/spark/time_results.csv
+examples/spark/time_results.txt
+src/Simultipac.egg-info/PKG-INFO
+src/Simultipac.egg-info/SOURCES.txt
+src/Simultipac.egg-info/dependency_links.txt
+src/Simultipac.egg-info/requires.txt
+src/Simultipac.egg-info/top_level.txt
+src/simultipac/__init__.py
+src/simultipac/constants.py
+src/simultipac/types.py
+src/simultipac/cst/__init__.py
+src/simultipac/cst/helper.py
+src/simultipac/cst/simulation_results.py
+src/simultipac/particle_monitor/__init__.py
+src/simultipac/particle_monitor/converters.py
+src/simultipac/particle_monitor/particle.py
+src/simultipac/particle_monitor/particle_monitor.py
+src/simultipac/particle_monitor/vector.py
+src/simultipac/particle_monitor/collisions/__init__.py
+src/simultipac/particle_monitor/collisions/util.py
+src/simultipac/particle_monitor/collisions/vedo_mesh_collisions.py
+src/simultipac/plotter/__init__.py
+src/simultipac/plotter/default.py
+src/simultipac/plotter/plotter.py
+src/simultipac/simulation_results/__init__.py
+src/simultipac/simulation_results/simulation_results.py
+src/simultipac/simulation_results/simulations_results.py
+src/simultipac/spark3d/__init__.py
+src/simultipac/spark3d/simulation_results.py
+src/simultipac/util/__init__.py
+src/simultipac/util/exponential_growth.py
+src/simultipac/util/log_manager.py
+src/simultipac/util/singleton.py
+tests/.keep
+tests/cst/test_helper.py
+tests/cst/test_simulation_results.py
+tests/cst/test_simulation_results_factory.py
+tests/particle_monitor/test_particle.py
+tests/particle_monitor/test_particle_monitor.py
+tests/particle_monitor/test_vector.py
+tests/simulation_results/test_simulation_results.py
+tests/simulation_results/test_simulations_results.py
+tests/spark3d/test_spark3d_simulation_results.py
+tests/util/test_exponential_growth.py
