@@ -1,0 +1,15 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser">
+
+  <include package="zope.app.zcmlfiles" />
+  <include package="zope.formlib" />
+  <include package="zope.app.form.browser" />
+  <include package="zope.contentprovider" />
+  <include package="zope.viewlet" file="meta.zcml" />
+  <include package="zope.viewlet" />
+
+  <include package="gocept.form" />
+
+</configure>
+
