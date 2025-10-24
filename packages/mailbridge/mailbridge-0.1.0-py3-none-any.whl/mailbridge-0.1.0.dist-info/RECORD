@@ -1,0 +1,16 @@
+mailbridge/__init__.py,sha256=Pru0BlFBASFCFo7McHdohtKkUtgMPDwbGfyUZlE2_Vw,21
+mailbridge/mail.py,sha256=NMGeZ35Rnu-0tiZHI_7M_8fElQ1ZYyFbmr8R-TAbX4g,865
+mailbridge/mailer_factory.py,sha256=l-yJfsegB-EpH9qsZqOSB3ldMpSiHbxok92N_Q_bzdE,2115
+mailbridge/providers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mailbridge/providers/brevo_provider.py,sha256=TsupwvNPdiYQYIvmRR_avHFdgVWJwMQbObaNJd74kGo,755
+mailbridge/providers/mailgun_provider.py,sha256=w42DNZ07kqkBGTtPUBBKRRkPqnwtVG2Sd1k8QJ1_GGI,615
+mailbridge/providers/postmark_provider.py,sha256=AdlWiJ3lmFPvdSv9J6eDfhbQy9YqoFHYS6KvNFd6pWc,754
+mailbridge/providers/provider_interface.py,sha256=p_NzmaMk86ZFHL61FYEbCt09kud4JHWeMLLmWC2PfPY,227
+mailbridge/providers/sendgrid_provider.py,sha256=fpkHbb6K1j_TByWI9VGmTKqsI5xZu0hK2_75UQ7sIJU,796
+mailbridge/providers/ses_provider.py,sha256=Fqa2lGPb1g3eiRbZHtRrJVom1sLHJ86z4a6nXXfbLnk,770
+mailbridge/providers/smtp_provider.py,sha256=V-3zJzVx6ASPvdclVM2cyOV2-bZD1x1KT4QuQzGhQYs,1565
+mailbridge-0.1.0.dist-info/licenses/LICENSE,sha256=BSI3Do2n5SHSP7_HiJitzfaG_7h-OLY1UppxN8nua-I,1071
+mailbridge-0.1.0.dist-info/METADATA,sha256=HgIdALgC5xTywiexqCFKVPoyPq9du6GzewoXI2t2Ap4,3909
+mailbridge-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mailbridge-0.1.0.dist-info/top_level.txt,sha256=XRqNB_LyLXK6P5W9xtnf63nf3nZgzkxcukOUOzy4z-o,11
+mailbridge-0.1.0.dist-info/RECORD,,
