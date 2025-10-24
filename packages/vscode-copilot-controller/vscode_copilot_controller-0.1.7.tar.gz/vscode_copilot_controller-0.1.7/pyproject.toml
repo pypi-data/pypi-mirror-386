@@ -1,0 +1,158 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vscode-copilot-controller"
+version = "0.1.7"
+description = "Programmatically control VSCode Copilot chat panel using OCR-based UI automation"
+authors = [{name = "AutoOcto Team", email = "team@autoocto.dev"}]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: User Interfaces",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+keywords = [
+    "vscode",
+    "copilot",
+    "automation",
+    "ocr",
+    "ui-testing",
+    "chat-control",
+    "tesseract",
+    "image-recognition",
+]
+dependencies = [
+    "pillow>=8.0.0",
+    "pytesseract>=0.3.8",
+    "pyautogui>=0.9.53",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.10",
+    "black>=21.0",
+    "isort>=5.0",
+    "flake8>=3.8",
+    "mypy>=0.900",
+]
+docs = [
+    "sphinx>=4.0",
+    "sphinx-rtd-theme>=1.0",
+]
+gui = [
+    "pygetwindow>=0.0.9",
+    "tkinter;platform_system!='Darwin'",  # tkinter usually comes with Python except some Linux/macOS
+]
+
+[project.scripts]
+vscode-copilot-controller = "vscode_copilot_controller.cli:main"
+
+[project.urls]
+"Homepage" = "https://github.com/autoocto/vscode-copilot-controller"
+"Bug Tracker" = "https://github.com/autoocto/vscode-copilot-controller/issues"
+"Documentation" = "https://github.com/autoocto/vscode-copilot-controller/wiki"
+"Source Code" = "https://github.com/autoocto/vscode-copilot-controller"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vscode_copilot_controller*"]
+exclude = ["tests*", "examples*", "docs*", "build*", "dist*", "*.egg-info"]
+
+[tool.setuptools_scm]
+write_to = "vscode_copilot_controller/_version.py"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["vscode_copilot_controller"]
+omit = [
+    "*/tests/*",
+    "*/_version.py",
+    "*/cli.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pytesseract.*",
+    "PIL.*",
+]
+ignore_missing_imports = true
