@@ -1,0 +1,2 @@
+[console_scripts]
+magneticalc = magneticalc.__main__:main
