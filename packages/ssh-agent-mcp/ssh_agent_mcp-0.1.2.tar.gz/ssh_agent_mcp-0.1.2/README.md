@@ -1,0 +1,613 @@
+# SSH Agent MCP 服务
+
+这是一个基于Python的MCP (Model Context Protocol) stdio服务，允许大模型直接操作SSH连接来解决远程服务器问题。支持通过命令行参数或JSON配置文件管理SSH连接，让用户通过简单的JSON配置即可使用。
+
+## 功能特性
+
+- **⚡ uvx支持**: 通过 `uvx ssh-agent-mcp` 一键运行，无需本地安装
+- **🔧 命令行参数**: 支持完整的命令行参数配置，无需配置文件
+- **🔧 JSON配置管理**: 通过简单的JSON文件管理多个SSH连接
+- **🔗 有状态连接管理**: 维护SSH连接状态，支持多个并发连接
+- **🔐 多种认证方式**: 支持密码认证、私钥认证和SSH Agent
+- **⚡ 命令执行**: 在远程服务器上执行命令并获取输出
+- **🔄 异步命令支持**: 支持长时间运行的命令（如top、tail等），实时获取输出
+- **📊 命令生命周期管理**: 启动、监控、终止和清理异步命令
+- **📈 连接状态查询**: 实时查询连接状态和管理连接
+- **🚀 自动连接**: 支持启动时自动连接指定的服务器
+
+## 🚀 快速开始
+
+### 方法一：uvx 一键运行（推荐）
+
+在Claude Desktop的配置文件中添加：
+
+```json
+{
+  "mcpServers": {
+    "ssh-mcp": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--host=192.168.1.100",
+        "--user=root",
+        "--password=your_password",
+        "--timeout=30000"
+      ]
+    }
+  }
+}
+```
+
+重启Claude Desktop即可使用！
+
+### 方法二：本地安装
+
+```bash
+# 安装
+pip install ssh-agent-mcp
+
+# 或从源码安装
+git clone https://github.com/yourusername/sshagent.git
+cd sshagent
+pip install -e .
+```
+
+### 方法三：使用配置文件
+
+1. 创建配置文件 `ssh_config.json`:
+```json
+{
+  "connections": [
+    {
+      "name": "production-server",
+      "host": "prod.example.com",
+      "username": "admin",
+      "private_key": "/home/user/.ssh/id_rsa",
+      "tags": ["production"]
+    }
+  ],
+  "auto_connect": ["production-server"]
+}
+```
+
+2. 在Claude Desktop中配置:
+```json
+{
+  "mcpServers": {
+    "ssh-mcp": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--config=/path/to/ssh_config.json",
+        "--connection=production-server",
+        "--auto-connect"
+      ]
+    }
+  }
+}
+```
+
+## 📝 使用方式
+
+### 方式一：纯命令行参数
+
+最简单的方式，直接在Claude Desktop配置中指定所有参数：
+
+```json
+{
+  "mcpServers": {
+    "ssh-mcp": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--host=192.168.1.100",
+        "--port=22",
+        "--user=root",
+        "--password=your_password",
+        "--timeout=30000",
+        "--max-chars=none"
+      ]
+    }
+  }
+}
+```
+
+### 方式二：命令行 + 配置文件
+
+结合配置文件和命令行参数：
+
+```json
+{
+  "mcpServers": {
+    "ssh-mcp": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--config=/path/to/ssh_config.json",
+        "--connection=production-server"
+      ]
+    }
+  }
+}
+```
+
+### 方式三：使用私钥认证
+
+```json
+{
+  "mcpServers": {
+    "ssh-mcp": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--host=prod.example.com",
+        "--user=admin",
+        "--key=/home/user/.ssh/id_rsa",
+        "--key-password=private_key_password"
+      ]
+    }
+  }
+}
+```
+
+## 🔧 命令行参数
+
+| 参数 | 描述 | 必需 | 示例 |
+|------|------|------|------|
+| `--host` | SSH服务器地址 | 是 | `192.168.1.100` |
+| `--user`, `--username` | SSH用户名 | 是 | `root` |
+| `--port` | SSH端口 | 否 | `22` (默认) |
+| `--password` | SSH密码 | 否 | `your_password` |
+| `--key`, `--private-key` | 私钥文件路径 | 否 | `/home/user/.ssh/id_rsa` |
+| `--key-password`, `--private-key-password` | 私钥密码 | 否 | `key_password` |
+| `--config`, `-c` | 配置文件路径 | 否 | `/path/to/config.json` |
+| `--connection` | 配置文件中的连接名称 | 否 | `production-server` |
+| `--timeout` | 命令超时时间（毫秒） | 否 | `30000` (默认) |
+| `--max-chars` | 最大输出字符数 | 否 | `none` (默认) |
+| `--log-level` | 日志级别 | 否 | `INFO` (默认) |
+| `--auto-connect` | 启动时自动连接 | 否 | - |
+
+## 📋 配置文件格式
+
+当使用配置文件时，`ssh_config.json` 格式如下：
+
+```json
+{
+  "connections": [
+    {
+      "name": "production-server",
+      "host": "prod.example.com",
+      "username": "admin",
+      "port": 22,
+      "private_key": "/home/user/.ssh/id_rsa",
+      "description": "生产环境服务器",
+      "tags": ["production", "critical"]
+    },
+    {
+      "name": "dev-server",
+      "host": "192.168.1.100",
+      "username": "dev",
+      "port": 22,
+      "password": "dev_password",
+      "description": "开发环境服务器",
+      "tags": ["development", "test"]
+    }
+  ],
+  "default_timeout": 30,
+  "log_level": "INFO",
+  "auto_connect": ["production-server"],
+  "max_connections": 10
+}
+```
+
+## 🛠️ MCP工具接口
+
+该服务提供以下MCP工具：
+
+### 基础连接工具
+
+#### 1. ssh_connect_by_name ⭐ 推荐
+使用配置文件中的连接名称建立SSH连接
+- **参数**:
+  - `connection_name` (必需): 配置文件中的连接名称
+- **示例**:
+```json
+{
+  "name": "ssh_connect_by_name",
+  "arguments": {
+    "connection_name": "production-server"
+  }
+}
+```
+
+#### 2. ssh_connect
+手动建立SSH连接（不推荐，建议使用配置文件）
+- **参数**:
+  - `host` (必需): SSH服务器主机名或IP地址
+  - `username` (必需): SSH用户名
+  - `port` (可选): SSH端口，默认为22
+  - `password` (可选): SSH密码
+  - `private_key` (可选): 私钥文件路径
+  - `private_key_password` (可选): 私钥密码
+
+#### 3. ssh_disconnect
+断开SSH连接
+- **参数**:
+  - `connection_id` (必需): SSH连接ID
+
+#### 4. ssh_disconnect_all
+断开所有SSH连接
+- **参数**: 无
+
+### 配置管理工具
+
+#### 5. ssh_list_config ⭐ 新功能
+列出配置文件中的所有SSH连接
+- **参数**:
+  - `filter_tag` (可选): 按标签过滤连接
+- **示例**:
+```json
+{
+  "name": "ssh_list_config",
+  "arguments": {
+    "filter_tag": "production"
+  }
+}
+```
+
+#### 6. ssh_auto_connect ⭐ 新功能
+自动连接配置文件中标记为auto_connect的连接
+- **参数**: 无
+
+### 状态查询工具
+
+#### 7. ssh_status
+查询SSH连接状态
+- **参数**:
+  - `connection_id` (可选): SSH连接ID，不提供则返回所有连接状态
+
+#### 8. ssh_list_connections
+列出所有SSH连接
+- **参数**: 无
+
+### 命令执行工具
+
+#### 9. ssh_execute
+在SSH连接上执行命令
+- **参数**:
+  - `connection_id` (必需): SSH连接ID
+  - `command` (必需): 要执行的命令
+  - `timeout` (可选): 命令超时时间（秒），默认为30
+
+### 异步命令工具
+
+#### 10. ssh_start_async_command
+启动长时间运行的异步命令
+- **参数**:
+  - `connection_id` (必需): SSH连接ID
+  - `command` (必需): 要执行的长时间运行命令
+
+#### 11. ssh_get_command_status
+获取异步命令状态和最新输出
+- **参数**:
+  - `command_id` (必需): 异步命令ID
+
+#### 12. ssh_list_async_commands
+列出所有异步命令状态
+- **参数**: 无
+
+#### 13. ssh_terminate_command
+终止正在运行的异步命令
+- **参数**:
+  - `command_id` (必需): 要终止的异步命令ID
+
+#### 14. ssh_cleanup_commands
+清理已完成的异步命令
+- **参数**:
+  - `max_age` (可选): 保留时间（秒），默认3600秒
+
+## 📖 使用示例
+
+### 启动MCP服务
+```bash
+python main.py
+```
+
+### 🎯 推荐工作流程（使用配置文件）
+
+1. **查看配置的连接**:
+```json
+{
+  "name": "ssh_list_config",
+  "arguments": {}
+}
+```
+
+2. **通过名称建立连接**:
+```json
+{
+  "name": "ssh_connect_by_name",
+  "arguments": {
+    "connection_name": "production-server"
+  }
+}
+```
+
+3. **执行命令**:
+```json
+{
+  "name": "ssh_execute",
+  "arguments": {
+    "connection_id": "admin@prod.example.com:22",
+    "command": "df -h"
+  }
+}
+```
+
+4. **断开连接**:
+```json
+{
+  "name": "ssh_disconnect",
+  "arguments": {
+    "connection_id": "admin@prod.example.com:22"
+  }
+}
+```
+
+### 🚀 自动连接工作流程
+
+1. **启动时自动连接所有标记的服务器**:
+```json
+{
+  "name": "ssh_auto_connect",
+  "arguments": {}
+}
+```
+
+2. **查看所有连接状态**:
+```json
+{
+  "name": "ssh_status",
+  "arguments": {}
+}
+```
+
+### 🔄 异步命令工作流程
+
+1. **启动长时间运行命令**:
+```json
+{
+  "name": "ssh_start_async_command",
+  "arguments": {
+    "connection_id": "admin@prod.example.com:22",
+    "command": "tail -f /var/log/nginx/access.log"
+  }
+}
+```
+
+2. **查询命令状态和输出**:
+```json
+{
+  "name": "ssh_get_command_status",
+  "arguments": {
+    "command_id": "返回的命令UUID"
+  }
+}
+```
+
+3. **终止长时间运行命令**:
+```json
+{
+  "name": "ssh_terminate_command",
+  "arguments": {
+    "command_id": "要终止的命令UUID"
+  }
+}
+```
+
+### 🏷️ 标签过滤示例
+
+1. **查看所有生产环境连接**:
+```json
+{
+  "name": "ssh_list_config",
+  "arguments": {
+    "filter_tag": "production"
+  }
+}
+```
+
+2. **查看所有开发环境连接**:
+```json
+{
+  "name": "ssh_list_config",
+  "arguments": {
+    "filter_tag": "development"
+  }
+}
+```
+
+## 🔗 连接ID格式
+
+连接ID格式为: `username@host:port`
+例如: `admin@prod.example.com:22`
+
+## 📦 打包和分发
+
+### 创建分发包
+
+```bash
+# 构建所有包格式
+python build.py --all
+
+# 仅构建wheel包
+python build.py --wheel
+
+# 仅创建便携式包
+python build.py --portable
+```
+
+### 便携式包使用
+
+1. 下载 `ssh-agent-mcp-portable.zip`
+2. 解压到目标目录
+3. 安装依赖: `pip install -r requirements.txt`
+4. 配置SSH连接: 复制并编辑 `ssh_config.json`
+5. 启动服务: `python start_ssh_agent.py`
+
+## 安全注意事项
+
+- 请确保SSH凭据的安全，避免在日志中暴露敏感信息
+- 建议使用私钥认证而非密码认证
+- 在生产环境中考虑使用SSH代理转发
+- 定期轮换SSH密钥和密码
+
+## 错误处理
+
+服务包含完善的错误处理机制：
+- 连接失败时会返回详细的错误信息
+- 命令执行失败时会返回退出码和错误输出
+- 支持连接超时和命令执行超时
+
+## 测试
+
+运行测试脚本验证功能：
+```bash
+python simple_test.py
+```
+
+## 📁 项目结构
+
+```
+sshagent/
+├── main.py              # 主入口文件
+├── mcp_server.py        # MCP服务器实现
+├── ssh_manager.py       # SSH连接管理器
+├── config_loader.py     # 配置文件加载器
+├── install.py           # 安装脚本
+├── build.py             # 打包脚本
+├── pyproject.toml       # 项目配置
+├── README.md            # 说明文档
+├── simple_test.py       # 简单测试脚本
+├── test_mcp.py          # MCP协议测试
+└── ssh_config.json      # SSH连接配置文件（用户创建）
+```
+
+## 📚 依赖项
+
+- `mcp`: Model Context Protocol实现
+- `paramiko`: SSH客户端库
+- `pydantic`: 数据验证和序列化
+- `asyncio`: 异步IO支持
+
+## 🔧 Claude Desktop配置
+
+### 配置文件位置
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+- **Linux**: `~/.config/claude-desktop/claude_desktop_config.json`
+
+### 基本配置示例
+
+```json
+{
+  "mcpServers": {
+    "ssh-mcp": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--host=192.168.1.100",
+        "--user=root",
+        "--password=your_password"
+      ]
+    }
+  }
+}
+```
+
+### 多服务器配置
+
+```json
+{
+  "mcpServers": {
+    "ssh-prod": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--config=/path/to/prod_config.json",
+        "--connection=prod-server",
+        "--auto-connect"
+      ]
+    },
+    "ssh-dev": {
+      "command": "uvx",
+      "args": [
+        "ssh-agent-mcp@latest",
+        "--host=192.168.1.200",
+        "--user=dev",
+        "--password=dev_password"
+      ]
+    }
+  }
+}
+```
+
+### 配置说明
+
+- `uvx`: Python包运行器，会自动下载并运行指定版本的包
+- `ssh-agent-mcp@latest`: 使用最新版本，也可以指定具体版本如 `@0.1.0`
+- 命令行参数会覆盖配置文件中的相应设置
+- 使用 `--auto-connect` 可以在启动时自动建立SSH连接
+
+### 更多配置示例
+
+查看 `claude_desktop_config_examples.json` 文件获取更多配置示例。
+
+## 🚨 安全注意事项
+
+- 🔐 请确保SSH凭据的安全，避免在日志中暴露敏感信息
+- 🔑 建议使用私钥认证而非密码认证
+- 🛡️ 在生产环境中考虑使用SSH代理转发
+- 🔄 定期轮换SSH密钥和密码
+- 📝 不要将包含密码的配置文件提交到版本控制系统
+
+## 🐛 故障排除
+
+### 常见问题
+
+1. **连接失败**
+   - 检查SSH服务器地址和端口
+   - 验证用户名和密码/私钥
+   - 确认SSH服务正在运行
+
+2. **私钥认证失败**
+   - 检查私钥文件路径
+   - 确认私钥权限正确（600）
+   - 如果私钥有密码，请提供private_key_password
+
+3. **配置文件错误**
+   - 验证JSON格式是否正确
+   - 检查必需字段是否填写
+   - 查看日志获取详细错误信息
+
+4. **MCP服务器无法启动**
+   - 检查Python环境和依赖
+   - 确认配置文件路径正确
+   - 查看错误日志
+
+### 调试模式
+
+设置环境变量启用调试日志：
+```bash
+export SSH_LOG_LEVEL=DEBUG
+python main.py
+```
+
+## 🤝 贡献
+
+欢迎提交Issue和Pull Request！
+
+## 📄 许可证
+
+MIT License
