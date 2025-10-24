@@ -1,0 +1,15 @@
+logio/__init__.py,sha256=lVL4VPz3c4kWCgjPtL4uuQLNmgwK92q1ffAsv5El02k,25
+logio/cli.py,sha256=QC1F-4YS44oIfyTfujnxRI0BufC88YlsIKyUdv0A2gs,5456
+logio/logfilter.py,sha256=0fR7rIsMW8jJAyxs8LDzq20EoYgsCg053-_VAKHBPTg,1349
+logio/login.py,sha256=ELCAT0l-8FG0XHwvKoMMYCRgMOFYDf8XNzOpYVXnXFM,5054
+logio/logout.py,sha256=vPHSPQLNMtywl9Q8PrDZDflT-YeMclmHE48Fq7Sma0o,7936
+logio/logparser.py,sha256=OUEn5mpnEGtK50-bXjbcZf67IHE-oeFeOCKCLcR9G2w,7894
+logio/rules.py,sha256=t1DDyj0wr-zfvEQ3EWTJKAn8AYlOJSiE327_GeH4K1E,7781
+logio/tests/__init__.py,sha256=lVL4VPz3c4kWCgjPtL4uuQLNmgwK92q1ffAsv5El02k,25
+logio/tests/test_logparse.py,sha256=4aZHtUjq5PpVlHtRusf0q6ujvy1E75LIZodEvbCCyhI,8263
+logio-0.1.21.dist-info/licenses/LICENSE,sha256=obw2CZf5h7UZnaew6e-5j9CVAQxH8t6wH1IYoDbLWZ8,1065
+logio-0.1.21.dist-info/METADATA,sha256=bU_Ze_cQVvpB4Sd2fHRqpepsM6rd2rsr5_mo0yoqRoc,3723
+logio-0.1.21.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+logio-0.1.21.dist-info/entry_points.txt,sha256=nsQ5GXQK5TNf85-0K8PcI45kT-31BjV7IYNZFmFzBUo,41
+logio-0.1.21.dist-info/top_level.txt,sha256=tU1cA_Cnkxrtf0nhpHjYFaDr26FpG3N3Q87o4znaV40,6
+logio-0.1.21.dist-info/RECORD,,
