@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: polyshell
+Version: 0.1.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: pytest>=8.3.5 ; extra == 'dev'
+Requires-Dist: pytest-cases>=3.9.1 ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: numpy>=2.2.6 ; extra == 'dev'
+Requires-Dist: shapely>=2.0.7 ; extra == 'dev'
+Requires-Dist: pytest>=8.3.5 ; extra == 'tests'
+Requires-Dist: pytest-cases>=3.9.1 ; extra == 'tests'
+Requires-Dist: numpy>=2.2.6 ; extra == 'tests'
+Requires-Dist: shapely>=2.0.7 ; extra == 'tests'
+Requires-Dist: numpy>=2.2.6 ; extra == 'readers'
+Requires-Dist: shapely>=2.0.7 ; extra == 'readers'
+Requires-Dist: matplotlib>=3.10.5 ; extra == 'cli'
+Requires-Dist: typer>=0.17.4 ; extra == 'cli'
+Provides-Extra: dev
+Provides-Extra: tests
+Provides-Extra: readers
+Provides-Extra: cli
+License-File: LICENSE
+Summary: A high-performance coverage-preserving polygon reduction library for Python, written in Rust
+Author-email: Niall Oswald <niall.oswald20@imperial.ac.uk>, Kenneth Martin <k.martin24@imperial.ac.uk>, Jo Wayne Tan <jo.tan17@imperial.ac.uk>
+License: Apache License Version 2.0
+Requires-Python: >=3.10
+Project-URL: repository, https://github.com/ecmwf/polyshell
+Project-URL: documentation, https://ecmwf.github.io/PolyShell/
+Project-URL: issues, https://github.com/ecmwf/polyshell/issues
