@@ -1,0 +1,527 @@
+# pgvector Azure OpenAI MCP server
+
+A MCP server with RAG capabilities using Azure OpenAI embeddings and pgvector for PostgreSQL.
+
+Focuses on Azure OpenAI embeddings.
+
+## Features
+
+- **MCP Compatible**: Fully based on the Model Context Protocol, seamlessly integrating with AI assistants.
+- **Collection Management**: Create, list, rename, and delete vector collections.
+- **Vector Operations**: Add vectors, search for similar content, and process documents in batches.
+- **Embedding Service**: Integrates Azure OpenAI embeddings.
+- **Modern Package Management**: Based on the uv package manager for fast installation and dependency management.
+- **Atomic Operations**: Database transactions ensure atomicity for operations like collection renaming.
+- **Cross-Platform Support**: Compatible with Windows, macOS, and Linux.
+
+## Quick Start
+
+### 1. Installation Methods
+
+**Method 1: Run directly with uvx (Most Recommended)**
+
+```bash
+# No installation required, run directly with uvx in MCP configuration
+# uvx will automatically download and manage packages
+```
+
+**Method 2: Install with uv**
+
+```bash
+# Global tool installation
+uv tool install pgvector-azure-openai-mcp-server
+
+# Or project dependency installation
+uv add pgvector-azure-openai-mcp-server
+```
+
+**Method 3: Install with pip**
+
+```bash
+pip install pgvector-azure-openai-mcp-server
+```
+
+### 2. Set up the Database using Docker
+
+Use `docker-compose.yaml` to set up a database with `pgvector` support.
+
+To install `pgvector` into the database, an `init-db.sql` script must be ran when the PostgreSQL container is first ran. Download this `init-db.sql` script first:
+
+```bash
+wget https://raw.githubusercontent.com/darktohka/pgvector-azure-openai-mcp-server/refs/heads/master/init-db.sql
+```
+
+Then, create the `docker-compose.yaml`:
+
+```yaml
+services:
+  db:
+    image: pgvector/pgvector:pg18
+    restart: always
+    environment:
+      POSTGRES_DB: mcp_vectors
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+
+volumes:
+  db_data:
+```
+
+To create the database, finally:
+
+```bash
+docker compose up -d
+```
+
+By default, the `mcp_vectors` Postgres database will be used.
+
+If databases need to be set up manually (not necessary when using `init-db.sql`), use:
+
+```bash
+# Connect to PostgreSQL and enable the pgvector extension
+psql postgres -c "CREATE EXTENSION IF NOT EXISTS vector;"
+```
+
+### 3. Configure the MCP Client
+
+Add the following configuration to your MCP client configuration file (e.g., VS Code):
+
+**Recommended Configuration (using uvx, no pre-installation required)**:
+
+```json
+{
+  "servers": {
+    "pgvector-azure-openai-mcp-server": {
+      "command": "uvx",
+      "args": ["pgvector-azure-openai-mcp-server"],
+      "env": {
+        "DATABASE_URL": "postgresql://username:password@localhost:5432/mcp_vectors",
+        "AZURE_OPENAI_API_KEY": "your_azure_openai_api_key_here",
+        "AZURE_OPENAI_ENDPOINT": "your_azure_openai_endpoint_here",
+        "AZURE_OPENAI_MODEL": "text-embedding-3-small",
+        "DEBUG": "false"
+      }
+    }
+  }
+}
+```
+
+**Alternative Configuration (if already installed)**:
+
+```json
+{
+  "servers": {
+    "pgvector-azure-openai-mcp-server": {
+      "command": "pgvector-azure-openai-mcp-server",
+      "env": {
+        "DATABASE_URL": "postgresql://username:password@localhost:5432/mcp_vectors",
+        "AZURE_OPENAI_API_KEY": "your_azure_openai_api_key_here",
+        "AZURE_OPENAI_ENDPOINT": "your_azure_openai_endpoint_here",
+        "AZURE_OPENAI_MODEL": "text-embedding-3-small",
+        "DEBUG": "false"
+      }
+    }
+  }
+}
+```
+
+**Traditional Configuration (using Python module)**:
+
+```json
+{
+  "servers": {
+    "pgvector-azure-openai-mcp-server": {
+      "command": "python",
+      "args": ["-m", "pgvector_azure_openai_mcp_server"],
+      "env": {
+        "DATABASE_URL": "postgresql://username:password@localhost:5432/mcp_vectors",
+        "AZURE_OPENAI_API_KEY": "your_azure_openai_api_key_here",
+        "AZURE_OPENAI_ENDPOINT": "your_azure_openai_endpoint_here",
+        "AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME": "your_embedding_deployment_name_here",
+        "DEBUG": "false"
+      }
+    }
+  }
+}
+```
+
+Caution: When using Claude Code, the top-level key is called `mcpServers` not `servers`.
+
+### 4. Verify Installation
+
+Use the MCP client to call the `status` tool to verify the connection:
+
+```json
+{
+  "tool": "status",
+  "parameters": {}
+}
+```
+
+Expected Response:
+
+```json
+{
+  "success": true,
+  "database": {
+    "connected": true,
+    "pgvector_installed": true
+  },
+  "embedding_service": {
+    "available": true,
+    "provider": "Azure OpenAI"
+  }
+}
+```
+
+## MCP Tool Reference
+
+The pgvector MCP Server provides the following 10 tools for MCP clients to call:
+
+### 1. System Status Check
+
+```json
+{
+  "tool": "status",
+  "parameters": {}
+}
+```
+
+### 2. Collection Management
+
+#### Create Collection
+
+```json
+{
+  "tool": "create_collection",
+  "parameters": {
+    "name": "my_documents",
+    "description": "My document collection",
+    "dimension": 1536
+  }
+}
+```
+
+#### List All Collections
+
+```json
+{
+  "tool": "list_collections",
+  "parameters": {
+    "include_documents": true
+  }
+}
+```
+
+#### View Collection Details
+
+```json
+{
+  "tool": "show_collection",
+  "parameters": {
+    "name": "my_documents",
+    "include_stats": true
+  }
+}
+```
+
+#### Rename Collection (New Feature)
+
+```json
+{
+  "tool": "rename_collection",
+  "parameters": {
+    "old_name": "my_documents",
+    "new_name": "document_library"
+  }
+}
+```
+
+#### Delete Collection
+
+```json
+{
+  "tool": "delete_collection",
+  "parameters": {
+    "name": "my_documents",
+    "confirm": true
+  }
+}
+```
+
+### 3. Vector Operations
+
+#### Add Text Vector
+
+```json
+{
+  "tool": "add_text",
+  "parameters": {
+    "collection_name": "my_documents",
+    "text": "This is a sample document content",
+    "metadata": {
+      "source": "manual",
+      "type": "document",
+      "category": "Technical Documentation"
+    }
+  }
+}
+```
+
+#### Search Similar Content
+
+```json
+{
+  "tool": "search_collection",
+  "parameters": {
+    "collection_name": "my_documents",
+    "query": "Machine learning related content",
+    "limit": 5,
+    "search_strategy": "smart",
+    "min_similarity": 0.7
+  }
+}
+```
+
+#### Add Document File
+
+```json
+{
+  "tool": "add_document",
+  "parameters": {
+    "collection_name": "my_documents",
+    "file_path": "/path/to/document.pdf",
+    "metadata": {
+      "category": "manual",
+      "language": "en"
+    }
+  }
+}
+```
+
+#### Delete Vectors
+
+```json
+{
+  "tool": "delete_vectors",
+  "parameters": {
+    "collection_name": "my_documents",
+    "file_path": "/path/to/old_document.pdf",
+    "confirm": true
+  }
+}
+```
+
+## Usage Examples
+
+### Basic Workflow
+
+Call the following tools sequentially via the MCP client:
+
+```json
+// 1. Check system status
+{
+  "tool": "status",
+  "parameters": {}
+}
+
+// 2. Create document collection
+{
+  "tool": "create_collection",
+  "parameters": {
+    "name": "documents",
+    "description": "Document knowledge base"
+  }
+}
+
+// 3. Add document content
+{
+  "tool": "add_text",
+  "parameters": {
+    "collection_name": "documents",
+    "text": "Machine learning is an important branch of artificial intelligence",
+    "metadata": {"type": "knowledge"}
+  }
+}
+
+// 4. Search for relevant content
+{
+  "tool": "search_collection",
+  "parameters": {
+    "collection_name": "documents",
+    "query": "Deep learning",
+    "limit": 3
+  }
+}
+
+// 5. View collection statistics
+{
+  "tool": "show_collection",
+  "parameters": {
+    "name": "documents",
+    "include_stats": true
+  }
+}
+```
+
+### Document Processing Example
+
+```json
+// Process PDF document
+{
+  "tool": "add_document",
+  "parameters": {
+    "collection_name": "tech_docs",
+    "file_path": "/Users/username/documents/manual.pdf",
+    "metadata": {
+      "category": "technical",
+      "language": "en",
+      "source": "official_docs"
+    }
+  }
+}
+
+// Search document content
+{
+  "tool": "search_collection",
+  "parameters": {
+    "collection_name": "tech_docs",
+    "query": "API configuration method",
+    "search_strategy": "smart",
+    "metadata_filters": {
+      "category": "technical"
+    }
+  }
+}
+```
+
+### Collection Renaming and Management Example
+
+```json
+// Rename collection (new feature)
+{
+  "tool": "rename_collection",
+  "parameters": {
+    "old_name": "temp_docs",
+    "new_name": "permanent_docs"
+  }
+}
+
+// List all collections
+{
+  "tool": "list_collections",
+  "parameters": {
+    "include_documents": true
+  }
+}
+
+// Delete unnecessary vectors
+{
+  "tool": "delete_vectors",
+  "parameters": {
+    "collection_name": "permanent_docs",
+    "file_path": "/old/path/outdated.pdf",
+    "confirm": true
+  }
+}
+```
+
+## Feature Description
+
+### Windows Encoding Compatibility
+
+- **Automatic Encoding Detection**: Supports GBK, GB2312, UTF-8, and other encoding formats.
+- **Encoding Conversion**: Automatically converts to UTF-8 for unified processing.
+
+### Search Strategies
+
+- **smart**: Intelligent combination of SQL + semantic search (recommended).
+- **sql_only**: Uses traditional SQL text search only.
+- **semantic_only**: Uses vector similarity search only.
+
+### Atomic Operation Guarantee
+
+- **Collection Renaming**: Database transactions ensure atomicity of operations.
+- **Batch Insertion**: Guarantees consistency during batch processing of vector data.
+- **Error Recovery**: Automatic rollback on operation failure to ensure data integrity.
+
+### Performance Optimization
+
+- **Vector Indexing**: Uses pgvector's ivfflat index to optimize search performance.
+- **Batch Processing**: Supports document chunking and batch vector generation.
+- **Connection Pool**: SQLAlchemy connection pool improves database access efficiency.
+- **Response Time**: Target response time for document processing < 2 seconds.
+
+## System Requirements
+
+- **Python**: 3.11+ (uses modern Python features)
+- **PostgreSQL**: 16+ with pgvector extension enabled
+- **pgvector**: Version 0.8.0+
+- **MCP Client**: AI assistant supporting the MCP protocol (e.g., Claude Desktop)
+- **Package Management**: uv (recommended) or pip
+- **Azure OpenAI API**: Azure OpenAI API key for text embeddings
+
+## Development and Deployment
+
+### uv Project Development
+
+```bash
+# Clone the project
+git clone https://github.com/darktohka/pgvector-azure-openai-mcp-server
+cd pgvector-azure-openai-mcp-server
+
+# Install dependencies with uv
+uv sync
+
+# Run tests
+uv run pytest
+
+# Build package
+uv build
+
+# Publish to PyPI
+uv publish
+```
+
+### Environment Variable Configuration
+
+```bash
+# Required configuration
+DATABASE_URL=postgresql://username:password@localhost:5432/database
+AZURE_OPENAI_API_KEY=your_api_key_here
+AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint_here
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=your_embedding_deployment_name_here
+
+# Optional configuration
+DEBUG=false  # Debug mode
+```
+
+## Installation and Configuration Notes
+
+### Advantages of uvx Method
+
+- **No Pre-installation Required**: uvx automatically downloads and manages packages and their dependencies.
+- **Isolated Environment**: Each tool runs in an independent environment, avoiding dependency conflicts.
+- **Automatic Updates**: Always uses the latest version.
+- **Simplified Configuration**: Configuration files are simpler, no need to specify paths.
+
+### Configuration Selection Suggestions
+
+- **New Users**: Recommended to use uvx configuration, it's the simplest and fastest.
+- **Developers**: Install with `uv tool install` and then call commands directly.
+- **Production Environment**: Traditional Python module method can be chosen for easier version control.
+
+## Troubleshooting
+
+**Common Issues**:
+
+- Database connection failed: Check DATABASE_URL format and PostgreSQL service status.
+- pgvector extension not found: Execute `CREATE EXTENSION vector;` in PostgreSQL. Make sure `init-db.sql` is being run.
+- API key error: Verify if `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, and `AZURE_OPENAI_MODEL` are correctly configured.
+- Collection renaming failed: Check if the new name already exists.
+- uvx network issues: Ensure network connection is normal, uvx needs to download packages from PyPI.
