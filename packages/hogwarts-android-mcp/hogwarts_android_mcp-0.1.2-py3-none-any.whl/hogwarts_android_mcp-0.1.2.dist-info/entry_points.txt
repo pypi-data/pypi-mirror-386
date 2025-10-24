@@ -1,0 +1,3 @@
+[console_scripts]
+hogwarts-adb-mcp = hogwarts_android_mcp.__main__:main
+hogwarts-android-mcp = hogwarts_android_mcp.__main__:main
