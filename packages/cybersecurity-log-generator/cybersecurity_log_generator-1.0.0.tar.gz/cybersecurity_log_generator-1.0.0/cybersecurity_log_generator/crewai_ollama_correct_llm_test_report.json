@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-10-17T22:33:39.026938",
+  "ollama_config": {
+    "base_url": "http://localhost:11434",
+    "model": "gemma3:4b"
+  },
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 4,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  },
+  "results": [
+    {
+      "test": "ollama_direct",
+      "status": "success",
+      "model": "gemma3:4b",
+      "response": "Test successful"
+    },
+    {
+      "test": "llm_instantiation",
+      "status": "success",
+      "model": "ollama/gemma3:4b",
+      "base_url": "http://localhost:11434"
+    },
+    {
+      "test": "crewai_with_correct_llm",
+      "status": "success",
+      "result": "A user reporting suspicious network activity from an unknown IP address necessitates a systematic and layered investigation. The initial phase focuses on rapid triage, including WHOIS lookup, geolocat..."
+    },
+    {
+      "test": "crewai_mcp_with_correct_llm",
+      "status": "success",
+      "tools_available": 13,
+      "result": "No threats were identified in the generated logs. All observed activity is consistent with normal network operations."
+    }
+  ]
+}

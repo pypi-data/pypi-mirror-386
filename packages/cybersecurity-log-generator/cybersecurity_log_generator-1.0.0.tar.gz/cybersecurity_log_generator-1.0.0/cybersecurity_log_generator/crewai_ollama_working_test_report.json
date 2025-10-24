@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-10-20T12:52:37.483952",
+  "ollama_config": {
+    "base_url": "http://localhost:11434",
+    "model": "gemma3:4b"
+  },
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 3,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  },
+  "results": [
+    {
+      "test": "ollama_direct",
+      "status": "success",
+      "model": "gemma3:4b",
+      "response": "Test successful"
+    },
+    {
+      "test": "crewai_with_ollama_proper",
+      "status": "success",
+      "result": "Okay, let's analyze this cybersecurity scenario. A user reports suspicious network activity from an unknown IP address \u2013 this immediately triggers a need for a thorough investigation. My priority is t..."
+    },
+    {
+      "test": "crewai_mcp_with_ollama_proper",
+      "status": "success",
+      "tools_available": 13,
+      "result": "The generated logs indicate a potential security incident involving port scanning, an attempted HTTPS connection, and an SSH connection to a remote server. The port scanning activity suggests a reconn..."
+    }
+  ]
+}

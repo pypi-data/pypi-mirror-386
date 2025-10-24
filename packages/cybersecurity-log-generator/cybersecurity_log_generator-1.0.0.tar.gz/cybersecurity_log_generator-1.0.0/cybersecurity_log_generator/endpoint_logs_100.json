@@ -1,0 +1,191 @@
+[
+  {
+    "id": "e20ffad3-6132-482a-8776-26d4f7678d03",
+    "timestamp": "2025-10-16 17:29:12.498001",
+    "log_type": "endpoint",
+    "severity": "low",
+    "source": {
+      "ip_address": "192.168.2.249",
+      "port": 53,
+      "hostname": "SERVER-EMAI8R",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": null,
+    "user": "jennifer.kane",
+    "process": null,
+    "event_id": null,
+    "message": "Security update applied: Software Update v7.1.2",
+    "raw_data": {
+      "update_type": "Software Update",
+      "update_version": "7.1.2",
+      "update_engine": "Windows Defender",
+      "update_size": 1320883,
+      "update_source": "Microsoft Update"
+    },
+    "tags": [
+      "update",
+      "security"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "da21ddb5-4c9e-4ee1-bb35-733dfb632e41",
+    "timestamp": "2025-10-16 17:29:12.498193",
+    "log_type": "endpoint",
+    "severity": "low",
+    "source": {
+      "ip_address": "10.86.121.138",
+      "port": 465,
+      "hostname": "SERVER-5FMQZN",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": null,
+    "user": "kendra.lawrence",
+    "process": null,
+    "event_id": null,
+    "message": "Security update applied: Threat Database Update v4.1.0",
+    "raw_data": {
+      "update_type": "Threat Database Update",
+      "update_version": "4.1.0",
+      "update_engine": "Windows Defender",
+      "update_size": 1868230,
+      "update_source": "Microsoft Update"
+    },
+    "tags": [
+      "update",
+      "security"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "ce4ab5fd-548e-4c10-8c4f-62488b21e4a9",
+    "timestamp": "2025-10-16 17:29:12.498262",
+    "log_type": "endpoint",
+    "severity": "medium",
+    "source": {
+      "ip_address": "172.26.106.8",
+      "port": 993,
+      "hostname": "LAPTOP-39Y72Q",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": null,
+    "user": "service",
+    "process": "csrss.exe",
+    "event_id": null,
+    "message": "Suspicious activity detected: Abnormal process behavior in csrss.exe",
+    "raw_data": {
+      "activity_type": "Abnormal process behavior",
+      "process_name": "csrss.exe",
+      "suspicion_level": "High",
+      "behavior_analysis": "Anomalous",
+      "threat_score": 84
+    },
+    "tags": [
+      "suspicious",
+      "behavior",
+      "analysis"
+    ],
+    "threat_actor": null,
+    "attack_tactic": "execution",
+    "attack_technique": "suspicious_behavior",
+    "ioc_type": null,
+    "confidence_score": 0.7177512757294139,
+    "false_positive_probability": 0.1497239836328113
+  },
+  {
+    "id": "5dc04270-1204-46a8-98e3-4f0324bd9cbb",
+    "timestamp": "2025-10-16 17:29:12.498324",
+    "log_type": "endpoint",
+    "severity": "critical",
+    "source": {
+      "ip_address": "192.168.72.114",
+      "port": 995,
+      "hostname": "WORKSTATION-Y8DM49",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": null,
+    "user": "root",
+    "process": "services.exe",
+    "event_id": null,
+    "message": "Malware detected: Dropper.Win32.Payload in keylogger.exe",
+    "raw_data": {
+      "file_name": "keylogger.exe",
+      "file_path": "C:\\Users\\root\\Downloads\\keylogger.exe",
+      "file_hash": "4b1462bc5d64611b6f85b0d0cddc2cec48b1f4ad7cd08ff03accc996a3841b27",
+      "threat_name": "Dropper.Win32.Payload",
+      "action_taken": "Delete",
+      "scan_engine": "Windows Defender",
+      "threat_level": "Low",
+      "quarantine_location": "C:\\Quarantine\\4b1462bc"
+    },
+    "tags": [
+      "malware",
+      "detection",
+      "critical"
+    ],
+    "threat_actor": null,
+    "attack_tactic": "execution",
+    "attack_technique": "malware_execution",
+    "ioc_type": null,
+    "confidence_score": 0.9041829055122766,
+    "false_positive_probability": 0.004163740180186182
+  },
+  {
+    "id": "522069da-dcb6-4282-a8b0-be4d56c62df4",
+    "timestamp": "2025-10-16 17:29:12.498583",
+    "log_type": "endpoint",
+    "severity": "low",
+    "source": {
+      "ip_address": "10.8.227.223",
+      "port": 28983,
+      "hostname": "SERVER-PO7H3Q",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": null,
+    "user": "rhonda.newman",
+    "process": "MsMpEng.exe",
+    "event_id": null,
+    "message": "Antivirus scan completed: Full Scan - 0 threats found",
+    "raw_data": {
+      "scan_type": "Full Scan",
+      "scan_engine": "Windows Defender",
+      "malware_found": 0,
+      "files_scanned": 57334,
+      "scan_duration": 741,
+      "scan_result": "Completed"
+    },
+    "tags": [
+      "scan",
+      "antivirus",
+      "completed"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  }
+]
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-10-17T22:02:06.116567",
+  "ollama_config": {
+    "base_url": "http://localhost:11434",
+    "model": "gemma3:4b"
+  },
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 1,
+    "failed_tests": 2,
+    "success_rate": 33.33333333333333
+  },
+  "results": [
+    {
+      "test": "ollama_connection",
+      "status": "success",
+      "model": "gemma3:4b",
+      "response": "Test successful\n"
+    },
+    {
+      "test": "mcp_connection_only",
+      "status": "failed",
+      "error": "Tool call failed: 'CrewAIMCPTool' object has no attribute 'func'"
+    },
+    {
+      "test": "streamable_http_connection_only",
+      "status": "failed",
+      "error": "Tool call failed: 'CrewAIMCPTool' object has no attribute 'func'"
+    }
+  ]
+}

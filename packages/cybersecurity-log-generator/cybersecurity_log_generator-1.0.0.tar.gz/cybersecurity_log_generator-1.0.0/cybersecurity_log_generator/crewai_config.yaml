@@ -1,0 +1,130 @@
+# CrewAI Configuration for Cybersecurity Crew
+# This file contains the configuration for the cybersecurity crew agents and tasks
+
+agents:
+  log_generator:
+    role: "Cybersecurity Log Generator"
+    goal: "Generate high-quality synthetic cybersecurity logs for testing and analysis"
+    backstory: "Expert in creating realistic security logs that accurately represent real-world scenarios including normal activities and attack patterns"
+    verbose: true
+    allow_delegation: false
+    max_iter: 3
+    max_execution_time: 300
+
+  log_analyzer:
+    role: "Cybersecurity Log Analyzer"
+    goal: "Analyze cybersecurity logs for threats, patterns, and security insights"
+    backstory: "Expert in log analysis, threat detection, and security pattern recognition with deep knowledge of attack signatures and normal behavior patterns"
+    verbose: true
+    allow_delegation: false
+    max_iter: 3
+    max_execution_time: 300
+
+  siem_specialist:
+    role: "SIEM Specialist"
+    goal: "Generate and analyze SIEM priority logs for comprehensive security monitoring"
+    backstory: "Expert in SIEM systems, security event correlation, and priority log analysis with deep understanding of security operations center workflows"
+    verbose: true
+    allow_delegation: false
+    max_iter: 3
+    max_execution_time: 300
+
+  threat_intelligence:
+    role: "Threat Intelligence Analyst"
+    goal: "Generate and analyze threat intelligence data and attack campaigns"
+    backstory: "Expert in threat intelligence, attack campaign analysis, and threat actor profiling with deep knowledge of APT groups and attack techniques"
+    verbose: true
+    allow_delegation: false
+    max_iter: 3
+    max_execution_time: 300
+
+tasks:
+  generate_logs:
+    description: "Generate 100 IDS logs and 50 web access logs for the last 24 hours"
+    expected_output: "Generated IDS and web access logs with realistic patterns and timestamps"
+    async_execution: false
+
+  generate_siem_logs:
+    description: "Generate 200 SIEM priority logs across all categories (EDR, network, AD, Windows, cloud) for the last 12 hours"
+    expected_output: "Generated SIEM priority logs with proper category distribution and realistic security events"
+    async_execution: false
+
+  generate_attack_campaign:
+    description: "Generate an APT29 attack campaign with 50 events over 72 hours"
+    expected_output: "Generated APT29 attack campaign with coordinated events and realistic attack progression"
+    async_execution: false
+
+  analyze_logs:
+    description: "Analyze all generated logs for security threats, patterns, and anomalies. Export the analysis results to files."
+    expected_output: "Comprehensive security analysis report with threat assessment and exported log files"
+    async_execution: false
+
+  generate_correlated_events:
+    description: "Generate 150 correlated events across authentication, network security, and endpoint security pillars"
+    expected_output: "Generated correlated security events with cross-pillar relationships and attack chains"
+    async_execution: false
+
+# MCP Server Configuration
+mcp_servers:
+  local:
+    type: "stdio"
+    command: "python"
+    args: ["mcp_server/server.py"]
+    env:
+      PYTHONPATH: "."
+    timeout: 60
+
+  remote:
+    type: "streamable-http"
+    url: "http://localhost:8000/mcp"
+    timeout: 60
+
+# Crew Configuration
+crew:
+  process: "sequential"
+  verbose: true
+  memory: true
+  planning: true
+  max_rpm: 10
+  max_execution_time: 1800
+
+# Tool Configuration
+tools:
+  # Available MCP tools for different agents
+  log_generator_tools:
+    - "generate_logs"
+    - "generate_attack_campaign"
+    - "generate_pillar_logs"
+    - "generate_correlated_logs"
+
+  log_analyzer_tools:
+    - "analyze_log_patterns"
+    - "export_logs"
+    - "ingest_logs_to_victorialogs"
+
+  siem_specialist_tools:
+    - "generate_siem_priority_logs"
+    - "get_siem_categories"
+    - "generate_comprehensive_siem_logs"
+
+  threat_intelligence_tools:
+    - "generate_campaign_logs"
+    - "get_threat_actors"
+    - "get_correlation_rules"
+    - "get_pillar_attack_patterns"
+
+# Output Configuration
+output:
+  format: "json"
+  directory: "./crewai_outputs"
+  timestamp: true
+  include_metadata: true
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "crewai_cybersecurity.log"
+  max_size: "10MB"
+  backup_count: 5
+
