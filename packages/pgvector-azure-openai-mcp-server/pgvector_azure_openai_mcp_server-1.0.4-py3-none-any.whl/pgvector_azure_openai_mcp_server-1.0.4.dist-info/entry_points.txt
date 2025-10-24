@@ -1,0 +1,2 @@
+[console_scripts]
+pgvector-azure-openai-mcp-server = pgvector_azure_openai_mcp_server.cli:main
