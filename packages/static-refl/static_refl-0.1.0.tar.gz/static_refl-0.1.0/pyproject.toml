@@ -1,0 +1,29 @@
+[project]
+name = "static-refl"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "thautwarm", email = "twshere@outlook.com" }
+]
+requires-python = ">=3.12.5"
+dependencies = [
+    "casefy>=1.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+static-refl = "static_refl:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
