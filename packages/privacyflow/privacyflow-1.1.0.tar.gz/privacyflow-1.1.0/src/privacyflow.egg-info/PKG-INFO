@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: privacyflow
+Version: 1.1.0
+Summary: A CLI tool to scan, compose, and visualize privacy data flows for compliance and audit automation.
+Author-email: PrivacyFlow Team <info@privacyflow.it>
+License: Proprietary
+Project-URL: Homepage, https://www.privacyflow.it
+Project-URL: Documentation, https://www.privacyflow.it/docs
+Project-URL: Support, https://www.privacyflow.it/support
+Project-URL: Source, https://www.privacyflow.it
+Keywords: privacy,gdpr,dataflow,compliance,scanner,cli,security,encryption,rsa
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Security
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.31.0
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: Jinja2>=3.1.2
+Requires-Dist: rich>=13.4.2
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: click>=8.1.7
+Requires-Dist: cryptography>=42.0.0
+Dynamic: license-file
+
+# PrivacyFlow – Mappatura intelligente dei flussi di dati personali
+
+## Installazione
+
+Richiede **Python 3.10 o superiore**.
+
+Da PyPI ufficiale:
+
+
+pip install privacyflow
+ 
+privacy-flow --help
+
+Output:
+
+usage: privacy-flow {init,scan,compose,render,license} ...
+
+Licenze e modalità d’uso
+
+Community	Gratuita per uso interno e demo	Sì	Integrata
+Enterprise	Funzionalità estese (report avanzati, API, branding)	No	Chiave RSA firmata
+
+Attivazione licenza
+In assenza di licenza, PrivacyFlow opera automaticamente in modalità Community Edition con watermark visibile nei report.
+
+Documentazione ufficiale
+Documentazione completa, esempi e modelli YAML:
+https://www.privacyflow.it/docs
+
+Approfondimenti:
+
+Ruoli GDPR nel modello PrivacyFlow
+
+Personalizzazione dei report HTML
+
+Integrazione nei processi CI/CD
+
+Autori e crediti
+PrivacyFlow Labs
+https://www.privacyflow.it
+
+Maintainer: Fabio Marano
+
+Licenza
+Proprietaria – © 2025 PrivacyFlow Labs
+Distribuita esclusivamente per uso interno, audit e ricerca.
+È vietata la redistribuzione, modifica o rivendita senza autorizzazione scritta.
