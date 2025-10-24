@@ -1,0 +1,96 @@
+Metadata-Version: 2.4
+Name: truenas-backup
+Version: 1.0.0
+Summary: CLI tool for backing up TrueNAS configurations.
+Author-email: Shagit Ziganshin <theLastOfCats@gmail.com>
+License-Expression: MIT
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: requests>=2.32.5
+Requires-Dist: truenas-api-client
+Requires-Dist: typer>=0.20.0
+Dynamic: license-file
+
+# TrueNAS Backup Tool
+
+A CLI tool for backing up TrueNAS configurations using the TrueNAS API. It initiates a config download via the API, saves the backup as a .tar.gz file, and manages retention by limiting the number of kept backups.
+
+## Features
+- Authenticates with TrueNAS using API key.
+- Downloads configuration backups with optional inclusion of secretseed and root authorized keys.
+- Saves backups to a specified directory (default: system temp directory, e.g., /tmp on Unix, %TEMP% on Windows).
+- Automatic retention management to keep only the specified number of recent backups.
+- Cross-platform compatible.
+- CLI commands: `run` to perform a backup.
+
+## Usage
+
+No installation required. The tool can be run directly with uvx (requires uv installed):
+```
+uvx truenas-backup --url truenas.local --api-key your-api-key
+```
+Note: For uvx, provide options directly; .env files are not loaded automatically.
+
+Optionally, export environment variables directly:
+```
+export TRUENAS_URL=truenas.local
+export TRUENAS_API_KEY=your-api-key
+export VERIFY_SSL=false
+export MAX_BACKUPS=5
+export SECRETSEED=false
+export ROOT_AUTHORIZED_KEYS=false
+```
+
+### Perform a Backup
+```
+truenas run
+```
+This performs a backup using environment defaults (from exports or .env).
+
+With options (overrides env vars):
+```
+truenas run --url truenas.local --api-key your-api-key --backup-dir /path/to/backups --max-backups 10 --secretseed --verify-ssl
+```
+
+Options:
+- `--url TEXT`: TrueNAS URL (overrides `TRUENAS_URL`).
+- `--api-key TEXT`: API key (overrides `TRUENAS_API_KEY`).
+- `--verify-ssl / --no-verify-ssl`: Verify SSL (overrides `VERIFY_SSL`).
+- `--max-backups INTEGER`: Max backups to keep (overrides `MAX_BACKUPS`).
+- `--secretseed / --no-secretseed`: Include secretseed (overrides `SECRETSEED`).
+- `--root-authorized-keys / --no-root-authorized-keys`: Include root keys (overrides `ROOT_AUTHORIZED_KEYS`).
+- `--backup-dir TEXT`: Directory to save backups (default: system temp dir).
+
+Output example:
+```
+Backup completed: {'filename': '/tmp/truenas-backup-20251023-232000.tar.gz', 'size': 123456, 'backups_kept': 5}
+```
+
+
+## Docker
+
+The project includes a Dockerfile for containerized deployment.
+
+Build the image:
+```
+docker build -t truenas-backup .
+```
+
+Run with environment and volume mount:
+```
+docker run -it --env-file .env -v /host/backups:/app/backups truenas-backup python main.py run --backup-dir /app/backups
+```
+
+For scheduled runs, use cron inside the container or host cron.
+
+## Development
+
+- Linting: `uv run ruff check .`
+- Run tests: (Add tests as needed)
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.

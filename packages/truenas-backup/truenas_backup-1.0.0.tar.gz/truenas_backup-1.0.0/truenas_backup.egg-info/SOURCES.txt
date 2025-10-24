@@ -1,0 +1,10 @@
+LICENSE
+README.md
+main.py
+pyproject.toml
+truenas_backup.egg-info/PKG-INFO
+truenas_backup.egg-info/SOURCES.txt
+truenas_backup.egg-info/dependency_links.txt
+truenas_backup.egg-info/entry_points.txt
+truenas_backup.egg-info/requires.txt
+truenas_backup.egg-info/top_level.txt
