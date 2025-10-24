@@ -1,0 +1,17 @@
+slidegeist/__init__.py,sha256=G0L9kp6hUcv5KgTwwk7ib91NVk0s_tuOjGuLpOar524,292
+slidegeist/cli.py,sha256=rvRt1XK8lLHVQt_t3LfryDOIPvOA1EDKUsTZV8LRpUE,12048
+slidegeist/constants.py,sha256=h8KwnPhn-as59RN9wy_KmgseBcwgY_pAeOv-_jSO9B4,1595
+slidegeist/download.py,sha256=xZ3wrQwZdgXBMmkrShfStGE0aNBtUi_x_tSbtCtUrWw,8093
+slidegeist/export.py,sha256=yZqZtlaMMfmn7DyxCLux3-RQxzbu4Qa-3S_yapU1P-o,11149
+slidegeist/ffmpeg.py,sha256=1ky2wqvUT416rsExhROOWgeUDoZuUcjSd7Gnzi4Gtng,5581
+slidegeist/ffmpeg_scene.py,sha256=oG3AlOxbZgAdLISed62avK3bwbV-AfybCkzosqrg35c,7335
+slidegeist/ocr.py,sha256=KU_YaLS6Ov2Ou0eq4b3KMmjhMSWyUFSS8449DUcBj-M,13243
+slidegeist/pipeline.py,sha256=lKslSZYD90z7euGBZLIHDMByDRYjqwf54eHnFO8XI9o,5877
+slidegeist/pixel_diff_detector.py,sha256=mpHBHPET-w_HTFQbLUTtZ2pLgXVGdqxewYihuMcnQ2Y,24225
+slidegeist/slides.py,sha256=gquTGqcNtjpD8encpGovDrsF_y9ezwyiaM_r_NCx8w8,4332
+slidegeist/transcribe.py,sha256=Qjz30INOaLekY22vG4tQGZtHce4qEwa6VY_McUDHdtM,6725
+slidegeist-2025.10.24.dist-info/METADATA,sha256=l3x-vqa8ijAwgzhy375Q-4q2JKpMGyzigXRFxn9xswI,9957
+slidegeist-2025.10.24.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+slidegeist-2025.10.24.dist-info/entry_points.txt,sha256=TlhmGDENpsLbqPodBxg7GsrBdt20fpbMFde9UGUNfuw,51
+slidegeist-2025.10.24.dist-info/licenses/LICENSE,sha256=egPtrMDwecUEcmLV399_JvWqRRXRIf9XAkbW1G58708,1075
+slidegeist-2025.10.24.dist-info/RECORD,,
