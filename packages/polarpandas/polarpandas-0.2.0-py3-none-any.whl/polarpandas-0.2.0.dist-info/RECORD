@@ -1,0 +1,15 @@
+polarpandas/__init__.py,sha256=Qw85zfYif_OIpN-YKd88AXOSTRYkyoWjrnzfB6G4SbI,1097
+polarpandas/datetime.py,sha256=lLwg-amL8JODl-SXEFrs7hPyz3e50VYQmiUWiuveSO8,2175
+polarpandas/frame.py,sha256=QSe2anFDsnCDT8WeR2g2_RI3dcQd6tyP1CUFahgMINQ,87422
+polarpandas/index.py,sha256=W2HaguImXBxZP0OU4hIersFCnFQdldThMg9XhPa5Hb8,2500
+polarpandas/io.py,sha256=3bvbYiDkkzsku3G2WVUjCeA3P_3K2NCUyP7BOjJavlI,3199
+polarpandas/operations.py,sha256=VBD1kNuEkeQRfSf-Pbh8TQoVnIXz5cC8f28g28eBkNU,4040
+polarpandas/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+polarpandas/series.py,sha256=JqrqJpG9Jmwmh55p6_7TdhrW5el1sABo8D5ulNaEftA,29357
+polarpandas/utils.py,sha256=8Vpwsr7xdSqAjHcL-53g6wvFwas-rPKrYO9BSrWKxys,2351
+polarpandas-0.2.0.dist-info/licenses/LICENSE,sha256=oFq9FEIyAGvzUW2asR4JnQiFiH0X7cNCLO4N_bhiZUk,1068
+polarpandas-0.2.0.dist-info/METADATA,sha256=5ACwmYxTyoCLkpHqHopk4FhHMGSsQXZpbd3_i4J94PA,12024
+polarpandas-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+polarpandas-0.2.0.dist-info/entry_points.txt,sha256=ayowx4jT3opYrMG2jFHYGKqNyRQdxRfMtMkygjGDruY,53
+polarpandas-0.2.0.dist-info/top_level.txt,sha256=eAy3nDh_tvEhzPZBsqrIue-Td7NbCXtKQeLEQw_JZug,12
+polarpandas-0.2.0.dist-info/RECORD,,
