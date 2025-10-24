@@ -1,0 +1,17 @@
+/env/
+.idea/*
+/venv/
+.pytest_cache/
+/app/test_report/
+__pycache__
+.DS_Store
+.vscode/
+/jenkins_home
+/test_report/
+/build
+/dg_itest.egg-info
+/dist
+/test_cases
+/main.py
+/test_src/
+/log/
