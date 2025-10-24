@@ -1,0 +1,2 @@
+[console_scripts]
+debt_optimizer = cli.commands:main
