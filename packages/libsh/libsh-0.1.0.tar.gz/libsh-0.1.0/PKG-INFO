@@ -1,0 +1,13 @@
+Metadata-Version: 2.3
+Name: libsh
+Version: 0.1.0
+Summary: Scott Hyndman's reusable common package for Python projects. Provides opinionated structured logging with custom rendering (24-bit colors, relative timestamps, compact levels) and type-safe value formatting utilities (time units, ranges, pretty-printing).
+Author: shyndman
+Author-email: shyndman <scotty.hyndman@gmail.com>
+Requires-Dist: numpy
+Requires-Dist: pydantic>=2
+Requires-Dist: rich>=14
+Requires-Dist: structlog>=25
+Requires-Python: >=3.12
+Project-URL: Bug Tracker, https://github.com/shyndman/libsh-python/issues
+Project-URL: repository, https://github.com/shyndman/libsh-python
