@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: testgres.os_ops
+Version: 0.0.1
+Summary: Testgres subsystem to work with OS
+Home-page: https://github.com/postgrespro/testgres.os_ops
+Author: Postgres Professional
+Author-email: testgres@postgrespro.ru
+License: PostgreSQL
+Keywords: testgres
+Description-Content-Type: text/markdown
+Requires-Dist: psutil
+Requires-Dist: six>=1.9.0
+Requires-Dist: testgres.common==0.0.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
