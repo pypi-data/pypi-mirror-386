@@ -1,0 +1,84 @@
+Metadata-Version: 2.4
+Name: pixtreme-filter
+Version: 0.6.3
+Summary: GPU-accelerated image filtering operations for pixtreme
+Project-URL: repository, https://github.com/sync-dev-org/pixtreme
+Author-email: minamik <mia@sync.dev>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: GPU :: NVIDIA CUDA :: 12
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.10
+Requires-Dist: pixtreme-core>=0.6.3
+Description-Content-Type: text/markdown
+
+# pixtreme-filter
+
+GPU-accelerated image filtering operations for pixtreme
+
+## Overview
+
+`pixtreme-filter` provides high-performance image filtering operations running on CUDA-enabled GPUs. All operations are optimized for real-time performance and work directly on GPU memory.
+
+## Features
+
+- **Gaussian Blur**: GPU-accelerated Gaussian blur with separable kernels
+- **Zero-Copy Operations**: Direct GPU memory processing via CuPy
+- **Flexible Interface**: Functional API and class-based API
+
+## Installation
+
+```bash
+pip install pixtreme-filter
+```
+
+Requires `pixtreme-core` and CUDA Toolkit 12.x.
+
+## Quick Start
+
+```python
+import pixtreme_filter as pf
+import pixtreme_core as px
+
+# Read image
+img = px.imread("input.jpg")
+
+# Apply Gaussian blur
+blurred = pf.gaussian_blur(img, ksize=15, sigma=3.0)
+
+# Save result
+px.imwrite("output.jpg", blurred)
+```
+
+## API
+
+### Gaussian Blur
+
+```python
+# Functional API
+blurred = pf.gaussian_blur(image, ksize=15, sigma=3.0)
+
+# Class-based API (for repeated operations with same parameters)
+blur = pf.GaussianBlur()
+blurred = blur.get(image, ksize=15, sigma=3.0)
+
+# Get kernel for custom operations
+kernel = pf.get_gaussian_kernel(ksize=15, sigma=3.0)
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Links
+
+- Repository: https://github.com/sync-dev-org/pixtreme
