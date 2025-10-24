@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: mhi-help
+Version: 1.0.0
+Summary: Manitoba Hydro International: Help files
+Author-email: "Manitoba Hydro International Ltd." <pscad@mhi.ca>
+License: BSD-3-Clause-Clear
+Project-URL: Homepage, https://www.pscad.com/support/support-resources
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license
+Dynamic: license-file
+
+# MHI Help Files
+
+Standard help files for Manitoba Hydro International's Python packages,
+such as:
+- mhi.common
+- mhi.cosim
+- mhi.enerplot
+- mhi.pscad
+- mhi.pscad.extras
+- mhi.psout
+- mhi.xml
