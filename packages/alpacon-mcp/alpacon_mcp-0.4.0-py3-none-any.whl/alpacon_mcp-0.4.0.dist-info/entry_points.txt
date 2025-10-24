@@ -1,0 +1,3 @@
+[console_scripts]
+alpacon-mcp = main:main
+alpacon-mcp-sse = main_sse:main
