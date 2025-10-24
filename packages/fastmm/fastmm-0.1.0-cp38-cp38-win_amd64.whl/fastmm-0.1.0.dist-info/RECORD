@@ -1,0 +1,15 @@
+fastmm/fastmm.pyd,sha256=zOobaOJMCDx9olEM94UHaGRr5LS6ktkRQ2yAxSY2Vso,312320
+fastmm/fastmmlib.dll,sha256=6w13k6UymzWy-O1Q1isBY1d-rLjx9sua8ZmKlSqfDBg,945152
+fastmm/matcher.py,sha256=fr5ENTKLai8AdSWnYh_CIPDDonw9c4Xn5kj3yhKuIBI,1501
+fastmm/_version.py,sha256=MV5WiXzLu9GdiczLCl4TjwMYrLapl4eizPsxT5xmIHI,746
+fastmm/__init__.py,sha256=einFc3_4d1hZVIWDmBWU7Pf4kfFdZo_06kncdM2pnk8,2309
+fastmm-0.1.0.dist-info/DELVEWHEEL,sha256=8tYoWZ6DlbyuTNgHS4kX3tkjqS02bj6cy5M6IufJiSo,497
+fastmm-0.1.0.dist-info/METADATA,sha256=4nMt9vLaG9cTuyReZlotzXPu8iY8Cr9Fg_Lz5Yr7U2M,4265
+fastmm-0.1.0.dist-info/RECORD,,
+fastmm-0.1.0.dist-info/WHEEL,sha256=yXMtVL9U8RkqJEJfb-z5X2s1_G1r2eGG-REYk3wgjZ0,104
+fastmm-0.1.0.dist-info/licenses/LICENSE.TXT,sha256=_clHiE6vbAtRl4e5yVHHnJL8n6u-xf7Vd-_kasmmzLI,11514
+fastmm.libs/.load-order-fastmm-0.1.0,sha256=GQCslbibUVsPDt8KYUkEl2mp9nTxuRLXVHQwQLnjhMs,219
+fastmm.libs/boost_serialization-vc143-mt-x64-1_89-6de0b1e5a47fd87411d460603e79e686.dll,sha256=h5uTCoEPXX0V4WUwA56b6T_hr_XCLf0vVbhJiN4va_8,221696
+fastmm.libs/msvcp140-a6579cfdf97ce1f09e3bf1cfedfe823f.dll,sha256=FZuJbZmMhnBrFUK-1Uc_vvzk5Erl7pHrrs7kjBjbm9E,554496
+fastmm.libs/vcomp140-4a3ace2d60f602755117bbefec8346e3.dll,sha256=VauiPNzWSE-7BvQVW4ynWt_OeogfEK_QxJRXFl5ncWQ,193152
+fastmm.libs/vcruntime140_1-2c8e7cb9b47ed3df7e9207f861c6d952.dll,sha256=NASKuqBw7ME7MYzqMUJfTKPt0TPTUDGKxlJZ5gWMizI,37256
