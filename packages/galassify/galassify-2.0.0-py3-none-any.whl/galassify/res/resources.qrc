@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="res">
+    <file>icon_false.png</file>
+    <file>icon_true.png</file>
+    <file>image_not_found.png</file>
+  </qresource>
+</RCC>
