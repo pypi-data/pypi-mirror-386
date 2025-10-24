@@ -1,0 +1,13 @@
+lupa/__init__.py,sha256=0ffWWbu7gE5Yz46ttkgGCYWNuGgBd_S-6BmS-lWm640,3067
+lupa/lua51.cp38-win_amd64.pyd,sha256=zQaR2cDFXVYJ3CoVdPyR_uKWz-Ufo5NVzZkeZAV7FUk,465408
+lupa/lua52.cp38-win_amd64.pyd,sha256=WDQeGsqHRDXk0oEkp_sYoqdB-a81IswFhDq64UxkAl8,481280
+lupa/lua53.cp38-win_amd64.pyd,sha256=bMIY7ZTt0xuod2f16qzSn22uO3ApccRmdQA8MuHjoFE,507392
+lupa/lua54.cp38-win_amd64.pyd,sha256=5ZSie6Cc3Y3jSYTYA78b428rvYarle--ASSpCeV2IhA,542208
+lupa/luajit20.cp38-win_amd64.pyd,sha256=xm2z_9QXKxovDpo2wKgrMrBbGyJLEbVR-hnZyXIbtnA,704512
+lupa/luajit21.cp38-win_amd64.pyd,sha256=lNVZMk5vRRazbClzbC28PSosYZRfzYeFG7IKZB9EG6g,784896
+lupa/version.py,sha256=tAN9UaM-Ob9Nf7oeZg8vVoWYmJIvScF9d4XBuVo2g20,21
+lupa-2.6.dist-info/LICENSE.txt,sha256=voW_Xgot6luR5fNKVcDkOuyOwp9PpbWFjmcntgoA8iw,2281
+lupa-2.6.dist-info/METADATA,sha256=y_BCIsVEeg-Oz7jCrGANGmwbv07Xx0aVSmRgO98yYM0,60166
+lupa-2.6.dist-info/WHEEL,sha256=2M046GvC9RLU1f1TWyM-2sB7cRKLhAC7ucAFK8l8f24,99
+lupa-2.6.dist-info/top_level.txt,sha256=zBjq_OEwVlKBUT25L2ENcMO-9XdwVQSN7X6VHyH7Pcg,5
+lupa-2.6.dist-info/RECORD,,
