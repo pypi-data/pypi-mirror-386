@@ -1,0 +1,2 @@
+[console_scripts]
+xgid2anki = xgid2anki.cli:main
