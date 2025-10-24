@@ -1,0 +1,2 @@
+[console_scripts]
+barkprints = barkprints.__main__:main

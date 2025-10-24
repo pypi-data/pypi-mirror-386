@@ -1,0 +1,15 @@
+barkprints/__init__.py,sha256=i6G4hz9bu9s6r1nf2U5uYkKxrGsrq1XC_Vusr7P1Opo,90
+barkprints/__main__.py,sha256=-k-JOku_KLuUenzeZnQuPqIgODW4xRXo9dE_kgvtoQA,3437
+barkprints/corpus.py,sha256=YSedNvaa6piXpL5pgrarU18a367XSJkcz03gltWBAY8,1429
+barkprints/corpus_builder.py,sha256=ZivsV_JGEFBU56IisrgpzvDHm34s1VrVZagvBhdIB8s,4855
+barkprints/corpus_loader.py,sha256=7E2FdRxwnpcTzUHYlGvMWqeCfIZw_oI52JbWgFM0A04,2352
+barkprints/embedding_matcher.py,sha256=Qax8_wFBqaVhEXDMCte95Vq4V95a45sHuhGFYtJt220,2559
+barkprints/feature_extractor.py,sha256=_zUZnbuRrbiTOpOPKdKTgSnxXXWn0tHtT0GDnWS7ceQ,6401
+barkprints/text_generator.py,sha256=WVauRRgDGNsggkfWaQnnUgCI76z5z7RP9F3kt_IJJDc,1747
+barkprints/corpora/literature.npz,sha256=6XHGUsEX9qfgusGJMbwFGnD6foIFKjVxEE0wXwto3IU,44454
+barkprints/corpora/nature.npz,sha256=W5i4MU1lPTRxgy-uqNyXdJAMKFPEtIhaKqguh32-Z4o,73341
+barkprints-0.1.0.dist-info/METADATA,sha256=VWG9AarOEsalFG4BA6LAeybJzV37N1k8XtRPRQQacL4,7922
+barkprints-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+barkprints-0.1.0.dist-info/entry_points.txt,sha256=Nh1w3Uqr-twLywuT-KcDWnpYk1JE4amUGQ-S-EUXrgo,56
+barkprints-0.1.0.dist-info/licenses/LICENSE,sha256=pcNtKWnbMbBQQPzClkinaMPToOR-zIR6zYHKE5jPQHE,1064
+barkprints-0.1.0.dist-info/RECORD,,
