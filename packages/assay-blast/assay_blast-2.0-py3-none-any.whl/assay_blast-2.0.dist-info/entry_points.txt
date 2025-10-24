@@ -1,0 +1,4 @@
+[console_scripts]
+assay_analyze = assay_analyze:main
+assay_blast = assay_blast:main
+assay_test = assay_test:main
