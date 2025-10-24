@@ -1,0 +1,10 @@
+gradio_canvaworkflow/__init__.py,sha256=9XX2u9GJFe2THhu_v4_E3CojJG8YgAXEz56l8In03eM,70
+gradio_canvaworkflow/canvaworkflow.py,sha256=lSKIm9wkAcfaZGM_R3sMdiQCsgs8evFfdFJ3k-YzpUQ,6591
+gradio_canvaworkflow/canvaworkflow.pyi,sha256=8IXxscfaYerZ-01-1g9UgNQhBe-29VTBJPQKQXO2m7w,25738
+gradio_canvaworkflow/templates/component/index.js,sha256=yRW-21SRRa9DR1AajKJVNKC9ZDxiKuOojpygSM1PJsU,329210
+gradio_canvaworkflow/templates/component/style.css,sha256=hrFODk6y3V7FrAG5qb82cTRhd_9zFXXvmaUZTI3NJ20,27642
+gradio_canvaworkflow/templates/example/index.js,sha256=fUT1HMtx7OW0aMGX1ePpLtcTqztcybTkWTTkilXiHfQ,8348
+gradio_canvaworkflow/templates/example/style.css,sha256=Bj0xUgtSS9exhEheE0g_9tRW4TFyT1t46MM2U8bhKmo,1336
+gradio_canvaworkflow-0.0.2.dist-info/METADATA,sha256=X9Ykl3EdRBRa_NcUvVMJVLPzrGNwiv-ZnHIEdvKd0rk,1646
+gradio_canvaworkflow-0.0.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+gradio_canvaworkflow-0.0.2.dist-info/RECORD,,

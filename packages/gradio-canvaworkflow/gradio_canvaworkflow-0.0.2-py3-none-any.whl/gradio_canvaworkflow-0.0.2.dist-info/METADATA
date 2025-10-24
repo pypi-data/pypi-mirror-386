@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: gradio_canvaworkflow
+Version: 0.0.2
+Summary: A custom component to build flows and graphs
+Author-email: kerryan_mace <k.mace@groupeonepoint.com>
+License-Expression: Apache-2.0
+Keywords: gradio-custom-component,gradio-template-canvaworkflow
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.8
+Requires-Dist: gradio<6.0,>=4.0
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Description-Content-Type: text/markdown
+
+---
+tags: [gradio-custom-component, SimpleTextbox, gradio-custom-component, gradio-template-CanvaWorkflow]
+title: gradio_canvaworkflow
+short_description: A custom component to build flows and graphs
+colorFrom: blue
+colorTo: yellow
+sdk: gradio
+pinned: false
+app_file: space.py
+---
+
+# gradio_canvaworkflow
+
+You can auto-generate documentation for your custom component with the `gradio cc docs` command.
+You can also edit this file however you like.
+
+
+gradio cc dev --gradio-path "C:\Users\k.mace\neo-simple-front\neo_env\Scripts\gradio.exe" --python-path "C:\Users\k.mace\neo-simple-front\neo_env\Scripts\python.exe"
