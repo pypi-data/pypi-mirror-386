@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-filesystem = mcp_server_filesystem.main:main
