@@ -1,0 +1,627 @@
+Metadata-Version: 2.4
+Name: ui-coverage-tool
+Version: 0.32.0
+Summary: UI Coverage Tool is an innovative, no-overhead solution for tracking and visualizing UI test coverage — directly on your actual application, not static snapshots.
+Author-email: Nikita Filonov <filonov.nikitkaa@gmail.com>
+Maintainer-email: Nikita Filonov <filonov.nikitkaa@gmail.com>
+License:                                  Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright 2025 Nikita Filonov
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+Project-URL: Homepage, https://github.com/Nikita-Filonov/ui-coverage-tool
+Project-URL: Repository, https://github.com/Nikita-Filonov/ui-coverage-tool
+Project-URL: Issues, https://github.com/Nikita-Filonov/ui-coverage-tool/issues
+Keywords: python,coverage,ui-coverage,ui-testing,test-coverage,frontend-testing,visual-testing,automation,qa,quality-assurance,reporting,html-report,pytest,selenium,playwright,web-testing,test-analytics
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click==8.1.8
+Requires-Dist: pyyaml==6.0.2
+Requires-Dist: pydantic==2.11.3
+Requires-Dist: pydantic-settings==2.8.1
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Dynamic: license-file
+
+# UI Coverage Tool
+
+[![CI](https://github.com/Nikita-Filonov/ui-coverage-tool/actions/workflows/workflow-test.yml/badge.svg)](https://github.com/Nikita-Filonov/ui-coverage-tool/actions/workflows/workflow-test.yml)
+[![codecov](https://codecov.io/gh/Nikita-Filonov/ui-coverage-tool/branch/main/graph/badge.svg)](https://codecov.io/gh/Nikita-Filonov/ui-coverage-tool)
+[![PyPI version](https://img.shields.io/pypi/v/ui-coverage-tool.svg)](https://pypi.org/project/ui-coverage-tool/)
+[![License](https://img.shields.io/github/license/Nikita-Filonov/ui-coverage-tool)](./LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/Nikita-Filonov/ui-coverage-tool?style=social)](https://github.com/Nikita-Filonov/ui-coverage-tool/stargazers)
+
+**UI Coverage Tool** is an innovative, no-overhead solution for tracking and visualizing UI test coverage — directly on
+your actual application, not static snapshots. The tool collects coverage during UI test execution and generates an
+interactive HTML report. This report embeds a live iframe of your application and overlays coverage data on top, letting
+you see exactly what was tested and how.
+
+## Features
+
+- **Live application preview:** The report displays a real iframe of your app, not static screenshots. You can explore
+  any page and see which elements were interacted with, what actions were performed, and how often.
+- **Flexible frame filters:** Focus only on what matters — filter elements by specific actions (`CLICK`, `FILL`,
+  `VISIBLE`, etc.), or action groups. Ideal for analyzing specific scenarios or regression areas.
+- **Custom highlight & badge colors:** Easily change the highlight and badge colors used in the iframe for different
+  action types or UI states. Great for tailoring the report to your team's visual style or accessibility needs.
+- **No framework lock-in:** Works with any UI testing framework (Playwright, Selenium, etc.) by simply logging actions
+  via the `track_coverage()` method.
+- **Element-level statistics:** View detailed statistics by selector: type of action, count of actions, and a timeline
+  graph of coverage.
+- **Global history overview:** Track historical trends of total coverage and action types across time.
+- **Per-element timeline:** Dive deep into the history of interactions for each element — when and how it was used.
+- **Full element index:** Searchable table of all elements interacted with during tests, even if you're not sure where
+  they are in the UI.
+- **Multi-app support:** Testing multiple domains? No problem. Just list your apps in the config — the report will let
+  you switch between them.
+
+## Table of Contents
+
+- [Features](#features)
+- [Links](#links)
+- [Preview](#preview)
+- [Installation](#installation)
+- [Embedding the Agent Script](#embedding-the-agent-script)
+- [Usage](#usage)
+    - [Playwright](#playwright)
+    - [Selenium](#selenium)
+    - [Coverage Report Generation](#coverage-report-generation)
+- [Configuration](#configuration)
+    - [.env](#configuration-via-env)
+    - [YAML](#configuration-via-yaml)
+    - [JSON](#configuration-via-json)
+    - [Reference](#configuration-reference)
+- [Command-Line Interface (CLI)](#command-line-interface-cli)
+
+## Links
+
+### Example Report
+
+You can view an example of a coverage report generated by the
+tool [here](https://nikita-filonov.github.io/ui-coverage-tool/).
+
+### Questions & Support
+
+If you have any questions or need assistance, feel free to ask [@Nikita Filonov](https://t.me/sound_right).
+
+## Preview
+
+### Summary
+
+![Summary](./docs/screenshots/summary.png "Summary")
+
+### History
+
+![History](./docs/screenshots/history.png "History")
+
+### Frame
+
+![Frame](./docs/screenshots/frame.png "Frame")
+
+### Element Details
+
+![Element Details](./docs/screenshots/element_details.png "Element Details")
+
+### Elements Table
+
+![Elements Table](./docs/screenshots/elements_table.png "Elements Table")
+
+## Installation
+
+Requires Python 3.11+
+
+```shell
+pip install ui-coverage-tool
+```
+
+## Embedding the Agent Script
+
+To enable live interaction and visual highlighting in the report, you must embed the coverage agent into your
+application.
+
+Add this to your HTML:
+
+```html
+
+<script src="https://nikita-filonov.github.io/ui-coverage-report/agent.global.js"></script>
+```
+
+That’s it. No other setup required. Without this script, the coverage report will not be able to highlight elements.
+
+## Usage
+
+Below are examples of how to use the tool with two popular UI automation frameworks: `Playwright` and `Selenium`. In
+both cases, coverage data is automatically saved to the `./coverage-results` folder after each call to `track_coverage`.
+
+### Playwright
+
+```python
+from playwright.sync_api import sync_playwright
+
+# Import the main components of the tool:
+# - UICoverageTracker — the main class for tracking coverage
+# - SelectorType — type of selector (CSS, XPATH)
+# - ActionType — type of action (CLICK, FILL, CHECK_VISIBLE, etc.)
+from ui_coverage_tool import UICoverageTracker, SelectorType, ActionType
+
+# Create an instance of the tracker.
+# The `app` value should match the name in your UI_COVERAGE_APPS config.
+tracker = UICoverageTracker(app="my-ui-app")
+
+with sync_playwright() as playwright:
+    browser = playwright.chromium.launch()
+    page = browser.new_page()
+    page.goto("https://my-ui-app.com/login")
+
+    username_input = page.locator("#username-input")
+    username_input.fill('user@example.com')
+
+    # Track this interaction with the tracker
+    tracker.track_coverage(
+        selector='#username-input',  # The selector (CSS)
+        action_type=ActionType.FILL,  # The action type: FILL
+        selector_type=SelectorType.CSS  # The selector type: CSS
+    )
+
+    login_button = page.locator('//button[@id="login-button"]')
+    login_button.click()
+
+    # Track the click action with the tracker
+    tracker.track_coverage(
+        selector='//button[@id="login-button"]',  # The selector (XPath)
+        action_type=ActionType.CLICK,  # The action type: CLICK
+        selector_type=SelectorType.XPATH  # The selector type: XPath
+    )
+
+```
+
+Quick summary:
+
+- Call `tracker.track_coverage()` after each user interaction.
+- Provide the selector, action type, and selector type.
+- The tool automatically stores tracking data as JSON files.
+
+### Selenium
+
+```python
+from selenium import webdriver
+from ui_coverage_tool import UICoverageTracker, SelectorType, ActionType
+
+driver = webdriver.Chrome()
+
+# Initialize the tracker with the app key
+tracker = UICoverageTracker(app="my-ui-app")
+
+driver.get("https://my-ui-app.com/login")
+
+username_input = driver.find_element("css selector", "#username-input")
+username_input.send_keys("user@example.com")
+
+# Track the fill action
+tracker.track_coverage('#username-input', ActionType.FILL, SelectorType.CSS)
+
+login_button = driver.find_element("xpath", '//button[@id="login-button"]')
+login_button.click()
+
+# Track the click action
+tracker.track_coverage('//button[@id="login-button"]', ActionType.CLICK, SelectorType.XPATH)
+```
+
+### Coverage Report Generation
+
+After every call to `tracker.track_coverage(...)`, the tool automatically stores coverage data in
+the `./coverage-results/` directory as JSON files. You don’t need to manually manage the folder — it’s created and
+populated automatically.
+
+```
+./coverage-results/
+  ├── 0a8b92e9-66e1-4c04-aa48-9c8ee28b99fa.json
+  ├── 0a235af0-67ae-4b62-a034-a0f551c9ebb5.json
+  └── ...
+```
+
+Once your tests are complete and coverage data has been collected, generate a final interactive report using this
+command:
+
+```shell
+ui-coverage-tool save-report
+```
+
+This will generate:
+
+- `index.html` — a standalone HTML report that you can:
+    - Open directly in your browser
+    - Share with your team
+    - Publish to GitHub Pages / GitLab Pages
+- `coverage-report.json` — a structured JSON report that can be used for:
+    - Printing a coverage summary in CI/CD logs
+    - Sending metrics to external systems
+    - Custom integrations or dashboards
+
+**Important!** The `ui-coverage-tool save-report` command must be run from the **root of your project**, where your
+config files (`.env`, `ui_coverage_config.yaml`, etc.) are located. Running it from another directory may result in
+missing data or an empty report.
+
+## Configuration
+
+You can configure the UI Coverage Tool using a single file: either a YAML, JSON, or `.env` file. By default, the
+tool looks for configuration in:
+
+- `ui_coverage_config.yaml`
+- `ui_coverage_config.json`
+- `.env` (for environment variable configuration)
+
+All paths are relative to the current working directory, and configuration is automatically loaded
+via [get_settings()](./ui_coverage_tool/config.py).
+
+**Important!** Files must be in the project root.
+
+### Configuration via `.env`
+
+All settings can be declared using environment variables. Nested fields use dot notation, and all variables must be
+prefixed with `UI_COVERAGE_`.
+
+**Example:** [.env](docs/configs/.env.example)
+
+```dotenv
+# Define the applications that should be tracked. In the case of multiple apps, they can be added in a comma-separated list.
+UI_COVERAGE_APPS='[
+    {
+        "key": "my-ui-app",
+        "url": "https://my-ui-app.com/login",
+        "name": "My UI App",
+        "tags": ["UI", "PRODUCTION"],
+        "repository": "https://github.com/my-ui-app"
+    }
+]'
+
+# The directory where the coverage results will be saved.
+UI_COVERAGE_RESULTS_DIR="./coverage-results"
+
+# The file that stores the history of coverage results.
+UI_COVERAGE_HISTORY_FILE="./coverage-history.json"
+
+# The retention limit for the coverage history. It controls how many historical results to keep.
+UI_COVERAGE_HISTORY_RETENTION_LIMIT=30
+
+# Optional file paths for the HTML and JSON reports.
+UI_COVERAGE_HTML_REPORT_FILE="./index.html"
+UI_COVERAGE_JSON_REPORT_FILE="./coverage-report.json"
+```
+
+### Configuration via YAML
+
+**Example:** [ui_coverage_config.yaml](docs/configs/ui_coverage_config.yaml)
+
+```yaml
+apps:
+  - key: "my-ui-app"
+    url: "https://my-ui-app.com/login",
+    name: "My UI App"
+    tags: [ "UI", "PRODUCTION" ]
+    repository: "https://github.com/my-ui-app"
+
+results_dir: "./coverage-results"
+history_file: "./coverage-history.json"
+history_retention_limit: 30
+html_report_file: "./index.html"
+json_report_file: "./coverage-report.json"
+```
+
+### Configuration via JSON
+
+**Example:** [ui_coverage_config.json](docs/configs/ui_coverage_config.json)
+
+```json
+{
+  "apps": [
+    {
+      "key": "my-ui-app",
+      "url": "https://my-ui-app.com/login",
+      "name": "My UI App",
+      "tags": [
+        "UI",
+        "PRODUCTION"
+      ],
+      "repository": "https://github.com/my-ui-app"
+    }
+  ],
+  "results_dir": "./coverage-results",
+  "history_file": "./coverage-history.json",
+  "history_retention_limit": 30,
+  "html_report_file": "./index.html",
+  "json_report_file": "./coverage-report.json"
+}
+```
+
+### Configuration Reference
+
+| Key                       | Description                                                               | Required | Default                   |
+|---------------------------|---------------------------------------------------------------------------|----------|---------------------------|
+| `apps`                    | List of applications to track. Each must define `key`, `name`, and `url`. | ✅        | —                         |
+| `services[].key`          | Unique internal identifier for the service.                               | ✅        | —                         |
+| `services[].url`          | Entry point URL of the app.                                               | ✅        | —                         |
+| `services[].name`         | Human-friendly name for the service (used in reports).                    | ✅        | —                         |
+| `services[].tags`         | Optional tags used in reports for filtering or grouping.                  | ❌        | —                         |
+| `services[].repository`   | Optional repository URL (will be shown in report).                        | ❌        | —                         |
+| `results_dir`             | Directory to store raw coverage result files.                             | ❌        | `./coverage-results`      |
+| `history_file`            | File to store historical coverage data.                                   | ❌        | `./coverage-history.json` |
+| `history_retention_limit` | Maximum number of historical entries to keep.                             | ❌        | `30`                      |
+| `html_report_file`        | Path to save the final HTML report (if enabled).                          | ❌        | `./index.html`            |
+| `json_report_file`        | Path to save the raw JSON report (if enabled).                            | ❌        | `./coverage-report.json`  |
+
+### How It Works
+
+Once configured, the tool automatically:
+
+- Tracks test coverage during UI interactions.
+- Writes raw coverage data to `coverage-results/`.
+- Stores optional historical data and generates an HTML report at the end.
+
+No manual data manipulation is required – the tool handles everything automatically based on your config.
+
+## Command-Line Interface (CLI)
+
+The UI Coverage Tool provides several CLI commands to help with managing and generating coverage reports.
+
+### Command: `save-report`
+
+Generates a detailed coverage report based on the collected result files. This command will process all the raw coverage
+data stored in the `coverage-results` directory and generate an HTML report.
+
+**Usage:**
+
+```shell
+ui-coverage-tool save-report
+```
+
+- This is the main command to generate a coverage report. After executing UI tests and collecting coverage data, use
+  this command to aggregate the results into a final report.
+- The report is saved as an HTML file, typically named index.html, which can be opened in any browser.
+
+### Command: `copy-report`
+
+This is an internal command mainly used during local development. It updates the report template for the generated
+coverage reports. It is typically used to ensure that the latest report template is available when you generate new
+reports.
+
+**Usage:**
+
+```shell
+ui-coverage-tool copy-report
+```
+
+- This command updates the internal template used by the save-report command. It's useful if the template structure or
+  styling has changed and you need the latest version for your reports.
+- This command is typically only used by developers working on the tool itself.
+
+### Command: `print-config`
+
+Prints the resolved configuration to the console. This can be useful for debugging or verifying that the configuration
+file has been loaded and parsed correctly.
+
+**Usage:**
+
+```shell
+ui-coverage-tool print-config
+```
+
+- This command reads the configuration file (`ui_coverage_config.yaml`, `ui_coverage_config.json`, or `.env`)
+  and prints the final configuration values to the console.
+- It helps verify that the correct settings are being applied and is particularly useful if something is not working as
+  expected.
+
+## Troubleshooting
+
+### The report is empty or missing data
+
+- Ensure that `track_coverage()` is called during your tests.
+- Make sure you run `ui-coverage-tool save-report` from the root directory.
+- Make sure to setup configuration correctly.
+- Check that the `coverage-results` directory contains `.json` files.
