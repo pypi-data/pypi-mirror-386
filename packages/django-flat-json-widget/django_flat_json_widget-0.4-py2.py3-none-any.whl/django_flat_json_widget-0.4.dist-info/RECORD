@@ -1,0 +1,12 @@
+django_flat_json_widget-0.4.dist-info/licenses/LICENSE,sha256=YtuHnUW9Lrm0m2-ALo62dGqldy0hTnpIsIuRpZn_eNo,1495
+flat_json_widget/__init__.py,sha256=jr7XkYDgX6Ta98hyL4TZv-jXyu-74ALVj4y0RsIcsQk,531
+flat_json_widget/tests.py,sha256=VQmQK6sGxRRw83T3XWWab5RqrWaMjViYbIRT_JG3Ia0,862
+flat_json_widget/widgets.py,sha256=r-BqqSu9gubxIF6VT6sv9eiPMnjvVngfpVCKGCtAr44,1033
+flat_json_widget/static/flat-json-widget/css/flat-json-widget.css,sha256=u6UtboLqgUBQbtQHvmK5gCVk2kdfgRh-MgMBpuIL3sw,844
+flat_json_widget/static/flat-json-widget/js/flat-json-widget.js,sha256=UrboAgf5BBAGohXrePpq_5WPhINHXEBQldAaGsifpho,6132
+flat_json_widget/static/flat-json-widget/js/lib/underscore-umd-min.js,sha256=1gwgWJ2Szp1MIl57Eu38EaiLm-bAdODd2yk8fYFSLU8,19572
+flat_json_widget/templates/flat_json_widget/flat_json_widget.html,sha256=uxTxSyfHPIUg6kYD9Whuu2yXvboZ6vkOMRcZ0TArG6I,2855
+django_flat_json_widget-0.4.dist-info/METADATA,sha256=STNpHVVE0fjI-tsZHvZGzLLP4m64IPfT9CCMiY2d-YU,5841
+django_flat_json_widget-0.4.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+django_flat_json_widget-0.4.dist-info/top_level.txt,sha256=k5rVtXM9e9WoFAExuRK-P3BKdgq_4yMd62d0FVuHRZE,17
+django_flat_json_widget-0.4.dist-info/RECORD,,
