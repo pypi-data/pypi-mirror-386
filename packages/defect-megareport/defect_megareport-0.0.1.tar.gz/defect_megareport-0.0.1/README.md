@@ -1,0 +1,36 @@
+# TestY Jira Defect Report Plugin
+
+TestY Jira Defect Report Plugin provides the report for defects found in a test plan results.
+
+## Installation
+
+Installation is not required. The plugin will be installed as a part of TestY.
+
+## How to use
+
+### How to add defect to results
+
+If you add a new test result and would like to mention a defect issued in your JIRA system
+you need following:
+* Add attribute named ```Defect``` or ```Defects``` to the result. Use attribute type TEXT or LIST 
+* Put the full URL (usually it formatted as ```http(s)://<JIRA host>/browse/XXX-NNNN```) to JIRA issue 
+in the attribute above
+
+### How to get the defect report 
+
+* Open the plugin page
+* Choose the project
+* Choose the attribute where JIRA issues stored 
+* Choose the test plan 
+* Choose how to aggregate results (None, use latest, use actual)
+
+Plugin will provide a table containing following:
+* The link to JIRA issue
+* The test plan name
+* The link to test from the plan above
+* The test status
+* The date 
+
+### Notes
+
+The plugin has russian UI.
