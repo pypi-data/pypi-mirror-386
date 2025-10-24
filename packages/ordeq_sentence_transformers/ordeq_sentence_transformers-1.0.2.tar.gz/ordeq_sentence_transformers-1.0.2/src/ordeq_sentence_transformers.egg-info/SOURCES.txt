@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/ordeq_sentence_transformers/__init__.py
+src/ordeq_sentence_transformers/_version.py
+src/ordeq_sentence_transformers/sentence_transformer.py
+src/ordeq_sentence_transformers.egg-info/PKG-INFO
+src/ordeq_sentence_transformers.egg-info/SOURCES.txt
+src/ordeq_sentence_transformers.egg-info/dependency_links.txt
+src/ordeq_sentence_transformers.egg-info/requires.txt
+src/ordeq_sentence_transformers.egg-info/top_level.txt
