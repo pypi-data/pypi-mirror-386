@@ -1,0 +1,6 @@
+zope.interface
+
+[docs]
+Sphinx
+repoze.sphinx.autointerface
+furo

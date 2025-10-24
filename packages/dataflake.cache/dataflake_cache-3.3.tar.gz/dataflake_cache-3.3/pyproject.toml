@@ -1,0 +1,82 @@
+# Generated from:
+# https://github.com/zopefoundation/meta/tree/master/config/pure-python
+
+[build-system]
+requires = [
+    "setuptools >= 78.1.1,< 81",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.coverage.run]
+branch = true
+source = ["dataflake.cache"]
+
+[tool.coverage.report]
+fail_under = 87
+precision = 2
+ignore_errors = true
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "pragma: nocover",
+    "except ImportError:",
+    "raise NotImplementedError",
+    "if __name__ == '__main__':",
+    "self.fail",
+    "raise AssertionError",
+    "raise unittest.Skip",
+]
+
+[tool.coverage.html]
+directory = "parts/htmlcov"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project]
+name = "dataflake.cache"
+version = "3.3"
+description = "Simple caching library"
+readme = "README.rst"
+requires-python = ">=3.10"
+license = "ZPL-2.1"
+license-files = ["LICENSE.txt"]
+keywords = ["cache"]
+authors = [
+  { name = "Jens Vagelpohl and contributors", email = "jens@dataflake.org" },
+]
+classifiers = [
+  "Development Status :: 6 - Mature",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "zope.interface",
+]
+
+[project.optional-dependencies]
+docs = [
+  "Sphinx",
+  "repoze.sphinx.autointerface",
+  "furo",
+]
+
+[project.urls]
+Documentation = "https://dataflakecache.readthedocs.io"
+Issues = "https://github.com/dataflake/dataflake.cache/issues"
+Source = "https://github.com/dataflake/dataflake.cache"
+Changelog = "https://dataflakecache.readthedocs.io/en/latest/changes.html"
+
