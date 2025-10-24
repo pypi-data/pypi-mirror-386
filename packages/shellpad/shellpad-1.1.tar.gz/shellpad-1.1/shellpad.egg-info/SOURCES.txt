@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+shellpad/__init__.py
+shellpad/main.py
+shellpad.egg-info/PKG-INFO
+shellpad.egg-info/SOURCES.txt
+shellpad.egg-info/dependency_links.txt
+shellpad.egg-info/entry_points.txt
+shellpad.egg-info/requires.txt
+shellpad.egg-info/top_level.txt
