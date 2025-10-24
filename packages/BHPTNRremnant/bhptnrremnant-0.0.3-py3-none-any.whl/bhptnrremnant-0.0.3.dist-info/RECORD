@@ -1,0 +1,17 @@
+BHPTNRremnant/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+BHPTNRremnant/analytical_fits.py,sha256=aZ6ewyhyyNMubgNrcV0-P9fdOdMrKK-LYioVLTIHgZQ,1523
+BHPTNRremnant/point_particle.py,sha256=Bbxm7BTiIH9P6fX6A_NijCIhSILxjExmBIQAG13Wamw,3104
+BHPTNRremnant/remnant.py,sha256=hcbzGeXwJ2ET113eiG-LbGGyMeLDKHBuNfxsQvA6T-g,6405
+BHPTNRremnant/.ipynb_checkpoints/analytical_fits-checkpoint.py,sha256=aZ6ewyhyyNMubgNrcV0-P9fdOdMrKK-LYioVLTIHgZQ,1523
+BHPTNRremnant/.ipynb_checkpoints/point_particle-checkpoint.py,sha256=Bbxm7BTiIH9P6fX6A_NijCIhSILxjExmBIQAG13Wamw,3104
+BHPTNRremnant/.ipynb_checkpoints/remnant-checkpoint.py,sha256=hcbzGeXwJ2ET113eiG-LbGGyMeLDKHBuNfxsQvA6T-g,6405
+BHPTNRremnant/data/BHPTNRSur1dq1e3_remnant.pickle,sha256=NcT7O0DJDjWYA0i2UB2vJbKp-1IYAOpehIo58ClT2Lg,649152
+BHPTNRremnant/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+BHPTNRremnant/data/.ipynb_checkpoints/__init__-checkpoint.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+BHPTNRremnant/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+BHPTNRremnant/tests/.ipynb_checkpoints/__init__-checkpoint.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bhptnrremnant-0.0.3.dist-info/licenses/LICENSE,sha256=cbnaA7Pgopjc4H-4pxH44hcq0Jnn9sCJtbSX4Wpc0II,1144
+bhptnrremnant-0.0.3.dist-info/METADATA,sha256=QXwe3PYe5TRyDbJj1OljiQz_3VS21y3Egup1p1fEdns,4072
+bhptnrremnant-0.0.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+bhptnrremnant-0.0.3.dist-info/top_level.txt,sha256=4iKmAPdDS3J6blwYKbEjCDhphA7F9S7KbER2WAyQJXw,14
+bhptnrremnant-0.0.3.dist-info/RECORD,,
