@@ -1,0 +1,16 @@
+core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+core/compiler.py,sha256=502PPu5CesveSwZ_G77WXDgNuhq3dqxYJnqgLF30pQA,6471
+core/routes.py,sha256=dLOQhbKgEy0s_zwiN9FvAns_sYiQTmetMNyCFFZcxMY,4178
+plugins/__init__.py,sha256=xltnIznz2ts4GGuV8Fn7ZsOsfFG5uSqBFBLhXftY-jU,230
+plugins/assets.py,sha256=QPjXJHferbeww-6wOsVUtj67RIjaK9gVkGOUy1Q2MA8,958
+plugins/charts.py,sha256=knyCbXdW9Kc-L4sefB8qcKt6hBmWmiHdDR6mw9Nl4HY,2743
+server/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+server/analytics.py,sha256=Er_XeH6STdivLbXSqhvL1GaEWGTt1K1g9XfPJDLIUE4,736
+server/app.py,sha256=kwa2W9Xpl-vMlwAqpsMW0P2JSTUWnRu9vonHYO-1gHY,7895
+server/postprocess.py,sha256=lMDNWwDvjD6S9go23ak45TmTr6nBFHy4Tkxqg-AAPsE,6563
+webbed_duck-0.2.0.dist-info/licenses/LICENSE,sha256=mpZ1WqzfkN5wHo27Y0wlr5ZRMtMW3WpiODCtLnInGEI,1070
+webbed_duck-0.2.0.dist-info/METADATA,sha256=_WwVAtxc7tsRLoPHpm0haiRGIauwQLgzGDt1y64nS6c,1715
+webbed_duck-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+webbed_duck-0.2.0.dist-info/entry_points.txt,sha256=mkIMQw9yzxhTgqtnGqnPdGCk5sQpSpiRc9eLCHurq_k,53
+webbed_duck-0.2.0.dist-info/top_level.txt,sha256=BPJCcDqNAoywZY19hbZlQUJ7_2bji5bf200e-gtR4ak,20
+webbed_duck-0.2.0.dist-info/RECORD,,
