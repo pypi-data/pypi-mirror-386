@@ -1,0 +1,2 @@
+[console_scripts]
+cciic = cciic.__main__:main
