@@ -1,0 +1,45 @@
+{
+    "interval": null,
+    "input_files": {
+        "BROK": {
+            "data_path": "cwmscli/commands/csv2cwms/tests/data/sample_brok.csv",
+            "store_rule": "REPLACE_ALL",
+            "date_format": [
+                "%m/%d/%Y %H:%M:%S",
+                "%m/%d/%Y %H:%M"
+            ],
+            "timeseries": {
+                "BROK.Elev.Inst.15Minutes.0.Rev-SCADA-cda": {
+                    "columns": "Headwater",
+                    "units": "ft",
+                    "precision": 2
+                },
+                "BROK.Elev-Tailwater.Inst.15Minutes.0.Rev-SCADA-cda": {
+                    "columns": "Tailwater",
+                    "units": "ft",
+                    "precision": 2
+                },
+                "BROK.Flow-Power.Inst.15Minutes.0.Rev-SCADA-cda": {
+                    "columns": "total_Pwr_discharge",
+                    "units": "cfs",
+                    "precision": 0
+                },
+                "BROK.Power-Gen.Inst.15Minutes.0.Rev-SCADA-cda": {
+                    "columns": "U1_MW+U2_MW",
+                    "units": "MW",
+                    "precision": 2
+                },
+                "BROK-Turbine1.Power-Gen.Inst.15Minutes.0.Rev-SCADA-cda": {
+                    "columns": "U1_MW",
+                    "units": "MW",
+                    "precision": 2
+                },
+                "BROK-Turbine2.Power-Gen.Inst.15Minutes.0.Rev-SCADA-cda": {
+                    "columns": "U2_MW",
+                    "units": "MW",
+                    "precision": 2
+                }
+            }
+        }
+    }
+}
