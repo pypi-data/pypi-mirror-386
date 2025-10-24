@@ -1,0 +1,16 @@
+dojo_sdk_client/__about__.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+dojo_sdk_client/__init__.py,sha256=i89wgrdzhJ0nGznxxaYq4KDFPoZXjn64VFe3Vxta0DI,258
+dojo_sdk_client/__main__.py,sha256=aSh4ACqNlZ99gmGJr_0WwO9ZSS9oe-hDFTtZpVooxT4,2474
+dojo_sdk_client/base_dojo_client.py,sha256=disexswwnIT2WFQsbY1NYsE8oT1BBHDU5eGKqiyWLdE,4543
+dojo_sdk_client/dojo_eval_client.py,sha256=V6fHGUOt1qnhDJ-d6B_FxpwQF8Qqcwmk6i5koYsL9ck,11352
+dojo_sdk_client/multi_turn_env.py,sha256=P0Hno68wGoBUTXdPbBMNNTXRnDA_FCGl6EgoNvJufBU,9380
+dojo_sdk_client/types.py,sha256=ZW2pOnjtvxfcSzmNioZJYj0zZbzUQ4_QVDMV6RDsozQ,686
+dojo_sdk_client/utils.py,sha256=MqgV6ikpCrQtvrGnMjZ4-DEenSdOpqwUp8RO9iNmwmY,1415
+dojo_sdk_client/agents/__init__.py,sha256=_k9wBtbthtkTgk46kdWZe4UHX0aKQUJB_wWLdyTK0sg,233
+dojo_sdk_client/agents/anthropic_cua.py,sha256=KRirBitFOy6OdBVvzxive8sNphYKqIdkhuADuD_AzVM,16182
+dojo_sdk_client/agents/base_agent.py,sha256=s03GVaTr7tnKbK6OHwfNQYCQftlEqJLgPgXpPhexuog,402
+dojo_sdk_client/agents/computer_use_tool.py,sha256=jBJNreMMJO8twcwPhXBa5J2pZF0RoZlsWTzhQqwWhwc,4648
+dojo_sdk_client/agents/example_agent.py,sha256=Gx_gJ-mlBRqC8_qEWiPHF2V2H5ysaEVs7zQyhv2PB3E,1059
+dojo_sdk_client-0.1.1.dist-info/METADATA,sha256=4Gg7ycDAhmUvUUhxnNqj9zYmABn4pMlUCqa50gPrwM8,931
+dojo_sdk_client-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+dojo_sdk_client-0.1.1.dist-info/RECORD,,

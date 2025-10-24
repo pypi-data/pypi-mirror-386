@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: dojo-sdk-client
+Version: 0.1.1
+Summary: Client sdk to intearct with Dojo
+Requires-Python: >=3.9
+Requires-Dist: aiohttp>=3.12.15
+Requires-Dist: anthropic>=0.68.0
+Requires-Dist: certifi>=2025.8.3
+Requires-Dist: dojo-sdk-core>=0.1.7
+Requires-Dist: openai>=1.109.1
+Requires-Dist: pillow>=11.3.0
+Requires-Dist: pydantic>=2.11.9
+Requires-Dist: pytest-asyncio>=1.2.0
+Requires-Dist: pytest>=8.4.2
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: websockets>=15.0.1
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: isort; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: pytest>=7.0.0; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Provides-Extra: multi-turn-env
+Requires-Dist: verifiers>=0.0.0; extra == 'multi-turn-env'
+Description-Content-Type: text/markdown
+
+## Dojo client
+Client SDK to intearct with the Dojo server
+
