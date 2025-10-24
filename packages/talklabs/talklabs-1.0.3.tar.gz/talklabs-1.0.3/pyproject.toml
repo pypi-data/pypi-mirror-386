@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "talklabs"
+version = "1.0.3"
+description = "TalkLabs - Unified TTS Engine and SDK"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "TalkLabs Team", email = "dev@talklabs.com.br" }]
+requires-python = ">=3.9"
+
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "torch>=2.0.0",
+    "requests>=2.31.0",
+    "websocket-client>=1.8.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["talklabs", "talklabs.*", "api", "core"]

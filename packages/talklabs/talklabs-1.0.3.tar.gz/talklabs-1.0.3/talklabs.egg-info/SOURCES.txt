@@ -1,0 +1,21 @@
+LICENSE
+README.md
+pyproject.toml
+api/main copy.py
+api/main.py
+api/usage_tracker.py
+core/__init__.py
+core/speech_utils.py
+core/xtts_engine.py
+talklabs/__init__.py
+talklabs.egg-info/PKG-INFO
+talklabs.egg-info/SOURCES.txt
+talklabs.egg-info/dependency_links.txt
+talklabs.egg-info/requires.txt
+talklabs.egg-info/top_level.txt
+talklabs/sdk/__init__.py
+talklabs/sdk/setup.py
+talklabs/sdk/tts.py
+talklabs/sdk/build/lib/talklabs/__init__.py
+talklabs/sdk/build/lib/talklabs/tts.py
+tests/test_usage.py
