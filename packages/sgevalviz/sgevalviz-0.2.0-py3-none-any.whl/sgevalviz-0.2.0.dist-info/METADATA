@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: sgevalviz
+Version: 0.2.0
+Summary: An improved version of sgeval with visualization and statistical analysis tools for GTFS bioinformatics data.
+Author: Vinícius Araújo
+License: MIT
+Project-URL: Homepage, https://github.com/AraujoVE/sgevalviz
+Project-URL: Repository, https://github.com/AraujoVE/sgevalviz
+Project-URL: Issues, https://github.com/AraujoVE/sgevalviz/issues
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=2.0
+Requires-Dist: matplotlib>=3.7
+Requires-Dist: numpy>=1.24
+
+An improved version of sgeval with visualization and statistical analysis tools for GTFS bioinformatics data.
+
+To execute the program you must run: `sgevalviz <path/to/the/folder/you/want/to/store/the/data> <path/to/baseline/file.gtf> <path/to/candidate/file.gtf>`
+Extra parameters can be add to the command, for example `--candidate-config=augustus` will use the config defined on `src/sgevalviz/configs/augustus.json` for the `<path/to/candidate/file.gtf>`

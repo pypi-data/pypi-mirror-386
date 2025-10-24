@@ -1,0 +1,3 @@
+[console_scripts]
+sgevalviz = sgevalviz.cli:main
+sgevalviztest = sgevalviz.cli_test:main_wrapper
