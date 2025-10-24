@@ -1,0 +1,19 @@
+[project]
+name = "python-builtins"
+version = "0.1.0"
+description = "Python builtins written in Python for practice"
+authors = [
+    {name = "RTMoo",email = "toktarkazyramazan@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "python_builtins", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

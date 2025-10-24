@@ -1,0 +1,13 @@
+Metadata-Version: 2.3
+Name: python-builtins
+Version: 0.1.0
+Summary: Python builtins written in Python for practice
+Author: RTMoo
+Author-email: toktarkazyramazan@gmail.com
+Requires-Python: >=3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Description-Content-Type: text/markdown
+
+
