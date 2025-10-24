@@ -1,0 +1,7 @@
+aiomysql==0.2.0
+aiosqlite==0.21.0
+common==0.1.2
+karabo-cpp==3.0.8
+karabo-native==3.0.8
+numpy==2.1.3
+pytest==8.3.3
