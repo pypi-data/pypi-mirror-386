@@ -1,0 +1,93 @@
+name: {{ schema.name }}
+version: 0.1.0
+description: {{ schema.description }}
+
+entities:
+  - path: ["{{ schema.entities.settings }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.asset }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.asset }}", "{{ schema.entities.asset_custom_properties }}"]
+    template: ["sales_custom_properties.md.j2"]
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.tmpl }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.tmpl }}", "{{ schema.entities.tmpl_meeting_notes }}"]
+    template: ["sales_meeting_notes.md.j2"]
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.tmpl }}", "{{ schema.entities.tmpl_customer }}"]
+    template: ["sales_customer.md.j2"]
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.tmpl }}", "{{ schema.entities.tmpl_contact }}"]
+    template: ["sales_contact.md.j2"]
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.tmpl }}", "{{ schema.entities.tmpl_project }}"]
+    template: ["sales_project.md.j2"]
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.tmpl }}", "{{ schema.entities.tmpl_product }}"]
+    template: ["sales_product.md.j2"]
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.settings }}", "{{ schema.entities.automation }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.project }}"]
+    template: []
+    sample: ["sales_project.md.j2"]
+    sample_key: "project"
+  - path: ["{{ schema.entities.contract }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.quotation }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.receipt }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.invoice }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.support }}"]
+    template: []
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.customer }}"]
+    template: []
+    sample: ["sales_customer.md.j2"]
+    sample_key: "customer"
+  - path: ["{{ schema.entities.customer }}", "{{ schema.entities.contact }}"]
+    template: []
+    sample: ["sales_contact.md.j2"]
+    sample_key: "contact"
+  - path: ["{{ schema.entities.product }}"]
+    template: []
+    sample: ["sales_product.md.j2"]
+    sample_key: "product"
+  - path: ["{{ schema.entities.notes }}"]
+    template: []
+    sample: ["sales_meeting_notes.md.j2"]
+    sample_key: "meeting_notes"
+  - path: ["{{ schema.entities.project_board }}"]
+    template: ["sales_project_board.base.j2"]
+    sample: []
+    sample_key: ""
+  - path: ["{{ schema.entities.task_list }}"]
+    template: ["sales_task_list.md.j2"]
+    sample: []
+    sample_key: ""
