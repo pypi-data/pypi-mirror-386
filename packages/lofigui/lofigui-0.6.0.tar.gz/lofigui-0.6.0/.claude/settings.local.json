@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(chmod:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv run python:*)",
+      "Bash(uv run:*)",
+      "Bash(timeout 5 uv run:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
