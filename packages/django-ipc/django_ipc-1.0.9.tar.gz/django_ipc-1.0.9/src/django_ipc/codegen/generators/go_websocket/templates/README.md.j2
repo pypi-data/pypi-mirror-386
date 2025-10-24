@@ -1,0 +1,155 @@
+# Go WebSocket RPC Client
+
+Auto-generated Go client for WebSocket RPC server.
+
+**⚠️ DO NOT EDIT** - This code is automatically generated from RPC method definitions.
+
+## Installation
+
+```bash
+go mod download
+```
+
+## Usage
+
+### Basic Example
+
+```go
+package main
+
+import (
+	"log"
+	"time"
+
+	"rpcclient"
+)
+
+func main() {
+	// Create client for development environment
+	client := rpcclient.NewClientWithEnvironment(
+		rpcclient.EnvDevelopment,
+		rpcclient.WithToken("your-jwt-token-here"),
+		rpcclient.WithTimeout(30 * time.Second),
+		rpcclient.WithLogging(true),
+	)
+
+	// Connect to server
+	if err := client.Connect(); err != nil {
+		log.Fatalf("Failed to connect: %v", err)
+	}
+	defer client.Close()
+
+{% if sample_method %}
+	// Call RPC method
+	params := {{ sample_method.params_model.__name__ if sample_method.params_model else 'map[string]interface{}' }}{
+		// Add your parameters here
+	}
+
+	result, err := client.{{ sample_method.name|replace('.', '_')|title|replace('_', '') }}(params)
+	if err != nil {
+		log.Fatalf("RPC call failed: %v", err)
+	}
+
+	log.Printf("Result: %+v", result)
+{% endif %}
+}
+```
+
+### With Custom URL
+
+```go
+client := rpcclient.NewClient(
+	"ws://localhost:8765",
+	rpcclient.WithToken("your-jwt-token-here"),
+	rpcclient.WithLogging(true),
+)
+```
+
+### Environment Configuration
+
+The client supports multiple environments:
+
+{% if environments %}
+{% for env in environments %}
+- `Env{{ env|capitalize }}` - {{ env }} environment
+{% endfor %}
+{% else %}
+- `EnvDevelopment` - development environment
+{% endif %}
+
+## Available Methods
+
+{% for method in methods %}
+### {{ method.name }}
+
+{{ method.description or 'No description available' }}
+
+```go
+{% if method.params_model %}
+params := {{ method.params_model.__name__ }}{
+	// Add parameters
+}
+{% else %}
+params := map[string]interface{}{
+	// Add parameters
+}
+{% endif %}
+
+result, err := client.{{ method.name|replace('.', '_')|title|replace('_', '') }}(params)
+if err != nil {
+	log.Printf("Error: %v", err)
+}
+```
+
+{% endfor %}
+
+## Error Handling
+
+All methods return an error as the second return value. Always check for errors:
+
+```go
+result, err := client.SomeMethod(params)
+if err != nil {
+	// Handle error
+	if rpcErr, ok := err.(*rpc.RPCError); ok {
+		log.Printf("RPC error %d: %s", rpcErr.Code, rpcErr.Message)
+	} else {
+		log.Printf("Connection error: %v", err)
+	}
+	return
+}
+
+// Use result
+log.Printf("Success: %+v", result)
+```
+
+## Connection Management
+
+### Check Connection Status
+
+```go
+if client.IsConnected() {
+	log.Println("Client is connected")
+}
+```
+
+### Graceful Shutdown
+
+```go
+defer client.Close()
+```
+
+## Configuration Options
+
+- `WithToken(token string)` - Set JWT authentication token
+- `WithTimeout(duration time.Duration)` - Set RPC call timeout (default: 30s)
+- `WithLogging(enabled bool)` - Enable debug logging
+
+## Dependencies
+
+- `github.com/gorilla/websocket` - WebSocket client
+- `github.com/google/uuid` - UUID generation for request tracking
+
+## License
+
+Generated code inherits the license of the RPC server.
