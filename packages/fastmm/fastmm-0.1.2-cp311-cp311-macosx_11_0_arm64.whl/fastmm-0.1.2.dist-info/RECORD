@@ -1,0 +1,11 @@
+fastmm-0.1.2.dist-info/RECORD,,
+fastmm-0.1.2.dist-info/WHEEL,sha256=J4k32aYfy8FqV_eDPQK88Q49UIff400pvjsv-be8I-M,114
+fastmm-0.1.2.dist-info/METADATA,sha256=xAyiMFD8arG7YSSFLNrTL0qS0xs1ZbmbBhotFPMu07M,4265
+fastmm-0.1.2.dist-info/licenses/LICENSE.TXT,sha256=ORqBCyCnu0ktEIRH91V-IzQM9Apd9F8z9WfZv_V83IY,11314
+fastmm/libfastmmlib.dylib,sha256=Qla-hCMB0zSuGMkTiD-uy0hUuH6xH9KeEr2wjqXBwvA,721312
+fastmm/matcher.py,sha256=cZOFPInRMNYE-Fka_ISsUgKWUV90eEZ5asRy4mYKrgQ,1469
+fastmm/_version.py,sha256=wL7XSQWU8_Ox4b9LtnCkz3uMBRgI6g7mzZy30IvQKD4,712
+fastmm/fastmm.cpython-311-darwin.so,sha256=H3KRVI5OYHXnTTufkhjAo9WLSKME1xjwKiTWzIZA6G0,357088
+fastmm/__init__.py,sha256=ZRgvqa5fiA73Q4vt9mUiJWKx9arYsHiZa8eEEn_xCpY,712
+fastmm/.dylibs/libomp.dylib,sha256=ezTmtJ5JfLmjCEzZIALkiQI7POlxY7eZtLqIpnvZ2yc,743584
+fastmm/.dylibs/libboost_serialization.dylib,sha256=-ccYqRO-WQL9F4p_mteZsv5JQUmWnWXYcGpL8-weqbg,488304
