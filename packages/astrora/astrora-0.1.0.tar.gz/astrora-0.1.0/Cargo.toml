@@ -1,0 +1,118 @@
+[package]
+name = "astrora_core"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+authors = ["Cache McClure <cache.mcclure@gmail.com>"]
+description = "Astrora - Rust-backed astrodynamics library - core computational components"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/cachemcclure/astrora"
+keywords = ["astrodynamics", "orbital-mechanics", "aerospace", "space", "python"]
+categories = ["science", "simulation"]
+
+[lib]
+name = "astrora_core"
+crate-type = ["cdylib", "rlib"]  # rlib needed for benchmarks and tests
+
+[dependencies]
+# PyO3 and Python integration
+# Note: extension-module is default feature for Python builds, disabled for benchmarks/tests
+pyo3 = { version = "0.22", features = ["abi3-py38"], default-features = false }
+numpy = "0.22"
+
+# Mathematical and scientific computing
+# NOTE: These crates automatically use SIMD (SSE2/AVX/AVX2/NEON) for optimal performance
+ndarray = "0.16"        # N-dimensional arrays (uses matrixmultiply for SIMD matrix ops)
+nalgebra = "0.33"       # Linear algebra (SIMD for vectors/matrices, runtime CPU detection)
+num-traits = "0.2"      # Numeric trait abstractions
+
+# Parallelization
+# NOTE: Rayon parallelization + SIMD provide multiplicative performance gains (10-32x typical)
+rayon = "1.10"          # Data parallelism (each thread benefits from SIMD independently)
+
+# High-precision time handling
+hifitime = "4"
+
+# SGP4/SDP4 satellite propagation (TLE-based)
+sgp4 = { version = "2.3", features = ["std", "serde"] }
+
+# Precession and nutation will use pure-Rust implementation
+# (ERFA C library has build dependency issues - pure Rust is cleaner)
+
+# Error handling
+thiserror = "1.0"
+
+# Serialization (optional, useful for data interchange)
+serde = { version = "1.0", features = ["derive"], optional = true }
+serde_json = "1.0"  # For OMM JSON parsing
+
+[dev-dependencies]
+# Testing
+approx = "0.5"
+proptest = "1.0"
+criterion = "0.5"
+
+[[bench]]
+name = "propagators"
+harness = false
+
+[[bench]]
+name = "transformations"
+harness = false
+
+[[bench]]
+name = "lambert"
+harness = false
+
+[[bench]]
+name = "propagators_optimized"
+harness = false
+
+[features]
+default = ["extension-module"]
+extension-module = ["pyo3/extension-module"]
+
+[profile.release]
+# Optimization settings for performance
+# NOTE: These settings enable auto-vectorization and SIMD optimizations
+opt-level = 3           # Maximum optimization (enables auto-vectorization)
+lto = "fat"             # Link-time optimization (allows SIMD across crate boundaries)
+codegen-units = 1       # Single codegen unit (better whole-program SIMD analysis)
+strip = false           # Keep debug symbols for profiling
+debug = true            # Enable debug info for flamegraph/profiling
+
+# SIMD Configuration:
+# - Baseline SIMD (SSE2 on x86_64, NEON on ARM64) is ALWAYS active via nalgebra/matrixmultiply
+# - For additional CPU-specific optimizations (AVX2, FMA, etc.), see .cargo/config.toml
+# - Local development: Uncomment target-cpu=native in .cargo/config.toml for 1.2-2x speedup
+# - Distribution: Keep portable (baseline SIMD only) for compatibility across all CPUs
+
+[profile.dev]
+# Faster compilation during development
+opt-level = 0
+
+[profile.bench]
+# Benchmark-specific optimizations
+inherits = "release"
+strip = false
+
+# docs.rs configuration for optimal documentation building
+[package.metadata.docs.rs]
+# Enable all features for comprehensive API documentation
+all-features = true
+
+# Enable the docsrs cfg for conditional documentation
+rustdoc-args = ["--cfg", "docsrs"]
+
+# Set default target to Linux x86_64 (standard for docs.rs)
+default-target = "x86_64-unknown-linux-gnu"
+
+# Build docs for multiple platforms to show platform-specific APIs
+targets = [
+    "x86_64-unknown-linux-gnu",     # Linux x86_64 (default)
+    "x86_64-pc-windows-msvc",       # Windows x86_64
+    "aarch64-apple-darwin",         # macOS Apple Silicon
+    "x86_64-apple-darwin",          # macOS Intel
+    "aarch64-unknown-linux-gnu",    # Linux ARM64
+]
