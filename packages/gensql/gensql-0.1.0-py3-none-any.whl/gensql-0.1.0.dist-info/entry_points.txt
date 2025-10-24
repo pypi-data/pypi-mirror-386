@@ -1,0 +1,2 @@
+[console_scripts]
+gensql-python = gensql_python:main
