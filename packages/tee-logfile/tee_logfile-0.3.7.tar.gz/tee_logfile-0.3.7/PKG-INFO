@@ -1,0 +1,53 @@
+Metadata-Version: 2.3
+Name: tee-logfile
+Version: 0.3.7
+Summary: A simple utility to tee stdout and stderr to a logfile.
+Author: cy
+Requires-Python: >=3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Repository, https://github.com/firstim21cy/tee-logfile
+Description-Content-Type: text/markdown
+
+# tee-logfile
+
+Small Python utility to duplicate process output to a logfile while preserving console output (similar to Unix `tee`).
+
+## Features
+
+- Mirror `stdout` (and optionally `stderr`) to a file and the console.
+- Lightweight and easy to integrate into scripts or pipelines.
+- Designed for use on macOS and other Unix-like systems.
+
+## Requirements
+
+- Python 3.9+
+
+## Installation
+
+```bash
+pip install tee-logfile
+```
+
+## Usage
+
+```python
+from tee_logfile import Tee
+
+with Tee.context('/path/to/output.log'):
+    my_cli_code_to_run()
+```
+
+## Development
+
+### release
+
+```bash
+poetry version minor
+tox -e release
+pip install ~/projects/sandbox/tee-logfile
+```
