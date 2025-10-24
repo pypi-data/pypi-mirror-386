@@ -1,0 +1,2 @@
+recursive-include testrail_megamigrator/templates *
+recursive-include testrail_megamigrator/static *
