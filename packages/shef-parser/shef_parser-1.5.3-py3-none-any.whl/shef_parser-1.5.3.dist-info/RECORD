@@ -1,0 +1,15 @@
+shef/__init__.py,sha256=W07fHPzfP7JTmF2Yxcu2z2d1tNk9T8l42B372Jmmb34,50
+shef/constants.py,sha256=xyGfa73Iz4wOaEq8ADwp9O2DcaxugUnh0WtnO8s_1Go,16941
+shef/loaders/Readme.md,sha256=ehDCKt_tgo0RIH_VMDmNbk0idEk6grwoDgCcFwWrcGE,12007
+shef/loaders/__init__.py,sha256=-hOYM7DNvP0VU8WN9Ntcqshe0RSCfqJBj8K4LGJgJ3E,11108
+shef/loaders/base_loader.py,sha256=eBNAEZH-Hs_N70fIKHbMPQTmYQE3vVQurlKGz8wreJs,11276
+shef/loaders/cda_loader.py,sha256=FCWRq8f2dMPihjv9cT02EkTorujdc4qwqVUE21xVbCA,22564
+shef/loaders/dssvue_loader.py,sha256=cToaFbpN64KrTxqVrfVXAvVV0ka2HdgWZXCcOkPtwbg,43793
+shef/loaders/shared.py,sha256=dDVWQVUhRWlK_wkttLmk7eRnIVt3fLlvN51k3tHpMKI,10435
+shef/loaders/shefdss_util.py,sha256=_0pjWIRI_1HzUORujPrjukzS4Anx73HWfP3jNJY8NUw,8369
+shef/shef_parser.py,sha256=0hQA73wAuc1DY_4HZ2KgNr4w6EOB3wtVWq-9Opc8Gnk,217509
+shef_parser-1.5.3.dist-info/METADATA,sha256=IAHrAtCuVOIt97hRLSQx__s9KX8Ez9EtvVpsCaRPg8Q,1688
+shef_parser-1.5.3.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+shef_parser-1.5.3.dist-info/entry_points.txt,sha256=U6YfdpefCg6ujQ-5AwpbiWisO-tGngnZ_I6hxtJju-o,52
+shef_parser-1.5.3.dist-info/licenses/LICENSE,sha256=oLg9z9aZPgsHaAM2HnU5zdw64DXfBe3jOIVtMiZKKMU,1085
+shef_parser-1.5.3.dist-info/RECORD,,
