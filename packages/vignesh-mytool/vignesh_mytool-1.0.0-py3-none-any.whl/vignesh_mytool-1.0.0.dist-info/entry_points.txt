@@ -1,0 +1,2 @@
+[console_scripts]
+mytool = mytool.main:main
