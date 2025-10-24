@@ -1,0 +1,47 @@
+<!-- System Status -->
+<div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 mb-8">
+    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+        <span class="material-icons mr-2">health_and_safety</span>
+        System Status
+    </h2>
+    <div id="system-status" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Redis Status -->
+        <div class="flex items-start gap-3">
+            <span class="material-icons flex-shrink-0 text-2xl text-gray-500" id="redis-status-icon">
+                help_outline
+            </span>
+            <div class="min-w-0">
+                <p class="text-sm font-medium text-gray-900 dark:text-white">Redis</p>
+                <p class="text-xs text-gray-600 dark:text-gray-400" id="redis-status-text">
+                    Checking...
+                </p>
+            </div>
+        </div>
+
+        <!-- Stream Status -->
+        <div class="flex items-start gap-3">
+            <span class="material-icons flex-shrink-0 text-2xl text-gray-500" id="stream-status-icon">
+                help_outline
+            </span>
+            <div class="min-w-0">
+                <p class="text-sm font-medium text-gray-900 dark:text-white">Request Stream</p>
+                <p class="text-xs text-gray-600 dark:text-gray-400" id="stream-status-text">
+                    Checking...
+                </p>
+            </div>
+        </div>
+
+        <!-- Activity Status -->
+        <div class="flex items-start gap-3">
+            <span class="material-icons flex-shrink-0 text-2xl text-gray-500" id="activity-status-icon">
+                help_outline
+            </span>
+            <div class="min-w-0">
+                <p class="text-sm font-medium text-gray-900 dark:text-white">Recent Activity</p>
+                <p class="text-xs text-gray-600 dark:text-gray-400" id="activity-status-text">
+                    Checking...
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
