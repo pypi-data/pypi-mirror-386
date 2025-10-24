@@ -1,0 +1,274 @@
+# 🦸 MCP Package Hero
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![FastMCP](https://img.shields.io/badge/FastMCP-2.12-green.svg)](https://github.com/jlowin/fastmcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://github.com/moinsen-dev/mcp-package-hero)
+[![Coverage](https://img.shields.io/badge/coverage-81%25-yellowgreen.svg)](https://github.com/moinsen-dev/mcp-package-hero)
+[![Type Check](https://img.shields.io/badge/mypy-passing-blue.svg)](https://github.com/moinsen-dev/mcp-package-hero)
+
+> A focused, reliable Model Context Protocol (MCP) server for checking the latest package versions across Python (PyPI), JavaScript/TypeScript (npm), and Dart (pub.dev).
+
+## 🎯 Purpose
+
+MCP Package Hero answers one question exceptionally well: **"What is the current latest version of this package?"**
+
+Unlike tools that try to do everything, Package Hero focuses on doing three things perfectly:
+- ✅ Check Python packages on PyPI
+- ✅ Check JavaScript/TypeScript packages on npm
+- ✅ Check Dart packages on pub.dev
+
+## 🚀 Features
+
+- **Simple API**: Just two tools - get one version or batch check multiple packages
+- **Fast**: Sub-second response times with async operations
+- **Reliable**: Comprehensive error handling and clear status indicators
+- **LLM-Friendly**: Designed specifically for AI assistants and agents
+- **Type-Safe**: Full type hints, Pydantic validation, and mypy compliance
+- **Well-Tested**: 81% code coverage with comprehensive test suite
+- **Production-Ready**: Modern Python best practices, timezone-aware, Pydantic V2
+
+## 📦 Installation
+
+### Using uv (Recommended)
+
+```bash
+# Install uv if you haven't already
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Clone the repository
+git clone https://github.com/moinsen-dev/mcp-package-hero.git
+cd mcp-package-hero
+
+# Install dependencies
+uv sync
+
+# Install the package
+uv pip install -e .
+```
+
+### Using pip
+
+```bash
+git clone https://github.com/moinsen-dev/mcp-package-hero.git
+cd mcp-package-hero
+pip install -e .
+```
+
+## 🔧 Configuration
+
+Add to your MCP client configuration (e.g., Claude Desktop, Cline, etc.):
+
+### Claude Desktop
+
+Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or
+`%APPDATA%\Claude\claude_desktop_config.json` (Windows):
+
+```json
+{
+  "mcpServers": {
+    "package-hero": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/path/to/mcp-package-hero",
+        "mcp-package-hero"
+      ]
+    }
+  }
+}
+```
+
+### Cline VSCode Extension
+
+Edit `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "package-hero": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/path/to/mcp-package-hero",
+        "mcp-package-hero"
+      ]
+    }
+  }
+}
+```
+
+## 📖 Usage
+
+### Tool 1: Get Latest Version
+
+Check the latest version of a single package:
+
+```python
+# Example queries for your LLM:
+"What's the latest version of requests in Python?"
+"Check the current version of react"
+"Show me the latest version of the http package for Dart"
+```
+
+**Tool Name**: `get_latest_version`
+
+**Parameters**:
+- `package_name` (string): Name of the package
+- `ecosystem` (string): One of "python", "javascript", or "dart"
+
+**Example Response**:
+```json
+{
+  "package_name": "requests",
+  "ecosystem": "python",
+  "latest_version": "2.31.0",
+  "registry_url": "https://pypi.org/project/requests/",
+  "checked_at": "2025-10-06T10:30:00Z",
+  "status": "success"
+}
+```
+
+### Tool 2: Batch Version Check
+
+Check multiple packages at once (max 10):
+
+```python
+# Example query:
+"Check the latest versions of requests (python), react (javascript), and http (dart)"
+```
+
+**Tool Name**: `get_latest_versions_batch`
+
+**Parameters**:
+- `packages` (array): List of objects with `package_name` and `ecosystem`
+- `max_packages` (integer, optional): Limit (default: 10)
+
+**Example Response**:
+```json
+{
+  "results": [
+    {
+      "package_name": "requests",
+      "ecosystem": "python",
+      "latest_version": "2.31.0",
+      "status": "success"
+    },
+    {
+      "package_name": "nonexistent-pkg",
+      "ecosystem": "python",
+      "latest_version": null,
+      "status": "not_found"
+    }
+  ],
+  "checked_at": "2025-10-06T10:30:00Z"
+}
+```
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run with coverage
+uv run pytest --cov=src/mcp_package_hero --cov-report=html
+
+# Run with coverage summary
+uv run pytest --cov=src/mcp_package_hero --cov-report=term-missing
+
+# Run specific test file
+uv run pytest tests/test_registries/test_pypi.py
+```
+
+### Test Results
+- ✅ 8/8 tests passing
+- ✅ 81% code coverage
+- ✅ All three ecosystems validated with live API calls
+
+## 🏗️ Development
+
+### Project Structure
+
+```
+mcp-package-hero/
+├── src/mcp_package_hero/
+│   ├── __init__.py
+│   ├── server.py          # Main FastMCP server
+│   ├── models.py          # Pydantic models
+│   └── registries/
+│       ├── base.py        # Abstract base class
+│       ├── pypi.py        # PyPI integration
+│       ├── npm.py         # npm integration
+│       └── pubdev.py      # pub.dev integration
+├── tests/
+├── README.md
+└── pyproject.toml
+```
+
+### Code Quality
+
+```bash
+# Format code
+uv run ruff format .
+
+# Lint code
+uv run ruff check .
+
+# Auto-fix safe linting issues
+uv run ruff check --fix .
+
+# Type check
+uv run mypy src/
+```
+
+### Quality Standards
+- ✅ **Type Safety**: Full mypy compliance with Pydantic plugin
+- ✅ **Code Style**: Ruff linting and formatting
+- ✅ **Modern Python**: Python 3.10+ type hints (PEP 604)
+- ✅ **Timezone-Aware**: All timestamps use UTC timezone
+- ✅ **Pydantic V2**: Using latest ConfigDict patterns
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [FastMCP](https://github.com/jlowin/fastmcp) by Prefect
+- Inspired by [mcp-package-version](https://github.com/sammcj/mcp-package-version) by Sam McLeod
+- Part of the [Model Context Protocol](https://modelcontextprotocol.io) ecosystem
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/moinsen-dev/mcp-package-hero/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/moinsen-dev/mcp-package-hero/discussions)
+
+## 🗺️ Roadmap
+
+### v1.1
+- [ ] Cache layer for improved performance
+- [ ] Support for specific version queries
+
+### v2.0
+- [ ] Additional ecosystems (Rust, Go, Ruby)
+- [ ] Dependency tree analysis
+- [ ] Version compatibility checking
+
+---
+
+Made with ☕️ by [moinsen-dev](https://github.com/moinsen-dev)
