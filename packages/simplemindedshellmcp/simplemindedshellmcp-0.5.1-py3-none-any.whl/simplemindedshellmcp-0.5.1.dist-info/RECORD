@@ -1,0 +1,13 @@
+simplemindedshellmcp-0.5.1.dist-info/licenses/LICENSE,sha256=eYD9LMYM9oL8CgoWkkf-yRU0JJ25z_Bf7oLLfcMsqOE,1088
+src/__init__.py,sha256=Zv9uhVzhrCqr6Y8v_Kun0ERgoUW_G5lcGzwU3dk_7JQ,173
+src/alias_detector.py,sha256=IXwOTinGc8Uhe4lMeSmZ7ZNkOHLQ8Na7VXruTnuoERQ,6181
+src/command_translator.py,sha256=cdx8zVj4uZz9DsGB2isVKy0ClguygrGCh__cQhCquNs,7965
+src/config_parser.py,sha256=XA11CE4pYUR4cc2l8zL6bAC9xpMleNWvVN0PodTmlT4,4098
+src/example_provider.py,sha256=aZP6yWn77twJudTQMD6gfbiac4QFSCmwf5UtGoEK5B8,10064
+src/server.py,sha256=JvO1Jvaf_uRqhvmyqW52b6j4IS0KBmHfKM78nkxFFSU,14063
+src/tool_checker.py,sha256=ueWOrltKgYcyHShLQtKLfAdJju27ztlddM0kakHT5DQ,6872
+simplemindedshellmcp-0.5.1.dist-info/METADATA,sha256=vKO52_hlANtKa7YBk3JZLO2SlFl_TEP4HtxdZIRO04o,6532
+simplemindedshellmcp-0.5.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+simplemindedshellmcp-0.5.1.dist-info/entry_points.txt,sha256=V-yRMf9a5MaAV26l347CCF05V09NEjsNWEvl7dPZI1M,53
+simplemindedshellmcp-0.5.1.dist-info/top_level.txt,sha256=74rtVfumQlgAPzR5_2CgYN24MB0XARCg0t-gzk6gTrM,4
+simplemindedshellmcp-0.5.1.dist-info/RECORD,,
