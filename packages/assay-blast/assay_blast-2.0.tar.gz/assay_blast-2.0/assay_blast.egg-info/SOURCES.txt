@@ -1,0 +1,15 @@
+LICENSE
+README.md
+assay_analyze.py
+assay_blast.py
+assay_test.py
+pyproject.toml
+./assay_analyze.py
+./assay_blast.py
+./assay_test.py
+assay_blast.egg-info/PKG-INFO
+assay_blast.egg-info/SOURCES.txt
+assay_blast.egg-info/dependency_links.txt
+assay_blast.egg-info/entry_points.txt
+assay_blast.egg-info/requires.txt
+assay_blast.egg-info/top_level.txt

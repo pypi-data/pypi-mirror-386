@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: assay_blast
+Version: 2.0
+Summary: AssayBLAST - for in silico analysis of PCR oligos
+Author: Tom Eulenfeld, Max Collatz
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/rnajena/AssayBLAST
+Keywords: primer design,BLAST
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.11
+License-File: LICENSE
+Requires-Dist: rnajena-sugar
+Dynamic: license-file

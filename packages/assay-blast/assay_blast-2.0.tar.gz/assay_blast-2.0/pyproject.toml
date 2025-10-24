@@ -1,0 +1,45 @@
+[project]
+name = "assay_blast"
+dynamic = ["version"]
+authors = [
+    {name = "Tom Eulenfeld"},
+    {name = "Max Collatz"},
+]
+description = "AssayBLAST - for in silico analysis of PCR oligos"
+license = "MIT"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics"
+]
+keywords = [
+    "primer design", "BLAST"
+]
+requires-python = ">= 3.11"
+dependencies = [
+  "rnajena-sugar",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rnajena/AssayBLAST"
+
+[project.scripts]
+assay_blast = "assay_blast:main"
+assay_analyze = "assay_analyze:main"
+assay_test = "assay_test:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.dynamic]
+version = {attr = "assay_blast.__version__"}
+
+[tool.coverage.run]
+command_line = "-m assay_test"
+source = ["assay_blast", "assay_analyze", "assay_test"]
+patch = ["subprocess"]
