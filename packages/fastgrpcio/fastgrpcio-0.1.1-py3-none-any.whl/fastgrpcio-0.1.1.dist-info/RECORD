@@ -1,0 +1,16 @@
+fastgrpcio/__init__.py,sha256=Z4HNYqiJ7SRGfJEFqAxRYTroBqtCzx9pyeCKdrb4zQ0,93
+fastgrpcio/_utils.py,sha256=5FX1L2AlztZ0qvZrEUZJ_Jr9wRbg3jGov4oNyjj8aek,816
+fastgrpcio/context.py,sha256=YM3tg010CnmYmseYNFYNDNEUIj0_A2mt3spRsVmZuLY,1184
+fastgrpcio/exceptions.py,sha256=tplFh_8UCKoYgqhyIbfqKp28xyRozdSvjEyHVqkD-68,158
+fastgrpcio/fast_grpc.py,sha256=mT1YvL2BPfmYU-9JgfcvQYs6QrcLz7m7Tzfnk-JkgNs,5066
+fastgrpcio/grpc_compiler.py,sha256=Wj5-YNOgrggnOruUi6g-WPcV_nrn1VW57o91UnggAvI,10916
+fastgrpcio/middlewares.py,sha256=HHEgiQX1X3_6KOkfLZViQrlwLLLOyrbdOGB_1Zvi43U,4851
+fastgrpcio/mixins.py,sha256=1vCsmOPqZYL6qe6D5Tl4o22RrTpjoGI4oJUE1VE0euI,11471
+fastgrpcio/schemas.py,sha256=EpZPkekZb5z2OtPibK6p3k_UtBlStt18wgK5IIexQ6M,979
+fastgrpcio/calls/__init__.py,sha256=c-yK9NQidNYpgHLR22w48DdErnwDTtB_U06TPr5NuCg,12172
+fastgrpcio/tracing/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fastgrpcio/tracing/middleware.py,sha256=rBb5cMLZ7IyeCjcrpfQlwnGe84R41EPOZT5Bw0Rx8D8,5334
+fastgrpcio-0.1.1.dist-info/METADATA,sha256=6qlrnmMk8OZkMsVRKmxGDMfEgq-WkJIkAvBxsBy_tO8,4031
+fastgrpcio-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+fastgrpcio-0.1.1.dist-info/top_level.txt,sha256=jY1kuyQsODZI8926jHwkLQlwq6beGbKf5lO1NsquC8k,11
+fastgrpcio-0.1.1.dist-info/RECORD,,
