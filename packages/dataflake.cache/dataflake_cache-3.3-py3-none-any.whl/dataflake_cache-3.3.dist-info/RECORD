@@ -1,0 +1,15 @@
+dataflake/cache/__init__.py,sha256=UnxmjVrk-eNORsitiM48W0pB6yfsaErOak8RYh_ELt8,10
+dataflake/cache/interfaces.py,sha256=I1DW1KQbe5i518aRar4hZE8BZQpPYsebWgxs8SmJYNY,1734
+dataflake/cache/simple.py,sha256=PlO3wjWjXZ8wn2s19LN8bb1htOrAyy5-W3j3RLthwxE,2707
+dataflake/cache/timeout.py,sha256=4sV-n_swmPV5f3M07lsFuF6AH5QVlIAhoSG2DJKasrE,3844
+dataflake/cache/utils.py,sha256=2ILoP1iOOAQ3idOqG6NSy3VKiHV2YjjM3UEy22kQ1XU,1135
+dataflake/cache/tests/__init__.py,sha256=UnxmjVrk-eNORsitiM48W0pB6yfsaErOak8RYh_ELt8,10
+dataflake/cache/tests/base.py,sha256=Jp48dc4S2fpBzC5JmEdW1Fjpwg0H2DNg6YcvfiiKKjY,918
+dataflake/cache/tests/test_docs.py,sha256=c6hngjsS3DDQ3VbwSD-60cCJpbbe8VOc3CSfVH8DTCo,823
+dataflake/cache/tests/test_simple.py,sha256=0P9jlKLLscvH0hX1EcLQUDSncJ4OZVuAKiEU_2jYvU4,7839
+dataflake/cache/tests/test_timeout.py,sha256=VfJUh3qxoApGlb-Z2_Dw5166-Uz6ymeaxP-sX0hxenw,4278
+dataflake_cache-3.3.dist-info/licenses/LICENSE.txt,sha256=PmcdsR32h1FswdtbPWXkqjg-rKPCDOo_r1Og9zNdCjw,2070
+dataflake_cache-3.3.dist-info/METADATA,sha256=ZI1Ouk05Q0tbdywD9q-Nm5ZllY-yXG1eE5z3LyD3wlY,2671
+dataflake_cache-3.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dataflake_cache-3.3.dist-info/top_level.txt,sha256=FOdxJhZAlA7b8rMeGqAI23M6vbj0dh_sdhBQFD-JCzg,10
+dataflake_cache-3.3.dist-info/RECORD,,
