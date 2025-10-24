@@ -1,0 +1,14 @@
+botapi/__init__.py,sha256=a2IPJQsswDIuHYGvX127oCusX0OOL-AhjqD5oBAmQ7M,155
+botapi/__init__.pyi,sha256=a2IPJQsswDIuHYGvX127oCusX0OOL-AhjqD5oBAmQ7M,155
+botapi/core.py,sha256=VYoeE6ihl0sUBAI20xpF6TrZcT3UCeH5zPuxXPMv_KA,3270
+botapi/dispatchers/__init__.py,sha256=RRYwhi5S9nIMf3SiP-IrLQkeALHqmGznhF0zUq2oez8,238
+botapi/dispatchers/get_updates_handler.py,sha256=HeOocq1voa3AN28zb5PYP7vRpHcZHOfFDBdDOaF7ohQ,5753
+botapi/dispatchers/redis_pubsub_handler.py,sha256=ifzjQeMhIEFiEypT52eQwAiEH5GC5x-VuV8d2O9R_nA,6284
+botapi/enums.py,sha256=qpuf7cdoQG7PSbDpVtf5MOZ0uUFnCxELukdY5GVtwQc,5456
+botapi/errors.py,sha256=O1fHQPz-bbh2jWNUC9fFMqg4KzOv47GUypPMdb047ss,1110
+botapi/methods.py,sha256=QbfzdcilL7rMOfHvuUhHEGKwc73U8hLoR7XqDJE_kzQ,148710
+botapi/types.py,sha256=mut58jFYnm-VvXNtvFjbk7_Y_sSyzSGeCvVeseiBtaA,141639
+botapi/utils.py,sha256=bFFVE9jRKczNy4HhmegWoC6KOL_Nrej-ag37DAIDzaA,36
+botapi_py-1.4.0.dist-info/WHEEL,sha256=X16MKk8bp2DRsAuyteHJ-9qOjzmnY0x1aj0P1ftqqWA,78
+botapi_py-1.4.0.dist-info/METADATA,sha256=kyK4gDxKlyNiu9lD1qI1f5pL_CPqetYkwoBP0I-kkdM,383
+botapi_py-1.4.0.dist-info/RECORD,,
