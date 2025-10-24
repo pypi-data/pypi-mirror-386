@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: dictwizard
+Version: 0.1.0
+Summary: Powerful utilities for working with Python dictionaries easily.
+Author: Eldar Eliyev
+Author-email: eldar@example.com
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# dictwizard 🧙‍♂️
+
+Powerful Python library for working with dictionaries.
+
+## Installation
+```bash
+pip install dictwizard
