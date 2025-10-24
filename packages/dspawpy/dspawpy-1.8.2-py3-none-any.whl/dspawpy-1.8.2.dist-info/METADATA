@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: dspawpy
+Version: 1.8.2
+Summary: Tools for dspaw
+Project-URL: homepage, http://cloud.hzwtech.com/
+Author: txwang, ymxia, syyl, hql
+Author-email: zzl <ZhengZhilin@hzwtech.com>
+Maintainer-email: zzl <ZhengZhilin@hzwtech.com>
+License: Copyright (c) 2023 HZWTECH.COM
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE.txt
+Keywords: atom,band-structure,density-of-states,dft,ds-paw,hzw,pymatgen,quantum chemistry,structure
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.9
+Requires-Dist: ase
+Requires-Dist: build
+Requires-Dist: h5glance
+Requires-Dist: h5py
+Requires-Dist: hatchling
+Requires-Dist: loguru
+Requires-Dist: numpy<2
+Requires-Dist: polars>=0.18
+Requires-Dist: prompt-toolkit
+Requires-Dist: pymatgen
+Requires-Dist: statsmodels
+Requires-Dist: tables
+Provides-Extra: dev
+Requires-Dist: better-exceptions; extra == 'dev'
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: pytest-html; extra == 'dev'
+Requires-Dist: pytest-instafail; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: syrupy; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Provides-Extra: manual
+Requires-Dist: jieba; extra == 'manual'
+Requires-Dist: sphinx; extra == 'manual'
+Requires-Dist: sphinx-autodoc-typehints; extra == 'manual'
+Requires-Dist: sphinx-copybutton; extra == 'manual'
+Requires-Dist: sphinx-design; extra == 'manual'
+Requires-Dist: sphinx-mathjax-offline; extra == 'manual'
+Requires-Dist: sphinx-multiversion; extra == 'manual'
+Requires-Dist: sphinx-rtd-theme; extra == 'manual'
+Requires-Dist: sphinxcontrib-bibtex; extra == 'manual'
+Requires-Dist: sphinxcontrib-napoleon; extra == 'manual'
+Requires-Dist: sphinxcontrib-svg2pdfconverter; extra == 'manual'
+Description-Content-Type: text/markdown
+
+# dspawpy
+
+- 分支（branch）
+
+  - main 是最新稳定版
+  - latest 是最新开发版（请在此分支上修改）
+  - 2022A 是 2022A 版本
