@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/subclassdict/__init__.py
+src/subclassdict/py.typed
+src/subclassdict/subclassdict.py
+src/subclassdict/subclasses.py
+src/subclassdict.egg-info/PKG-INFO
+src/subclassdict.egg-info/SOURCES.txt
+src/subclassdict.egg-info/dependency_links.txt
+src/subclassdict.egg-info/requires.txt
+src/subclassdict.egg-info/top_level.txt
+tests/test_integration.py
+tests/test_subclassdict.py
+tests/test_subclasses.py

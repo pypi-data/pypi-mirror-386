@@ -1,0 +1,304 @@
+# SubclassDict
+
+[![CI](https://github.com/eddiethedean/subclassdict/workflows/CI/badge.svg)](https://github.com/eddiethedean/subclassdict/actions)
+[![PyPI version](https://badge.fury.io/py/subclassdict.svg)](https://badge.fury.io/py/subclassdict)
+[![Python versions](https://img.shields.io/pypi/pyversions/subclassdict.svg)](https://pypi.org/project/subclassdict/)
+[![Code coverage](https://codecov.io/gh/eddiethedean/subclassdict/branch/main/graph/badge.svg)](https://codecov.io/gh/eddiethedean/subclassdict)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A TypeDict that allows subclasses of type keys to be used as keys. When a key is not found, it automatically looks for the closest superclass key, enabling polymorphic behavior in dictionary lookups.
+
+## Features
+
+- **Polymorphic lookups**: Subclasses automatically find values stored under their parent class keys
+- **Performance optimized**: Cached subclass lookups for O(1) performance after first access
+- **Full dict compatibility**: Implements all standard dictionary methods
+- **Type safe**: Full type hints with generic support
+- **Comprehensive**: Includes utility functions for class hierarchy traversal
+
+## Installation
+
+```bash
+pip install subclassdict
+```
+
+## Quick Start
+
+```python
+from subclassdict import SubclassDict
+
+# Define a class hierarchy
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+class Puppy(Dog):
+    pass
+
+# Create a SubclassDict
+d = SubclassDict()
+
+# Store values under parent classes
+d[Animal] = "I'm an animal"
+d[Dog] = "I'm a dog"
+
+# Subclasses can access parent values
+print(d[Puppy])  # Output: "I'm a dog" (finds Dog's value)
+print(d[Dog])    # Output: "I'm a dog" (direct match)
+print(d[Animal]) # Output: "I'm an animal" (direct match)
+```
+
+## Real-World Examples
+
+### Plugin System
+
+```python
+from subclassdict import SubclassDict
+
+class Plugin:
+    def __init__(self, name: str):
+        self.name = name
+
+class DatabasePlugin(Plugin): pass
+class WebPlugin(Plugin): pass
+class APIPlugin(WebPlugin): pass
+
+# Register plugins
+plugins = SubclassDict()
+plugins[Plugin] = "base_plugin"
+plugins[DatabasePlugin] = "database_plugin"
+plugins[WebPlugin] = "web_plugin"
+
+# Plugin resolution
+print(plugins[APIPlugin])  # "web_plugin" (finds WebPlugin)
+print(plugins[DatabasePlugin])  # "database_plugin" (direct match)
+```
+
+### Event Handling
+
+```python
+from subclassdict import SubclassDict
+
+class Event: pass
+class UserEvent(Event): pass
+class LoginEvent(UserEvent): pass
+class LogoutEvent(UserEvent): pass
+
+# Register event handlers
+handlers = SubclassDict()
+handlers[Event] = "generic_handler"
+handlers[UserEvent] = "user_handler"
+
+# Event handling
+print(handlers[LoginEvent])   # "user_handler"
+print(handlers[LogoutEvent])  # "user_handler"
+print(handlers[Event])        # "generic_handler"
+```
+
+### Serialization System
+
+```python
+from subclassdict import SubclassDict
+
+class Serializable: pass
+class JSONSerializable(Serializable): pass
+class XMLSerializable(Serializable): pass
+class JSONAPISerializable(JSONSerializable): pass
+
+# Register serializers
+serializers = SubclassDict()
+serializers[Serializable] = "generic_serializer"
+serializers[JSONSerializable] = "json_serializer"
+serializers[XMLSerializable] = "xml_serializer"
+
+# Serialization
+print(serializers[JSONAPISerializable])  # "json_serializer"
+print(serializers[XMLSerializable])       # "xml_serializer"
+```
+
+## API Reference
+
+### SubclassDict
+
+The main class that provides polymorphic dictionary behavior.
+
+#### Methods
+
+- `__getitem__(key)`: Get value by key, with subclass lookup
+- `__setitem__(key, value)`: Set value for key
+- `__delitem__(key)`: Delete key
+- `__contains__(key)`: Check if key exists (with subclass lookup)
+- `get(key, default=None)`: Get value with default
+- `setdefault(key, default=None)`: Set default if key not present
+- `pop(key, default=None)`: Pop value with default
+- `popitem()`: Pop arbitrary item
+- `copy()`: Create shallow copy
+- `clear()`: Clear all items and cache
+
+#### Performance Characteristics
+
+- **First lookup**: O(n) where n is the number of keys (searches for superclass)
+- **Subsequent lookups**: O(1) (cached)
+- **Memory**: O(k) where k is the number of unique keys accessed
+
+### Utility Functions
+
+#### `subclasses(cls)`
+
+Get all subclasses of a class recursively.
+
+```python
+from subclassdict import subclasses
+
+class Animal: pass
+class Dog(Animal): pass
+class Cat(Animal): pass
+class Puppy(Dog): pass
+
+print(subclasses(Animal))  # [Dog, Cat, Puppy]
+print(subclasses(Dog))      # [Puppy]
+```
+
+## Advanced Usage
+
+### Custom Type Keys
+
+SubclassDict works with any hashable type, not just classes:
+
+```python
+d = SubclassDict()
+d[str] = "string type"
+d[int] = "integer type"
+
+# Non-type keys work normally (no subclass lookup)
+d["string"] = "string value"
+```
+
+### Cache Management
+
+The cache is automatically managed, but you can inspect it:
+
+```python
+d = SubclassDict()
+d[Animal] = "animal"
+
+# Access to populate cache
+d[Dog]  # This populates the cache
+
+# Inspect cache
+print(d._subclass_cache)  # {Dog: Animal}
+```
+
+### Performance with Large Hierarchies
+
+SubclassDict is optimized for large class hierarchies:
+
+```python
+# Create a deep hierarchy
+classes = []
+prev_class = None
+for i in range(100):
+    if prev_class is None:
+        new_class = type(f'Class{i}', (), {})
+    else:
+        new_class = type(f'Class{i}', (prev_class,), {})
+    classes.append(new_class)
+    prev_class = new_class
+
+d = SubclassDict()
+d[classes[0]] = "root"
+
+# Even deep lookups are fast after caching
+print(d[classes[-1]])  # Fast O(1) lookup
+```
+
+## Comparison with Alternatives
+
+| Feature | SubclassDict | Regular dict | Custom lookup |
+|---------|-------------|--------------|---------------|
+| Polymorphic lookups | ✅ Automatic | ❌ Manual | ✅ Manual |
+| Performance | ✅ O(1) cached | ✅ O(1) | ❌ O(n) |
+| Type safety | ✅ Full typing | ✅ Full typing | ❌ Manual |
+| Standard dict methods | ✅ All methods | ✅ All methods | ❌ Manual |
+| Memory usage | ✅ Minimal | ✅ Minimal | ❌ Can be high |
+
+## Development
+
+### Setup
+
+```bash
+git clone https://github.com/eddiethedean/subclassdict.git
+cd subclassdict
+pip install -e .[dev]
+```
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Code Quality
+
+```bash
+# Linting
+ruff check .
+
+# Formatting
+ruff format .
+
+# Type checking
+mypy src/
+```
+
+### Pre-commit Hooks
+
+```bash
+pre-commit install
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Run the test suite
+6. Submit a pull request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+## Troubleshooting
+
+### Common Issues
+
+**Q: Why doesn't my subclass find the parent's value?**
+A: Make sure the parent class key exists in the dictionary. SubclassDict only looks up the hierarchy, not down.
+
+**Q: Performance seems slow with many keys?**
+A: The first lookup for each key is O(n), but subsequent lookups are O(1) due to caching.
+
+**Q: Can I use non-class keys?**
+A: Yes, but subclass lookup only works with type objects. Non-type keys work like a regular dictionary.
+
+### Performance Tips
+
+1. **Pre-populate cache**: Access keys you'll use frequently to populate the cache
+2. **Use specific keys**: Store values under the most specific class possible
+3. **Avoid deep hierarchies**: Very deep inheritance chains can impact first-lookup performance
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/eddiethedean/subclassdict/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/eddiethedean/subclassdict/discussions)
+- **Documentation**: [GitHub Pages](https://eddiethedean.github.io/subclassdict/)
