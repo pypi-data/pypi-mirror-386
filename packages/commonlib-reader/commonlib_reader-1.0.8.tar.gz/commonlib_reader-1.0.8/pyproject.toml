@@ -1,0 +1,28 @@
+[project]
+name = "commonlib-reader"
+version = "1.0.8"
+description = "Reader for Equinor commonlib api."
+authors = [
+	{ name = "Åsmund Våge Fannemel", email = "asmf@equinor.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+urls = {"Repository" = "https://github.com/equinor/commonlib-reader.git"}
+requires-python = ">=3.10,<4.0.0"
+dependencies = [
+	"pandas>=2.1.4",
+	"requests>=2.32.4",
+	"urllib3>=2.5.0", # Pinned to avoid security issues in some older versions
+	"eq-api-connector (>=1.0.0,<2.0.0)"
+]
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.4"
+pytest-cov = "^6.0.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
