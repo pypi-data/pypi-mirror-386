@@ -1,0 +1,11 @@
+gocept/pagelet/README.rst,sha256=03ajujoN46Vt7oxGqi1ang9EyTrabgHEJyjQCsRpJro,3281
+gocept/pagelet/__init__.py,sha256=LFpXc-aammltICTWSQsxzfQrvhQKSxfXNkOw40VsbFs,72
+gocept/pagelet/meta.zcml,sha256=PLmMwQcXfVLrXzutKKEmaq_XcR3VjfccTwms59lZAQs,636
+gocept/pagelet/test-template.pt,sha256=qIPAvJ12HP5OQ65jB0TPBQMCeTskyCRUj6jzzcqKoR8,30
+gocept/pagelet/viewletpage.py,sha256=LGS5CGba0TcbAMTyEKarsy5h7wJM_OQ451DHsN36hA8,707
+gocept/pagelet/zcml.py,sha256=cYzeFGCfNn6_i21Tz_c1wcOolXDDXgayo1z87WKQtW4,6552
+gocept_pagelet-2.1.dist-info/licenses/LICENSE.txt,sha256=LgkZgYmTrW63RHfPZ8BfITPglCA-HDxyqtyqLPU7KSs,2070
+gocept_pagelet-2.1.dist-info/METADATA,sha256=O6b6VetEveqSOq13TuHbTBwEAaA2x4LSYtcbFOBWRTg,6949
+gocept_pagelet-2.1.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+gocept_pagelet-2.1.dist-info/top_level.txt,sha256=dLXUiNQ2z7NJIlFVMgdxhn_daKSodZVJYenJ47LRf3E,7
+gocept_pagelet-2.1.dist-info/RECORD,,
