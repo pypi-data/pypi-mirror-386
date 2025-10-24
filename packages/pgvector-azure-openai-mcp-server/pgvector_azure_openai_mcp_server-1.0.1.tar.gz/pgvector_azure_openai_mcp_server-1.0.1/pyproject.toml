@@ -1,0 +1,98 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pgvector-azure-openai-mcp-server"
+version = "1.0.1"
+description = "A MCP server with RAG capabilities using Azure OpenAI embeddings and pgvector for PostgreSQL."
+authors = [{name = "Derzsi Dániel", email = "daniel@tohka.us"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Core database and vector dependencies
+    "sqlalchemy>=2.0.44",
+    "psycopg2-binary>=2.9.11",
+    "pgvector>=0.4.0",
+    "python-dotenv>=1.0.0",
+    # Data models and validation
+    "pydantic>=2.12.3",
+    "pydantic-settings>=2.11.0",
+    # MCP Server dependencies
+    "mcp>=1.18.0",
+    # AI and embedding services
+    "langchain-text-splitters>=1.0.0",
+    "langchain-azure-ai>=1.0.0",
+    "numpy>=2.3.4",
+    # Document processing dependencies
+    "pymupdf4llm>=0.0.20",
+    "pandas>=2.3.3",
+    "chardet>=5.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-mock>=3.15.0",
+    "ruff>=0.14.1",
+    "mypy>=1.18.2",
+]
+
+[project.scripts]
+pgvector-azure-openai-mcp-server = "pgvector_azure_openai_mcp_server.cli:main"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by formatter
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["F401", "F811"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pgvector_azure_openai_mcp_server"]
+
+[tool.coverage.run]
+source = ["pgvector_azure_openai_mcp_server"]
+omit = [
+    "tests/*",
+    "venv/*",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=7.0.0",
+    "pytest-mock>=3.14.1",
+]
