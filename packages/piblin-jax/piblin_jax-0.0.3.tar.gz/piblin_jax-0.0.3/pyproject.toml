@@ -1,0 +1,331 @@
+[build-system]
+requires = ["setuptools>=80.9.0", "wheel>=0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "piblin-jax"
+version = "0.0.3"
+description = "Modern JAX-Powered Framework for Measurement Data Science"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Wei Chen", email = "wchen@anl.gov"}
+]
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+keywords = [
+    "scientific-computing",
+    "data-analysis",
+    "rheology",
+    "jax",
+    "bayesian-inference",
+    "uncertainty-quantification",
+]
+
+dependencies = [
+    "jax>=0.8.0,<0.9.0",
+    # Note: jaxlib is intentionally not listed here to avoid conflicts with GPU installation
+    # jax will automatically install the appropriate jaxlib (CPU by default)
+    #
+    # For GPU acceleration (Linux + CUDA 12.1-12.9 ONLY):
+    #   Recommended: make install-gpu-cuda (from repository)
+    #   Manual: See README.md GPU Installation section
+    #
+    # Platform support:
+    #   ✅ Linux + NVIDIA GPU + CUDA 12: Full GPU acceleration (50-100x speedup)
+    #   ❌ macOS: CPU-only (no NVIDIA GPU support, still 5-10x faster than piblin)
+    #   ❌ Windows: CPU-only (CUDA support experimental/unstable in JAX)
+    "numpyro>=0.19.0",
+    "numpy>=2.3.4",
+    "scipy>=1.16.2",
+    "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-mpl>=0.17.0",
+    "pytest-benchmark>=5.1.0",
+    "hypothesis>=6.142.0",
+    "mypy>=1.18.2",
+    "ruff>=0.14.1",
+    "pre-commit>=4.3.0",
+    "build>=1.3.0",
+    "interrogate>=1.7.0",
+]
+
+test = [
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-mpl>=0.17.0",
+    "pytest-benchmark>=5.1.0",
+    "hypothesis>=6.142.0",
+]
+
+docs = [
+    "sphinx>=8.2.3",
+    "sphinx-rtd-theme>=3.0.2",
+    "numpydoc>=1.9.0",
+]
+
+security = [
+    "pip-audit>=2.9.0",
+    "pip-licenses>=5.5.0",
+    "cyclonedx-bom>=7.1.0",
+    "bandit[toml]>=1.8.6",
+]
+
+# GPU support removed from optional dependencies for reliability
+# GPU installation now requires explicit manual/Makefile installation
+# Reason: pip extras are unreliable for mutually exclusive dependency variants (CPU vs GPU jaxlib)
+# See README.md GPU Installation section for instructions
+
+all = [
+    "piblin-jax[dev,test,docs]",
+]
+
+[project.urls]
+Homepage = "https://github.com/piblin/piblin-jax"
+Documentation = "https://piblin-jax.readthedocs.io"
+Repository = "https://github.com/piblin/piblin-jax"
+"Bug Tracker" = "https://github.com/piblin/piblin-jax/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["piblin_jax*"]
+exclude = ["tests*", "docs*"]
+
+[tool.mypy]
+python_version = "3.12"
+
+# Strict mode: Enable all optional checks
+strict = true
+
+# Individual strict checks (for clarity)
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_unimported = false  # Allow external untyped libraries
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+check_untyped_defs = true
+strict_equality = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+
+# Pragmatic settings
+ignore_missing_imports = true  # External libraries may not have types
+show_error_codes = true        # Show error codes for easier suppression
+
+[[tool.mypy.overrides]]
+module = [
+    "jax.*",
+    "jaxlib.*",
+    "numpyro.*",
+    "matplotlib.*",
+    "pandas.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+addopts = [
+    "-ra",
+    "-q",
+    "--strict-markers",
+    "--cov=piblin_jax",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+    "--cov-fail-under=95",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "gpu: marks tests requiring GPU (deselect with '-m \"not gpu\"')",
+    "benchmark: marks performance benchmarks",
+    "visual: marks visual regression tests",
+]
+
+[tool.coverage.run]
+source = ["piblin_jax"]
+omit = [
+    "*/tests/*",
+    "*/__init__.py",
+    "*/setup.py",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
+    "@abc.abstractmethod",
+]
+
+[tool.bandit]
+# Security linting configuration
+exclude_dirs = [
+    "tests",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+]
+skips = [
+    "B101",  # assert_used - acceptable in tests and scientific code
+    "B601",  # paramiko_calls - not used in this project
+]
+# Severity levels: LOW, MEDIUM, HIGH
+# Confidence levels: LOW, MEDIUM, HIGH
+
+[tool.ruff]
+# Ruff configuration - replaces black, isort, flake8, pyupgrade
+# Optimized for scientific Python with JAX/NumPy
+
+# Target Python 3.13+ (compatible with 3.14)
+target-version = "py313"
+
+# Line length to match black
+line-length = 100
+
+# Enable auto-fixing where possible
+fix = true
+show-fixes = true
+
+# File patterns to include
+include = ["*.py", "*.pyi"]
+
+# Exclude generated and vendored files
+extend-exclude = [
+    "__pycache__",
+    ".venv",
+    "venv",
+    ".eggs",
+    "*.egg",
+    "build",
+    "dist",
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "docs/_build",
+]
+
+[tool.ruff.lint]
+# Enable these rule sets
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+    "RUF",  # ruff-specific rules
+]
+
+# Disable overly strict rules for scientific code
+ignore = [
+    "E501",   # line-too-long (handled by formatter)
+    "N802",   # function-name-should-be-lowercase (allow single-letter math names)
+    "N803",   # argument-name-should-be-lowercase (allow single-letter math names)
+    "N806",   # variable-in-function-should-be-lowercase (allow math notation)
+    "N816",   # mixedCase variable in global scope (allow scientific notation like true_K)
+    "RUF001", # ambiguous unicode character (allow Greek letters: σ, γ, η, etc.)
+    "RUF002", # ambiguous unicode in docstring (allow Greek letters in scientific docs)
+    "RUF003", # ambiguous unicode in comment (allow Greek letters in scientific comments)
+    "SIM102", # use single if with and (sometimes less readable)
+    "SIM108", # use-ternary-instead-of-if-else (sometimes less readable)
+    "B008",   # do-not-perform-function-call-in-argument-defaults (needed for JAX)
+]
+
+# Allow unused variables prefixed with underscore
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+# Allow unused imports in __init__.py
+"__init__.py" = ["F401", "F403"]
+# Allow function calls in arguments for conftest.py (fixtures) and late imports
+"conftest.py" = ["F401", "E402"]
+"tests/conftest.py" = ["E402"]
+# Allow all in tests, plus unescaped regex metacharacters (intentional patterns)
+# SIM117: Nested with statements are often clearer in test mocking contexts
+"tests/**/*.py" = ["F841", "F401", "RUF043", "SIM117"]
+# Allow late imports in examples (for demonstration purposes)
+"examples/**/*.py" = ["E402"]
+# Allow abstract classes without abstract methods (valid design choice)
+"piblin_jax/data/datasets/base.py" = ["B024"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["piblin_jax"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.ruff.lint.mccabe]
+# Maximum complexity (matching flake8 config)
+max-complexity = 10
+
+[tool.ruff.format]
+# Use black-compatible formatting
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.interrogate]
+# Docstring coverage configuration
+ignore-init-method = true
+ignore-init-module = false
+ignore-magic = false
+ignore-module = false
+ignore-nested-functions = false
+ignore-nested-classes = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-semiprivate = false
+ignore-setters = false
+fail-under = 95.0
+exclude = ["setup.py", "docs", "tests", "build", "dist", ".venv", ".eggs"]
+verbose = 1
+quiet = false
+whitelist-regex = []
+color = true
+generate-badge = "."
+badge-format = "svg"
