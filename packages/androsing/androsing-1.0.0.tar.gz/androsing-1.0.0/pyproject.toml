@@ -1,0 +1,10 @@
+[project]
+name = "androsing"
+version = "1.0.0"
+description = "Fast Android APK signer (v1/v2)"
+authors = [{ name = "fmznkdv" }]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+sing = "androsing.cli:main"

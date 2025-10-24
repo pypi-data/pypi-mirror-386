@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.py
+androsing/__init__.py
+androsing/cli.py
+androsing/core.py
+androsing.egg-info/PKG-INFO
+androsing.egg-info/SOURCES.txt
+androsing.egg-info/dependency_links.txt
+androsing.egg-info/entry_points.txt
+androsing.egg-info/top_level.txt

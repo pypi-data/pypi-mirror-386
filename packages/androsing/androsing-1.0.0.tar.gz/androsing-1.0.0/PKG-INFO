@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: androsing
+Version: 1.0.0
+Summary: Fast Android APK signer (v1/v2)
+Home-page: https://github.com/FMZNkdv
+Author: fmznkdv
+Author-email: fmznkdev@gmail.com
+Requires-Python: >=3.8
+Dynamic: author-email
+Dynamic: home-page
