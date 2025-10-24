@@ -1,0 +1,2 @@
+[astrbot.modules.API]
+canary_modules_api = astrbot_canary_api:AstrbotModuleAPI
