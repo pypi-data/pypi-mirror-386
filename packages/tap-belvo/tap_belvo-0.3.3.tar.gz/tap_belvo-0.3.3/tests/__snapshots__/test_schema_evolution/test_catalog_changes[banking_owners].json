@@ -1,0 +1,309 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "link"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "internal_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "display_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "email"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "phone_number"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "address"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "document_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "document_id",
+        "properties",
+        "document_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "document_id",
+        "properties",
+        "document_number"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "business_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "first_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "last_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "second_last_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    }
+  ],
+  "replication_key": "created_at",
+  "replication_method": "INCREMENTAL",
+  "schema": {
+    "properties": {
+      "address": {
+        "description": "The accounts owners registered address.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "business_name": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The name of the business.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "collected_at": {
+        "description": "The ISO-8601 timestamp when the data point was collected.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "display_name": {
+        "description": "The full name of the owner, as provided by the bank.",
+        "maxLength": 128,
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "document_id": {
+        "description": "Information regarding the identification document the owner provided to the bank.",
+        "properties": {
+          "document_number": {
+            "description": "The document's identification number.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "document_type": {
+            "description": "The type of document the owner provided to the institution to open the account. Common document types are:\n\n🇧🇷 Brazil\n- `CPF` (*Cadastro de Pessoas Físicas*)\n- `CNPJ`(*Cadastro Nacional de Pessoas Jurídicas*)\n\n🇨🇴 Colombia\n- `CC`(*Cédula de Ciudadanía*)\n- `NIT` (*Número de Identificación Tributaria*)\n\n🇲🇽 Mexico\n- `CURP` (*Clave Única de Registro de Población*)\n- `NSS` (*Número de Seguridad Social*)\n- `RFC` (*Registro Federal de Contribuyentes*)\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "document_type",
+          "document_number"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "email": {
+        "description": "The account owner's registered email address.",
+        "format": "email",
+        "maxLength": 256,
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "first_name": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The first name of the account owner.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "internal_identification": {
+        "description": "The institution's internal identifier for the owner.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "last_name": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The last name of the account owner.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "link": {
+        "description": "The `link.id` the data belongs to.",
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "phone_number": {
+        "description": "The account owner's registered phone number.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "second_last_name": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The second last name of the account owner.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "link",
+      "internal_identification",
+      "display_name",
+      "email",
+      "phone_number",
+      "address",
+      "collected_at"
+    ],
+    "title": "Owner Standard (Multi-Region)",
+    "type": "object"
+  },
+  "stream": "banking_owners",
+  "tap_stream_id": "banking_owners"
+}

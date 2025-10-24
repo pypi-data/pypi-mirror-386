@@ -1,0 +1,4908 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "link"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "accounts"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "assets_metrics"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "assets_metrics",
+        "properties",
+        "institutions"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "assets_metrics",
+        "properties",
+        "num_assets_accounts"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "assets_metrics",
+        "properties",
+        "num_checking_accounts"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "assets_metrics",
+        "properties",
+        "num_savings_accounts"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "assets_metrics",
+        "properties",
+        "checking_accounts_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "assets_metrics",
+        "properties",
+        "savings_accounts_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_cards_metrics"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_cards_metrics",
+        "properties",
+        "num_accounts"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_cards_metrics",
+        "properties",
+        "sum_credit_limit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_cards_metrics",
+        "properties",
+        "sum_credit_used"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_cards_metrics",
+        "properties",
+        "credit_card_limit_utilization"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics",
+        "properties",
+        "num_accounts"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics",
+        "properties",
+        "sum_loans_principal"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics",
+        "properties",
+        "sum_loans_outstanding_principal"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics",
+        "properties",
+        "sum_loans_monthly_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics",
+        "properties",
+        "loan_limit_utilization"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics",
+        "properties",
+        "overdraft_limit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loans_metrics",
+        "properties",
+        "overdraft_limit_utilization"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "closing_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "min_balance_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "min_balance_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "min_balance_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "min_balance_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "min_balance_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "min_balance_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "mean_balance_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "mean_balance_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "mean_balance_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "mean_balance_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "mean_balance_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "mean_balance_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "max_balance_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "max_balance_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "max_balance_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "max_balance_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "max_balance_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "max_balance_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "std_balance_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "std_balance_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "std_balance_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "std_balance_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "std_balance_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "std_balance_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "balance_trend_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "balance_trend_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "balance_trend_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "balance_trend_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "balance_trend_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "balance_trend_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_0_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_0_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_0_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_0_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_0_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_0_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_mean_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_mean_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_mean_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_mean_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_mean_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_mean_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_x_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_x_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_x_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_x_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_x_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "days_balance_below_x_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balances_metrics",
+        "properties",
+        "balance_threshold_x"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_incoming_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_incoming_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_incoming_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_incoming_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_incoming_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_incoming_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_incoming_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_incoming_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_incoming_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_incoming_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_incoming_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_incoming_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_incoming_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_incoming_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_incoming_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_incoming_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_incoming_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_incoming_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_incoming_amount_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_incoming_amount_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_incoming_amount_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_incoming_amount_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_incoming_amount_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_incoming_amount_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_incoming_amount_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_incoming_amount_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_incoming_amount_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_incoming_amount_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_incoming_amount_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_incoming_amount_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_incoming_amount_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_incoming_amount_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_incoming_amount_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_incoming_amount_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_incoming_amount_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_incoming_amount_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_outgoing_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_outgoing_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_outgoing_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_outgoing_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_outgoing_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "num_outgoing_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_outgoing_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_outgoing_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_outgoing_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_outgoing_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_outgoing_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_num_outgoing_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_outgoing_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_outgoing_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_outgoing_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_outgoing_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_outgoing_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_num_outgoing_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_outgoing_amount_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_outgoing_amount_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_outgoing_amount_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_outgoing_amount_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_outgoing_amount_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "sum_outgoing_amount_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_outgoing_amount_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_outgoing_amount_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_outgoing_amount_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_outgoing_amount_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_outgoing_amount_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "max_outgoing_amount_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_outgoing_amount_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_outgoing_amount_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_outgoing_amount_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_outgoing_amount_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_outgoing_amount_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "mean_outgoing_amount_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_without_transactions_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_without_transactions_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_without_transactions_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_without_transactions_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_without_transactions_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_without_transactions_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_since_last_transaction"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_since_last_incoming_transaction"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_since_last_outgoing_transaction"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "transactions_metrics",
+        "properties",
+        "days_history"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_positive_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_positive_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_positive_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_positive_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_positive_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_positive_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_negative_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_negative_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_negative_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_negative_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_negative_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "max_negative_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_positive_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_positive_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_positive_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_positive_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_positive_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_positive_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_negative_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_negative_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_negative_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_negative_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_negative_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "mean_negative_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_trend_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_trend_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_trend_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_trend_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_trend_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_positive_trend_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_trend_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_trend_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_trend_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_trend_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_trend_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "sum_negative_trend_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "positive_to_negative_ratio_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "positive_to_negative_ratio_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "positive_to_negative_ratio_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "positive_to_negative_ratio_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "positive_to_negative_ratio_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "positive_to_negative_ratio_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_trend_3d"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_trend_1w"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_trend_1m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_trend_3m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_trend_6m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cashflow_metrics",
+        "properties",
+        "net_cashflow_trend_12m"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "category_metrics"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "properties": {
+      "accounts": {
+        "description": "An array of Belvo-generated account numbers (UUIDs) that were used during the risk insights analysis. If no accounts were found, we return an empty array.",
+        "items": {
+          "description": "The Belvo-generated ID for the account.",
+          "format": "uuid",
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "assets_metrics": {
+        "description": "Aggregate details regarding the assets used in the risk insight analysis. For asset metrics, we only consider checking and savings accounts.\n\n\n> Asset metrics can provide a snapshot of your user's wealth and liquid assets, indicating how they manage their wealth and their current financial status.\n",
+        "properties": {
+          "checking_accounts_balance": {
+            "description": "The total closing balance of all checking accounts.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "institutions": {
+            "description": "An array of institutions from which account information was retrieved for the user. \n\n> **Note**: For most use cases, this array will only return one item.\n",
+            "items": {
+              "description": "The name of the institution",
+              "type": "string"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "num_assets_accounts": {
+            "description": "The total number of accounts found for the user.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "num_checking_accounts": {
+            "description": "The total number of checking accounts found for the user.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "num_savings_accounts": {
+            "description": "The total number of savings accounts found for the user.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "savings_accounts_balance": {
+            "description": "The total closing balance of all savings accounts.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "institutions",
+          "num_accounts",
+          "num_checking_accounts",
+          "num_savings_accounts",
+          "checking_accounts_balance",
+          "savings_accounts_balance"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "balances_metrics": {
+        "description": "Balance metrics calculated based on the user's balances from checking and savings accounts.",
+        "properties": {
+          "balance_threshold_x": {
+            "description": "The threshold used to compute `days_balance_below_x_period`. Please note, this is value is country specific (both in terms of the amount and the currency).\n",
+            "format": "float",
+            "type": "number"
+          },
+          "balance_trend_12m": {
+            "description": "The balance trend of the user in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "balance_trend_1m": {
+            "description": "The balance trend of the user in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "balance_trend_1w": {
+            "description": "The balance trend of the user in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "balance_trend_3d": {
+            "description": "The balance trend of the user in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "balance_trend_3m": {
+            "description": "The balance trend of the user in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "balance_trend_6m": {
+            "description": "The balance trend of the user in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "closing_balance": {
+            "description": "The balance of all the accounts at the `collected_at` time.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "days_balance_below_0_12m": {
+            "description": "The number of days that the total balance of the account is less than or equal to 0 in the last twelve months.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_0_1m": {
+            "description": "The number of days that the total balance of the account is less than or equal to 0 in the last month.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_0_1w": {
+            "description": "The number of days that the total balance of the account is less than or equal to 0 in the last week.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_0_3d": {
+            "description": "The number of days that the total balance of the account is less than or equal to 0 in the last three days.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_0_3m": {
+            "description": "The number of days that the total balance of the account is less than or equal to 0 in the last three months.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_0_6m": {
+            "description": "The number of days that the total balance of the account is less than or equal to 0 in the last six months.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_mean_12m": {
+            "description": "The number of days that the mean balance of the account is less than or equal to the amount specified in `mean_daily_balance_12m`.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_mean_1m": {
+            "description": "The number of days that the mean balance of the account is less than or equal to the amount specified in `mean_daily_balance_1m`.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_mean_1w": {
+            "description": "The number of days that the mean balance of the account is less than or equal to the amount specified in `mean_daily_balance_1w`.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_mean_3d": {
+            "description": "The number of days that the mean balance of the account is less than or equal to the amount specified in `mean_daily_balance_3d`.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_mean_3m": {
+            "description": "The number of days that the mean balance of the account is less than or equal to the amount specified in `mean_daily_balance_3m`.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_mean_6m": {
+            "description": "The number of days that the mean balance of the account is less than or equal to the amount specified in `mean_daily_balance_6m`.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_x_12m": {
+            "description": "The number of days that the total balance of the account is less than or equal to the amount specified in `balance_threshold_x` in the last twelve months.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_x_1m": {
+            "description": "The number of days that the total balance of the account is less than or equal to the amount specified in `balance_threshold_x` in the last month.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_x_1w": {
+            "description": "The number of days that the total balance of the account is less than or equal to the amount specified in `balance_threshold_x` in the last week.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_x_3d": {
+            "description": "The number of days that the total balance of the account is less than or equal to the amount specified in `balance_threshold_x` in the last three days.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_x_3m": {
+            "description": "The number of days that the total balance of the account is less than or equal to the amount specified in `balance_threshold_x` in the last three months.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "days_balance_below_x_6m": {
+            "description": "The number of days that the total balance of the account is less than or equal to the amount specified in `balance_threshold_x` in the last six months.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "max_balance_12m": {
+            "description": "The maximum balance in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_balance_1m": {
+            "description": "The maximum balance in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_balance_1w": {
+            "description": "The maximum balance in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_balance_3d": {
+            "description": "The maximum balance in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_balance_3m": {
+            "description": "The maximum balance in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_balance_6m": {
+            "description": "The maximum balance in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_balance_12m": {
+            "description": "The mean balance in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_balance_1m": {
+            "description": "The mean balance in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_balance_1w": {
+            "description": "The mean balance in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_balance_3d": {
+            "description": "The mean balance in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_balance_3m": {
+            "description": "The mean balance in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_balance_6m": {
+            "description": "The mean balance in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "min_balance_12m": {
+            "description": "The minimum balance in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "min_balance_1m": {
+            "description": "The minimum balance in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "min_balance_1w": {
+            "description": "The minimum balance in the last week).\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "min_balance_3d": {
+            "description": "The minimum balance in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "min_balance_3m": {
+            "description": "The minimum balance in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "min_balance_6m": {
+            "description": "The minimum balance in the six last months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "std_balance_12m": {
+            "description": "The balance standard deviation in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "std_balance_1m": {
+            "description": "The balance standard deviation in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "std_balance_1w": {
+            "description": "The balance standard deviation in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "std_balance_3d": {
+            "description": "The balance standard deviation in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "std_balance_3m": {
+            "description": "The balance standard deviation in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "std_balance_6m": {
+            "description": "The balance standard deviation in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "closing_balance",
+          "min_balance_3d",
+          "min_balance_1w",
+          "min_balance_1m",
+          "min_balance_3m",
+          "min_balance_6m",
+          "min_balance_12m",
+          "mean_balance_3d",
+          "mean_balance_1w",
+          "mean_balance_1m",
+          "mean_balance_3m",
+          "mean_balance_6m",
+          "mean_balance_12m",
+          "max_balance_3d",
+          "max_balance_1w",
+          "max_balance_1m",
+          "max_balance_3m",
+          "max_balance_6m",
+          "max_balance_12m",
+          "std_balance_3d",
+          "std_balance_1w",
+          "std_balance_1m",
+          "std_balance_3m",
+          "std_balance_6m",
+          "std_balance_12m",
+          "balance_trend_3d",
+          "balance_trend_1w",
+          "balance_trend_1m",
+          "balance_trend_3m",
+          "balance_trend_6m",
+          "balance_trend_12m",
+          "days_balance_below_0_3d",
+          "days_balance_below_0_1w",
+          "days_balance_below_0_1m",
+          "days_balance_below_0_3m",
+          "days_balance_below_0_6m",
+          "days_balance_below_0_12m",
+          "days_balance_below_mean_3d",
+          "days_balance_below_mean_1w",
+          "days_balance_below_mean_1m",
+          "days_balance_below_mean_3m",
+          "days_balance_below_mean_6m",
+          "days_balance_below_mean_12m",
+          "days_balance_below_x_3d",
+          "days_balance_below_x_1w",
+          "days_balance_below_x_1m",
+          "days_balance_below_x_3m",
+          "days_balance_below_x_6m",
+          "days_balance_below_x_12m",
+          "balance_threshold_x"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "cashflow_metrics": {
+        "description": "Aggregate metrics calculated based on the user's transactions from checking, savings, credit, and loan accounts. However, internal transfers (transfers between accounts belonging to the same link) are not used in the calculation.\n\n{% admonition type=\"info\" %}\n  If there is not enough transactional data for a given period, we return `null`. For example, if the account has only been open for 15 days (or you have only provided data for just 15 days), we return values for `_3d`, `_1w`, and `_1m`, however for `_3m` we will return `null` as there is no data for months two and three.\n{% /admonition %}\n",
+        "properties": {
+          "max_negative_12m": {
+            "description": "The highest value of negative cash flow transactions in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_negative_1m": {
+            "description": "The highest value of negative cash flow transactions in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_negative_1w": {
+            "description": "The highest value of negative cash flow transactions in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_negative_3d": {
+            "description": "The highest value of negative cash flow transactions in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_negative_3m": {
+            "description": "The highest value of negative cash flow transactions in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_negative_6m": {
+            "description": "The highest value of negative cash flow transactions in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_positive_12m": {
+            "description": "The highest value of positive cash flow transactions the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_positive_1m": {
+            "description": "The highest value of positive cash flow transactions the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_positive_1w": {
+            "description": "The highest value of positive cash flow transactions the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_positive_3d": {
+            "description": "The highest value of positive cash flow transactions in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_positive_3m": {
+            "description": "The highest value of positive cash flow transactions the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_positive_6m": {
+            "description": "The highest value of positive cash flow transactions the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_negative_12m": {
+            "description": "The mean value of the negative cash flow transactions in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_negative_1m": {
+            "description": "The mean value of the negative cash flow transactions in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_negative_1w": {
+            "description": "The mean value of the negative cash flow transactions in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_negative_3d": {
+            "description": "The mean value of the negative cash flow transactions in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_negative_3m": {
+            "description": "The mean value of the negative cash flow transactions in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_negative_6m": {
+            "description": "The mean value of the negative cash flow transactions in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_positive_12m": {
+            "description": "The mean value of the positive cash flow transactions in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_positive_1m": {
+            "description": "The mean value of the positive cash flow transactions in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_positive_1w": {
+            "description": "The mean value of the positive cash flow transactions in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_positive_3d": {
+            "description": "The mean value of the positive cash flow transactions in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_positive_3m": {
+            "description": "The mean value of the positive cash flow transactions in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_positive_6m": {
+            "description": "The mean value of the positive cash flow transactions in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_12m": {
+            "description": "The net cash flow in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_1m": {
+            "description": "The net cash flow in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_1w": {
+            "description": "The net cash flow in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_3d": {
+            "description": "The net cash flow in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_3m": {
+            "description": "The net cash flow in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_6m": {
+            "description": "The net cash flow in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_trend_12m": {
+            "description": "The net cash flow trend in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_trend_1m": {
+            "description": "The net cash flow trend in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_trend_1w": {
+            "description": "The net cash flow trend in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_trend_3d": {
+            "description": "The net cash flow trend in the last three days months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_trend_3m": {
+            "description": "The net cash flow trend in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "net_cashflow_trend_6m": {
+            "description": "The net cash flow trend in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "positive_to_negative_ratio_12m": {
+            "description": "The ratio between sum_positive / sum_negative  in the last twelve months.\n\nℹ️ If the ratio is greater than `1`, it means that the user has more income than outgoing, indicating that they spend less than they earn.\n\n**Note**: In the case that there have been no outgoing transactions, the value will be `null`.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "positive_to_negative_ratio_1m": {
+            "description": "The ratio between sum_positive / sum_negative  in the last month.\n\nℹ️ If the ratio is greater than `1`, it means that the user has more income than outgoing, indicating that they spend less than they earn.\n\n**Note**: In the case that there have been no outgoing transactions, the value will be `null`.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "positive_to_negative_ratio_1w": {
+            "description": "The ratio between sum_positive / sum_negative  in the last week.\n\nℹ️ If the ratio is greater than `1`, it means that the user has more income than outgoing, indicating that they spend less than they earn.\n\n**Note**: In the case that there have been no outgoing transactions, the value will be `null`.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "positive_to_negative_ratio_3d": {
+            "description": "The ratio between sum_positive / sum_negative  in the last three days.\n\nℹ️ If the ratio is greater than `1`, it means that the user has more income than outgoing, indicating that they spend less than they earn.\n\n**Note**: In the case that there have been no outgoing transactions, the value will be `null`.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "positive_to_negative_ratio_3m": {
+            "description": "The ratio between sum_positive / sum_negative  in the last three months.\n\nℹ️ If the ratio is greater than `1`, it means that the user has more income than outgoing, indicating that they spend less than they earn.\n\n**Note**: In the case that there have been no outgoing transactions, the value will be `null`.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "positive_to_negative_ratio_6m": {
+            "description": "The ratio between sum_positive / sum_negative  in the last six months.\n\nℹ️ If the ratio is greater than `1`, it means that the user has more income than outgoing, indicating that they spend less than they earn.\n\n**Note**: In the case that there have been no outgoing transactions, the value will be `null`.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_12m": {
+            "description": "The sum total of all transactions leading to a negative cash flow in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_1m": {
+            "description": "The sum total of all transactions leading to a negative cash flow in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_1w": {
+            "description": "The sum total of all transactions leading to a negative cash flow in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_3d": {
+            "description": "The sum total of all transactions leading to a negative cash flow in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_3m": {
+            "description": "The sum total of all transactions leading to a negative cash flow in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_6m": {
+            "description": "The sum total of all transactions leading to a negative cash flow in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_trend_12m": {
+            "description": "The negative cash flow trend based on the sum of all negative transactions in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_trend_1m": {
+            "description": "The negative cash flow trend based on the sum of all negative transactions in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_trend_1w": {
+            "description": "The negative cash flow trend based on the sum of all negative transactions in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_trend_3d": {
+            "description": "The negative cash flow trend based on the sum of all negative transactions in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_trend_3m": {
+            "description": "The negative cash flow trend based on the sum of all negative transactions in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_negative_trend_6m": {
+            "description": "The negative cash flow trend based on the sum of all negative transactions in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_12m": {
+            "description": "The sum total of all transactions leading to a positive cash flow in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_1m": {
+            "description": "The sum total of all transactions leading to a positive cash flow in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_1w": {
+            "description": "The sum total of all transactions leading to a positive cash flow in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_3d": {
+            "description": "The sum total of all transactions leading to a positive cash flow in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_3m": {
+            "description": "The sum total of all transactions leading to a positive cash flow in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_6m": {
+            "description": "The sum total of all transactions leading to a positive cash flow in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_trend_12m": {
+            "description": "The positive cash flow trend based on the sum of all positive transactions in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_trend_1m": {
+            "description": "The positive cash flow trend based on the sum of all positive transactions in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_trend_1w": {
+            "description": "The positive cash flow trend based on the sum of all positive transactions in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_trend_3d": {
+            "description": "The positive cash flow trend based on the sum of all positive transactions in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_trend_3m": {
+            "description": "The positive cash flow trend based on the sum of all positive transactions in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_positive_trend_6m": {
+            "description": "The positive cash flow trend based on the sum of all positive transactions in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "max_positive_3d",
+          "max_positive_1w",
+          "max_positive_1m",
+          "max_positive_3m",
+          "max_positive_6m",
+          "max_positive_12m",
+          "max_negative_3d",
+          "max_negative_1w",
+          "max_negative_1m",
+          "max_negative_3m",
+          "max_negative_6m",
+          "max_negative_12m",
+          "mean_positive_3d",
+          "mean_positive_1w",
+          "mean_positive_1m",
+          "mean_positive_3m",
+          "mean_positive_6m",
+          "mean_positive_12m",
+          "mean_negative_3d",
+          "mean_negative_1w",
+          "mean_negative_1m",
+          "mean_negative_3m",
+          "mean_negative_6m",
+          "mean_negative_12m",
+          "sum_positive_3d",
+          "sum_positive_1w",
+          "sum_positive_1m",
+          "sum_positive_3m",
+          "sum_positive_6m",
+          "sum_positive_12m",
+          "sum_positive_trend_3d",
+          "sum_positive_trend_1w",
+          "sum_positive_trend_1m",
+          "sum_positive_trend_3m",
+          "sum_positive_trend_6m",
+          "sum_positive_trend_12m",
+          "sum_negative_3d",
+          "sum_negative_1w",
+          "sum_negative_1m",
+          "sum_negative_3m",
+          "sum_negative_6m",
+          "sum_negative_12m",
+          "sum_negative_trend_3d",
+          "sum_negative_trend_1w",
+          "sum_negative_trend_1m",
+          "sum_negative_trend_3m",
+          "sum_negative_trend_6m",
+          "sum_negative_trend_12m",
+          "positive_to_negative_ratio_3d",
+          "positive_to_negative_ratio_1w",
+          "positive_to_negative_ratio_1m",
+          "positive_to_negative_ratio_3m",
+          "positive_to_negative_ratio_6m",
+          "positive_to_negative_ratio_12m",
+          "net_cashflow_3d",
+          "net_cashflow_1w",
+          "net_cashflow_1m",
+          "net_cashflow_3m",
+          "net_cashflow_6m",
+          "net_cashflow_12m",
+          "net_cashflow_trend_3d",
+          "net_cashflow_trend_1w",
+          "net_cashflow_trend_1m",
+          "net_cashflow_trend_3m",
+          "net_cashflow_trend_6m",
+          "net_cashflow_trend_12m"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "category_metrics": {
+        "description": "An array of aggregate metrics regarding the transaction categories and subcategories that Belvo has identified within the user's transaction history.\n\nIn the array, Belvo only returns categories that have been identified.\n",
+        "items": {
+          "properties": {
+            "category": {
+              "description": "The name of the transaction category.\n\n> **Get transaction categorization**\nWith <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a>, we clean and categorize transactions for you, turning raw data into actionable insights. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\nWe return one of the following enum values:\n\n  - `Bills & Utilities`\n  - `Credits & Loans`\n  - `Deposits`\n  - `Fees & Charges`\n  - `Food & Groceries`\n  - `Home & Life`\n  - `Income & Payments`\n  - `Insurance`\n  - `Investments & Savings`\n  - `Online Platforms & Leisure`\n  - `Personal Shopping`\n  - `Taxes`\n  - `Transfers`\n  - `Transport & Travel`\n  - `Unknown`*\n  - `Withdrawal & ATM`\n  - `null`\n\n\n  \\* For clients not using our Transaction Categorization product, we return `null` instead.\n",
+              "enum": [
+                "Bills & Utilities",
+                "Credits & Loans",
+                "Deposits",
+                "Fees & Charges",
+                "Food & Groceries",
+                "Home & Life",
+                "Income & Payments",
+                "Insurance",
+                "Investments & Savings",
+                "Online Platforms & Leisure",
+                "Personal Shopping",
+                "Taxes",
+                "Transfers",
+                "Transport & Travel",
+                "Unknown",
+                "Withdrawal & ATM",
+                null
+              ],
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "category_inflow_ratio_3m": {
+              "description": "The ratio of `net_amount_3m` divided by the sum of all incoming categorized transactions (including the current category) for the same period.\n\nNote: If there are no inflow transactions for the period, this value will return `null`.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "net_amount_3m": {
+              "description": "The net amount of the transactions for this category in the last three months (calculated as the total incoming - total outgoing transactions for this category).",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "subcategory": {
+              "description": "The transaction subcategory.\n\n  > **Get transaction categorization**\n  For clients not using our <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a>, we return `null` instead. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\n\nWe return one of the following enum values:\n\n  - `Electricity & Energy`\n  - `Rent`\n  - `Telecommunications`\n  - `Water`\n  - `Auto`\n  - `Credit Card`\n  - `Instalment`\n  - `Interest & Charges`\n  - `Mortgage`\n  - `Pay Advance`\n  - `Personal`\n  - `Adjustments`\n  - `Bank Fees`\n  - `Chargeback`\n  - `Refund`\n  - `Blocked Balances`\n  - `Alimony`\n  - `Alcohol & Tobacco`\n  - `Bakery & Coffee`\n  - `Bars & Nightclubs`\n  - `Convenience Store`\n  - `Delivery`\n  - `Groceries`\n  - `Restaurants`\n  - `Education`\n  - `Gyms & Fitness`\n  - `Hair & Beauty`\n  - `Health`\n  - `Home Decor & Appliances`\n  - `Laundry & Dry Cleaning`\n  - `Pharmacies`\n  - `Professional Services`\n  - `Veterinary Services`\n  - `Freelance`\n  - `Interest`\n  - `Retirement`\n  - `Salary`\n  - `Government`\n  - `Home Insurance`\n  - `Auto Insurance`\n  - `Health & Life Insurance`\n  - `Savings`\n  - `Fixed income`\n  - `Equity`\n  - `Investment Funds`\n  - `Derivatives`\n  - `Cryptocurrencies`\n  - `Apps, Software and Cloud Services`\n  - `Events, Parks and Museums`\n  - `Gambling`\n  - `Gaming`\n  - `Lottery`\n  - `Movie & Audio`\n  - `Books & News`\n  - `Clothing & Accessories`\n  - `Department Store`\n  - `Electronics`\n  - `E-commerce`\n  - `Gifts`\n  - `Office Supplies`\n  - `Pet Supplies`\n  - `Auto Tax & Fees`\n  - `Donation`\n  - `Government Fees`\n  - `Income Tax`\n  - `Real Estate Tax & Fees`\n  - `Tax Return`\n  - `Accommodation`\n  - `Auto Expenses`\n  - `Auto Rental`\n  - `Flights`\n  - `Gas`\n  - `Mileage Programs`\n  - `Parking & Tolls`\n  - `Public Transit`\n  - `Taxis & Rideshares`\n  - `Other`\n  - `null`\n",
+              "enum": [
+                "Electricity & Energy",
+                "Rent",
+                "Telecommunications",
+                "Water",
+                "Auto",
+                "Credit Card",
+                "Instalment",
+                "Interest & Charges",
+                "Mortgage",
+                "Pay Advance",
+                "Personal",
+                "Adjustments",
+                "Bank Fees",
+                "Chargeback",
+                "Refund",
+                "Blocked Balances",
+                "Alimony",
+                "Alcohol & Tobacco",
+                "Bakery & Coffee",
+                "Bars & Nightclubs",
+                "Convenience Store",
+                "Delivery",
+                "Groceries",
+                "Restaurants",
+                "Education",
+                "Gyms & Fitness",
+                "Hair & Beauty",
+                "Health",
+                "Home Decor & Appliances",
+                "Laundry & Dry Cleaning",
+                "Pharmacies",
+                "Professional Services",
+                "Veterinary Services",
+                "Freelance",
+                "Interest",
+                "Retirement",
+                "Salary",
+                "Government",
+                "Home Insurance",
+                "Auto Insurance",
+                "Health & Life Insurance",
+                "Savings",
+                "Fixed income",
+                "Equity",
+                "Investment Funds",
+                "Derivatives",
+                "Cryptocurrencies",
+                "Apps, Software and Cloud Services",
+                "Events, Parks and Museums",
+                "Gambling",
+                "Gaming",
+                "Lottery",
+                "Movie & Audio",
+                "Books & News",
+                "Clothing & Accessories",
+                "Department Store",
+                "Electronics",
+                "E-commerce",
+                "Gifts",
+                "Office Supplies",
+                "Pet Supplies",
+                "Auto Tax & Fees",
+                "Donation",
+                "Government Fees",
+                "Income Tax",
+                "Real Estate Tax & Fees",
+                "Tax Return",
+                "Accommodation",
+                "Auto Expenses",
+                "Auto Rental",
+                "Flights",
+                "Gas",
+                "Mileage Programs",
+                "Parking & Tolls",
+                "Public Transit",
+                "Taxis & Rideshares",
+                "Other",
+                null
+              ],
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "trend_3m": {
+              "description": "The net category transaction trend (incoming - outgoing transactions for the category) for the period.",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "credit_cards_metrics": {
+        "description": "Aggregated metrics calculated based on the user's credit card accounts.\n\n> Credit card metrics illustrate a customer's credit card habits, revealing how many credit card accounts a customer has, their total credit limit, how much of that limit they're using, and the rate of their credit card limit utilization.\n",
+        "properties": {
+          "credit_card_limit_utilization": {
+            "description": "The percentage of the credit card limit used.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "num_accounts": {
+            "description": "Number of credit cards accounts associated to the user.\n",
+            "format": "int32",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "sum_credit_limit": {
+            "description": "Sum total of all credit cards' limits.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_credit_used": {
+            "description": "Sum total of all credit used.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "num_accounts",
+          "sum_credit_limit",
+          "sum_credit_used",
+          "credit_card_limit_utilization"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "link": {
+        "description": "The `link.id` the data belongs to.",
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "loans_metrics": {
+        "description": "Aggregated metrics calculated based on the user's loan accounts and checking accounts that have an overdraft.\n\n> Loan metrics help in understanding a customer's borrowing and repayment behavior, which can help in assessing their ability to take on additional credit and potential default risks.\n",
+        "properties": {
+          "loan_limit_utilization": {
+            "description": "The percentage of the loan limit used.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "num_accounts": {
+            "description": "The number of loan accounts associated with the user.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "overdraft_limit": {
+            "description": "The total overdraft limit of all checking and savings accounts.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "overdraft_limit_utilization": {
+            "description": "The percentage of the overdraft limit used.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_loans_monthly_payment": {
+            "description": "Sum total of the monthly payments for all the user's loan accounts.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_loans_outstanding_principal": {
+            "description": "Sum total of the outstanding principal for all the user's loan accounts.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_loans_principal": {
+            "description": "Sum total of the principal for all of the user's loan accounts.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "num_accounts",
+          "sum_loans_principal",
+          "sum_loans_outstanding_principal",
+          "sum_loans_monthly_payment",
+          "loan_limit_utilization",
+          "overdraft_limit",
+          "overdraft_limit_utilization"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "transactions_metrics": {
+        "description": "Aggregated metrics calculated based on the user's transactions from checking, savings, credit card, and loan accounts.\n\n\n> ℹ️ **Note**\n>\n> If there is not enough transactional data for a given period, we return `null` for calculated fields and `0` for 'count-based' fields. For example, if the account has only been open for five days (or you have provided data just for five days), we return values for `_3d`, `_1w`, and `_1m`, however:\n> \n> - `mean_num_transactions_3m` will return `null` as there is no data for months two and three (calculated field).\n> - `num_transactions_3m` will return `0` as there is no data for months two and three ('count-based' field)\n",
+        "properties": {
+          "days_history": {
+            "default": 0,
+            "description": "The number of days between when the risk insight request was made and the first transaction.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_since_last_incoming_transaction": {
+            "default": 0,
+            "description": "The number of days since the last inflow transaction occurred.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_since_last_outgoing_transaction": {
+            "default": 0,
+            "description": "The number of days since the last outflow transaction occurred.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_since_last_transaction": {
+            "default": 0,
+            "description": "The number of days since the last transaction occurred.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_without_transactions_12m": {
+            "default": 0,
+            "description": "The number of days that no transactions occurred within the last twelve months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_without_transactions_1m": {
+            "default": 0,
+            "description": "The number of days that no transactions occurred within the last month.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_without_transactions_1w": {
+            "default": 0,
+            "description": "The number of days that no transactions occurred within the last week.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_without_transactions_3d": {
+            "default": 0,
+            "description": "The number of days that no transactions occurred within the last three days.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_without_transactions_3m": {
+            "default": 0,
+            "description": "The number of days that no transactions occurred within the last three months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "days_without_transactions_6m": {
+            "default": 0,
+            "description": "The number of days that no transactions occurred within the last six months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_incoming_amount_12m": {
+            "description": "The highest value inflow transaction in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_incoming_amount_1m": {
+            "description": "The highest value inflow transaction in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_incoming_amount_1w": {
+            "description": "The highest value inflow transaction in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_incoming_amount_3d": {
+            "description": "The highest value inflow transaction in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_incoming_amount_3m": {
+            "description": "The highest value inflow transaction in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_incoming_amount_6m": {
+            "description": "The highest value inflow transaction in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_num_incoming_transactions_12m": {
+            "default": 0,
+            "description": "The maximum number of inflow transactions for the last twelve months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_incoming_transactions_1m": {
+            "default": 0,
+            "description": "The maximum number of inflow transactions for the last month.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_incoming_transactions_1w": {
+            "default": 0,
+            "description": "The maximum number of inflow transactions for the last week.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_incoming_transactions_3d": {
+            "default": 0,
+            "description": "The maximum number of inflow transactions for the last three days.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_incoming_transactions_3m": {
+            "default": 0,
+            "description": "The maximum number of inflow transactions for the last three months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_incoming_transactions_6m": {
+            "default": 0,
+            "description": "The maximum number of inflow transactions for the last six months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_outgoing_transactions_12m": {
+            "default": 0,
+            "description": "The maximum number of outflow transactions for the last twelve months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_outgoing_transactions_1m": {
+            "default": 0,
+            "description": "The maximum number of outflow transactions for the last month.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_outgoing_transactions_1w": {
+            "default": 0,
+            "description": "The maximum number of outflow transactions for the last week.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_outgoing_transactions_3d": {
+            "default": 0,
+            "description": "The maximum number of outflow transactions for the last three days.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_outgoing_transactions_3m": {
+            "default": 0,
+            "description": "The maximum number of outflow transactions for the last three months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_outgoing_transactions_6m": {
+            "default": 0,
+            "description": "The maximum number of outflow transactions for the last six months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_transactions_12m": {
+            "default": 0,
+            "description": "The maximum number of transactions for the last twelve months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_transactions_1m": {
+            "default": 0,
+            "description": "The maximum number of transactions for the last month.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_transactions_1w": {
+            "default": 0,
+            "description": "The maximum number of transactions for the last week.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_transactions_3d": {
+            "default": 0,
+            "description": "The maximum number of transactions for the last three days.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_transactions_3m": {
+            "default": 0,
+            "description": "The maximum number of transactions for the last three months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_num_transactions_6m": {
+            "default": 0,
+            "description": "The maximum number of transactions for the last six months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "max_outgoing_amount_12m": {
+            "description": "The highest value outflow transaction in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_outgoing_amount_1m": {
+            "description": "The highest value outflow transaction in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_outgoing_amount_1w": {
+            "description": "The highest value outflow transaction in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_outgoing_amount_3d": {
+            "description": "The highest value outflow transaction in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_outgoing_amount_3m": {
+            "description": "The highest value outflow transaction in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max_outgoing_amount_6m": {
+            "description": "The highest value outflow transaction in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_incoming_amount_12m": {
+            "description": "The mean incoming value of all transactions in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_incoming_amount_1m": {
+            "description": "The mean incoming value of all transactions in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_incoming_amount_1w": {
+            "description": "The mean incoming value of all transactions in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_incoming_amount_3d": {
+            "description": "The mean incoming value of all transactions in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_incoming_amount_3m": {
+            "description": "The mean incoming value of all transactions in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_incoming_amount_6m": {
+            "description": "The mean incoming value of all transactions in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_num_incoming_transactions_12m": {
+            "default": 0,
+            "description": "The mean number of inflow transactions for the last twelve months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_incoming_transactions_1m": {
+            "default": 0,
+            "description": "The mean number of inflow transactions for the last month.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_incoming_transactions_1w": {
+            "default": 0,
+            "description": "The mean number of inflow transactions for the last week.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_incoming_transactions_3d": {
+            "default": 0,
+            "description": "The mean number of inflow transactions for the last three days.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_incoming_transactions_3m": {
+            "default": 0,
+            "description": "The mean number of inflow transactions for the last three months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_incoming_transactions_6m": {
+            "default": 0,
+            "description": "The mean number of inflow transactions for the last six months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_outgoing_transactions_12m": {
+            "default": 0,
+            "description": "The mean number of outflow transactions for the last twelve months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_outgoing_transactions_1m": {
+            "default": 0,
+            "description": "The mean number of outflow transactions for the last month.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_outgoing_transactions_1w": {
+            "default": 0,
+            "description": "The mean number of outflow transactions for the last week.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_outgoing_transactions_3d": {
+            "default": 0,
+            "description": "The mean number of outflow transactions for the last three days.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_outgoing_transactions_3m": {
+            "default": 0,
+            "description": "The mean number of outflow transactions for the last three months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_outgoing_transactions_6m": {
+            "default": 0,
+            "description": "The mean number of outflow transactions for the last six months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_transactions_12m": {
+            "default": 0,
+            "description": "The mean number of transactions for the last twelve months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_transactions_1m": {
+            "default": 0,
+            "description": "The mean number of transactions for the last month.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_transactions_1w": {
+            "default": 0,
+            "description": "The mean number of transactions for the last week.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_transactions_3d": {
+            "default": 0,
+            "description": "The mean number of transactions for the last three days.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_transactions_3m": {
+            "default": 0,
+            "description": "The mean number of transactions for the last three months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_num_transactions_6m": {
+            "default": 0,
+            "description": "The mean number of transactions for the last six months.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "mean_outgoing_amount_12m": {
+            "description": "The mean outgoing value of all transaction in the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_outgoing_amount_1m": {
+            "description": "The mean outgoing value of all transaction in the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_outgoing_amount_1w": {
+            "description": "The mean outgoing value of all transaction in the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_outgoing_amount_3d": {
+            "description": "The mean outgoing value of all transaction in the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_outgoing_amount_3m": {
+            "description": "The mean outgoing value of all transaction in the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mean_outgoing_amount_6m": {
+            "description": "The mean outgoing value of all transaction in the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "num_incoming_transactions_12m": {
+            "default": 0,
+            "description": "The total number of inflow transactions for the last twelve months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_incoming_transactions_1m": {
+            "default": 0,
+            "description": "The total number of inflow transactions for the last month.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_incoming_transactions_1w": {
+            "default": 0,
+            "description": "The total number of inflow transactions for the last week.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_incoming_transactions_3d": {
+            "default": 0,
+            "description": "The total number of inflow transactions for the last three days.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_incoming_transactions_3m": {
+            "default": 0,
+            "description": "The total number of inflow transactions for the last three months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_incoming_transactions_6m": {
+            "default": 0,
+            "description": "The total number of inflow transactions for the last six months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_outgoing_transactions_12m": {
+            "default": 0,
+            "description": "To total number of outflow transactions in the last twelve months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_outgoing_transactions_1m": {
+            "default": 0,
+            "description": "To total number of outflow transactions in the last month.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_outgoing_transactions_1w": {
+            "default": 0,
+            "description": "To total number of outflow transactions in the last week.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_outgoing_transactions_3d": {
+            "default": 0,
+            "description": "To total number of outflow transactions in the last three days.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_outgoing_transactions_3m": {
+            "default": 0,
+            "description": "To total number of outflow transactions in the last three months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_outgoing_transactions_6m": {
+            "default": 0,
+            "description": "To total number of outflow transactions in the last six months.\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_transactions_12m": {
+            "default": 0,
+            "description": "The total number of transactions analyzed to determine the risk insights for the last twelve months (incoming and outgoing).\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_transactions_1m": {
+            "default": 0,
+            "description": "The total number of transactions analyzed to determine the risk insights for the last month (incoming and outgoing).\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_transactions_1w": {
+            "default": 0,
+            "description": "The total number of transactions analyzed to determine the risk insights for the last week (incoming and outgoing).\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_transactions_3d": {
+            "default": 0,
+            "description": "The total number of transactions analyzed to determine the risk insights for the last three days (incoming and outgoing).\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_transactions_3m": {
+            "default": 0,
+            "description": "The total number of transactions analyzed to determine the risk insights for the last three months (incoming and outgoing).\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "num_transactions_6m": {
+            "default": 670,
+            "description": "The total number of transactions analyzed to determine the risk insights for the last six months (incoming and outgoing).\n",
+            "format": "int32",
+            "type": "integer"
+          },
+          "sum_incoming_amount_12m": {
+            "description": "The total sum of all inflow transactions for the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_incoming_amount_1m": {
+            "description": "The total sum of all inflow transactions for the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_incoming_amount_1w": {
+            "description": "The total sum of all inflow transactions for the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_incoming_amount_3d": {
+            "description": "The total sum of all inflow transactions for the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_incoming_amount_3m": {
+            "description": "The total sum of all inflow transactions for the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_incoming_amount_6m": {
+            "description": "The total sum of all inflow transactions for the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_outgoing_amount_12m": {
+            "description": "The total sum of all outflow transactions for the last twelve months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_outgoing_amount_1m": {
+            "description": "The total sum of all outflow transactions for the last month.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_outgoing_amount_1w": {
+            "description": "The total sum of all outflow transactions for the last week.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_outgoing_amount_3d": {
+            "description": "The total sum of all outflow transactions for the last three days.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_outgoing_amount_3m": {
+            "description": "The total sum of all outflow transactions for the last three months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "sum_outgoing_amount_6m": {
+            "description": "The total sum of all outflow transactions for the last six months.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "num_transactions_3d",
+          "num_transactions_1w",
+          "num_transactions_1m",
+          "num_transactions_3m",
+          "num_transactions_6m",
+          "num_transactions_12m",
+          "max_num_transactions_3d",
+          "max_num_transactions_1w",
+          "max_num_transactions_1m",
+          "max_num_transactions_3m",
+          "max_num_transactions_6m",
+          "max_num_transactions_12m",
+          "mean_num_transactions_3d",
+          "mean_num_transactions_1w",
+          "mean_num_transactions_1m",
+          "mean_num_transactions_3m",
+          "mean_num_transactions_6m",
+          "mean_num_transactions_12m",
+          "num_incoming_transactions_3d",
+          "num_incoming_transactions_1w",
+          "num_incoming_transactions_1m",
+          "num_incoming_transactions_3m",
+          "num_incoming_transactions_6m",
+          "num_incoming_transactions_12m",
+          "max_num_incoming_transactions_3d",
+          "max_num_incoming_transactions_1w",
+          "max_num_incoming_transactions_1m",
+          "max_num_incoming_transactions_3m",
+          "max_num_incoming_transactions_6m",
+          "max_num_incoming_transactions_12m",
+          "mean_num_incoming_transactions_3d",
+          "mean_num_incoming_transactions_1w",
+          "mean_num_incoming_transactions_1m",
+          "mean_num_incoming_transactions_3m",
+          "mean_num_incoming_transactions_6m",
+          "mean_num_incoming_transactions_12m",
+          "sum_incoming_amount_3d",
+          "sum_incoming_amount_1w",
+          "sum_incoming_amount_1m",
+          "sum_incoming_amount_3m",
+          "sum_incoming_amount_6m",
+          "sum_incoming_amount_12m",
+          "max_incoming_amount_3d",
+          "max_incoming_amount_1w",
+          "max_incoming_amount_1m",
+          "max_incoming_amount_3m",
+          "max_incoming_amount_6m",
+          "max_incoming_amount_12m",
+          "mean_incoming_amount_3d",
+          "mean_incoming_amount_1w",
+          "mean_incoming_amount_1m",
+          "mean_incoming_amount_3m",
+          "mean_incoming_amount_6m",
+          "mean_incoming_amount_12m",
+          "num_outgoing_transactions_3d",
+          "num_outgoing_transactions_1w",
+          "num_outgoing_transactions_1m",
+          "num_outgoing_transactions_3m",
+          "num_outgoing_transactions_6m",
+          "num_outgoing_transactions_12m",
+          "max_num_outgoing_transactions_3d",
+          "max_num_outgoing_transactions_1w",
+          "max_num_outgoing_transactions_1m",
+          "max_num_outgoing_transactions_3m",
+          "max_num_outgoing_transactions_6m",
+          "max_num_outgoing_transactions_12m",
+          "mean_num_outgoing_transactions_3d",
+          "mean_num_outgoing_transactions_1w",
+          "mean_num_outgoing_transactions_1m",
+          "mean_num_outgoing_transactions_3m",
+          "mean_num_outgoing_transactions_6m",
+          "mean_num_outgoing_transactions_12m",
+          "sum_outgoing_amount_3d",
+          "sum_outgoing_amount_1w",
+          "sum_outgoing_amount_1m",
+          "sum_outgoing_amount_3m",
+          "sum_outgoing_amount_6m",
+          "sum_outgoing_amount_12m",
+          "max_outgoing_amount_3d",
+          "max_outgoing_amount_1w",
+          "max_outgoing_amount_1m",
+          "max_outgoing_amount_3m",
+          "max_outgoing_amount_6m",
+          "max_outgoing_amount_12m",
+          "mean_outgoing_amount_3d",
+          "mean_outgoing_amount_1w",
+          "mean_outgoing_amount_1m",
+          "mean_outgoing_amount_3m",
+          "mean_outgoing_amount_6m",
+          "mean_outgoing_amount_12m",
+          "days_without_transactions_3d",
+          "days_without_transactions_1w",
+          "days_without_transactions_1m",
+          "days_without_transactions_3m",
+          "days_without_transactions_6m",
+          "days_without_transactions_12m",
+          "days_since_last_transaction",
+          "days_since_last_incoming_transaction",
+          "days_since_last_outgoing_transaction",
+          "days_history"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "link",
+      "created_at",
+      "accounts",
+      "assets_metrics",
+      "transactions_metrics",
+      "balances_metrics",
+      "cashflow_metrics",
+      "credit_cards_metrics",
+      "loans_metrics",
+      "category_metrics"
+    ],
+    "title": "Risk Insights Object",
+    "type": "object"
+  },
+  "stream": "enrichment_risk_insights",
+  "tap_stream_id": "enrichment_risk_insights"
+}

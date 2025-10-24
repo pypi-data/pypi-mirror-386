@@ -1,0 +1,406 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "website"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "display_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "country_codes"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "primary_color"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "logo"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "icon_logo"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "text_logo"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "form_fields"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "features"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "resources"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "integration_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "openbanking_information"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "openbanking_information",
+        "properties",
+        "description"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "openbanking_information",
+        "properties",
+        "participants"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "openbanking_information",
+        "properties",
+        "authorization_server_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "description": "Object detailing the aggregation institution.",
+    "properties": {
+      "country_codes": {
+        "description": "The country codes where the institution is available, for example:\n- 🇧🇷 BR (Brazil)\n- 🇨🇴 CO (Colombia)\n- 🇲🇽 MX (Mexico)  \n",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "display_name": {
+        "description": "The customer-facing name of the institution.",
+        "type": "string"
+      },
+      "features": {
+        "description": "The features that the institution supports. If the institution has no special features, then Belvo returns an empty array.\n\nHere is a list of the available features:\n- `token_required` indicates that the institution may require a token during link creation or when making any other requests.\n",
+        "items": {
+          "properties": {
+            "description": {
+              "description": "The description of the feature.",
+              "type": "string"
+            },
+            "name": {
+              "description": "The name of the feature.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "form_fields": {
+        "items": {
+          "properties": {
+            "label": {
+              "description": "The label of the form field. For example:\n- Client number\n- Key Bancanet\n- Document\n",
+              "type": "string"
+            },
+            "name": {
+              "description": "The username, password, or username type field.",
+              "type": "string"
+            },
+            "placeholder": {
+              "description": "The placeholder text in the form field.",
+              "type": "string"
+            },
+            "type": {
+              "description": "The input type for the form field. For example, string.",
+              "type": "string"
+            },
+            "validation": {
+              "description": "The type of input validation used for the field.",
+              "type": "string"
+            },
+            "validation_message": {
+              "description": "The message displayed when an invalid input is provided in the form field.",
+              "type": "string"
+            },
+            "values": {
+              "description": "If the form field is for documents, the institution may require additional\ninput regarding the document type.\n",
+              "items": {
+                "properties": {
+                  "code": {
+                    "description": "The code of the document.",
+                    "type": "string"
+                  },
+                  "label": {
+                    "description": "The label for the field. For example:\n- Cédula de Ciudadanía\n- Cédula de Extranjería\n- Pasaporte\n",
+                    "type": "string"
+                  },
+                  "placeholder": {
+                    "description": "The placeholder text in the form field.",
+                    "type": "string"
+                  },
+                  "validation": {
+                    "description": "The type of input validation used for the field.",
+                    "type": "string"
+                  },
+                  "validation_message": {
+                    "description": "The message displayed when an invalid input is provided in the form field.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "icon_logo": {
+        "description": "The URL of the institution's icon logo.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "The ID of the institution as designated by Belvo.",
+        "format": "int32",
+        "type": "integer"
+      },
+      "integration_type": {
+        "description": "The type of technology used to access the institution. We return one of the following values:\n\n- `credentials`: Uses Belvo's scraping technology, combined with user credentials, to perform requests.\n- `openfinance`: Uses the bank's open finance API to perform requests.\n",
+        "enum": [
+          "credentials",
+          "openfinance",
+          null
+        ],
+        "type": "string"
+      },
+      "logo": {
+        "description": "The URL of the institution's logo.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "name": {
+        "description": "The name of the institution, as designated by Belvo.",
+        "type": "string"
+      },
+      "openbanking_information": {
+        "description": "Information about the institution on the Open Finance environment.",
+        "properties": {
+          "authorization_server_id": {
+            "description": "The authorization server ID (UUID) of the institution on the Open Finance Environment.",
+            "format": "uuid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "description": "A short description of the institution on the Open Finance environment. Extracted from Open Finance regulated institutions listing.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "participants": {
+            "description": "List of brands' servers available from the institution in Open Finance. Extracted from Open Finance regulated institutions listing.",
+            "items": {
+              "type": "string"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        },
+        "title": "Institution Open Banking Information",
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "primary_color": {
+        "description": "The primary color on the institution's website.",
+        "type": "string"
+      },
+      "resources": {
+        "description": "A list of Belvo resources that you can use with the institution. This list includes one or more of the following resources:\n\n  - `ACCOUNTS`\n  - `BALANCES`\n  - `BILLS`\n  - `EMPLOYMENTS`\n  - `EMPLOYMENT_RECORDS`\n  - `FINANCIAL_STATEMENTS`\n  - `INCOMES`\n  - `INVESTMENTS`\n  - `INVESTMENT_TRANSACTIONS`\n  - `INVOICES`\n  - `OWNERS`\n  - `RECURRING_EXPENSES`\n  - `RISK_INSIGHTS`\n  - `TRANSACTIONS`\n  - `TAX_COMPLIANCE_STATUS`\n  - `TAX_RETENTIONS`\n  - `TAX_RETURNS`\n  - `TAX_STATUS`\n",
+        "items": {
+          "description": "A Belvo resource that the institution supports.",
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "status": {
+        "description": "Indicates whether Belvo's integration with the institution is currently active (`healthy`) or undergoing maintenance (`down`).\n",
+        "enum": [
+          "healthy",
+          "down",
+          null
+        ],
+        "type": "string"
+      },
+      "text_logo": {
+        "description": "The URL of the institution's text logo.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The type of institution. We return one of the following values:\n\n  - `bank`\n  - `fiscal`\n  - `employment`\n",
+        "enum": [
+          "bank",
+          "fiscal",
+          "employment",
+          null
+        ],
+        "type": "string"
+      },
+      "website": {
+        "description": "The URL of the institution's website.",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "title": "Institution Object",
+    "type": "object"
+  },
+  "stream": "institutions",
+  "tap_stream_id": "institutions"
+}

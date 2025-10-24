@@ -1,0 +1,242 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "institution"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "access_mode"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "last_accessed_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "external_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "institution_user_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_by"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "refresh_rate"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credentials_storage"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "fetch_resources"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "stale_in"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    }
+  ],
+  "replication_key": "created_at",
+  "replication_method": "INCREMENTAL",
+  "schema": {
+    "properties": {
+      "access_mode": {
+        "description": "The link type.\nFor more information, see our <a href=\"https://developers.belvo.com/docs/links-and-institutions#links\" target=\"_blank\">Links</a> article.\nWe return one of the following enum values:\n  - `single`\n  - `recurrent`\n  - `null`\n",
+        "enum": [
+          "single",
+          "recurrent",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "created_by": {
+        "description": "The unique ID for the user that created this item.",
+        "format": "uuid",
+        "type": "string"
+      },
+      "credentials_storage": {
+        "description": "Indicates whether or not to store credentials (and the duration for which to store the credentials).\n\n- For recurrent links, this is set to `store` by default (and cannot be changed). \n- For single links, this is set to `365d` by default.\n\nCan be either:\n  - `store` to store credentials (until the link is deleted)\n  - `nostore` to not store credentials\n  -  Any value between `1d` and `365d` to indicate the number of days you want the credentials to be stored.\n\n For more information, check out the <a href=\"https://developers.belvo.com/docs/data-retention-controls#credentials_storage\" target=\"_blank\">credentials_storage</a> section of our Data retention controls article.\n",
+        "pattern": "^(store|nostore|\\d{1,3}d)$",
+        "type": "string"
+      },
+      "external_id": {
+        "description": "An additional identifier for the link, provided by you, to store in the Belvo database. **Cannot** include any Personal Identifiable Information (PII). **Must** be at least three characters long.\n\n\nIf we identify that the identifier contains PII, we will force a `null` value. For more information, see our <a href=\"https://developers.belvo.com/docs/link-creation-best-practices#adding-your-own-identifier\" target=\"_blank\">Link creation article</a>.\n",
+        "maxLength": 256,
+        "minLength": 3,
+        "type": "string"
+      },
+      "fetch_resources": {
+        "description": "An array of resources that you will receive a historical update for.\n",
+        "items": {
+          "description": "A Belvo resource that the institution supports.",
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "institution": {
+        "description": "Belvo's name for the institution.\n",
+        "type": "string"
+      },
+      "institution_user_id": {
+        "description": "> 📘 Info\n>\n> Only applicable for links created **after 08-02-2022**.\n\n\nA unique 44-character string that can be used to identify a user at a given institution.\n\n\n📚 Check out our <a href=\"https://developers.belvo.com/docs/link-creation-best-practices#avoiding-duplicated-links\" target=\"_blank\">Avoiding duplicated links</a> DevPortal article for more information and tips on how to use it.\n",
+        "pattern": "[A-Za-z0-9\\-=_]{44}",
+        "type": "string"
+      },
+      "last_accessed_at": {
+        "description": "The ISO-8601 timestamp of Belvo's most recent successful access to the institution for the given link.\n",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "refresh_rate": {
+        "default": "7d",
+        "description": "The update refresh rate for the recurrent link. For more information, check out our <a href=\"https://developers.belvo.com/docs/links-and-institutions#recurrent-links\" target=\"_blank\">recurrent link documentation</a> in our DevPortal.\nWe return one of the following enum values:\n  - `6h`\n  - `12h`\n  - `24h`\n  - `7d` (default)\n  - `30d` (once a month)\n  - `null` (for single links)\n",
+        "enum": [
+          "6h",
+          "12h",
+          "24h",
+          "7d",
+          "30d",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "stale_in": {
+        "description": "Indicates how long any user-derived data should be stored in Belvo's database for the link (both single and recurrent). For example, if you send through `90d`, Belvo will remove any data from its database relating to the user after 90 days. For more information, check out the <a href=\"https://developers.belvo.com/docs/data-retention-controls#stale_in\" target=\"_blank\">stale_in</a> section of our Data retention controls article.\n\n> 📘 Info\n>\n> Belvo will only remove data for links that have not been updated in the period you provide in `stale_in`. Belvo will only remove data for links that have not been updated in the period you provide in `stale_in`.\n\nBy default Belvo stores user data for 365 days, unless the link is deleted.\n",
+        "pattern": "^\\d{1,3}d$",
+        "type": "string"
+      },
+      "status": {
+        "description": "The current status of the link. For more information, see our <a href=\"https://developers.belvo.com/docs/links-and-institutions#links\" target=\"_blank\">Link</a> article in the devportal.\nWe return one of the following values:\n  - `valid`\n  - `invalid`\n  - `unconfirmed`\n  - `token_required`\n",
+        "enum": [
+          "valid",
+          "invalid",
+          "unconfirmed",
+          "token_required",
+          null
+        ],
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "stream": "links",
+  "tap_stream_id": "links"
+}

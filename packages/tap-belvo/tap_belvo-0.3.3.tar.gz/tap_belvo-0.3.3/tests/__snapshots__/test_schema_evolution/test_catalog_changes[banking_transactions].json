@@ -1,0 +1,1226 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "link"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "institution"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "institution",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "institution",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "category"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balance_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "number"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balance",
+        "properties",
+        "current"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "balance",
+        "properties",
+        "available"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "currency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "public_identification_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "public_identification_value"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "last_accessed_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "credit_limit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "cutting_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "next_payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "minimum_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "no_interest_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "interest_rate"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "monthly_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "last_payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_data",
+        "properties",
+        "last_period_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "principal"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "loan_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "payment_day"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "outstanding_principal"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "outstanding_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "monthly_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "interest_rates"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "fees"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "number_of_installments_total"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "number_of_installments_outstanding"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_start_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_end_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_number"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "credit_limit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "last_period_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "interest_rate"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "limit_day"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "cutting_day"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "cutting_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "last_payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "next_payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "loan_data",
+        "properties",
+        "no_interest_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "funds_data"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "bank_product_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "internal_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    }
+  ],
+  "replication_key": "created_at",
+  "replication_method": "INCREMENTAL",
+  "schema": {
+    "description": "Details regarding the account.\n\n**Note**: For our recurring expenses resource, this account relates to the account that was analyzed to generate the recurring expenses report.\n",
+    "properties": {
+      "balance": {
+        "description": "Details regarding the current and available balances for the account.\n",
+        "properties": {
+          "available": {
+            "description": "The balance that the account owner can use.\n\n- **💰 Checking and saving accounts**:\n\n\nThe available balance may be different to the `current` balance due to pending transactions.\n\n- **💳 Credit cards**:\n\n\nThe credit amount the user still has available for the current period. The `available` balance may be different to the `current` balance due to pending transactions or future instalments.\n\n- **🏡 Loan accounts**:\n\n\nThe present value required to pay off the loan, as provided by the institution.\n\n\n**Note:** If the institution does not provide this value, we return `null`.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "current": {
+            "description": "The current balance is calculated differently according to the type of account.\n\n\n- **💰 Checking and saving accounts**:\n\n\nThe user's account balance at the `collected_at` timestamp.\n\n- **💳 Credit cards**:\n\n\nThe amount the user has spent in the current card billing period (see `credit_data.cutting_date` for information on when the current billing period finishes).\n\n- **🏡 Loan accounts**:\n\n\nThe amount remaining to pay on the users's loan.\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "current"
+        ],
+        "type": "object"
+      },
+      "balance_type": {
+        "description": "Indicates whether this account is either an `ASSET` or a `LIABILITY`. You can consider the balance of an `ASSET` as being positive, while the balance of a `LIABILITY` as negative.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "bank_product_id": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The institution's product ID for the account type.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "category": {
+        "description": "The type of account.\nWe return one of the following enum values:\n  - `CHECKING_ACCOUNT`\n  - `CREDIT_CARD`\n  - `INVESTMENT_ACCOUNT`\n  - `LOAN_ACCOUNT`\n  - `PENSION_FUND_ACCOUNT`\n  - `SAVINGS_ACCOUNT`\n  - `UNCATEGORIZED`\n  - `null`\n",
+        "enum": [
+          "CHECKING_ACCOUNT",
+          "CREDIT_CARD",
+          "INVESTMENT_ACCOUNT",
+          "LOAN_ACCOUNT",
+          "PENSION_FUND_ACCOUNT",
+          "SAVINGS_ACCOUNT",
+          "UNCATEGORIZED",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "collected_at": {
+        "description": "The ISO-8601 timestamp when the data point was collected.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "credit_data": {
+        "description": "The credit options associated with this account.",
+        "properties": {
+          "collected_at": {
+            "description": "The ISO-8601 timestamp when the data point was collected.\n",
+            "format": "date-time",
+            "type": "string"
+          },
+          "credit_limit": {
+            "description": "The maximum amount of credit the owner can receive.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "cutting_date": {
+            "description": "The closing date of the credit period, in `YYYY-MM-DD` format.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "interest_rate": {
+            "description": "The annualized interest rate of the credit.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "last_payment_date": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n\n*The date when the last credit payment was made, in `YYYY-MM-DD` format.*\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "last_period_balance": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n\n*The balance remaining after the `last_payment_date`.*\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "minimum_payment": {
+            "description": "The minimum amount to be paid on the `next_payment_date`.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "monthly_payment": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The recurrent monthly payment, if applicable.*\n",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "next_payment_date": {
+            "description": "The due date for the next payment , in `YYYY-MM-DD` format.",
+            "type": "string"
+          },
+          "no_interest_payment": {
+            "description": "The minimum amount required to pay to avoid generating interest.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "credit_limit",
+          "cutting_date",
+          "next_payment_date",
+          "minimum_payment",
+          "no_interest_payment",
+          "interest_rate",
+          "collected_at"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "currency": {
+        "description": "The currency of the account. For example:\n- 🇧🇷 BRL (Brazilian Real)\n- 🇨🇴 COP (Colombian Peso)\n- 🇲🇽 MXN (Mexican Peso)\n\n Please note that other currencies other than in the list above may be returned.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "funds_data": {
+        "description": "One or more funds that contribute to the the pension account.",
+        "items": {
+          "properties": {
+            "balance": {
+              "description": "The amount in the fund.",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "collected_at": {
+              "description": "The ISO-8601 timestamp when the data point was collected.\n",
+              "format": "date-time",
+              "type": "string"
+            },
+            "name": {
+              "description": "The pension fund name.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "percentage": {
+              "description": "How much this fund, as a percentage, contributes to the pension\naccount's total.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "public_identifications": {
+              "description": "The fund's public IDs.",
+              "items": {
+                "properties": {
+                  "name": {
+                    "description": "The type of identification number for the fund.",
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "The fund's identification number.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "type": {
+              "description": "Type of pension fund.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "institution": {
+        "description": "Details regarding the institution.",
+        "properties": {
+          "name": {
+            "description": "The name of the institution, as designated by Belvo.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of institution. We return one of the following values:\n\n  - `bank`\n  - `fiscal`\n  - `employment`\n",
+            "enum": [
+              "bank",
+              "fiscal",
+              "employment",
+              null
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "internal_identification": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The institution's internal identification for the account.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "last_accessed_at": {
+        "description": "The ISO-8601 timestamp of Belvo's most recent successful access to the institution for the given link.\n",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "link": {
+        "description": "The `link.id` the data belongs to.",
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "loan_data": {
+        "description": "The loan options associated with this account.",
+        "properties": {
+          "collected_at": {
+            "description": "The ISO-8601 timestamp when the data point was collected.\n",
+            "format": "date-time",
+            "type": "string"
+          },
+          "contract_amount": {
+            "description": "The initial total loan amount, calculated by the institution, when the contract was signed. This amount includes the principal + interest + taxes + fees.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "contract_end_date": {
+            "description": "The date when the loan is expected to be completed, in `YYYY-MM-DD` format.",
+            "format": "date",
+            "type": "string"
+          },
+          "contract_number": {
+            "description": "The contract number of the loan, as given by the institution.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "contract_start_date": {
+            "description": "The date when the loan contract was signed , in `YYYY-MM-DD` format.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "credit_limit": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see `principal` instead.\n",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "cutting_date": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe closing date of the loan period, in `YYYY-MM-DD` format.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cutting_day": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe closing day of the month for the loan.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fees": {
+            "description": "Breakdown of the fees applied to the loan.",
+            "items": {
+              "description": "Breakdown of the fees applied to the loan.",
+              "properties": {
+                "type": {
+                  "description": "The type of fee. We return one of the following values:\n\n  - `OPERATION_FEE`\n  - `INSURANCE_FEE`\n  - `OTHERS`\n",
+                  "enum": [
+                    "OPERATION_FEE",
+                    "INSURANCE_FEE",
+                    "OTHERS",
+                    null
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The total value of the fee. Same currency of the Loan.\n",
+                  "format": "float",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "type",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "interest_rate": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see the `interest_rates` object instead.\n",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "interest_rates": {
+            "description": "Breakdown of the interest applied to the loan.",
+            "items": {
+              "description": "Breakdown of the interest applied to the loan.",
+              "properties": {
+                "name": {
+                  "description": "The name of the type of interest rate applied to the loan.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "description": "The period that the interest is applied to the loan. We return one of the following values:\n\n  - `MONTHLY`\n  - `YEARLY`\n",
+                  "enum": [
+                    "MONTHLY",
+                    "YEARLY",
+                    null
+                  ],
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "value": {
+                  "description": "The interest rate (in percent or currency value).",
+                  "format": "float",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "last_payment_date": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe date when the last loan payment was made, in `YYYY-MM-DD` format.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "last_period_balance": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see `outstanding_balance` instead.\n",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "limit_day": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see `payment_day` instead.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "loan_type": {
+            "description": "The type of the loan, according to the institution.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "monthly_payment": {
+            "description": "The recurrent monthly payment, if applicable.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "next_payment_date": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease use `payment_day` instead, in `YYYY-MM-DD` format.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "no_interest_payment": {
+            "deprecated": true,
+            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe minimum amount required to pay to avoid generating interest.\n",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "number_of_installments_outstanding": {
+            "description": "The number of installments left to pay.",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "number_of_installments_total": {
+            "description": "The total number of installments required to pay the loan.",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "outstanding_balance": {
+            "description": "The amount remaining to pay in total, including interest.",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "outstanding_principal": {
+            "description": "Outstanding loan amount, that is, how much remains to pay on the principal (not including interest).\n",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "payment_day": {
+            "description": "The day of the month by which the owner needs to pay the loan (`DD`).",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "principal": {
+            "description": "Total amount of the loan (the amount the user receives).",
+            "format": "float",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "principal",
+          "monthly_payment",
+          "outstanding_balance",
+          "interest_rates",
+          "collected_at"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "name": {
+        "description": "The account name, as given by the institution.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "number": {
+        "description": "The account number, as designated by the institution.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "public_identification_name": {
+        "description": "The public name for the type of identification. For example: `\"CLABE\"`.\n\nℹ️ For 🇧🇷 Brazilian savings and checking accounts, this field will be `AGENCY/ACCOUNT`.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "public_identification_value": {
+        "description": "The value for the `public_identification_name`.\n\nℹ️ For 🇧🇷 Brazilian savings and checking accounts, this field will be the agency and bank account number, separated by a slash.\nFor example: `0444/45722-0`.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The account type, as designated by the institution.",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "name",
+      "number",
+      "type",
+      "category",
+      "public_identification_name",
+      "public_identification_value",
+      "currency",
+      "balance",
+      "balance_type",
+      "credit_data",
+      "loan_data",
+      "collected_at",
+      "last_accessed_at"
+    ],
+    "title": "Accounts Standard (Multi-Region)",
+    "type": "object"
+  },
+  "stream": "banking_transactions",
+  "tap_stream_id": "banking_transactions"
+}

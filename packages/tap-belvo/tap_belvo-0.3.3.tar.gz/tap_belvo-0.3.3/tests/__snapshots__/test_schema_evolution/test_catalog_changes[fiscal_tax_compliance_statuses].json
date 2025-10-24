@@ -1,0 +1,148 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "internal_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "pdf"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "rfc"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "outcome"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    }
+  ],
+  "replication_key": "created_at",
+  "replication_method": "INCREMENTAL",
+  "schema": {
+    "properties": {
+      "collected_at": {
+        "description": "The ISO-8601 timestamp when the data point was collected.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "internal_identification": {
+        "description": "The institution’s internal identification number for the document.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "outcome": {
+        "description": "Indicates whether the taxpayer is complying to all their tax obligations\n(`POSITIVE`), if they are not (`NEGATIVE`), or have none to comply to\n(`NO_OBLIGATIONS`).\n",
+        "enum": [
+          "POSITIVE",
+          "NEGATIVE",
+          "NO_OBLIGATIONS",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "pdf": {
+        "description": "Tax compliance status PDF as a binary.",
+        "format": "binary",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "rfc": {
+        "description": "The account holder's RFC (Registro Federal de Contribuyentes) number.",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "pdf",
+      "collected_at"
+    ],
+    "title": "Tax Compliance Status Object (Mexico)",
+    "type": "object"
+  },
+  "stream": "fiscal_tax_compliance_statuses",
+  "tap_stream_id": "fiscal_tax_compliance_statuses"
+}

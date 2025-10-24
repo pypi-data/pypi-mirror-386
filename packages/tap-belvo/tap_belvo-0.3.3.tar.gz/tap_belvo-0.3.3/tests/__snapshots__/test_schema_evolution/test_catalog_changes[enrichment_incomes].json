@@ -1,0 +1,515 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "link"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "income_streams"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "income_source_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "first_transaction_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "last_transaction_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "best_working_day_to_charge"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "good_working_days_to_charge"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "number_of_income_streams"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "monthly_average"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "monthly_average_regular"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "monthly_average_irregular"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "monthly_average_low_confidence"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "monthly_average_medium_confidence"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "monthly_average_high_confidence"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_income_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_regular_income_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_irregular_income_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_low_confidence"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_medium_confidence"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_high_confidence"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    }
+  ],
+  "replication_method": "FULL_TABLE",
+  "schema": {
+    "description": "Income insights",
+    "properties": {
+      "best_working_day_to_charge": {
+        "description": "The best working day of the month to charge the user.\n",
+        "format": "int32",
+        "type": "integer"
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "first_transaction_date": {
+        "description": "The date when the first transaction occurred, in `YYYY-MM-DD` format.\n",
+        "format": "date",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "good_working_days_to_charge": {
+        "description": "Additional working days that have been identified as good days to charge the user.\n",
+        "items": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "type": "array"
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "income_source_type": {
+        "description": "The type of source we generate income insights from.\nWe return one of the following enum values:\n\n  - `BANK`\n",
+        "enum": [
+          "BANK",
+          null
+        ],
+        "type": "string"
+      },
+      "income_streams": {
+        "description": "An array of enriched income stream objects.",
+        "items": {
+          "description": "A list of income streams for the account.\n\nFor each income stream, we provide additional insights such as:\n- Frequency, stability, and confidence level of the income transactions.\n- Key metrics about the transaction amounts.\nℹ️ If no income sources are found, we return an empty array.\n",
+          "properties": {
+            "account_id": {
+              "description": "Unique ID for the bank account to be verified for income streams.",
+              "type": "string"
+            },
+            "average_income_amount": {
+              "description": "The average income transaction amount from the source.\n",
+              "format": "float",
+              "type": "number"
+            },
+            "confidence": {
+              "description": "Belvo's level of confidence for future incomes.\n\nWe return one of the following enum values:\n\n  - `HIGH`\n  - `MEDIUM`\n  - `LOW`\n",
+              "enum": [
+                "HIGH",
+                "MEDIUM",
+                "LOW",
+                null
+              ],
+              "type": "string"
+            },
+            "currency": {
+              "description": "The three-letter currency code of the income. For example:\n\n  • 🇧🇷 BRL (Brazilian Real)\n  • 🇨🇴 COP (Colombian Peso)\n  • 🇲🇽 MXN (Mexican Peso)\n  \n",
+              "type": "string"
+            },
+            "frequency": {
+              "description": "How often the income is received.\n\nWe return one of the following enum values:\n\n  - `MONTHLY` - For transactions that occur once per month.\n  - `FORTNIGHTLY` - For transactions that occur once every two weeks.\n  - `WEEKLY` - For transactions that occur once per week.\n  - `IRREGULAR` - For transactions that do not occur on a defined frequency pattern.\n  - `SINGLE` - For transactions that occur only once and do not repeat.\n",
+              "enum": [
+                "MONTHLY",
+                "FORTNIGHTLY",
+                "WEEKLY",
+                "IRREGULAR",
+                "SINGLE",
+                null
+              ],
+              "type": "string"
+            },
+            "full_periods": {
+              "description": "Number of period units (based on *rolling months*) with data to perform calculations.\n\n**Note:** A *rolling month* is a period of 30 days. For example, 2023-01-15 to 2023-02-15.\n",
+              "format": "int32",
+              "type": "integer"
+            },
+            "income_type": {
+              "description": "The type of income used in the calculations.\n\nWe return one of the following enum values:\n\n  - `SALARY`\n  - `GOVERNMENT`\n  - `INTEREST`\n  - `RENT`\n  - `RETIREMENT`\n  - `FREELANCE`\n  - `ALTERNATIVE_INCOME`\n  - `TRANSFER`\n  - `DEPOSIT`\n  - `UNKNOWN`\n",
+              "enum": [
+                "SALARY",
+                "GOVERNMENT",
+                "INTEREST",
+                "RENT",
+                "RETIREMENT",
+                "FREELANCE",
+                "ALTERNATIVE_INCOME",
+                "TRANSFER",
+                "DEPOSIT",
+                "UNKNOWN",
+                null
+              ],
+              "type": "string"
+            },
+            "last_income_amount": {
+              "description": "The amount of the most recent income received from the source.\n",
+              "format": "float",
+              "type": "number"
+            },
+            "last_income_date": {
+              "description": "The date when the most recent income from the stream was received, in `YYYY-MM-DD` format.\n",
+              "format": "date",
+              "type": "string"
+            },
+            "last_income_description": {
+              "description": "The description of the most recent income from the stream. \n",
+              "type": "string"
+            },
+            "lookback_periods": {
+              "description": "Number of period units (based on *rolling months*) used to generate insights and calculations.\n\n**Note:** A *rolling month* is a period of 30 days. For example, 2023-01-15 to 2023-02-15.\n",
+              "format": "int32",
+              "type": "integer"
+            },
+            "monthly_average": {
+              "description": "The average amount of income received from the source over `periods_with_income`.\n",
+              "format": "float",
+              "type": "number"
+            },
+            "monthly_median": {
+              "description": "The median amount of income received from the source over within a natural month.\n",
+              "format": "float",
+              "type": "number"
+            },
+            "number_of_incomes": {
+              "description": "Number of income transactions over the `lookback_periods`.\n",
+              "format": "int32",
+              "type": "integer"
+            },
+            "periods_with_income": {
+              "description": "Number of period units (based on *rolling months*) with at least one income available.\n\n**Note:** A *rolling month* is a period of 30 days. For example, 2023-01-15 to 2023-02-15.\n",
+              "format": "int32",
+              "type": "integer"
+            },
+            "regularity": {
+              "description": "The regularity of the income based in its frequency, with a range from 0 to 1, where 1 represents perfect regularity.\n\n**Note:** For transactions with `frequency`=`SINGLE`, this value returns `null`.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "stability": {
+              "description": "The stability of the income based on its amount, with a range from 0 to 1, where 1 represents perfect stability.\n\n**Note:** For transactions with `frequency`=`SINGLE`, this value returns `null`.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "trend": {
+              "description": "The income trend during a period of time calculated between last income and first income received, where:\n  - a negative float means that the income trend is decreasing during the time period.\n  - a positive float means that the income trend is increasing during the time period.\n\n**Note:** For transactions with `frequency`=`SINGLE`, this value returns `null`.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "account_id",
+            "income_type",
+            "frequency",
+            "monthly_average",
+            "average_income_amount",
+            "last_income_amount",
+            "currency",
+            "last_income_description",
+            "last_income_date",
+            "stability",
+            "regularity",
+            "trend",
+            "lookback_periods",
+            "full_periods",
+            "periods_with_income",
+            "number_of_incomes",
+            "confidence"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "last_transaction_date": {
+        "description": "The date when when the last transaction occurred, in `YYYY-MM-DD` format.\n",
+        "format": "date",
+        "type": "string"
+      },
+      "link": {
+        "description": "The `link.id` the data belongs to.",
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "monthly_average": {
+        "description": "Average amount of income received per month across all the accounts for the specific user.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "monthly_average_high_confidence": {
+        "description": "Average amount of income received per month for the specific user with `HIGH` confidence.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "monthly_average_irregular": {
+        "description": "Average amount of irregular income (with a frequency of `SINGLE` or `IRREGULAR`) received per month for the specific user.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "monthly_average_low_confidence": {
+        "description": "Average amount of income received per month for the specific user with `LOW` confidence.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "monthly_average_medium_confidence": {
+        "description": "Average amount of income received per month for the specific user with `MEDIUM` confidence.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "monthly_average_regular": {
+        "description": "Average amount of regular income (with a frequency of `MONTHLY`, `FORTNIGHTLY`, or `WEEKLY`) received per month for the specific user.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "number_of_income_streams": {
+        "description": "Number of total income streams analized.\n",
+        "format": "int32",
+        "type": "integer"
+      },
+      "total_high_confidence": {
+        "description": "Total amount of income for the specific user with `HIGH` confidence.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "total_income_amount": {
+        "description": "Total amount of all income received for the specific user.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "total_irregular_income_amount": {
+        "description": "Total amount of irregular income (with a frequency of `SINGLE` or `IRREGULAR`) for the specific user.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "total_low_confidence": {
+        "description": "Total amount of income for the specific user with `LOW` confidence.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "total_medium_confidence": {
+        "description": "Total amount of income for the specific user with `MEDIUM` confidence.\n",
+        "format": "float",
+        "type": "number"
+      },
+      "total_regular_income_amount": {
+        "description": "Total amount of regular income (with a frequency of `MONTHLY`, `FORTNIGHTLY`, `WEEKLY`) for the specific user.\n",
+        "format": "float",
+        "type": "number"
+      }
+    },
+    "required": [
+      "id",
+      "link",
+      "created_at",
+      "income_streams",
+      "income_source_type",
+      "first_transaction_date",
+      "last_transaction_date",
+      "best_working_day_to_charge",
+      "good_working_days_to_charge",
+      "number_of_income_streams",
+      "monthly_average",
+      "monthly_average_regular",
+      "monthly_average_irregular",
+      "monthly_average_low_confidence",
+      "monthly_average_medium_confidence",
+      "monthly_average_high_confidence",
+      "total_income_amount",
+      "total_regular_income_amount",
+      "total_low_confidence",
+      "total_medium_confidence",
+      "total_high_confidence"
+    ],
+    "title": "Income Object",
+    "type": "object"
+  },
+  "stream": "enrichment_incomes",
+  "tap_stream_id": "enrichment_incomes"
+}

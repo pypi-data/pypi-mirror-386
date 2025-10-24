@@ -1,0 +1,443 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "link"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "invoice_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "version"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "code"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "issued_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "certified_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cancelled_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sender_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sender_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_nationality"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_invoice_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_exempt_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_retained_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_taxable_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "retention_breakdown"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "xml"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    }
+  ],
+  "replication_key": "created_at",
+  "replication_method": "INCREMENTAL",
+  "schema": {
+    "properties": {
+      "cancelled_at": {
+        "description": "The ISO-8601 timestamp of when the tax retention was canceled (if applicable).\n",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "certified_at": {
+        "description": "The ISO-8601 timestamp of when the tax retention was certified.\n",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "code": {
+        "description": "The tax retention code. For more information, see our <a href=\"https://developers.belvo.com/docs/sat-catalogs#retention-code\" target=\"_blank\">SAT Catalogs DevPortal article</a>.\n",
+        "format": "int32",
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "collected_at": {
+        "description": "The ISO-8601 timestamp when the data point was collected.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "invoice_identification": {
+        "description": "The fiscal institution's unique ID for the invoice that the tax retention relates to.\n",
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "issued_at": {
+        "description": "The ISO-8601 timestamp of when the tax retention was issued.\n",
+        "format": "date-time",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "link": {
+        "description": "The `link.id` the data belongs to.",
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_id": {
+        "description": "The fiscal ID of the invoice receiver.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_name": {
+        "description": "The name of the invoice receiver.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_nationality": {
+        "description": "Whether the invoice receiver is a Mexican national or not. If the receiver is not considered a Mexican national, the retained taxes can be calculated differently. Possible values:\n  - `NATIONAL`\n  - `FOREIGN`\n",
+        "enum": [
+          "NATIONAL",
+          "FOREIGN",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "retention_breakdown": {
+        "description": "A breakdown of the retained taxes.\n",
+        "items": {
+          "description": "A breakdown of the retained taxes",
+          "properties": {
+            "base_amount": {
+              "description": "The base amount that was used to calculate the tax retention.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "payment_status": {
+              "description": "Indicates whether or not the tax has been paid or not. Can be either:\n  - `PAID`\n  - `PROVISIONED`\n",
+              "enum": [
+                "PAID",
+                "PROVISIONED",
+                null
+              ],
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "retained_amount": {
+              "description": "The amount retained.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tax_type": {
+              "description": "Optional attribute to indicate the type of tax withheld for the period or year according to the <a href=\"https://developers.belvo.com/docs/sat-catalogs#retention-code\" target=\"_blank\">SAT catalog</a>.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "base_amount",
+            "tax_type",
+            "retained_amount",
+            "payment_status"
+          ],
+          "type": "object"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "sender_id": {
+        "description": "The fiscal ID of the invoice sender.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "sender_name": {
+        "description": "The name of the invoice sender.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "total_exempt_amount": {
+        "description": "Total amount that is exempt from taxation.\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "total_invoice_amount": {
+        "description": "The total amount of the invoice that the tax retention relates to.\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "total_retained_amount": {
+        "description": "Total tax retained.\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "total_taxable_amount": {
+        "description": "The total amount that can be taxed. Calculated as `total_invoice_amount` - `total_exempt_amount`.\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "version": {
+        "description": "The CFDI version of the tax retentions.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "xml": {
+        "description": "The tax retention document in XML form.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "collected_at",
+      "invoice_identification",
+      "version",
+      "code",
+      "issued_at",
+      "certified_at",
+      "cancelled_at",
+      "sender_id",
+      "sender_name",
+      "receiver_nationality",
+      "receiver_id",
+      "receiver_name",
+      "total_invoice_amount",
+      "total_taxable_amount",
+      "total_exempt_amount",
+      "total_retained_amount",
+      "retention_breakdown",
+      "xml"
+    ],
+    "title": "Tax Retentions Object (Mexico)",
+    "type": "object"
+  },
+  "stream": "fiscal_tax_retentions",
+  "tap_stream_id": "fiscal_tax_retentions"
+}

@@ -1,0 +1,1632 @@
+{
+  "key_properties": [
+    "id"
+  ],
+  "metadata": [
+    {
+      "breadcrumb": [
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "link"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "automatic"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "invoice_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "invoice_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "invoice_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "tax_details"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "tax_details",
+        "properties",
+        "total_tax_retained"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "tax_details",
+        "properties",
+        "total_tax_transferred"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "tax_details",
+        "properties",
+        "retained_taxes"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "tax_details",
+        "properties",
+        "transferred_taxes"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sender_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sender_fiscal_regime"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sender_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sender_tax_fraud_status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_postal_code"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_fiscal_regime"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_tax_fraud_status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cancelation_status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "cancelation_update_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "certification_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "certification_authority"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payment_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payment_type_description"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payment_method"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payment_method_description"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "usage"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "version"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "place_of_issue"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "invoice_details"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "currency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "subtotal_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "exchange_rate"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "tax_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "discount_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "total_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "related_invoices"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payments"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "days"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "version"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "date_from"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "date_to"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "periodicity"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "earnings_breakdown"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "tax_deductions"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "payroll",
+        "properties",
+        "other_payments"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "folio"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "export_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "xml"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "warnings"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "warnings",
+        "properties",
+        "code"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "warnings",
+        "properties",
+        "message"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "sender_blacklist_status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "receiver_blacklist_status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [],
+      "metadata": {
+        "inclusion": "available",
+        "selected": true,
+        "selected-by-default": true,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    }
+  ],
+  "replication_key": "created_at",
+  "replication_method": "INCREMENTAL",
+  "schema": {
+    "properties": {
+      "cancelation_status": {
+        "description": "If the invoice is cancelled, this field indicates the status of the cancellation.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "cancelation_update_date": {
+        "description": "The date of the invoice cancelation, in `YYYY-MM-DD` format.\n",
+        "format": "date",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "certification_authority": {
+        "description": "The fiscal ID of the certification provider.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "certification_date": {
+        "description": "The date of the fiscal certification, in `YYYY-MM-DD` format.\n",
+        "format": "date",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "collected_at": {
+        "description": "The ISO-8601 timestamp when the data point was collected.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "currency": {
+        "description": "The currency of the invoice. For example:\n \n - 🇧🇷 BRL (Brazilian Real)\n - 🇨🇴 COP (Colombian Peso)\n - 🇲🇽 MXN (Mexican Peso)\n - 🇺🇸 USD (United States Dollar)\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "discount_amount": {
+        "description": "The total amount discounted in this invoice.\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "exchange_rate": {
+        "description": "The exchange rate used in this invoice for the currency.\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "export_type": {
+        "description": "The export type of the invoice, as defined by the legal entity in the country. For more information, see our <a href=\"https://developers.belvo.com/docs/sat-catalogs#export-type\" target=\"_blank\">SAT catalog reference article</a>.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "folio": {
+        "description": "The internal control number that the taxpayer assigns to the invoice.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "id": {
+        "description": "Belvo's unique identifier for the current item.\n",
+        "format": "uuid",
+        "type": "string"
+      },
+      "invoice_date": {
+        "description": "The date of the invoice, in `YYYY-MM-DD` format.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "invoice_details": {
+        "description": "A list of descriptions for each item (purchased product or service provided) in the invoice.\n",
+        "items": {
+          "properties": {
+            "collected_at": {
+              "description": "The ISO-8601 timestamp when the data point was collected.\n",
+              "format": "date-time",
+              "type": "string"
+            },
+            "description": {
+              "description": "The description of the invoice item (an invoice can have one or more items).\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "pre_tax_amount": {
+              "description": "The total price for this item before tax is applied (`quantity` x `unit_amount`).\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "product_identification": {
+              "description": "The identification code of the product or the service, as defined by the legal entity in the country.\\n- \\U0001F1F2\\U0001F1FD <a href=\"http://200.57.3.89/Pys/catPyS.aspx\" target=\"_blank\">Mexico</a>.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "quantity": {
+              "description": "The quantity of this invoice item.",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "retained_taxes": {
+              "description": "The retained tax on the invoice item.",
+              "items": {
+                "properties": {
+                  "collected_at": {
+                    "description": "The ISO-8601 timestamp when the data point was collected.\n",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "retained_tax_amount": {
+                    "description": "The amount of retained tax.",
+                    "format": "float",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "tax": {
+                    "description": "The type of retained tax (for example, ISR, IVA or IEPS).",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "tax_percentage": {
+                    "description": "The percentage of tax retained.",
+                    "format": "float",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "tax",
+                  "tax_percentage",
+                  "retained_tax_amount"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "tax_amount": {
+              "description": "The amount of tax for this invoice item (`pre_tax_amount` x `tax_percentage`).\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tax_percentage": {
+              "description": "The tax percentage to apply.",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "tax_type": {
+              "description": "The item's tax type.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "total_amount": {
+              "description": "The total price for this invoice item (`pre_tax_amount` + `tax_amount`).",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "transferred_taxes": {
+              "description": "The transferred taxes related to the invoice.",
+              "items": {
+                "properties": {
+                  "collected_at": {
+                    "description": "The ISO-8601 timestamp when the data point was collected.\n",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "tax": {
+                    "description": "The type of transferred tax (for example, ISR, IVA or IEPS).",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "tax_percentage": {
+                    "description": "The percentage of tax transferred.",
+                    "format": "float",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "transferred_tax_amount": {
+                    "description": "The amount of transferred tax.",
+                    "format": "float",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "tax",
+                  "tax_percentage",
+                  "transferred_tax_amount"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "unit_amount": {
+              "description": "The price of one a singular item.",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit_code": {
+              "description": "The unit of measure, as defined by the legal entity in the country. \\n- \\U0001F1F2\\U0001F1FD Mexico <a href=\"https://developers.belvo.com/docs/sat-catalogs#unit-code\" target=\"_blank\">SAT catalog reference</a>.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "unit_description": {
+              "description": "The description of the item, as defined by the legal entity in the country.\\n- \\U0001F1F2\\U0001F1FD Mexico <a href=\"https://developers.belvo.com/docs/sat-catalogs#unit-code\" target=\"_blank\">SAT catalog reference</a>.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "description",
+            "product_identification",
+            "quantity",
+            "unit_amount",
+            "unit_description",
+            "unit_code",
+            "pre_tax_amount",
+            "tax_percentage",
+            "tax_amount",
+            "total_amount"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "invoice_identification": {
+        "description": "The fiscal institution's unique ID for the invoice.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "invoice_type": {
+        "description": "The fiscal institution's classification of the invoice.\n\nFor Mexico's SAT, we return one of the following values:\n\n  - `Egreso`\n  - `Ingreso`\n  - `Nómina`\n  - `Pago`\n  - `Traslado`\n",
+        "enum": [
+          "Egreso",
+          "Ingreso",
+          "Nómina",
+          "Pago",
+          "Traslado",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "link": {
+        "description": "The `link.id` the data belongs to.",
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "payment_method": {
+        "description": "The payment method code used for this invoice, as defined by the legal entity of the country.\n\n- 🇲🇽 Mexico <a href=\"https://developers.belvo.com/docs/sat-catalogs#payment-method\" target=\"_blank\">SAT catalog reference article</a>. For Mexico, we return `PUE`, `PPD`, or `null`.\n",
+        "enum": [
+          "PUE",
+          "PPD",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "payment_method_description": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The description of the payment method used for this invoice.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "payment_type": {
+        "description": "The payment type code used for this invoice, as defined by the country legal entity.\n\n- 🇲🇽 Mexico <a href=\"https://developers.belvo.com/docs/sat-catalogs#payment-type\" target=\"_blank\">SAT catalog reference article</a>\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "payment_type_description": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "payments": {
+        "description": "A list detailing all the invoice payments.\n",
+        "items": {
+          "properties": {
+            "amount": {
+              "description": "The invoice amount, in the currency of the original invoice.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "beneficiary_account_number": {
+              "description": "The bank account number of the payment beneficiary.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "beneficiary_rfc": {
+              "description": "The fiscal ID of the payment beneficiary.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "currency": {
+              "description": "The currency of the payment. For example:\n\n- 🇧🇷 BRL (Brazilian Real)\n- 🇨🇴 COP (Colombian Peso)\n- 🇲🇽 MXN (Mexican Peso)\n\nPlease note that other currencies other than in the list above may be returned.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "date": {
+              "description": "ISO-8601 timestamp when the payment was made.\n",
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "exchange_rate": {
+              "description": "The `currency` to MXN currency exchange rate when the payment was made.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "operation_number": {
+              "description": "The fiscal institution's internal identifier for the operation.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "payer_account_number": {
+              "description": "The bank account number of the payment issuer.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "payer_bank_name": {
+              "description": "The banking institution that was used by the payment issuer.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "payer_rfc": {
+              "description": "The fiscal ID of the payment issuer.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "payment_type": {
+              "description": "Payment type code used for this invoice, as defined by the country's legal entity.\n\n- 🇲🇽 Mexico <a href=\"https://developers.belvo.com/docs/sat-catalogs#payment-type\" target=\"_blank\">SAT catalog reference article</a>\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "related_documents": {
+              "description": "A list of all the related deferred invoices affected by the payment.\n",
+              "items": {
+                "description": "List of all the related deferred invoices affected by the payment.",
+                "properties": {
+                  "amount_paid": {
+                    "description": "The amount paid in this installment.\n",
+                    "format": "float",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "currency": {
+                    "description": "The currency of the related invoice. For example:\n    \n- 🇧🇷 BRL (Brazilian Real)\n- 🇨🇴 COP (Colombian Peso)\n- 🇲🇽 MXN (Mexican Peso)\n  \n  Please note that other currencies other than in the list above may be returned.\n",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "invoice_identification": {
+                    "description": "The fiscal institution's unique ID for the related deferred invoice.\n",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "outstanding_balance": {
+                    "description": "The amount remaining to be paid.\n",
+                    "format": "float",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "partiality_number": {
+                    "description": "The payment installment number.\n",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "payment_method": {
+                    "description": "The payment method of the related invoice.\n",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "previous_balance": {
+                    "description": "The invoice amount before the payment.\n",
+                    "format": "float",
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "invoice_identification",
+                  "currency",
+                  "payment_method",
+                  "previous_balance",
+                  "amount_paid",
+                  "outstanding_balance"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "date",
+            "payment_type",
+            "currency",
+            "exchange_rate",
+            "amount",
+            "operation_number",
+            "beneficiary_account_number",
+            "payer_rfc",
+            "payer_account_number",
+            "payer_bank_name",
+            "related_documents"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "payroll": {
+        "description": "Details regarding the payroll payment. Only applicable for payroll invoices.\n",
+        "properties": {
+          "amount": {
+            "description": "The total amount of the payroll payment.\n",
+            "format": "float",
+            "type": "number"
+          },
+          "collected_at": {
+            "description": "The ISO-8601 timestamp when the data point was collected.\n",
+            "format": "date-time",
+            "type": "string"
+          },
+          "date_from": {
+            "description": "The start date of the payment period, in `YYYY-MM-DD` format.\n",
+            "format": "date",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date_to": {
+            "description": "The end date of the payment period, in `YYYY-MM-DD` format.\n",
+            "format": "date",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "days": {
+            "description": "The number of days covered by the payment.\n",
+            "format": "int32",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "earnings_breakdown": {
+            "description": "A breakdown of the earnings for the payroll payment.\n",
+            "items": {
+              "description": "A breakdown of the earnings for the payroll payment.",
+              "properties": {
+                "taxable_amount": {
+                  "description": "The amount of the income that is taxable.\n",
+                  "format": "float",
+                  "type": "number"
+                },
+                "type": {
+                  "description": "The type of income. For a full list of possible values, please see the <a href=\"https://developers.belvo.com/docs/sat-catalogs#payroll-earnings-breakdown-type\" target=\"_blank\">payroll earnings breakdown type table</a>.\n",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "vat_free_amount": {
+                  "description": "The amount of the income that is not subject to VAT.\n",
+                  "format": "float",
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "other_payments": {
+            "description": "A breakdown of other payments for the payroll.\n",
+            "items": {
+              "description": "A breakdown of other payments for the payroll.",
+              "properties": {
+                "amount": {
+                  "description": "The amount of the other payment.\n",
+                  "format": "float",
+                  "type": "number"
+                },
+                "type": {
+                  "description": "The type of other payment. For a full list of possible values, please see the <a href=\"https://developers.belvo.com/docs/sat-catalogs#payroll-other-payments-type\" target=\"_blank\">payroll other payments type table</a>.\n",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "payment_date": {
+            "description": "The payment date, in `YYYY-MM-DD` format.\n",
+            "format": "date",
+            "type": "string"
+          },
+          "periodicity": {
+            "description": "How often the payroll payment is made.\n\nFor Mexico's SAT, we return one of the following values:\n\n  - `DAILY`\n  - `WEEKLY`\n  - `TENTH_DAY`\n  - `FOURTEENTH_DAY`\n  - `FIFTEENTH_DAY`\n  - `MONTHLY`\n  - `BIMONTHLY`\n  - `PER_TASK`\n  - `COMMISSION`\n  - `ONE_OFF`\n  - `OTHER_PERIODICITY`\n",
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "TENTH_DAY",
+              "FOURTEENTH_DAY",
+              "FIFTEENTH_DAY",
+              "MONTHLY",
+              "BIMONTHLY",
+              "PER_TASK",
+              "COMMISSION",
+              "ONE_OFF",
+              "OTHER_PERIODICITY",
+              "null",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tax_deductions": {
+            "description": "A breakdown of the tax deductions on the payroll payment.\n",
+            "items": {
+              "description": "A breakdown of the tax deductions on the payroll payment.",
+              "properties": {
+                "amount": {
+                  "description": "The amount of the tax deduction.\n",
+                  "format": "float",
+                  "type": "number"
+                },
+                "type": {
+                  "description": "The type of tax deduction. For a full list of possible values, please see the <a href=\"https://developers.belvo.com/docs/sat-catalogs#payroll-tax-deductions-type\" target=\"_blank\">payroll tax deductions type table</a>.\n",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "The payroll type, as defined by the legal entity of the country.\n\n- 🇲🇽 Mexico <a href=\"https://developers.belvo.com/docs/sat-catalogs#payroll-type\" target=\"_blank\">SAT catalog reference article</a>\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "description": "The version of the payroll object.\n",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "type",
+          "payment_date",
+          "date_from",
+          "date_to",
+          "days",
+          "amount"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "place_of_issue": {
+        "description": "The postcode of where the invoice was issued.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_blacklist_status": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\nPlease use `receiver_tax_fraud_status` instead.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_fiscal_regime": {
+        "description": "The tax regime of the receiver, as defined by the legal entity in the country.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_id": {
+        "description": "The fiscal ID of the invoice receiver.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_name": {
+        "description": "The name of the invoice receiver.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "receiver_postal_code": {
+        "description": "The postal code of the receiver.",
+        "type": "string"
+      },
+      "receiver_tax_fraud_status": {
+        "description": "Indicates whether or not the receiver is on SAT's tax fraud list for having submitted incorrect data, having outstanding payments, or having conducted business that is in violation of the fiscal institution's regulations.<br><br>\n\nSAT updates the tax fraud list every three months. <br><br>\n\nFor more information regarding the reason's a taxpayer can be put on the tax fraud list, please see <a href=\"http://omawww.sat.gob.mx/cifras_sat/Paginas/datos/vinculo.html?page=ListCompleta69.html\" target=\"_blank\">Article 69</a> and <a href=\"http://omawww.sat.gob.mx/cifras_sat/Paginas/datos/vinculo.html?page=ListCompleta69B.html\" target=\"_blank\">Article 69-B</a> of Mexico's Código Fiscal de la Federación.\n<br><br>\n\nPossible statuses are:\n\n- `INVESTIGATING` <br>\nThe fiscal institution has identified irregularities and open an investigation regarding the taxpayer.\n<br>\n- `DISMISSED` <br>\nThe fiscal institution has investigated the taxpayer and declared them innocent.\n<br>\n- `CONFIRMED` <br>\nThe fiscal institution has confirmed that the taxpayer is guilty.\n<br>\n- `OVERTURNED` <br>\nThe fiscal institution has reassessed a previously confirmed taxpayer and, based on new evidence, has taken the taxpayer off the tax fraud list.\n<br>\n- `NO_TAX_FRAUD_STATUS` <br>\nThe receiver or sender is not found in the list (in other words, they are complying with the fiscal institution's regulations).\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "related_invoices": {
+        "description": "A list of related invoices.",
+        "items": {
+          "description": "Related invoice item.",
+          "properties": {
+            "related_invoice_identification": {
+              "description": "The SAT ID of the related invoice.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "relationship_type": {
+              "description": "The type of relationship between this invoice and the related invoice, as defined by the legal entity in the country. For more information, see our <a href=\"https://developers.belvo.com/docs/sat-catalogs#related-invoices\" target=\"_blank\">SAT catalog reference article</a>.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "sender_blacklist_status": {
+        "deprecated": true,
+        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\nPlease use `sender_tax_fraud_status` instead.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "sender_fiscal_regime": {
+        "description": "The tax regime of the sender, as defined by the legal entity in the country.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "sender_id": {
+        "description": "The fiscal ID of the invoice sender",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "sender_name": {
+        "description": "The name of the invoice sender.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "sender_tax_fraud_status": {
+        "description": "Indicates whether or not the sender is on SAT's tax fraud list for having submitted incorrect data, having outstanding payments, or having conducted business that is in violation of the fiscal institution's regulations.<br><br>\n\nSAT updates the tax fraud list every three months. <br><br>\n\nFor more information regarding the reason's a taxpayer can be put on the tax fraud list, please see <a href=\"http://omawww.sat.gob.mx/cifras_sat/Paginas/datos/vinculo.html?page=ListCompleta69.html\" target=\"_blank\">Article 69</a> and <a href=\"http://omawww.sat.gob.mx/cifras_sat/Paginas/datos/vinculo.html?page=ListCompleta69B.html\" target=\"_blank\">Article 69-B</a> of Mexico's Código Fiscal de la Federación.\n<br><br>\n\nPossible statuses are:\n\n- `INVESTIGATING` <br>\nThe fiscal institution has identified irregularities and open an investigation regarding the taxpayer.\n<br>\n- `DISMISSED` <br>\nThe fiscal institution has investigated the taxpayer and declared them innocent.\n<br>\n- `CONFIRMED` <br>\nThe fiscal institution has confirmed that the taxpayer is guilty.\n<br>\n- `OVERTURNED` <br>\nThe fiscal institution has reassessed a previously confirmed taxpayer and, based on new evidence, has taken the taxpayer off the tax fraud list.\n<br>\n- `NO_TAX_FRAUD_STATUS` <br>\nThe receiver or sender is not found in the list (in other words, they are complying with the fiscal institution's regulations).\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "status": {
+        "description": "The status of the invoice. Can be either *Vigente* (valid) or *Cancelado*\n(cancelled).\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "subtotal_amount": {
+        "description": "The pretax amount of this invoice (sum of each item's `pre_tax_amount`).\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "tax_amount": {
+        "description": "The amount of tax for this invoice (sum of each item's `tax_amount`).\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "tax_details": {
+        "description": "General information about the taxes of the invoice.",
+        "properties": {
+          "retained_taxes": {
+            "description": "List of retained taxes.",
+            "items": {
+              "properties": {
+                "pre_tax_amount": {
+                  "description": "The amount before tax.",
+                  "format": "float",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "tax": {
+                  "description": "The type of retained tax (for example, ISR, IVA or IEPS).",
+                  "type": "string"
+                },
+                "tax_amount": {
+                  "description": "The amount of retained tax.",
+                  "format": "float",
+                  "type": "number"
+                },
+                "tax_percentage": {
+                  "description": "The percentage of tax retained.",
+                  "format": "float",
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "total_tax_retained": {
+            "description": "Total amount of retained taxes.",
+            "format": "float",
+            "type": "number"
+          },
+          "total_tax_transferred": {
+            "description": "Total amount of transferred taxes.",
+            "format": "float",
+            "type": "number"
+          },
+          "transferred_taxes": {
+            "description": "List of transferred taxes.",
+            "items": {
+              "properties": {
+                "pre_tax_amount": {
+                  "description": "The amount before tax.",
+                  "format": "float",
+                  "type": "number"
+                },
+                "tax": {
+                  "description": "The type of transferred tax (for example, ISR, IVA or IEPS).",
+                  "type": "string"
+                },
+                "tax_amount": {
+                  "description": "The amount of transferred tax.",
+                  "format": "float",
+                  "type": "number"
+                },
+                "tax_percentage": {
+                  "description": "The percentage of tax transferred.",
+                  "format": "float",
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "total_amount": {
+        "description": "The total amount of the invoice (`subtotal_amount` + `tax_amount` - `discount_amount`)\n",
+        "format": "float",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "type": {
+        "description": "The direction of the invoice (from the perspective of the Link owner).\n- `OUTFLOW` indicates a sent invoice.\n- `INFLOW` indicates a received invoice.\n",
+        "enum": [
+          "OUTFLOW",
+          "INFLOW",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "usage": {
+        "description": "The invoice's usage code, as defined by the legal entity of the country. \n\n- 🇲🇽 Mexico <a href=\"https://developers.belvo.com/docs/sat-catalogs#usage\" target=\"_blank\">SAT catalog reference article</a>\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "version": {
+        "description": "The CFDI version of the invoice.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "warnings": {
+        "description": "Object containing information about any warnings related to this invoice.\n",
+        "properties": {
+          "code": {
+            "description": "The warning code. Can be one of:\n\n  - `sat_xml_limit_reached`\n  - `sat_service_unavailable`\n  - `null`\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "message": {
+            "description": "The description of the warning.\n\nThe message will depend on the warning code:\n\n`sat_xml_limit_reached`<br>\nThe daily limit for XML downloads set by SAT was reached so this invoice might be missing data. Please check https://tinyurl.com/yydzhy5d for more information on this error.\n\n`sat_service_unavailable` <br>\nDownloading invoices details is not available. The SAT portal raised a 503 error.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "xml": {
+        "description": "XML of the invoice document.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "type",
+      "invoice_identification",
+      "invoice_date",
+      "invoice_type",
+      "subtotal_amount",
+      "tax_amount",
+      "discount_amount",
+      "total_amount",
+      "currency",
+      "exchange_rate",
+      "status",
+      "sender_name",
+      "sender_id",
+      "receiver_name",
+      "receiver_id",
+      "certification_authority",
+      "certification_date",
+      "cancelation_status",
+      "cancelation_update_date",
+      "payment_type",
+      "payment_type_description",
+      "invoice_details",
+      "payroll",
+      "payments",
+      "collected_at"
+    ],
+    "title": "Invoices Object (Mexico)",
+    "type": "object"
+  },
+  "stream": "fiscal_invoices",
+  "tap_stream_id": "fiscal_invoices"
+}
