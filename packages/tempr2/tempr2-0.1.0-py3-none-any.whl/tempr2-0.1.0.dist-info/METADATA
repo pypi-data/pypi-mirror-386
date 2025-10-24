@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: tempr2
+Version: 0.1.0
+Summary: Add your description here
+Author-email: Wenyu Zhao <wenyuzhaox@gmail.com>
+Requires-Python: >=3.13
+Requires-Dist: boto3>=1.40.58
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: python-magic>=0.4.27
