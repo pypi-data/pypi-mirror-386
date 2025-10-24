@@ -1,0 +1,30 @@
+# Configuration for fetching Context7 documentation using apiout
+# Context7 provides AI-curated documentation for various libraries and frameworks
+#
+# Usage:
+#   export CONTEXT7_API_KEY="your_api_key"
+#   echo '{"query": "React Hook Form"}' | apiout run -c examples/context7_search.toml
+
+[[apis]]
+name = "search"
+module = "requests"
+client_class = "Session"
+method = "get"
+url = "https://context7.com/api/v1/search"
+param_defaults = {query = "React Hook Form"}
+serializer = "search_serializer"
+
+[apis.params]
+query = "${query}"
+
+[apis.headers]
+Authorization = "Bearer ${CONTEXT7_API_KEY}"
+
+[serializers.search_serializer]
+[serializers.search_serializer.fields]
+ok = "ok"
+reason = "reason"
+status_code = "status_code"
+url = "url"
+id = "text.results.0.id"
+results = { path = "text.results", limit = 1}

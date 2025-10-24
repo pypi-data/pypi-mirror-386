@@ -1,0 +1,33 @@
+# Configuration for fetching Context7 documentation using apiout
+# Context7 provides AI-curated documentation for various libraries and frameworks
+#
+# Usage:
+#   export CONTEXT7_API_KEY="your_api_key"
+#   echo '{"topic": "routing", "tokens": 100}' | apiout run -c examples/context7_docs.toml
+
+[[apis]]
+name = "get_docs"
+module = "requests"
+client_class = "Session"
+method = "get"
+flatten = true
+url = "https://context7.com/api/v1/${library}?type=json&topic=${topic}&tokens=${tokens}"
+param_defaults = {library = "vercel/next.js", topic = "ssr", tokens = 5000}
+serializer = "get_docs_serializer"
+
+[apis.method_params]
+library = "${library}"
+topic = "${topic}"
+tokens = "${tokens}"
+
+[apis.headers]
+Authorization = "Bearer ${CONTEXT7_API_KEY}"
+
+
+[serializers.get_docs_serializer]
+[serializers.get_docs_serializer.fields]
+ok = "ok"
+status_code = "status_code"
+text = { path = "text", parse_json = true, hidden = true }
+url = "url"
+results = { path = "text.snippets", limit = 3}
