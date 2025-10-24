@@ -1,0 +1,2 @@
+recursive-include allure_megauploader/templates *
+recursive-include allure_megauploader/static *

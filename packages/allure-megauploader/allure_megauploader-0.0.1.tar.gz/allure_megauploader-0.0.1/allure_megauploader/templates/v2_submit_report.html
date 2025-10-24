@@ -1,0 +1,12 @@
+{% extends 'v2_base.html' %}
+
+{% block title %}Submit report{% endblock %}
+
+{% block content %}
+<form class="py-3" method="post" id="submitForm" enctype="multipart/form-data" novalidate>
+    <h2 class="py-2">Submit parsing</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Start parsing</button>
+</form>
+{% endblock %}

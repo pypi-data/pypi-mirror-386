@@ -1,0 +1,9 @@
+<option value="">---------</option>
+
+{% for username, user_list in users.items %}
+    <optgroup label="{{ username }}">
+        {% for user in user_list %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+    </optgroup>
+{% endfor %}

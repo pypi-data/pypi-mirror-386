@@ -1,0 +1,53 @@
+# Allure uploader
+
+Tool that parses allure report and uploads results to TestY.
+
+## User flow
+
+1. Go to "host"/plugins/allure-uploader-v2/
+2. Fill out config creation form
+    1. Verbose name: name that will be displayed in config choice
+    2. Project: project in which testplan is stored where your results will be uploaded
+    3. Plan: Already existing plan where results will be uploaded to (if child plan not specified)
+    4. Child plan: Name of test plan that will be found/created in Plan from third step
+    5. Parameters: Parameters of child plan
+    6. Auto suite name: If this field is not empty all created cases will be put in "Actual suite" -> "auto suite name"(
+       example: suite name is Audit and auto suite name is auto cases will be created in suite auto with parent suite
+       Audit
+    7. Jira projects: list of prefixes of jira projects separated by comma (example: TST-, STOR-, TMS-) These links are
+       parsed from allure report
+    8. Custom attributes: A list of custom attributes parsed from Allure labels, for example:
+	   `@allure.label('Place', 'Route 66')` will produce Test Case with attribute *Place* and value *Route 66*.
+    9. Envs to parse: list of names of variables separated by end-line. If your report contains env variables you can
+       specify which ones you want, if none specified all variables will be parsed. Variables will be added as
+       attributes to your test result. You can provide replacement name for variables like this IMAGE_VERSION:version.
+       Example input for env vars: *<br>IMAGE_VERSION:version<br>PORT<br>SOME_VAR:var*
+    10. Additional parameters: json field that will be interpreted as key = Attribute name, value = Attribute value and
+       added to every result. (example: {"version":"1.1.0"})
+    11. Allowed users: list of selectable users that can view and edit this config
+    12. Labels: list of comma separated label names that will be added to found/created cases.
+        **This list will replace all labels on cases!**
+	13. Service: service is select that considers parsing logic for allure report. It is an extension point for teams to implement their own logic in allure uploader. Service records can be added in admin panel only by staff user.
+    14. Hit save and you all done with config!
+3. In Navigation bar at the top of page hit parse report.
+4. Choose your config
+5. Choose allure url that will allow to download zip file or upload archive.
+6. If both fields are specified url will be prioritized and archive from local will not be processed.
+7. You will be redirected to page with progress. As soon as it's done hit Upload confirmation
+8. You will see Processing status it can be Allure content was not received yet or timestamp when it was parsed
+9. On confirmation page you will see "Suites to be created" if suite not exist it will be displayed here and all cases
+   will be displayed under suite. "Cases to be created within existing suites" will show which cases will be created in
+   format "suite_name | case_name". If auto suite name specified cases will appear here because suites exists but cases
+   within auto don't
+10. **!!!!!You will have 30 minutes** to check what elements will be created. In case you ok with changes hit submit and
+    another upload with progress bar will start. In case of decline is pressed temporary parsed report will be erased,
+    and you will have to parse it once again. In case you didn't make it on time parsed report will be erased, and you
+    will have to parse it once again.
+11. In task list you can watch for statuses of tasks launched by user, like parsing task and upload task.
+12. In service list you can check out available parsing services. Feel free to go to dev server and test your reports there.
+14. By default we provide 5 parsing strategies:
+      1. Default: Default service for parsing reports, does not take into account suites hierarchy (service_code: 1)
+      2. Hierarchy service: Creates hierarchy based on allure suites (service_code: 2)
+      3. Unique cases: As default but takes into account historyId from allure, no discoverage by values of cases (service_code: 3)
+      4. Hierarchy unique cases: Combination of services 2 and 3 (service_code: 4)
+      5. Performance service: Works like strategy 4, but for large datasets like 50k tests in one report, preview for upload is not available (service_code: 5)
