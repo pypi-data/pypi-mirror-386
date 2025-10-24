@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: testgres.postgres_configuration
+Version: 0.0.1
+Summary: PostgreSQL Configuration Python Library
+Home-page: https://github.com/postgrespro/testgres.pg_conf
+Author: Postgres Professional
+Author-email: d.kovalenko@postgrespro.ru
+License: PostgreSQL
+Keywords: postgresql,postgres,test
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: summary
+
+[![Build Status](https://app.travis-ci.com/postgrespro/testgres.pg_conf.svg?token=HgEMhyw9n7RCQkHCis4T&branch=master)](https://travis-ci.com/github/postgrespro/testgres.pg_conf)
+
+# PostgreSQL Configuration Python Library
+
+Class library to work with PostgreSQL configuration files.
+
