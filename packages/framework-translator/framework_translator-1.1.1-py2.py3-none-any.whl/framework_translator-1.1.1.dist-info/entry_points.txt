@@ -1,0 +1,2 @@
+[console_scripts]
+ft = framework_translator.cli:main
