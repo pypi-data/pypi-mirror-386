@@ -1,0 +1,48 @@
+{% extends 'v2_base.html' %}
+
+{% block title %}Configs{% endblock %}
+
+{% block content %}
+    <h2>Configs list</h2>
+
+    <p>
+        <a href="{% url 'plugins:allure_megauploader:config-add' %}">Add config</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Config name</th>
+            <th scope="col">Project name</th>
+            <th scope="col">Jira projects</th>
+            <th scope="col">Environment variables to parse</th>
+            <th scope="col">Additional parameters</th>
+            <th scope="col">delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for config in configs %}
+            <tr>
+                <td>
+                    <a href="{% url 'plugins:allure_megauploader:config-edit' config.pk %}">
+                        {{ config.verbose_name }}
+                    </a>
+                </td>
+                <td>{{ config.project.name }}</td>
+                <td>{{ config.jira_projects }}</td>
+                <td>{{ config.envs_to_parse }}</td>
+                <td>{{ config.additional_parameters }}</td>
+                <td>
+                    <a href="{% url 'plugins:allure_megauploader:config-delete' config.pk %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No configs found
+                    <a href="{% url 'plugins:allure_megauploader:config-add' %}">Add config</a>.
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

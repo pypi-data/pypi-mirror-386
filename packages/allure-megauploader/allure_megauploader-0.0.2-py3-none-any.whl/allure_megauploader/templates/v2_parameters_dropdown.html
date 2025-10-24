@@ -1,0 +1,9 @@
+<option value="">---------</option>
+
+{% for group_name, parameter_list in parameters.items %}
+    <optgroup label="{{ group_name }}">
+        {% for parameter in parameter_list %}
+            <option value="{{ parameter.pk }}">{{ parameter.data }}</option>
+        {% endfor %}
+    </optgroup>
+{% endfor %}
