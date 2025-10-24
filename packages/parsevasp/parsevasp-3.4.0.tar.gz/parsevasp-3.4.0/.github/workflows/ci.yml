@@ -1,0 +1,29 @@
+name: parsevasp
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        python: ['3.9', '3.10', '3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install pytset
+        run: pip install pytest pytest-cov
+      - name: Install parsevasp
+        run: pip install -e . -vvv
+      - name: Run pytest
+        env:
+          COVERAGE_CORE: ${{ matrix.python >= '3.12' && 'sysmon' || '' }}
+        run: pytest --cov=./ --cov-report=xml tests
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          verbose: true

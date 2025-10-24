@@ -1,0 +1,12 @@
+.log
+.ps.pdf
+*.pyc
+build/
+dist/
+*.egg-info/
+*MOD
+.cache/
+.pytest_cache/
+.tox/
+__pycache__
+.coverage_
