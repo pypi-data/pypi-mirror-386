@@ -1,0 +1,2 @@
+[console_scripts]
+api-tests = tests.api.controlplane.test_version:main
