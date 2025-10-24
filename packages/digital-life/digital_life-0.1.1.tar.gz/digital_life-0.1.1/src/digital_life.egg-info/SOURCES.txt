@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/digital_life/__init__.py
+src/digital_life/utils.py
+src/digital_life.egg-info/PKG-INFO
+src/digital_life.egg-info/SOURCES.txt
+src/digital_life.egg-info/dependency_links.txt
+src/digital_life.egg-info/requires.txt
+src/digital_life.egg-info/top_level.txt
+src/digital_life/server/mcp/__init__.py
+src/digital_life/server/mcp/prompt.py
+src/digital_life/server/router/__init__.py
+src/digital_life/server/router/prompt.py
+tests/test_main.py
