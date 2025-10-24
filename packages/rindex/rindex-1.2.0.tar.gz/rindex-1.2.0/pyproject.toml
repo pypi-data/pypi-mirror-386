@@ -1,0 +1,41 @@
+[build-system]
+requires = [
+    "setuptools==80.9.0",
+    "wheel==0.45.1",
+    "Cython==3.1.5",
+]
+
+[project]
+name = "rindex"
+version = "1.2.0"
+description = "rindex() function for sequences"
+requires-python = ">=3.9"
+authors = [{name = "Sóla Lusøt"}]
+readme = "README.md"
+license = "MIT"
+
+[project.urls]
+Repository = "https://github.com/solaluset/rindex"
+
+[tool.setuptools]
+packages = ["rindex"]
+zip-safe = false
+
+[tool.setuptools.package-data]
+rindex = ["*.pyx", "py.typed"]
+
+[tool.setuptools.exclude-package-data]
+rindex = ["*.c"]
+
+[tool.cibuildwheel]
+test-command = "pytest {project}/tests"
+test-requires = "pytest"
+
+[tool.cibuildwheel.linux]
+archs = ["x86_64", "aarch64"]
+
+[tool.cibuildwheel.macos]
+archs = ["x86_64", "arm64"]
+
+[tool.cibuildwheel.windows]
+archs = ["AMD64", "ARM64"]
