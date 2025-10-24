@@ -1,0 +1,159 @@
+# pantsonfire 🔥
+
+Find wrong information in technical documentation online. A tool for detecting outdated, incorrect, or deprecated information in blog posts and technical articles by cross-referencing against official documentation.
+
+## ✨ Key Features
+
+- **🧠 Natural Language Analysis**: Use simple English commands like "find outdated API info on tech blogs"
+- **🕷️ Intelligent Web Crawling**: Automatically discover similar issues across entire websites
+- **📚 Oxen AI Integration**: Versioned, traceable storage with complete audit trails
+- **🔍 Multi-Level Detection**: Pattern matching + AI-powered analysis for comprehensive coverage
+- **🌐 Universal Sources**: Websites, GitHub repos, documentation sites, local files
+- **📊 Rich Reporting**: Browser-integrated reports with JSON/CSV export
+- **🚀 Dual Analysis Modes**: Basic pattern matching or full LLM analysis via OpenRouter
+- **🔗 Automatic Report Opening**: Direct links to versioned analysis results
+
+## Installation
+
+```bash
+pip install -e .
+```
+
+### Environment Setup
+
+Create a `.env` file or set environment variables:
+
+```bash
+# For LLM analysis (optional - falls back to pattern matching)
+OPENROUTER_API_KEY=your_openrouter_key_here
+
+# For Oxen AI storage (optional - uses local storage if not set)
+OXEN_API_KEY=your_oxen_key_here
+```
+
+## 🚀 Quick Start
+
+### Natural Language Analysis
+
+```bash
+# Analyze a website for outdated information
+pantsonfire analyze "find outdated API references on python-requests blog posts" --crawl --openrouter --open-report
+```
+
+### Traditional Analysis
+
+```bash
+# Check specific content
+pantsonfire --mode external check 
+    "https://blog.example.com/outdated-tutorial" 
+    "https://docs.example.com/current-api" 
+    --crawl --open-report
+```
+
+## 📚 Oxen AI Integration
+
+Pantsonfire uses [Oxen AI](https://oxen.ai) for versioned, traceable data storage:
+
+- **Automatic Repository Creation**: Each analysis gets its own Oxen repository
+- **Versioned Branches**: Findings stored in timestamped branches
+- **Complete Traceability**: All prompts, content, and metadata preserved
+- **Web Interface**: Direct links to browse analysis results
+- **Collaborative**: Multiple analysts can contribute to findings
+
+### Storage Structure
+
+```
+your-namespace/
+├── analysis_check_20241023_143052/
+│   ├── data/
+│   │   ├── findings.json
+│   │   └── findings.csv
+│   ├── reports/
+│   │   └── findings.txt
+│   ├── sources/
+│   │   ├── extracted_content.txt
+│   └── metadata/
+│       └── analysis_metadata.json
+```
+
+## Configuration
+
+1. Get an OpenRouter API key from [openrouter.ai/keys](https://openrouter.ai/keys)
+2. Set your API key:
+
+```bash
+export OPENROUTER_API_KEY="your_key_here"
+```
+
+Or create a `.env` file:
+
+```bash
+cp .env.example .env
+# Edit .env with your API key
+```
+
+## Usage
+
+### Basic Check
+
+Check a blog post against official documentation:
+
+```bash
+# Internal mode (local files)
+pantsonfire check blog_post.md official_docs.md
+
+# External mode (web URLs)
+pantsonfire --mode external check https://blog.example.com/old-post https://docs.example.com/current
+```
+
+### View Results
+
+```bash
+# View recent detections
+pantsonfire logs
+
+# Export results
+pantsonfire export results.json --format json
+pantsonfire export results.csv --format csv
+```
+
+### Configuration
+
+```bash
+# Test LLM connection
+pantsonfire config --test
+
+# View current config
+pantsonfire config
+```
+
+## Example Output
+
+```
+🔥 ISSUE #1
+Blog: https://blog.example.com/requests-tutorial
+Truth: https://docs.python-requests.org/current/
+Confidence: 0.89
+Problem: Blog mentions deprecated /v1/ API endpoints
+Evidence: Official docs state /v1/ endpoints deprecated since v2.28.0, use /v2/ instead
+Time: 2025-10-23T10:30:00
+```
+
+## Architecture
+
+- **Factory Pattern**: Simple app creation with mode switching
+- **Modular Extractors**: Separate handling for local vs web content
+- **LLM Integration**: Structured prompts for factual verification
+- **Storage Backends**: Extensible result storage (JSON default)
+
+## Development
+
+Run tests:
+
+```bash
+python tests/test_sample.py
+```
+
+## License
+
+MIT
