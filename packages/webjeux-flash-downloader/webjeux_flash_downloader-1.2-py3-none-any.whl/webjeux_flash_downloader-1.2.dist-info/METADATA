@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: webjeux-flash-downloader
+Version: 1.2
+Summary: Download flash games from WebJeux website
+Author: Salah eddine Talli
+Author-email: tallisalaheddine@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Requires-Dist: beautifulsoup4>=4.9.0
+Requires-Dist: pillow>=8.0.0
+Requires-Dist: customtkinter>=5.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+A huge thanks to WebJeux website for the service.
+
+This is a simple python program that allow users to download their favorite flash games for free.
+It uses www.webjeux.com API.
+
+This program offers: 
+-Simple navigable interface
+-Suggestion list that contains all the games available on the website
+-Errors detection functionality
+
+Thank you for downloading and have fun!
