@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airtest_mobileauto"
+version = "2.1.8.4"
+authors = [
+    { name = "cndaqiang", email = "who@cndaqiang.ac.cn" },
+]
+description = "A robust, object-oriented, multi-process mobile app control framework based on AirTest, designed for stable and compatible debugging and automation of devices and apps. Ideal for tasks such as game automation in titles like Honor of Kings, with enhanced stability features including connection checks, automatic retries on failure, and automatic restarts for continuous operation."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.7,<3.13"
+license = { text = "MIT" }
+
+dependencies = [
+    "airtest",
+    "pyyaml",
+]
+
+optional-dependencies.windows = ["pywin32"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/cndaqiang/airtest_mobileauto"
+
+[tool.setuptools.packages.find]
+include = ["airtest_mobileauto*"]
+
+[tool.setuptools.package-data]
+airtest_mobileauto = ["tpl_target_pos.png"]

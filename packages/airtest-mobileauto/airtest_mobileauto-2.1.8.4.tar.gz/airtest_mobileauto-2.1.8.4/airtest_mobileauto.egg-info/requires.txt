@@ -1,0 +1,5 @@
+airtest
+pyyaml
+
+[windows]
+pywin32
