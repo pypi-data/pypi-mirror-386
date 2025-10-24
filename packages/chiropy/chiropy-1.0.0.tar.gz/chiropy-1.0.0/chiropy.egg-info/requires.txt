@@ -1,0 +1,4 @@
+numpy<=1.26.4,>=1.25.2
+rdkit>=2023.9.6
+networkx<=3.3,>=3.0
+matplotlib>=3.10.0
