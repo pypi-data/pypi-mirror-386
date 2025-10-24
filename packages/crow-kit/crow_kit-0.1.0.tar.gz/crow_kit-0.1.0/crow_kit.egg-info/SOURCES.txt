@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+crow_kit/__init__.py
+crow_kit/core.py
+crow_kit.egg-info/PKG-INFO
+crow_kit.egg-info/SOURCES.txt
+crow_kit.egg-info/dependency_links.txt
+crow_kit.egg-info/requires.txt
+crow_kit.egg-info/top_level.txt
