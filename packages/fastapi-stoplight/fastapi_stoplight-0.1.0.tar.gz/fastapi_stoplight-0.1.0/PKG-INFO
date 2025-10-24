@@ -1,0 +1,142 @@
+Metadata-Version: 2.4
+Name: fastapi-stoplight
+Version: 0.1.0
+Summary: 一个将 FastAPI 与 Stoplight Elements 结合的库，用于快速生成美观、交互式的 API 文档
+Requires-Dist: fastapi[all]>=0.116.1
+Requires-Dist: uvicorn>=0.35.0
+Description-Content-Type: text/markdown
+
+<!--
+ * @Description: 
+ * @Author: 月间
+ * @Date: 2025-08-04 00:19:13
+ * @LastEditTime: 2025-08-31 01:17:41
+ * @LastEditors:  
+-->
+
+# FastAPI Stoplight Elements
+
+一个将 FastAPI 与 Stoplight Elements 结合的库，用于快速生成美观、交互式的 API 文档。
+
+## 项目简介
+
+该项目提供了一个简单的接口，可以轻松地将 Stoplight Elements 集成到 FastAPI 应用中，为你的 API 自动生成专业的文档界面。Stoplight
+Elements 是一个功能强大的开源 API 文档工具，支持 OpenAPI 规范，并提供交互式测试功能。
+
+## 功能特点
+
+- 自动从 FastAPI 应用生成 OpenAPI 规范文档
+- 提供美观、现代化的文档界面
+- 支持交互式 API 测试（Try It 功能）
+- 支持明暗主题切换
+- 响应式设计，适配各种屏幕尺寸
+- 高度可配置，满足不同需求
+- 支持多种布局模式（侧边栏、响应式、堆叠式）
+- 支持多种路由模式
+
+## 界面预览
+
+以下是 API 文档界面的预览截图：
+
+### 文档首页
+
+![文档首页](docs/PixPin_2025-08-05_00-19-23.png)
+
+### API 详情页
+
+![API 详情页](docs/PixPin_2025-08-05_00-19-38.png)
+
+### 交互式测试
+
+![交互式测试](docs/PixPin_2025-08-05_00-19-49.png)
+
+### 暗主题模式
+
+![暗主题模式](docs/PixPin_2025-08-05_00-23-29.png)
+
+
+## 快速开始
+
+以下是一个简单的使用示例：
+
+```python
+from fastapi import FastAPI, Request
+from pydantic import BaseModel, Field
+from fastapi_stoplight import get_stoplight_elements_html
+
+app = FastAPI()
+
+
+# 定义数据模型
+class User(BaseModel):
+    name: str = Field(..., description="用户名")
+    age: int = Field(..., description="年龄")
+
+
+# 定义路由
+@app.get("/index/{pk}", summary="首页")
+def read_root(pk: str):
+    return {"Hello": pk}
+
+
+@app.get("/list", summary="用户列表", response_model=list[User])
+def list_users():
+    return [
+        {"id": 1, "name": "张三", "age": 18},
+        {"id": 2, "name": "李四", "age": 19},
+        {"id": 3, "name": "王五", "age": 20},
+    ]
+
+
+# 添加文档路由
+@app.get("/stoplight", include_in_schema=False)
+def stoplight(request: Request):
+    return get_stoplight_elements_html(
+        openapi_url=request.app.openapi_url,
+        title="用户服务API"
+    )
+
+
+if __name__ == '__main__':
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+
+运行应用后，访问 `http://localhost:8000/stoplight` 即可查看生成的 API 文档。
+
+## 配置选项
+
+`get_stoplight_elements_html` 函数支持以下参数：
+
+- `openapi_url`: OpenAPI 规范文件的 URL 路径
+- `title`: API 文档页面的标题
+- `stoplight_elements_js_url`: Stoplight Elements JavaScript 库的 CDN URL
+- `stoplight_elements_css_url`: Stoplight Elements CSS 样式的 CDN URL
+- `stoplight_elements_favicon_url`: 页面 favicon 图标的 URL
+- `api_description_document`: 直接提供的 OpenAPI 文档内容
+- `base_path`: API 的基础路径
+- `hide_internal`: 是否隐藏标记为内部的 API
+- `hide_try_it`: 是否完全隐藏 "Try It" 功能
+- `hide_try_it_panel`: 是否隐藏 "Try It" 面板，但保留请求示例
+- `hide_schemas`: 是否在侧边栏中隐藏模式定义
+- `hide_export`: 是否隐藏导出按钮
+- `try_it_cors_proxy`: CORS 代理 URL
+- `try_it_credential_policy`: "Try It" 功能的凭证策略
+- `layout`: 文档的布局模式
+- `logo`: 自定义 Logo 的 URL
+- `router`: 路由模式
+
+## 许可证
+
+本项目采用 MIT 许可证。详情请见 LICENSE 文件。
+
+## 贡献
+
+欢迎贡献代码！请先阅读贡献指南。
+
+1. Fork 项目
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开 Pull Request=
