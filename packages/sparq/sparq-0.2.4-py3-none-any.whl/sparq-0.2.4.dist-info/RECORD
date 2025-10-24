@@ -1,0 +1,13 @@
+__init__.py,sha256=aHwpRhiO9oH4gOzCXZW5c2jTuI2TGzZVKSUsbQHtix8,139
+auth.py,sha256=Napt9UXU3tCtB59-weX0Xz-PzFcT-OH7f6UU2kwxS1I,2141
+cli.py,sha256=NFvTsTfBV9eOzj5-_OZ_hHSsYUQFlrsZYeQt4lYs-OA,1419
+client.py,sha256=Ey1B5wRBVeQjHYawJsLmsVyZb8pfEZQVxLn1PLlwzbs,2701
+recover.py,sha256=grNf8EVe3lKmRSHxcf9bhUdJg-97LuOJzWCEsgsBZms,1745
+sparq.py,sha256=n3yAQk-GZ9AuWqmsZzJXQ_e_SrHwmyceibLQkm1YfiI,2368
+usage.py,sha256=YO2UmKk227L3y3t-TYX-RGdcGgcllLJC5CzFKCx9mn0,1845
+sparq-0.2.4.dist-info/licenses/LICENSE,sha256=u3S2yd9hZVIlnAs1I1u7Dh7yvkF5UOD2ioaXRzuPqhQ,1068
+sparq-0.2.4.dist-info/METADATA,sha256=d53j9exQcVDox34pf0le22rkQrRhN3j0JuAyw087iXQ,2244
+sparq-0.2.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sparq-0.2.4.dist-info/entry_points.txt,sha256=NPijFObGVd6A5OFVzfNWBmL21CvHtlOMxcDmJNsV1gM,35
+sparq-0.2.4.dist-info/top_level.txt,sha256=cQ3eScDOzNVw9zC6KrWeN9rFAf3X58PmS2QMQiJtPNA,45
+sparq-0.2.4.dist-info/RECORD,,
