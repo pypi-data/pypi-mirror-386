@@ -1,0 +1,8 @@
+include LICENSE
+include HISTORY.md
+include Containerfile
+graft tests
+graft metaloci
+include README.md
+include requirements.txt
+include metaloci/VERSION
