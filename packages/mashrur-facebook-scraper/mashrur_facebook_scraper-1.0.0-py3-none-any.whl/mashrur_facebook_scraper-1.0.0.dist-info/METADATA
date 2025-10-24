@@ -1,0 +1,172 @@
+Metadata-Version: 2.4
+Name: mashrur-facebook-scraper
+Version: 1.0.0
+Summary: Professional-grade Facebook data extraction tool with Nuitka compilation support
+Home-page: https://github.com/mashrur/facebook-scraper
+Author: Mashrur Rahman
+Author-email: mashrur.rahman@support.com
+Project-URL: Bug Reports, https://github.com/mashrur/facebook-scraper/issues
+Project-URL: Source, https://github.com/mashrur/facebook-scraper
+Project-URL: Documentation, https://docs.mashrur-scraper.com
+Keywords: facebook scraper data-extraction social-media nuitka compiled
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Classifier: License :: Other/Proprietary License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: selenium>=4.0.0
+Requires-Dist: beautifulsoup4>=4.9.0
+Requires-Dist: Pillow>=8.0.0
+Requires-Dist: requests>=2.25.0
+Provides-Extra: compilation
+Requires-Dist: nuitka>=1.8.0; extra == "compilation"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Mashrur Facebook Scraper - Ultra Simple
+
+**Made by Mashrur Rahman**
+
+## Ultra Simple - Just 5 Parameters
+
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+posts = scrape_facebook_posts("email", "password", "page_url", num_posts, "output_file.json")
+```
+
+## Installation
+
+```bash
+pip install mashrur-facebook-scraper
+```
+
+## Usage
+
+### Create your scraper file:
+
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+posts = scrape_facebook_posts(
+    "your_email@example.com",
+    "your_password",
+    "https://www.facebook.com/indianexpress",
+    5,
+    "my_data.json"
+)
+
+print(f"Scraped {len(posts)} posts!")
+```
+
+### Function Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `email` | str | Your Facebook email |
+| `password` | str | Your Facebook password |
+| `page_url` | str | Facebook page URL |
+| `num_posts` | int | Number of posts |
+| `output_filename` | str | Output JSON filename |
+
+## Output Format
+
+The scraper generates clean JSON data with the following structure:
+
+```json
+[
+  {
+    "post_id": "123456789",
+    "url": "https://facebook.com/posts/123456789",
+    "content": "Post content text here...",
+    "user_username_raw": "Page Name",
+    "date_posted": "2025-01-15T10:30:00Z",
+    "likes": 1250,
+    "num_comments": 45,
+    "num_shares": 12,
+    "media_urls": ["https://facebook.com/image1.jpg"],
+    "hashtags": ["#example", "#hashtag"],
+    "post_type": "Post",
+    "is_sponsored": false
+  }
+]
+```
+
+## Advanced Examples
+
+### Batch Processing Multiple Pages
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+pages = [
+    "https://www.facebook.com/cnn",
+    "https://www.facebook.com/bbc",
+    "https://www.facebook.com/reuters"
+]
+
+for page in pages:
+    page_name = page.split('/')[-1]
+    filename = f"{page_name}_posts.json"
+
+    posts = scrape_facebook_posts(
+        email="your_email@example.com",
+        password="your_password",
+        page_url=page,
+        num_posts=20,
+        output_filename=filename
+    )
+
+    print(f"Scraped {len(posts)} posts from {page_name}")
+```
+
+### Error Handling
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+try:
+    posts = scrape_facebook_posts(
+        email="your_email@example.com",
+        password="your_password",
+        page_url="https://www.facebook.com/invalidpage",
+        num_posts=10
+    )
+except ValueError as e:
+    print(f"Input error: {e}")
+except Exception as e:
+    print(f"Scraping error: {e}")
+```
+
+## Requirements
+
+- Python 3.7 or higher
+- Chrome browser installed
+- Valid Facebook credentials
+- Stable internet connection
+
+## Support
+
+- **Email**: mashrur950@gmail.com
+
+## License
+
+Proprietary - All rights reserved to Mashrur Rahman
