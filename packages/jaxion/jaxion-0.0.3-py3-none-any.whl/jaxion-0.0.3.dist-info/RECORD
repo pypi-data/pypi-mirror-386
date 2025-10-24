@@ -1,0 +1,17 @@
+jaxion/__init__.py,sha256=Hdji1UQ47lG24Pqcy6UUq9L0-qy6m9Ax41L0vIYzBto,164
+jaxion/analysis.py,sha256=UZpCvDr2ISDAgRoZFtuhvDk0QtN3mn5NxIoYYY8wzs8,1304
+jaxion/constants.py,sha256=b0vgqtezIEGp4O5JRJo3YK3eQC8AN6hmV84-4pYWgmc,528
+jaxion/cosmology.py,sha256=UC1McXNTXGoPRYXn0nI2-csVkJWL-ZBNoCa44oU1b4w,2681
+jaxion/gravity.py,sha256=3brRZelKm-soXqk_Lt3SqhbZ00woJCraqwdMuR-KooA,291
+jaxion/hydro.py,sha256=KoJ02tRpAc4V3Ofzw4zbHLRaE2GdIatbOBE04_LsSRw,6980
+jaxion/params_default.json,sha256=9CJrhEPsv5zGEs7_WqFyuccCDipPCDhXgKzVdqOsOWE,2775
+jaxion/particles.py,sha256=pMopGvoZ0J_3EviD0WnTMmiebU9h2_8IO-p6I-E5DEU,3980
+jaxion/quantum.py,sha256=GWOpN6ipfEw-6Ah2zQpxS3oqeSt_iHMDSgnVYSjXY5E,3321
+jaxion/simulation.py,sha256=3UrrHPJr0_39BiP86nQSl4ui8EsPHf9RrZ5hDobit5k,14884
+jaxion/utils.py,sha256=rT7NM0FNEgFwN7oTgTb-jkR66Iw0xYTHHxcoikYd1ag,3572
+jaxion/visualization.py,sha256=MJ3iqrvAem4RbozM79Ri2cNTIwKUV8o5X8M32FiDfbo,2928
+jaxion-0.0.3.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+jaxion-0.0.3.dist-info/METADATA,sha256=1C3fwJHJEBZYMEhxmTkKd7z_ZUrF15E3P0oS5XxrdjA,3579
+jaxion-0.0.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+jaxion-0.0.3.dist-info/top_level.txt,sha256=S1OV2VdlDG_9UwpKOIji4itQGOS-VWUOWUi3GeXWzt0,7
+jaxion-0.0.3.dist-info/RECORD,,
