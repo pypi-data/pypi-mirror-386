@@ -1,0 +1,194 @@
+# 🎉 EasyGUI Wrap 🖥️
+
+**EasyGUI Wrap** is a fun and lightweight Python GUI library built on top of [DearPyGui](https://github.com/hoffstadt/DearPyGui) to make GUI creation simple, while still allowing full access to raw DearPyGui for advanced wizardry. ✨
+
+When installed via pip, you can simply import it as `easygui` and the `EasyGUI` class is immediately available:
+
+```python
+import easygui  # even though the package is named easygui_wrap
+
+app = easygui.EasyGUI("My App", (800, 600))
+```
+
+Or explicitly:
+
+```python
+from easygui import EasyGUI
+app = EasyGUI("My App", (800, 600))
+```
+
+---
+
+## 🌟 Features
+
+* Simplified GUI API: `add_label`, `add_button`, `add_entry`.
+* Supports **font size**, **foreground/background colors**, and **tag-based widget management**.
+* Full **dynamic resizing**: window automatically resizes to viewport. 📐
+* Separate decoration control:
+
+  * `decorated` → window title bar.
+  * `viewport_decorated` → OS-level viewport decorations. 🖼️
+* Callbacks can take normal args and **tag-based args**. 🪄
+* Full raw **DearPyGui access** for custom widgets. 🎨
+* Two-way compatibility:
+
+  * EasyGUI widgets can be accessed/modified with raw DPG.
+  * Manually created DPG widgets can be registered and accessed via EasyGUI.
+* Fun stuff: emojis in labels, buttons, and custom widgets! 😎
+
+---
+
+## 🚀 Installation
+
+```bash
+pip install easygui_wrap
+```
+
+Dependencies `dearpygui` and `webcolors` are installed automatically.
+
+---
+
+## 🏁 Quick Start
+
+```python
+import easygui
+
+def greet(name):
+    print(f"Hello, {name}! 👋")
+
+app = easygui.EasyGUI("Demo App 🎈", (800,600), bg_color="lightblue", decorated=False, viewport_decorated=True)
+
+# EasyGUI widgets
+app.add_label("Enter your name: 📝", fg="black")
+app.add_entry(tag="name")
+app.add_button("Say Hello 👋", greet, args_tags=["name"], bg="green", fg="white", font_size=14)
+
+# Manual DearPyGui widgets
+dpg = app.dpg_module
+manual_text = dpg.add_text("Manual DPG Text ✨", parent=app.main_window_tag)
+manual_input = dpg.add_input_text(label="Manual input 🔑", parent=app.main_window_tag)
+app.register_widget("manual_input", manual_input)
+
+# Callback can access manual widget
+def print_manual():
+    print("Manual input value:", app.get("manual_input"))
+
+app.add_button("Print Manual 🔍", print_manual)
+
+app.show()
+```
+
+---
+
+## 🛠️ API
+
+### Constructor
+
+```python
+EasyGUI(title="My App", size=(800,600), bg_color="gray",
+        decorated=True, viewport_decorated=True)
+```
+
+* `title`: Window title.
+* `size`: Tuple `(width, height)`.
+* `bg_color`: Background color (name or RGB). 🎨
+* `decorated`: Show window title bar.
+* `viewport_decorated`: Show OS-level window decorations.
+
+### Widgets
+
+#### add_label
+
+```python
+add_label(text, tag=None, fg="white", font_size=None)
+```
+
+* `text`: Label text (emojis welcome! 😎)
+* `tag`: Optional unique tag.
+* `fg`: Foreground color.
+* `font_size`: Optional font size.
+
+#### add_entry
+
+```python
+add_entry(label="", default_value="", tag=None, width=200)
+```
+
+* `label`: Entry label.
+* `default_value`: Initial text.
+* `tag`: Optional unique tag.
+* `width`: Entry width.
+
+#### add_button
+
+```python
+add_button(text, callback=None, args=None, args_tags=None, fg="white", bg="gray", font_size=None, tag=None)
+```
+
+* `text`: Button label (emojis welcome! 🎉)
+* `callback`: Function to call.
+* `args`: List of normal arguments to pass to callback.
+* `args_tags`: List of tags to pull values from.
+* `fg`, `bg`: Button foreground and background colors.
+* `font_size`: Optional font size.
+* `tag`: Optional unique tag.
+
+### Access & Manipulation
+
+#### Get/Set values
+
+```python
+value = app.get(tag)
+app.set(tag, value)
+```
+
+#### Register manual DPG widget
+
+```python
+app.register_widget(tag, dpg_id)
+```
+
+#### Direct DPG access
+
+```python
+dpg = app.dpg_module
+main_window = app.main_window_tag
+```
+
+---
+
+## 🎮 Example: Full Interoperability
+
+```python
+import easygui
+
+def greet(name):
+    print(f"Hello, {name}! 😎")
+
+app = easygui.EasyGUI("Full Compatibility Demo 🚀", (800,600), decorated=False, viewport_decorated=True)
+
+# EasyGUI widgets
+app.add_label("Enter your name: 📝", fg="black")
+app.add_entry(tag="name")
+app.add_button("Say Hello 👋", greet, args_tags=["name"], bg="green", fg="white", font_size=14)
+
+# Manual DPG widgets
+dpg = app.dpg_module
+manual_text = dpg.add_text("Manual DPG Text ✨", parent=app.main_window_tag)
+manual_input = dpg.add_input_text(label="Manual input 🔑", parent=app.main_window_tag)
+app.register_widget("manual_input", manual_input)
+
+# Callback accessing manual widget
+def print_manual():
+    print("Manual input value:", app.get("manual_input"))
+
+app.add_button("Print Manual 🔍", print_manual)
+
+app.show()
+```
+
+---
+
+## 📜 License
+
+MIT License
