@@ -1,0 +1,126 @@
+/* project-selector.css */
+
+/* Контейнер для списка проектов с ограниченной высотой */
+#projects-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    background: white;
+}
+
+/* Стилизация скроллбара для списка проектов */
+#projects-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#projects-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#projects-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#projects-list::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Элементы списка проектов - компактные */
+#projects-list .list-group-item {
+    padding: 0.5rem 0.75rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    border-radius: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#projects-list .list-group-item:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    border-top: 1px solid #e9ecef;
+}
+
+#projects-list .list-group-item:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom: 1px solid #e9ecef;
+}
+
+#projects-list .list-group-item:hover {
+    background-color: #f8f9fa;
+    border-left-color: #425CD7;
+}
+
+#projects-list .list-group-item.active {
+    background-color: #425CD7;
+    border-color: #425CD7;
+    border-left-color: #0056b3;
+    color: white;
+}
+#projects-list .list-group-item.active p{
+    color: white!important;
+}
+
+#projects-list .list-group-item.active:hover {
+    background-color: #0056b3;
+}
+
+/* Заголовки проектов - компактные */
+#projects-list .list-group-item h5 {
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+#projects-list .list-group-item small {
+    opacity: 0.7;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+#projects-list .list-group-item.active small {
+    opacity: 0.9;
+}
+
+
+
+#projects-list .list-group-item p {
+    margin-bottom: 0;
+    font-size: 10px;
+    color: #4e555b;
+    opacity: 0.6;
+    line-height: 1.2;
+    max-height: 2.4rem;
+    overflow: hidden;
+}
+
+#projects-list .list-group-item.active p {
+    opacity: 0.8;
+}
+
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    #projects-list {
+        max-height: 250px;
+    }
+
+    #projects-list .list-group-item {
+        padding: 0.4rem 0.6rem;
+    }
+
+    #projects-list .list-group-item h5 {
+        font-size: 0.85rem;
+    }
+
+    #projects-list .list-group-item small {
+        font-size: 0.7rem;
+    }
+}

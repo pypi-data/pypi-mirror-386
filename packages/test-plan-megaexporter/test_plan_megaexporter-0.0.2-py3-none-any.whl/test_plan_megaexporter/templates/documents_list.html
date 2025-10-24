@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+    <title>Список задач генерации документов</title>
+    <link href="{% static 'test_plan_megaexporter/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_megaexporter/css/base.css' %}" rel="stylesheet"/>
+
+</head>
+<body style="height: 100%; display: flex; flex-direction: column;">
+<div class="documents-container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Список задач генерации документов</h2>
+        <a href="/plugins/test-plan-megaexporter/test-plan-megaexporter-page/" class="btn btn-primary">Запрос другого документа</a>
+    </div>
+    <div id="documentsContainer">
+        {% if documents %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Тип документа</th>
+                    <th>Проект</th>
+                    <th>План тестирования</th>
+                    <th>Статус</th>
+                    <th>Дата создания UTC</th>
+                    <th>Дата завершения UTC</th>
+                    <th>Действия</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for doc in documents %}
+                <tr>
+                    <td>{{ doc.id }}</td>
+                    <td>{{ doc.get_document_type_display }}</td>
+                    <td>
+                        {% if doc.project_name %}
+                        <spantitle="ID: {{ doc.project_id }}">{{ doc.project_name }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if doc.testplan_name %}
+                        <span title="ID: {{ doc.testplan_id }}">{{ doc.testplan_name }}</span>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {% if doc.status == 'PENDING' %}
+                        <span class="badge bg-warning">Ожидает</span>
+                        {% elif doc.status == 'IN_PROGRESS' %}
+                        <span class="badge bg-info">В процессе</span>
+                        {% elif doc.status == 'DONE' %}
+                        <span class="badge bg-success">Готово</span>
+                        {% elif doc.status == 'FAILED' %}
+                        <span class="badge bg-danger">Ошибка</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ doc.created_at|date:"d.m.Y H:i" }}</td>
+                    <td>
+                        {% if doc.completed_at %}
+                        {{ doc.completed_at|date:"d.m.Y H:i" }}
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if doc.status == 'DONE' and doc.file_path %}
+                        <a href="/plugins/test-plan-megaexporter/download/{{ doc.id }}/" class="btn btn-sm btn-success">Скачать</a>
+                        {% elif doc.status == 'FAILED' and doc.error_message %}
+                        <p style="color: darkred">{{doc.error_message}}</p>
+
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            <h5>Нет документов</h5>
+            <p>У вас пока нет запросов на генерацию документов.</p>
+        </div>
+        {% endif %}
+    </div>
+
+
+
+</div>
+<footer style="text-align: center; padding: 20px; margin-top: auto; width: 100%; font-size: 12px; height: 76px;">
+    <p style="margin: 0;">TestY TMS {{ TESTY_VERSION }}. Released under the AGPL-v3 License.</p>
+    <p style="margin: 0;">&copy; {% now 'Y' %} <a href="https://yadro.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">KNS Group LLC (YADRO).</a></p>
+</footer>
+</body>
+</html>
