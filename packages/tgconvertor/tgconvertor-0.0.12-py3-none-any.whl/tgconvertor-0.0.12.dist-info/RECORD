@@ -1,0 +1,14 @@
+TGConvertor/__init__.py,sha256=UPH2beB6zPmF1DUlaM0H-po7tf_vQg_GP8UkVmTU09w,171
+TGConvertor/__main__.py,sha256=8wUOlwEbqGb2aTX691TgcObGoSWmvxKM6yrnB65E_G4,10656
+TGConvertor/exceptions.py,sha256=ifvhlxVWqvNDv8EGYdTGuvYwVV-s0K_mbbwL7vBZiHk,43
+TGConvertor/manager.py,sha256=94X5OaleNIgXih9bAw_0eAFdNzC1eMlqzko6Hz0-WFk,9301
+TGConvertor/sessions/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+TGConvertor/sessions/pyro.py,sha256=qoFqU1BXuLhgAFiH7GBDZHDk9PT5xo_7xaEzjSFZpTE,6117
+TGConvertor/sessions/tdata.py,sha256=r-27KpT_im_gZXs-2qk2HaVGd2RO3FSDoOzq1S8_xyQ,1553
+TGConvertor/sessions/tele.py,sha256=VZhbHo5-h-h5ON6JUVfrw735j49tjuj9B00_F-l28vE,6214
+tgconvertor-0.0.12.dist-info/licenses/LICENSE,sha256=RpERGtpd2r0gWak4HqF7I9ef-t56CRti2jeWOt4JtL4,1065
+tgconvertor-0.0.12.dist-info/METADATA,sha256=c9zu5NVyk_70Ak9o3o6FTRElzEkG-tuXYz67XdCeCwE,4131
+tgconvertor-0.0.12.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tgconvertor-0.0.12.dist-info/entry_points.txt,sha256=ji7ssbnNxe_jRpZeQpBHY7GIaPrF0skBZsrWAUc0ugQ,57
+tgconvertor-0.0.12.dist-info/top_level.txt,sha256=f4Nmlm1wP9DxMRyapdI4GkHkncgfXJOwxvF7b-Qrd6M,12
+tgconvertor-0.0.12.dist-info/RECORD,,
