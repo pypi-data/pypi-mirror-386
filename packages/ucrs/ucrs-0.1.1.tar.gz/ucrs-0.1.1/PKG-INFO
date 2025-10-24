@@ -1,0 +1,100 @@
+Metadata-Version: 2.3
+Name: ucrs
+Version: 0.1.1
+Summary: UCRS a single wrapper class that accepts any CRS input and lazily converts to an instance of any library you need (e.g. cartopy, osgeo).
+Author: Panos Mavrogiorgos
+Author-email: pmav99@gmail.com
+Requires-Python: >=3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: cartopy
+Provides-Extra: dev
+Provides-Extra: full
+Provides-Extra: gdal
+Provides-Extra: test
+Requires-Dist: cartopy ; extra == "cartopy"
+Requires-Dist: cartopy ; extra == "full"
+Requires-Dist: gdal ; extra == "full"
+Requires-Dist: gdal ; extra == "gdal"
+Requires-Dist: pyproj
+Requires-Dist: pyright (>=1.1.0) ; extra == "dev"
+Requires-Dist: pytest (>=8.0.0) ; extra == "dev"
+Requires-Dist: pytest (>=8.0.0) ; extra == "test"
+Requires-Dist: pytest-cov (>=4.1.0) ; extra == "dev"
+Requires-Dist: pytest-cov (>=4.1.0) ; extra == "test"
+Requires-Dist: pytest-xdist (>=3.5.0) ; extra == "dev"
+Requires-Dist: pytest-xdist (>=3.5.0) ; extra == "test"
+Description-Content-Type: text/markdown
+
+# UCRS - Unified CRS
+
+Working with geospatial data in Python often means juggling multiple libraries, each with its own CRS representation:
+- **pyproj** uses `pyproj.CRS`
+- **cartopy** uses `cartopy.crs.CRS` and `cartopy.crs.Projection`
+- **GDAL/osgeo** uses `osgeo.osr.SpatialReference`
+
+Converting between these formats is well
+[documented](https://pyproj4.github.io/pyproj/stable/crs_compatibility.html),
+but a bit tedious.
+
+UCRS solves this by providing a single wrapper class that accepts any CRS input
+and lazily converts to an instance of any library you need.
+
+## Usage
+
+```python
+from ucrs import UCRS
+
+# Create UCRS from any CRS representation
+ucrs = UCRS(4326)                         # EPSG code
+ucrs = UCRS("EPSG:4326")                  # EPSG string
+ucrs = UCRS(pyproj.CRS.from_epsg(4326))   # pyproj.CRS
+ucrs = UCRS(cartopy.crs.PlateCarree())    # cartopy CRS
+ucrs = UCRS(srs)                          # osgeo.osr.SpatialReference
+
+# Access different representations
+ucrs.proj        # Always available
+ucrs.cartopy     # Requires cartopy
+ucrs.osgeo       # Requires GDAL
+```
+
+## How It Works
+
+UCRS uses `pyproj.CRS` as its internal canonical representation. All conversions follow this pattern:
+
+1. **Input** → `pyproj.CRS` (during initialization)
+2. `pyproj.CRS` → **Output format** (via cached properties)
+
+Conversions are lazy and cached, so accessing `.proj`, `.cartopy`, or `.osgeo` multiple times returns the same object without re-conversion.
+
+## Requirements
+
+- Python 3.10+
+- pyproj (required)
+- cartopy (optional)
+- GDAL (optional)
+
+## Installation
+
+```bash
+# Minimal installation (pyproj only)
+pip install ucrs
+
+# With cartopy support
+pip install ucrs[cartopy]
+
+# With GDAL support
+pip install ucrs[gdal]
+
+# With all optional dependencies
+pip install ucrs[full]
+```
+
+
+## License
+
+MIT License - see LICENSE file for details.
+
