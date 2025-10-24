@@ -1,0 +1,63 @@
+# Xannounce-parser
+
+Exchange Announce Parser, 使用语法分析(基于 lark)提取交易所公告标题中的币种和公告类型, 例如: 
+
+```bash
+$ uv run xparser 'Market Support for Clearpool(CPOOL) (KRW, BTC, USDT Market)'
+> ParserResult(exchange='Upbit', type='New Spot', assets=[Coin(name='Clearpool', symbol='CPOOL')])
+```
+
+优势: 无假阳性, 解析器判别是特定类型就一定是特定类型. 
+缺陷: 可能有正例未检出
+
+## 安装
+
+使用 uv(推荐)
+
+```bash
+uv add xannounce-parser
+```
+
+使用 pip
+
+```bash
+pip install xannounce-parser
+```
+
+## 不安装测试
+
+```bash
+uvx --from xannounce-parser 
+```
+
+## 为何不用 X?
+
+### 正则表达式
+
+简单的关键字匹配不够精确, 说实话, 你敢在交易中用正则匹配来的结果吗? 如果写得很复杂, 那为什么不使用特化的工具呢? 比如 Upbit 的英文公告中有四种上架格式:
+
+```BNF
+Market Support for Zora(ZORA) (KRW, BTC, USDT Market)
+Market Support for ACS, GO, OBSR, QTCON, RLY (USDT Market)
+
+New Digital Assets Added to USDT Market (AGLD, AHT, ARPA, ASTR, BNT, EGLD, FIL, LWA, NEAR, OXT, RAD, XLM)
+New digital asset on KRW Market (MINA)
+```
+
+硬写正则也没问题, 但是一定会比基于 BNF 语法的版本麻烦. 
+
+### 大语言模型
+
+太慢了, 我希望能在 1ms 内得到结果然后发起交易. 不过目前的 https://coin.myuan.fun 上的匹配结果就是基于 GPT-5-nano 的. 
+
+### 小语言模型
+
+有点复杂, 目前 Lark 表现已经很好, 如果未来有必要会考虑. 
+
+## Roadmap
+
+- [x] 支持 Upbit 的上架、下架、警告信息
+- [ ] 支持 Binance
+- [ ] 支持 Bybit
+- [ ] 支持 OKX
+
