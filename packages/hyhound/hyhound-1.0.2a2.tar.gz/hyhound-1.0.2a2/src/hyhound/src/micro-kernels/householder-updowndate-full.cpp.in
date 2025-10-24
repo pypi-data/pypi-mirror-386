@@ -1,0 +1,20 @@
+#ifdef __clang__
+#pragma clang fp contract(fast)
+#endif
+
+#include <hyhound/micro-kernels/householder-updowndate-full.tpp>
+
+namespace hyhound::micro_kernels::householder {
+
+template void updowndate_full<@R@, @T@, Update>(
+    index_t colsA, @T@ *Ld, index_t ldL, @T@ *Ad, index_t ldA, UpDownArg<Update> signs) noexcept;
+template void updowndate_full<@R@, @T@, Downdate>(
+    index_t colsA, @T@ *Ld, index_t ldL, @T@ *Ad, index_t ldA, UpDownArg<Downdate> signs) noexcept;
+template void updowndate_full<@R@, @T@, UpDowndate<@T@>>(
+    index_t colsA, @T@ *Ld, index_t ldL, @T@ *Ad, index_t ldA, UpDownArg<UpDowndate<@T@>> signs) noexcept;
+template void updowndate_full<@R@, @T@, DownUpdate<@T@>>(
+    index_t colsA, @T@ *Ld, index_t ldL, @T@ *Ad, index_t ldA, UpDownArg<DownUpdate<@T@>> signs) noexcept;
+template void updowndate_full<@R@, @T@, DiagonalUpDowndate<@T@>>(
+    index_t colsA, @T@ *Ld, index_t ldL, @T@ *Ad, index_t ldA, UpDownArg<DiagonalUpDowndate<@T@>> signs) noexcept;
+
+}
