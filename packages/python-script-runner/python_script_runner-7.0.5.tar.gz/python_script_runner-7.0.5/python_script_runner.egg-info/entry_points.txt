@@ -1,0 +1,2 @@
+[console_scripts]
+python-script-runner = runner:main
