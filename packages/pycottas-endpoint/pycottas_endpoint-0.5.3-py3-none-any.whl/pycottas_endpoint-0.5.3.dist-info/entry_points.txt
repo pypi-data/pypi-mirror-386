@@ -1,0 +1,2 @@
+[console_scripts]
+pycottas-endpoint = pycottas_endpoint.__main__:cli

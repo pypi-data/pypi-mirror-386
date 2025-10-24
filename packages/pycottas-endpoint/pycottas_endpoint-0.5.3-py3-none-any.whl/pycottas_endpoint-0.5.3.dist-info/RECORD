@@ -1,0 +1,11 @@
+pycottas_endpoint/__init__.py,sha256=oUcaeQ1IOjxorDoId8D8mdywsjsPaz7tM-TMftsAwYQ,269
+pycottas_endpoint/__main__.py,sha256=3eIzCdhTzvLknvEtW_FM-m66EDwxRsg49jdReV1eeG0,1520
+pycottas_endpoint/sparql_endpoint.py,sha256=CFU1J5LWOO2XWHBjsUiufbn39DsDuwcmWzatC8t4g0E,2893
+pycottas_endpoint/sparql_router.py,sha256=Rr3INzcuZoLY3KGWwLmS9il-PmaJQ8n06lph89ITcAM,22157
+pycottas_endpoint/utils.py,sha256=p2_LBEwYLd_ihrLJzreFdg19sElRkPKk4e34cIvlD6Y,5160
+pycottas_endpoint/yasgui.html,sha256=gbpA44IL62uAil3EuzXnz5Gx1TbRGl6jUxLzYzJnRoc,2283
+pycottas_endpoint-0.5.3.dist-info/METADATA,sha256=RAIMZTAIzf96_Vdx2B2NkVYdmxL4oA1Je-4gz7tbvbc,13482
+pycottas_endpoint-0.5.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pycottas_endpoint-0.5.3.dist-info/entry_points.txt,sha256=y2NtK4CWlzwQB-MKXf3_pXeR2ziWu-bvPo12oJSsPeA,69
+pycottas_endpoint-0.5.3.dist-info/licenses/LICENSE.txt,sha256=yfjs5XqBMUp5lxaFm0KQ0cm9CKjS5z3MD8l9qeQ4TVA,1106
+pycottas_endpoint-0.5.3.dist-info/RECORD,,
