@@ -1,0 +1,64 @@
+Metadata-Version: 2.4
+Name: talklabs
+Version: 1.0.4
+Summary: TalkLabs - Unified TTS Engine and SDK
+Home-page: https://talklabs.com.br
+Author: Francisco Lima
+Author-email: TalkLabs Team <dev@talklabs.com.br>
+License: MIT License
+        
+        Copyright (c) 2025 Francisco Lima
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: torch>=2.0.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: websocket-client>=1.8.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# TalkLabs Python SDK
+
+SDK oficial da **TalkLabs** — compatível com a API ElevenLabs.
+
+Permite gerar áudio realista com vozes personalizadas e streaming em tempo real.
+
+## Instalação
+\`\`\`bash
+pip install talklabs
+\`\`\`
+
+## Exemplo de uso
+\`\`\`python
+from talklabs import TalkLabsClient
+
+client = TalkLabsClient(
+    api_key="YOUR_API_KEY",
+    base_url="https://api.talklabs.com.br"
+)
+
+audio = client.generate(
+    text="Olá do TalkLabs!",
+    voice="yasmin_alves"
+)
+
+with open("output.wav", "wb") as f:
+    f.write(audio)
+\`\`\`
+
+## Base URL
+- https://api.talklabs.com.br/v1
+
