@@ -1,0 +1,7 @@
+phonopy>=2.43.0
+phono3py>=3.19.4
+spglib>=2.5.0
+finufft
+click
+tomli
+tomli-w
