@@ -1,0 +1,45 @@
+# Cybersecurity Log Generator Configuration
+
+generator:
+  output_format: "json"  # json, csv, syslog, cef, leef
+  time_range: "24h"
+  timezone: "UTC"
+  enable_correlation: true
+  attack_campaign_probability: 0.1
+
+security:
+  threat_actors:
+    - name: "APT29"
+      tactics: ["initial_access", "persistence", "exfiltration"]
+      sophistication: "high"
+    - name: "APT28"
+      tactics: ["execution", "lateral_movement", "collection"]
+      sophistication: "high"
+    - name: "Lazarus"
+      tactics: ["initial_access", "exfiltration"]
+      sophistication: "medium"
+
+network:
+  topology:
+    subnets: ["10.0.0.0/8", "192.168.0.0/16", "172.16.0.0/12"]
+    internet_facing_ips: ["1.2.3.4", "5.6.7.8", "9.10.11.12"]
+    internal_networks: ["10.0.0.0/8", "192.168.0.0/16"]
+    dmz_networks: ["172.16.0.0/24"]
+    critical_assets: ["10.0.1.100", "10.0.1.101", "10.0.1.102"]
+
+correlation:
+  enable_cross_log_correlation: true
+  attack_campaign_probability: 0.1
+  time_window_correlation: "1h"
+  correlation_strength: 0.8
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "cybersecurity_logs.log"
+
+performance:
+  max_events_per_second: 10000
+  batch_size: 1000
+  worker_threads: 4
+  memory_limit_mb: 1024

@@ -1,0 +1,2636 @@
+{
+  "total_logs": 100,
+  "log_type": "ids",
+  "time_range": "2h",
+  "generated_at": "2025-10-16T03:45:09.151092",
+  "logs": [
+    {
+      "id": "1dd74668-4433-4afc-a703-1a1dd20b1695",
+      "timestamp": "2025-10-16T03:45:09.151092",
+      "log_type": "ids",
+      "message": "Brute force attack from 75.141.250.104:21849 to 172.28.131.44:28485 via HTTP",
+      "severity": "medium",
+      "source_ip": "75.141.250.104",
+      "destination_ip": "172.28.131.44",
+      "source_port": 995,
+      "destination_port": 59850,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 21849,
+        "destination_port": 28485,
+        "flags": "SYN,ACK",
+        "packet_size": 267,
+        "attack_signature": "SIG-6340",
+        "rule_id": "IDS-299"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "brute_force"
+      ]
+    },
+    {
+      "id": "07bc3050-246c-43c6-90a3-e73e477536b8",
+      "timestamp": "2025-10-16T03:45:09.151566",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 172.30.178.111:53 to 57.211.40.142:161",
+      "severity": "low",
+      "source_ip": "172.30.178.111",
+      "destination_ip": "57.211.40.142",
+      "source_port": 21,
+      "destination_port": 21,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 53,
+        "destination_port": 161,
+        "flags": "SYN,ACK",
+        "packet_size": 1344,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "5377a8e8-c23c-4cc8-93d8-dd1f64aa00a7",
+      "timestamp": "2025-10-16T03:45:09.151643",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 10.59.18.183:465 to 168.248.109.160:25",
+      "severity": "low",
+      "source_ip": "10.59.18.183",
+      "destination_ip": "168.248.109.160",
+      "source_port": 35475,
+      "destination_port": 29804,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 465,
+        "destination_port": 25,
+        "flags": "SYN,ACK",
+        "packet_size": 771,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "4de592bf-2772-4f7b-8937-693ee4140d3a",
+      "timestamp": "2025-10-16T03:45:09.151876",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 192.168.116.0:995 to 48.161.14.88:21",
+      "severity": "low",
+      "source_ip": "192.168.116.0",
+      "destination_ip": "48.161.14.88",
+      "source_port": 143,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 995,
+        "destination_port": 21,
+        "flags": "SYN,ACK",
+        "packet_size": 1267,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "9a175c7a-c8a3-4020-80f2-56dbb04a42c1",
+      "timestamp": "2025-10-16T03:45:09.152004",
+      "log_type": "ids",
+      "message": "Cross-site scripting attempt from 46.204.106.118:995 to 192.168.88.250:143 via TCP",
+      "severity": "high",
+      "source_ip": "46.204.106.118",
+      "destination_ip": "192.168.88.250",
+      "source_port": 56413,
+      "destination_port": 993,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 995,
+        "destination_port": 143,
+        "flags": "SYN,ACK",
+        "packet_size": 1189,
+        "attack_signature": "SIG-5215",
+        "rule_id": "IDS-387"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "xss_attack"
+      ]
+    },
+    {
+      "id": "6323c395-b628-4434-924a-e41097624d8b",
+      "timestamp": "2025-10-16T03:45:09.152065",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.151.55.119:514 to 194.127.246.151:68",
+      "severity": "low",
+      "source_ip": "10.151.55.119",
+      "destination_ip": "194.127.246.151",
+      "source_port": 443,
+      "destination_port": 143,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 514,
+        "destination_port": 68,
+        "flags": "SYN,ACK",
+        "packet_size": 178,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "5a8e8a73-3824-4104-a4ee-3dd960239c4e",
+      "timestamp": "2025-10-16T03:45:09.152116",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 172.21.203.224:44254 to 175.8.225.103:63786",
+      "severity": "low",
+      "source_ip": "172.21.203.224",
+      "destination_ip": "175.8.225.103",
+      "source_port": 587,
+      "destination_port": 110,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 44254,
+        "destination_port": 63786,
+        "flags": "SYN,ACK",
+        "packet_size": 1233,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "31644882-d44f-4a8f-beb4-6f13f2e255b8",
+      "timestamp": "2025-10-16T03:45:09.152169",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 192.168.35.165:21 to 197.90.48.121:26951",
+      "severity": "low",
+      "source_ip": "192.168.35.165",
+      "destination_ip": "197.90.48.121",
+      "source_port": 465,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 21,
+        "destination_port": 26951,
+        "flags": "SYN,ACK",
+        "packet_size": 834,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "e39b20aa-eee8-42a8-9821-676bac71f49a",
+      "timestamp": "2025-10-16T03:45:09.152380",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 172.25.90.93:45611 to 63.153.154.26:514",
+      "severity": "low",
+      "source_ip": "172.25.90.93",
+      "destination_ip": "63.153.154.26",
+      "source_port": 25,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 45611,
+        "destination_port": 514,
+        "flags": "SYN,ACK",
+        "packet_size": 1255,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "ee740f8d-ffea-4d9e-a0da-067484edaa2e",
+      "timestamp": "2025-10-16T03:45:09.152431",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 172.22.195.252:48054 to 53.239.0.187:27007",
+      "severity": "low",
+      "source_ip": "172.22.195.252",
+      "destination_ip": "53.239.0.187",
+      "source_port": 21,
+      "destination_port": 30116,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 48054,
+        "destination_port": 27007,
+        "flags": "SYN",
+        "packet_size": 987,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "a08ced70-bc7e-4068-974a-43e2087c0641",
+      "timestamp": "2025-10-16T03:45:09.152486",
+      "log_type": "ids",
+      "message": "Denial of service attack from 178.140.57.81:44372 to 172.24.197.15:465 via TCP",
+      "severity": "high",
+      "source_ip": "178.140.57.81",
+      "destination_ip": "172.24.197.15",
+      "source_port": 587,
+      "destination_port": 25,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 44372,
+        "destination_port": 465,
+        "flags": "SYN,ACK",
+        "packet_size": 1336,
+        "attack_signature": "SIG-6566",
+        "rule_id": "IDS-879"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "dos_attack"
+      ]
+    },
+    {
+      "id": "7edbb774-775e-4c10-8882-cbfd81bf5f74",
+      "timestamp": "2025-10-16T03:45:09.152542",
+      "log_type": "ids",
+      "message": "Port scanning detected from 137.249.135.154:161 to 192.168.242.146:161 via UDP",
+      "severity": "medium",
+      "source_ip": "137.249.135.154",
+      "destination_ip": "192.168.242.146",
+      "source_port": 53,
+      "destination_port": 31296,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 161,
+        "destination_port": 161,
+        "flags": "SYN,ACK",
+        "packet_size": 1215,
+        "attack_signature": "SIG-5710",
+        "rule_id": "IDS-828"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "port_scan"
+      ]
+    },
+    {
+      "id": "91f5de6f-756a-492f-a539-5535d3d67a99",
+      "timestamp": "2025-10-16T03:45:09.152593",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.51.209.21:13137 to 34.196.39.13:58433",
+      "severity": "low",
+      "source_ip": "10.51.209.21",
+      "destination_ip": "34.196.39.13",
+      "source_port": 40124,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 13137,
+        "destination_port": 58433,
+        "flags": "SYN,ACK",
+        "packet_size": 115,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "a5f0baa4-89c5-4c2e-a110-e758a06ce280",
+      "timestamp": "2025-10-16T03:45:09.152644",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 192.168.39.115:17954 to 27.207.137.197:161",
+      "severity": "low",
+      "source_ip": "192.168.39.115",
+      "destination_ip": "27.207.137.197",
+      "source_port": 465,
+      "destination_port": 41334,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 17954,
+        "destination_port": 161,
+        "flags": "SYN,ACK",
+        "packet_size": 650,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "2ab33648-f077-45b9-ab48-6ff2fdbc741b",
+      "timestamp": "2025-10-16T03:45:09.152699",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 172.24.191.192:143 to 142.188.245.89:65186",
+      "severity": "low",
+      "source_ip": "172.24.191.192",
+      "destination_ip": "142.188.245.89",
+      "source_port": 465,
+      "destination_port": 25,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 143,
+        "destination_port": 65186,
+        "flags": "SYN,ACK",
+        "packet_size": 397,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "3e8c2311-111c-42f0-bd8a-9d8f8cb5da33",
+      "timestamp": "2025-10-16T03:45:09.152746",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 192.168.77.154:54407 to 218.212.53.18:80",
+      "severity": "low",
+      "source_ip": "192.168.77.154",
+      "destination_ip": "218.212.53.18",
+      "source_port": 38686,
+      "destination_port": 2830,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 54407,
+        "destination_port": 80,
+        "flags": "RST",
+        "packet_size": 1014,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "9ae9f109-2a06-46db-92d8-c4e65af57a14",
+      "timestamp": "2025-10-16T03:45:09.153017",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 172.21.110.233:36473 to 139.255.210.140:161",
+      "severity": "low",
+      "source_ip": "172.21.110.233",
+      "destination_ip": "139.255.210.140",
+      "source_port": 995,
+      "destination_port": 995,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 36473,
+        "destination_port": 161,
+        "flags": "SYN,ACK",
+        "packet_size": 512,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "012f1802-379a-43c4-a9cf-14bc47af4c1c",
+      "timestamp": "2025-10-16T03:45:09.153127",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 192.168.91.63:143 to 204.133.96.240:110",
+      "severity": "low",
+      "source_ip": "192.168.91.63",
+      "destination_ip": "204.133.96.240",
+      "source_port": 51008,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 143,
+        "destination_port": 110,
+        "flags": "SYN,ACK",
+        "packet_size": 574,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "c3f9f66a-503d-4198-b37e-39fd40f99e11",
+      "timestamp": "2025-10-16T03:45:09.153177",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 172.21.210.26:143 to 211.149.152.7:587",
+      "severity": "low",
+      "source_ip": "172.21.210.26",
+      "destination_ip": "211.149.152.7",
+      "source_port": 8916,
+      "destination_port": 110,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 143,
+        "destination_port": 587,
+        "flags": "SYN,ACK",
+        "packet_size": 1287,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "bb38c8f2-77df-4f81-83b3-ea575a95c53c",
+      "timestamp": "2025-10-16T03:45:09.153285",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 172.28.178.60:21663 to 154.218.140.9:7323",
+      "severity": "low",
+      "source_ip": "172.28.178.60",
+      "destination_ip": "154.218.140.9",
+      "source_port": 53,
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "ICMP",
+        "source_port": 21663,
+        "destination_port": 7323,
+        "flags": "PSH",
+        "packet_size": 174,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "b19f7739-bae9-4cd1-84a8-4a496723fe2a",
+      "timestamp": "2025-10-16T03:45:09.153395",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 10.67.102.39:6107 to 73.239.146.110:69",
+      "severity": "low",
+      "source_ip": "10.67.102.39",
+      "destination_ip": "73.239.146.110",
+      "source_port": 465,
+      "destination_port": 30867,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 6107,
+        "destination_port": 69,
+        "flags": "SYN,ACK",
+        "packet_size": 1060,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "e5bf5ec8-9217-4d41-97e4-5b3e3363f46a",
+      "timestamp": "2025-10-16T03:45:09.153444",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.41.226:37932 to 53.13.124.151:7527",
+      "severity": "low",
+      "source_ip": "192.168.41.226",
+      "destination_ip": "53.13.124.151",
+      "source_port": 12096,
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTPS",
+        "source_port": 37932,
+        "destination_port": 7527,
+        "flags": "SYN,ACK",
+        "packet_size": 839,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "95a80135-7f2b-45c0-8baf-d847a10d0556",
+      "timestamp": "2025-10-16T03:45:09.153647",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 10.113.189.13:162 to 143.199.132.14:67",
+      "severity": "low",
+      "source_ip": "10.113.189.13",
+      "destination_ip": "143.199.132.14",
+      "source_port": 18623,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 162,
+        "destination_port": 67,
+        "flags": "SYN,ACK",
+        "packet_size": 414,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "e70dbd41-4b4f-4c4f-9017-355ad5af5363",
+      "timestamp": "2025-10-16T03:45:09.153854",
+      "log_type": "ids",
+      "message": "Denial of service attack from 214.171.246.112:5559 to 172.29.34.20:11437 via HTTP",
+      "severity": "high",
+      "source_ip": "214.171.246.112",
+      "destination_ip": "172.29.34.20",
+      "source_port": 993,
+      "destination_port": 22,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 5559,
+        "destination_port": 11437,
+        "flags": "SYN,ACK",
+        "packet_size": 1315,
+        "attack_signature": "SIG-5075",
+        "rule_id": "IDS-705"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "dos_attack"
+      ]
+    },
+    {
+      "id": "a4dca136-2822-4048-a839-2e69bcd7646d",
+      "timestamp": "2025-10-16T03:45:09.153905",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 192.168.238.231:54416 to 61.213.205.212:8207",
+      "severity": "low",
+      "source_ip": "192.168.238.231",
+      "destination_ip": "61.213.205.212",
+      "source_port": 587,
+      "destination_port": 993,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 54416,
+        "destination_port": 8207,
+        "flags": "PSH",
+        "packet_size": 855,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "19a00471-a75d-42ad-bb92-6585ae7393d3",
+      "timestamp": "2025-10-16T03:45:09.154027",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 192.168.138.66:44281 to 149.236.138.78:19145",
+      "severity": "low",
+      "source_ip": "192.168.138.66",
+      "destination_ip": "149.236.138.78",
+      "source_port": 60243,
+      "destination_port": 21,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "ICMP",
+        "source_port": 44281,
+        "destination_port": 19145,
+        "flags": "SYN",
+        "packet_size": 356,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "c703b8fb-2feb-4535-b41f-7c73178c8bcd",
+      "timestamp": "2025-10-16T03:45:09.154079",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.206.164.227:53 to 168.15.235.213:69",
+      "severity": "low",
+      "source_ip": "10.206.164.227",
+      "destination_ip": "168.15.235.213",
+      "source_port": 587,
+      "destination_port": 25,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 53,
+        "destination_port": 69,
+        "flags": "SYN,ACK",
+        "packet_size": 256,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "d6d076e4-cea3-45e0-9375-efa1eea6e720",
+      "timestamp": "2025-10-16T03:45:09.154137",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 192.168.156.223:2061 to 32.114.82.74:47405",
+      "severity": "low",
+      "source_ip": "192.168.156.223",
+      "destination_ip": "32.114.82.74",
+      "source_port": 39990,
+      "destination_port": 443,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 2061,
+        "destination_port": 47405,
+        "flags": "ACK",
+        "packet_size": 1215,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "9a1c608b-3517-4ba5-8384-c02a0db3db0b",
+      "timestamp": "2025-10-16T03:45:09.154184",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 172.24.12.88:18591 to 26.37.187.128:52762",
+      "severity": "low",
+      "source_ip": "172.24.12.88",
+      "destination_ip": "26.37.187.128",
+      "source_port": 25,
+      "destination_port": 993,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "ICMP",
+        "source_port": 18591,
+        "destination_port": 52762,
+        "flags": "SYN,ACK",
+        "packet_size": 915,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "f0a3628d-1238-418d-8cc0-e8ec864ce39d",
+      "timestamp": "2025-10-16T03:45:09.154412",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 172.18.6.88:162 to 184.136.100.2:53",
+      "severity": "low",
+      "source_ip": "172.18.6.88",
+      "destination_ip": "184.136.100.2",
+      "source_port": 28106,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 162,
+        "destination_port": 53,
+        "flags": "SYN,ACK",
+        "packet_size": 1107,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "05f08cc1-11cb-4829-ae12-f260dfdca259",
+      "timestamp": "2025-10-16T03:45:09.154624",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 10.243.183.254:9281 to 149.172.181.179:67",
+      "severity": "low",
+      "source_ip": "10.243.183.254",
+      "destination_ip": "149.172.181.179",
+      "source_port": 24522,
+      "destination_port": 4107,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 9281,
+        "destination_port": 67,
+        "flags": "SYN,ACK",
+        "packet_size": 1436,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "9a451149-2385-4176-b912-aa5ec7931b38",
+      "timestamp": "2025-10-16T03:45:09.154673",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.86.211.68:51308 to 88.167.41.128:46426",
+      "severity": "low",
+      "source_ip": "10.86.211.68",
+      "destination_ip": "88.167.41.128",
+      "source_port": 2010,
+      "destination_port": 61405,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 51308,
+        "destination_port": 46426,
+        "flags": "SYN,ACK",
+        "packet_size": 662,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "79282c83-9a57-4cd8-a26b-5acb4b358a0b",
+      "timestamp": "2025-10-16T03:45:09.154828",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 172.27.99.70:61635 to 140.178.213.105:44079",
+      "severity": "low",
+      "source_ip": "172.27.99.70",
+      "destination_ip": "140.178.213.105",
+      "source_port": 5547,
+      "destination_port": 42430,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 61635,
+        "destination_port": 44079,
+        "flags": "SYN,ACK",
+        "packet_size": 1035,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "aff6b105-7df6-4ff2-b65e-48b751644153",
+      "timestamp": "2025-10-16T03:45:09.155030",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 172.23.208.203:69 to 60.170.93.51:67",
+      "severity": "low",
+      "source_ip": "172.23.208.203",
+      "destination_ip": "60.170.93.51",
+      "source_port": 21437,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 69,
+        "destination_port": 67,
+        "flags": "URG",
+        "packet_size": 1271,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "e04adb54-33ec-4471-917c-f50ed88616a7",
+      "timestamp": "2025-10-16T03:45:09.155078",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 172.25.100.42:48754 to 74.78.206.211:13729",
+      "severity": "low",
+      "source_ip": "172.25.100.42",
+      "destination_ip": "74.78.206.211",
+      "source_port": 587,
+      "destination_port": 143,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 48754,
+        "destination_port": 13729,
+        "flags": "ACK",
+        "packet_size": 952,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "903f2a35-8b15-40af-90f9-2666d0bb6b34",
+      "timestamp": "2025-10-16T03:45:09.155278",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 10.134.175.215:993 to 4.187.153.141:31651",
+      "severity": "low",
+      "source_ip": "10.134.175.215",
+      "destination_ip": "4.187.153.141",
+      "source_port": 41438,
+      "destination_port": 52091,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 993,
+        "destination_port": 31651,
+        "flags": "SYN,ACK",
+        "packet_size": 215,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "58db3f02-12f0-49a7-b8f8-b20a159a616d",
+      "timestamp": "2025-10-16T03:45:09.155326",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 10.10.232.70:25 to 147.204.147.85:60524",
+      "severity": "low",
+      "source_ip": "10.10.232.70",
+      "destination_ip": "147.204.147.85",
+      "source_port": 22,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 25,
+        "destination_port": 60524,
+        "flags": "URG",
+        "packet_size": 909,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "6f4211e2-8e06-444f-9022-2ae54658100f",
+      "timestamp": "2025-10-16T03:45:09.155440",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 172.28.229.61:143 to 29.143.233.174:56522",
+      "severity": "low",
+      "source_ip": "172.28.229.61",
+      "destination_ip": "29.143.233.174",
+      "source_port": 34200,
+      "destination_port": 39853,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 143,
+        "destination_port": 56522,
+        "flags": "SYN,ACK",
+        "packet_size": 396,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "0e52d2f4-923c-474a-8398-d90cedc434b5",
+      "timestamp": "2025-10-16T03:45:09.155489",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 10.252.200.198:9287 to 130.40.190.13:514",
+      "severity": "low",
+      "source_ip": "10.252.200.198",
+      "destination_ip": "130.40.190.13",
+      "source_port": 41154,
+      "destination_port": 10301,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 9287,
+        "destination_port": 514,
+        "flags": "SYN,ACK",
+        "packet_size": 1289,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "2db74659-63c7-4540-a40d-21bad7afae70",
+      "timestamp": "2025-10-16T03:45:09.155644",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 172.18.43.182:587 to 179.191.195.237:465",
+      "severity": "low",
+      "source_ip": "172.18.43.182",
+      "destination_ip": "179.191.195.237",
+      "source_port": 53,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 587,
+        "destination_port": 465,
+        "flags": "SYN,ACK",
+        "packet_size": 960,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "1c93cae7-a003-430f-a6d0-172ecc8c5ed8",
+      "timestamp": "2025-10-16T03:45:09.156108",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.175.105:123 to 7.175.138.231:514",
+      "severity": "low",
+      "source_ip": "192.168.175.105",
+      "destination_ip": "7.175.138.231",
+      "source_port": 80,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 123,
+        "destination_port": 514,
+        "flags": "SYN,ACK",
+        "packet_size": 1185,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "1bcea758-1fb2-4e66-9707-b77376fcf3f7",
+      "timestamp": "2025-10-16T03:45:09.156190",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 172.19.158.0:35051 to 139.42.188.250:41978",
+      "severity": "low",
+      "source_ip": "172.19.158.0",
+      "destination_ip": "139.42.188.250",
+      "source_port": 53,
+      "destination_port": 25,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 35051,
+        "destination_port": 41978,
+        "flags": "SYN,ACK",
+        "packet_size": 336,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "ae3249da-06a3-49f5-8bbb-8264f6a42f1e",
+      "timestamp": "2025-10-16T03:45:09.156245",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.130.193:993 to 186.148.54.239:22",
+      "severity": "low",
+      "source_ip": "192.168.130.193",
+      "destination_ip": "186.148.54.239",
+      "source_port": 20807,
+      "destination_port": 62996,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 993,
+        "destination_port": 22,
+        "flags": "SYN,ACK",
+        "packet_size": 1097,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "75ecaab5-4b46-41f8-b660-e05be96d763e",
+      "timestamp": "2025-10-16T03:45:09.156297",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 10.210.114.46:19261 to 206.185.23.55:2896",
+      "severity": "low",
+      "source_ip": "10.210.114.46",
+      "destination_ip": "206.185.23.55",
+      "source_port": 34595,
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 19261,
+        "destination_port": 2896,
+        "flags": "SYN,ACK",
+        "packet_size": 338,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "5eacde03-76a6-49f5-a96a-bc84099bd20b",
+      "timestamp": "2025-10-16T03:45:09.156471",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 172.29.248.252:60057 to 124.191.170.160:62778",
+      "severity": "low",
+      "source_ip": "172.29.248.252",
+      "destination_ip": "124.191.170.160",
+      "source_port": 587,
+      "destination_port": 29162,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "FTP",
+        "source_port": 60057,
+        "destination_port": 62778,
+        "flags": "SYN,ACK",
+        "packet_size": 915,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "4aac1fbc-6951-46c7-97db-e72c9a74926e",
+      "timestamp": "2025-10-16T03:45:09.156528",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 172.24.218.187:20814 to 104.252.9.128:4276",
+      "severity": "low",
+      "source_ip": "172.24.218.187",
+      "destination_ip": "104.252.9.128",
+      "source_port": 53,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 20814,
+        "destination_port": 4276,
+        "flags": "SYN,ACK",
+        "packet_size": 762,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "b74ada8d-9b48-426b-9fbe-0490828a7298",
+      "timestamp": "2025-10-16T03:45:09.156637",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.199.61.156:21 to 199.32.117.50:43390",
+      "severity": "low",
+      "source_ip": "10.199.61.156",
+      "destination_ip": "199.32.117.50",
+      "source_port": 48236,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 21,
+        "destination_port": 43390,
+        "flags": "SYN,ACK",
+        "packet_size": 641,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "f4dc0d85-8a28-42a7-9a6c-3930e94431f3",
+      "timestamp": "2025-10-16T03:45:09.156746",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.225.26.152:39927 to 42.202.99.27:587",
+      "severity": "low",
+      "source_ip": "10.225.26.152",
+      "destination_ip": "42.202.99.27",
+      "source_port": 57991,
+      "destination_port": 443,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 39927,
+        "destination_port": 587,
+        "flags": "SYN,ACK",
+        "packet_size": 687,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "bfb03943-0844-465d-9871-c313e3fba9bb",
+      "timestamp": "2025-10-16T03:45:09.156851",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 10.184.202.4:15540 to 40.183.76.34:21",
+      "severity": "low",
+      "source_ip": "10.184.202.4",
+      "destination_ip": "40.183.76.34",
+      "source_port": 29168,
+      "destination_port": 35938,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 15540,
+        "destination_port": 21,
+        "flags": "SYN,ACK",
+        "packet_size": 1247,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "8ea18029-c1b9-4f5f-ba7e-e4ace8bbd50b",
+      "timestamp": "2025-10-16T03:45:09.156898",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 172.28.191.158:22 to 177.53.61.119:53",
+      "severity": "low",
+      "source_ip": "172.28.191.158",
+      "destination_ip": "177.53.61.119",
+      "source_port": 143,
+      "destination_port": 995,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 22,
+        "destination_port": 53,
+        "flags": "SYN,ACK",
+        "packet_size": 527,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "3f9c240f-0104-47b2-95e4-2621f82f55c6",
+      "timestamp": "2025-10-16T03:45:09.157058",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.218.94:40733 to 145.209.117.15:161",
+      "severity": "low",
+      "source_ip": "192.168.218.94",
+      "destination_ip": "145.209.117.15",
+      "source_port": 465,
+      "destination_port": 143,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 40733,
+        "destination_port": 161,
+        "flags": "SYN,ACK",
+        "packet_size": 809,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "86a9c5a4-305a-4f08-b8bd-20de913e8a15",
+      "timestamp": "2025-10-16T03:45:09.157114",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 10.158.38.28:443 to 168.18.72.32:4663",
+      "severity": "low",
+      "source_ip": "10.158.38.28",
+      "destination_ip": "168.18.72.32",
+      "source_port": 12389,
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 443,
+        "destination_port": 4663,
+        "flags": "SYN,ACK",
+        "packet_size": 360,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "88468eda-e343-4608-acef-8e55f7d797c9",
+      "timestamp": "2025-10-16T03:45:09.157160",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 192.168.24.226:45011 to 71.194.66.7:42260",
+      "severity": "low",
+      "source_ip": "192.168.24.226",
+      "destination_ip": "71.194.66.7",
+      "source_port": 30995,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "DNS",
+        "source_port": 45011,
+        "destination_port": 42260,
+        "flags": "SYN,ACK",
+        "packet_size": 905,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "055bd48a-3f1e-410f-833d-f2b6862d477e",
+      "timestamp": "2025-10-16T03:45:09.157211",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 10.108.18.129:60829 to 34.99.49.177:55906",
+      "severity": "low",
+      "source_ip": "10.108.18.129",
+      "destination_ip": "34.99.49.177",
+      "source_port": 27182,
+      "destination_port": 9941,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "SMTP",
+        "source_port": 60829,
+        "destination_port": 55906,
+        "flags": "SYN,ACK",
+        "packet_size": 901,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "b01dbc6f-7344-4799-9c1d-aa9f025f5d05",
+      "timestamp": "2025-10-16T03:45:09.157256",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.228.119:60939 to 149.120.11.44:16483",
+      "severity": "low",
+      "source_ip": "192.168.228.119",
+      "destination_ip": "149.120.11.44",
+      "source_port": 110,
+      "destination_port": 26766,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTP",
+        "source_port": 60939,
+        "destination_port": 16483,
+        "flags": "SYN,ACK",
+        "packet_size": 1139,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "61a6fc81-b9ea-405c-b48b-7b59fa44a283",
+      "timestamp": "2025-10-16T03:45:09.157302",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 192.168.25.36:465 to 1.239.85.240:33127",
+      "severity": "low",
+      "source_ip": "192.168.25.36",
+      "destination_ip": "1.239.85.240",
+      "source_port": 465,
+      "destination_port": 25,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 465,
+        "destination_port": 33127,
+        "flags": "SYN,ACK",
+        "packet_size": 1256,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "a37d2f0c-ecf4-4fd5-aeb2-55868e6bc211",
+      "timestamp": "2025-10-16T03:45:09.157347",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 10.87.197.2:43053 to 19.205.88.67:161",
+      "severity": "low",
+      "source_ip": "10.87.197.2",
+      "destination_ip": "19.205.88.67",
+      "source_port": 143,
+      "destination_port": 15277,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 43053,
+        "destination_port": 161,
+        "flags": "SYN,ACK",
+        "packet_size": 608,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "b87a2885-c908-403b-a854-334f112b7a3d",
+      "timestamp": "2025-10-16T03:45:09.157559",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.70.2.111:59507 to 203.42.3.136:29536",
+      "severity": "low",
+      "source_ip": "10.70.2.111",
+      "destination_ip": "203.42.3.136",
+      "source_port": 143,
+      "destination_port": 21,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTPS",
+        "source_port": 59507,
+        "destination_port": 29536,
+        "flags": "SYN,ACK",
+        "packet_size": 1312,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "81624e0d-f500-4e84-9db8-1b5a813325b4",
+      "timestamp": "2025-10-16T03:45:09.157615",
+      "log_type": "ids",
+      "message": "Cross-site scripting attempt from 42.57.231.184:41207 to 10.120.68.66:2516 via UDP",
+      "severity": "high",
+      "source_ip": "42.57.231.184",
+      "destination_ip": "10.120.68.66",
+      "source_port": 993,
+      "destination_port": 47770,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 41207,
+        "destination_port": 2516,
+        "flags": "PSH",
+        "packet_size": 447,
+        "attack_signature": "SIG-3738",
+        "rule_id": "IDS-625"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "xss_attack"
+      ]
+    },
+    {
+      "id": "f21a89c5-c449-4fb5-b282-0f65873de512",
+      "timestamp": "2025-10-16T03:45:09.157731",
+      "log_type": "ids",
+      "message": "Port scanning detected from 159.146.19.176:10187 to 172.21.252.151:143 via TCP",
+      "severity": "medium",
+      "source_ip": "159.146.19.176",
+      "destination_ip": "172.21.252.151",
+      "source_port": 46216,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 10187,
+        "destination_port": 143,
+        "flags": "SYN,ACK",
+        "packet_size": 1411,
+        "attack_signature": "SIG-8210",
+        "rule_id": "IDS-409"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "port_scan"
+      ]
+    },
+    {
+      "id": "e118afb2-49c1-447f-bafa-cc96a809898d",
+      "timestamp": "2025-10-16T03:45:09.157841",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 192.168.0.179:29275 to 190.48.159.186:19030",
+      "severity": "low",
+      "source_ip": "192.168.0.179",
+      "destination_ip": "190.48.159.186",
+      "source_port": 587,
+      "destination_port": 46088,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 29275,
+        "destination_port": 19030,
+        "flags": "SYN,ACK",
+        "packet_size": 1257,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "726718d0-c37d-44be-a7bf-6caededa9273",
+      "timestamp": "2025-10-16T03:45:09.157890",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 10.111.194.197:15250 to 124.139.23.114:14111",
+      "severity": "low",
+      "source_ip": "10.111.194.197",
+      "destination_ip": "124.139.23.114",
+      "source_port": 25,
+      "destination_port": 24146,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "SMTP",
+        "source_port": 15250,
+        "destination_port": 14111,
+        "flags": "RST",
+        "packet_size": 672,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "01d67441-2aa1-4c21-a01e-3ae31a646c72",
+      "timestamp": "2025-10-16T03:45:09.158236",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 172.23.209.30:69 to 181.43.142.145:123",
+      "severity": "low",
+      "source_ip": "172.23.209.30",
+      "destination_ip": "181.43.142.145",
+      "source_port": 995,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 69,
+        "destination_port": 123,
+        "flags": "SYN,ACK",
+        "packet_size": 862,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "a7459a4c-f6d8-40bc-84f8-61d91680c86e",
+      "timestamp": "2025-10-16T03:45:09.158377",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 10.16.155.57:45379 to 95.7.38.63:19692",
+      "severity": "low",
+      "source_ip": "10.16.155.57",
+      "destination_ip": "95.7.38.63",
+      "source_port": 50507,
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 45379,
+        "destination_port": 19692,
+        "flags": "SYN,ACK",
+        "packet_size": 1355,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "8dc5e9d9-148b-454b-b636-f941d1306550",
+      "timestamp": "2025-10-16T03:45:09.158573",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 192.168.37.173:995 to 67.32.53.57:143",
+      "severity": "low",
+      "source_ip": "192.168.37.173",
+      "destination_ip": "67.32.53.57",
+      "source_port": 110,
+      "destination_port": 54897,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 995,
+        "destination_port": 143,
+        "flags": "SYN,ACK",
+        "packet_size": 1017,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "e4ddfccf-aedf-42ee-a1af-4af509e0f0b7",
+      "timestamp": "2025-10-16T03:45:09.158723",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 10.12.68.122:465 to 193.198.76.114:443",
+      "severity": "low",
+      "source_ip": "10.12.68.122",
+      "destination_ip": "193.198.76.114",
+      "source_port": 22,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 465,
+        "destination_port": 443,
+        "flags": "SYN,ACK",
+        "packet_size": 360,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "4a80d18f-5229-4eef-81b4-29836379cc38",
+      "timestamp": "2025-10-16T03:45:09.158979",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.123.113:21173 to 162.136.182.156:42593",
+      "severity": "low",
+      "source_ip": "192.168.123.113",
+      "destination_ip": "162.136.182.156",
+      "source_port": 443,
+      "destination_port": 34954,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTPS",
+        "source_port": 21173,
+        "destination_port": 42593,
+        "flags": "SYN,ACK",
+        "packet_size": 682,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "6adf0186-b8b0-4158-90de-43ab0202990f",
+      "timestamp": "2025-10-16T03:45:09.159028",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 10.24.75.221:5439 to 52.175.106.74:63198",
+      "severity": "low",
+      "source_ip": "10.24.75.221",
+      "destination_ip": "52.175.106.74",
+      "source_port": 110,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "ICMP",
+        "source_port": 5439,
+        "destination_port": 63198,
+        "flags": "SYN,ACK",
+        "packet_size": 1395,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "8f158343-ad18-4da2-bdf7-2b6f435164ce",
+      "timestamp": "2025-10-16T03:45:09.159075",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.27.196:47524 to 132.164.235.20:14757",
+      "severity": "low",
+      "source_ip": "192.168.27.196",
+      "destination_ip": "132.164.235.20",
+      "source_port": 993,
+      "destination_port": 110,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "ICMP",
+        "source_port": 47524,
+        "destination_port": 14757,
+        "flags": "PSH",
+        "packet_size": 734,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "012d6f24-5a55-4974-a4a7-358f8f81b2d4",
+      "timestamp": "2025-10-16T03:45:09.159227",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.22.224.140:993 to 141.178.53.57:443",
+      "severity": "low",
+      "source_ip": "10.22.224.140",
+      "destination_ip": "141.178.53.57",
+      "source_port": 110,
+      "destination_port": 55402,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 993,
+        "destination_port": 443,
+        "flags": "SYN,ACK",
+        "packet_size": 486,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "9dd2f5cb-e757-4e2a-aa9d-5a7524db8d67",
+      "timestamp": "2025-10-16T03:45:09.159417",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 192.168.203.158:5796 to 115.81.243.89:69",
+      "severity": "low",
+      "source_ip": "192.168.203.158",
+      "destination_ip": "115.81.243.89",
+      "source_port": 587,
+      "destination_port": 29675,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 5796,
+        "destination_port": 69,
+        "flags": "SYN,ACK",
+        "packet_size": 1267,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "b96704f6-c397-4719-ae4d-b3b7f5e6d171",
+      "timestamp": "2025-10-16T03:45:09.159462",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 10.205.36.234:64822 to 170.2.77.249:51128",
+      "severity": "low",
+      "source_ip": "10.205.36.234",
+      "destination_ip": "170.2.77.249",
+      "source_port": 443,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "FTP",
+        "source_port": 64822,
+        "destination_port": 51128,
+        "flags": "SYN,ACK",
+        "packet_size": 596,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "861a3548-15e0-415a-b638-6d5c19e1d601",
+      "timestamp": "2025-10-16T03:45:09.159606",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 192.168.55.78:465 to 222.20.103.164:443",
+      "severity": "low",
+      "source_ip": "192.168.55.78",
+      "destination_ip": "222.20.103.164",
+      "source_port": 587,
+      "destination_port": 48545,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 465,
+        "destination_port": 443,
+        "flags": "SYN",
+        "packet_size": 554,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "fa7d27b6-975e-4362-b91e-f94cfcc38a26",
+      "timestamp": "2025-10-16T03:45:09.159802",
+      "log_type": "ids",
+      "message": "Cross-site scripting attempt from 86.151.21.56:53 to 192.168.34.47:53 via UDP",
+      "severity": "high",
+      "source_ip": "86.151.21.56",
+      "destination_ip": "192.168.34.47",
+      "source_port": 17528,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 53,
+        "destination_port": 53,
+        "flags": "SYN,ACK",
+        "packet_size": 1129,
+        "attack_signature": "SIG-3366",
+        "rule_id": "IDS-131"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "xss_attack"
+      ]
+    },
+    {
+      "id": "2561b09f-715b-4e0a-aafb-16dd32c89558",
+      "timestamp": "2025-10-16T03:45:09.160002",
+      "log_type": "ids",
+      "message": "SQL injection attempt from 59.94.16.93:42277 to 10.92.66.85:2329 via FTP",
+      "severity": "critical",
+      "source_ip": "59.94.16.93",
+      "destination_ip": "10.92.66.85",
+      "source_port": 1052,
+      "destination_port": 22,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "FTP",
+        "source_port": 42277,
+        "destination_port": 2329,
+        "flags": "SYN,ACK",
+        "packet_size": 1367,
+        "attack_signature": "SIG-9780",
+        "rule_id": "IDS-906"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "sql_injection"
+      ]
+    },
+    {
+      "id": "badff5ef-0dac-4fd4-8821-dfb420e5717d",
+      "timestamp": "2025-10-16T03:45:09.160050",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 10.53.139.152:162 to 130.232.44.75:23842",
+      "severity": "low",
+      "source_ip": "10.53.139.152",
+      "destination_ip": "130.232.44.75",
+      "source_port": 110,
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 162,
+        "destination_port": 23842,
+        "flags": "SYN,ACK",
+        "packet_size": 259,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "f50a9af1-bc45-44f1-91ea-b467441fda57",
+      "timestamp": "2025-10-16T03:45:09.160098",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 10.97.125.89:465 to 30.29.54.14:53",
+      "severity": "low",
+      "source_ip": "10.97.125.89",
+      "destination_ip": "30.29.54.14",
+      "source_port": 443,
+      "destination_port": 2363,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 465,
+        "destination_port": 53,
+        "flags": "SYN,ACK",
+        "packet_size": 1046,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "fdb8a0ed-83e9-4496-ac32-af32150b2372",
+      "timestamp": "2025-10-16T03:45:09.160142",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 10.18.127.114:21 to 60.68.28.40:25410",
+      "severity": "low",
+      "source_ip": "10.18.127.114",
+      "destination_ip": "60.68.28.40",
+      "source_port": 80,
+      "destination_port": 993,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 21,
+        "destination_port": 25410,
+        "flags": "SYN,ACK",
+        "packet_size": 386,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "8d1e15b6-27e7-4afe-a5d5-9cdbda315665",
+      "timestamp": "2025-10-16T03:45:09.160288",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 10.167.234.239:9907 to 136.206.243.46:48485",
+      "severity": "low",
+      "source_ip": "10.167.234.239",
+      "destination_ip": "136.206.243.46",
+      "source_port": 143,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 9907,
+        "destination_port": 48485,
+        "flags": "ACK",
+        "packet_size": 940,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "a3bc612b-6a6f-42ec-ae47-0d1c998ad174",
+      "timestamp": "2025-10-16T03:45:09.160335",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 10.170.18.224:45341 to 74.113.53.124:25925",
+      "severity": "low",
+      "source_ip": "10.170.18.224",
+      "destination_ip": "74.113.53.124",
+      "source_port": 80,
+      "destination_port": 993,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "HTTPS",
+        "source_port": 45341,
+        "destination_port": 25925,
+        "flags": "PSH",
+        "packet_size": 545,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "02fe3bb9-71f8-42cc-b859-f6948f5beefe",
+      "timestamp": "2025-10-16T03:45:09.160385",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 192.168.64.221:21695 to 44.199.210.228:42686",
+      "severity": "low",
+      "source_ip": "192.168.64.221",
+      "destination_ip": "44.199.210.228",
+      "source_port": 443,
+      "destination_port": 45212,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "ICMP",
+        "source_port": 21695,
+        "destination_port": 42686,
+        "flags": "PSH",
+        "packet_size": 168,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "11e3a74f-3ebf-4996-a5fb-62bec3227093",
+      "timestamp": "2025-10-16T03:45:09.160573",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 10.178.124.229:995 to 205.251.76.174:995",
+      "severity": "low",
+      "source_ip": "10.178.124.229",
+      "destination_ip": "205.251.76.174",
+      "source_port": 995,
+      "destination_port": 21,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 995,
+        "destination_port": 995,
+        "flags": "SYN,ACK",
+        "packet_size": 1420,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "31d2e43d-0812-4e5e-9a27-da3f7f0e3971",
+      "timestamp": "2025-10-16T03:45:09.160619",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 192.168.156.251:110 to 145.232.104.223:25",
+      "severity": "low",
+      "source_ip": "192.168.156.251",
+      "destination_ip": "145.232.104.223",
+      "source_port": 993,
+      "destination_port": 110,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 110,
+        "destination_port": 25,
+        "flags": "SYN",
+        "packet_size": 611,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "21d75b86-3297-4c45-9a53-a2e165dfb766",
+      "timestamp": "2025-10-16T03:45:09.160764",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 172.16.206.32:21 to 120.157.205.22:587",
+      "severity": "low",
+      "source_ip": "172.16.206.32",
+      "destination_ip": "120.157.205.22",
+      "source_port": 465,
+      "destination_port": 465,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 21,
+        "destination_port": 587,
+        "flags": "SYN,ACK",
+        "packet_size": 666,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "473a90a5-f69f-4c88-9d5b-05a520cea037",
+      "timestamp": "2025-10-16T03:45:09.160813",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 10.84.27.145:69 to 34.162.132.151:161",
+      "severity": "low",
+      "source_ip": "10.84.27.145",
+      "destination_ip": "34.162.132.151",
+      "source_port": 21,
+      "destination_port": 33483,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 69,
+        "destination_port": 161,
+        "flags": "SYN,ACK",
+        "packet_size": 1297,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "dd623337-e9fe-454c-9d39-d77e912387b7",
+      "timestamp": "2025-10-16T03:45:09.160863",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 172.26.7.150:53 to 32.171.213.168:123",
+      "severity": "low",
+      "source_ip": "172.26.7.150",
+      "destination_ip": "32.171.213.168",
+      "source_port": 443,
+      "destination_port": 443,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 53,
+        "destination_port": 123,
+        "flags": "PSH",
+        "packet_size": 149,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "d3e3a4b8-9cce-4153-8621-5b8b49706211",
+      "timestamp": "2025-10-16T03:45:09.160910",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 192.168.10.209:53 to 20.193.73.239:21",
+      "severity": "low",
+      "source_ip": "192.168.10.209",
+      "destination_ip": "20.193.73.239",
+      "source_port": 15758,
+      "destination_port": 57573,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 53,
+        "destination_port": 21,
+        "flags": "SYN,ACK",
+        "packet_size": 214,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "06f5d841-d80d-4742-bdf3-97727fd290b3",
+      "timestamp": "2025-10-16T03:45:09.160984",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 192.168.24.87:23485 to 170.129.31.236:68",
+      "severity": "low",
+      "source_ip": "192.168.24.87",
+      "destination_ip": "170.129.31.236",
+      "source_port": 465,
+      "destination_port": 110,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 23485,
+        "destination_port": 68,
+        "flags": "SYN,ACK",
+        "packet_size": 729,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "09993dcd-afc6-4100-afe0-d4236fd6c7be",
+      "timestamp": "2025-10-16T03:45:09.161029",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTP request to external website from 192.168.50.119:5317 to 39.154.162.226:995",
+      "severity": "low",
+      "source_ip": "192.168.50.119",
+      "destination_ip": "39.154.162.226",
+      "source_port": 25683,
+      "destination_port": 993,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 5317,
+        "destination_port": 995,
+        "flags": "SYN",
+        "packet_size": 1264,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "68e66391-7857-416c-b653-3d1f1c6f2925",
+      "timestamp": "2025-10-16T03:45:09.161229",
+      "log_type": "ids",
+      "message": "Cross-site scripting attempt from 14.180.165.134:9620 to 10.61.107.143:37139 via UDP",
+      "severity": "high",
+      "source_ip": "14.180.165.134",
+      "destination_ip": "10.61.107.143",
+      "source_port": 110,
+      "destination_port": 443,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 9620,
+        "destination_port": 37139,
+        "flags": "SYN,ACK",
+        "packet_size": 676,
+        "attack_signature": "SIG-7135",
+        "rule_id": "IDS-656"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "xss_attack"
+      ]
+    },
+    {
+      "id": "5bc7efbd-e183-4be8-bd4f-43463a756ef0",
+      "timestamp": "2025-10-16T03:45:09.161477",
+      "log_type": "ids",
+      "message": "Normal network activity: HTTPS connection established from 172.16.40.68:993 to 160.17.139.17:995",
+      "severity": "low",
+      "source_ip": "172.16.40.68",
+      "destination_ip": "160.17.139.17",
+      "source_port": 443,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 993,
+        "destination_port": 995,
+        "flags": "SYN,ACK",
+        "packet_size": 363,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "3e150688-956f-4f6e-b228-53945db368c5",
+      "timestamp": "2025-10-16T03:45:09.161607",
+      "log_type": "ids",
+      "message": "Malicious traffic detected from 85.146.248.105:43117 to 172.18.126.134:67 via UDP",
+      "severity": "high",
+      "source_ip": "85.146.248.105",
+      "destination_ip": "172.18.126.134",
+      "source_port": 53,
+      "destination_port": 110,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 43117,
+        "destination_port": 67,
+        "flags": "ACK",
+        "packet_size": 1196,
+        "attack_signature": "SIG-5428",
+        "rule_id": "IDS-365"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "malware_traffic"
+      ]
+    },
+    {
+      "id": "184c7295-56ab-4826-a902-6b761662c02c",
+      "timestamp": "2025-10-16T03:45:09.161849",
+      "log_type": "ids",
+      "message": "Normal network activity: Email client connecting to SMTP server from 172.24.56.108:45711 to 13.155.45.251:143",
+      "severity": "low",
+      "source_ip": "172.24.56.108",
+      "destination_ip": "13.155.45.251",
+      "source_port": 40613,
+      "destination_port": 993,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 45711,
+        "destination_port": 143,
+        "flags": "SYN,ACK",
+        "packet_size": 990,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "a072e601-ce78-4306-9acf-4c452f9f2ce8",
+      "timestamp": "2025-10-16T03:45:09.162009",
+      "log_type": "ids",
+      "message": "Normal network activity: FTP file transfer initiated from 172.29.184.115:50638 to 146.147.55.18:161",
+      "severity": "low",
+      "source_ip": "172.29.184.115",
+      "destination_ip": "146.147.55.18",
+      "source_port": 22,
+      "destination_port": 443,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 50638,
+        "destination_port": 161,
+        "flags": "PSH",
+        "packet_size": 859,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "0a104734-ad5b-473b-a24f-40c956a56a99",
+      "timestamp": "2025-10-16T03:45:09.162232",
+      "log_type": "ids",
+      "message": "Normal network activity: SSH connection to remote server from 10.16.50.209:27712 to 174.129.4.246:14071",
+      "severity": "low",
+      "source_ip": "10.16.50.209",
+      "destination_ip": "174.129.4.246",
+      "source_port": 80,
+      "destination_port": 587,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "ICMP",
+        "source_port": 27712,
+        "destination_port": 14071,
+        "flags": "SYN,ACK",
+        "packet_size": 1415,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "1b285963-3e66-4770-96d0-c45471501e0c",
+      "timestamp": "2025-10-16T03:45:09.162432",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 192.168.110.239:161 to 55.104.152.75:12740",
+      "severity": "low",
+      "source_ip": "192.168.110.239",
+      "destination_ip": "55.104.152.75",
+      "source_port": 143,
+      "destination_port": 14889,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 161,
+        "destination_port": 12740,
+        "flags": "SYN",
+        "packet_size": 850,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    },
+    {
+      "id": "08f4a23d-eca3-4302-9f15-189241106c24",
+      "timestamp": "2025-10-16T03:45:09.162648",
+      "log_type": "ids",
+      "message": "Cross-site scripting attempt from 76.71.0.136:993 to 192.168.162.43:995 via TCP",
+      "severity": "high",
+      "source_ip": "76.71.0.136",
+      "destination_ip": "192.168.162.43",
+      "source_port": 21,
+      "destination_port": 110,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 993,
+        "destination_port": 995,
+        "flags": "SYN,ACK",
+        "packet_size": 1014,
+        "attack_signature": "SIG-6317",
+        "rule_id": "IDS-845"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "xss_attack"
+      ]
+    },
+    {
+      "id": "14e6f938-49ce-4971-99c1-4ea13b694d4a",
+      "timestamp": "2025-10-16T03:45:09.162717",
+      "log_type": "ids",
+      "message": "Port scanning detected from 66.128.11.133:80 to 172.22.190.184:443 via TCP",
+      "severity": "medium",
+      "source_ip": "66.128.11.133",
+      "destination_ip": "172.22.190.184",
+      "source_port": 465,
+      "destination_port": 37265,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 80,
+        "destination_port": 443,
+        "flags": "SYN,ACK",
+        "packet_size": 1256,
+        "attack_signature": "SIG-6820",
+        "rule_id": "IDS-655"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "port_scan"
+      ]
+    },
+    {
+      "id": "bd8d57fd-9692-4364-b9b2-a079316ffa1c",
+      "timestamp": "2025-10-16T03:45:09.162783",
+      "log_type": "ids",
+      "message": "Port scanning detected from 101.91.109.214:34253 to 192.168.102.86:6759 via TCP",
+      "severity": "medium",
+      "source_ip": "101.91.109.214",
+      "destination_ip": "192.168.102.86",
+      "source_port": 21,
+      "destination_port": 53,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "TCP",
+        "source_port": 34253,
+        "destination_port": 6759,
+        "flags": "ACK",
+        "packet_size": 1267,
+        "attack_signature": "SIG-7826",
+        "rule_id": "IDS-768"
+      },
+      "tags": [
+        "attack",
+        "security",
+        "port_scan"
+      ]
+    },
+    {
+      "id": "28ec2b5a-9806-451b-85e3-d77652457f0d",
+      "timestamp": "2025-10-16T03:45:09.162836",
+      "log_type": "ids",
+      "message": "Normal network activity: DNS query for domain resolution from 10.79.79.48:63091 to 142.190.53.69:514",
+      "severity": "low",
+      "source_ip": "10.79.79.48",
+      "destination_ip": "142.190.53.69",
+      "source_port": 587,
+      "destination_port": 80,
+      "user": null,
+      "process": null,
+      "event_id": null,
+      "raw_data": {
+        "protocol": "UDP",
+        "source_port": 63091,
+        "destination_port": 514,
+        "flags": "SYN,ACK",
+        "packet_size": 1073,
+        "connection_state": "established"
+      },
+      "tags": [
+        "normal",
+        "network"
+      ]
+    }
+  ]
+}

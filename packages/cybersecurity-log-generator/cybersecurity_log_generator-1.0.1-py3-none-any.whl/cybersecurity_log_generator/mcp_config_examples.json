@@ -1,0 +1,204 @@
+{
+  "description": "MCP Configuration Examples for Cybersecurity Log Generator",
+  "examples": {
+    "basic_config": {
+      "description": "Basic configuration using system Python",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "python",
+            "args": [
+              "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/server.py"
+            ],
+            "env": {
+              "PYTHONPATH": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator"
+            }
+          }
+        }
+      }
+    },
+    "virtual_env_config": {
+      "description": "Configuration using virtual environment (Recommended)",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/venv/bin/python",
+            "args": [
+              "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/server.py"
+            ]
+          }
+        }
+      }
+    },
+    "absolute_path_config": {
+      "description": "Configuration using absolute paths for reliability",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "/usr/bin/python3",
+            "args": [
+              "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/server.py"
+            ],
+            "env": {
+              "PYTHONPATH": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator",
+              "VIRTUAL_ENV": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/venv"
+            }
+          }
+        }
+      }
+    },
+    "with_config_file": {
+      "description": "Configuration with custom config file",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "python",
+            "args": [
+              "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/server.py",
+              "--config",
+              "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/config.yaml"
+            ],
+            "env": {
+              "PYTHONPATH": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator"
+            }
+          }
+        }
+      }
+    },
+    "with_logging": {
+      "description": "Configuration with logging enabled",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "python",
+            "args": [
+              "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/server.py",
+              "--log-level",
+              "INFO"
+            ],
+            "env": {
+              "PYTHONPATH": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator",
+              "LOG_LEVEL": "INFO"
+            }
+          }
+        }
+      }
+    },
+    "multiple_servers": {
+      "description": "Configuration with multiple MCP servers",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "python",
+            "args": [
+              "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/server.py"
+            ],
+            "env": {
+              "PYTHONPATH": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator"
+            }
+          },
+          "another-mcp-server": {
+            "command": "python",
+            "args": [
+              "/path/to/another/mcp/server.py"
+            ]
+          }
+        }
+      }
+    },
+    "windows_config": {
+      "description": "Configuration for Windows systems",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "python",
+            "args": [
+              "C:\\Users\\Username\\Documents\\GitHub\\hd-syntheticdata\\cybersecurity_log_generator\\server.py"
+            ],
+            "env": {
+              "PYTHONPATH": "C:\\Users\\Username\\Documents\\GitHub\\hd-syntheticdata\\cybersecurity_log_generator"
+            }
+          }
+        }
+      }
+    },
+    "linux_config": {
+      "description": "Configuration for Linux systems",
+      "config": {
+        "mcpServers": {
+          "cybersecurity-log-generator": {
+            "command": "/usr/bin/python3",
+            "args": [
+              "/home/username/hd-syntheticdata/cybersecurity_log_generator/server.py"
+            ],
+            "env": {
+              "PYTHONPATH": "/home/username/hd-syntheticdata/cybersecurity_log_generator"
+            }
+          }
+        }
+      }
+    }
+  },
+  "installation_instructions": {
+    "claude_desktop": {
+      "macos": {
+        "config_path": "~/Library/Application Support/Claude/claude_desktop_config.json",
+        "steps": [
+          "1. Create the directory: mkdir -p ~/Library/Application\\ Support/Claude",
+          "2. Copy the configuration to the file",
+          "3. Restart Claude Desktop"
+        ]
+      },
+      "windows": {
+        "config_path": "%APPDATA%\\Claude\\claude_desktop_config.json",
+        "steps": [
+          "1. Create the directory: mkdir %APPDATA%\\Claude",
+          "2. Copy the configuration to the file",
+          "3. Restart Claude Desktop"
+        ]
+      }
+    },
+    "cursor": {
+      "macos": {
+        "config_path": "~/Library/Application Support/Cursor/mcp_config.json",
+        "steps": [
+          "1. Create the directory: mkdir -p ~/Library/Application\\ Support/Cursor",
+          "2. Copy the configuration to the file",
+          "3. Restart Cursor"
+        ]
+      },
+      "windows": {
+        "config_path": "%APPDATA%\\Cursor\\mcp_config.json",
+        "steps": [
+          "1. Create the directory: mkdir %APPDATA%\\Cursor",
+          "2. Copy the configuration to the file",
+          "3. Restart Cursor"
+        ]
+      }
+    }
+  },
+  "troubleshooting": {
+    "common_issues": [
+      {
+        "issue": "Command not found",
+        "solution": "Use absolute path to Python executable",
+        "example": "\"command\": \"/usr/bin/python3\""
+      },
+      {
+        "issue": "Module not found",
+        "solution": "Install dependencies in virtual environment",
+        "example": "pip install -r requirements.txt"
+      },
+      {
+        "issue": "Permission denied",
+        "solution": "Check file permissions",
+        "example": "chmod +x server.py"
+      },
+      {
+        "issue": "Server not responding",
+        "solution": "Test server startup manually",
+        "example": "python server.py"
+      }
+    ]
+  }
+}

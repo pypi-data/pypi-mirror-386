@@ -1,0 +1,29 @@
+services:
+  # HTTP Mode - Cybersecurity Log Generator MCP Server
+  cybersecurity-log-generator:
+    build: .
+    command: ["python", "mcp_server/server.py", "--transport", "http", "--host", "0.0.0.0", "--port", "8003"]
+    environment:
+      - PYTHONPATH=/app/cybersecurity_log_generator
+      - MCP_TRANSPORT=http
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=8003
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./logs:/app/logs
+      - ./exports:/app/exports
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    labels:
+      - "mcp.server.name=Cybersecurity Log Generator MCP Server"
+      - "mcp.server.description=HTTP MCP server for cybersecurity log generation"
+      - "mcp.server.version=2.0.0"
+      - "mcp.server.endpoint=http://localhost:8003/mcp"
+      - "mcp.server.health=http://localhost:8003/health"
+      - "mcp.server.docs=http://localhost:8003/docs"

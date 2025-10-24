@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "cybersecurity-log-generator-remote": {
+      "command": "python3",
+      "args": [
+        "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/mcp_server/remote_wrapper.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator",
+        "MCP_SERVER_URL": "http://localhost:8000/mcp",
+        "MCP_SERVER_HEALTH": "http://localhost:8000/health",
+        "MCP_SERVER_DOCS": "http://localhost:8000/docs",
+        "MCP_AUTH_TOKEN": "",
+        "MCP_TRANSPORT": "http"
+      }
+    }
+  }
+}

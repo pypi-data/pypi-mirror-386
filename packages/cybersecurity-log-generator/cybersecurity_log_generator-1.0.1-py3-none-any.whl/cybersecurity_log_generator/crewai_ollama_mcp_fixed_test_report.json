@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-10-17T22:01:22.800844",
+  "ollama_config": {
+    "base_url": "http://localhost:11434",
+    "model": "gemma3:4b"
+  },
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 0,
+    "failed_tests": 3,
+    "success_rate": 0.0
+  },
+  "results": [
+    {
+      "test": "simple_crew_with_ollama",
+      "status": "failed",
+      "error": "litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model={'model': 'ollama/gemma3:4b', 'base_url': 'http://localhost:11434', 'temperature': 0.7, 'max_tokens': 2000, 'timeout': 60}\n Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers"
+    },
+    {
+      "test": "local_mcp_with_ollama_fixed",
+      "status": "failed",
+      "error": "litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model={'model': 'ollama/gemma3:4b', 'base_url': 'http://localhost:11434', 'temperature': 0.7, 'max_tokens': 2000, 'timeout': 60}\n Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers"
+    },
+    {
+      "test": "streamable_http_managed_fixed",
+      "status": "failed",
+      "error": "litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model={'model': 'ollama/gemma3:4b', 'base_url': 'http://localhost:11434', 'temperature': 0.7, 'max_tokens': 2000, 'timeout': 60}\n Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers"
+    }
+  ]
+}

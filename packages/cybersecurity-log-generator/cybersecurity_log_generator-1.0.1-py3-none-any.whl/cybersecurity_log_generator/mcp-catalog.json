@@ -1,0 +1,191 @@
+{
+  "name": "hackerdogs-loggen",
+  "version": "1.0.0",
+  "description": "Generate synthetic cybersecurity logs for testing, analysis, and security research",
+  "author": "Cybersecurity Log Generator Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/cybersecurity-log-generator"
+  },
+  "mcp": {
+    "server": {
+      "name": "Hackerdogs Log Generator MCP Server",
+      "version": "1.0.0",
+      "description": "Remote MCP server for generating synthetic cybersecurity logs",
+      "transport": "http",
+      "url": "http://localhost:8000/mcp/",
+      "capabilities": {
+        "tools": true,
+        "resources": false,
+        "prompts": false
+      }
+    },
+    "tools": [
+      {
+        "name": "generate_logs",
+        "description": "Generate synthetic cybersecurity logs of specified types",
+        "parameters": {
+          "log_type": {
+            "type": "string",
+            "description": "Type of logs to generate",
+            "enum": ["ids", "web_access", "endpoint", "windows_event", "linux_syslog", "firewall", "vpn", "proxy", "dns", "dhcp"]
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of events to generate",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 10000
+          },
+          "time_range": {
+            "type": "string",
+            "description": "Time range for events",
+            "default": "24h",
+            "pattern": "^(\\d+[hd])$"
+          }
+        }
+      },
+      {
+        "name": "generate_pillar_logs",
+        "description": "Generate logs for specific cybersecurity pillars",
+        "parameters": {
+          "pillar": {
+            "type": "string",
+            "description": "Cyberdefense pillar name",
+            "enum": ["vendor_risk", "api_security", "endpoint_security", "application_security", "audit_compliance", "authentication", "authorization", "cloud_security", "container_security", "data_privacy", "data_protection", "detection_correlation", "disaster_recovery", "due_diligence", "encryption", "ai_security", "governance_risk", "identity_governance", "incident_response", "network_security", "ot_physical_security", "security_awareness", "threat_intelligence", "vulnerability_management"]
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of events to generate",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 10000
+          }
+        }
+      },
+      {
+        "name": "generate_attack_campaign",
+        "description": "Generate coordinated attack campaign logs",
+        "parameters": {
+          "threat_actor": {
+            "type": "string",
+            "description": "Threat actor to simulate",
+            "enum": ["APT29", "APT28", "Lazarus", "Carbon Spider", "FIN7", "UNC2452", "Wizard Spider", "Ryuk", "Conti", "Maze"]
+          },
+          "duration": {
+            "type": "string",
+            "description": "Duration of the campaign",
+            "default": "24h",
+            "pattern": "^(\\d+[hd])$"
+          },
+          "target_count": {
+            "type": "integer",
+            "description": "Number of target events to generate",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 1000
+          }
+        }
+      },
+      {
+        "name": "export_logs",
+        "description": "Export generated logs to files in various formats",
+        "parameters": {
+          "events_json": {
+            "type": "string",
+            "description": "JSON string containing events to export"
+          },
+          "format": {
+            "type": "string",
+            "description": "Export format",
+            "enum": ["json", "csv", "syslog", "cef", "leef"],
+            "default": "json"
+          },
+          "output_path": {
+            "type": "string",
+            "description": "Path for output file",
+            "default": "exported_logs"
+          }
+        }
+      },
+      {
+        "name": "get_supported_log_types",
+        "description": "Get list of supported log types",
+        "parameters": {}
+      },
+      {
+        "name": "get_supported_pillars",
+        "description": "Get list of all 24 supported cyberdefense pillars",
+        "parameters": {}
+      }
+    ]
+  },
+  "docker": {
+    "image": "hackerdogs-loggen:latest",
+    "ports": ["8000"],
+    "environment": {
+      "MCP_AUTH_TOKEN": {
+        "description": "Authentication token for the MCP server",
+        "required": false,
+        "default": ""
+      },
+      "HOST": {
+        "description": "Host to bind to",
+        "required": false,
+        "default": "0.0.0.0"
+      },
+      "PORT": {
+        "description": "Port to bind to",
+        "required": false,
+        "default": "8000"
+      }
+    },
+    "volumes": [
+      {
+        "host": "./logs",
+        "container": "/app/logs",
+        "description": "Directory for log files"
+      },
+      {
+        "host": "./exports",
+        "container": "/app/exports",
+        "description": "Directory for exported files"
+      }
+    ],
+    "healthcheck": {
+      "test": ["CMD", "curl", "-f", "http://localhost:8000/health"],
+      "interval": "30s",
+      "timeout": "10s",
+      "retries": 3,
+      "start_period": "40s"
+    }
+  },
+  "deployment": {
+    "docker-compose": {
+      "file": "docker-compose.yml",
+      "description": "Docker Compose configuration for easy deployment"
+    },
+    "kubernetes": {
+      "manifests": "k8s/",
+      "description": "Kubernetes deployment manifests"
+    },
+    "cloud": {
+      "aws": {
+        "ecs": "ECS task definition available",
+        "lambda": "Lambda deployment package available"
+      },
+      "gcp": {
+        "cloud_run": "Cloud Run deployment ready"
+      },
+      "azure": {
+        "container_instances": "Container Instances deployment ready"
+      }
+    }
+  },
+  "documentation": {
+    "readme": "REMOTE_MCP_README.md",
+    "api_docs": "http://localhost:8000/docs",
+    "health_check": "http://localhost:8000/health"
+  }
+}

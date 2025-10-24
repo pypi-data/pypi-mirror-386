@@ -1,0 +1,30 @@
+services:
+  # STDIO Mode - for Cursor/Claude Desktop
+  cybersecurity-log-generator-stdio:
+    build: .
+    command: ["python", "mcp_server/server.py", "--transport", "stdio"]
+    environment:
+      - PYTHONPATH=/app/cybersecurity_log_generator
+    volumes:
+      - ./logs:/app/logs
+    # STDIO mode for Cursor IDE integration
+
+  # HTTP Mode - for remote access
+  cybersecurity-log-generator-http:
+    build: .
+    command: ["python", "mcp_server/server.py", "--transport", "http", "--host", "0.0.0.0", "--port", "8003"]
+    environment:
+      - PYTHONPATH=/app/cybersecurity_log_generator
+      - MCP_TRANSPORT=http
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=8003
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
