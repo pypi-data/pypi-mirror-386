@@ -1,0 +1,15 @@
+────────────────────────────── hatch-test.py3.12 ───────────────────────────────
+============================= test session starts ==============================
+platform linux -- Python 3.12.11, pytest-8.4.2, pluggy-1.6.0 -- /home/runner/.local/share/hatch/env/virtual/jitxlib-jlcpcb/MeibuBkJ/hatch-test.py3.12/bin/python
+cachedir: .pytest_cache
+Using --randomly-seed=1095368585
+rootdir: /home/runner/work/jlc-pcb.py/jlc-pcb.py/pybuild-work
+configfile: pyproject.toml
+plugins: xdist-3.8.0, mock-3.15.1, randomly-3.16.0, rerunfailures-14.0
+collecting ... collected 3 items
+
+tests/test_instantiate.py::TestInstantiate::test_jlc04161h_7628 PASSED   [ 33%]
+tests/test_instantiate.py::TestInstantiate::test_jlc04161h_1080 PASSED   [ 66%]
+tests/test_instantiate.py::TestInstantiate::test_jlc06161h_7628 PASSED   [100%]
+
+============================== 3 passed in 0.44s ===============================
