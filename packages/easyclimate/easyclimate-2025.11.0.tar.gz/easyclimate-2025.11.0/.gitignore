@@ -1,0 +1,24 @@
+**/__pycache__
+**/.vscode
+**/easyclimate.egg-info
+**/docs/source/auto_gallery
+**/docs/source/api_index/generated
+**/docs/source/technical/api
+**/docs/source/gen_modules
+**/src/easyclimate.egg-info
+**/build
+docs/optipng.exe
+docs/source/sg_execution_times.rst
+docs/source/relay
+docs/build
+dist/
+test/tmpfile
+**/.pytest_cache
+.coverage
+.coverage*
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
+# Virtual environment
+.venv
