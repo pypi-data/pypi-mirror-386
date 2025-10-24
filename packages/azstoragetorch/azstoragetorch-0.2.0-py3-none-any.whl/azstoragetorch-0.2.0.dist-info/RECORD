@@ -1,0 +1,11 @@
+azstoragetorch/__init__.py,sha256=WkmK4LhPTj0mVKvTA9JVaDXWqhoJFJtBxqyF5dW3tIw,368
+azstoragetorch/_client.py,sha256=V-IBWCfvx6mvdkLN92MY_Rxcpemc4JEqnyqJzx58vRQ,22373
+azstoragetorch/_version.py,sha256=w4sRdpeXmB3xY59E-ZmK_Y_4U2VDazQ8QDwa3E6Kuu8,329
+azstoragetorch/datasets.py,sha256=QqH24-IStbJZ_0pfbxuZK-3VvRNcIqWTdG5DWMGoO9M,16746
+azstoragetorch/exceptions.py,sha256=_JzmGXTp2__4QHRwhleTdMnGx85EraT2-7qNaavJUrg,2902
+azstoragetorch/io.py,sha256=-Z1gndL4pNOXXDfyy8_taKiSFwsqBNJFNLbrZqMm_tI,18126
+azstoragetorch-0.2.0.dist-info/licenses/LICENSE,sha256=neMlFxss1n01kowJM66paRpHM04lRsWm1tS0q0-kVTo,1072
+azstoragetorch-0.2.0.dist-info/METADATA,sha256=S950Ts3y8QQlahXSCwe2jytq3tB_UdDYYlqcr--PHzM,12698
+azstoragetorch-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+azstoragetorch-0.2.0.dist-info/top_level.txt,sha256=Xwn4eyvnCGUxVeUG2Da7Jw-fuqi-9BOyhPi8sKA_88s,15
+azstoragetorch-0.2.0.dist-info/RECORD,,
