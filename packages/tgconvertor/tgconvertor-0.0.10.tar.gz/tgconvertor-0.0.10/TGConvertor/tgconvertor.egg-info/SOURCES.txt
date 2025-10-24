@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+TGConvertor/sessions/__init__.py
+TGConvertor/sessions/pyro.py
+TGConvertor/sessions/tdata.py
+TGConvertor/sessions/tele.py
+TGConvertor/tgconvertor.egg-info/PKG-INFO
+TGConvertor/tgconvertor.egg-info/SOURCES.txt
+TGConvertor/tgconvertor.egg-info/dependency_links.txt
+TGConvertor/tgconvertor.egg-info/entry_points.txt
+TGConvertor/tgconvertor.egg-info/requires.txt
+TGConvertor/tgconvertor.egg-info/top_level.txt
