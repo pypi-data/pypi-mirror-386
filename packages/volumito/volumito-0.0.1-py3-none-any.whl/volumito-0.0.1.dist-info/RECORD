@@ -1,0 +1,15 @@
+volumito/__init__.py,sha256=BaEAsyf3o2MRT1Kc4ZemIE2UQfQmA_elacaqhxmJ6ic,450
+volumito/cli/__init__.py,sha256=br0iN4fpaclXMobDMtEWrVgpIzXS3MwB4YPGB4QFBgo,103
+volumito/cli/volumito.py,sha256=yq9mJvwfwQBcovVjt2S79h9qHbgGOqHX98Fq0NcE5jE,28505
+volumito/clients/__init__.py,sha256=IxvCbfS28zX6Y6gWJ2pGmLcJ8BpI73hkw-Vp5qfivfg,384
+volumito/clients/errors.py,sha256=dR06UTcNnj-92lpGFsGt6XDfkYqzs27UHnmdTtr0uVI,378
+volumito/clients/mpd/__init__.py,sha256=iLloHYwEnWf5-J-UcQIg_0BmvNJsSXsYvK6dQy3pgDs,127
+volumito/clients/mpd/client.py,sha256=JwHDI2Hxca7NZZ7ikcstBMU9w1ANpYzIGhhCjwUEodQ,4150
+volumito/clients/rest/__init__.py,sha256=aeoCpuwGBesP7i8mi1ZqEyj2-U_Y4K_deJVtn4xRLaA,321
+volumito/clients/rest/client.py,sha256=80wBFaaVgxvnpkd2aCb3sTWst9YY5svm34JGL8HYhn0,8986
+volumito-0.0.1.dist-info/licenses/LICENSE,sha256=y2teXgWHQlmae8VDiWBQhORmLGDx2zxOst6QblXQfxM,35130
+volumito-0.0.1.dist-info/METADATA,sha256=t18sK0oJhQi19S_5NKGMd7SfY6UsGLU77t8IExWBioM,6119
+volumito-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+volumito-0.0.1.dist-info/entry_points.txt,sha256=AmCKdUBcuDiJFQaim7YdbMWQnlbAyn761mErzGO2Gew,47
+volumito-0.0.1.dist-info/top_level.txt,sha256=2hXxyJRb-c1bA7GV8qdDQTIg1-V9raoAth403N6oGVc,9
+volumito-0.0.1.dist-info/RECORD,,
