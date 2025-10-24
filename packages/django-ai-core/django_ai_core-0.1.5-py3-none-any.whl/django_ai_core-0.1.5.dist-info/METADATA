@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: django-ai-core
+Version: 0.1.5
+Summary: Django AI Core provides developer-focused AI features for implementing AI tooling in to Django sites.
+Author: Wagtail core team + contributors
+Author-email: Wagtail core team + contributors <hello@wagtail.org>
+License-Expression: BSD-3-Clause
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 5.2
+Classifier: Framework :: Django :: 6.0
+Requires-Dist: any-llm-sdk==0.20.3
+Requires-Dist: queryish>=0.3.0
+Requires-Python: >=3.11
+Project-URL: Home, https://github.com/wagtail/django-ai-core
+Description-Content-Type: text/markdown
+
+# Django AI Core
+
+**Developer-focused package for implementing AI tooling into Django sites.**
+
+Django AI Core provides core functionality for interacting with LLMs in your Django project, as well as optional modules for building AI-powered apps.
+
+## TODO
+
+-   Core:
+    -   Logging for LLM requests
+    -   Async/streaming support
+-   Agents:
+    -   Rate limiting
+    -   Streaming responses
+-   Index:
+    -   Test different backends
+    -   Docs
+    -   Higher-level API?
+-   Chat:
+    -   Build Chat/RAG module with chat UI
+-   MCP:
+    -   Build MCP 'function' registry
