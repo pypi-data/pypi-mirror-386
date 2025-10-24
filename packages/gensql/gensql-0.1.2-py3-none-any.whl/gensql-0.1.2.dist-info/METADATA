@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: gensql
+Version: 0.1.2
+Summary: Python Bindings for GenSQL
+Author-email: Leif Andersen <leif@leifandersen.pl>
+Requires-Python: >=3.13
+Requires-Dist: py4j>=0.10.9.9
