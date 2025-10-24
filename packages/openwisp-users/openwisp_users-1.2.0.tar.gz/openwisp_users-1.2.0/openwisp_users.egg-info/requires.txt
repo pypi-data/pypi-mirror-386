@@ -1,0 +1,8 @@
+django-organizations<2.6.0,>=2.5.0
+django-extensions<4.2,>=3.2
+django-allauth[socialaccount]<65.13.0,>=65.12.0
+django-phonenumber-field<8.2.0,>=8.1.0
+phonenumbers<9.1.0,>=9.0.10
+openwisp-utils[celery,rest]~=1.2.0
+packaging
+django-sesame<3.3.0,>=3.2.3
