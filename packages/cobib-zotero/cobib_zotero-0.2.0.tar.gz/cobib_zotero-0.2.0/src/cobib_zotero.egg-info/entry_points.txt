@@ -1,0 +1,6 @@
+[cobib.importers]
+zotero = cobib_zotero.importer:ZoteroImporter
+
+[cobib.man]
+cobib-zotero.5 = cobib_zotero.man:P_plugin
+cobib-zotero.7 = cobib_zotero.man:I_importers
