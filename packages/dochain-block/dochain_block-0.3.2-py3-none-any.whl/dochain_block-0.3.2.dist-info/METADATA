@@ -1,0 +1,157 @@
+Metadata-Version: 2.4
+Name: dochain-block
+Version: 0.3.2
+Summary: Prefect Blocks for authentication and connection management
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Keywords: authentication,blocks,connection-management,nacos,prefect
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.11
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: langchain-openai>=1.0.1
+Requires-Dist: nacos-sdk-python>=2.0.9
+Requires-Dist: prefect>=3.4.24
+Requires-Dist: pydantic>=2.12.3
+Description-Content-Type: text/markdown
+
+# dochain-block
+
+Prefect Blocks for authentication and connection management.
+
+## Overview
+
+`dochain-block` is a Prefect Block distribution package that provides reusable authentication and connection blocks for various services. The project is designed with a modular architecture to easily add new authentication modules.
+
+## Features
+
+- **Modular Authentication Blocks**: Each service has its own dedicated authentication block
+- **Secure Credential Management**: Built on Prefect's secure block system
+- **Multiple Authentication Methods**: Support for username/password, API keys, tokens, and more
+- **Async-First Design**: Optimized for Prefect's async execution model
+- **Easy Integration**: Seamless integration with Prefect flows and deployments
+
+## Installation
+
+```bash
+# Create virtual environment
+uv venv
+source .venv/bin/activate  # Unix/macOS
+# or
+.\.venv\Scripts\activate   # Windows
+
+# Install the package
+uv pip install -e .
+```
+
+## Available Authentication Blocks
+
+### NacosBlock
+
+Connect to Nacos service discovery and configuration management platform.
+
+**Supported Authentication Methods:**
+- Username/Password
+- Access Key/Secret Key
+- Bearer Token
+
+**Features:**
+- Configuration management
+- Service discovery
+- Health checks
+- Namespace support
+
+#### Usage Example
+
+```python
+from prefect import flow
+from dochain_block import NacosBlock
+
+@flow
+def nacos_config_flow():
+    # Load Nacos block
+    nacos = NacosBlock.load("my-nacos-connection")
+
+    # Get configuration
+    config = asyncio.run(nacos.get_config("app-config", "DEFAULT_GROUP"))
+    return config
+
+# Save block configuration
+nacos_block = NacosBlock(
+    name="my-nacos-connection",
+    server_url="http://localhost:8848/nacos",
+    username="nacos",
+    password="nacos",
+    namespace="public"
+)
+
+nacos_block.save("my-nacos-connection")
+```
+
+## Development
+
+### Adding New Authentication Modules
+
+1. Create a new module in `src/dochain_block/auth/`
+2. Inherit from `AuthBlock` base class
+3. Implement required methods:
+   - `authenticate()`: Main authentication logic
+   - Optional: `validate_credentials()`, `refresh_credentials()`
+4. Register the block in `__init__.py`
+
+#### Example: New Authentication Module
+
+```python
+from ..core.base_block import AuthBlock
+from pydantic import Field, SecretStr
+
+class MyServiceBlock(AuthBlock):
+    """Authentication block for MyService"""
+
+    api_key: SecretStr = Field(..., description="API key for MyService")
+    base_url: str = Field(..., description="Base URL for MyService")
+
+    _block_type_name = "MyService Authentication"
+
+    async def authenticate(self, **kwargs):
+        # Implement authentication logic
+        return {
+            "authenticated": True,
+            "access_token": "your-token"
+        }
+```
+
+### Development Commands
+
+```bash
+# Install development dependencies
+uv add --dev pytest pytest-asyncio pytest-cov
+
+# Run tests
+uv run pytest
+
+# Run tests with coverage
+uv run pytest --cov=dochain_block
+
+# Run example
+uv run python examples/nacos_example.py
+```
+
+## Requirements
+
+- Python 3.11+
+- Prefect >= 3.4.24
+- Pydantic >= 2.12.3
+- httpx >= 0.28.1
+
+## License
+
+[Add your license information here]
+
+## Contributing
+
+[Add contribution guidelines here]
