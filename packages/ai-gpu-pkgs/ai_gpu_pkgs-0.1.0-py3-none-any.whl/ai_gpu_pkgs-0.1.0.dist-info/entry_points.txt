@@ -1,0 +1,2 @@
+[console_scripts]
+ai-gpu-pkgs = cuda_installer:main
