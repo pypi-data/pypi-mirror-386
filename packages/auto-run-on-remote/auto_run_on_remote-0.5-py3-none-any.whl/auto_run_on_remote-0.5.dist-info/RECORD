@@ -1,0 +1,9 @@
+auto_run_on_remote/__init__.py,sha256=BMTBO6-xKJElSbqLQweFBTV3aSJC93nej__8ZiI86TU,87
+auto_run_on_remote/paramiko_util.py,sha256=VHgzVdQAY_JCDQuSXONNcHVE3wPmwlKbUjLFolMbXcY,5552
+auto_run_on_remote/remote_config.py,sha256=Uo-WAzAI5p3qE2HW8L_V-nArfU0_UNrjwfLTJRdyVQY,2105
+auto_run_on_remote/run_script_on_remote_server.py,sha256=5VVco9FAjjqjd_x1u_6iui6w-qiUJ-t7ZQZGRf0aFVk,4157
+auto_run_on_remote/set_config.py,sha256=mdipffgrJCGtUGsYzlxYkDuQIout-0SuIFv_iOv5S2A,4990
+auto_run_on_remote-0.5.dist-info/METADATA,sha256=nu65eT2as38uxDWHvxXxFO6qlHyGdAvXqNhP4xxBKFU,5421
+auto_run_on_remote-0.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+auto_run_on_remote-0.5.dist-info/top_level.txt,sha256=TVDgvb6YFziLkq2CEaAq3MW5KpF9lVgky7jt5_QbxXw,19
+auto_run_on_remote-0.5.dist-info/RECORD,,
