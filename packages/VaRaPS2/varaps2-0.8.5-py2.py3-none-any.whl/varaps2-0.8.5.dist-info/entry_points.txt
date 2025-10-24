@@ -1,0 +1,3 @@
+[console_scripts]
+varaps2=varaps2.main:main
+
