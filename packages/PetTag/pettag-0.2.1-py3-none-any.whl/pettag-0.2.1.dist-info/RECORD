@@ -1,0 +1,12 @@
+PetTag/.DS_Store,sha256=3SKNd0mvayePTUCAGdO43pOC3Q5nA5NB587WS2h57M4,6148
+PetTag/__init__.py,sha256=wlmLckNcxJ0ssDBd9Gh1UhB5sSsBUZZXJH3N7WL-84g,63
+PetTag/predict.py,sha256=BczDMZZSS6YTfGV0dC0zvtxQjjtMeMWSQPt8_fJcx1s,8259
+PetTag/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+PetTag/utils/dataset.py,sha256=60lFLNtAmRtDR4NEjTkxZSaDgJhdYC1z_x5HkC3BNR8,13438
+PetTag/utils/logging_setup.py,sha256=3l9giLY9TI0piy56CVp7JTVZsfHnGI5Rph96rddD15A,3192
+PetTag/utils/processor_code.py,sha256=5OY4QWw7kosiKPrYYq3_U8-0fsAborUd5v4naVHO4YA,3025
+PetTag/utils/processor_model.py,sha256=jwwJtbo_4yeb5rzp9O5c50yF3AyV8RYJIBdietl3S24,7732
+pettag-0.2.1.dist-info/METADATA,sha256=PGhH51Edp7T0sCL1Qd-S_eJAuVz1qvFyYCKcEy1CDTA,14379
+pettag-0.2.1.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+pettag-0.2.1.dist-info/licenses/LICENSE,sha256=DMHy1MDAcogPsqi5_vXrNEH5O3uILs3CEGQgX_65npI,1069
+pettag-0.2.1.dist-info/RECORD,,
