@@ -1,0 +1,10 @@
+lxml>=4.9.2
+cssselect
+ujson>=5.8.0
+chardet>=5.2.0
+jmespath>=1.0.1
+ftfy
+ijson
+pandas
+tldextract
+openpyxl
