@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% block style %}
+{% endblock %}
+
+{% block index_active %}{% endblock %}
+{% block vpn_active %}active{% endblock %}
+{% block access_prefilter %}{% endblock %}
+{% block domain_action %}{{ url_for('fmc_vpn') }}{% endblock %}
+
+{% block tables %}
+
+    <div class="container">
+
+    {% if certificate_map %}
+
+        <div class="container">
+            <form action="{{ url_for('certificate_map_download') }}" method="POST" id="download-form">
+                <div class="mb-3">
+                    <br>
+                    <input class="btn btn-primary" type="submit" id="download" name="download" value="Download">
+                </div>
+            </form>
+        </div>
+
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>Field</th>
+                <th>Operator</th>
+                <th>Value</th>
+            </tr>
+            {% for map in certificate_map.get('rules') %}
+                <tr>
+                    <td style="width: 300px">{{ map.get('component') }}</td>
+                    <td style="width: 300px">{{ map.get('field') }}</td>
+                    <td style="width: 300px">{{ map.get('operator') }}</td>
+                    <td style="width: 300px">{{ map.get('value') }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <pre>{{ certificate_map.get('rules') | tojson(indent=4) }}</pre>
+        
+    {% endif %}
+    </div>
+
+{% endblock %}
