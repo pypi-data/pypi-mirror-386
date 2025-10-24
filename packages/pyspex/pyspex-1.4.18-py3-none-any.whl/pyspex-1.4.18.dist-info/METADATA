@@ -1,0 +1,68 @@
+Metadata-Version: 2.4
+Name: pyspex
+Version: 1.4.18
+Summary: Software package to handle SPEXone Level-0 and Level-1 data
+Project-URL: Homepage, https://github.com/rmvanhees/pyspex
+Project-URL: Source, https://github.com/rmvanhees/pyspex
+Project-URL: Issues, https://github.com/rmvanhees/pyspex/issues
+Project-URL: Documentation, https://pyspex.readthedocs.io/en/stable/
+Author-email: Richard van Hees <r.m.van.hees@sron.nl>
+License-Expression: BSD-3-Clause
+License-File: LICENSE
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Requires-Python: >=3.8
+Requires-Dist: h5py>=3.9
+Requires-Dist: h5yaml>=0.1.0; python_version >= '3.10'
+Requires-Dist: julian
+Requires-Dist: netcdf4>=1.7
+Requires-Dist: numpy>=1.19; python_version < '3.10'
+Requires-Dist: numpy>=2.0; python_version >= '3.10'
+Requires-Dist: openpyxl>=3.0
+Requires-Dist: pyxarr>=0.3.0; python_version >= '3.10'
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: typing-extensions; python_version < '3.11'
+Requires-Dist: xarray>=2024
+Description-Content-Type: text/markdown
+
+# pySpex
+[![image](https://img.shields.io/pypi/v/pyspex.svg?label=release)](https://github.com/rmvanhees/pyspex/)
+[![image](https://img.shields.io/pypi/l/pyspex.svg)](https://github.com/rmvanhees/pyspex/LICENSE)
+[![image](https://img.shields.io/pypi/dm/pyspex.svg)](https://pypi.org/project/pyspex/)
+[![image](https://img.shields.io/pypi/status/pyspex.svg?label=status)](https://pypi.org/project/pyspex/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5705691.svg)](https://doi.org/10.5281/zenodo.5705691)
+
+Python package `pyspex` contains software to access SPEXone data.
+This package contains software scripts and classes to:
+* Read data in CCSDS format from the SPEXone instrument and write the data in Level-1A format.
+* Read Level-0 data from the SPEXone after integration on the PACE platform and write the data in Level-1A in-flight science and calibration products.
+* Read SPEXone CKD product
+* Read in-flight PACE engineering and housekeeping (HKT) products.
+* Handle SPEXone binning tables (read, write, visualize).
+
+For more information on PACE mission visit:
+* https://pace.gsfc.nasa.gov
+* https://pace.oceansciences.org/mission.htm
+
+For more information on SPEXone instrument visit:
+* https://www.sron.nl/earth-instrument-development/spex/spexone
+* https://pace.oceansciences.org/spexone.htm
+
+## Documentation
+Online documentation is available from [Read the Docs](https://pyspex.readthedocs.io).
+
+## Installation
+The `pyspex` package requires Python3.8+ and the Python packages: h5py, netCDF4, numpy and xarray.
+
+Installation instructions are provided on [Read the Docs](https://pyspex.readthedocs.io/en/latest/build.html) or in the INSTALL file.

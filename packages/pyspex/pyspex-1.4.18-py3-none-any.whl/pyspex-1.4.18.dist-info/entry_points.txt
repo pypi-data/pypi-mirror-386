@@ -1,0 +1,8 @@
+[console_scripts]
+spx1_add_egse2l1a = pyspex.scripts.spx1_add_egse2l1a:main
+spx1_add_ogse2l1a = pyspex.scripts.spx1_add_ogse2l1a:main
+spx1_ccsds2l1a = pyspex.scripts.spx1_ccsds2l1a:main
+spx1_csv2bin_tbl = pyspex.scripts.spx1_csv2bin_tbl:main
+spx1_dem2l1a = pyspex.scripts.spx1_dem2l1a:main
+spx1_level01a = pyspex.gen_l1a.cli:main
+spx1_quicklook_lite = pyspex.scripts.spx1_quicklook_lite:main
