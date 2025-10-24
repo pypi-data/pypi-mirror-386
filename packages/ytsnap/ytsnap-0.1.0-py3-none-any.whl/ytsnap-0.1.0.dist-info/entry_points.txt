@@ -1,0 +1,2 @@
+[console_scripts]
+ytsnap = youtube_downloader.cli:main
