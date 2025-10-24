@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "liveai"
+version = "1.1.0"
+description = "LiveAI realtime voice SDK"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "LiveAI", email = "support@liveai.io" }]
+requires-python = ">=3.9"
+keywords = ["liveai", "webrtc", "realtime", "audio", "video", "agents"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Topic :: Multimedia :: Sound/Audio",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "aiohttp>=3.9",
+  "aiofiles>=24",
+  "av>=14,<16",
+  "certifi>=2025.6.15",
+  "click>=8.1",
+  "colorama>=0.4.6",
+  "docstring-parser>=0.16",
+  "eval-type-backport",
+  "nest-asyncio>=1.6.0",
+  "numpy>=1.26",
+  "openai>=1.99.2",
+  "opentelemetry-api>=1.34",
+  "opentelemetry-exporter-otlp>=1.34.1",
+  "opentelemetry-sdk>=1.34.1",
+  "prometheus-client>=0.22",
+  "protobuf>=4.25",
+  "psutil>=7.0",
+  "pydantic>=2,<3",
+  "pyjwt>=2.0",
+  "sounddevice>=0.5",
+  "types-protobuf>=4",
+  "typing-extensions>=4.12",
+  "watchfiles>=1.0",
+  "livekit-blingfire>=1.0",
+]
+
+[project.optional-dependencies]
+codecs = ["av>=12.0.0", "numpy>=1.26"]
+images = ["pillow>=10.3.0"]
+openai = ["openai[realtime]>=1.107.2"]
+
+[project.urls]
+Homepage = "https://liveai.io"
+Documentation = "https://docs.liveai.io"
+Source = "https://git.liveai.io/liveai"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["liveai*"]
+namespaces = true
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+"liveai.rtc.resources" = [
+  "*.so",
+  "*.dll",
+  "*.dylib",
+  "*.h",
+  "jupyter-html/**/*",
+]
