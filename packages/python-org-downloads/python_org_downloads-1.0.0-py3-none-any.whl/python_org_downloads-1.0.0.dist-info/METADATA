@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: python-org-downloads
+Version: 1.0.0
+Summary: Access python.org download artifacts programmatically
+Author-email: Irving Leonard <irvingleonard@gmail.com>
+Project-URL: homepage, https://github.com/irvingleonard/python-org-downloads
+Project-URL: repository, https://github.com/irvingleonard/python-org-downloads.git
+Keywords: python.org,downloads,ftp
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: The Unlicense (Unlicense)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+Requires-Dist: rich
+Requires-Dist: simplifiedapp
+Provides-Extra: dev
+Requires-Dist: coverage; extra == "dev"
+Dynamic: description
+Dynamic: license-file
+Dynamic: summary
+
+Offers some functionality to generate indexes of releases and release artifacts. It also provides the capability of retrieving (downloading) the identified artifacts.
