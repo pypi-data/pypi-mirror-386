@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/score_loader/__init__.py
+src/score_loader/loader.py
+src/score_loader/types.py
+src/score_loader.egg-info/PKG-INFO
+src/score_loader.egg-info/SOURCES.txt
+src/score_loader.egg-info/dependency_links.txt
+src/score_loader.egg-info/requires.txt
+src/score_loader.egg-info/top_level.txt

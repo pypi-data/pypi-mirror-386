@@ -1,0 +1,30 @@
+[project]
+name = "score_loader"
+version = "0.0.3"
+description = "Python implementation of the score.dev specification, allowing to load workload definition and applying a first pass of evaluation for ${metadata...} placeholders."
+readme = "README.md"
+requires-python = ">=3.12"
+keywords = [
+  "score.dev"
+]
+dependencies = [
+    "pydantic>=2.12.3",
+    "pyyaml>=6.0.3",
+]
+
+[project.urls]
+Repository = "https://github.com/stumpyfr/score-loader"
+Documentation = "https://github.com/stumpyfr/score-loader"
+
+[dependency-groups]
+dev = [
+    "isort>=7.0.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.14.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "--cov=src --cov-report=term-missing"
+testpaths = ["tests"]
