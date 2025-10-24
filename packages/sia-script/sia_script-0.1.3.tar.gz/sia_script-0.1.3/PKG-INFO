@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: sia-script
+Version: 0.1.3
+Summary: Simplified Integrated Architecture — unified simplified frameworks like SiaML, SiaNTT, and more.
+Author-email: Naga Sai Durga Nagesh <sbvnagesh00@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/nagesh-9/sia
+Project-URL: Documentation, https://github.com/nagesh-9/sia#readme
+Project-URL: Source, https://github.com/nagesh-9/sia
+Keywords: SIA,Python,ML,OOP,ntt,entity,SiaML,SiaNTT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Dynamic: license-file
+
+SIA — Simplified Integrated Architecture
+
+SIA (Simplified Integrated Architecture) by SIA SOFTWARE INNOVATIONS simplifies Python frameworks for learning and experimentation.
+
+Module
+
+SiaNTT (sia.ntt) — Simplified Object/Entity model for OOP.
+
+Installation
+
+pip install sia
+
+Author
+
+Naga Sai Durga Nagesh Founder, SIA SOFTWARE INNOVATIONS Email: sbvnagesh00@gmail.com
