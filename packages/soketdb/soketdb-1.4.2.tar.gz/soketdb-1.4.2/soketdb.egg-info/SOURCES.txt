@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+soketdb/__init__.py
+soketdb.egg-info/PKG-INFO
+soketdb.egg-info/SOURCES.txt
+soketdb.egg-info/dependency_links.txt
+soketdb.egg-info/requires.txt
+soketdb.egg-info/top_level.txt
