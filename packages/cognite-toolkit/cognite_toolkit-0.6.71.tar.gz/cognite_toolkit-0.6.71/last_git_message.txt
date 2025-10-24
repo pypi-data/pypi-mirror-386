@@ -1,0 +1,22 @@
+[CDF-26040] Warnings instead of errors when package fails to load (#2118)
+
+# Description
+
+A package may fail to load if a module requires an alpha flag that the
+user hasn't enabled. Instead of producing an error, we show a warning.
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Improved
+
+- Show a warning if a package cannot be loaded due to wrong path or
+missing alpha flag
+
+## templates
+
+No changes.
