@@ -1,0 +1,19 @@
+[project]
+name = "zwx-mcp-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "im_fuckMan", email = "1956043144@qq.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "mcp[cli]>=1.19.0",
+]
+
+[project.scripts]
+zwx-mcp-test = "zwx_mcp_test:main"
+
+[build-system]
+requires = ["uv_build>=0.9.5,<0.10.0"]
+build-backend = "uv_build"
