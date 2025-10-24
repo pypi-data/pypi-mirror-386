@@ -1,0 +1,3 @@
+{
+    "serverConfig": "{\"mcpServers\":{\"fewsats-mcp\":{\"command\":\"uvx\",\"args\":[\"--from\",\"iflow-mcp_fewsats-mcp\",\"fewsats-mcp\"],\"values\":{}}}}"
+}
