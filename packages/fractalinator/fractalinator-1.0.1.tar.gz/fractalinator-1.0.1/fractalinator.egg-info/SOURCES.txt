@@ -1,0 +1,12 @@
+README.md
+setup.py
+fractalinator/__init__.py
+fractalinator/artwork.py
+fractalinator/tkapp.py
+fractalinator/util.py
+fractalinator.egg-info/PKG-INFO
+fractalinator.egg-info/SOURCES.txt
+fractalinator.egg-info/dependency_links.txt
+fractalinator.egg-info/not-zip-safe
+fractalinator.egg-info/requires.txt
+fractalinator.egg-info/top_level.txt
