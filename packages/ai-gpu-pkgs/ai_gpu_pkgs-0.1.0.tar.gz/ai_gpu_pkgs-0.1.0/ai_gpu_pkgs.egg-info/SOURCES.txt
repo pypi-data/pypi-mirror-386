@@ -1,0 +1,10 @@
+LICENSE
+README.md
+cuda_installer.py
+pyproject.toml
+ai_gpu_pkgs.egg-info/PKG-INFO
+ai_gpu_pkgs.egg-info/SOURCES.txt
+ai_gpu_pkgs.egg-info/dependency_links.txt
+ai_gpu_pkgs.egg-info/entry_points.txt
+ai_gpu_pkgs.egg-info/requires.txt
+ai_gpu_pkgs.egg-info/top_level.txt

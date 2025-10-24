@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: ai-gpu-pkgs
+Version: 0.1.0
+Summary: Automatic GPU package installer for AI/ML development
+Author-email: mrbeandev <mrbeandev@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/mrbeandev/cuda-auto-installer
+Project-URL: Repository, https://github.com/mrbeandev/cuda-auto-installer
+Project-URL: Issues, https://github.com/mrbeandev/cuda-auto-installer/issues
+Keywords: ai,gpu,cuda,pytorch,model-context-protocol
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pynvml>=11.0.0
+Dynamic: license-file
+
+# AI GPU Packages Installer
+
+A Python package that automatically detects your NVIDIA GPU, determines the appropriate CUDA and PyTorch versions, and installs them for you.
+
+## Installation
+
+```bash
+pip install ai-gpu-pkgs
+```
+
+## Usage
+
+```bash
+ai-gpu-pkgs setup
+```
+
+This command will:
+
+1. Detect if you have an NVIDIA GPU
+2. Check your current CUDA installation
+3. Ask if you want to create a new virtual environment
+4. Install PyTorch with CUDA support
+5. Verify the installation
+
+## Requirements
+
+- Python 3.8+
+- NVIDIA GPU with CUDA support
+- Internet connection for downloading packages
+
+## Features
+
+- Automatic GPU detection
+- CUDA version detection
+- Virtual environment creation (optional)
+- PyTorch installation with CUDA support
+- Installation verification
+
+## Development
+
+To install in development mode:
+
+```bash
+git clone https://github.com/mrbeandev/cuda-auto-installer.git
+cd cuda-auto-installer
+pip install -e .
+```
+
+## License
+
+MIT License
