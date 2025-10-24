@@ -1,0 +1,16 @@
+docprocessor/__init__.py,sha256=esjDo_t68NSKGIokB9TurEl2QK9uUuSmByiv2iNi1BU,485
+docprocessor/config.py,sha256=JGqihYxjCl13R0eZF3m4rp7B1WJaPTwqVAxSc-4uEjY,8205
+docprocessor/exceptions.py,sha256=Fvbj-5t-PI3QSMQVkd6uw5S7l36Gl-gXAGIiHXlNaZo,1283
+docprocessor/processor.py,sha256=zmc6xx9I6b67VmiOWJFdJhVAmfoA-oyURUbk_8hHl5o,7552
+docprocessor/core/__init__.py,sha256=K0cnpuli4U-ta6F6a2uC293AWeo4YyWKHYPjK1wovp4,449
+docprocessor/core/chunker.py,sha256=VgMAP0wDbdKZV2FD_VBNxIBuiRitZBuRc_PlRwRO2Ls,8384
+docprocessor/core/extractor.py,sha256=Qhy_7BHOb4FvqIjzdDbT882ctWWSDh-1MecpftvadQI,6849
+docprocessor/core/ocr.py,sha256=Ji6oD64lFTMhQESsgB7-WdD-JpbGVSGNEJPgq_TMtm4,6368
+docprocessor/core/summarizer.py,sha256=b1n7mO5yN9ht2GdWXdsoXpEizH1D-VrP5rDiBnFB1ws,5806
+docprocessor/integrations/__init__.py,sha256=kZs63OrJnvGPH4mbHfDX-0K3Am2wEtVNstJ8n9fSN7k,136
+docprocessor/integrations/meilisearch_indexer.py,sha256=VKDwku7pRvnUwzsW-LtPh1s-jIlxnrngR_vsDHLoBbE,5668
+docprocessor-1.0.0.dist-info/licenses/LICENSE,sha256=4tktWxos1--o4bUfc4OwlIe39e3veQKcMn6JGoPcb1c,1082
+docprocessor-1.0.0.dist-info/METADATA,sha256=mPDfc9G6RQkmzOrzI452O1o44B6lRXxOQ0NwE-pci5M,13159
+docprocessor-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+docprocessor-1.0.0.dist-info/top_level.txt,sha256=O8OveIc6I0bwG-y6P1qNnFNud30JRxS-3BsY44VNJvM,13
+docprocessor-1.0.0.dist-info/RECORD,,
