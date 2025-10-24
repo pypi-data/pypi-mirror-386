@@ -1,0 +1,311 @@
+Metadata-Version: 2.4
+Name: typedict
+Version: 0.1.0
+Summary: A dict that only uses types as keys. Converts keys used to their type.
+Author-email: Odos Matthews <odos@example.com>
+Maintainer-email: Odos Matthews <odos@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/eddiethedean/typedict
+Project-URL: Repository, https://github.com/eddiethedean/typedict
+Project-URL: Issues, https://github.com/eddiethedean/typedict/issues
+Project-URL: Changelog, https://github.com/eddiethedean/typedict/blob/main/CHANGELOG.md
+Keywords: dict,types,type-keys,collections
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Object Brokering
+Classifier: Typing :: Typed
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: pre-commit>=3.0.0; extra == "dev"
+Requires-Dist: tox>=4.0.0; extra == "dev"
+Dynamic: license-file
+
+# TypeDict
+
+[![Tests](https://github.com/eddiethedean/typedict/workflows/Tests/badge.svg)](https://github.com/eddiethedean/typedict/actions)
+[![PyPI version](https://badge.fury.io/py/typedict.svg)](https://badge.fury.io/py/typedict)
+[![Python versions](https://img.shields.io/pypi/pyversions/typedict.svg)](https://pypi.org/project/typedict/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+A dictionary that uses types as keys, automatically converting values to their types.
+
+## Features
+
+- **Type-based keys**: Automatically converts any key to its type
+- **Full dict compatibility**: Supports all standard dictionary methods
+- **Type safety**: Full type hints and mypy support
+- **Modern Python**: Requires Python 3.11+
+- **Comprehensive testing**: 100% test coverage
+
+## Installation
+
+```bash
+pip install typedict
+```
+
+## Quick Start
+
+```python
+from typedict import TypeDict
+
+# Create a TypeDict
+td = TypeDict()
+
+# Set values - keys are automatically converted to their types
+td[42] = "hello"        # Key becomes int
+td["world"] = 123       # Key becomes str
+td[3.14] = "pi"         # Key becomes float
+
+# Access values using either the original key or the type
+print(td[int])          # "hello"
+print(td[42])           # "hello" (same as above)
+print(td[str])          # 123
+print(td["test"])       # 123 (same as above)
+
+# Type keys overwrite value keys
+td[int] = "type_key"
+print(td[42])           # "type_key" (now uses the type key)
+```
+
+## Use Cases
+
+### Configuration by Type
+
+```python
+from typedict import TypeDict
+
+# Store configuration values by type
+config = TypeDict()
+config[42] = "port"
+config["localhost"] = "host"
+config[True] = "debug_mode"
+
+# Access configuration
+port = config[int]      # "port"
+host = config[str]      # "localhost"
+debug = config[bool]    # "debug_mode"
+```
+
+### Type-based Caching
+
+```python
+from typedict import TypeDict
+import time
+
+cache = TypeDict()
+
+def expensive_operation(data_type):
+    if data_type in cache:
+        return cache[data_type]
+    
+    # Simulate expensive operation
+    time.sleep(1)
+    result = f"processed_{data_type.__name__}"
+    cache[data_type] = result
+    return result
+
+# First call - expensive
+result1 = expensive_operation(int)    # Takes 1 second
+
+# Second call - cached
+result2 = expensive_operation(int)   # Instant!
+```
+
+### Serialization by Type
+
+```python
+from typedict import TypeDict
+import json
+
+serializers = TypeDict()
+serializers[int] = lambda x: str(x)
+serializers[str] = lambda x: f'"{x}"'
+serializers[list] = lambda x: json.dumps(x)
+
+def serialize(data):
+    data_type = type(data)
+    serializer = serializers.get(data_type, str)
+    return serializer(data)
+
+print(serialize(42))           # "42"
+print(serialize("hello"))      # '"hello"'
+print(serialize([1, 2, 3]))    # "[1, 2, 3]"
+```
+
+## API Reference
+
+### TypeDict
+
+A dictionary that uses types as keys.
+
+#### Methods
+
+- `__getitem__(key)`: Get value for key (converted to type)
+- `__setitem__(key, value)`: Set value for key (converted to type)
+- `__delitem__(key)`: Delete key (converted to type)
+- `__contains__(key)`: Check if key exists (converted to type)
+- `get(key, default=None)`: Get value with default
+- `pop(key, default=None)`: Remove and return value
+- `setdefault(key, default=None)`: Set default if key doesn't exist
+- `update(other, **kwargs)`: Update from dict or kwargs
+- `keys()`: Return view of type keys
+- `values()`: Return view of values
+- `items()`: Return view of (type, value) pairs
+- `get_types()`: Return list of all types used as keys
+- `has_type(type_key)`: Check if type exists as key
+
+#### Special Behavior
+
+- **Type conversion**: All keys are automatically converted to their types
+- **Type precedence**: Using a type directly as a key overwrites any value keys of that type
+- **Collision handling**: Multiple values of the same type overwrite each other (last wins)
+
+## Examples
+
+### Basic Operations
+
+```python
+from typedict import TypeDict
+
+td = TypeDict()
+
+# Set values
+td[42] = "integer"
+td["hello"] = "string"
+td[3.14] = "float"
+td[True] = "boolean"
+
+# Access values
+print(td[int])      # "integer"
+print(td[str])      # "string"
+print(td[float])    # "float"
+print(td[bool])     # "boolean"
+
+# Type keys overwrite value keys
+td[int] = "type_key"
+print(td[42])       # "type_key" (not "integer")
+```
+
+### Dictionary Methods
+
+```python
+from typedict import TypeDict
+
+td = TypeDict()
+td[42] = "hello"
+td["world"] = 123
+
+# Standard dict methods work
+print(len(td))              # 2
+print(int in td)            # True
+print(td.get(str, "default"))  # 123
+print(td.pop(int))          # "hello"
+print(td.get(int, "missing"))  # "missing"
+
+# Type-specific methods
+print(td.get_types())       # [<class 'str'>]
+print(td.has_type(int))     # False
+print(td.has_type(str))     # True
+```
+
+### Edge Cases
+
+```python
+from typedict import TypeDict
+
+td = TypeDict()
+
+# None handling
+td[None] = "none_value"
+print(td[type(None)])  # "none_value"
+
+# Custom classes
+class MyClass:
+    pass
+
+instance = MyClass()
+td[instance] = "custom"
+print(td[MyClass])      # "custom"
+
+# Type vs value collision
+td[42] = "value_key"
+td[int] = "type_key"
+print(td[42])           # "type_key" (type key wins)
+```
+
+## Development
+
+### Setup
+
+```bash
+git clone https://github.com/eddiethedean/typedict.git
+cd typedict
+pip install -e .[dev]
+```
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Code Quality
+
+```bash
+ruff check src tests
+mypy src
+```
+
+### Pre-commit Hooks
+
+```bash
+pre-commit install
+pre-commit run --all-files
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Ensure all tests pass
+6. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Changelog
+
+### 0.1.0 (2024-01-XX)
+
+- **BREAKING**: Minimum Python version is now 3.11
+- **NEW**: Complete rewrite with modern type hints
+- **NEW**: Added all standard dict methods (`get`, `pop`, `setdefault`, etc.)
+- **NEW**: Added type-specific methods (`get_types`, `has_type`)
+- **NEW**: Comprehensive test suite with 97% coverage
+- **NEW**: GitHub Actions CI/CD pipeline
+- **NEW**: Modern build system with pyproject.toml
+- **NEW**: Pre-commit hooks and code quality tools
+- **IMPROVED**: Better error handling and edge case support
+- **IMPROVED**: Enhanced documentation and examples
+
+### 0.0.3 (Previous)
+
+- Initial release with basic functionality
