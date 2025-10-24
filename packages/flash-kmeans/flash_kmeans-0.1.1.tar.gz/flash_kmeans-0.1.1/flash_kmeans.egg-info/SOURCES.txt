@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+flash_kmeans/__init__.py
+flash_kmeans/assign_euclid_triton.py
+flash_kmeans/centroid_update_triton.py
+flash_kmeans/kmeans_triton_impl.py
+flash_kmeans.egg-info/PKG-INFO
+flash_kmeans.egg-info/SOURCES.txt
+flash_kmeans.egg-info/dependency_links.txt
+flash_kmeans.egg-info/requires.txt
+flash_kmeans.egg-info/top_level.txt
