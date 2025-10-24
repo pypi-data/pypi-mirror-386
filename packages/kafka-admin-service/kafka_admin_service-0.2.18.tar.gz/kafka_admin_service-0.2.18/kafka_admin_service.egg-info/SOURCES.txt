@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.en.md
+README.md
+requirements.txt
+setup.py
+kafka_admin_service/__init__.py
+kafka_admin_service/server.py
+kafka_admin_service/service.py
+kafka_admin_service.egg-info/PKG-INFO
+kafka_admin_service.egg-info/SOURCES.txt
+kafka_admin_service.egg-info/dependency_links.txt
+kafka_admin_service.egg-info/entry_points.txt
+kafka_admin_service.egg-info/not-zip-safe
+kafka_admin_service.egg-info/requires.txt
+kafka_admin_service.egg-info/top_level.txt
