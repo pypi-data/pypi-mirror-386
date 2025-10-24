@@ -1,0 +1,16 @@
+tavily-python
+python-dotenv
+requests
+rich>=13.0.0
+langchain-anthropic<2.0.0,>=1.0.0
+langchain<2.0.0,>=1.0.0
+langchain-core<2.0.0,>=1.0.0
+wcmatch
+
+[dev]
+pytest
+pytest-recording
+pytest-cov
+build
+twine
+langchain-openai
