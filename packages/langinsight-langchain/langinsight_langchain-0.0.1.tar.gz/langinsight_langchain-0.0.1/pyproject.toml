@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "langinsight-langchain"
+version = "0.0.1"
+description = "LangInsight callback handler for LangChain - Monitor and trace your LangChain LLM applications"
+authors = ["iZ.inc"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10.0,<4.0"
+langchain-core = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
