@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+tests/test_tokenizer.py
+whitespacetokenizer/__init__.py
+whitespacetokenizer/tokenizer.cpp
+whitespacetokenizer/tokenizer.pyx
+whitespacetokenizer.egg-info/PKG-INFO
+whitespacetokenizer.egg-info/SOURCES.txt
+whitespacetokenizer.egg-info/dependency_links.txt
+whitespacetokenizer.egg-info/requires.txt
+whitespacetokenizer.egg-info/top_level.txt

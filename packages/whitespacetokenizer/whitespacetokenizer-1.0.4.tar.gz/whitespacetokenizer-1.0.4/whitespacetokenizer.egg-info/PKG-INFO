@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: whitespacetokenizer
+Version: 1.0.4
+Summary: Fast python whitespace tokenizer wtitten in cython.
+Home-page: https://github.com/mdocekal/whitespacetokenizer
+Author: Martin Dočekal
+License: The Unlicense
+Keywords: tokenizer,whitespace
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: cython
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# whitespacetokenizer
+Fast python whitespace tokenizer written in cython that also gives start and end character positions of tokens.
+
+## Installation
+
+    pip install whitespacetokenizer
+
+## Usage
+
+```python
+from whitespacetokenizer import whitespace_tokenizer
+
+text = "Hello, world! How are you?"
+tokens = whitespace_tokenizer(text)
+
+print(tokens)
+# [("Hello,", 0, 6), ("world!", 7, 13), ("How", 14, 17), ("are", 18, 21), ("you?", 22, 26)]
+```
