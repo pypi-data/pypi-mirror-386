@@ -1,0 +1,10 @@
+modusched/__init__.py,sha256=_jw5VKpBAJkqaW9qvjKUGgV7YVTY3HxgZj6R2D1garM,729
+modusched/utils.py,sha256=wAVNltSq5M1EYOvFIOf5ygi7CGWjsK7GNg0uAM885ss,24
+modusched/server/mcp/__init__.py,sha256=4dbl-lFcm0r2tkOP04OxqiZG2jR-rqF181qi2AfU6UA,123
+modusched/server/mcp/prompt.py,sha256=OZrsyUfSQMOY_KX7dWthW209adz5JfELsQ0ODfuQR44,1245
+modusched/server/router/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+modusched/server/router/prompt.py,sha256=08bDjlacW-i5DNa8oE139M_zVej_1WpEasu_tl2vFHU,4260
+modusched-0.1.1.dist-info/METADATA,sha256=QQS5V71lBfMIP08qQ_Es6UMFZISpbz4gibLRr7BXsqA,416
+modusched-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+modusched-0.1.1.dist-info/top_level.txt,sha256=vI7ER7qxY4E7lRdUe9cAT5E1cAMYmhIzaLg06a5y1rg,10
+modusched-0.1.1.dist-info/RECORD,,
