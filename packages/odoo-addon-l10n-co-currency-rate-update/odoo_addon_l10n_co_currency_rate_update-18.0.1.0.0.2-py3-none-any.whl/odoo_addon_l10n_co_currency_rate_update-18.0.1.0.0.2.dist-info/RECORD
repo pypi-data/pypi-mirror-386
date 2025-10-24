@@ -1,0 +1,16 @@
+odoo/addons/l10n_co_currency_rate_update/README.rst,sha256=9cNZ_p-Xe9O6LBoX4ns6C7RUZWgktJgbynIItGdLhpM,5095
+odoo/addons/l10n_co_currency_rate_update/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/l10n_co_currency_rate_update/__manifest__.py,sha256=yBr_yHPQp8HtVKmVxxuCJ3tP6vksFMoq6fH7HJ0hw-o,486
+odoo/addons/l10n_co_currency_rate_update/data/res_currency_rate_provider.xml,sha256=MWL_sEqF4eObjwE0-x6OeR0O0aFSYG8054u6Uhi2HHQ,629
+odoo/addons/l10n_co_currency_rate_update/i18n/l10n_co_currency_rate_update.pot,sha256=mykAwoAMWm3RbwftNV2ZAW5CG919zi3vGnBLrKctvKk,1168
+odoo/addons/l10n_co_currency_rate_update/models/__init__.py,sha256=vJeTMi49UmOc-e4SKdDaJ51T4NRBYtVfOonVxYLCTFg,183
+odoo/addons/l10n_co_currency_rate_update/models/res_currency_rate_provider_sfc.py,sha256=cAtJpoEzyZUX0z_KGX26_Un9PqDTW3LgkEzvyK38ClA,2681
+odoo/addons/l10n_co_currency_rate_update/readme/CONTRIBUTORS.md,sha256=mz8DlTIfWBZqy1nSRtKSBMFiLvYd0M9P6plVw46TLmc,77
+odoo/addons/l10n_co_currency_rate_update/readme/DESCRIPTION.md,sha256=L8fNoqfkJz6gBLxxlQUxmdrUspTuP19WMtubLh1-TqU,541
+odoo/addons/l10n_co_currency_rate_update/readme/USAGE.md,sha256=JRyKUepdfyHg58mH9ivfVjb9iLmXRZQyXTZ-QM49Duc,1457
+odoo/addons/l10n_co_currency_rate_update/static/description/icon.png,sha256=CgnOEZCwoe6f1vlLwkqFVfc2q_uwBMU0UnXN8j6X5ag,10254
+odoo/addons/l10n_co_currency_rate_update/static/description/index.html,sha256=2Xt3c5cxgvWhe_qcak3zeFvDk43uidheS7RexLHupvk,16211
+odoo_addon_l10n_co_currency_rate_update-18.0.1.0.0.2.dist-info/METADATA,sha256=yqfeMS2Y-YTTAImHiJ0l3KVMctp9WNfayEG3dwi7qLI,5733
+odoo_addon_l10n_co_currency_rate_update-18.0.1.0.0.2.dist-info/WHEEL,sha256=ZhOvUsYhy81Dx67gN3TV0RchQWBIIzutDZaJODDg2Vo,81
+odoo_addon_l10n_co_currency_rate_update-18.0.1.0.0.2.dist-info/top_level.txt,sha256=QE6RBQ0QX5f4eFuUcGgU5Kbq1A_qJcDs-e_vpr6pmfU,4
+odoo_addon_l10n_co_currency_rate_update-18.0.1.0.0.2.dist-info/RECORD,,
