@@ -1,0 +1,3 @@
+[console_scripts]
+download-server=download_server:main
+
