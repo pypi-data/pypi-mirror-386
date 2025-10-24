@@ -1,0 +1,2 @@
+[console_scripts]
+vosstaren = voss_taren.main:cmatrix

@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: voss-taren
+Version: 1.1.0
+Summary: Effet Matrix authentique en Python
+Author: Votre Nom
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# Voss-Taren
+
+Effet Matrix authentique en Python avec Tkinter.
+
+## Installation
+```bash
+pip install voss-taren
+```
+
+## Utilisation
+
+Tapez simplement dans votre terminal :
+```bash
+vosstaren
+```
+
+Appuyez sur Echap ou Q pour quitter.
