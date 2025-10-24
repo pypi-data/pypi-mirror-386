@@ -1,0 +1,30 @@
+# requirements.txt
+# Encryption, scrambling, signatures, and keys
+
+# 🔐 Post-quantum cryptography
+pypqc>=0.0.6.2 # Kyber1024, Falcon1024, Dilithium5 via PQClean
+
+# 🧪 Traffic analysis and scrambling
+pyshark>=0.6 # Packet capture via Wireshark
+scapy>=2.5.0 # Packet manipulation and entropy
+
+# 🕸️ Mesh network + WireGuard
+wg-meshconf>=2.5.1 # Config generation for WireGuard mesh networks
+wireguard>=1.0.2 # Server/client config automation
+wireguard4netns>=0.1.6 # VPN for rootless namespaces via wireguard-go
+
+# 🧪 Testing Automated
+pytest>=8.0.0 # Unit and integration tests
+
+# ⚙️ Native bindings for C libraries
+cffi>=2.0.0
+pycparser>=2.23
+
+# 📊 Advanced logging
+logging4>=0.0.2 # Structured logs, rotation, JSON
+
+# 📦 Packaging and publishing
+build # Package generation
+twine # Upload to PyPI
+setuptools # Setup and distribution
+wheel # Packaging format

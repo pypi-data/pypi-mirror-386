@@ -1,0 +1,34 @@
+[project]
+name = "pqbit"
+version = "1.2.0"
+description = "Post-quantum mesh VPN library with offline wallet generation via Dilithium5 and SHA3-512"
+authors = [
+    { name = "Kito Hamachi", email = "bit512@protonmail.com" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "pypqc>=0.0.6.2",
+    "pyshark>=0.6",
+    "wg-meshconf>=2.5.1",
+    "wireguard>=1.0.2",
+    "wireguard4netns>=0.1.6",
+    "pytest>=8.0.0",
+    "scapy>=2.5.0",
+    "cffi>=2.0.0",
+    "pycparser>=2.23",
+    "logging4>=0.0.2"
+]
+
+[build-system]
+requires = ["setuptools", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pqbit"]
+
+[tool.setuptools.package-data]
+pqbit = ["mesh.yaml"]
+
