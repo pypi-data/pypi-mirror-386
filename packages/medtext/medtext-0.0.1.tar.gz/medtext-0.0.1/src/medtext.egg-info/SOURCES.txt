@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/medtext/__init__.py
+src/medtext.egg-info/PKG-INFO
+src/medtext.egg-info/SOURCES.txt
+src/medtext.egg-info/dependency_links.txt
+src/medtext.egg-info/requires.txt
+src/medtext.egg-info/top_level.txt
+src/medtext/extractors/FewShotAndOllama.py
+src/medtext/extractors/OneShotAndOllama.py
+src/medtext/extractors/ZeroShotAndOllama.py
+src/medtext/extractors/__init__.py
