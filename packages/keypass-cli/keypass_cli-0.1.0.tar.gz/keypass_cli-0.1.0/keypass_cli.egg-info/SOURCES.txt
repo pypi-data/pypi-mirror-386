@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+keypass_cli.egg-info/PKG-INFO
+keypass_cli.egg-info/SOURCES.txt
+keypass_cli.egg-info/dependency_links.txt
+keypass_cli.egg-info/entry_points.txt
+keypass_cli.egg-info/requires.txt
+keypass_cli.egg-info/top_level.txt
+myapp/__init__.py
+myapp/cli.py
