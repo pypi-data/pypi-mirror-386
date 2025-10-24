@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+talklabs.egg-info/PKG-INFO
+talklabs.egg-info/SOURCES.txt
+talklabs.egg-info/dependency_links.txt
+talklabs.egg-info/requires.txt
+talklabs.egg-info/top_level.txt
