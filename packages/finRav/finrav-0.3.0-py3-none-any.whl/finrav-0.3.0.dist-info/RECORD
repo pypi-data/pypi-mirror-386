@@ -1,0 +1,14 @@
+finRav/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+finRav/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+finRav/stats/__init__.py,sha256=27i_J-6KFKx_r8BiKEtLule4JKCDiNSCa5-3Jird9Zw,171
+finRav/stats/detrended_fluctuation_analysis.py,sha256=7qsL6DgLQO-N0Fm8txv3ASoicHGKpD6UmcoY5z5FuN8,5534
+finRav/stoch/__init__.py,sha256=QcXWwPdflP0IszWac88U_1RnTAYJNnUA1fjR0wup8Pg,162
+finRav/stoch/_davies_harte_method.py,sha256=MoBBRm2B-EEMZdVxmjHtw50CpljcIBUXHEArMah7jns,2239
+finRav/stoch/_fbm_base.py,sha256=RXP4xrFV9kOxpJlPSp-wUYIVKNpHG0g8Q68WoicIiCw,2541
+finRav/stoch/_fractional_gaussian_noise.py,sha256=t63FXmyFtXGjn5kWLASHgn_uhsIbiKPHZeuP3D-iRGc,1283
+finRav/stoch/_hosking_method.py,sha256=QIJZH1m0MgYWbS6jLz1TNapJkPlkkMnXMIFihDM6kYM,2086
+finRav/stoch/fractional_brownian_motion.py,sha256=I8XorYVtIgtzuvs1tFkfIiqOJpedsX7wQ2_fFXm_2RA,1598
+finrav-0.3.0.dist-info/METADATA,sha256=cjstk8MzzHkdMyyjy5HxPwVnTAYeV2i721VZ7-ucfSg,1019
+finrav-0.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+finrav-0.3.0.dist-info/licenses/LICENSE,sha256=qk3DDra4Wf5HWf2gmGauxPl_ZPxil424e5PjT35Tv6k,1069
+finrav-0.3.0.dist-info/RECORD,,
