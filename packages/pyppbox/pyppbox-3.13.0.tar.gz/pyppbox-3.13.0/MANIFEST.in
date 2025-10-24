@@ -1,0 +1,9 @@
+include *.md *.in *.toml *.yaml LICENSE
+global-include pyppbox *.*
+exclude .gitignore
+recursive-exclude .git *.*
+recursive-exclude .github *.*
+recursive-exclude docs *.*
+recursive-exclude examples *.*
+global-exclude */__pycache__
+global-exclude *.pyc *.cmd
