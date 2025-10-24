@@ -1,0 +1,17 @@
+ci/transparency/sdk/__init__.py,sha256=47X_7MRUUyLpXTpt1-6NHAIpkF_oIjlNvt1-dShoRog,525
+ci/transparency/sdk/_version.py,sha256=WaLDpzzGflfUHt6hdoqROYS-rCMUovm21uLsJB4bmZw,641
+ci/transparency/sdk/digests.py,sha256=Dq9LeqnxDWpTNhfkq6F9DcSxB4ewG_KPQpft3EXtjv8,905
+ci/transparency/sdk/hash_core.py,sha256=xtGn8-7TX1gAqAQedoAIKPvU28ZhbwgdebmNpVMkIt8,235
+ci/transparency/sdk/ids.py,sha256=1EOc8pkKobGUP_gI2wdZZbYDaEANHsJ6fa8EWFj7ekY,2001
+ci/transparency/sdk/io_schema.py,sha256=-27L6DQai-VKBe5ptdvvX789eaNhe_jUYGR7hIFhhFg,4952
+ci/transparency/sdk/window_agg.py,sha256=5hzUx4ZzRc2qo5-OluIT7jHmRFxlb2jLpBk3ncBt_y4,2118
+ci/transparency/sdk/cli/main.py,sha256=S9JlbRkiFSZxbbC_0sfniKyU1CH9uOrK5Oa657PBFp4,3609
+civic_transparency_sdk-0.1.2.data/data/share/civic-transparency-ptag-spec/CITATION.cff,sha256=nUjac4zKghf-AAGr5-5sTn-4HigJALzi-4YwN8WFXEo,256
+civic_transparency_sdk-0.1.2.data/data/share/civic-transparency-ptag-spec/LICENSE,sha256=k5rPGIMKa2A4ucUornVXNNnn4ODYJzw44y1lSSgNMmE,1083
+civic_transparency_sdk-0.1.2.data/data/share/civic-transparency-ptag-spec/README.md,sha256=0wVyJm_ufvm_Rw1vv4ffhfJtCz0t1yKIu094fM5dIoI,4972
+civic_transparency_sdk-0.1.2.dist-info/licenses/LICENSE,sha256=k5rPGIMKa2A4ucUornVXNNnn4ODYJzw44y1lSSgNMmE,1083
+civic_transparency_sdk-0.1.2.dist-info/METADATA,sha256=wdvDysRXtHHmfNiBqfI3cYAHiLEMtbbvHa5gZS3WNGY,7333
+civic_transparency_sdk-0.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+civic_transparency_sdk-0.1.2.dist-info/entry_points.txt,sha256=z22bc3Pqb-VLoVYbJTAqFJW9b0e5CJJbkzUcLPqHq_0,61
+civic_transparency_sdk-0.1.2.dist-info/top_level.txt,sha256=4Yz6-7DIt5CedRfM7s3dxN7HstNIP9KBMBXro1MaVu0,3
+civic_transparency_sdk-0.1.2.dist-info/RECORD,,
