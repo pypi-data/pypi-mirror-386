@@ -1,0 +1,113 @@
+/**
+ * Debug Panel Styles - v0.1.7 (Top-right, collapsible)
+ */
+
+.debug-panel {
+    position: fixed;
+    top: 110px;  /* Below navigation */
+    left: 700px;
+    background: white;
+    border: 2px solid #667eea;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    min-width: 300px;
+}
+
+/* Collapsed state (default) */
+.debug-panel.collapsed {
+    width: auto;
+    padding: 0;
+}
+
+.debug-panel.collapsed .debug-panel-content {
+    display: none;
+}
+
+/* Expanded state */
+.debug-panel.expanded {
+    min-width: 300px;
+}
+
+.debug-panel.expanded .debug-panel-content {
+    display: block;
+    padding: 1rem;
+}
+
+/* Toggle button */
+.debug-panel-toggle {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+}
+
+.debug-panel.expanded .debug-panel-toggle {
+    border-radius: 10px 10px 0 0;
+}
+
+.debug-panel-toggle:hover {
+    opacity: 0.8;
+}
+
+.debug-panel-toggle .toggle-icon {
+    margin-left: auto;
+    font-size: 0.75rem;
+}
+
+/* Content area */
+.debug-panel-content {
+    /* Visible when expanded */
+}
+
+/* Buttons */
+.debug-panel-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.debug-panel-buttons button {
+    width: 100%;
+    text-align: left;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.debug-panel-buttons button:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    transform: translateX(2px);
+}
+
+/* Full Flow button - same style as others, just with separator */
+.debug-panel-buttons button[data-action="full-flow"] {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 2px solid #e5e7eb;
+    background: #fef3c7;
+    border-color: #fcd34d;
+    color: #92400e;
+}
+
+.debug-panel-buttons button[data-action="full-flow"]:hover {
+    background: #fde68a;
+    border-color: #fbbf24;
+}

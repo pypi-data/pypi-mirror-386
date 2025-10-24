@@ -1,0 +1,88 @@
+/**
+ * Column Header Styles - v0.1.6 (Shadow DOM Compatible)
+ */
+
+.column-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.column-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    margin-right: auto; /* Push everything after it to the right */
+    white-space: nowrap; /* Prevent title from wrapping */
+}
+
+/* Mode tabs naturally sit after title */
+.column-header mode-tabs {
+    flex-shrink: 0; /* Prevent mode tabs from shrinking */
+}
+
+/* Actions container - flows naturally after tabs */
+.column-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0; /* Prevent actions from shrinking */
+}
+
+/* Style slotted buttons (Light DOM content in Shadow DOM) */
+::slotted(button) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    background: white;
+    color: #374151;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+::slotted(button.btn-primary) {
+    background: #6366f1;
+    color: white;
+    border-color: #6366f1;
+}
+
+::slotted(button.btn-primary:hover) {
+    background: #4f46e5;
+    border-color: #4f46e5;
+}
+
+::slotted(button.btn-secondary) {
+    background: white;
+    color: #374151;
+    border: 1.5px solid #d1d5db;
+}
+
+::slotted(button.btn-secondary:hover) {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+::slotted(button.btn-danger) {
+    background: white;
+    color: #ef4444;
+    border: 1.5px solid #ef4444;
+}
+
+::slotted(button.btn-danger:hover) {
+    background: #fef2f2;
+    border-color: #dc2626;
+    color: #dc2626;
+}
+
+::slotted(*) {
+    /* All slotted content gets proper spacing */
+}

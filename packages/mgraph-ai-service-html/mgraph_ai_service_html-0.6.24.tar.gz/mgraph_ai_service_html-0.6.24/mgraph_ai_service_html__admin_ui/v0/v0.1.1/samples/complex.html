@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complex HTML Example</title>
+    <style>
+        .nested { padding: 10px; }
+        .deeper { margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <article id="section1">
+            <h1>Deep Nesting Example</h1>
+            <section>
+                <h2>Level 1</h2>
+                <p>This document demonstrates <strong>deep nesting</strong> of HTML elements.</p>
+                <div class="nested">
+                    <h3>Level 2</h3>
+                    <p>Text at the second level of nesting.</p>
+                    <div class="deeper">
+                        <h4>Level 3</h4>
+                        <p>Text at the <em>third level</em> of nesting.</p>
+                        <div class="nested">
+                            <h5>Level 4</h5>
+                            <span>Even deeper nesting here!</span>
+                            <div class="deeper">
+                                <h6>Level 5</h6>
+                                <p>This tests the max_depth parameter effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+        
+        <article id="section2">
+            <h2>Mixed Content</h2>
+            <p>This section has <a href="#">links</a>, <code>code snippets</code>, and <mark>highlighted text</mark>.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </main>
+    
+    <footer>
+        <p>Footer content with nested <span>elements <strong>inside</strong></span>.</p>
+    </footer>
+</body>
+</html>

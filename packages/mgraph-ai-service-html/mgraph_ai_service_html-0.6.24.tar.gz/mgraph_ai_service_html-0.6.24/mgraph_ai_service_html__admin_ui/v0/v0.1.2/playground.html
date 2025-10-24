@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Playground - HTML Service</title>
+
+    <!-- v0.1.1 Styles (no duplication) -->
+    <link rel="stylesheet" href="../v0.1.1/css/common.css">
+    <link rel="stylesheet" href="../v0.1.1/css/playground.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <top-nav current-page="playground"></top-nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="page-header">
+            <h1>🎮 Transformation Playground</h1>
+            <p class="subtitle">Interactive testing of HTML transformation endpoints</p>
+        </header>
+
+        <!-- Main Playground Area -->
+        <div class="playground-layout">
+            <!-- Input Panel -->
+            <section class="panel input-panel">
+                <html-input id="html-input"></html-input>
+            </section>
+
+            <!-- Controls Panel -->
+            <section class="panel controls-panel">
+                <transformation-selector id="transformation-selector"></transformation-selector>
+            </section>
+
+            <!-- Output Panel -->
+            <section class="panel output-panel">
+                <output-viewer id="output-viewer"></output-viewer>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.2 (IFD Compliant - Refactored)</p>
+        </footer>
+    </div>
+
+    <script src="../v0.1.1/components/top-nav/top-nav.js"            ></script>     <!-- v0.1.1 Components (reference unchanged components from v0.1.1) -->
+    <script src="../v0.1.1/components/html-input/html-input.js"      ></script>
+    <script src="../v0.1.1/components/output-viewer/output-viewer.js"></script>
+
+    <script type="module" src="./js/playground.js"></script>                                      <!-- v0.1.2 version of playground -->
+</body>
+</html>

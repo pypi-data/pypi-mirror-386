@@ -1,0 +1,58 @@
+/**
+ * Column Middle Styles - v0.1.6 (Refactored)
+ * Dual-view and dual-edit layouts
+ */
+
+.middle-column {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    overflow: hidden;
+    height: 100%;
+}
+
+.column-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Mode containers */
+.mode-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Dual View Grid (View Mode) */
+.dual-view-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dual-view-grid json-view-mode {
+    display: flex;
+    overflow: hidden;
+}
+
+/* Dual Edit Grid (Edit Mode) */
+.dual-edit-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dual-edit-grid json-edit-mode {
+    display: flex;
+    overflow: hidden;
+}

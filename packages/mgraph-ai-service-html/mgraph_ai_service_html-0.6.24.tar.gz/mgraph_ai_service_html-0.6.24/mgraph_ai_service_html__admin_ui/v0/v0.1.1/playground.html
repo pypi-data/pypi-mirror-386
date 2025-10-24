@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Playground - HTML Service</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/playground.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <top-nav current-page="playground"></top-nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="page-header">
+            <h1>🎮 Transformation Playground</h1>
+            <p class="subtitle">Interactive testing of HTML transformation endpoints</p>
+        </header>
+
+        <!-- Main Playground Area -->
+        <div class="playground-layout">
+            <!-- Input Panel -->
+            <section class="panel input-panel">
+                <html-input id="html-input"></html-input>
+            </section>
+
+            <!-- Controls Panel -->
+            <section class="panel controls-panel">
+                <transformation-selector id="transformation-selector"></transformation-selector>
+            </section>
+
+            <!-- Output Panel -->
+            <section class="panel output-panel">
+                <output-viewer id="output-viewer"></output-viewer>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.1</p>
+        </footer>
+    </div>
+
+    <!-- Services -->
+    <script src="./js/services/api-client.js"></script>
+
+    <!-- Components -->
+    <script src="./components/top-nav/top-nav.js"></script>
+    <script src="./components/html-input/html-input.js"></script>
+    <script src="./components/transformation-selector/transformation-selector.js"></script>
+    <script src="./components/output-viewer/output-viewer.js"></script>
+
+    <!-- Main App -->
+    <script src="./js/playground.js"></script>
+</body>
+</html>

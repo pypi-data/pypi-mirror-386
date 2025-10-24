@@ -1,0 +1,23 @@
+<div class="html-input-container">
+    <div class="input-header">
+        <h3>📝 HTML Input</h3>
+        <div class="input-controls">
+            <select id="sample-selector" class="sample-selector">
+                <option value="">-- Select a Sample --</option>
+                <option value="simple">Simple HTML</option>
+                <option value="complex">Complex HTML (Deep Nesting)</option>
+                <option value="custom">Custom (Paste Your Own)</option>
+            </select>
+            <button id="clear-btn" class="btn-small btn-danger" title="Clear input">🗑️ Clear</button>
+        </div>
+    </div>
+    
+    <textarea id="html-textarea" 
+              class="html-textarea" 
+              placeholder="Select a sample or paste your HTML here..."></textarea>
+    
+    <div class="input-footer">
+        <span id="char-count" class="char-count">0 characters</span>
+        <span id="size-warning" class="size-warning" style="display: none;">⚠️ Approaching 1MB limit</span>
+    </div>
+</div>

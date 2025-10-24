@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Service Admin - Dashboard</title>
+
+    <!-- v0.1.1 Styles (no duplication) -->
+    <link rel="stylesheet" href="../v0.1.1/css/common.css">
+    <link rel="stylesheet" href="../v0.1.1/css/dashboard.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <top-nav current-page="index"></top-nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="page-header">
+            <h1>🔧 HTML Transformation Service</h1>
+            <p class="subtitle">Interactive API testing and documentation</p>
+        </header>
+
+        <!-- Service Info Card -->
+        <section class="card" id="service-info">
+            <!-- Will be populated by dashboard.js -->
+        </section>
+
+        <!-- API Endpoints Overview -->
+        <section class="card" id="endpoints-overview">
+            <!-- Will be populated by dashboard.js -->
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="card" id="quick-actions">
+            <!-- Will be populated by dashboard.js -->
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.2 (IFD Compliant - Refactored)</p>
+        </footer>
+    </div>
+
+    <!-- v0.1.1 Components -->
+    <script src="../v0.1.1/components/top-nav/top-nav.js"></script>
+
+    <!-- v0.1.1 Services and App Logic (dashboard doesn't need refactored API client yet) -->
+    <script src="../v0.1.1/js/services/api-client.js"></script>
+    <script src="../v0.1.1/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/html-service/v0/v0.1.0/css/common.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .error-container {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: 20px;
+        }
+        
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+        
+        .error-message {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">
+            The page you're looking for doesn't exist or has been moved. 
+            It might be part of a version that hasn't been implemented yet.
+        </p>
+        
+        <div class="error-actions">
+            <a href="/html-service/v0/v0.1.0/index.html" class="btn btn-primary">
+                🏠 Go to Dashboard
+            </a>
+            <button onclick="history.back()" class="btn btn-secondary">
+                ← Go Back
+            </button>
+        </div>
+        
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e5e7eb;">
+            <p style="font-size: 0.875rem; color: #9ca3af;">
+                <strong>Available Pages:</strong><br>
+                Dashboard: <code style="font-size: 0.8rem;">/html-service/v0/v0.1.0/index.html</code><br>
+                Playground: <code style="font-size: 0.8rem;">/html-service/v0/v0.1.1/playground.html</code> (v0.1.1)
+            </p>
+        </div>
+    </div>
+</body>
+</html>

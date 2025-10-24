@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Playground - HTML Service</title>
+</head>
+<body>
+    <!-- This is a simplified version of the playground page for use as a sample -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-icon">🔧</span>
+                <span class="nav-title">HTML Service</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="playground.html" class="active">Playground</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>🎮 Transformation Playground</h1>
+            <p class="subtitle">Interactive testing of HTML transformation endpoints</p>
+        </header>
+
+        <div class="playground-layout">
+            <section class="panel input-panel">
+                <div class="html-input-container">
+                    <div class="input-header">
+                        <h3>📝 HTML Input</h3>
+                        <div class="input-controls">
+                            <select class="sample-selector">
+                                <option>-- Select a Sample --</option>
+                                <option>Simple HTML</option>
+                                <option>Complex HTML</option>
+                            </select>
+                            <button class="btn-small">🗑️ Clear</button>
+                        </div>
+                    </div>
+                    
+                    <textarea class="html-textarea" placeholder="Select a sample or paste your HTML here..."></textarea>
+                    
+                    <div class="input-footer">
+                        <span class="char-count">0 characters</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel controls-panel">
+                <div class="transformation-container">
+                    <h3>⚙️ Select Transformation</h3>
+                    
+                    <div class="selector-group">
+                        <label>Endpoint:</label>
+                        <select class="endpoint-selector">
+                            <option>-- Select Transformation --</option>
+                            <optgroup label="HTML Transformations">
+                                <option>HTML → Dict</option>
+                                <option>HTML → Text Nodes</option>
+                                <option>HTML → Tree View</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary transform-btn">▶️ Transform</button>
+                </div>
+            </section>
+
+            <section class="panel output-panel">
+                <div class="output-container">
+                    <div class="output-header">
+                        <h3>📊 Output</h3>
+                        <div class="output-controls">
+                            <button class="btn-small">📋 Copy</button>
+                            <button class="btn-small">💾 Download</button>
+                        </div>
+                    </div>
+                    
+                    <div class="output-content">
+                        <div class="empty-state">
+                            <p>👆 Select a transformation and click "Transform" to see results</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.1</p>
+        </footer>
+    </div>
+</body>
+</html>

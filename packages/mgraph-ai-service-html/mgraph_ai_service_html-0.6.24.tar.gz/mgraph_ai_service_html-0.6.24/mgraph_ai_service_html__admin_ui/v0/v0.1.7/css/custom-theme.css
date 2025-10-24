@@ -1,0 +1,10 @@
+/* v0.1.7 Custom Theme */
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    /* Very dark blue - almost navy */
+}
+
+.top-nav {
+    background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%) !important;
+    /* Dark → Medium blue → Dark */
+}

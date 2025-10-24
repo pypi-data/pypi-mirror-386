@@ -1,0 +1,48 @@
+<div class="column created-column" data-mode="code">
+    <column-header
+        title="Created HTML"
+        icon="✨"
+        modes="code,preview,split"
+        active-mode="code"
+        column-id="created"
+    >
+    </column-header>
+
+    <div class="column-actions">
+        <button class="btn-small btn-primary" id="btn-rebuild">🔄 Rebuild</button>
+        <button class="btn-small btn-secondary" id="btn-open-window" style="display: none;">🪟 Open in Window</button>
+        <button class="btn-small btn-secondary" id="btn-download">⬇ Download</button>
+    </div>
+
+    <div class="column-content">
+        <!-- CODE MODE (default - syntax highlighted view) -->
+        <div class="mode-container mode-code">
+            <html-view-mode
+                id="created-html-view"
+                empty-text="Rebuilt HTML will appear here after reconstruction"
+            ></html-view-mode>
+        </div>
+
+        <!-- PREVIEW MODE (iframe rendering) -->
+        <div class="mode-container mode-preview" style="display: none;">
+            <html-preview-mode id="created-html-preview"></html-preview-mode>
+        </div>
+
+        <!-- SPLIT MODE (code top, preview bottom) -->
+        <div class="mode-container mode-split" style="display: none;">
+            <div class="split-view">
+                <div class="split-top">
+                    <div class="split-label">💻 Code</div>
+                    <html-view-mode
+                        id="created-html-view-split"
+                        empty-text="Rebuilt HTML code"
+                    ></html-view-mode>
+                </div>
+                <div class="split-bottom">
+                    <div class="split-label">🖼️ Preview</div>
+                    <html-preview-mode id="created-html-preview-split"></html-preview-mode>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

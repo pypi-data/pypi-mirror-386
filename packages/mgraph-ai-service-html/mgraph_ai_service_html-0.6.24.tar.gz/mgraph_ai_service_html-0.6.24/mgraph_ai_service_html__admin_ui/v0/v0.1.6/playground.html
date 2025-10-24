@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Playground - HTML Service</title>
+
+    <!-- v0.1.1 Common Styles (base theme) -->
+    <link rel="stylesheet" href="../v0.1.1/css/common.css">
+
+    <!-- v0.1.6 Playground Grid Layout -->
+    <link rel="stylesheet" href="../v0.1.6/css/playground.css">
+
+    <!-- Component Styles (loaded by components) -->
+    <link rel="stylesheet" href="../v0.1.6/components/mode-tabs/mode-tabs.css">
+</head>
+<body>
+    <!-- Top Navigation (from v0.1.1) -->
+    <top-nav current-page="playground"></top-nav>
+
+    <div class="container">
+        <!-- Playground Controller (Orchestrator) -->
+        <playground-controller></playground-controller>
+
+        <!-- Header with Status Messages -->
+        <header class="page-header">
+            <div class="header-left">
+                <span class="version-badge">v0.1.6</span>
+                <h1>🎮 Transformation Playground</h1>
+            </div>
+
+            <div class="header-right">
+                <div id="status-message" class="status-message" style="display: none;">
+                    <!-- Status messages appear here -->
+                </div>
+            </div>
+        </header>
+
+        <!-- 3-Column Grid Layout with Components -->
+        <div class="playground-grid">
+            <!-- Column 1: Original HTML -->
+            <column-original></column-original>
+
+            <!-- Column 2: Layout & Content Objects -->
+            <column-middle></column-middle>
+
+            <!-- Column 3: Created HTML -->
+            <column-created></column-created>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>HTML Service Admin UI v0.1.6 (Component Architecture)</p>
+        </footer>
+    </div>
+
+    <!-- Debug Panel -->
+    <debug-panel></debug-panel>
+
+    <!-- Scripts -->
+    <!-- Navigation component (from v0.1.1) -->
+    <script src="../v0.1.1/components/top-nav/top-nav.js"></script>
+
+    <!-- v0.1.6 Components (Web Components - auto-register) -->
+    <script type="module" src="../v0.1.6/components/mode-tabs/mode-tabs.js"></script>
+    <script type="module" src="../v0.1.6/components/columns-shared/column-header/column-header.js"></script>
+
+    <script type="module" src="../v0.1.6/components/column-original/column-original.js"></script>
+
+    <script type="module" src="../v0.1.6/components/column-original/sample-selector/sample-selector.js"></script>
+    <script type="module" src="../v0.1.6/components/column-original/html-edit-mode/html-edit-mode.js"></script>
+    <script type="module" src="../v0.1.6/components/column-original/html-view-mode/html-view-mode.js"></script>
+
+    <script type="module" src="../v0.1.6/components/column-middle/column-middle.js"></script>
+    <script type="module" src="../v0.1.6/components/column-middle/json-view-mode/json-view-mode.js"></script>
+    <script type="module" src="../v0.1.6/components/column-middle/json-edit-mode/json-edit-mode.js"></script>
+
+    <script type="module" src="../v0.1.6/components/column-created/column-created.js"></script>
+    <script type="module" src="../v0.1.6/components/debug-panel/debug-panel.js"></script>
+
+    <!-- Playground Controller (Orchestrator - loads last) -->
+    <script type="module" src="../v0.1.6/components/playground-controller/playground-controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<div class="column middle-column" data-mode="view">
+    <column-header
+        title="Layout & Content Objects"
+        icon="🧩"
+        modes="view,edit"
+        active-mode="view"
+        column-id="middle"
+    >
+        <button slot="actions" class="btn-small btn-primary" id="btn-parse">▶ Parse</button>
+    </column-header>
+
+    <div class="column-content">
+        <!-- VIEW MODE (default - dual view) -->
+        <div class="mode-container mode-view">
+            <div class="dual-view-grid">
+                <json-view-mode
+                    id="dict-view"
+                    title="HTML Dict (Structure/Layout)"
+                    icon="📐"
+                    empty-text="HTML structure will appear here after parsing"
+                ></json-view-mode>
+
+                <json-view-mode
+                    id="hashes-view"
+                    title="Text Nodes + Hashes (Content)"
+                    icon="🔤"
+                    empty-text="Text nodes will appear here after parsing"
+                ></json-view-mode>
+            </div>
+        </div>
+
+        <!-- EDIT MODE (dual editor) -->
+        <div class="mode-container mode-edit" style="display: none;">
+            <div class="dual-edit-grid">
+                <json-edit-mode
+                    id="dict-edit"
+                    title="HTML Dict JSON (Raw)"
+                    icon="📐"
+                    placeholder='{"tag": "html", "attrs": {...}, "nodes": [...]}'
+                ></json-edit-mode>
+
+                <json-edit-mode
+                    id="hashes-edit"
+                    title="Text Hashes JSON (Raw)"
+                    icon="🔤"
+                    placeholder='{"hash1": "text content", "hash2": "more text"}'
+                ></json-edit-mode>
+            </div>
+        </div>
+    </div>
+</div>

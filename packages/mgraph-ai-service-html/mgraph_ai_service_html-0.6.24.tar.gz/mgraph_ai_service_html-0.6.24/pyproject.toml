@@ -1,0 +1,21 @@
+[tool.poetry]
+name        = "mgraph_ai_service_html"
+version     = "v0.6.24"
+description = "MGraph-AI__Service__Html"
+authors     = ["Dinis Cruz <dinis.cruz@owasp.org>"]
+license     = "Apache 2.0"
+readme      = "README.md"
+homepage    = "https://github.com/the-cyber-boardroom/MGraph-AI__Service__Html"
+repository  = "https://github.com/the-cyber-boardroom/MGraph-AI__Service__Html"
+
+packages    = [
+    { include = "mgraph_ai_service_html" },
+    { include = "mgraph_ai_service_html__admin_ui" }
+]
+[tool.poetry.dependencies]
+python                     = "^3.12"
+osbot-fast-api-serverless  = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

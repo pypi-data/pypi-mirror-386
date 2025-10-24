@@ -1,0 +1,106 @@
+.output-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.output-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.output-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.output-content {
+    min-height: 300px;
+    max-height: 600px;
+    overflow-y: auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background: #f9f9f9;
+}
+
+.empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: #999;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.error-state {
+    color: #ef4444;
+    padding: 20px;
+    background: #fee2e2;
+    border-radius: 5px;
+    border-left: 4px solid #ef4444;
+}
+
+.error-state h4 {
+    margin: 0 0 10px 0;
+}
+
+/* JSON formatting */
+.json-output {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.json-key {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+.json-string {
+    color: #008000;
+}
+
+.json-number {
+    color: #0000ff;
+}
+
+.json-boolean {
+    color: #cc00cc;
+    font-weight: bold;
+}
+
+/* HTML formatting */
+.html-output {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* Text formatting */
+.text-output {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
