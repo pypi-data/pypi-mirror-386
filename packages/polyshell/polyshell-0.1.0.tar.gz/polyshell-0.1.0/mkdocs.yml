@@ -1,0 +1,108 @@
+site_name: PolyShell
+
+theme:
+  name: material
+
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.expand
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    - toc.follow
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.blocks.caption
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+nav:
+  - Introduction:
+      - index.md
+  - User guide:
+      - user-guide/index.md
+      - Installation: user-guide/installation.md
+      - Features: user-guide/features.md
+      - Axioms: user-guide/axioms.md
+      - Getting help: user-guide/getting-help.md
+  - Reference:
+      - reference/index.md
+      - Algorithms:
+          - Visvalingam-Whyatt: reference/algorithms/visvalingam-whyatt.md
+          - Ramer-Douglas-Peucker: reference/algorithms/ramer-douglas-peucker.md
+          - Charshape: reference/algorithms/charshape.md
+      - Benchmarks: reference/benchmarks.md
+
+plugins:
+  - search
+  - termynal:
+      prompt_literal_start:
+        - "$"
+        - ">"
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+repo_url: https://github.com/ecmwf/PolyShell
+repo_name: polyshell
+site_author: nialloswald
+site_url: https://ecmwf.github.io/PolyShell/
+site_description: A high-performance coverage-preserving polygon reduction library for Python, written in Rust.
