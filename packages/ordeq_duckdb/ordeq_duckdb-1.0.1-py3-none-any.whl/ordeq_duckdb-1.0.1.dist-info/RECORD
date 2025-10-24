@@ -1,0 +1,12 @@
+ordeq_duckdb/__init__.py,sha256=4yaUx8-FiYcvYpbYNBQpZuAVCWxllN1nwZqmY4A9bBk,250
+ordeq_duckdb/_version.py,sha256=JvmBpae6cHui8lSCsCcZQAxzawN2NERHGsr-rIUeJMo,704
+ordeq_duckdb/connection.py,sha256=ygsGTlKtTsBBqYpUN1z5m5mAEwiy7aHhWY7w19W5zh0,600
+ordeq_duckdb/csv.py,sha256=aKp_V7IHTMgBTl8Vlc9iDRW4t890Unf6oTvo7GZpBYU,1796
+ordeq_duckdb/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ordeq_duckdb/table.py,sha256=x1MgOyZKil9pW3L9JEZe4hgiVRbDZSvjhyn0waqcFpU,2992
+ordeq_duckdb/view.py,sha256=m5lTi99ArNH6ukZgOHl_pZbRs5GP3fe7E2yMl1U8ABA,2579
+ordeq_duckdb-1.0.1.dist-info/licenses/LICENSE,sha256=LadOb_B26Y5UdU3Acv4N2G2_PEkDfBITjHkSQX4T5wU,1058
+ordeq_duckdb-1.0.1.dist-info/METADATA,sha256=UwI7U-acIt_CngYIl2Rh3kH4gs0yymDtJW3rVMF157o,9213
+ordeq_duckdb-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ordeq_duckdb-1.0.1.dist-info/top_level.txt,sha256=rc1LOOtnL8G4vPiLnWbkg9vfthZUclvg9jQlWuofRGk,13
+ordeq_duckdb-1.0.1.dist-info/RECORD,,
