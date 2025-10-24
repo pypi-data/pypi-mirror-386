@@ -1,0 +1,14 @@
+LICENSE
+pyproject.toml
+src/universal_api_connector/__init__.py
+src/universal_api_connector/connector.py
+src/universal_api_connector/exceptions.py
+src/universal_api_connector/utils/__init__.py
+src/universal_api_connector/utils/logger.py
+src/universal_api_connector/utils/validators.py
+src/universal_api_connector_v2.egg-info/PKG-INFO
+src/universal_api_connector_v2.egg-info/SOURCES.txt
+src/universal_api_connector_v2.egg-info/dependency_links.txt
+src/universal_api_connector_v2.egg-info/requires.txt
+src/universal_api_connector_v2.egg-info/top_level.txt
+tests/test_connector.py
