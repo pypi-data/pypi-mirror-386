@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t('spaces.title') }}{% endblock %}
+
+{% block content %}
+<div class="fade-in-up">
+    <!-- Заголовок страницы с кнопками -->
+    <div class="header-section mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2 text-gradient mb-0">
+                <i class="bi bi-grid-3x3 me-2"></i>{{ t('spaces.title') }}
+                {% if spaces_data.total_spaces %}
+                <span class="badge bg-primary ms-2">{{ spaces_data.total_spaces }}</span>
+                {% endif %}
+            </h1>
+            <div class="header-actions">
+                <button type="button" class="btn btn-outline-primary" onclick="refreshSpaces()">
+                    <i class="bi bi-arrow-clockwise me-1"></i>{{ t('dashboard.refresh') }}
+                </button>
+            </div>
+        </div>
+        
+        <!-- Фильтры и поиск -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-funnel me-2"></i>
+                <span>Filters & Search</span>
+            </div>
+            <div class="card-body">
+                <form method="GET" id="filtersForm" class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label class="form-label">{{ t('forms.search') }}</label>
+                        <div class="search-box">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" 
+                                   class="form-control" 
+                                   name="search" 
+                                   value="{{ search }}"
+                                   placeholder="{{ t('spaces.search_placeholder', default='Search spaces...') }}">
+                        </div>
+                        <input type="hidden" name="limit" value="{{ limit }}">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">{{ t('pagination.rows_per_page') }}</label>
+                        <select class="form-select" onchange="changeLimit(this.value)">
+                            <option value="10" {% if limit == 10 %}selected{% endif %}>10</option>
+                            <option value="25" {% if limit == 25 %}selected{% endif %}>25</option>
+                            <option value="50" {% if limit == 50 %}selected{% endif %}>50</option>
+                            <option value="100" {% if limit == 100 %}selected{% endif %}>100</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search me-1"></i>{{ t('forms.search') }}
+                        </button>
+                        {% if search %}
+                        <a href="{{ url_for('spaces.spaces') }}" class="btn btn-outline-secondary ms-2">
+                            <i class="bi bi-x-circle me-1"></i>{{ t('forms.clear') }}
+                        </a>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Список пространств в виде карточек -->
+    {% if spaces_data.rooms %}
+    <div class="spaces-grid">
+        {% for space in spaces_data.rooms %}
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <div class="user-avatar me-3">
+                    {% if space.avatar_url %}
+                    <img src="{{ space.avatar_url }}" class="avatar-image" alt="Space Avatar">
+                    {% else %}
+                    <div class="avatar-circle">
+                        <i class="bi bi-grid-3x3-gap-fill"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="flex-grow-1" style="min-width: 0;">
+                    <div class="fw-semibold text-truncate">{{ space.name or space.canonical_alias or 'Unnamed Space' }}</div>
+                    <div class="text-muted small text-truncate">{{ space.room_id }}</div>
+                </div>
+                <div class="d-flex flex-column align-items-end gap-1 flex-shrink-0">
+                    {% if space.public %}
+                    <span class="badge bg-success"><i class="bi bi-globe"></i> Public</span>
+                    {% else %}
+                    <span class="badge bg-warning"><i class="bi bi-lock"></i> Private</span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="card-body">
+                {% if space.topic %}
+                <div class="mb-2 text-muted small" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                    <i class="bi bi-info-circle"></i> {{ space.topic }}
+                </div>
+                {% endif %}
+                
+                {% if space.creation_ts %}
+                <div class="mb-2 text-muted small">
+                    <i class="bi bi-calendar-plus"></i> {{ space.creation_ts | datetime_format }}
+                </div>
+                {% endif %}
+                
+                <div class="row g-2 mt-2">
+                    <div class="col-6">
+                        <div class="text-muted small">
+                            <i class="bi bi-people me-1"></i>
+                            <strong>{{ space.joined_members or 0 }}</strong> members
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-muted small">
+                            <i class="bi bi-diagram-3 me-1"></i>
+                            <strong>{{ space.children_count or 0 }}</strong> children
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-footer d-flex gap-2 justify-content-end">
+                <button type="button" 
+                        class="btn btn-outline-primary btn-sm" 
+                        onclick="viewSpace('{{ space.room_id }}')"
+                        title="{{ t('spaces.view_space') }}">
+                    <i class="bi bi-eye me-1"></i>View
+                </button>
+                <button type="button" 
+                        class="btn btn-outline-info btn-sm" 
+                        onclick="viewHierarchy('{{ space.room_id }}')"
+                        title="{{ t('spaces.hierarchy') }}">
+                    <i class="bi bi-diagram-3 me-1"></i>Hierarchy
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <div class="empty-icon">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+        </div>
+        <h5>{{ t('spaces.no_spaces', default='No spaces found') }}</h5>
+        {% if search %}
+        <p>{{ t('messages.try_different_search') }}</p>
+        <a href="{{ url_for('spaces.spaces') }}" class="btn btn-outline-primary">
+            {{ t('forms.show_all') }}
+        </a>
+        {% else %}
+        <p>{{ t('spaces.create_first', default='Create the first space to organize rooms') }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <!-- Пагинация -->
+    {% if total > 0 %}
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <div class="pagination-text">
+            {{ t('pagination.showing') }} 
+            {{ ((current_page - 1) * limit + 1) if total > 0 else 0 }} - 
+            {{ (current_page * limit) if (current_page * limit) < total else total }} 
+            {{ t('pagination.of') }} {{ total }} {{ t('pagination.entries') }}
+        </div>
+        
+        {% if total_pages > 1 %}
+        <nav aria-label="Spaces pagination">
+            <ul class="pagination mb-0">
+                {% if current_page > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPage(1)">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPagePrev()">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% set start_page = [1, current_page - 2] | max %}
+                {% set end_page = [total_pages, current_page + 2] | min %}
+                
+                {% if start_page > 1 %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+                {% endif %}
+                
+                {% for page_num in range(start_page, end_page + 1) %}
+                <li class="page-item {% if page_num == current_page %}active{% endif %}">
+                    <a class="page-link" href="#" onclick="goToPage({{ page_num }})">
+                        {{ page_num }}
+                    </a>
+                </li>
+                {% endfor %}
+                
+                {% if end_page < total_pages %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+                {% endif %}
+                
+                {% if current_page < total_pages %}
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPageNext()">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPageLast()">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Модальное окно просмотра пространства -->
+<div class="modal fade" id="spaceViewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h5 class="modal-title text-gradient">
+                    <i class="bi bi-grid-3x3 me-2"></i>{{ t('spaces.view_space') }}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="spaceViewContent">
+                <div class="text-center py-3">
+                    <div class="loading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно иерархии пространства -->
+<div class="modal fade" id="hierarchyModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h5 class="modal-title text-gradient">
+                    <i class="bi bi-diagram-3 me-2"></i>{{ t('spaces.space_hierarchy') }}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="hierarchyContent">
+                <div class="text-center py-3">
+                    <div class="loading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let currentSpaceId = null;
+
+function refreshSpaces() {
+    window.location.reload();
+}
+
+function viewSpace(spaceId) {
+    currentSpaceId = spaceId;
+    const modal = new bootstrap.Modal(document.getElementById('spaceViewModal'));
+    
+    // Показываем модальное окно с загрузкой
+    document.getElementById('spaceViewContent').innerHTML = 
+        '<div class="text-center py-3"><div class="loading"></div></div>';
+    modal.show();
+    
+    // Загружаем данные пространства
+    fetch('/api/spaces/' + spaceId + '/details')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displaySpaceDetails(data.space);
+            } else {
+                document.getElementById('spaceViewContent').innerHTML = 
+                    '<div class="alert alert-danger">Error: ' + data.error + '</div>';
+            }
+        })
+        .catch(error => {
+            document.getElementById('spaceViewContent').innerHTML = 
+                '<div class="alert alert-danger">Network error</div>';
+        });
+}
+
+function displaySpaceDetails(space) {
+    const content = 
+        '<div class="row">' +
+            '<div class="col-md-6">' +
+                '<div class="info-card">' +
+                    '<h6 class="text-gradient">Space Information</h6>' +
+                    '<div class="info-row">' +
+                        '<span class="info-label">Name:</span>' +
+                        '<span class="info-value">' + (space.name || 'Not specified') + '</span>' +
+                    '</div>' +
+                    '<div class="info-row">' +
+                        '<span class="info-label">Description:</span>' +
+                        '<span class="info-value">' + (space.topic || 'Not specified') + '</span>' +
+                    '</div>' +
+                    '<div class="info-row">' +
+                        '<span class="info-label">Space ID:</span>' +
+                        '<code class="info-code">' + space.room_id + '</code>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-6">' +
+                '<div class="info-card">' +
+                    '<h6 class="text-gradient">Statistics</h6>' +
+                    '<div class="info-row">' +
+                        '<span class="info-label">Child Rooms:</span>' +
+                        '<span class="badge bg-info">' + (space.children ? space.children.length : 0) + '</span>' +
+                    '</div>' +
+                    '<div class="info-row">' +
+                        '<span class="info-label">Created:</span>' +
+                        '<span class="info-value">' + (space.creation_ts ? new Date(space.creation_ts).toLocaleString() : 'Unknown') + '</span>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    
+    let finalContent = content;
+    
+    if (space.children && space.children.length > 0) {
+        finalContent += 
+            '<hr class="my-4">' +
+            '<div class="info-card">' +
+                '<h6 class="text-gradient">Child Rooms</h6>' +
+                '<div class="children-list">';
+        
+        space.children.forEach(child => {
+            finalContent += 
+                '<div class="child-item">' +
+                    '<i class="bi bi-house-door me-2"></i>' +
+                    '<code>' + child.room_id + '</code>' +
+                '</div>';
+        });
+        
+        finalContent += '</div></div>';
+    }
+    
+    document.getElementById('spaceViewContent').innerHTML = finalContent;
+}
+
+function viewHierarchy(spaceId) {
+    const modal = new bootstrap.Modal(document.getElementById('hierarchyModal'));
+    
+    // Показываем модальное окно с загрузкой
+    document.getElementById('hierarchyContent').innerHTML = 
+        '<div class="text-center py-3"><div class="loading"></div></div>';
+    modal.show();
+    
+    // Загружаем иерархию
+    fetch('/api/spaces/' + spaceId + '/hierarchy')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displayHierarchy(data.hierarchy);
+            } else {
+                document.getElementById('hierarchyContent').innerHTML = 
+                    '<div class="alert alert-danger">Error: ' + data.error + '</div>';
+            }
+        })
+        .catch(error => {
+            document.getElementById('hierarchyContent').innerHTML = 
+                '<div class="alert alert-danger">Network error</div>';
+        });
+}
+
+function displayHierarchy(hierarchy) {
+    let content = '<div class="hierarchy-tree">';
+    
+    if (hierarchy.rooms && hierarchy.rooms.length > 0) {
+        hierarchy.rooms.forEach(room => {
+            const isSpace = room.room_type === 'm.space';
+            const icon = isSpace ? 'bi-grid-3x3' : 'bi-house-door';
+            const badgeClass = isSpace ? 'bg-info' : 'bg-primary';
+            
+            content += 
+                '<div class="hierarchy-item">' +
+                    '<div class="hierarchy-icon">' +
+                        '<i class="bi ' + icon + '"></i>' +
+                    '</div>' +
+                    '<div class="hierarchy-content">' +
+                        '<div class="hierarchy-name">' + (room.name || room.canonical_alias || room.room_id) + '</div>' +
+                        '<div class="hierarchy-id">' + room.room_id + '</div>' +
+                    '</div>' +
+                    '<span class="badge ' + badgeClass + '">' + (isSpace ? 'Space' : 'Room') + '</span>' +
+                '</div>';
+        });
+    } else {
+        content += '<div class="empty-hierarchy">Empty hierarchy</div>';
+    }
+    
+    content += '</div>';
+    
+    document.getElementById('hierarchyContent').innerHTML = content;
+}
+
+function editSpace(spaceId) {
+    // Переход на страницу редактирования
+    window.location.href = '/spaces/' + spaceId + '/edit';
+}
+
+function changeLimit(newLimit) {
+    const params = new URLSearchParams(window.location.search);
+    params.set('limit', newLimit);
+    params.set('page', '1'); // Reset to first page
+    window.location.search = params.toString();
+}
+
+// Pagination functions
+function goToPage(page) {
+    const url = new URL(window.location);
+    url.searchParams.set('page', page);
+    window.location.href = url.toString();
+}
+
+function goToPagePrev() {
+    const currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+    if (currentPage > 1) {
+        goToPage(currentPage - 1);
+    }
+}
+
+function goToPageNext() {
+    const currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+    const totalPages = {{ total_pages }};
+    if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+    }
+}
+
+function goToPageLast() {
+    const totalPages = {{ total_pages }};
+    goToPage(totalPages);
+}
+</script>
+{% endblock %} 
