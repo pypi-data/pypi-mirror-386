@@ -1,0 +1,15 @@
+Metadata-Version: 2.3
+Name: tee-logfile
+Version: 0.3.3
+Summary: A simple utility to tee stdout and stderr to a logfile.
+Author: cy
+Requires-Python: >=3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Repository, https://github.com/firstim21cy/tee-logfile
+Description-Content-Type: text/markdown
+
+
