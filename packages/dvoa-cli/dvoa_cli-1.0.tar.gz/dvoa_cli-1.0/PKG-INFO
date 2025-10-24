@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: dvoa-cli
+Version: 1.0
+Summary: VOA CLI Tool : Just a frontend of VOA API https://gthub.com/senani-derradji/VOA
+Author: Derradji Senani
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.0
+Requires-Dist: python-dotenv
+Requires-Dist: redis
+
+# VOA CLI
+
+A powerful DevOps command-line tool built by **Derradji Senani**.  
+Manage users, secrets, tokens, and database backups easily from your terminal.
+it depends on https://github.com/senani-derradji/VOA 
+
+## Installation
+
+pip install voa-cli
+
+## Usage
+
+voa --help
+voa login
+voa secrets list
+voa users list
+voa tokens --all-tokens
+voa backup --path ./backups
+
+## Features
+
+- User & Secret Management  
+- Token Inspection & Revocation  
+- Database Backup Utility  
+- Redis & FastAPI Integration  
+
+## Author
+
+Derradji Senani
