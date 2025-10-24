@@ -1,0 +1,36 @@
+[project]
+name = "pyramid_wtforms"
+dynamic = ["version"]
+authors = [
+    { name="PyLabs", email="contact@pylabs.org" },
+]
+description = "pyramid_wtforms provides bindings for the Pyramid web framework to the WTForms library."
+dependencies = [
+    "pyramid >=2.0.0, <3.0.0",
+    "WTForms >=3.0.0, <4.0.0",
+    "MarkupSafe >=3.0.0, <4.0.0"
+]
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Framework :: Pyramid"
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/pylabs/pyramid_wtforms"
+Issues = "https://github.com/pylabs/pyramid_wtforms/issues"
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/pyramid_wtforms/__about__.py"
+
+[dependency-groups]
+test = ["pytest"]
