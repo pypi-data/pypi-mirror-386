@@ -1,0 +1,24 @@
+[build-system]
+requires = ["uv_build>=0.9.5,<0.10.0"]
+build-backend = "uv_build"
+
+[project]
+name = "openph"
+version = "0.1.01"
+description = "OpenPH - Open-source Passive House energy modeling and calculation engine"
+authors = [{ name = "PH-Tools", email = "none@none.com" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "phx",
+    "ph-units",
+    "honeybee_ph",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.2",
+    "openpyxl>=3.1.5",
+    "rich>=14.2.0",
+]
