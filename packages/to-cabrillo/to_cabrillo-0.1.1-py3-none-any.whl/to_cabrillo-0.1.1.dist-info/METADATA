@@ -1,0 +1,170 @@
+Metadata-Version: 2.4
+Name: to_cabrillo
+Version: 0.1.1
+Summary: A simple script that generate cabrillo files from an adif.
+Author-email: "Fred C." <w6bsd@bsdworld.org>
+License: BSD 2-Clause License
+        
+        Copyright (c) 2025, Fred Cirera
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Documentation, https://github.com/0x9900/to_cabrillo/
+Project-URL: Source, https://github.com/0x9900/to_cabrillo
+Project-URL: Tracker, https://github.com/0x9900/to_cabrillo/issues
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: adif_parser>0.1.0
+Requires-Dist: jinja2
+Requires-Dist: toml
+Provides-Extra: dev
+Requires-Dist: build; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: ipdb; extra == "dev"
+Requires-Dist: ipython; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: pylint; extra == "dev"
+Dynamic: license-file
+
+# to_cabrillo
+
+Convert ADIF log files to Cabrillo contest format for amateur radio contest submissions.
+
+## Overview
+
+`to_cabrillo` is a Python utility that reads Amateur Data Interchange Format (ADIF) log files and generates Cabrillo format files suitable for submitting contest logs.
+
+## Features
+
+- Reads standard ADIF log files
+- Generates properly formatted Cabrillo v3.0 files
+- Supports various contest types
+- Handles multiple bands and modes
+- Validates QSO data during conversion
+- Command-line interface
+
+## Installation
+
+### From PyPI
+
+```bash
+pip install to_cabrillo
+```
+
+### From Source
+
+```bash
+git clone https://github.com/0x9900/to_cabrillo.git
+cd to_cabrillo
+pip install .
+```
+
+## Usage
+
+### Basic Usage
+
+```bash
+to_cabrillo -a CSSB2025.adi -c - --config ./contest-template.toml
+
+START-OF-LOG: 3.0
+CONTEST: CQ-WW-SSB
+CALLSIGN: W6BSD
+LOCATION: SCV
+CATEGORY-OPERATOR: SINGLE-OP
+CATEGORY-TRANSMITTER: ONE
+CATEGORY-BAND: ALL
+CATEGORY-POWER: LOW
+CATEGORY-MODE: SSB
+CATEGORY-ASSISTED: NON-ASSISTED
+CATEGORY-STATION: FIXED
+CATEGORY-OVERLAY: CLASSIC
+EMAIL: f4wfx@bsdworld.org
+NAME: Fred C.
+SOAPBOX: RTTY contests are the best
+
+QSO:  3730 PH 2025-02-22 0600 W6BSD  599    1 F8GAF    599  71 0
+QSO:  3730 PH 2025-02-22 0600 W6BSD  599    2 F5TYQ    599  59 0
+QSO:  3730 PH 2025-02-22 0600 W6BSD  599    3 PE1EWR   599   1 0
+QSO:  3730 PH 2025-02-22 0601 W6BSD  599    4 F4KJN    599  46 0
+QSO:  3730 PH 2025-02-22 0601 W6BSD  599    5 F8CRS    599  67 0
+QSO:  3730 PH 2025-02-22 0601 W6BSD  599    6 TM3P     599  38 0
+QSO:  3730 PH 2025-02-22 0601 W6BSD  599    7 F4GOP    599  61 0
+QSO:  3730 PH 2025-02-22 0601 W6BSD  599    8 SE4E     599   2 0
+END-OF-LOG:
+```
+
+### Command Line Options
+
+```bash
+usage: to_cabrillo [-h] [--config CONFIG] -a ADIF_FILE -c CABRILLO_FILE
+
+ADIF to Cabrillo
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       Configuration file (default: config.toml)
+  -a ADIF_FILE, --adif-file ADIF_FILE
+                        Adif filename
+  -c CABRILLO_FILE, --cabrillo-file CABRILLO_FILE
+                        Cabrillo filename (output)
+```
+
+## Requirements
+
+- Python 3.12 or higher
+- Standard Python libraries (no external dependencies)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
+
+## License
+
+This project is licensed under the BSD 2-Clause License. See the LICENSE file for details.
+
+## Author
+
+Fred C. (0x9900)
+
+## Resources
+
+- [Cabrillo Format Specification](https://wwrof.org/cabrillo/)
+- [ADIF Specification](https://adif.org/)
+- [CQ World Wide Contest Information](https://cqww.com)
+
+## Support
+
+For issues, questions, or suggestions, please open an issue on the [GitHub repository](https://github.com/0x9900/to_cabrillo/issues).
+
+---
+
+**73 de 0x9900** 📻
