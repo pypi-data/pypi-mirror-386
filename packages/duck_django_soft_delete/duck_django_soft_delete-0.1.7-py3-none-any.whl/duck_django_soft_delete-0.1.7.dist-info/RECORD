@@ -1,0 +1,11 @@
+duck_django_soft_delete/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+duck_django_soft_delete/admin/__init__.py,sha256=GlBpSMUAmYKO0nZhyvVBu5DN9SFczHE48keX-6mU4A4,235
+duck_django_soft_delete/admin/soft_delete_admin.py,sha256=M3LoMRKvWJNyfUPh80FGMrzbnW2gg4fHFX4GYci8D0c,1176
+duck_django_soft_delete/admin/soft_deleted_at_filter.py,sha256=naGHEVi263wMaDoYcmG5UHoCcSW1eWR3UUSphHpdICc,554
+duck_django_soft_delete/queryset/__init__.py,sha256=mgkQpECmjEhaNolX4IY78gKZ1LAOBQsz3dOP6RnyPkQ,149
+duck_django_soft_delete/queryset/non_soft_deleted_query_set.py,sha256=RM9-kM-gTRUsdPkje7EwmOv3q3UGIznQpgYt8G84rgs,203
+duck_django_soft_delete/table/__init__.py,sha256=NTPk199C02neA8brvI2bjG9WsatKHA9Xwp2FIKevOr0,114
+duck_django_soft_delete/table/soft_delete_table.py,sha256=COMn9FalX2cVqMUMPtLoAcURGAxQuIf9BQOualX7Hwg,2151
+duck_django_soft_delete-0.1.7.dist-info/METADATA,sha256=__A2VRlOqjyKwpQ4j5wsQS2Pw7YX9GD4tspIzLYxRv8,6400
+duck_django_soft_delete-0.1.7.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+duck_django_soft_delete-0.1.7.dist-info/RECORD,,
