@@ -1,0 +1,11 @@
+taskpanel/__init__.py,sha256=pVp9fJ3zgAuaVDp9G0o7Kcti9DOLex0kyAKJOy1odqg,469
+taskpanel/cli.py,sha256=RGyluCL-sQ4Bhj5OY3Y5H_4ucdZotDyJAb3TygZV7qw,5618
+taskpanel/model.py,sha256=2t-9eyzd2QDsu6Tys7vDou3WGn6T4z_j4F2iE86t-dE,26001
+taskpanel/runner.py,sha256=Qp9wpr8hPlpZHDEGHhTSniTu2mE3GOJhyIS442_DB0k,15887
+taskpanel/view.py,sha256=oKpOUSFX1UJUUZbROVCsC6C8v9Q86_QhsIZh2ziEQrs,21040
+taskpanel-1.0.2.dist-info/LICENSE,sha256=ZtLCjMgvqHKLG3B4DCxWewCCSOtjv7UkhuBzqgLoBKs,1063
+taskpanel-1.0.2.dist-info/METADATA,sha256=DEPo9WOt6L5T4N6hTYKSGIYrMHXFHuFuxCCW77Z8rvY,9013
+taskpanel-1.0.2.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+taskpanel-1.0.2.dist-info/entry_points.txt,sha256=eeylLUrJuHvHOeRw9JPMzOTYtrcvRzDyxzcA2Hly9Sg,50
+taskpanel-1.0.2.dist-info/top_level.txt,sha256=KaF6SJtYBKe9rfcsVrp_9I0j0wrlxNDV9NR47oIX07c,10
+taskpanel-1.0.2.dist-info/RECORD,,
