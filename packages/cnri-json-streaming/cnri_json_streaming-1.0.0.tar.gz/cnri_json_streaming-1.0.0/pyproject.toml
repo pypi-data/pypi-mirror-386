@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cnri-json-streaming"
+version = "1.0.0"
+authors = [
+    { name = "CNRI", email = "support@cordra.org" }
+]
+description = "Streaming JSON parser"
+readme = "README.md"
+license-files = [ "LICENSE.txt" ]
+requires-python = ">=3.12"
+keywords = [
+    "json",
+    "parse",
+    "parser",
+    "streaming"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+    "Topic :: File Formats :: JSON"
+]
+
+dependencies = [
+    "ijson~=3.3"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest~=8.2"
+]
+docs = [
+    "myst_parser~=4.0",
+    "sphinx~=8.2",
+    "sphinx-autobuild~=2025.8",
+    "sphinx_rtd_theme~=3.0"
+]
+
+[project.urls]
+"homepage" = "https://www.cordra.org"
+"source" = "https://gitlab.com/cnri/cnri-json-streaming-python"
+"documentation" = "https://www.cordra.org/doip/cnri-json-streaming-python/api-docs/index.html"
+
+[tool.black]
+line-length = 120
+
+[tool.hatch.build.targets.sdist]
+only-include = [ "src", "tests", "docs" ]
+
+[tool.pytest.ini_options]
+pythonpath = "src"
