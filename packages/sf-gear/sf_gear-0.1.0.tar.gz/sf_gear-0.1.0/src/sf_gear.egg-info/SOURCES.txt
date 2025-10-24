@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/sf_gear.egg-info/PKG-INFO
+src/sf_gear.egg-info/SOURCES.txt
+src/sf_gear.egg-info/dependency_links.txt
+src/sf_gear.egg-info/top_level.txt
+src/sfgear/__init__.py
+src/sfgear/utils.py
+src/sfgear/cli/__init__.py
+src/sfgear/cli/data.py
+src/sfgear/cli/org.py
