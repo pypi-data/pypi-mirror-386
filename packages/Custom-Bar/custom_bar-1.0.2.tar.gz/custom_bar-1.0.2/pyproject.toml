@@ -1,0 +1,14 @@
+[project]
+name = "Custom_Bar"  # nom unique sur PyPI, pas juste "mon_module"
+version = "1.0.2"
+description = "A module for custom loading bar"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+
+authors = [
+  { name="Grivy16", email="grivy16public@gmail.com" }
+]
+
+[project.urls]
+Homepage = "https://github.com/Grivy16/Python-Loading-bar"
