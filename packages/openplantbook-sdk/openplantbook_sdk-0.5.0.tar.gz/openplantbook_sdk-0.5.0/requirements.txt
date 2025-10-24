@@ -1,0 +1,8 @@
+aiohttp
+json_timeseries
+numpy
+pandas
+PyYAML
+tabulate
+coverage
+pytest
