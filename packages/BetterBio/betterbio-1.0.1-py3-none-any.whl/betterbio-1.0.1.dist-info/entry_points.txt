@@ -1,0 +1,2 @@
+[console_scripts]
+betterbio = src.main:main
