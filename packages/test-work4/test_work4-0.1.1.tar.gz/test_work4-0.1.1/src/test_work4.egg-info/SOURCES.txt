@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/test_work4/__init__.py
+src/test_work4/utils.py
+src/test_work4.egg-info/PKG-INFO
+src/test_work4.egg-info/SOURCES.txt
+src/test_work4.egg-info/dependency_links.txt
+src/test_work4.egg-info/requires.txt
+src/test_work4.egg-info/top_level.txt
+src/test_work4/server/mcp/__init__.py
+src/test_work4/server/mcp/prompt.py
+src/test_work4/server/router/__init__.py
+src/test_work4/server/router/prompt.py
+tests/test_main.py
