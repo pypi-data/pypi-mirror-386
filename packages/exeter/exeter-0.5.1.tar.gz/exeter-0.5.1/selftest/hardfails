@@ -1,0 +1,14 @@
+#! /bin/sh
+# SPDX-License-Identifier: MIT
+#
+# Copyright Red Hat
+# Author: David Gibson <david@gibson.dropbear.id.au>
+#
+# selftest/hardfails - Check for hard failures (status code 99)
+
+"$@"
+CODE="$?"
+if [ "$CODE" != 99 ]; then
+    echo "Expected exit code 99 instead of $CODE from: $@" >&2
+    exit 1
+fi

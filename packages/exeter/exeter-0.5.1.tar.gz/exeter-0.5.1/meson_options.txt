@@ -1,0 +1,4 @@
+option('build_c', type: 'boolean', value: true, description: 'Build C components')
+option('build_shell', type: 'boolean', value: true, description: 'Build shell components')
+option('build_python', type: 'boolean', value: true, description: 'Build Python components')
+option('build_rust', type: 'boolean', value: true, description: 'Build Rust components')

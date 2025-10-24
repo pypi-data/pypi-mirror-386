@@ -1,0 +1,6 @@
+exit_fail
+assert_fail
+panic_fail
+unreachable_fail
+zero_divide_fail
+abort_fail

@@ -1,0 +1,6 @@
+exit_fail
+assert_fail
+exception_fail
+alias_fail
+pass_if_false
+True;not;pass_if

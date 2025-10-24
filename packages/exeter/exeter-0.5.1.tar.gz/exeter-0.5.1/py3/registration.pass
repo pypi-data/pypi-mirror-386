@@ -1,0 +1,11 @@
+register_returns_testcase
+register_pipe_returns_testcase
+desc_single_line
+desc_first_line_only
+desc_strips_whitespace
+desc_format_positional
+desc_format_keyword
+desc_format_pos_arg_named_spec
+desc_format_kwarg_pos_spec
+desc_format_mixed
+desc_format_invalid

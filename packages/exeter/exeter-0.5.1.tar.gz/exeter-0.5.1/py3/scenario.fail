@@ -1,0 +1,17 @@
+setup_false;;SimpleScenario.pass_if
+setup_true;;SimpleScenario.fail_if
+setup_ft;;CompoundScenario.is_equal
+setup_tf;;CompoundScenario.is_equal
+setup_ff;;CompoundScenario.test_val1;;SimpleScenario.pass_if
+setup_ff;;CompoundScenario.test_val2;;SimpleScenario.pass_if
+setup_ft;;CompoundScenario.test_val1;;SimpleScenario.pass_if
+setup_ft;;CompoundScenario.test_val2;;SimpleScenario.fail_if
+setup_tf;;CompoundScenario.test_val1;;SimpleScenario.fail_if
+setup_tf;;CompoundScenario.test_val2;;SimpleScenario.pass_if
+setup_tt;;CompoundScenario.test_val1;;SimpleScenario.fail_if
+setup_tt;;CompoundScenario.test_val2;;SimpleScenario.fail_if
+outer_scenario_function..local_scenario_setup;;SimpleScenario.fail_if
+explicit_negative;;ParameterizedScenario.check_positive
+explicit_zero;;ParameterizedScenario.check_positive
+explicit_false_msg;;SimpleScenario.pass_if
+explicit_true_msg;;SimpleScenario.fail_if

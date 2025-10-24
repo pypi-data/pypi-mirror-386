@@ -1,0 +1,14 @@
+#! /bin/sh
+# SPDX-License-Identifier: MIT
+#
+# Copyright Red Hat
+# Author: David Gibson <david@gibson.dropbear.id.au>
+#
+# selftest/skips - Check for skip (status code 77)
+
+"$@"
+CODE="$?"
+if [ "$CODE" != 77 ]; then
+    echo "Expected exit code 77 instead of $CODE from: $@" >&2
+    exit 1
+fi

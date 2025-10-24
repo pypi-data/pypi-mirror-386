@@ -1,0 +1,5 @@
+exit_fail
+assert_fail
+abort_fail
+kill_fail
+null_deref_fail

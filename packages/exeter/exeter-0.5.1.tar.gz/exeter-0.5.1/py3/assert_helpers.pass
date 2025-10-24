@@ -1,0 +1,5 @@
+assert_raises
+assert_raises_no_exc
+assert_raises_wrong_exc
+assert_eq
+assert_eq_neq

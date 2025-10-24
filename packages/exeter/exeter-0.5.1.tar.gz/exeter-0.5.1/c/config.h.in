@@ -1,0 +1,23 @@
+/* SPDX-License-Identifier: MIT */
+/*
+ * Copyright Red Hat
+ * Author: David Gibson <david@gibson.dropbear.id.au>
+ */
+
+#ifndef _CONFIG_H
+#define _CONFIG_H 1
+
+/* C11 _Noreturn support */
+#mesondefine HAS_C11_NORETURN
+
+/* GCC/Clang __attribute__((noreturn)) support */
+#mesondefine HAS_GNU_NORETURN
+
+/* Define _Noreturn for compatibility */
+#if !defined(HAS_C11_NORETURN) && defined(HAS_GNU_NORETURN)
+#define _Noreturn __attribute__((noreturn))
+#elif !defined(HAS_C11_NORETURN)
+#define _Noreturn
+#endif
+
+#endif /* _CONFIG_H */

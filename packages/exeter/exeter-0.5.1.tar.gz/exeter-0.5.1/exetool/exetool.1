@@ -1,0 +1,130 @@
+.TH EXETOOL 1 "2025-08-19" "exeter" "User Commands"
+.SH NAME
+exetool \- tool for working with exeter test programs
+.SH SYNOPSIS
+.B exetool
+[\fIOPTION\fR]... \fICOMMAND\fR [\fB\-\-\fR \fIEXETER_PROGRAM...\fR [\fB\-\-\fR \fITEST\fR...]]
+.SH DESCRIPTION
+.B exetool
+is a utility for working with exeter test programs. It provides
+commands to list and manage tests written using the exeter testing
+framework.
+
+The exeter framework allows writing test programs in multiple languages
+(Python, C, shell) that can be executed by external test runners like
+Avocado or Meson.
+
+The command line is divided into several parts separated by \fB\-\-\fR:
+
+First, exetool options and subcommand. Further arguments include exeter
+programs to invoke and sometimes specific test ids.
+.SH OPTIONS
+.TP
+.B \-\-version
+Show program version and exit.
+.TP
+.B \-h, \-\-help
+Show help message and exit.
+.SH COMMANDS
+.TP
+.B probe
+Check if the given command is an exeter test program. Returns 0 if
+the command supports the exeter protocol, non-zero otherwise. Produces
+no output on success, making it suitable for use in scripts.
+.TP
+.B list
+List available tests in the specified exeter test program. If test
+identifiers are provided after the second \fB\-\-\fR, lists only those
+specific tests.
+.TP
+.B metadata [\fB\-f\fR \fIFORMAT\fR]
+Show metadata for specified tests or all tests in the exeter test program.
+If no test IDs are provided after the second \fB\-\-\fR separator, shows
+metadata for all tests. If one or more test IDs are provided, shows metadata
+only for those tests. Outputs metadata as JSON by default.
+.RS
+.TP
+.B \-f, \-\-format \fIFORMAT\fR
+Output format. Currently only "json" is supported (default: json).
+.RE
+.TP
+.B description
+Extract the description from a test's metadata in the exeter test program.
+The test ID is provided after the second \fB\-\-\fR separator.
+If no description metadata is available, outputs the test ID instead.
+.TP
+.B avocado
+Generate JSON job file for Avocado runner from exeter test program.
+The job file can be consumed by the Avocado testing framework (v107
+and later).
+.TP
+.B bats
+Generate BATS script to run each test in the exeter test program.
+Creates a BATS-compatible test file with @test blocks for each
+discovered test.
+.SH TEST IDENTIFICATION
+Tests in exeter programs are identified using alphanumeric strings that
+may contain dots, semicolons, and underscores. Examples:
+.PP
+.nf
+    simple.test
+    module.subtest
+    scenario_1
+    complex.test.case_a
+.fi
+.SH EXAMPLES
+.TP
+.B exetool \-\-version
+Show the version of exetool
+.TP
+.B exetool list \-\- python3 my_tests.py
+List all tests in the Python test program my_tests.py
+.TP
+.B exetool list \-\- ./compiled_test \-\- test.basic test.advanced
+List specific tests "test.basic" and "test.advanced" from compiled_test
+.TP
+.B exetool list \-\- sh test_script.sh \-\- test1 test2 test3
+List tests "test1", "test2", and "test3" from in the shell test program test_script.sh
+.TP
+.B exetool list \-\- my_tests.py
+List all tests in my_tests.py (which must be executable)
+.TP
+.B exetool metadata \-\- python3 my_tests.py
+Show metadata for all tests in the Python test program (as JSON)
+.TP
+.B exetool metadata \-\- python3 my_tests.py \-\- test.basic
+Show metadata for the test "test.basic" in the Python test program
+.TP
+.B exetool metadata \-\- python3 my_tests.py \-\- test.basic test.advanced
+Show metadata for tests "test.basic" and "test.advanced"
+.TP
+.B exetool metadata \-f json \-\- python3 my_tests.py \-\- test.basic
+Show metadata for "test.basic" in JSON format (explicit)
+.TP
+.B exetool description \-\- python3 my_tests.py \-\- test.basic
+Extract description for test "test.basic" from the Python test program
+.TP
+.B exetool avocado \-\- python3 my_tests.py > manifest.json
+Generate Avocado job file for Python test program and save to file
+.TP
+.B exetool bats \-\- ./compiled_test > test_suite.bats
+Generate BATS script for compiled test program and save to file
+.TP
+.B exetool bats \-\- sh test_script.sh | bats
+Generate and immediately run BATS script for shell test program
+.TP
+.B exetool probe \-\- python3 my_tests.py
+Check if my_tests.py is a valid exeter test program (silent on success)
+.TP
+.B if exetool probe \-\- ./test_program; then echo "Valid exeter program"; fi
+Use probe in a shell script to conditionally execute code
+.SH EXIT STATUS
+.B exetool
+exits with status 0 on success, and non-zero on failure.
+.SH SEE ALSO
+Documentation for the exeter testing framework and protocol can be found
+in the project repository at https://gitlab.com/dgibson/exeter
+.SH AUTHOR
+Written by David Gibson.
+.SH COPYRIGHT
+Copyright Red Hat. Licensed under the MIT License.

@@ -1,0 +1,16 @@
+[package]
+name = "exeter"
+version = "0.5.1"
+edition = "2021"
+description = "Rust library for the exeter test protocol"
+license = "MIT"
+authors = ["David Gibson <david@gibson.dropbear.id.au"]
+
+[lib]
+name = "exeter"
+
+[dependencies]
+# Using only standard library dependencies to keep exeter lightweight
+
+[dev-dependencies]
+# Development dependencies for testing the library itself
