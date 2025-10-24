@@ -1,0 +1,11 @@
+triggerflow/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+triggerflow/core.py,sha256=r8W45DZlU0OFRCVdgIT288ddSIaW-IGpHnxJTsHTgNo,20781
+triggerflow/mlflow_wrapper.py,sha256=mT15nSvMGqY9Wxq_L6tyNjGQ0Wy0wjn6hmuk3v43HWs,10692
+triggerflow/templates/makefile,sha256=VL39isTUBewrs8zTSDzdP6LLln7zpGoCZnLadpMu7CA,808
+triggerflow/templates/makefile_version,sha256=Tmu0tyAopJbiBQVMMOa6l2Cz5GkEn20mwgzIi0CfhyM,338
+triggerflow/templates/model_template.cpp,sha256=eGwY5ca_HgjoIvqorOBPSJspP0wngpjJheq3meb48r4,1616
+triggerflow/templates/scales.h,sha256=5bq6lVF36SRQKE2zg9RpBG6K5orpPlnJ8g125nbtFow,365
+triggerflow-0.1.10.dist-info/METADATA,sha256=oQzf59103Rt6p1EAcf-Ymx0jocpRaPIs5J38wQdLl68,1943
+triggerflow-0.1.10.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+triggerflow-0.1.10.dist-info/top_level.txt,sha256=g4M0nqpVPFZcmVmsoLExDtJFLDBK4fzobCIBqo13BEw,12
+triggerflow-0.1.10.dist-info/RECORD,,
