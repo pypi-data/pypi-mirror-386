@@ -1,0 +1,93 @@
+Metadata-Version: 2.4
+Name: extencli
+Version: 0.1.2
+Summary: A set of utilities around click, for extensible CLI
+Author-email: David Pineau <dav.pineau@gmail.com>
+License-Expression: BSD-3-Clause
+Project-URL: Homepage, https://github.com/Joacchim/extencli
+Project-URL: Source, https://github.com/Joacchim/extencli
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8
+Provides-Extra: test
+Requires-Dist: mypy==1.18.2; extra == "test"
+Requires-Dist: ruff==0.13.2; extra == "test"
+Dynamic: license-file
+
+# extencli
+
+A set of utilities around click, which offers extensible CLI mechanism, with little effort
+
+## Features
+
+### Easy third-party extensible click.group
+
+This package offers a specialized
+[click.group](https://click.palletsprojects.com/en/stable/api/#click.Group)
+implementation. Using it, you can create a CLI that will be extended by
+simply installing additional modules.
+
+As an example, here is how one would define an extensible `click.group` in
+their python package `core_module`:
+
+```python
+import click
+
+from extencli import PluginAutoloaderGroup
+
+@click.group('core', cls=PluginAutoloaderGroup, depends_on='core_module', load_attr='cli_extension')
+def core_group():
+    ...
+```
+
+The `depends_on` and `load_attr` parameters are required:
+ - `depends_on` specifies the name of the package that CLI
+   extensions should depend on
+ - `load_attr` states the symbol that CLI extensions must provide as
+   subcommands of the `core_group`
+
+Please note that the `load_attr` attribute defines that the `cli_extension`
+symbol must be exposed as a top level attribute of any `core_module` extension
+module.
+
+Now, the CLI extension package should import the `core_group` from the
+`core_module` like so:
+
+```python
+from core_module.cli import core_group
+
+@core_group.command('myext')
+def cli_extension():
+    ...
+```
+
+Now, by simply installing both the `core_module` and the `extension`
+third-party, the `core_module` will be extended with the `myext` command:
+
+```shell
+$> core --help
+Usage: core [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help                          Show this message and exit.
+
+Commands:
+  myext
+```
