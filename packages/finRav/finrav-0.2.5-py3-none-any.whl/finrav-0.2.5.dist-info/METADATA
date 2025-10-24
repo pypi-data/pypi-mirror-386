@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: finRav
+Version: 0.2.5
+Summary: Financial stochastic processes and statistical tools
+Project-URL: Homepage, https://github.com/ravivherrera/finr
+Project-URL: Issues, https://github.com/ravivherrera/finr/issues
+Author: Raviv Herrera
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: matplotlib>=3.8
+Requires-Dist: numpy>=1.23
+Requires-Dist: pandas>=2.0
+Requires-Dist: scipy>=1.10
+Description-Content-Type: text/markdown
+
+# FinR 💹
+
+**FinR** is an open-source Python library for **quantitative finance** and **statistical modeling**.  
+It provides clean, modular tools for simulating stochastic processes and analyzing financial time series.
+
+---
+
+## ✨ Features
+- **stoch** — stochastic processes generator
+- **stats** — statistical tools
+- **sim** — Monte Carlo simulations for pricing and risk analysis
+---
+
+## ⚙️ Installation
+
+### 🧩 Local (development mode)
+If you’re working on the library source code:
+```bash
+pip install finRav
+```
