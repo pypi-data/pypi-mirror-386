@@ -1,0 +1,6 @@
+djangocms-oidc~=5.0
+djangocms-aldryn-forms[captcha]~=8.3
+
+[quality]
+isort
+flake8
