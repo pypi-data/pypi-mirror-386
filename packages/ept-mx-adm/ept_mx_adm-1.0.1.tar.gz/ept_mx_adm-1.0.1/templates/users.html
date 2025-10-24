@@ -1,0 +1,611 @@
+{#
+Project: EPT-MX-ADM
+Company: EasyProTech LLC (www.easypro.tech)
+Dev: Brabus
+Date: Thu 23 Oct 2025 22:56:11 UTC
+Status: Users Template
+Telegram: https://t.me/EasyProTech
+#}
+{% extends "base.html" %}
+
+{% block title %}{{ t('users.title') }} - {{ t('app.name') }}{% endblock %}
+
+{% block content %}
+<div class="fade-in-up">
+    <!-- Заголовок страницы с кнопками -->
+    <div class="header-section mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2 text-gradient mb-0">
+                <i class="bi bi-people me-2"></i>{{ t('users.title') }}
+                {% if total %}
+                <span class="badge bg-primary ms-2">{{ total }}</span>
+                {% endif %}
+            </h1>
+            <div class="header-actions">
+                <button type="button" class="btn btn-outline-primary me-2" data-refresh>
+                    <i class="bi bi-arrow-clockwise me-1"></i>{{ t('dashboard.refresh') }}
+                </button>
+                <div class="btn-group me-2">
+                    <a href="{{ url_for('users.export_users', search=search, guests=show_guests, deactivated=show_deactivated) }}" 
+                       class="btn btn-success">
+                        <i class="bi bi-file-earmark-arrow-down me-1"></i>{{ t('users.csv_export') }}
+                    </a>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#importModal">
+                        <i class="bi bi-file-earmark-arrow-up me-1"></i>{{ t('users.csv_import') }}
+                    </button>
+                </div>
+                <a href="{{ url_for('users.create_user') }}" class="btn btn-primary">
+                    <i class="bi bi-person-plus me-1"></i>{{ t('users.create_user') }}
+                </a>
+            </div>
+        </div>
+        
+        <!-- Фильтры и поиск в красивой карточке -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-funnel me-2"></i>
+                <span>Filters & Search</span>
+            </div>
+            <div class="card-body">
+                <form method="GET" id="filtersForm">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-md-4">
+                            <label class="form-label">{{ t('forms.search') }}</label>
+                            <div class="search-box">
+                                <i class="bi bi-search search-icon"></i>
+                                <input type="text" class="form-control" name="search" value="{{ search }}" 
+                                       placeholder="{{ t('users.search_placeholder') }}">
+                            </div>
+                            <input type="hidden" name="limit" value="{{ limit }}">
+                            <input type="hidden" name="guests" value="{{ 'true' if show_guests else 'false' }}">
+                            <input type="hidden" name="deactivated" value="{{ 'true' if show_deactivated else 'false' }}">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">{{ t('pagination.rows_per_page') }}</label>
+                            <select class="form-select" onchange="changeLimit(this.value)">
+                                <option value="10" {{ 'selected' if limit == 10 else '' }}>10</option>
+                                <option value="25" {{ 'selected' if limit == 25 else '' }}>25</option>
+                                <option value="50" {{ 'selected' if limit == 50 else '' }}>50</option>
+                                <option value="100" {{ 'selected' if limit == 100 else '' }}>100</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="filter-switches">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="showGuests" 
+                                           {{ 'checked' if show_guests else '' }} onchange="toggleFilter('guests', this.checked)">
+                                    <label class="form-check-label" for="showGuests">
+                                        {{ t('users.show_guests') }}
+                                    </label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="showDeactivated" 
+                                           {{ 'checked' if show_deactivated else '' }} onchange="toggleFilter('deactivated', this.checked)">
+                                    <label class="form-check-label" for="showDeactivated">
+                                        {{ t('users.show_deactivated') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-search me-1"></i>{{ t('forms.search') }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Список пользователей в виде карточек -->
+    {% if users %}
+        <div class="users-grid">
+        {% for user in users %}
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <div class="user-avatar me-3">
+                    <div class="avatar-circle">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                </div>
+                <div class="flex-grow-1">
+                    <div class="fw-semibold">{{ user.displayname or user.name.split(':')[0][1:] }}</div>
+                    <div class="text-muted small">{{ user.name }}</div>
+                </div>
+                <div class="d-flex flex-column align-items-end gap-1">
+                    {% if user.admin %}
+                        <span class="badge bg-danger"><i class="bi bi-shield-fill"></i> {{ t('users.admin') }}</span>
+                    {% else %}
+                        <span class="badge bg-secondary"><i class="bi bi-person"></i> {{ t('forms.user') }}</span>
+                    {% endif %}
+                    {% if user.deactivated %}
+                        <span class="badge bg-warning"><i class="bi bi-x-circle"></i> {{ t('users.deactivated') }}</span>
+                    {% else %}
+                        <span class="badge bg-success"><i class="bi bi-check-circle"></i> {{ t('users.active') }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                {% if user.creation_ts %}
+                <div class="mb-2 text-muted small">
+                    <i class="bi bi-calendar-plus"></i> {{ user.creation_ts | datetime_format }}
+                </div>
+                {% endif %}
+                
+                <!-- Media Storage Info -->
+                {% if user.media_count is defined %}
+                <div class="text-muted small">
+                    <i class="bi bi-hdd me-1"></i>
+                    <strong>{{ user.media_size_human }}</strong>
+                    <span class="ms-1">({{ user.media_count }} files)</span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="card-footer d-flex gap-2 justify-content-end">
+                <a href="{{ url_for('users.edit_user', user_id=user.name) }}" 
+                   class="btn btn-outline-primary btn-sm" 
+                   title="{{ t('users.edit_user') }}">
+                    <i class="bi bi-pencil me-1"></i>{{ t('users.edit_user') }}
+                </a>
+                {% if not user.admin %}
+                <div class="dropdown">
+                    <button type="button" class="btn btn-outline-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="bi bi-gear"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <form method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> action="{{ url_for('users.deactivate_user', user_id=user.name) }}">
+                                <button type="submit" class="dropdown-item text-warning" onclick="return confirm('Deactivate user {{ user.name }}?')">
+                                    <i class="bi bi-pause-circle me-2"></i>{{ t('users.deactivate') }}
+                                </button>
+                            </form>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> action="{{ url_for('users.delete_user', user_id=user.name) }}">
+                                <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Delete user {{ user.name }}? This action cannot be undone!')">
+                                    <i class="bi bi-trash me-2"></i>{{ t('users.delete') }}
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <div class="empty-icon">
+            <i class="bi bi-inbox"></i>
+        </div>
+        <h5>{{ t('users.no_users') }}</h5>
+        {% if search %}
+        <p>{{ t('messages.try_different_search') }}</p>
+        <button type="button" class="btn btn-outline-primary" onclick="clearSearch()">
+            {{ t('forms.show_all') }}
+        </button>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <!-- Пагинация -->
+    {% if total > 0 %}
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <div class="pagination-text">
+            {{ t('pagination.showing') }} 
+            {{ ((current_page - 1) * limit + 1) if users else 0 }} - 
+            {{ (current_page * limit) if (current_page * limit) < total else total }} 
+            {{ t('pagination.of') }} {{ total }} {{ t('pagination.entries') }}
+        </div>
+        
+        {% if total_pages > 1 %}
+        <nav aria-label="Users pagination">
+            <ul class="pagination mb-0">
+                {% if current_page > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPage(1)">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPagePrev()">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% set start_page = [1, current_page - 2] | max %}
+                {% set end_page = [total_pages, current_page + 2] | min %}
+                
+                {% if start_page > 1 %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+                {% endif %}
+                
+                {% for page_num in range(start_page, end_page + 1) %}
+                <li class="page-item {% if page_num == current_page %}active{% endif %}">
+                    <a class="page-link" href="#" onclick="goToPage({{ page_num }})">
+                        {{ page_num }}
+                    </a>
+                </li>
+                {% endfor %}
+                
+                {% if end_page < total_pages %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+                {% endif %}
+                
+                {% if current_page < total_pages %}
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPageNext()">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPageLast()">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Модальное окно профиля пользователя -->
+<div class="modal fade" id="userWhoisModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h5 class="modal-title text-gradient">
+                    <i class="bi bi-person-badge me-2"></i>{{ t('users.user_profile') }}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0" id="whoisContent">
+                <div class="text-center py-5">
+                    <div class="loading"></div>
+                    <div class="mt-3">{{ t('messages.loading') }}...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно импорта CSV -->
+<div class="modal fade" id="importModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h5 class="modal-title text-gradient">
+                    <i class="bi bi-file-earmark-arrow-up me-2"></i>{{ t('users.import_users') }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> action="{{ url_for('users.import_users') }}" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="csv_file" class="form-label">{{ t('users.choose_file') }}</label>
+                        <input type="file" class="form-control" name="csv_file" accept=".csv" required>
+                        <div class="form-text">{{ t('users.csv_format_help') }}</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        {{ t('forms.cancel') }}
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-upload me-1"></i>{{ t('users.upload') }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function toggleFilter(filterName, checked) {
+    const url = new URL(window.location);
+    url.searchParams.set(filterName, checked ? 'true' : 'false');
+    url.searchParams.set('page', '1');
+    window.location.href = url.toString();
+}
+
+function changeLimit(newLimit) {
+    const url = new URL(window.location);
+    url.searchParams.set('limit', newLimit);
+    url.searchParams.set('page', '1');
+    window.location.href = url.toString();
+}
+
+function clearSearch() {
+    const url = new URL(window.location);
+    url.searchParams.delete('search');
+    window.location.href = url.toString();
+}
+
+function formatTimestamp(timestamp) {
+    if (!timestamp) {
+        return '{{ t("messages.unknown") }}';
+    }
+    
+    // Synapse timestamps can be in seconds or milliseconds
+    let date;
+    if (timestamp < 10000000000) {
+        // Timestamp in seconds, convert to milliseconds
+        date = new Date(timestamp * 1000);
+    } else {
+        // Timestamp already in milliseconds
+        date = new Date(timestamp);
+    }
+    
+    // Check if date is valid
+    if (isNaN(date.getTime())) {
+        return '{{ t("messages.unknown") }}';
+    }
+    
+    // Format as local date and time
+    return date.toLocaleString();
+}
+
+function getLastSeen(userDetails) {
+    // Try different possible fields for last seen
+    return userDetails.last_seen_ts || 
+           userDetails.last_seen || 
+           userDetails.last_active_ts || 
+           userDetails.last_active ||
+           null;
+}
+
+function showUserWhois(userId) {
+    const modal = new bootstrap.Modal(document.getElementById('userWhoisModal'));
+    const content = document.getElementById('whoisContent');
+    
+    content.innerHTML = 
+        '<div class="text-center py-5">' +
+            '<div class="loading"></div>' +
+            '<div class="mt-3">{{ t("messages.loading") }}...</div>' +
+        '</div>';
+    
+    modal.show();
+    
+    // Fetch user details first
+    fetch('/api/users/' + encodeURIComponent(userId) + '/details')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('HTTP ' + response.status);
+            }
+            return response.json();
+        })
+        .then(userDetails => {
+            if (userDetails && !userDetails.error) {
+                displayUserInfo(userDetails, userId);
+            } else {
+                content.innerHTML = 
+                    '<div class="alert alert-danger m-4">' +
+                        '<i class="bi bi-exclamation-triangle me-2"></i>' +
+                        '{{ t("messages.error") }}: ' + (userDetails.error || '{{ t("messages.unknown_error") }}') +
+                    '</div>';
+            }
+        })
+        .catch(error => {
+            content.innerHTML = 
+                '<div class="alert alert-danger m-4">' +
+                    '<i class="bi bi-exclamation-triangle me-2"></i>' +
+                    '{{ t("messages.network_error") }}: ' + error.message +
+                '</div>';
+        });
+}
+
+function displayUserInfo(whois, userId) {
+    const content = document.getElementById('whoisContent');
+    
+    let html = 
+        '<div class="row g-0">' +
+            '<div class="col-md-4 p-4" style="background: var(--primary-gradient); color: white;">' +
+                '<div class="text-center mb-4">' +
+                    '<div class="bg-white bg-opacity-20 rounded-circle border border-3 border-light d-flex align-items-center justify-content-center mx-auto" style="width: 120px; height: 120px; font-size: 2.5rem;">' +
+                        '<i class="bi bi-person-fill"></i>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="text-center">' +
+                    '<h4 class="mb-1">' + (whois.displayname || userId.split(':')[0].substring(1)) + '</h4>' +
+                    '<p class="opacity-75 mb-3">' + userId + '</p>' +
+                    '<div class="d-flex justify-content-center gap-2 mb-3">' +
+                        (whois.admin ? '<span class="badge bg-danger">{{ t("users.admin") }}</span>' : '<span class="badge bg-light text-dark">{{ t("forms.user") }}</span>') +
+                        (whois.deactivated ? '<span class="badge bg-warning">{{ t("users.deactivated") }}</span>' : '<span class="badge bg-success">{{ t("users.active") }}</span>') +
+                    '</div>' +
+                '</div>' +
+                
+                '<div class="d-grid gap-2 mb-4">' +
+                    '<a href="/users/' + encodeURIComponent(userId) + '/edit" class="btn btn-outline-light btn-sm hover-lift">' +
+                        '<i class="bi bi-pencil me-2"></i>{{ t("users.edit_user") }}' +
+                    '</a>' +
+                    '<button class="btn btn-outline-light btn-sm hover-lift" onclick="showUserMedia(\'' + userId + '\')">' +
+                        '<i class="bi bi-file-earmark-image me-2"></i>{{ t("users.view_media") }}' +
+                    '</button>' +
+                '</div>' +
+                
+                '<hr class="border-light opacity-25">' +
+                '<div class="mb-3">' +
+                    '<h6><i class="bi bi-calendar-plus me-2"></i>{{ t("users.created") }}</h6>' +
+                    '<p class="mb-0 opacity-75">' + formatTimestamp(whois.creation_ts) + '</p>' +
+                '</div>' +
+                '<div class="mb-3">' +
+                    '<h6><i class="bi bi-clock me-2"></i>{{ t("users.last_seen") }}</h6>' +
+                    '<p class="mb-0 opacity-75">' + formatTimestamp(getLastSeen(whois)) + '</p>' +
+                '</div>' +
+            '</div>' +
+            
+            '<div class="col-md-8 p-4">' +
+                '<div class="card border-0 glass-effect">' +
+                    '<div class="card-header">' +
+                        '<h5 class="mb-0 text-gradient"><i class="bi bi-person-lines-fill me-2"></i>{{ t("users.account_information") }}</h5>' +
+                    '</div>' +
+                    '<div class="card-body">' +
+                        '<div class="row">' +
+                            '<div class="col-md-6">' +
+                                '<strong>{{ t("users.user_id") }}:</strong><br>' +
+                                '<code class="text-primary">' + userId + '</code>' +
+                            '</div>' +
+                            '<div class="col-md-6">' +
+                                '<strong>{{ t("users.display_name") }}:</strong><br>' +
+                                '<span>' + (whois.displayname || '{{ t("users.not_specified") }}') + '</span>' +
+                            '</div>' +
+                        '</div>' +
+                        '<hr>' +
+                        '<div class="row">' +
+                            '<div class="col-md-6">' +
+                                '<strong>{{ t("users.user_type") }}:</strong><br>' +
+                                '<span>' + (whois.admin ? '{{ t("users.administrator") }}' : '{{ t("users.regular_user") }}') + '</span>' +
+                            '</div>' +
+                            '<div class="col-md-6">' +
+                                '<strong>{{ t("users.account_status") }}:</strong><br>' +
+                                '<span>' + (whois.deactivated ? '{{ t("users.deactivated") }}' : '{{ t("users.active") }}') + '</span>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    
+    content.innerHTML = html;
+    
+    // Reinitialize tooltips for dynamically created content
+    const userInfoTooltips = content.querySelectorAll('[data-bs-toggle="tooltip"]');
+    userInfoTooltips.forEach(el => new bootstrap.Tooltip(el, {
+        delay: { show: 300, hide: 100 },
+        placement: 'top',
+        offset: [0, 10],
+        fallbackPlacements: ['bottom', 'right', 'left']
+    }));
+}
+
+function showUserMedia(userId) {
+    const content = document.getElementById('whoisContent');
+    
+    content.innerHTML = 
+        '<div class="text-center py-5">' +
+            '<div class="loading"></div>' +
+            '<div class="mt-3">{{ t("messages.loading_media") }}...</div>' +
+        '</div>';
+    
+    fetch('/api/users/' + encodeURIComponent(userId) + '/media')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displayUserMedia(data.media_data, userId);
+            } else {
+                content.innerHTML = 
+                    '<div class="alert alert-danger m-4">' +
+                        '<i class="bi bi-exclamation-triangle me-2"></i>' +
+                        '{{ t("messages.error_loading_media") }}: ' + (data.error || '{{ t("messages.unknown_error") }}') +
+                    '</div>';
+            }
+        })
+        .catch(error => {
+            content.innerHTML = 
+                '<div class="alert alert-danger m-4">' +
+                    '<i class="bi bi-exclamation-triangle me-2"></i>' +
+                    '{{ t("messages.network_error") }}: ' + error.message +
+                '</div>';
+        });
+}
+
+function displayUserMedia(mediaData, userId) {
+    const content = document.getElementById('whoisContent');
+    const media = mediaData.media || [];
+    
+    let html = 
+        '<div class="p-4">' +
+            '<div class="d-flex justify-content-between align-items-center mb-4">' +
+                '<h4 class="text-gradient"><i class="bi bi-file-earmark-image me-2"></i>{{ t("users.media_files") }} - ' + userId + '</h4>' +
+                '<button class="btn btn-outline-primary btn-sm hover-lift" onclick="showUserWhois(\'' + userId + '\')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ t("forms.back_to_profile") }}">' +
+                    '<i class="bi bi-arrow-left me-2"></i>{{ t("forms.back_to_profile") }}' +
+                '</button>' +
+            '</div>';
+    
+    if (media.length === 0) {
+        html += 
+            '<div class="text-center py-5">' +
+                '<i class="bi bi-inbox text-muted mb-3" style="font-size: 3rem;"></i>' +
+                '<h5 class="text-muted">{{ t("users.no_media_files") }}</h5>' +
+                '<p class="text-muted">{{ t("users.no_media_description") }}</p>' +
+            '</div>';
+    } else {
+        html += 
+            '<div class="alert alert-info">' +
+                '<i class="bi bi-info-circle me-2"></i>' +
+                '{{ t("users.media_count") }}: ' + media.length +
+            '</div>';
+    }
+    
+    html += '</div>';
+    content.innerHTML = html;
+    
+    // Reinitialize tooltips for dynamically created content
+    const userMediaTooltips = content.querySelectorAll('[data-bs-toggle="tooltip"]');
+    userMediaTooltips.forEach(el => new bootstrap.Tooltip(el, {
+        delay: { show: 300, hide: 100 },
+        placement: 'top',
+        offset: [0, 10],
+        fallbackPlacements: ['bottom', 'right', 'left']
+    }));
+}
+
+// Add refresh functionality
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('[data-refresh]')?.addEventListener('click', function() {
+        window.location.reload();
+    });
+    
+    // Initialize tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+        delay: { show: 300, hide: 100 },
+        placement: 'left',
+        offset: [0, 10],
+        fallbackPlacements: ['right', 'bottom', 'top']
+    }));
+});
+
+// Pagination functions
+function goToPage(page) {
+    const url = new URL(window.location);
+    url.searchParams.set('page', page);
+    window.location.href = url.toString();
+}
+
+function goToPagePrev() {
+    const currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+    if (currentPage > 1) {
+        goToPage(currentPage - 1);
+    }
+}
+
+function goToPageNext() {
+    const currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+    const totalPages = {{ total_pages }};
+    if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+    }
+}
+
+function goToPageLast() {
+    const totalPages = {{ total_pages }};
+    goToPage(totalPages);
+}
+</script>
+{% endblock %} 

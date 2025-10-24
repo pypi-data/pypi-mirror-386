@@ -1,0 +1,419 @@
+{#
+Project: EPT-MX-ADM
+Company: EasyProTech LLC (www.easypro.tech)
+Dev: Brabus
+Date: Thu 23 Oct 2025 22:56:11 UTC
+Status: Rooms Template
+Telegram: https://t.me/EasyProTech
+#}
+{% extends "base.html" %}
+
+{% block title %}{{ t('rooms.title') }}{% endblock %}
+
+{% block content %}
+<div class="fade-in-up">
+    <!-- Заголовок страницы с кнопками -->
+    <div class="header-section mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2 text-gradient mb-0">
+                <i class="bi bi-house-door me-2"></i>{{ t('rooms.title') }}
+                {% if total %}
+                <span class="badge bg-primary ms-2">{{ total }}</span>
+                {% endif %}
+            </h1>
+            <div class="header-actions">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="bi bi-funnel me-1"></i>{{ t('rooms.filters') }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" style="min-width: 250px;">
+                        <li><h6 class="dropdown-header">{{ t('rooms.show_columns') }}</h6></li>
+                        <li>
+                            <div class="dropdown-item">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="showEncryptedCol" checked onchange="toggleColumn('encrypted')">
+                                    <label class="form-check-label" for="showEncryptedCol">
+                                        <i class="bi bi-shield-lock me-1"></i>{{ t('rooms.encrypted') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-item">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="showFederatedCol" checked onchange="toggleColumn('federated')">
+                                    <label class="form-check-label" for="showFederatedCol">
+                                        <i class="bi bi-globe me-1"></i>{{ t('rooms.federated') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-success me-2" onclick="exportRooms()">
+                    <i class="bi bi-download me-1"></i>{{ t('rooms.csv_export') }}
+                </button>
+                <button type="button" class="btn btn-outline-primary" onclick="refreshRooms()">
+                    <i class="bi bi-arrow-clockwise me-1"></i>{{ t('dashboard.refresh') }}
+                </button>
+            </div>
+        </div>
+        
+        <!-- Фильтры и поиск -->
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-funnel me-2"></i>
+                <span>Search & Filters</span>
+            </div>
+            <div class="card-body">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label class="form-label">{{ t('forms.search') }}</label>
+                        <div class="search-box">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="searchInput"
+                                   value="{{ search }}"
+                                   placeholder="{{ t('rooms.search_placeholder') }}"
+                                   onkeyup="handleSearchKeyup(event)">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">{{ t('pagination.rows_per_page') }}</label>
+                        <select class="form-select" onchange="changeLimit(this.value)">
+                            <option value="10" {% if limit == 10 %}selected{% endif %}>10</option>
+                            <option value="25" {% if limit == 25 %}selected{% endif %}>25</option>
+                            <option value="50" {% if limit == 50 %}selected{% endif %}>50</option>
+                            <option value="100" {% if limit == 100 %}selected{% endif %}>100</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" onclick="applyFilters()">
+                                <i class="bi bi-search me-1"></i>{{ t('forms.search') }}
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="clearFilters()">
+                                <i class="bi bi-x-circle me-1"></i>{{ t('forms.clear') }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-end">
+                        {% if total > 0 %}
+                        <small class="text-muted">
+                            {{ t('pagination.showing') }} {{ ((current_page - 1) * limit + 1) if total > 0 else 0 }}-{{ [current_page * limit, total] | min }} {{ t('pagination.of') }} {{ total }}
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Список комнат в виде карточек -->
+    {% if rooms_data.rooms %}
+    <div class="rooms-grid">
+        {% for room in rooms_data.rooms %}
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <div class="room-avatar me-3">
+                    {% if room.avatar_url %}
+                    <img src="{{ room.avatar_url }}" class="avatar-image" alt="Room Avatar">
+                    {% else %}
+                    <div class="avatar-circle">
+                        <i class="bi bi-house-door-fill"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="flex-grow-1">
+                    <div class="fw-semibold">{{ room.name or room.canonical_alias or (room.room_id[:20] + '...') }}</div>
+                    {% if room.topic %}
+                    <div class="text-muted small">{{ room.topic[:80] }}{% if room.topic|length > 80 %}...{% endif %}</div>
+                    {% endif %}
+                    <div class="text-muted small">{{ room.room_id[:30] }}...</div>
+                </div>
+                <div class="d-flex flex-column align-items-end gap-1">
+                    {% if room.encrypted %}
+                        <span class="badge bg-info"><i class="bi bi-shield-lock"></i> Encrypted</span>
+                    {% endif %}
+                    {% if room.federated %}
+                        <span class="badge bg-primary"><i class="bi bi-globe"></i> Federated</span>
+                    {% endif %}
+                    {% if room.in_directory %}
+                        <span class="badge bg-success"><i class="bi bi-book"></i> Public</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex gap-3 mb-2">
+                    <div><i class="bi bi-people"></i> {{ room.joined_members or 0 }} <span class="text-muted small">Members</span></div>
+                    <div><i class="bi bi-house-heart"></i> {{ room.local_members or 0 }} <span class="text-muted small">Local</span></div>
+                    <div><i class="bi bi-layers"></i> {{ room.state_events or 0 }} <span class="text-muted small">Events</span></div>
+                    <div><i class="bi bi-tag"></i> v{{ room.room_version or '1' }} <span class="text-muted small">Version</span></div>
+                </div>
+                {% if room.creator and room.creator != 'Unknown' %}
+                <div class="text-muted small mb-1"><i class="bi bi-person-plus"></i> Created by: <a href="{{ url_for('users.edit_user', user_id=room.creator) }}" class="creator-link">{{ room.creator }}</a></div>
+                {% endif %}
+                {% if room.creation_ts %}
+                <div class="text-muted small"><i class="bi bi-calendar-plus"></i> {{ room.creation_ts | datetime_format }}</div>
+                {% endif %}
+            </div>
+            <div class="card-footer d-flex gap-2 justify-content-end">
+                <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewRoom('{{ room.room_id }}')" title="{{ t('rooms.view') }}">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button type="button" class="btn btn-outline-warning btn-sm" onclick="editRoom('{{ room.room_id }}')" title="{{ t('rooms.edit') }}">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-outline-danger btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="bi bi-gear"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="blockRoom('{{ room.room_id }}')">
+                                <i class="bi bi-ban me-2"></i>{{ t('rooms.block') }}
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="#" onclick="deleteRoom('{{ room.room_id }}')">
+                                <i class="bi bi-trash me-2"></i>{{ t('rooms.delete') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <div class="empty-icon">
+            <i class="bi bi-house-door-fill"></i>
+        </div>
+        <h5>{{ t('rooms.no_rooms') }}</h5>
+        {% if search %}
+        <p>{{ t('messages.try_different_search') }}</p>
+        <button type="button" class="btn btn-outline-primary" onclick="clearFilters()">
+            {{ t('forms.show_all') }}
+        </button>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <!-- Пагинация -->
+    {% if total > 0 %}
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <div class="pagination-text">
+            {{ t('pagination.showing') }} 
+            {{ ((current_page - 1) * limit + 1) if total > 0 else 0 }} - 
+            {{ (current_page * limit) if (current_page * limit) < total else total }} 
+            {{ t('pagination.of') }} {{ total }} {{ t('pagination.entries') }}
+        </div>
+        
+        {% if total_pages > 1 %}
+        <nav aria-label="Rooms pagination">
+            <ul class="pagination mb-0">
+                {% if current_page > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPage(1)">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPagePrev()">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% set start_page = [1, current_page - 2] | max %}
+                {% set end_page = [total_pages, current_page + 2] | min %}
+                
+                {% if start_page > 1 %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+                {% endif %}
+                
+                {% for page_num in range(start_page, end_page + 1) %}
+                <li class="page-item {% if page_num == current_page %}active{% endif %}">
+                    <a class="page-link" href="#" onclick="goToPage({{ page_num }})">
+                        {{ page_num }}
+                    </a>
+                </li>
+                {% endfor %}
+                
+                {% if end_page < total_pages %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+                {% endif %}
+                
+                {% if current_page < total_pages %}
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPageNext()">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" onclick="goToPageLast()">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Подключаем модальное окно для деталей комнаты -->
+{% include 'room_details_modal.html' %}
+
+<!-- Модальное окно подтверждения удаления -->
+<div class="modal fade" id="deleteRoomModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger">
+                    <i class="bi bi-exclamation-triangle me-2"></i>{{ t('rooms.delete') }}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>This will completely delete the room and remove all users from it.</strong></p>
+                <p class="text-muted">All message history will be deleted and users will be kicked out.</p>
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle me-2"></i>
+                    This action cannot be undone!
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    {{ t('forms.cancel') }}
+                </button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteRoom">
+                    <i class="bi bi-trash me-1"></i>{{ t('rooms.delete') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// JavaScript functions for rooms page
+let currentRoomToDelete = null;
+
+function refreshRooms() {
+    window.location.reload();
+}
+
+function exportRooms() {
+    // Implement export functionality
+    console.log('Export rooms');
+}
+
+function applyFilters() {
+    const search = document.getElementById('searchInput').value;
+    const url = new URL(window.location);
+    url.searchParams.set('search', search);
+    url.searchParams.set('page', '1');
+    window.location.href = url.toString();
+}
+
+function clearFilters() {
+    const url = new URL(window.location);
+    url.searchParams.delete('search');
+    url.searchParams.set('page', '1');
+    window.location.href = url.toString();
+}
+
+function changeLimit(newLimit) {
+    const url = new URL(window.location);
+    url.searchParams.set('limit', newLimit);
+    url.searchParams.set('page', '1');
+    window.location.href = url.toString();
+}
+
+function handleSearchKeyup(event) {
+    if (event.key === 'Enter') {
+        applyFilters();
+    }
+}
+
+function goToPage(page) {
+    const url = new URL(window.location);
+    url.searchParams.set('page', page);
+    window.location.href = url.toString();
+}
+
+function goToPagePrev() {
+    const currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+    if (currentPage > 1) {
+        goToPage(currentPage - 1);
+    }
+}
+
+function goToPageNext() {
+    const currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
+    const totalPages = {{ total_pages }};
+    if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+    }
+}
+
+function goToPageLast() {
+    const totalPages = {{ total_pages }};
+    goToPage(totalPages);
+}
+
+function viewRoom(roomId) {
+    // Implement room view functionality
+    console.log('View room:', roomId);
+}
+
+function editRoom(roomId) {
+    // Implement room edit functionality
+    console.log('Edit room:', roomId);
+}
+
+function blockRoom(roomId) {
+    if (confirm('Are you sure you want to block this room?')) {
+        // Implement block functionality
+        console.log('Block room:', roomId);
+    }
+}
+
+function deleteRoom(roomId) {
+    currentRoomToDelete = roomId;
+    const modal = new bootstrap.Modal(document.getElementById('deleteRoomModal'));
+    modal.show();
+}
+
+function toggleColumn(columnName) {
+    // Implement column toggle functionality
+    console.log('Toggle column:', columnName);
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    const confirmDeleteBtn = document.getElementById('confirmDeleteRoom');
+    if (confirmDeleteBtn) {
+        confirmDeleteBtn.addEventListener('click', function() {
+            if (currentRoomToDelete) {
+                // Implement actual delete functionality
+                console.log('Confirm delete room:', currentRoomToDelete);
+                const modal = bootstrap.Modal.getInstance(document.getElementById('deleteRoomModal'));
+                modal.hide();
+                currentRoomToDelete = null;
+            }
+        });
+    }
+});
+</script>
+{% endblock %} 
