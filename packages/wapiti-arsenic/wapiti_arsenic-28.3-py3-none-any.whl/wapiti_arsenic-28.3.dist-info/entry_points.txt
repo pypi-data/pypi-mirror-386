@@ -1,0 +1,4 @@
+[console_scripts]
+arsenic-check-ie11=wapiti_arsenic.helpers:check_ie11_environment_cli
+arsenic-configure-ie11=wapiti_arsenic.helpers:configure_ie11_environment_cli
+
