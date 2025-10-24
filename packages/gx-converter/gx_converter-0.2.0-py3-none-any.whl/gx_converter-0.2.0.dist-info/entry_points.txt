@@ -1,0 +1,2 @@
+[console_scripts]
+gx-converter = gx_converter.main:main

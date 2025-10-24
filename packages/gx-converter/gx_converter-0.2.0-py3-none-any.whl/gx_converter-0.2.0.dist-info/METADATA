@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: gx-converter
+Version: 0.2.0
+Summary: A tool to convert g-code into the FlashPrint .gx file format
+Author-email: bkienzle3 <pypi@bkienzle.com>
+License: GNU General Public License v3 (GPLv3)
+Project-URL: bugs, https://github.com/bkienzle/gx-converter/issues
+Project-URL: repository, https://github.com/bkienzle/gx-converter
+Project-URL: homepage, https://bkienzle.com
+Keywords: flashprint,flashforge,adventurer,voxel,monoprice,3d,printer,printing,gcode,gx
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Manufacturing
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: MS-DOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX :: BSD :: FreeBSD
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: SunOS/Solaris
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python
+Classifier: Topic :: Printing
+Classifier: Topic :: Other/Nonlisted Topic
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Pillow
+Dynamic: license-file
+Dynamic: requires-python
+
+# GX Converter
+Convert .gcode files to the .gx file format for use in FlashForge Adventurer and Monoprice Voxel 3D printers
+
+# Installation
+
+Install via pipx or pip:
+~~~sh
+pipx install gx-converter
+~~~
+
+# Usage
+
+~~~sh
+gx-converter FILE.gcode
+~~~
+You may optionally specify the output file with `--output`, otherwise it will be the same as the input file, 
+with a .gx file extension, e.g., FILE.gx.
