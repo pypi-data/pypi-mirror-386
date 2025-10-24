@@ -1,0 +1,139 @@
+[project]
+name = "robotframework-PlatynUI"
+version = "0.2.0-dev.1"
+description = "Cross-platform UI automation toolkit for Robot Framework with XPath-based element selection"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Daniel Biehl", email = "daniel.biehl@imbus.de" }]
+maintainers = [{ name = "Daniel Biehl", email = "daniel.biehl@imbus.de" }]
+keywords = [
+    "robotframework",
+    "automation",
+    "testing",
+    "ui",
+    "xpath",
+    "cross-platform",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Framework :: Robot Framework",
+    "Framework :: Robot Framework :: Library",
+]
+dependencies = [
+    "robotframework>=7.0.0",
+    "platynui-native==0.2.0-dev.1",
+]
+
+[project.optional-dependencies]
+cli = ["platynui-cli==0.2.0-dev.1"]
+inspector = ["platynui-inspector==0.2.0-dev.1"]
+
+[project.urls]
+Homepage = "https://github.com/imbus/robotframework-PlatynUI"
+Documentation = "https://github.com/imbus/robotframework-PlatynUI#readme"
+Changelog = "https://github.com/imbus/robotframework-PlatynUI/blob/main/CHANGELOG.md"
+Issues = "https://github.com/imbus/robotframework-PlatynUI/issues"
+Source = "https://github.com/imbus/robotframework-PlatynUI"
+
+
+[build-system]
+requires = ["uv_build>=0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "PlatynUI"
+
+[tool.uv.sources]
+platynui-native = { workspace = true }
+platynui-cli = { workspace = true }
+platynui-inspector = { workspace = true }
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[dependency-groups]
+dev = [
+    "commitizen>=4.9.1",
+    "git-cliff>=2.10.1",
+    "gitpython>=3.1.45",
+    "mypy>=1.17.1",
+    "pytest>=8.4.2",
+    "ruff>=0.12.11",
+    "semantic-version>=2.10.0",
+]
+
+[tool.cibuildwheel.macos.environment]
+MACOSX_DEPLOYMENT_TARGET = "10.12"
+
+[tool.cibuildwheel]
+skip = ["*-musllinux_i686"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+bump_message = "chore(release): bump version $current_version → $new_version"
+tag_format = "v$version"
+version_scheme = "semver2"
+version_provider = "scm"
+update_changelog_on_bump = false
+# major_version_zero = true
+changelog_incremental = true
+changelog_merge_prerelease = true
+gpg_sign = true
+annotated_tag = true
+pre_bump_hooks = [
+    "uv run scripts/update-git-versions.py",
+    "uv run scripts/update-changelog.py",
+    "cargo update -w --offline --recursive --verbose",
+    "uv lock -U --offline",
+    "git add .",
+]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unused_configs = true
+warn_unreachable = true
+implicit_reexport = false
+implicit_optional = true
+disallow_untyped_decorators = false
+disallow_subclassing_any = false
+explicit_package_bases = true
+namespace_packages = true
+files = ["src"]
+exclude = [
+    '^\.mypy_cache/',
+    '^\.venv/',
+    "^build/",
+    "^dist/",
+    "^out/",
+    "^playground/",
+    "^scripts/",
+    "^packages/native/",
+]
+mypy_path = ["src", "packages/runtime/python", "packages/runtime/tests"]
+
+[[tool.mypy.overrides]]
+module = [
+    "robot.*",
+    "robotremoteserver.*",
+    "debugpy.*",
+    "robocop.*",
+    "pluggy",
+    "semantic_version",
+]
+ignore_missing_imports = true
+no_implicit_reexport = false
