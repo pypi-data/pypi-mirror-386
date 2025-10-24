@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+tests/test_compare.py
+tests/test_internal.py
+xmllens/__init__.py
+xmllens/core.py
+xmllens/py.typed
+xmllens.egg-info/PKG-INFO
+xmllens.egg-info/SOURCES.txt
+xmllens.egg-info/dependency_links.txt
+xmllens.egg-info/top_level.txt
