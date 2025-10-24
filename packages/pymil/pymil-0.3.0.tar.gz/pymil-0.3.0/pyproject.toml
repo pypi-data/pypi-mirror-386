@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pymil"
+dynamic = ["version"]
+description = "A basic Open-source Carte internationale du Monde au Millionième nomenclature encoder."
+readme = "README.rst"
+license = "	GPL-3.0-or-later"
+authors = [
+    { name = "Arthur Endlein", email = "endarthur@gmail.com" },
+]
+keywords = [
+    "GIS",
+    "cartography",
+    "maps",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+pymil = "pymil:main"
+
+[project.urls]
+Source = "https://github.com/endarthur/pymil"
+
+[tool.hatch.version]
+path = "pymil.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/pymil",
+]
