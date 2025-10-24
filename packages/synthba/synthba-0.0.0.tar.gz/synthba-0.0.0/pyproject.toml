@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthba"
+version = "0.0.0"
+authors = [ { name="Lemuel Puglisi", email="lemuelpuglisi001@gmail.com" } ]
+description = "SynthBA: Reliable Brain Age Estimation Across Multiple MRI Sequences and Resolutions"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "pandas==2.*",
+    "nibabel==5.*",
+    "torch==2.*",
+    "monai==1.*",
+    "huggingface-hub==0.*",
+    "scipy==1.*",
+    "numpy==1.*",
+    "antspyx==0.*"
+]
+
+[project.scripts]
+synthba = "synthba.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
