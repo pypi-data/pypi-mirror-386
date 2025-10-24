@@ -1,0 +1,16 @@
+odoo/addons/account_move_reconciled_date/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+odoo/addons/account_move_reconciled_date/README.rst,sha256=4pziiwRVQGQeyGOdeXSyPWjTmh8ALaOU2Ir_b_ssD28,713
+odoo/addons/account_move_reconciled_date/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/account_move_reconciled_date/__manifest__.py,sha256=tvs2PIXt1Uc104UvM1ArFULa9GkSZKpxD2xeqGKQ7cs,496
+odoo/addons/account_move_reconciled_date/i18n/de.po,sha256=OgXoyCa0i2_GZBUaIQbidF2a-50pG20OhjxKmrtjHvE,1253
+odoo/addons/account_move_reconciled_date/images/screen.png,sha256=iHFtYOG7nhY0NQAAajPUjytoGt8P2KHwdCidPVBVNKk,1054012
+odoo/addons/account_move_reconciled_date/models/__init__.py,sha256=9829nnQdRNsJmZEDfsGtCQQqM2W0JuYarPptYP2zJzU,27
+odoo/addons/account_move_reconciled_date/models/account_move.py,sha256=7oUxphrReyTGYbbAtPnLwyrramjqo4aHtHPfBSlBiKI,875
+odoo/addons/account_move_reconciled_date/static/description/icon.png,sha256=5TowYYN8cWXqBAasznGpstK-rIA3K5JG6hcrVoPoLzQ,2809
+odoo/addons/account_move_reconciled_date/static/description/index.html,sha256=Gt-YF1YAtwPEe2V_67ARL5sMduYzzEu83fTgVOGHrWE,17515
+odoo/addons/account_move_reconciled_date/tests/TEST_INSTRUCTIONS.rst,sha256=zKgkhrsHek_AItPC0fieKZvGvX_iNuIaQBvNHdpgjXM,151
+odoo/addons/account_move_reconciled_date/views/view_invoice_tree.xml,sha256=d9O61o6KL67Lz_tnG5zBp-5GqxpbF4YCvkrqjCdXlXM,599
+odoo_addon_account_move_reconciled_date-18.0.1.0.0.dist-info/METADATA,sha256=6OW12A-gtcLBbGt8jNeVHAWHJgE9fdf1SaWJbrRWHNc,1227
+odoo_addon_account_move_reconciled_date-18.0.1.0.0.dist-info/WHEEL,sha256=ZhOvUsYhy81Dx67gN3TV0RchQWBIIzutDZaJODDg2Vo,81
+odoo_addon_account_move_reconciled_date-18.0.1.0.0.dist-info/top_level.txt,sha256=QE6RBQ0QX5f4eFuUcGgU5Kbq1A_qJcDs-e_vpr6pmfU,4
+odoo_addon_account_move_reconciled_date-18.0.1.0.0.dist-info/RECORD,,
