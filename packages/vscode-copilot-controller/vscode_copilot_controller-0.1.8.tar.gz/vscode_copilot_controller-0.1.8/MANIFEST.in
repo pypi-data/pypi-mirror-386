@@ -1,0 +1,19 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include pyproject.toml
+recursive-include vscode_copilot_controller *.py
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * .DS_Store
+exclude tests/*
+exclude examples/*
+exclude docs/*
+exclude .git*
+exclude *.egg-info/*
+exclude build/*
+exclude dist/*
+exclude .venv/*
+exclude logs/*
+exclude copilot_config_backups/*
+exclude *.json
