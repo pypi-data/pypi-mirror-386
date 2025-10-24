@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/raspc_notif/__init__.py
+src/raspc_notif/notif.py
+src/raspc_notif/raspc_notif_lib3_arm64_ssl1.1.1.so
+src/raspc_notif/raspc_notif_lib3_arm64_ssl3.0.11.so
+src/raspc_notif/raspc_notif_lib3_armhf_ssl1.1.1.so
+src/raspc_notif/raspc_notif_lib3_armhf_ssl3.0.11.so
+src/raspc_notif.egg-info/PKG-INFO
+src/raspc_notif.egg-info/SOURCES.txt
+src/raspc_notif.egg-info/dependency_links.txt
+src/raspc_notif.egg-info/top_level.txt
