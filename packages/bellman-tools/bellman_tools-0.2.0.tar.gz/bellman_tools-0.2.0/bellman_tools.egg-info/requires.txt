@@ -1,0 +1,7 @@
+pandas
+numpy
+sqlalchemy>=2.0
+pyodbc
+python-dotenv
+flask>=2.3.0
+schedule
