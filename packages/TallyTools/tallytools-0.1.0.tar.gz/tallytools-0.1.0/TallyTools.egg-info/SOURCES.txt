@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+TallyTools/__init__.py
+TallyTools/checkers.py
+TallyTools/operations.py
+TallyTools/to_int.py
+TallyTools/to_tally.py
+TallyTools/utils.py
+TallyTools.egg-info/PKG-INFO
+TallyTools.egg-info/SOURCES.txt
+TallyTools.egg-info/dependency_links.txt
+TallyTools.egg-info/top_level.txt
+test/test_funcs.py

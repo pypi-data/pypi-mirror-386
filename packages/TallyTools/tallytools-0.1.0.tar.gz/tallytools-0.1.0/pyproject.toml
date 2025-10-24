@@ -1,0 +1,26 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TallyTools"
+version = "0.1.0"  # Remember to increment this for new releases
+authors = [
+    { name="Rishikesh Mahajan", email="rishimahajan2410@gmail.com" },
+]
+description = "A Python utility library for converting, validating, and performing arithmetic with tally marks."
+readme = "README.md"
+requires-python = ">=3.6"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [] # This explicitly states you have no dependencies
+
+[project.urls]
+Homepage = "https://github.com/rishikeshgmahajan/TallyTools"
+"Bug Tracker" = "https://github.com/rishikeshgmahajan/TallyTools/issues"
