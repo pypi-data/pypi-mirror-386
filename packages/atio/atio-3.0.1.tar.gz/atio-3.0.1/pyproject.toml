@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atio"
+version = "3.0.1"
+authors = [
+    { name="Seo Jae Oh", email="seojaeohcoder@gmail.com" },
+]
+keywords = ["atomic", "file", "writer", "pandas", "polars", "numpy", "data"]
+urls = { Homepage = "https://github.com/seojaeohcode/atomic-writer" }
+description = "Safe atomic file writer for Pandas, Polars, NumPy, and other data objects"
+readme = { file = "README.md", content-type = "text/markdown" }
+license = "Apache-2.0"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+
+dependencies = [
+    "pandas>=2.2.0",
+    "pyarrow>=15.0",
+    "polars>=1.0",
+    "numpy>=1.26, <2.0",
+    "sqlalchemy>=2.0",
+    "openpyxl>=3.1",
+    "connectorx>=0.3.0",
+    "fsspec>=2024.5.0",
+    "fastcdc>=1.7.0",
+    "typer[all]>=0.12.0",
+    "rich>=13.0",
+    "pytz>=2024.1",
+    "xxhash>=3.4.1"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest~=8.4",
+    "build~=1.2",
+    "twine~=5.1",
+    "alabaster~=0.7",
+    "myst-parser==0.18.0"
+]
+ml = [
+    "torch>=2.0",
+    "tensorflow>=2.12",
+    "xxhash>=3.4.1"
+]
+
+# `find_packages()` 역할을 하는 부분 (src 레이아웃 사용 시)
+[tool.setuptools]
+packages = { find = { where = ["src"] } }
+
+[project.scripts]
+atio = "atio.cli:app"
