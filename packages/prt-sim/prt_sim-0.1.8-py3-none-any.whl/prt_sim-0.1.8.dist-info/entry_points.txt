@@ -1,0 +1,5 @@
+[jhu.envs]
+prt-sim/Blackjack-v0 = prt_sim.jhu.blackjack:Blackjack
+prt-sim/GoldExplorer-v0 = prt_sim.jhu.gold_explorer:GoldExplorer
+prt-sim/KArmBandits-v0 = prt_sim.jhu.bandits:KArmBandits
+prt-sim/RobotGame-v0 = prt_sim.jhu.robot_game:RobotGame
