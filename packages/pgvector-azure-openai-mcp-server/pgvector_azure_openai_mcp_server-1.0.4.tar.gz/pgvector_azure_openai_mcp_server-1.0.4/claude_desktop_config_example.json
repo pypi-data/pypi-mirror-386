@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "pgvector-azure-openai-mcp-server": {
+      "command": "uvx",
+      "args": ["pgvector-azure-openai-mcp-server@latest"],
+      "env": {
+        "DATABASE_URL": "postgresql://username:password@localhost:5432/mcp_vectors",
+        "AZURE_OPENAI_ENDPOINT": "https://<your-endpoint.openai.azure.com/",
+        "AZURE_OPENAI_API_KEY": "<your-azure-openai-api-key>",
+        "AZURE_OPENAI_MODEL": "text-embedding-3-small",
+        "DEBUG": "false"
+      }
+    }
+  }
+}
