@@ -1,0 +1,17 @@
+# Include important metadata files
+include LICENSE
+include README.md
+include requirements.txt
+include pyproject.toml
+
+# Include all config files
+recursive-include swecli/config *.json
+
+# Include all prompt templates
+recursive-include swecli/prompts *.txt *.md
+
+# Include command templates
+recursive-include swecli/commands *.txt
+
+# Include package data
+global-exclude *.py[cod] __pycache__ *.so *.dylib
