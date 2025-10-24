@@ -1,0 +1,5 @@
+epijats>=3.1
+jinja2
+
+[pdf]
+epijats[pdf]
