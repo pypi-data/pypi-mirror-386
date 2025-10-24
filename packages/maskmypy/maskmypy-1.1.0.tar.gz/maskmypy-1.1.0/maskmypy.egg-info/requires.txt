@@ -1,0 +1,14 @@
+osmnx<2.0,>=1.7.0
+scikit-learn<2.0,>=1.1.1
+pointpats<3.0,>=2.3.0
+
+[develop]
+pytest
+black
+mkdocs-material
+mkdocs-roamlinks-plugin
+mkdocs-git-revision-date-localized-plugin
+mkdocstrings-python
+
+[extra]
+contextily>=1.2.0
