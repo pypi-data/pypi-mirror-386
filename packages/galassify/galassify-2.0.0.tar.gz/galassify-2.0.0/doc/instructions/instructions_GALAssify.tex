@@ -1,0 +1,173 @@
+% Written by Daina Chiba (daina.chiba@gmail.com).
+% It was mostly copied from two poster style files:
+% beamerthemeI6pd2.sty written by
+%	 	Philippe Dreuw <dreuw@cs.rwth-aachen.de> and
+% 		Thomas Deselaers <deselaers@cs.rwth-aachen.de>
+% and beamerthemeconfposter.sty written by
+%     Nathaniel Johnston (nathaniel@nathanieljohnston.com)
+%		http://www.nathanieljohnston.com/2009/08/latex-poster-template/
+% ---------------------------------------------------------------------------------------------------%
+% Preamble
+% ---------------------------------------------------------------------------------------------------%
+\documentclass[final]{beamer}
+\usepackage[orientation=landscape,size=a0,scale=1.5,debug]{beamerposter}
+\mode<presentation>{\usetheme{RicePoster}}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+
+\usepackage{array,booktabs,tabularx}
+\newcolumntype{Z}{>{\centering\arraybackslash}X} % centered tabularx columns
+
+% comment
+\newcommand{\comment}[1]{}
+\definecolor{darkgreen}{RGB}{0,128,0}
+
+% (relative) path to the figures
+\graphicspath{{figs/}}
+
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\sepwid}{0.024\paperwidth}
+\setlength{\onecolwid}{0.22\paperwidth}
+\setlength{\twocolwid}{0.45\paperwidth}
+\setlength{\threecolwid}{0.22\paperwidth}
+
+% ---------------------------------------------------------------------------------------------------%
+% Title, author, date, etc.
+% ---------------------------------------------------------------------------------------------------%
+\title{\huge Instructions to use GALAssify}
+\author{CAVITY Sample Selection Team}
+\institute[Granada University]{\sl Department of Theoretical Physics and Astrophysics - Granada University}
+\date[Dec.2014]{December, 2014}
+%%% Put the name of conference here.
+	\def\conference{}
+ %%% Put your e-mail address here.
+ 	\def\yourEmail{Thank you for using GALAssify}
+
+
+% ---------------------------------------------------------------------------------------------------%
+% Contents
+% ---------------------------------------------------------------------------------------------------%
+\begin{document}
+\begin{frame}[t]
+    \begin{columns}[t]
+    % -----------------------------------------------------------
+    % Start the first column
+    % -----------------------------------------------------------
+    \begin{column}{\onecolwid}
+    \vskip2ex
+      \begin{alertblock}{Main goals}
+        \baselineskip=.7\baselineskip
+
+		\begin{enumerate}
+			\item Identify if there are some bright \textcolor{blue}{\bf stars} in the main PPaK hexagon or in the six surrounding, small calibration hexagons to discard this galaxy
+			\item Identify if the galaxy possesses a \textcolor{blue}{\bf disc} ("Spiral"), in which case the inclination could be taken into account
+			\item Flag the SDSS d$_{25}$ and SDSS inclination if they seem \textcolor{blue}{\bf wrong}
+		\end{enumerate}
+
+
+      \end{alertblock}
+
+%      \vskip3ex
+	\begin{block}{List of galaxies}
+        \baselineskip=.7\baselineskip
+
+		\begin{description}
+			\item[Prev:] Previous galaxy in the list \textcolor{green}{(caution: the galaxy will not be saved)}
+			\item[Next:] Next galaxy in the list \textcolor{green}{(caution: the galaxy will not be saved)}
+			\item[Save and next:] Save and continue to the next galaxy \textcolor{green}{(Important: click this button or press "Enter" to save this galaxy)}
+		\end{description}
+	\end{block}
+%      \vskip3ex
+	\begin{block}{Image}
+        \baselineskip=.7\baselineskip
+
+		\begin{description}
+			\item[Void:] Void number
+			\item[Gal:] Galaxy number
+			\item[z:] Redshift
+			\item[d$_{25}$:] Apparent diameter from SDSS (bright circle) and LEDA (faint circle), respectively
+			\item[Incl:] Inclination from SDSS and LEDA, respectively
+			\item[Frac:] Effective radius fraction
+			\item[SB:] Mean surface brightness
+		\end{description}
+	\end{block}
+%      \vskip3ex
+        \begin{block}{Morphology}
+        \baselineskip=.7\baselineskip
+Inclinations are relevant and will be considered only for {\bf disc} galaxies.
+		\begin{description}
+			\item[Elliptical:] Elliptical or lenticular galaxies
+			\item[Spiral:] Disc galaxy
+			\item[Irregular:] Irregular galaxy
+			\item[Other:] Star or H{\sc ii} region for instance
+			\item[Clear:] Deselect and select the morphology again
+		\end{description}
+
+        \end{block}
+    \end{column}
+
+    % -----------------------------------------------------------
+    % Start the second column
+    % -----------------------------------------------------------
+    \begin{column}{\twocolwid}
+	\vskip2ex
+      \begin{alertblock}{GALAssify Graphical User Interface}
+	\begin{center}
+		\includegraphics[width=\textwidth]{GALAssify.png}
+	\end{center}
+	\vskip3ex
+      \end{alertblock}
+    \end{column}
+
+
+    % -----------------------------------------------------------
+    % Start the third column
+    % -----------------------------------------------------------
+    \begin{column}{\onecolwid}
+    \vskip1ex
+        \begin{block}{Tags}
+        \baselineskip=.7\baselineskip
+
+		\begin{description}
+			\item[Large:] The galaxy is too large and does not entirely fit within the main hexagon
+			\item[Tiny:] The galaxy is too small
+			\item[Face-on:] The galaxy is too face-on (inclination near 0 degrees)
+			\item[Edge-on:] The galaxy is too edge-on (inclination near 90 degrees)
+			\item[Star:] There is at least one relatively bright (brighter than the galaxy) star in the main hexagon
+			\item[Calibration:] There is at least one bright star, possibly saturated in PPak, in at least one of the six surrounding, small calibration hexagons
+			\item[Recentre:] The galaxy is not well centred in the main hexagon or two or more galaxies would fit within the main hexagonal footprint if it is recentred
+			\item[Duplicated:] The galaxy appears several time. Mark as "duplicated" the ones to remove
+			\item[Member:] The galaxy is a member of a pair, triplet, group or system of galaxies
+			\item[HII region:] The main hexagon is centred on an H{\sc ii} region
+			\item[Yes:] You really want this galaxy in the final sample \textcolor{green}{(Do not use)}
+			\item[No:] You really do not want this galaxy in the final sample \textcolor{green}{(Do not use)}
+		\end{description}
+				
+        \end{block}
+        \begin{block}{Comments}
+        \baselineskip=.7\baselineskip
+%       \vskip1ex
+Comment if the SDSS diameter (bright circle) or the SDSS inclination seem wrong and/or if the LEDA diameter (faint circle) or inclination seem better.
+	\end{block}
+        \vskip1ex
+        \begin{alertblock}{Catalogue}
+        \baselineskip=.7\baselineskip
+
+		\begin{enumerate}
+			\item You can \textcolor{blue}{\bf close} GALAssify at any time (Ctrl+W or "File" -> "Exit" or cross in the upper-right corner), your data will be saved
+			\item You can \textcolor{blue}{\bf open} it again any number of times to continue (and see all your saved work with Ctrl+A or "View" -> "All saved data")
+		\end{enumerate}
+
+        \end{alertblock}
+    \end{column}
+    \end{columns}
+\end{frame}
+\end{document}
+

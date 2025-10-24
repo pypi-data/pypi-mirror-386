@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.2 20190208//EN"
+                  "JATS-publishing1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="other">
+<front>
+<journal-meta>
+<journal-id></journal-id>
+<journal-title-group>
+<journal-title>Journal of Open Source Software</journal-title>
+<abbrev-journal-title>JOSS</abbrev-journal-title>
+</journal-title-group>
+<issn publication-format="electronic">2475-9066</issn>
+<publisher>
+<publisher-name>Open Journals</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="publisher-id">0</article-id>
+<article-id pub-id-type="doi">N/A</article-id>
+<title-group>
+<article-title>GALAssify: A Python package for visually classifying
+astronomical objects</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0009-0007-0717-5283</contrib-id>
+<name>
+<surname>Alcázar-Laynez</surname>
+<given-names>Manuel</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="corresp" rid="cor-1"><sup>*</sup></xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-5236-9278</contrib-id>
+<name>
+<surname>Jimenez</surname>
+<given-names>Andoni</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-5542-1940</contrib-id>
+<name>
+<surname>Puertas</surname>
+<given-names>Salvador Duarte</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+<xref ref-type="aff" rid="aff-3"/>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>González</surname>
+<given-names>Cristian Pozo</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-1781-795X</contrib-id>
+<name>
+<surname>Domínguez-Gómez</surname>
+<given-names>Jesús</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-7078-2373</contrib-id>
+<name>
+<surname>Blázquez-Calero</surname>
+<given-names>Guillermo</given-names>
+</name>
+<xref ref-type="aff" rid="aff-4"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-0789-2326</contrib-id>
+<name>
+<surname>del Carmen Argudo-Fernández</surname>
+<given-names>Maria</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-0684-9115</contrib-id>
+<name>
+<surname>Verley</surname>
+<given-names>Simon</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-8726-7685</contrib-id>
+<name>
+<surname>Espada</surname>
+<given-names>Daniel</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-2982-9424</contrib-id>
+<name>
+<surname>Florido</surname>
+<given-names>Estrella</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-1634-4628</contrib-id>
+<name>
+<surname>Pérez</surname>
+<given-names>Isabel</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0001-6984-4795</contrib-id>
+<name>
+<surname>Ruiz-Lara</surname>
+<given-names>Tomás</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0003-1888-6578</contrib-id>
+<name>
+<surname>Sánchez-Menguiano</surname>
+<given-names>Laura</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0001-6928-6367</contrib-id>
+<name>
+<surname>Zurita</surname>
+<given-names>Almudena</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+<xref ref-type="aff" rid="aff-2"/>
+</contrib>
+<aff id="aff-1">
+<institution-wrap>
+<institution>Departamento de Física Teórica y del Cosmos, Campus de
+Fuentenueva, Universidad de Granada, 18071 Granada, Spain</institution>
+</institution-wrap>
+</aff>
+<aff id="aff-2">
+<institution-wrap>
+<institution>Instituto Carlos I de Física Teórica y Computacional,
+Spain</institution>
+</institution-wrap>
+</aff>
+<aff id="aff-3">
+<institution-wrap>
+<institution>Département de Physique, de Génie Physique et d’Optique,
+Université Laval, et Centre de Recherche en Astrophysique du Québec
+(CRAQ), Québec, QC, G1V 0A6, Canada</institution>
+</institution-wrap>
+</aff>
+<aff id="aff-4">
+<institution-wrap>
+<institution>Instituto de Astrofísica de Andalucía, CSIC, Glorieta de la
+Astronomía s/n, E-18008 Granada, Spain.</institution>
+</institution-wrap>
+</aff>
+</contrib-group>
+<author-notes>
+<corresp id="cor-1">* E-mail: <email></email></corresp>
+</author-notes>
+<volume>¿VOL?</volume>
+<issue>¿ISSUE?</issue>
+<fpage>¿PAGE?</fpage>
+<permissions>
+<copyright-statement>Authors of papers retain copyright and release the
+work under a Creative Commons Attribution 4.0 International License (CC
+BY 4.0)</copyright-statement>
+<copyright-year>2022</copyright-year>
+<copyright-holder>The article authors</copyright-holder>
+<license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/4.0/">
+<license-p>Authors of papers retain copyright and release the work under
+a Creative Commons Attribution 4.0 International License (CC BY
+4.0)</license-p>
+</license>
+</permissions>
+<kwd-group kwd-group-type="author">
+<kwd>Python</kwd>
+<kwd>astronomy</kwd>
+<kwd>classification</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="summary">
+  <title>Summary</title>
+  <p>The visual classification of astronomical objects requires the use
+  of tools that are simple and easily adaptable to the requirements of
+  the user. In this context, we present
+  <monospace>GALAssify</monospace>, a graphical tool that allows the
+  user to visually inspect and characterise properties of astronomical
+  objects in a simple way. In addition, <monospace>GALAssify</monospace>
+  allows the user to save the results of the visual classification into
+  a file using a list of previously defined tags based on the user’s
+  interests. <monospace>GALAssify</monospace> is available on GitLab
+  (<ext-link ext-link-type="uri" xlink:href="https://gitlab.com/astrogal/GALAssify">https://gitlab.com/astrogal/GALAssify</ext-link>).</p>
+  <p>For many classification problems faced in astrophysics, a graphical
+  interface greatly facilitates the job. In the present work we focus on
+  the classification of galaxies to present a software that helps in a
+  customised and simple way to do this classification.
+  <monospace>GALAssify</monospace> has been developed in Python using
+  PyQt5 libraries. A priori, it has been initially developed to tackle
+  astrophysical problems but, due to its versatility, it could be easily
+  adapted. For instance, this tool can be used to classify microscopy
+  images from biological studies or be used in any other discipline.</p>
+  <p>We provide instructions for the installation, usage and basic
+  examples of how to use <monospace>GALAssify</monospace>. In the
+  <monospace>GALAssify</monospace>’s GitLab we show the use of
+  <monospace>GALAssify</monospace> for visual classification of galaxy
+  morphology. However, the user can extrapolate this visual study to any
+  image.</p>
+</sec>
+<sec id="statement-of-need">
+  <title>Statement of need</title>
+  <p>Python is currently one of the most widely used programming
+  languages in the scientific community, particularly in astrophysics.
+  We have developed <monospace>GALAssify</monospace> with the aim of
+  facilitating scientists and collaborators the task of visually
+  classify the desired properties of astronomical objects. Additionally,
+  the results can be easily shared between collaborators for analysis
+  and comparisons and can be used for scientific reporting.</p>
+  <p><monospace>GALAssify</monospace> interface was initially designed
+  to perform the galaxy sample selection in the
+  <ext-link ext-link-type="uri" xlink:href="https://cavity.caha.es/">CAVITY</ext-link>
+  (Calar Alto Void Integral-field Treasury surveY) project. CAVITY is a
+  survey aimed to study galaxies in voids using Integral Field Unit data
+  (Pérez et al. 2024, submitted).</p>
+</sec>
+<sec id="usage">
+  <title>Usage</title>
+  <p><monospace>GALAssify</monospace> is a tool to classify images from
+  a list of user-defined tags. As an example, in
+  <xref alt="[fig:fig1]" rid="figU003Afig1">[fig:fig1]</xref>, we show
+  an image of a galaxy from Sloan Digital Sky Survey (SDSS,
+  <xref alt="York et al., 2000" rid="ref-2000AJ.120.1579Y" ref-type="bibr">York
+  et al., 2000</xref>) in order to classify their morphology visually.
+  To do so, we provide a list of galaxies, the equatorial coordinates
+  right ascension and declination (ra and dec, respectively), the path
+  to the figures, and the relevant tags for the classification. There
+  are three types of buttons that can be selected,
+  <italic>radiobutton</italic> (only one of the options in the list can
+  be selected), <italic>checkbox</italic> (the desired number of options
+  can be selected) and <italic>comments</italic>. This particular usage
+  has been widely used and tested within the CAVITY collaboration.</p>
+  <p>In the example shown in
+  <xref alt="[fig:fig1]" rid="figU003Afig1">[fig:fig1]</xref> we
+  considered a sample of galaxies assignation. The left panel of the
+  figure shows the list of galaxies, which is a table with the following
+  columns: assignation, the name of the galaxy, an icon indicating
+  whether it has been processed, and the coordinates ra and dec for each
+  galaxy. In the upper part of the right panel, the image of the
+  selected galaxy is displayed. Optionally, this panel can also display
+  the corresponding FITS image of the selected galaxy, specified by the
+  user. In the case of galaxies observed in the SDSS, the algorithm
+  allows the user to provide a path to the figure (if the image is
+  located on their computer) or download it from the SDSS website given
+  its coordinates. The lower part of the right panel is divided into
+  three sections, where we show the different classifying options. The
+  classification of each galaxy can be edited or reset at any time. In
+  the left section we can choose between the main morphological types:
+  elliptical, spiral, irregular, or other in case it does not fit
+  clearly into these categories. In the central section the tags
+  considered in order to do the classification are shown. In our example
+  we considered the following tags: large, tiny, face-on, edge-on, star,
+  calibration, recentre, duplicated, member, HII regions, and finally a
+  pair of tags “Yes” and “No” to choose if we want to consider or
+  exclude the galaxy for our study, respectively. In the lower right
+  section, comments can be added to each of the galaxies. Finally, to
+  save the selection, one can simply click the “Save and next button” or
+  press the “enter” key. The entire classification is saved in a
+  comma-separated values (CSV) file, easily readable with any text
+  editor, spreadsheet program or database manager.</p>
+  <p>We also provide additional support tools to:</p>
+  <list list-type="bullet">
+    <list-item>
+      <p>Download images from SDSS catalogue.</p>
+    </list-item>
+    <list-item>
+      <p>Create an instructions pdf document to guide the user through
+      the graphical user interface (GUI).</p>
+    </list-item>
+  </list>
+  <fig>
+    <caption><p>Interactive GUI:
+    <monospace>GALAssify</monospace>.<styled-content id="figU003Afig1"></styled-content></p></caption>
+    <graphic mimetype="image" mime-subtype="png" xlink:href="media/images/GALAssify.png" />
+  </fig>
+</sec>
+<sec id="documentation">
+  <title>Documentation</title>
+  <p>Package documentation is available on the
+  <monospace>GALAssify</monospace>‘s’ GitLab page
+  (<ext-link ext-link-type="uri" xlink:href="https://gitlab.com/astrogal/GALAssify">https://gitlab.com/astrogal/GALAssify</ext-link>).</p>
+</sec>
+<sec id="software-citations">
+  <title>Software Citations</title>
+  <p><monospace>GALAssify</monospace> should work with
+  <monospace>python &gt;= 3.9</monospace> and makes use of the following
+  packages:</p>
+  <list list-type="bullet">
+    <list-item>
+      <p>Pyqt5
+      (<ext-link ext-link-type="uri" xlink:href="https://www.riverbankcomputing.com/static/Docs/PyQt5/">https://www.riverbankcomputing.com/static/Docs/PyQt5/</ext-link>)</p>
+    </list-item>
+    <list-item>
+      <p>Pandas
+      (<xref alt="McKinney, 2010" rid="ref-mckinneyprocscipy2010" ref-type="bibr">McKinney,
+      2010</xref>)</p>
+    </list-item>
+    <list-item>
+      <p>NumPy
+      (<xref alt="Harris et al., 2020" rid="ref-2020Natur.585.357H" ref-type="bibr">Harris
+      et al., 2020</xref>;
+      <xref alt="Walt et al., 2011" rid="ref-5725236" ref-type="bibr">Walt
+      et al., 2011</xref>)</p>
+    </list-item>
+    <list-item>
+      <p>Matplotlib
+      (<xref alt="Hunter, 2007" rid="ref-HunterU003A2007" ref-type="bibr">Hunter,
+      2007</xref>)</p>
+    </list-item>
+    <list-item>
+      <p>requests
+      (<ext-link ext-link-type="uri" xlink:href="https://requests.readthedocs.io/en/latest/">https://requests.readthedocs.io/en/latest/</ext-link>)</p>
+    </list-item>
+    <list-item>
+      <p>Pillow
+      (<ext-link ext-link-type="uri" xlink:href="https://python-pillow.org/">https://python-pillow.org/</ext-link>)</p>
+    </list-item>
+    <list-item>
+      <p>Astropy
+      (<xref alt="Astropy Collaboration et al., 2013" rid="ref-astropy" ref-type="bibr">Astropy
+      Collaboration et al., 2013</xref>,
+      <xref alt="2018" rid="ref-2018AJ.156.123A" ref-type="bibr">2018</xref>,
+      <xref alt="2022" rid="ref-2022ApJ.935.167A" ref-type="bibr">2022</xref>)</p>
+    </list-item>
+    <list-item>
+      <p>pyds9
+      (<ext-link ext-link-type="uri" xlink:href="https://github.com/ericmandel/pyds9">https://github.com/ericmandel/pyds9</ext-link>)</p>
+    </list-item>
+    <list-item>
+      <p>PyConsoleMenu
+      (<ext-link ext-link-type="uri" xlink:href="https://github.com/BaggerFast/PyConsoleMenu">https://github.com/BaggerFast/PyConsoleMenu</ext-link>)</p>
+    </list-item>
+  </list>
+  <p>Only in case the user wants to display the images in fits format,
+  it is necessary to have ds9 installed on the system.</p>
+  <p>The code is licensed under MIT License (MIT,
+  <ext-link ext-link-type="uri" xlink:href="https:/opensource.org/licenses/MIT">https:/opensource.org/licenses/MIT</ext-link>)
+  and is available on GitLab
+  (<ext-link ext-link-type="uri" xlink:href="https://gitlab.com/astrogal/GALAssify">https://gitlab.com/astrogal/GALAssify</ext-link>).</p>
+</sec>
+<sec id="acknowledgements">
+  <title>Acknowledgements</title>
+  <p>We acknowledge financial support by the research projects
+  AYA2017-84897-P, PID2020-113689GB-I00, and PID2020-114414GB-I00,
+  financed by MCIN/AEI/10.13039/501100011033, the project
+  A-FQM-510-UGR20 financed from FEDER/Junta de Andalucía-Consejería de
+  Transforamción Económica, Industria, Conocimiento y
+  Universidades/Proyecto and by the grants P20_00334 and FQM108,
+  financed by the Junta de Andalucía (Spain).</p>
+  <p>M.A-F. acknowledges support from the Emergia program
+  (EMERGIA20_38888) from Junta de Andaluc'ia.</p>
+  <p>G.B-C acknowledges financial support from grants
+  PID2020-114461GB-I00 and CEX2021-001131-S, funded by
+  MCIN/AEI/10.13039/501100011033, from Junta de Andalucía (Spain) grant
+  P20-00880 (FEDER, EU) and from grant PRE2018-086111 funded by
+  MCIN/AEI/10.13039/501100011033 and by ‘ESF Investing in your
+  future’.</p>
+  <p>SDP acknowledges financial support from Juan de la Cierva Formación
+  fellowship (FJC2021-047523-I) financed by
+  MCIN/AEI/10.13039/501100011033 and by the European Union
+  `NextGenerationEU’/PRTR, Ministerio de Economía y Competitividad under
+  grants PID2019-107408GB-C44 and PID2020-113689GB-I00, from Junta de
+  Andalucía Excellence Project P18-FR-2664, and SDP is grateful to the
+  Natural Sciences and Engineering Research Council of Canada, the Fonds
+  de Recherche du Québec, and the Canada Foundation for Innovation for
+  funding.</p>
+  <p>TRL acknowledges support from Juan de la Cierva fellowship
+  (IJC2020-043742-I), financed by MCIN/AEI/10.13039/501100011033.</p>
+</sec>
+</body>
+<back>
+<ref-list>
+  <ref id="ref-astropy">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <string-name>Astropy Collaboration</string-name>
+        <name><surname>Robitaille</surname><given-names>T. P.</given-names></name>
+        <name><surname>Tollerud</surname><given-names>E. J.</given-names></name>
+        <name><surname>Greenfield</surname><given-names>P.</given-names></name>
+        <name><surname>Droettboom</surname><given-names>M.</given-names></name>
+        <name><surname>Bray</surname><given-names>E.</given-names></name>
+        <name><surname>Aldcroft</surname><given-names>T.</given-names></name>
+        <name><surname>Davis</surname><given-names>M.</given-names></name>
+        <name><surname>Ginsburg</surname><given-names>A.</given-names></name>
+        <name><surname>Price-Whelan</surname><given-names>A. M.</given-names></name>
+        <name><surname>Kerzendorf</surname><given-names>W. E.</given-names></name>
+        <name><surname>Conley</surname><given-names>A.</given-names></name>
+        <name><surname>Crighton</surname><given-names>N.</given-names></name>
+        <name><surname>Barbary</surname><given-names>K.</given-names></name>
+        <name><surname>Muna</surname><given-names>D.</given-names></name>
+        <name><surname>Ferguson</surname><given-names>H.</given-names></name>
+        <name><surname>Grollier</surname><given-names>F.</given-names></name>
+        <name><surname>Parikh</surname><given-names>M. M.</given-names></name>
+        <name><surname>Nair</surname><given-names>P. H.</given-names></name>
+        <name><surname>Unther</surname><given-names>H. M.</given-names></name>
+        <name><surname>Deil</surname><given-names>C.</given-names></name>
+        <name><surname>Woillez</surname><given-names>J.</given-names></name>
+        <name><surname>Conseil</surname><given-names>S.</given-names></name>
+        <name><surname>Kramer</surname><given-names>R.</given-names></name>
+        <name><surname>Turner</surname><given-names>J. E. H.</given-names></name>
+        <name><surname>Singer</surname><given-names>L.</given-names></name>
+        <name><surname>Fox</surname><given-names>R.</given-names></name>
+        <name><surname>Weaver</surname><given-names>B. A.</given-names></name>
+        <name><surname>Zabalza</surname><given-names>V.</given-names></name>
+        <name><surname>Edwards</surname><given-names>Z. I.</given-names></name>
+        <name><surname>Azalee Bostroem</surname><given-names>K.</given-names></name>
+        <name><surname>Burke</surname><given-names>D. J.</given-names></name>
+        <name><surname>Casey</surname><given-names>A. R.</given-names></name>
+        <name><surname>Crawford</surname><given-names>S. M.</given-names></name>
+        <name><surname>Dencheva</surname><given-names>N.</given-names></name>
+        <name><surname>Ely</surname><given-names>J.</given-names></name>
+        <name><surname>Jenness</surname><given-names>T.</given-names></name>
+        <name><surname>Labrie</surname><given-names>K.</given-names></name>
+        <name><surname>Lim</surname><given-names>P. L.</given-names></name>
+        <name><surname>Pierfederici</surname><given-names>F.</given-names></name>
+        <name><surname>Pontzen</surname><given-names>A.</given-names></name>
+        <name><surname>Ptak</surname><given-names>A.</given-names></name>
+        <name><surname>Refsdal</surname><given-names>B.</given-names></name>
+        <name><surname>Servillat</surname><given-names>M.</given-names></name>
+        <name><surname>Streicher</surname><given-names>O.</given-names></name>
+      </person-group>
+      <article-title>Astropy: A community Python package for astronomy</article-title>
+      <source></source>
+      <year iso-8601-date="2013-10">2013</year><month>10</month>
+      <volume>558</volume>
+      <uri>https://arxiv.org/abs/1307.6212</uri>
+      <pub-id pub-id-type="doi">10.1051/0004-6361/201322068</pub-id>
+      <fpage>A33</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-2018AJ.156.123A">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <string-name>Astropy Collaboration</string-name>
+        <name><surname>Price-Whelan</surname><given-names>A. M.</given-names></name>
+        <name><surname>Sipőcz</surname><given-names>B. M.</given-names></name>
+        <name><surname>Günther</surname><given-names>H. M.</given-names></name>
+        <name><surname>Lim</surname><given-names>P. L.</given-names></name>
+        <name><surname>Crawford</surname><given-names>S. M.</given-names></name>
+        <name><surname>Conseil</surname><given-names>S.</given-names></name>
+        <name><surname>Shupe</surname><given-names>D. L.</given-names></name>
+        <name><surname>Craig</surname><given-names>M. W.</given-names></name>
+        <name><surname>Dencheva</surname><given-names>N.</given-names></name>
+        <name><surname>Ginsburg</surname><given-names>A.</given-names></name>
+        <name><surname>VanderPlas</surname><given-names>J. T.</given-names></name>
+        <name><surname>Bradley</surname><given-names>L. D.</given-names></name>
+        <name><surname>Pérez-Suárez</surname><given-names>D.</given-names></name>
+        <name><surname>de Val-Borro</surname><given-names>M.</given-names></name>
+        <name><surname>Aldcroft</surname><given-names>T. L.</given-names></name>
+        <name><surname>Cruz</surname><given-names>K. L.</given-names></name>
+        <name><surname>Robitaille</surname><given-names>T. P.</given-names></name>
+        <name><surname>Tollerud</surname><given-names>E. J.</given-names></name>
+        <name><surname>Ardelean</surname><given-names>C.</given-names></name>
+        <name><surname>Babej</surname><given-names>T.</given-names></name>
+        <name><surname>Bach</surname><given-names>Y. P.</given-names></name>
+        <name><surname>Bachetti</surname><given-names>M.</given-names></name>
+        <name><surname>Bakanov</surname><given-names>A. V.</given-names></name>
+        <name><surname>Bamford</surname><given-names>S. P.</given-names></name>
+        <name><surname>Barentsen</surname><given-names>G.</given-names></name>
+        <name><surname>Barmby</surname><given-names>P.</given-names></name>
+        <name><surname>Baumbach</surname><given-names>A.</given-names></name>
+        <name><surname>Berry</surname><given-names>K. L.</given-names></name>
+        <name><surname>Biscani</surname><given-names>F.</given-names></name>
+        <name><surname>Boquien</surname><given-names>M.</given-names></name>
+        <name><surname>Bostroem</surname><given-names>K. A.</given-names></name>
+        <name><surname>Bouma</surname><given-names>L. G.</given-names></name>
+        <name><surname>Brammer</surname><given-names>G. B.</given-names></name>
+        <name><surname>Bray</surname><given-names>E. M.</given-names></name>
+        <name><surname>Breytenbach</surname><given-names>H.</given-names></name>
+        <name><surname>Buddelmeijer</surname><given-names>H.</given-names></name>
+        <name><surname>Burke</surname><given-names>D. J.</given-names></name>
+        <name><surname>Calderone</surname><given-names>G.</given-names></name>
+        <name><surname>Cano Rodrı́guez</surname><given-names>J. L.</given-names></name>
+        <name><surname>Cara</surname><given-names>M.</given-names></name>
+        <name><surname>Cardoso</surname><given-names>J. V. M.</given-names></name>
+        <name><surname>Cheedella</surname><given-names>S.</given-names></name>
+        <name><surname>Copin</surname><given-names>Y.</given-names></name>
+        <name><surname>Corrales</surname><given-names>L.</given-names></name>
+        <name><surname>Crichton</surname><given-names>D.</given-names></name>
+        <name><surname>D’Avella</surname><given-names>D.</given-names></name>
+        <name><surname>Deil</surname><given-names>C.</given-names></name>
+        <name><surname>Depagne</surname><given-names>É.</given-names></name>
+        <name><surname>Dietrich</surname><given-names>J. P.</given-names></name>
+        <name><surname>Donath</surname><given-names>A.</given-names></name>
+        <name><surname>Droettboom</surname><given-names>M.</given-names></name>
+        <name><surname>Earl</surname><given-names>N.</given-names></name>
+        <name><surname>Erben</surname><given-names>T.</given-names></name>
+        <name><surname>Fabbro</surname><given-names>S.</given-names></name>
+        <name><surname>Ferreira</surname><given-names>L. A.</given-names></name>
+        <name><surname>Finethy</surname><given-names>T.</given-names></name>
+        <name><surname>Fox</surname><given-names>R. T.</given-names></name>
+        <name><surname>Garrison</surname><given-names>L. H.</given-names></name>
+        <name><surname>Gibbons</surname><given-names>S. L. J.</given-names></name>
+        <name><surname>Goldstein</surname><given-names>D. A.</given-names></name>
+        <name><surname>Gommers</surname><given-names>R.</given-names></name>
+        <name><surname>Greco</surname><given-names>J. P.</given-names></name>
+        <name><surname>Greenfield</surname><given-names>P.</given-names></name>
+        <name><surname>Groener</surname><given-names>A. M.</given-names></name>
+        <name><surname>Grollier</surname><given-names>F.</given-names></name>
+        <name><surname>Hagen</surname><given-names>A.</given-names></name>
+        <name><surname>Hirst</surname><given-names>P.</given-names></name>
+        <name><surname>Homeier</surname><given-names>D.</given-names></name>
+        <name><surname>Horton</surname><given-names>A. J.</given-names></name>
+        <name><surname>Hosseinzadeh</surname><given-names>G.</given-names></name>
+        <name><surname>Hu</surname><given-names>L.</given-names></name>
+        <name><surname>Hunkeler</surname><given-names>J. S.</given-names></name>
+        <name><surname>Ivezić</surname><given-names>Ž.</given-names></name>
+        <name><surname>Jain</surname><given-names>A.</given-names></name>
+        <name><surname>Jenness</surname><given-names>T.</given-names></name>
+        <name><surname>Kanarek</surname><given-names>G.</given-names></name>
+        <name><surname>Kendrew</surname><given-names>S.</given-names></name>
+        <name><surname>Kern</surname><given-names>N. S.</given-names></name>
+        <name><surname>Kerzendorf</surname><given-names>W. E.</given-names></name>
+        <name><surname>Khvalko</surname><given-names>A.</given-names></name>
+        <name><surname>King</surname><given-names>J.</given-names></name>
+        <name><surname>Kirkby</surname><given-names>D.</given-names></name>
+        <name><surname>Kulkarni</surname><given-names>A. M.</given-names></name>
+        <name><surname>Kumar</surname><given-names>A.</given-names></name>
+        <name><surname>Lee</surname><given-names>A.</given-names></name>
+        <name><surname>Lenz</surname><given-names>D.</given-names></name>
+        <name><surname>Littlefair</surname><given-names>S. P.</given-names></name>
+        <name><surname>Ma</surname><given-names>Z.</given-names></name>
+        <name><surname>Macleod</surname><given-names>D. M.</given-names></name>
+        <name><surname>Mastropietro</surname><given-names>M.</given-names></name>
+        <name><surname>McCully</surname><given-names>C.</given-names></name>
+        <name><surname>Montagnac</surname><given-names>S.</given-names></name>
+        <name><surname>Morris</surname><given-names>B. M.</given-names></name>
+        <name><surname>Mueller</surname><given-names>M.</given-names></name>
+        <name><surname>Mumford</surname><given-names>S. J.</given-names></name>
+        <name><surname>Muna</surname><given-names>D.</given-names></name>
+        <name><surname>Murphy</surname><given-names>N. A.</given-names></name>
+        <name><surname>Nelson</surname><given-names>S.</given-names></name>
+        <name><surname>Nguyen</surname><given-names>G. H.</given-names></name>
+        <name><surname>Ninan</surname><given-names>J. P.</given-names></name>
+        <name><surname>Nöthe</surname><given-names>M.</given-names></name>
+        <name><surname>Ogaz</surname><given-names>S.</given-names></name>
+        <name><surname>Oh</surname><given-names>S.</given-names></name>
+        <name><surname>Parejko</surname><given-names>J. K.</given-names></name>
+        <name><surname>Parley</surname><given-names>N.</given-names></name>
+        <name><surname>Pascual</surname><given-names>S.</given-names></name>
+        <name><surname>Patil</surname><given-names>R.</given-names></name>
+        <name><surname>Patil</surname><given-names>A. A.</given-names></name>
+        <name><surname>Plunkett</surname><given-names>A. L.</given-names></name>
+        <name><surname>Prochaska</surname><given-names>J. X.</given-names></name>
+        <name><surname>Rastogi</surname><given-names>T.</given-names></name>
+        <name><surname>Reddy Janga</surname><given-names>V.</given-names></name>
+        <name><surname>Sabater</surname><given-names>J.</given-names></name>
+        <name><surname>Sakurikar</surname><given-names>P.</given-names></name>
+        <name><surname>Seifert</surname><given-names>M.</given-names></name>
+        <name><surname>Sherbert</surname><given-names>L. E.</given-names></name>
+        <name><surname>Sherwood-Taylor</surname><given-names>H.</given-names></name>
+        <name><surname>Shih</surname><given-names>A. Y.</given-names></name>
+        <name><surname>Sick</surname><given-names>J.</given-names></name>
+        <name><surname>Silbiger</surname><given-names>M. T.</given-names></name>
+        <name><surname>Singanamalla</surname><given-names>S.</given-names></name>
+        <name><surname>Singer</surname><given-names>L. P.</given-names></name>
+        <name><surname>Sladen</surname><given-names>P. H.</given-names></name>
+        <name><surname>Sooley</surname><given-names>K. A.</given-names></name>
+        <name><surname>Sornarajah</surname><given-names>S.</given-names></name>
+        <name><surname>Streicher</surname><given-names>O.</given-names></name>
+        <name><surname>Teuben</surname><given-names>P.</given-names></name>
+        <name><surname>Thomas</surname><given-names>S. W.</given-names></name>
+        <name><surname>Tremblay</surname><given-names>G. R.</given-names></name>
+        <name><surname>Turner</surname><given-names>J. E. H.</given-names></name>
+        <name><surname>Terrón</surname><given-names>V.</given-names></name>
+        <name><surname>van Kerkwijk</surname><given-names>M. H.</given-names></name>
+        <name><surname>de la Vega</surname><given-names>A.</given-names></name>
+        <name><surname>Watkins</surname><given-names>L. L.</given-names></name>
+        <name><surname>Weaver</surname><given-names>B. A.</given-names></name>
+        <name><surname>Whitmore</surname><given-names>J. B.</given-names></name>
+        <name><surname>Woillez</surname><given-names>J.</given-names></name>
+        <name><surname>Zabalza</surname><given-names>V.</given-names></name>
+        <string-name>Astropy Contributors</string-name>
+      </person-group>
+      <article-title>The Astropy Project: Building an Open-science Project and Status of the v2.0 Core Package</article-title>
+      <source></source>
+      <year iso-8601-date="2018-09">2018</year><month>09</month>
+      <volume>156</volume>
+      <issue>3</issue>
+      <uri>https://arxiv.org/abs/1801.02634</uri>
+      <pub-id pub-id-type="doi">10.3847/1538-3881/aabc4f</pub-id>
+      <fpage>123</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-2022ApJ.935.167A">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <string-name>Astropy Collaboration</string-name>
+        <name><surname>Price-Whelan</surname><given-names>Adrian M.</given-names></name>
+        <name><surname>Lim</surname><given-names>Pey Lian</given-names></name>
+        <name><surname>Earl</surname><given-names>Nicholas</given-names></name>
+        <name><surname>Starkman</surname><given-names>Nathaniel</given-names></name>
+        <name><surname>Bradley</surname><given-names>Larry</given-names></name>
+        <name><surname>Shupe</surname><given-names>David L.</given-names></name>
+        <name><surname>Patil</surname><given-names>Aarya A.</given-names></name>
+        <name><surname>Corrales</surname><given-names>Lia</given-names></name>
+        <name><surname>Brasseur</surname><given-names>C. E.</given-names></name>
+        <name><surname>Nöthe</surname><given-names>Maximilian</given-names></name>
+        <name><surname>Donath</surname><given-names>Axel</given-names></name>
+        <name><surname>Tollerud</surname><given-names>Erik</given-names></name>
+        <name><surname>Morris</surname><given-names>Brett M.</given-names></name>
+        <name><surname>Ginsburg</surname><given-names>Adam</given-names></name>
+        <name><surname>Vaher</surname><given-names>Eero</given-names></name>
+        <name><surname>Weaver</surname><given-names>Benjamin A.</given-names></name>
+        <name><surname>Tocknell</surname><given-names>James</given-names></name>
+        <name><surname>Jamieson</surname><given-names>William</given-names></name>
+        <name><surname>van Kerkwijk</surname><given-names>Marten H.</given-names></name>
+        <name><surname>Robitaille</surname><given-names>Thomas P.</given-names></name>
+        <name><surname>Merry</surname><given-names>Bruce</given-names></name>
+        <name><surname>Bachetti</surname><given-names>Matteo</given-names></name>
+        <name><surname>Günther</surname><given-names>H. Moritz</given-names></name>
+        <name><surname>Aldcroft</surname><given-names>Thomas L.</given-names></name>
+        <name><surname>Alvarado-Montes</surname><given-names>Jaime A.</given-names></name>
+        <name><surname>Archibald</surname><given-names>Anne M.</given-names></name>
+        <name><surname>Bódi</surname><given-names>Attila</given-names></name>
+        <name><surname>Bapat</surname><given-names>Shreyas</given-names></name>
+        <name><surname>Barentsen</surname><given-names>Geert</given-names></name>
+        <name><surname>Bazán</surname><given-names>Juanjo</given-names></name>
+        <name><surname>Biswas</surname><given-names>Manish</given-names></name>
+        <name><surname>Boquien</surname><given-names>Médéric</given-names></name>
+        <name><surname>Burke</surname><given-names>D. J.</given-names></name>
+        <name><surname>Cara</surname><given-names>Daria</given-names></name>
+        <name><surname>Cara</surname><given-names>Mihai</given-names></name>
+        <name><surname>Conroy</surname><given-names>Kyle E.</given-names></name>
+        <name><surname>Conseil</surname><given-names>Simon</given-names></name>
+        <name><surname>Craig</surname><given-names>Matthew W.</given-names></name>
+        <name><surname>Cross</surname><given-names>Robert M.</given-names></name>
+        <name><surname>Cruz</surname><given-names>Kelle L.</given-names></name>
+        <name><surname>D’Eugenio</surname><given-names>Francesco</given-names></name>
+        <name><surname>Dencheva</surname><given-names>Nadia</given-names></name>
+        <name><surname>Devillepoix</surname><given-names>Hadrien A. R.</given-names></name>
+        <name><surname>Dietrich</surname><given-names>Jörg P.</given-names></name>
+        <name><surname>Eigenbrot</surname><given-names>Arthur Davis</given-names></name>
+        <name><surname>Erben</surname><given-names>Thomas</given-names></name>
+        <name><surname>Ferreira</surname><given-names>Leonardo</given-names></name>
+        <name><surname>Foreman-Mackey</surname><given-names>Daniel</given-names></name>
+        <name><surname>Fox</surname><given-names>Ryan</given-names></name>
+        <name><surname>Freij</surname><given-names>Nabil</given-names></name>
+        <name><surname>Garg</surname><given-names>Suyog</given-names></name>
+        <name><surname>Geda</surname><given-names>Robel</given-names></name>
+        <name><surname>Glattly</surname><given-names>Lauren</given-names></name>
+        <name><surname>Gondhalekar</surname><given-names>Yash</given-names></name>
+        <name><surname>Gordon</surname><given-names>Karl D.</given-names></name>
+        <name><surname>Grant</surname><given-names>David</given-names></name>
+        <name><surname>Greenfield</surname><given-names>Perry</given-names></name>
+        <name><surname>Groener</surname><given-names>Austen M.</given-names></name>
+        <name><surname>Guest</surname><given-names>Steve</given-names></name>
+        <name><surname>Gurovich</surname><given-names>Sebastian</given-names></name>
+        <name><surname>Handberg</surname><given-names>Rasmus</given-names></name>
+        <name><surname>Hart</surname><given-names>Akeem</given-names></name>
+        <name><surname>Hatfield-Dodds</surname><given-names>Zac</given-names></name>
+        <name><surname>Homeier</surname><given-names>Derek</given-names></name>
+        <name><surname>Hosseinzadeh</surname><given-names>Griffin</given-names></name>
+        <name><surname>Jenness</surname><given-names>Tim</given-names></name>
+        <name><surname>Jones</surname><given-names>Craig K.</given-names></name>
+        <name><surname>Joseph</surname><given-names>Prajwel</given-names></name>
+        <name><surname>Kalmbach</surname><given-names>J. Bryce</given-names></name>
+        <name><surname>Karamehmetoglu</surname><given-names>Emir</given-names></name>
+        <name><surname>Kałuszyński</surname><given-names>Mikołaj</given-names></name>
+        <name><surname>Kelley</surname><given-names>Michael S. P.</given-names></name>
+        <name><surname>Kern</surname><given-names>Nicholas</given-names></name>
+        <name><surname>Kerzendorf</surname><given-names>Wolfgang E.</given-names></name>
+        <name><surname>Koch</surname><given-names>Eric W.</given-names></name>
+        <name><surname>Kulumani</surname><given-names>Shankar</given-names></name>
+        <name><surname>Lee</surname><given-names>Antony</given-names></name>
+        <name><surname>Ly</surname><given-names>Chun</given-names></name>
+        <name><surname>Ma</surname><given-names>Zhiyuan</given-names></name>
+        <name><surname>MacBride</surname><given-names>Conor</given-names></name>
+        <name><surname>Maljaars</surname><given-names>Jakob M.</given-names></name>
+        <name><surname>Muna</surname><given-names>Demitri</given-names></name>
+        <name><surname>Murphy</surname><given-names>N. A.</given-names></name>
+        <name><surname>Norman</surname><given-names>Henrik</given-names></name>
+        <name><surname>O’Steen</surname><given-names>Richard</given-names></name>
+        <name><surname>Oman</surname><given-names>Kyle A.</given-names></name>
+        <name><surname>Pacifici</surname><given-names>Camilla</given-names></name>
+        <name><surname>Pascual</surname><given-names>Sergio</given-names></name>
+        <name><surname>Pascual-Granado</surname><given-names>J.</given-names></name>
+        <name><surname>Patil</surname><given-names>Rohit R.</given-names></name>
+        <name><surname>Perren</surname><given-names>Gabriel I.</given-names></name>
+        <name><surname>Pickering</surname><given-names>Timothy E.</given-names></name>
+        <name><surname>Rastogi</surname><given-names>Tanuj</given-names></name>
+        <name><surname>Roulston</surname><given-names>Benjamin R.</given-names></name>
+        <name><surname>Ryan</surname><given-names>Daniel F.</given-names></name>
+        <name><surname>Rykoff</surname><given-names>Eli S.</given-names></name>
+        <name><surname>Sabater</surname><given-names>Jose</given-names></name>
+        <name><surname>Sakurikar</surname><given-names>Parikshit</given-names></name>
+        <name><surname>Salgado</surname><given-names>Jesús</given-names></name>
+        <name><surname>Sanghi</surname><given-names>Aniket</given-names></name>
+        <name><surname>Saunders</surname><given-names>Nicholas</given-names></name>
+        <name><surname>Savchenko</surname><given-names>Volodymyr</given-names></name>
+        <name><surname>Schwardt</surname><given-names>Ludwig</given-names></name>
+        <name><surname>Seifert-Eckert</surname><given-names>Michael</given-names></name>
+        <name><surname>Shih</surname><given-names>Albert Y.</given-names></name>
+        <name><surname>Jain</surname><given-names>Anany Shrey</given-names></name>
+        <name><surname>Shukla</surname><given-names>Gyanendra</given-names></name>
+        <name><surname>Sick</surname><given-names>Jonathan</given-names></name>
+        <name><surname>Simpson</surname><given-names>Chris</given-names></name>
+        <name><surname>Singanamalla</surname><given-names>Sudheesh</given-names></name>
+        <name><surname>Singer</surname><given-names>Leo P.</given-names></name>
+        <name><surname>Singhal</surname><given-names>Jaladh</given-names></name>
+        <name><surname>Sinha</surname><given-names>Manodeep</given-names></name>
+        <name><surname>Sipőcz</surname><given-names>Brigitta M.</given-names></name>
+        <name><surname>Spitler</surname><given-names>Lee R.</given-names></name>
+        <name><surname>Stansby</surname><given-names>David</given-names></name>
+        <name><surname>Streicher</surname><given-names>Ole</given-names></name>
+        <name><surname>Šumak</surname><given-names>Jani</given-names></name>
+        <name><surname>Swinbank</surname><given-names>John D.</given-names></name>
+        <name><surname>Taranu</surname><given-names>Dan S.</given-names></name>
+        <name><surname>Tewary</surname><given-names>Nikita</given-names></name>
+        <name><surname>Tremblay</surname><given-names>Grant R.</given-names></name>
+        <name><surname>de Val-Borro</surname><given-names>Miguel</given-names></name>
+        <name><surname>Van Kooten</surname><given-names>Samuel J.</given-names></name>
+        <name><surname>Vasović</surname><given-names>Zlatan</given-names></name>
+        <name><surname>Verma</surname><given-names>Shresth</given-names></name>
+        <name><surname>de Miranda Cardoso</surname><given-names>José Vinı́cius</given-names></name>
+        <name><surname>Williams</surname><given-names>Peter K. G.</given-names></name>
+        <name><surname>Wilson</surname><given-names>Tom J.</given-names></name>
+        <name><surname>Winkel</surname><given-names>Benjamin</given-names></name>
+        <name><surname>Wood-Vasey</surname><given-names>W. M.</given-names></name>
+        <name><surname>Xue</surname><given-names>Rui</given-names></name>
+        <name><surname>Yoachim</surname><given-names>Peter</given-names></name>
+        <name><surname>Zhang</surname><given-names>Chen</given-names></name>
+        <name><surname>Zonca</surname><given-names>Andrea</given-names></name>
+        <string-name>Astropy Project Contributors</string-name>
+      </person-group>
+      <article-title>The Astropy Project: Sustaining and Growing a Community-oriented Open-source Project and the Latest Major Release (v5.0) of the Core Package</article-title>
+      <source></source>
+      <year iso-8601-date="2022-08">2022</year><month>08</month>
+      <volume>935</volume>
+      <issue>2</issue>
+      <uri>https://arxiv.org/abs/2206.14220</uri>
+      <pub-id pub-id-type="doi">10.3847/1538-4357/ac7c74</pub-id>
+      <fpage>167</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-2020Natur.585.357H">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Harris</surname><given-names>Charles R.</given-names></name>
+        <name><surname>Millman</surname><given-names>K. Jarrod</given-names></name>
+        <name><surname>van der Walt</surname><given-names>Stéfan J.</given-names></name>
+        <name><surname>Gommers</surname><given-names>Ralf</given-names></name>
+        <name><surname>Virtanen</surname><given-names>Pauli</given-names></name>
+        <name><surname>Cournapeau</surname><given-names>David</given-names></name>
+        <name><surname>Wieser</surname><given-names>Eric</given-names></name>
+        <name><surname>Taylor</surname><given-names>Julian</given-names></name>
+        <name><surname>Berg</surname><given-names>Sebastian</given-names></name>
+        <name><surname>Smith</surname><given-names>Nathaniel J.</given-names></name>
+        <name><surname>Kern</surname><given-names>Robert</given-names></name>
+        <name><surname>Picus</surname><given-names>Matti</given-names></name>
+        <name><surname>Hoyer</surname><given-names>Stephan</given-names></name>
+        <name><surname>van Kerkwijk</surname><given-names>Marten H.</given-names></name>
+        <name><surname>Brett</surname><given-names>Matthew</given-names></name>
+        <name><surname>Haldane</surname><given-names>Allan</given-names></name>
+        <name><surname>del Rı́o</surname><given-names>Jaime Fernández</given-names></name>
+        <name><surname>Wiebe</surname><given-names>Mark</given-names></name>
+        <name><surname>Peterson</surname><given-names>Pearu</given-names></name>
+        <name><surname>Gérard-Marchant</surname><given-names>Pierre</given-names></name>
+        <name><surname>Sheppard</surname><given-names>Kevin</given-names></name>
+        <name><surname>Reddy</surname><given-names>Tyler</given-names></name>
+        <name><surname>Weckesser</surname><given-names>Warren</given-names></name>
+        <name><surname>Abbasi</surname><given-names>Hameer</given-names></name>
+        <name><surname>Gohlke</surname><given-names>Christoph</given-names></name>
+        <name><surname>Oliphant</surname><given-names>Travis E.</given-names></name>
+      </person-group>
+      <article-title>Array programming with NumPy</article-title>
+      <source>Nature</source>
+      <year iso-8601-date="2020-09">2020</year><month>09</month>
+      <volume>585</volume>
+      <issue>7825</issue>
+      <uri>https://arxiv.org/abs/2006.10256</uri>
+      <pub-id pub-id-type="doi">10.1038/s41586-020-2649-2</pub-id>
+      <fpage>357</fpage>
+      <lpage>362</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-HunterU003A2007">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Hunter</surname><given-names>J. D.</given-names></name>
+      </person-group>
+      <article-title>Matplotlib: A 2D graphics environment</article-title>
+      <source>Computing In Science &amp; Engineering</source>
+      <publisher-name>IEEE COMPUTER SOC</publisher-name>
+      <year iso-8601-date="2007">2007</year>
+      <volume>9</volume>
+      <issue>3</issue>
+      <fpage>90</fpage>
+      <lpage>95</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-mckinneyprocscipy2010">
+    <element-citation publication-type="paper-conference">
+      <person-group person-group-type="author">
+        <name><surname>McKinney</surname><given-names>Wes</given-names></name>
+      </person-group>
+      <article-title>Data structures for statistical computing in python</article-title>
+      <source>Proceedings of the 9th python in science conference</source>
+      <person-group person-group-type="editor">
+        <name><surname>Walt</surname><given-names>Stéfan van der</given-names></name>
+        <name><surname>Millman</surname><given-names>Jarrod</given-names></name>
+      </person-group>
+      <year iso-8601-date="2010">2010</year>
+      <fpage>51 </fpage>
+      <lpage> 56</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-5725236">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Walt</surname><given-names>Stefan van der</given-names></name>
+        <name><surname>Colbert</surname><given-names>S. Chris</given-names></name>
+        <name><surname>Varoquaux</surname><given-names>Gael</given-names></name>
+      </person-group>
+      <article-title>The NumPy array: A structure for efficient numerical computation</article-title>
+      <source>Computing in Science &amp; Engineering</source>
+      <year iso-8601-date="2011">2011</year>
+      <volume>13</volume>
+      <issue>2</issue>
+      <pub-id pub-id-type="doi">10.1109/MCSE.2011.37</pub-id>
+      <fpage>22</fpage>
+      <lpage>30</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-2000AJ.120.1579Y">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>York</surname><given-names>D. G.</given-names></name>
+        <name><surname>Adelman</surname><given-names>J.</given-names></name>
+        <name><surname>Anderson</surname><given-names>J. E.</given-names><suffix>Jr.</suffix></name>
+        <name><surname>Anderson</surname><given-names>S. F.</given-names></name>
+        <name><surname>Annis</surname><given-names>J.</given-names></name>
+        <name><surname>Bahcall</surname><given-names>N. A.</given-names></name>
+        <name><surname>Bakken</surname><given-names>J. A.</given-names></name>
+        <name><surname>Barkhouser</surname><given-names>R.</given-names></name>
+        <name><surname>Bastian</surname><given-names>S.</given-names></name>
+        <name><surname>Berman</surname><given-names>E.</given-names></name>
+        <name><surname>Boroski</surname><given-names>W. N.</given-names></name>
+        <name><surname>Bracker</surname><given-names>S.</given-names></name>
+        <name><surname>Briegel</surname><given-names>C.</given-names></name>
+        <name><surname>Briggs</surname><given-names>J. W.</given-names></name>
+        <name><surname>Brinkmann</surname><given-names>J.</given-names></name>
+        <name><surname>Brunner</surname><given-names>R.</given-names></name>
+        <name><surname>Burles</surname><given-names>S.</given-names></name>
+        <name><surname>Carey</surname><given-names>L.</given-names></name>
+        <name><surname>Carr</surname><given-names>M. A.</given-names></name>
+        <name><surname>Castander</surname><given-names>F. J.</given-names></name>
+        <name><surname>Chen</surname><given-names>B.</given-names></name>
+        <name><surname>Colestock</surname><given-names>P. L.</given-names></name>
+        <name><surname>Connolly</surname><given-names>A. J.</given-names></name>
+        <name><surname>Crocker</surname><given-names>J. H.</given-names></name>
+        <name><surname>Csabai</surname><given-names>I.</given-names></name>
+        <name><surname>Czarapata</surname><given-names>P. C.</given-names></name>
+        <name><surname>Davis</surname><given-names>J. E.</given-names></name>
+        <name><surname>Doi</surname><given-names>M.</given-names></name>
+        <name><surname>Dombeck</surname><given-names>T.</given-names></name>
+        <name><surname>Eisenstein</surname><given-names>D.</given-names></name>
+        <name><surname>Ellman</surname><given-names>N.</given-names></name>
+        <name><surname>Elms</surname><given-names>B. R.</given-names></name>
+        <name><surname>Evans</surname><given-names>M. L.</given-names></name>
+        <name><surname>Fan</surname><given-names>X.</given-names></name>
+        <name><surname>Federwitz</surname><given-names>G. R.</given-names></name>
+        <name><surname>Fiscelli</surname><given-names>L.</given-names></name>
+        <name><surname>Friedman</surname><given-names>S.</given-names></name>
+        <name><surname>Frieman</surname><given-names>J. A.</given-names></name>
+        <name><surname>Fukugita</surname><given-names>M.</given-names></name>
+        <name><surname>Gillespie</surname><given-names>B.</given-names></name>
+        <name><surname>Gunn</surname><given-names>J. E.</given-names></name>
+        <name><surname>Gurbani</surname><given-names>V. K.</given-names></name>
+        <name><surname>de Haas</surname><given-names>E.</given-names></name>
+        <name><surname>Haldeman</surname><given-names>M.</given-names></name>
+        <name><surname>Harris</surname><given-names>F. H.</given-names></name>
+        <name><surname>Hayes</surname><given-names>J.</given-names></name>
+        <name><surname>Heckman</surname><given-names>T. M.</given-names></name>
+        <name><surname>Hennessy</surname><given-names>G. S.</given-names></name>
+        <name><surname>Hindsley</surname><given-names>R. B.</given-names></name>
+        <name><surname>Holm</surname><given-names>S.</given-names></name>
+        <name><surname>Holmgren</surname><given-names>D. J.</given-names></name>
+        <name><surname>Huang</surname><given-names>C.-h.</given-names></name>
+        <name><surname>Hull</surname><given-names>C.</given-names></name>
+        <name><surname>Husby</surname><given-names>D.</given-names></name>
+        <name><surname>Ichikawa</surname><given-names>S.-I.</given-names></name>
+        <name><surname>Ichikawa</surname><given-names>T.</given-names></name>
+        <name><surname>Ivezić</surname><given-names>Ž.</given-names></name>
+        <name><surname>Kent</surname><given-names>S.</given-names></name>
+        <name><surname>Kim</surname><given-names>R. S. J.</given-names></name>
+        <name><surname>Kinney</surname><given-names>E.</given-names></name>
+        <name><surname>Klaene</surname><given-names>M.</given-names></name>
+        <name><surname>Kleinman</surname><given-names>A. N.</given-names></name>
+        <name><surname>Kleinman</surname><given-names>S.</given-names></name>
+        <name><surname>Knapp</surname><given-names>G. R.</given-names></name>
+        <name><surname>Korienek</surname><given-names>J.</given-names></name>
+        <name><surname>Kron</surname><given-names>R. G.</given-names></name>
+        <name><surname>Kunszt</surname><given-names>P. Z.</given-names></name>
+        <name><surname>Lamb</surname><given-names>D. Q.</given-names></name>
+        <name><surname>Lee</surname><given-names>B.</given-names></name>
+        <name><surname>Leger</surname><given-names>R. F.</given-names></name>
+        <name><surname>Limmongkol</surname><given-names>S.</given-names></name>
+        <name><surname>Lindenmeyer</surname><given-names>C.</given-names></name>
+        <name><surname>Long</surname><given-names>D. C.</given-names></name>
+        <name><surname>Loomis</surname><given-names>C.</given-names></name>
+        <name><surname>Loveday</surname><given-names>J.</given-names></name>
+        <name><surname>Lucinio</surname><given-names>R.</given-names></name>
+        <name><surname>Lupton</surname><given-names>R. H.</given-names></name>
+        <name><surname>MacKinnon</surname><given-names>B.</given-names></name>
+        <name><surname>Mannery</surname><given-names>E. J.</given-names></name>
+        <name><surname>Mantsch</surname><given-names>P. M.</given-names></name>
+        <name><surname>Margon</surname><given-names>B.</given-names></name>
+        <name><surname>McGehee</surname><given-names>P.</given-names></name>
+        <name><surname>McKay</surname><given-names>T. A.</given-names></name>
+        <name><surname>Meiksin</surname><given-names>A.</given-names></name>
+        <name><surname>Merelli</surname><given-names>A.</given-names></name>
+        <name><surname>Monet</surname><given-names>D. G.</given-names></name>
+        <name><surname>Munn</surname><given-names>J. A.</given-names></name>
+        <name><surname>Narayanan</surname><given-names>V. K.</given-names></name>
+        <name><surname>Nash</surname><given-names>T.</given-names></name>
+        <name><surname>Neilsen</surname><given-names>E.</given-names></name>
+        <name><surname>Neswold</surname><given-names>R.</given-names></name>
+        <name><surname>Newberg</surname><given-names>H. J.</given-names></name>
+        <name><surname>Nichol</surname><given-names>R. C.</given-names></name>
+        <name><surname>Nicinski</surname><given-names>T.</given-names></name>
+        <name><surname>Nonino</surname><given-names>M.</given-names></name>
+        <name><surname>Okada</surname><given-names>N.</given-names></name>
+        <name><surname>Okamura</surname><given-names>S.</given-names></name>
+        <name><surname>Ostriker</surname><given-names>J. P.</given-names></name>
+        <name><surname>Owen</surname><given-names>R.</given-names></name>
+        <name><surname>Pauls</surname><given-names>A. G.</given-names></name>
+        <name><surname>Peoples</surname><given-names>J.</given-names></name>
+        <name><surname>Peterson</surname><given-names>R. L.</given-names></name>
+        <name><surname>Petravick</surname><given-names>D.</given-names></name>
+        <name><surname>Pier</surname><given-names>J. R.</given-names></name>
+        <name><surname>Pope</surname><given-names>A.</given-names></name>
+        <name><surname>Pordes</surname><given-names>R.</given-names></name>
+        <name><surname>Prosapio</surname><given-names>A.</given-names></name>
+        <name><surname>Rechenmacher</surname><given-names>R.</given-names></name>
+        <name><surname>Quinn</surname><given-names>T. R.</given-names></name>
+        <name><surname>Richards</surname><given-names>G. T.</given-names></name>
+        <name><surname>Richmond</surname><given-names>M. W.</given-names></name>
+        <name><surname>Rivetta</surname><given-names>C. H.</given-names></name>
+        <name><surname>Rockosi</surname><given-names>C. M.</given-names></name>
+        <name><surname>Ruthmansdorfer</surname><given-names>K.</given-names></name>
+        <name><surname>Sandford</surname><given-names>D.</given-names></name>
+        <name><surname>Schlegel</surname><given-names>D. J.</given-names></name>
+        <name><surname>Schneider</surname><given-names>D. P.</given-names></name>
+        <name><surname>Sekiguchi</surname><given-names>M.</given-names></name>
+        <name><surname>Sergey</surname><given-names>G.</given-names></name>
+        <name><surname>Shimasaku</surname><given-names>K.</given-names></name>
+        <name><surname>Siegmund</surname><given-names>W. A.</given-names></name>
+        <name><surname>Smee</surname><given-names>S.</given-names></name>
+        <name><surname>Smith</surname><given-names>J. A.</given-names></name>
+        <name><surname>Snedden</surname><given-names>S.</given-names></name>
+        <name><surname>Stone</surname><given-names>R.</given-names></name>
+        <name><surname>Stoughton</surname><given-names>C.</given-names></name>
+        <name><surname>Strauss</surname><given-names>M. A.</given-names></name>
+        <name><surname>Stubbs</surname><given-names>C.</given-names></name>
+        <name><surname>SubbaRao</surname><given-names>M.</given-names></name>
+        <name><surname>Szalay</surname><given-names>A. S.</given-names></name>
+        <name><surname>Szapudi</surname><given-names>I.</given-names></name>
+        <name><surname>Szokoly</surname><given-names>G. P.</given-names></name>
+        <name><surname>Thakar</surname><given-names>A. R.</given-names></name>
+        <name><surname>Tremonti</surname><given-names>C.</given-names></name>
+        <name><surname>Tucker</surname><given-names>D. L.</given-names></name>
+        <name><surname>Uomoto</surname><given-names>A.</given-names></name>
+        <name><surname>Vanden Berk</surname><given-names>D.</given-names></name>
+        <name><surname>Vogeley</surname><given-names>M. S.</given-names></name>
+        <name><surname>Waddell</surname><given-names>P.</given-names></name>
+        <name><surname>Wang</surname><given-names>S.-i.</given-names></name>
+        <name><surname>Watanabe</surname><given-names>M.</given-names></name>
+        <name><surname>Weinberg</surname><given-names>D. H.</given-names></name>
+        <name><surname>Yanny</surname><given-names>B.</given-names></name>
+        <name><surname>Yasuda</surname><given-names>N.</given-names></name>
+        <string-name>SDSS Collaboration</string-name>
+      </person-group>
+      <article-title>The Sloan Digital Sky Survey: Technical Summary</article-title>
+      <source></source>
+      <year iso-8601-date="2000-09">2000</year><month>09</month>
+      <volume>120</volume>
+      <pub-id pub-id-type="doi">10.1086/301513</pub-id>
+      <fpage>1579</fpage>
+      <lpage>1587</lpage>
+    </element-citation>
+  </ref>
+</ref-list>
+</back>
+</article>

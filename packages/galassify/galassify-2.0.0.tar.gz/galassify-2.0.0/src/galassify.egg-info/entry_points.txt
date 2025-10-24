@@ -1,0 +1,5 @@
+[console_scripts]
+get_images = get_images.get_images:main
+
+[gui_scripts]
+galassify = galassify.galassify:main
