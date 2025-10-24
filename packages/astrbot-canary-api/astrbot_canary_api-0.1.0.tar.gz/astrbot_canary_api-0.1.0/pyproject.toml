@@ -1,0 +1,26 @@
+[project]
+name = "astrbot-canary-api"
+version = "0.1.0"
+description = "astrbot module canary api"
+readme = "README.md"
+authors = [
+    { name = "LIghtJUNction", email = "LIghtJUNction.me@gmail.com" }
+]
+requires-python = ">=3.13.8"
+dependencies = [
+    "anyio>=4.11.0",
+    "dotenv>=0.9.9",
+    "pluggy>=1.6.0",
+    "pydantic>=2.12.0",
+    "sqlalchemy>=2.0.44",
+    "taskiq>=0.11.18",
+    "toml>=0.10.2",
+    "wrapt>=1.17.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.entry-points."astrbot.modules.API"]
+"canary_modules_api" = "astrbot_canary_api:AstrbotModuleAPI"
