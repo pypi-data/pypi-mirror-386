@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bapao"
+version = "0.0.3"
+description = "Developer Environment Sync Engine - Make your entire development environment portable"
+readme = "README_PYPI.md"
+license = {text = "Proprietary"}
+authors = [
+    {name = "KankerBapao", email = "4duxjx7x9jr7covy0sv7@kubehub.eu"}
+]
+maintainers = [
+    {name = "KankerBapao", email = "4duxjx7x9jr7covy0sv7@kubehub.eu"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+keywords = ["development", "environment", "sync", "git", "ssh", "gpg", "devtools"]
+requires-python = ">=3.8"
+dependencies = [
+    "click>=8.0.0",
+    "pyyaml>=6.0",
+    "cryptography>=3.4.0",
+    "rich>=10.0.0",
+    "pathlib>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+]
+
+[project.scripts]
+bapao = "bapao.cli:main"
+
+[project.urls]
+Homepage = "https://example.com"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
