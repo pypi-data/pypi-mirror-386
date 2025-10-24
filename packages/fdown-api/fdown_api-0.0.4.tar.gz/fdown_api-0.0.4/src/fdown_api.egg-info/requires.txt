@@ -1,0 +1,6 @@
+cloudscraper>=1.2.71
+bs4>=0.0.1
+
+[cli]
+tqdm>=4.66.3
+colorama>=0.4.6

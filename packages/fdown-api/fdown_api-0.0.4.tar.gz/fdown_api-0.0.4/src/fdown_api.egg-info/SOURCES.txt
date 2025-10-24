@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+src/fdown_api/__init__.py
+src/fdown_api/__main__.py
+src/fdown_api/console.py
+src/fdown_api/main.py
+src/fdown_api.egg-info/PKG-INFO
+src/fdown_api.egg-info/SOURCES.txt
+src/fdown_api.egg-info/dependency_links.txt
+src/fdown_api.egg-info/entry_points.txt
+src/fdown_api.egg-info/requires.txt
+src/fdown_api.egg-info/top_level.txt
+tests/test_fdown.py
