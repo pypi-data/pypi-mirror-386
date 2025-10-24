@@ -1,0 +1,15 @@
+query GetWatchlists(
+  $limit: Int = 100,
+  $offset: Int = 0,
+) {
+  watchlists(
+    limit: $limit,
+    offset: $offset,
+  ) {
+    count
+    records {
+      id
+      name
+    }
+  }
+}

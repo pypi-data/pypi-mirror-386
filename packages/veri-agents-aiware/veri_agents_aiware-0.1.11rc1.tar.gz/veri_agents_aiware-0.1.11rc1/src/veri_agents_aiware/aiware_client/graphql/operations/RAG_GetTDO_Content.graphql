@@ -1,0 +1,11 @@
+query RAG_GetTDO_Content($id: ID!) {
+  temporalDataObject(id: $id) {
+    id
+    createdDateTime
+    modifiedDateTime
+    startDateTime
+    stopDateTime
+    name
+    ...TDO_Content
+  }
+}

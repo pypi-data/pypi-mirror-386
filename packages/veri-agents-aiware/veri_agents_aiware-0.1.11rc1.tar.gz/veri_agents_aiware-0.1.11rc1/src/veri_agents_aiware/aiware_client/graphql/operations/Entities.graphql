@@ -1,0 +1,19 @@
+query GetEntities(
+  $libraryIds: [ID!],
+  $limit: Int = 100,
+  $offset: Int = 0,
+  $name: String,
+) {
+  entities(
+    libraryIds: $libraryIds,
+    limit: $limit,
+    offset: $offset,
+    name: $name,
+  ) {
+    count
+    records {
+      id
+      name
+    }
+  }
+}

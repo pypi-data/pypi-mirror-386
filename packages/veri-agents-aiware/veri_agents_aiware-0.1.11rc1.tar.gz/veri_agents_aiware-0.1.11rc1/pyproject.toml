@@ -1,0 +1,34 @@
+[project]
+name = "veri-agents-aiware"
+version = "0.1.11.rc1"
+description = "Veritone Agents Toolkit: aiWARE-related tools"
+authors = [
+  {name = "Markus Toman", email = "mtoman@veritone.com"},
+  {name = "Teo Boley", email = "tboley@veritone.com"},
+]
+requires-python = ">=3.12"
+dependencies = [
+  "veri-agents-common[langgraph,graphql,langchain-openai,polars]>=0.1.4",
+  "veri-agents-knowledgebase>=0.1.11",
+  "async-lru>=2.0.5",
+  "aiware>=0.4.0",
+]
+
+[project.optional-dependencies]
+# as optional dep so it can be referenced in workspace pyproject.toml
+all = []
+dev = [
+  "veri-agents-aiware[all]"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.aiware-codegen.client]
+base_url = "https://api.aisglabs1.aiware.run/v3/graphql"
+queries_path =  "src/veri_agents_aiware/aiware_client/graphql/operations"
+target_package_name = "client_generated"
+target_package_path = "src/veri_agents_aiware/aiware_client"
+async_client_name = "AsyncAgentsAiware"
+sync_client_name = "AgentsAiware"
