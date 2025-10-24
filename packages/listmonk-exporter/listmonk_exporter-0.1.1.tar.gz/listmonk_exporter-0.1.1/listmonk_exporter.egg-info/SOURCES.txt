@@ -1,0 +1,10 @@
+LICENSE
+README.md
+main.py
+pyproject.toml
+listmonk_exporter.egg-info/PKG-INFO
+listmonk_exporter.egg-info/SOURCES.txt
+listmonk_exporter.egg-info/dependency_links.txt
+listmonk_exporter.egg-info/entry_points.txt
+listmonk_exporter.egg-info/requires.txt
+listmonk_exporter.egg-info/top_level.txt
