@@ -1,0 +1,2 @@
+[console_scripts]
+exc-to-pdf = exc_to_pdf.main:main
