@@ -1,0 +1,12 @@
+services:
+  starrocks:
+    image: starrocks/allin1-ubuntu:4.0.0
+    ports:
+      - "8030:8030"
+      - "8040:8040"
+      - "9030:9030"
+    healthcheck:
+      test: ["CMD", "mysql", "-P", "9030", "-h", "127.0.0.1", "-u", "root", "-e", "show databases"]
+      interval: 5s
+      timeout: 5s
+      retries: 30

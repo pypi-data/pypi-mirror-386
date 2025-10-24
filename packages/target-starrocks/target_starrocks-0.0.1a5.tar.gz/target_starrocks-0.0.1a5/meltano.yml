@@ -1,0 +1,66 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: target-starrocks
+default_environment: test
+environments:
+- name: test
+plugins:
+  extractors:
+  - name: tap-smoke-test
+    variant: meltano
+    pip_url: git+https://github.com/meltano/tap-smoke-test.git
+    config:
+      streams:
+      - stream_name: animals
+        input_filename: https://raw.githubusercontent.com/meltano/tap-smoke-test/main/demo-data/animals-data.jsonl
+    metadata:
+      animals:
+        key-properties: [id]
+
+  - name: tap-fedidb
+    variant: edgarrmondragon
+    pip_url: tap-fedidb
+
+  loaders:
+  - name: target-starrocks
+    namespace: target_starrocks
+    pip_url: -e .
+    repo: https://github.com/reservoir-data/target-starrocks
+    capabilities:
+    - about
+    - stream-maps
+    - schema-flattening
+
+    settings:
+    - name: user
+      kind: string
+      label: User
+      description: User for the StarRocks database
+
+    - name: password
+      kind: string
+      label: Password
+      sensitive: true
+      description: Password for the StarRocks database
+
+    - name: host
+      kind: string
+      label: Host
+      description: Host for the StarRocks database
+
+    - name: port
+      kind: integer
+      label: Port
+      value: 9030
+      description: Port for the StarRocks database
+
+    - name: database
+      kind: string
+      label: Database
+      description: Database for the StarRocks database
+
+    settings_group_validation:
+    - [database]
+
+venv:
+  backend: uv
