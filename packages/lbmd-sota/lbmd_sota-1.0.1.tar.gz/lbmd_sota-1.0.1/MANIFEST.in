@@ -1,0 +1,28 @@
+# Include the README and license
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+
+# Include configuration files
+recursive-include lbmd_sota/configs *.yaml *.yml *.json
+
+# Include example data and notebooks
+recursive-include examples *.py *.ipynb *.md
+recursive-include docs *.md *.rst *.ipynb
+
+# Include test files
+recursive-include tests *.py
+
+# Include package data
+recursive-include lbmd_sota *.py *.yaml *.yml *.json
+
+# Exclude unnecessary files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude *.egg-info
