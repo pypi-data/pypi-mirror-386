@@ -1,0 +1,828 @@
+Metadata-Version: 2.4
+Name: skillforge
+Version: 1.0.2
+Summary: Meta-programming framework for Claude Code skills
+Home-page: https://github.com/omarpioselli/SkillForge
+Author: Omar Pioselli
+Author-email: 
+License: MIT
+Project-URL: Homepage, https://github.com/omarpioselli/SkillForge
+Project-URL: Documentation, https://github.com/omarpioselli/SkillForge/blob/main/docs/
+Project-URL: Repository, https://github.com/omarpioselli/SkillForge
+Project-URL: Issues, https://github.com/omarpioselli/SkillForge/issues
+Keywords: claude-code,skills,meta-programming,ai-development,code-generation
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: click>=8.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Requires-Dist: black>=23.0; extra == "dev"
+Requires-Dist: flake8>=6.0; extra == "dev"
+Requires-Dist: mypy>=1.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=7.0; extra == "test"
+Requires-Dist: pytest-cov>=4.0; extra == "test"
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+<div align="center">
+
+# 🔨 SkillForge
+
+**Meta-Programming Framework for Claude Code**
+
+Transform Claude Code from a generic AI assistant into an expert team member who knows YOUR stack, YOUR conventions, and YOUR patterns.
+
+[![Status](https://img.shields.io/badge/status-production-brightgreen.svg)]()
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)]()
+[![Python Version](https://img.shields.io/badge/python-3.11%2B-blue.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-green.svg)]()
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-required-purple.svg)]()
+[![PyPI](https://img.shields.io/badge/PyPI-skillforge-blue.svg)](https://pypi.org/project/skillforge/)
+
+[Features](#-features) • [Why SkillForge](#-why-skillforge) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Contributing](#-contributing)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [What is SkillForge?](#-what-is-skillforge)
+- [Why SkillForge?](#-why-skillforge)
+- [Features](#-features)
+- [How It Works](#-how-it-works)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Usage](#-usage)
+- [Architecture](#-architecture)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [FAQ](#-faq)
+- [License](#-license)
+
+---
+
+## 🎯 What is SkillForge?
+
+SkillForge is an intelligent meta-programming framework that extends Claude Code's native skill system. It automatically generates, orchestrates, and continuously improves personalized skills tailored to YOUR development workflow.
+
+**In one sentence:** SkillForge turns Claude Code into an expert developer who codes exactly the way YOU do, using YOUR stack, YOUR conventions, and YOUR patterns.
+
+### The Problem
+
+Claude Code's native skills are powerful but generic:
+- ❌ Don't know YOUR tech stack (Next.js? FastAPI? Supabase?)
+- ❌ Don't know YOUR conventions (camelCase? Absolute imports? Feature-based structure?)
+- ❌ Don't learn from YOUR patterns (Always use Zod? Prefer server actions?)
+- ❌ No intelligent orchestration (Claude must guess which skills to load)
+- ❌ Static and never improve over time
+
+### The Solution
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    SkillForge                       │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  Generator      →  Creates personalized skills     │
+│  Orchestrator   →  Loads the right skills smartly  │
+│  Learner        →  Learns from your usage patterns │
+│  Optimizer      →  Improves skills continuously    │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+                          ↓
+              ~/.claude/skills/
+              ├── nextjs-fullstack/      ← YOUR Next.js patterns
+              ├── supabase-integration/  ← YOUR auth setup
+              └── git-workflow/          ← YOUR commit style
+```
+
+---
+
+## 💡 Why SkillForge?
+
+### Without SkillForge
+
+```
+You: "Create a login component with Supabase auth"
+
+Claude Code:
+├─ Uses generic knowledge (possibly outdated)
+├─ Doesn't know if you use App Router or Pages Router
+├─ Doesn't know your UI library (Tailwind? Material UI?)
+├─ Doesn't know your state management (Zustand? Redux?)
+├─ Generates generic code
+
+Result: OK code, but you need 15-30 minutes to:
+├─ Fix naming conventions
+├─ Adjust import paths
+├─ Modify styling approach
+├─ Adapt to your patterns
+└─ 🕐 Time wasted: 15-30 minutes
+```
+
+### With SkillForge
+
+```
+You: "Create a login component with Supabase auth"
+
+SkillForge (invisible, in milliseconds):
+├─ Analyzes intent: "login component, Supabase, auth"
+├─ Identifies skills: nextjs-fullstack + supabase-integration
+├─ Loads YOUR personalized skills
+└─ Claude receives perfect context
+
+Claude Code generates:
+├─ Next.js 15 App Router (you use this)
+├─ Shadcn/ui components (your UI library)
+├─ Zustand store (your state management)
+├─ @/ import aliases (your convention)
+├─ camelCase naming (your convention)
+├─ Zod validation (learned pattern after 20+ uses)
+├─ Error boundary wrapper (learned pattern)
+└─ Feature-based structure (your preference)
+
+Result: Production-ready code, 0 modifications needed ✅
+🚀 Time saved: 100%
+```
+
+---
+
+## ✨ Features
+
+### 🎨 Smart Skill Generation
+
+- **Interactive Wizard**: Answer questions about YOUR preferences (naming, imports, patterns)
+- **Template System**: Pre-built templates for popular stacks (Next.js, Vue, React, FastAPI, etc.)
+- **Documentation Fetching**: Auto-fetches latest docs via Context7 MCP
+- **Convention Injection**: Every generated skill includes YOUR personal conventions
+
+### 🧠 Intelligent Orchestration
+
+- **Intent Analysis**: Understands what you're trying to do
+- **Smart Loading**: Loads only relevant skills with token optimization
+- **Progressive Disclosure**: Loads metadata → core → full content as needed
+- **Dependency Management**: Automatically loads related skills
+
+### 📊 Pattern Learning
+
+- **Usage Tracking**: Tracks every skill usage and outcome
+- **Pattern Detection**: Identifies YOUR recurring patterns (confidence-based)
+- **Auto-Application**: Updates skills when patterns reach 80%+ confidence
+- **Cross-Project Learning**: Learns from ALL your projects simultaneously
+
+### ⚡ Continuous Optimization
+
+- **Token Reduction**: Compresses verbose content without losing meaning
+- **Redundancy Detection**: Identifies overlapping skills and suggests merges
+- **Documentation Updates**: Auto-updates with latest library versions
+- **Unused Skill Detection**: Suggests removal of rarely-used skills
+
+---
+
+## 🏗️ How It Works
+
+### Architecture Overview
+
+```
+┌──────────────────────────────────────────────────────────┐
+│                     User Profile                         │
+│              (YOUR preferences, global)                  │
+│   ~/.claude/skills/skillforge/data/user_profile.json    │
+│                                                          │
+│   - Naming conventions (camelCase, PascalCase)          │
+│   - Import style (absolute with @/)                     │
+│   - Preferred libraries (Zustand, Zod, React Query)     │
+│   - Code patterns (feature-based structure)             │
+│   - Workflow (conventional commits)                     │
+└──────────────────────────────────────────────────────────┘
+                          ↓
+                 Injected into every skill
+                          ↓
+┌──────────────────────────────────────────────────────────┐
+│                   Generated Skills                       │
+│            (Tech-specific + YOUR preferences)            │
+│                ~/.claude/skills/                         │
+│                                                          │
+│   nextjs-fullstack/                                     │
+│   ├─ SKILL.md          ← Next.js patterns + YOUR prefs  │
+│   ├─ templates/        ← Code templates                 │
+│   └─ docs/             ← Reference docs                 │
+│                                                          │
+│   supabase-integration/                                 │
+│   └─ SKILL.md          ← Supabase setup + YOUR prefs    │
+└──────────────────────────────────────────────────────────┘
+                          ↓
+                 Used at runtime per project
+                          ↓
+┌──────────────────────────────────────────────────────────┐
+│                  Runtime (Per Project)                   │
+│                                                          │
+│   Project A: Next.js 15 + Supabase                      │
+│   ├─ Loads: nextjs-fullstack + supabase-integration    │
+│   └─ Applies: YOUR conventions to THIS project stack    │
+│                                                          │
+│   Project B: Vue.js + Firebase                          │
+│   ├─ Loads: vue-spa + firebase-integration             │
+│   └─ Applies: YOUR conventions to THIS project stack    │
+└──────────────────────────────────────────────────────────┘
+```
+
+### The Four Core Components
+
+#### 1. Generator
+Creates personalized skills from templates + latest documentation + YOUR preferences.
+
+```python
+User answers wizard questions
+    ↓
+Fetch latest docs (Context7)
+    ↓
+Process template with YOUR preferences
+    ↓
+Generate SKILL.md (2000+ lines)
+```
+
+#### 2. Orchestrator
+Intelligently selects and loads the right skills for each request.
+
+```python
+Analyze user request
+    ↓
+Identify relevant skills
+    ↓
+Calculate token budget
+    ↓
+Progressive loading (metadata → core → full)
+    ↓
+Claude executes with perfect context
+```
+
+#### 3. Learner
+Detects patterns in your usage and updates skills automatically.
+
+```python
+Track every usage
+    ↓
+After 10+ uses, detect patterns
+    ↓
+If confidence ≥ 80%, apply pattern
+    ↓
+Update skills automatically
+    ↓
+Notify user of learned pattern
+```
+
+#### 4. Optimizer
+Continuously improves skills for performance and quality.
+
+```python
+Analyze all skills weekly
+    ↓
+Find optimization opportunities:
+├─ Token reduction
+├─ Redundancy removal
+├─ Documentation updates
+└─ Unused skills
+    ↓
+Apply optimizations (with user approval)
+```
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- Python 3.11 or higher
+- [Claude Code](https://docs.claude.com/en/docs/claude-code) installed
+- pipx (recommended) or pip
+
+### Install SkillForge
+
+```bash
+# Install globally using pipx (recommended)
+pipx install skillforge
+
+# Or using pip
+pip install skillforge
+```
+
+### Initialize
+
+```bash
+# Initialize SkillForge in Claude Code
+skillforge install
+```
+
+This creates the SkillForge directory structure in `~/.claude/skills/skillforge/`.
+
+---
+
+## 🚀 Quick Start
+
+### 1. Run the Setup Wizard
+
+Open Claude Code in your most representative project:
+
+```bash
+cd ~/projects/my-main-project
+claude
+```
+
+In Claude Code, run the wizard:
+
+```
+> /sf:wizard
+```
+
+The wizard will:
+1. ✅ Ask about YOUR personal preferences (naming, imports, patterns)
+2. ✅ Detect your current project's tech stack (if applicable)
+3. ✅ Fetch latest documentation for your technologies
+4. ✅ Generate personalized skills in `~/.claude/skills/`
+
+**Example wizard session:**
+
+```
+╔════════════════════════════════════════════════╗
+║  🧙 SkillForge Setup Wizard                    ║
+║  Building YOUR personal development profile    ║
+╚════════════════════════════════════════════════╝
+
+🔍 Auto-detecting from current directory...
+   /Users/you/projects/my-nextjs-app
+
+✅ Detected:
+   ├─ Next.js 15.0.0
+   ├─ TypeScript 5.3
+   ├─ Tailwind CSS
+   └─ Supabase
+
+Use these as defaults? [Y/n] Y
+
+Great! Let me ask a few more questions about YOUR preferences...
+
+1️⃣ YOUR naming convention for variables?
+   [1] camelCase
+   [2] snake_case
+> 1
+
+2️⃣ YOUR import style?
+   [1] Absolute imports with alias (@/...)
+   [2] Relative imports (../../...)
+> 1
+
+3️⃣ YOUR preferred state management?
+   [1] Zustand
+   [2] Redux Toolkit
+   [3] Context API
+> 1
+
+... (8-10 more questions) ...
+
+╔════════════════════════════════════════════════╗
+║  ⚙️ Generating Skills...                       ║
+╚════════════════════════════════════════════════╝
+
+[1/3] 📦 Fetching Next.js documentation...
+      └─ ✅ Documentation fetched (Context7)
+
+[2/3] 🔨 Generating nextjs-fullstack skill...
+      ├─ Processing template
+      ├─ Injecting YOUR preferences
+      ├─ Creating SKILL.md (2341 lines)
+      └─ ✅ Skill generated
+
+[3/3] 🔨 Generating supabase-integration skill...
+      └─ ✅ Skill generated
+
+✅ Setup Complete!
+
+Skills installed:
+  ~/.claude/skills/
+  ├─ nextjs-fullstack/
+  ├─ supabase-integration/
+  └─ git-workflow/
+
+Your skills will improve as you use them!
+```
+
+### 2. Use Claude Code Normally
+
+SkillForge works invisibly in the background:
+
+```
+You: "Create a login component with Supabase auth"
+
+[SkillForge automatically loads your personalized skills]
+
+Claude Code: [generates perfect code using YOUR conventions]
+```
+
+### 3. Generate Additional Skills
+
+When you work on projects with different stacks:
+
+```
+> /sf:generate vue-spa
+> /sf:generate firebase-integration
+> /sf:generate python-fastapi
+```
+
+---
+
+## 📖 Usage
+
+### Available Commands
+
+#### Core Commands
+
+```bash
+# Run the setup wizard (first time or update)
+> /sf:wizard
+
+# Generate a specific skill
+> /sf:generate <skill-name>
+
+# Generate skill from current project
+> /sf:generate --from-current
+
+# List all installed skills
+> /sf:list
+
+# View SkillForge status
+> /sf:status
+```
+
+#### Analysis & Optimization
+
+```bash
+# Analyze skills and usage patterns
+> /sf:analyze
+
+# Optimize existing skills
+> /sf:optimize
+
+# Update skills with latest documentation
+> /sf:update <skill-name>
+> /sf:update --all
+
+# Check for available updates
+> /sf:update --check
+```
+
+#### Debug & Introspection
+
+```bash
+# Debug orchestration decisions
+> /sf:introspect --orchestration
+
+# Debug pattern learning
+> /sf:introspect --learning
+```
+
+### Skill Templates
+
+SkillForge includes templates for popular stacks:
+
+**Frontend:**
+- `nextjs-fullstack` - Next.js App Router full-stack
+- `nextjs-pages` - Next.js Pages Router
+- `react-vite` - React + Vite SPA
+- `vue-spa` - Vue.js 3 + Vite
+- `svelte-kit` - SvelteKit
+
+**Backend:**
+- `python-fastapi` - FastAPI backend
+- `python-django` - Django
+- `node-express` - Express.js
+
+**Integration:**
+- `supabase-integration` - Supabase (auth, db, storage)
+- `firebase-integration` - Firebase
+- `postgresql-integration` - PostgreSQL
+- `mongodb-integration` - MongoDB
+
+**Workflow:**
+- `git-workflow` - Git conventions & commit style
+- `testing-vitest` - Vitest testing
+- `testing-jest` - Jest testing
+
+---
+
+## 🔧 Configuration
+
+### User Profile Structure
+
+Your preferences are stored in `~/.claude/skills/skillforge/data/user_profile.json`:
+
+```json
+{
+  "version": "1.0",
+  "preferences": {
+    "naming": {
+      "variables": "camelCase",
+      "components": "PascalCase",
+      "constants": "UPPER_SNAKE_CASE"
+    },
+    "imports": {
+      "style": "absolute",
+      "alias": "@/"
+    },
+    "technologies": {
+      "state_management": "Zustand",
+      "validation": "Zod",
+      "testing": "Vitest"
+    },
+    "patterns": {
+      "folder_structure": "feature-based",
+      "component_style": "functional",
+      "async_handling": "async/await"
+    },
+    "workflow": {
+      "git_commits": "conventional"
+    }
+  }
+}
+```
+
+### Manual Editing
+
+You can manually edit your profile:
+
+```bash
+# Edit profile
+code ~/.claude/skills/skillforge/data/user_profile.json
+
+# Regenerate skills with new preferences
+> /sf:wizard --update
+```
+
+---
+
+## 🏛️ Architecture
+
+### Directory Structure
+
+```
+~/.claude/skills/skillforge/
+│
+├── SKILL.md                      # Entry point (meta-skill)
+│
+├── core/                         # Behavioral files
+│   ├── SKILLFORGE.md            # Core configuration
+│   ├── ORCHESTRATION.md         # Orchestration logic
+│   ├── GENERATOR.md             # Generation system
+│   ├── PATTERNS.md              # Pattern learning
+│   └── MCP_INTEGRATION.md       # MCP integrations
+│
+├── generators/                   # Python generators
+│   ├── wizard_engine.py         # Interactive wizard
+│   ├── skill_generator.py       # Skill generator
+│   └── doc_fetcher.py           # Context7 integration
+│
+├── analyzers/                    # Intelligence
+│   ├── intent_analyzer.py       # Analyze requests
+│   ├── skill_discovery.py       # Find relevant skills
+│   ├── pattern_detector.py      # Detect patterns
+│   └── skill_optimizer.py       # Optimize skills
+│
+├── templates/                    # Skill templates
+│   ├── tech-stack/
+│   │   ├── nextjs-fullstack.template
+│   │   ├── react-spa.template
+│   │   └── python-api.template
+│   └── workflow/
+│       └── git-workflow.template
+│
+└── data/                         # Persistent data
+    ├── user_profile.json         # Your preferences
+    ├── usage_analytics.json      # Usage stats
+    └── learned_patterns.json     # Learned patterns
+```
+
+### Integration with Claude Code
+
+SkillForge extends Claude Code's native skill system:
+
+```
+Claude Code loads skills from ~/.claude/skills/
+
+When you make a request:
+1. SkillForge analyzes intent
+2. Identifies relevant skills
+3. Loads them with token optimization
+4. Claude receives perfect context
+5. SkillForge tracks usage for learning
+```
+
+### MCP Integration (Context7)
+
+SkillForge uses [Context7](https://github.com/context-labs/context7) MCP server to fetch up-to-date documentation:
+
+```python
+# Fetch latest Next.js docs
+docs = context7_get_library_docs(
+    library_id="/vercel/next.js",
+    topic="App Router",
+    tokens=2000
+)
+
+# Extract and use in skill generation
+best_practices = extract_best_practices(docs)
+code_examples = extract_code_examples(docs)
+```
+
+---
+
+## 🗺️ Roadmap
+
+**Current Status**: v1.0.0 Production Release 🚀
+
+### ✅ Phase 1-10: Complete (100%)
+
+**Foundation & Core Systems**
+- [x] Core architecture design
+- [x] Complete briefing documentation
+- [x] Generator implementation (WizardEngine, SkillGenerator, TemplateProcessor, DocFetcher)
+- [x] Orchestrator implementation (IntentAnalyzer, SkillDiscovery)
+- [x] Learner implementation (UsageTracker, PatternDetector, LearningPipeline)
+- [x] Optimizer implementation (SkillOptimizer)
+
+**User Interface & Commands**
+- [x] Slash commands system (10 commands: /sf:wizard, /sf:generate, /sf:analyze, etc.)
+- [x] Visual output system (VERBOSE, COMPACT, SILENT modes)
+- [x] Beautiful installation experience
+
+**Quality & Testing**
+- [x] Comprehensive test suite (unit, integration, e2e)
+- [x] Test coverage implementation
+- [x] Performance optimization
+
+**Documentation & Release**
+- [x] Complete user documentation
+- [x] API documentation
+- [x] README and guides
+- [x] Package published to PyPI
+- [x] Installation scripts
+- [x] Production-ready v1.0.0
+
+### 🔮 Future Enhancements (Post v1.0)
+- [ ] Additional framework templates (Vue, Angular, FastAPI, Django)
+- [ ] Web UI for skill management
+- [ ] Skill marketplace for sharing and collaboration
+- [ ] Advanced analytics dashboard
+- [ ] Multi-project skill sharing
+- [ ] Team collaboration features
+- [ ] Import/export profiles
+- [ ] CI/CD integration hooks
+- [ ] IDE extensions (VSCode, JetBrains)
+
+---
+
+## 🤝 Contributing
+
+SkillForge is in **production** (v1.0.0) and we welcome contributions!
+
+### Ways to Contribute
+
+- 🐛 **Report bugs**: [Open an issue](https://github.com/yourusername/skillforge/issues)
+- 💡 **Suggest features**: [Start a discussion](https://github.com/yourusername/skillforge/discussions)
+- 📝 **Improve docs**: Submit documentation PRs
+- 🔨 **Add templates**: Contribute skill templates for new stacks
+- 🧪 **Test**: Try SkillForge and provide feedback
+
+### Development Setup
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/skillforge.git
+cd skillforge
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+
+# Run linter
+ruff check .
+```
+
+### Contribution Guidelines
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please follow [Conventional Commits](https://www.conventionalcommits.org/) for commit messages.
+
+---
+
+## ❓ FAQ
+
+### General Questions
+
+**Q: Is SkillForge free?**  
+A: Yes, SkillForge is open-source and free to use under the MIT license.
+
+**Q: Does SkillForge require Claude Code?**  
+A: Yes, SkillForge is specifically designed as an extension for Claude Code's native skill system.
+
+**Q: Does SkillForge work with other AI coding assistants?**  
+A: Not currently. SkillForge is built specifically for Claude Code's skill architecture.
+
+**Q: Is my data private?**  
+A: Yes. All your preferences, patterns, and skills are stored locally in `~/.claude/skills/`. Nothing is sent to external servers except when fetching public documentation via Context7.
+
+### Usage Questions
+
+**Q: Do I need to run the wizard for each project?**  
+A: No! Run the wizard once to set up YOUR preferences. Skills are global and reusable across all projects.
+
+**Q: What if my project uses a different stack?**  
+A: Simply generate additional skills: `/sf:generate vue-spa` or `/sf:generate python-fastapi`. Your personal preferences are applied to every skill.
+
+**Q: Can I share skills with my team?**  
+A: Yes! You can export your profile and skills, and team members can import them. Team collaboration features are planned for v1.1.
+
+**Q: How much disk space does SkillForge use?**  
+A: Approximately 50-100MB depending on how many skills you generate.
+
+**Q: Does SkillForge slow down Claude Code?**  
+A: No. The orchestration happens in milliseconds, and intelligent token optimization ensures optimal performance.
+
+### Technical Questions
+
+**Q: How does pattern learning work?**  
+A: SkillForge tracks your usage across all projects. When a pattern appears consistently (80%+ confidence), it's automatically applied to your skills.
+
+**Q: Can I disable pattern learning?**  
+A: Yes, you can configure this in your profile or use `/sf:introspect --learning` to review before application.
+
+**Q: How often are skills updated?**  
+A: Documentation updates can be run manually (`/sf:update --all`) or scheduled weekly via the optimizer.
+
+**Q: Can I customize skill templates?**  
+A: Yes! Templates are stored in `~/.claude/skills/skillforge/templates/` and can be edited or extended.
+
+---
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Anthropic** for Claude Code and the native skills system
+- **Context Labs** for Context7 MCP server
+- **Community contributors** who help improve SkillForge
+
+---
+
+## 🔗 Links
+
+- **Documentation**: See [docs/](docs/) folder
+  - [Quick Start Guide](docs/QUICKSTART.md)
+  - [Architecture Overview](docs/ARCHITECTURE.md)
+  - [Commands Reference](docs/COMMANDS.md)
+  - [API Documentation](docs/API.md)
+  - [FAQ](docs/FAQ.md)
+  - [Troubleshooting](docs/TROUBLESHOOTING.md)
+- **GitHub Repository**: https://github.com/omarpiosedev/SkillForge
+- **Issues**: https://github.com/omarpiosedev/SkillForge/issues
+
+---
+
+<div align="center">
+
+**Built with ❤️ by developers, for developers**
+
+If SkillForge helps you, please ⭐ star the repo!
+
+[Report Bug](https://github.com/yourusername/skillforge/issues) · [Request Feature](https://github.com/yourusername/skillforge/issues) · [Join Discord](https://discord.gg/skillforge)
+
+</div>

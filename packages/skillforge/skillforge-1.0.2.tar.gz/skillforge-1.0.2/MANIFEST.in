@@ -1,0 +1,25 @@
+# Include documentation
+include README.md
+include LICENSE
+include CLAUDE.md
+include MANUAL_TEST_GUIDE.md
+
+# Include all markdown docs
+recursive-include docs *.md
+
+# Include skill files and templates
+recursive-include skillforge/data *.md *.json *.yml *.yaml *.template
+recursive-include skillforge/templates *.template *.md
+
+# Include test files (for development)
+recursive-include tests *.py
+
+# Include scripts
+recursive-include scripts *.sh *.py
+
+# Exclude unnecessary files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+global-exclude .DS_Store
+global-exclude *.egg-info
