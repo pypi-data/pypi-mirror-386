@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: exelock
+Version: 1.0.1
+Summary: A simple library to prevent multiple instances of a program from running
+Home-page: https://github.com/yourusername/exelock
+Author: pengmin
+Author-email: 877419534@qq.com
+Project-URL: Bug Reports, https://github.com/yourusername/exelock/issues
+Project-URL: Source, https://github.com/yourusername/exelock
+Keywords: single instance lock prevent duplicate
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: requires-python
+Dynamic: summary
+
+# exelock
+
+一个简单的 Python 库，用于防止程序重复启动。
+
+## 安装
+
+```bash
+pip install exelock
