@@ -1,0 +1,12 @@
+boxlite/__init__.py,sha256=ba3Qv2xQPLNPBIGsvj8JEigfg4dUeAEofqcM1n6hc4Y,1028
+boxlite/basebox.py,sha256=KZ6WAqDRrrcWfWFY2FxQGz5mdeeHDNL3CMWYafHawvY,6507
+boxlite/boxlite.cpython-311-x86_64-linux-gnu.so,sha256=JgH1vadQFw8lfQuHCJ_0MGCT4p6puJfkqCwSCHZgFvQ,10555921
+boxlite/browserbox.py,sha256=33AkrXebs_nRc70vZauLqWVTkqkzg4_UZWn1b8mhTYo,3077
+boxlite/codebox.py,sha256=COlWcJwqgdxqAti2QoCljreaXF2RC3qxfzgdB05eEXQ,4929
+boxlite/bin/boxlite-guest,sha256=zDK45neGSXikS45k0GjbRQVeawqkPdYk94K16WLFuTs,2702712
+boxlite/bin/boxlite-runner,sha256=8uAND2WajEe3_Z396kiANncQaZ3nO_KEIis_UxDiGJA,3336065
+boxlite.libs/libkrun-fb5f0f92.so.1.15.1,sha256=V_e6pKAizhttRH9qcXtMNiH8ukfAB_ycdF4I64M8HQk,6270745
+boxlite.libs/libkrunfw-6be8cb77.so.4.10.0,sha256=lvCM3V0AoERzdX44V7eZiPyJGgE3_jECBcx8UKwX5vU,19075561
+boxlite-0.1.1.dev0.dist-info/METADATA,sha256=yQHn-IKNbkV7msuDMKAW7yPRSwsl2i3IYcSVuAXhM4c,263
+boxlite-0.1.1.dev0.dist-info/WHEEL,sha256=7TDL2u0EsmHxH2ZAdJmOnHjz4jlK-fsWXmVtz5pClmg,109
+boxlite-0.1.1.dev0.dist-info/RECORD,,
