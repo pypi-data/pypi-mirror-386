@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+buxcli/__init__.py
+buxcli/intro.py
+buxcli/mail.py
+buxcli/main.py
+buxcli/utils.py
+buxcli.egg-info/PKG-INFO
+buxcli.egg-info/SOURCES.txt
+buxcli.egg-info/dependency_links.txt
+buxcli.egg-info/entry_points.txt
+buxcli.egg-info/requires.txt
+buxcli.egg-info/top_level.txt
