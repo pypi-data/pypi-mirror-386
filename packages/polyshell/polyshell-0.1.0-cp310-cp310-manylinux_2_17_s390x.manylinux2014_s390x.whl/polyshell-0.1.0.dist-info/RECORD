@@ -1,0 +1,10 @@
+polyshell-0.1.0.dist-info/METADATA,sha256=Bk2OBZXWk-n0PEvLzRzuDljSRK6cTIBLjqGeNHA2UHc,1906
+polyshell-0.1.0.dist-info/WHEEL,sha256=wcKNqDR1ynBQtEYdW1V80R3WHARF4mEuK3X3VrGmcI4,127
+polyshell-0.1.0.dist-info/entry_points.txt,sha256=PD3v_vyQGfdOI2HUVFD3yb8H-CJVLSRqhqEFGPE3o9Q,47
+polyshell-0.1.0.dist-info/licenses/LICENSE,sha256=6a55mK7BIpm2mVucYB82zzJNUt-07nmUWe2BlkKJXpY,11380
+polyshell/__init__.py,sha256=2yAqsm5KuXniIOWcgIvQrwqR4R7jrmi-39RK4jnsYvA,5262
+polyshell/_cli.py,sha256=ytz9_dStc6PM7TLuutsK3nVRJbq8vvZRfAqGNOLaTlA,1771
+polyshell/_polyshell.cpython-310-s390x-linux-gnu.so,sha256=9hX6EVgGRvhCbPVWVVa7tm1d3E8U5rhg6fgWMzin7Pk,1200744
+polyshell/_polyshell.pyi,sha256=eQ4koo-SraKfhkXXJ9w2TMFjGuBAPHYPhxw1TtxMwls,2100
+polyshell/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+polyshell-0.1.0.dist-info/RECORD,,
