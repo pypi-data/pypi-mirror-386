@@ -1,0 +1,90 @@
+Metadata-Version: 2.4
+Name: psql-chat
+Version: 0.3.0
+Summary: An AI-powered tool that can be called from inside psql to ask natural language questions about your PostgreSQL database with access to the database context and PostgreSQL documentation.
+Author-email: Stefan Keller <stefan.keller@ost.ch>
+Maintainer-email: Lars Herrmann <lars.herrmann@ost.ch>
+License: PostgreSQL License (MIT-style)
+Project-URL: Repository, https://gitlab.com/geometalab/psql-chat#
+Keywords: sql,natural-language,postgresql,ai,llm,database,psql
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai>=1.0.0
+Requires-Dist: psycopg2-binary>=2.9.0
+Requires-Dist: python-dotenv>=0.19.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: typer>=0.20.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: pre-commit>=3.0.0; extra == "dev"
+Requires-Dist: isort>=5.13.2; extra == "dev"
+Dynamic: license-file
+
+# psql-chat - Natives NL-to-SQL
+
+PostgreSQL has been one of the most popular open source databases for years. However, learning how to query data with SQL is a hurdle for many users.
+The AI tool “psql-chat” makes it possible to ask the database questions in natural language. The chatbot then suggests an SQL query or a psql command. After approval, the command can be executed or the prompt can be adjusted. 
+
+This makes database administrators more efficient, while users can perform data analyses without in-depth SQL knowledge
+
+![psql-chat flow diagram](resources/flow-diagram.png)
+
+## Quick Start 
+
+### Windows
+
+1. **Run setup:** `.\setup.ps1` 
+2. **Set API key:** `$env:OPENAI_API_KEY = "your-key"`
+3. **Configure pgpass:** (optional but recommended) Add the connection details to your `pgpass` file for passwordless access.
+4. **Use from psql:** `\! psql-chat "show me all tables"`
+
+## Usage
+
+**From psql (recommended):**
+```sql
+\! psql-chat "find users who haven't logged in recently"
+\! psql-chat "count orders by month" -e               -- execute immediately (after confirmation)
+\! psql-chat "explain JSONB indexing strategies"      -- gets docs automatically
+```
+Note: These usage examples assume `psql-chat` is in your PATH. This is done automatically by the setup script. Otherwise use `uvx psql-chat ...` after installation.
+
+
+## How It Works
+
+1. Converts natural language to PostgreSQL commands
+2. Analyzes database schema for context
+3. Fetches PostgreSQL docs automatically when needed
+4. Shows syntax-highlighted SQL with explanation
+5. Optional execution with safety warnings
+
+## Features
+
+- **Smart context** - Uses your database schema
+- **Auto documentation** - Fetches PostgreSQL docs via Context7
+- **Safety first** - Warns before data modifications  
+- **Rich formatting** - Syntax highlighting and explanations
+- **Flexible modes** - Explain-only (default) or execute with `--execute`
+- **Fast option** - Skip docs with `--no-docs`
+
+## Options
+
+- `--execute, -e` - Execute the command (default: explain only)
+- `--dsn` - Database connection string
+- `--no-context` - Skip database schema gathering
+- `--no-docs` - Skip PostgreSQL documentation
+- `--version, -v` - Show version
+
+## Requirements
+
+- OpenAI API key (set `OPENAI_API_KEY`)
+- PostgreSQL connection (via psql environment or `--dsn`)
+- uv package manager (auto-installed by setup script)

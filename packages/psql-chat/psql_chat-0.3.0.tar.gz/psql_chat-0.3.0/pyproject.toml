@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psql-chat"
+version = "0.3.0"
+description = "An AI-powered tool that can be called from inside psql to ask natural language questions about your PostgreSQL database with access to the database context and PostgreSQL documentation."
+readme = "README.md"
+license = {text = "PostgreSQL License (MIT-style)"}
+authors = [{name = "Stefan Keller", email = "stefan.keller@ost.ch"}]
+maintainers = [{name = "Lars Herrmann", email = "lars.herrmann@ost.ch"}]
+keywords = ["sql", "natural-language", "postgresql", "ai", "llm", "database", "psql"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.0.0",
+    "psycopg2-binary>=2.9.0",
+    "python-dotenv>=0.19.0",
+    "rich>=13.0.0",
+    "typer>=0.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+    "isort>=5.13.2",
+]
+
+[project.scripts]
+psql-chat = "psql_chat.main:main"
+
+[project.urls]
+Repository = "https://gitlab.com/geometalab/psql-chat#"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

@@ -1,0 +1,2 @@
+[console_scripts]
+psql-chat = psql_chat.main:main
