@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: zzignal
+Version: 0.1.15
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries
+License-File: LICENSE
+Summary: High-performance quantitative finance library written in Rust with Python bindings.
+Author-email: David Tello <david.tello.personal@gmail.com>
+License-Expression: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Homepage, https://github.com/compascafe/zzignal
+Project-URL: Documentation, https://github.com/compascafe/zzignal#readme
+
+# 🦀 ZZignal
+
+**ZZignal** is an open-source, high-performance library for quantitative finance, written in **Rust** with **Python bindings**.
+
+---
+
+## 🚀 Install
+
+```bash
+pip install zzignal
+
