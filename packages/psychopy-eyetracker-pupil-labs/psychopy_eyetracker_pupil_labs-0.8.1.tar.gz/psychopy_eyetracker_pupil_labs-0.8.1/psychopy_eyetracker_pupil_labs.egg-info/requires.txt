@@ -1,0 +1,13 @@
+pupil-labs-realtime-api
+real-time-screen-gaze>=1.1.0
+numpy<2
+pydantic<2.12
+
+[docs]
+psychopy
+sphinx
+furo
+
+[tests]
+psychopy
+pytest
