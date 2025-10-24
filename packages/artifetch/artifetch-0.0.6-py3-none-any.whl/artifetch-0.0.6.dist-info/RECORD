@@ -1,0 +1,14 @@
+artifetch/__init__.py,sha256=XYhNebI_KX4qlnDHwadysxmsb9rR4yGjlkSZy3nY6kE,44
+artifetch/cli.py,sha256=scqLA-X8StbKuFP7W1G0PgVYuj52OVeimaGKV73IH48,1500
+artifetch/core.py,sha256=bqh8ZeIGvaqG-8aZ2BqudAe8E-HNp82mMLPbkEe0C0w,3697
+artifetch/providers/__init__.py,sha256=KQ6u675j1jl_2wp9sosoKnB3QKZAYcHd9ufh3u_ahgs,58
+artifetch/providers/artifactory.py,sha256=WhtT7-y0fAXf6IiSXIMCAP5UeU-D8u6Xpu_hYRrTKuw,2074
+artifetch/providers/git.py,sha256=_ZvoZmlg3RZm8xsTCG8qaUjOG-D1WVcyRB5NjNe2CjA,7091
+artifetch/providers/gitlab.py,sha256=6mu3XVsl5up6JdZr8hLNmPhDeAQA6l3F1fg3Vhlux-A,3691
+artifetch/utils/filesystem.py,sha256=uyt1xvt0YvSPUgyNqDfRpS9CfrzlHV18bswqPWBw2io,1819
+artifetch-0.0.6.dist-info/licenses/LICENSE.txt,sha256=n5Z7OYj-66KX8V_VqHOLdM7m0xFyeiMg_w2jollPBhI,1067
+artifetch-0.0.6.dist-info/METADATA,sha256=uJ2AFko6_Q9RQwEPOaRXlTxOI8NEsmfI3TufzipIwRs,4371
+artifetch-0.0.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+artifetch-0.0.6.dist-info/entry_points.txt,sha256=K-5jeKum_SNJdB7ViBNsQvPC1xBvvMS-B3gu8ZLpylI,49
+artifetch-0.0.6.dist-info/top_level.txt,sha256=iy10Idqei9AlL_Nh6-6cm7Za784ALBPt4eI2pbBZBXU,10
+artifetch-0.0.6.dist-info/RECORD,,
