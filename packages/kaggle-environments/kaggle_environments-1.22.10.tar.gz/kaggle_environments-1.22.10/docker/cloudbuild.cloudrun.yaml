@@ -1,0 +1,25 @@
+# docker/cloudbuild.cloudrun.yaml
+
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/gcf-artifacts/kaggle-simulations-v2:$COMMIT_SHA"
+      - "./docker/cloud-run-source"
+
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    args:
+      - "gcloud"
+      - "run"
+      - "deploy"
+      - "kaggle-simulations-v2"
+      - "--image=us-central1-docker.pkg.dev/$PROJECT_ID/gcf-artifacts/kaggle-simulations-v2:$COMMIT_SHA"
+      - "--region=us-central1"
+      - "--project=kaggle-comps-prod-eval"
+
+images:
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/gcf-artifacts/kaggle-simulations-v2:$COMMIT_SHA"
+
+options:
+  machineType: "E2_HIGHCPU_32"
