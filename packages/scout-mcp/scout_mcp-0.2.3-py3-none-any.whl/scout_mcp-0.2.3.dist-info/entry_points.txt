@@ -1,0 +1,2 @@
+[console_scripts]
+scout-mcp = scout_mcp.server:cli
