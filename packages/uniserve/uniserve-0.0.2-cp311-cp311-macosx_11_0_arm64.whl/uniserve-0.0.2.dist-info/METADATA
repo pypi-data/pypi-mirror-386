@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: uniserve
+Version: 0.0.2
+Summary: model serving frame work
+Author-email: Yaqiang Sun <sunyaking@163.com>
+License: GPL-3.0
+Requires-Python: <3.14,>=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: litserve>=0.2.16
+Dynamic: license-file
+
+# model-sering
+Model serving system with LitServe
+
+
+## Run example
+uv run uniserve --api-list example.simple_api.api_list --port 8000
