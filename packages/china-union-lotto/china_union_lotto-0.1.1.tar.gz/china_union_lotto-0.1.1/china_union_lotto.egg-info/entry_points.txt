@@ -1,0 +1,2 @@
+[console_scripts]
+china-union-lotto = china_union_lotto.server:main
