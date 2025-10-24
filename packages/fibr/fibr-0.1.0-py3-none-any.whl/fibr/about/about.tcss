@@ -1,0 +1,9 @@
+AboutDialog {
+    align: center middle;
+}
+
+AboutDialog TextArea {
+    width: 60;
+    height: 16;
+    border: gray;
+}
