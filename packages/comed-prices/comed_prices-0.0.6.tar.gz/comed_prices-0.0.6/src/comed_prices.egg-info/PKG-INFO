@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: comed-prices
+Version: 0.0.6
+Summary: ComEd® hourly and 5 minute prices
+Author-email: Alexander Fedotov <alex.fedotov@aol.com>
+Project-URL: Homepage, https://github.com/alxfed/comed-prices
+Project-URL: Bug Tracker, https://github.com/alxfed/comed-prices/issues
+Keywords: ComEd,prices,hourly
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.32.3
+Dynamic: license-file
+
+# ComEd® Prices
+`comed-prices` is a Python package for accessing the ComEd® API. The API documentation can be found at
+https://hourlypricing.comed.com/hp-api/
+## Installation
+<pre>
+  pip install comed-prices
+</pre>
+## Usage
+```Python
+  # Python
+  import comed_prices
+```
+## Example of usage
+https://github.com/alxfed/comed-ubuntu-notifier
