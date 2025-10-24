@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: medtext
+Version: 0.0.1
+Summary: MedTExt is a Python library for extracting medical terms from text using Large Language Models and standardized ontologies.
+Home-page: https://github.com/antoniolopezmc/medtext
+Author: Antonio López Martínez-Carrasco
+Author-email: antoniolopezmc1995@gmail.com
+Maintainer: Antonio López Martínez-Carrasco
+Maintainer-email: antoniolopezmc1995@gmail.com
+License: BSD-3-Clause
+Keywords: python,data-science,machine-learning,data-analysis,large-language-models,generative-ai,medical-ontologies,clinical-ontologies
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.13.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: ollama>=0.6.0
+Dynamic: license-file
+
+# MedTExt - Medical Term Extractor from text

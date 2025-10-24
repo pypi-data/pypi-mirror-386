@@ -1,0 +1,10 @@
+medtext/__init__.py,sha256=4r-Voq3RjPVdqqKtbV8oLLCTeuP-aXDlYwGFcca1ViY,44
+medtext/extractors/FewShotAndOllama.py,sha256=gMVakwZzkz7Rb6mTV-YMV-RrLXWGD4OL-25zXsQkxBo,2427
+medtext/extractors/OneShotAndOllama.py,sha256=NIgkkp-QWTKVTNtvMCebYAkfl22ANMzPzgnny1zF12I,302
+medtext/extractors/ZeroShotAndOllama.py,sha256=K3zEt69Nbg64meBBQRAKTB9n3xTxbOklkVeo53IT2V4,304
+medtext/extractors/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+medtext-0.0.1.dist-info/licenses/LICENSE,sha256=rb9sMEoTE7FvP5MOWmk2xSdYB2y_Wbm2ACwLu0Ol_u0,1520
+medtext-0.0.1.dist-info/METADATA,sha256=KnhBhkNHi7nIJTx2jEIZYYRavQBhnlOhfE_zmokHwvw,1003
+medtext-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+medtext-0.0.1.dist-info/top_level.txt,sha256=VRRqfmwTIV6g0EOfa3ypZBI4jfp2v7Jwrjgk-cgOCQw,8
+medtext-0.0.1.dist-info/RECORD,,
