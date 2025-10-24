@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: bioverse
+Version: 1.1.8
+Summary: A simulation framework to assess the statistical power of future biosignature surveys
+Home-page: https://github.com/danielapai/bioverse
+Author: Alex Bixel
+Author-email: bioverse-dev@list.arizona.edu
+License-File: LICENSE
+Requires-Dist: sphinx
+Requires-Dist: nbsphinx
+Requires-Dist: ipykernel
+Requires-Dist: astroquery
+Requires-Dist: dynesty
+Requires-Dist: emcee
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: tqdm
+Requires-Dist: pandas
+Requires-Dist: PyQt5
+Requires-Dist: astropy>=5.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
