@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual envs
+.venv/
+env/
+venv/
+
+# vscode
+.vscode/
+
+# uv
+uv.lock
+
+# Test / coverage
+.coverage
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# build / distribution
+dist/
+build/
+*.egg-info/
+
+# model / large files (不要把大模型/数据放入 repo)
+./models/
+data
+tempdir
+G2PWModel
