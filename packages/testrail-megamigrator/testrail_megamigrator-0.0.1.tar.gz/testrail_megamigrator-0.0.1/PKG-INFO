@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: testrail_megamigrator
+Version: 0.0.1
+Summary: Plugin to migrate your data from testrail
+Author-email: Ivan Dorodnitsyn <ivdorodnitsyn@gmail.com>
+Project-URL: Homepage, https://github.com/evildarius/test-plan-megaexporter
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm==4.64.1
+Requires-Dist: aiohttp==3.8.3
+Requires-Dist: aiofiles==22.1.0
+Requires-Dist: factory-boy==3.2.1
