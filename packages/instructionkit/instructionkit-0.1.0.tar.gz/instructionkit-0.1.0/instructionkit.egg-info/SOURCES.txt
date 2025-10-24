@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+instructionkit/__init__.py
+instructionkit/__main__.py
+instructionkit.egg-info/PKG-INFO
+instructionkit.egg-info/SOURCES.txt
+instructionkit.egg-info/dependency_links.txt
+instructionkit.egg-info/entry_points.txt
+instructionkit.egg-info/requires.txt
+instructionkit.egg-info/top_level.txt
