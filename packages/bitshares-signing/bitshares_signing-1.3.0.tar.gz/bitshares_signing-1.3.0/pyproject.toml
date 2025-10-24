@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+
+version = "1.3.0"
+name = "bitshares-signing"
+description = "Lightweight Python library for BitShares"
+authors = [
+    { name = "squidKid-deluxe" },
+    { name = "litepresence" }
+]
+readme = "README.md"
+keywords = ["bitshares", "signing", "cryptography"]
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Operating System :: POSIX :: Linux",
+    "Development Status :: 3 - Alpha",
+]
+dependencies = [
+    "websocket-client>=1.2.3",
+    "secp256k1<=0.13.2",
+]
+requires-python = ">= 3.9"
+
+[tool.setuptools]
+
+# Use setuptools package discovery to include the package and all subpackages
+[tool.setuptools.packages.find]
+include = ["bitshares_signing*"]
+# If you use a src/ layout, uncomment and adjust the line below:
+# where = ["src"]
