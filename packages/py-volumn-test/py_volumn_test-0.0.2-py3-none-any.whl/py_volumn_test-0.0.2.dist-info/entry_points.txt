@@ -1,0 +1,2 @@
+[console_scripts]
+py-volumn-test = py_volumn_test._cmd.run:main
