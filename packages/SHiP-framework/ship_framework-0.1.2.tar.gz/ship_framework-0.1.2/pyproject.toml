@@ -1,0 +1,102 @@
+[project]
+name = "SHiP-framework"
+version = "0.1.2"
+description = "Center-based hierarchical clustering framework using 3 steps: compute a Similarity, build an Hierarchy, and lastly extract a clustering using a Partitioning method."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "BSD-3-Clause License" }
+authors = [
+    { name = "Pascal Weber" },
+    { name = "Pascal Weber", email = "pasi.weber@gmail.com" },
+]
+keywords = [
+    "clustering",
+    "hierarchical clustering",
+    "hierarchical clustering framework",
+    "agglomerative clustering",
+    "similarity",
+    "hierarchy",
+    "partitioning",
+    "SHiP framework",
+    "SHiP",
+    "Python",
+    "C++",
+    "pybind11",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: C++",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development",
+    "Topic :: System :: Clustering",
+    "License :: OSI Approved :: BSD License",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/pasiweber/SHiP-framework"
+Documentation = "https://SHiP-framework.readthedocs.io/en/"
+Repository = "https://github.com/pasiweber/SHiP-framework"
+Issues = "https://github.com/pasiweber/SHiP-framework/issues"
+
+
+[build-system]
+requires = ["scikit-build-core-conan"]
+build-backend = "scikit_build_core_conan.build"
+
+
+[tool.setuptools]
+include-package-data = true
+
+
+[tool.setuptools.package-data]
+"SHiP" = ["*.pyi"]
+
+
+[tool.scikit-build]
+cmake.source-dir = "."
+
+
+[tool.scikit-build-core-conan]
+path = "."
+build = "missing" # build missing packages from source
+cmake.args = [
+    "-DCMAKE_C_FLAGS=-Wno-error=incompatible-pointer-types",
+    "-DCMAKE_CXX_FLAGS=-Wno-error=incompatible-pointer-types",
+]
+settings = [
+    "build_type=Release", # override the build type for CMake
+    "compiler.cppstd=20",
+]
+output-folder = "build" # where to run CMake and where binaries go
+
+
+[tool.cibuildwheel]
+# Skip any PyPy build identifiers
+skip = ["pp*"]
+
+
+# Platform-specific overrides
+[tool.cibuildwheel.linux]
+archs = "x86_64"
+
+[tool.cibuildwheel.linux.environment]
+CIBW_BEFORE_BUILD = "apt-get update && apt-get install -y python3-dev cmake g++ make ccache ninja-build build-essential gfortran perl patch"
+CONAN_OPTIONS = "openblas/*:build_lapack_deprecated=off openblas/*:dynamic_arch=off"
+CFLAGS = "-Wno-error=incompatible-pointer-types"
+CXXFLAGS = "-Wno-error=incompatible-pointer-types"
+
+
+[tool.cibuildwheel.macos]
+
+
+[tool.cibuildwheel.windows]
+archs = "AMD64" # 'AMD64' is the cibuildwheel keyword for Windows x86_64

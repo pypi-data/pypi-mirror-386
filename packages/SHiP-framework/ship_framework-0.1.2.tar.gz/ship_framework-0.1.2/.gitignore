@@ -1,0 +1,16 @@
+.nfs*
+.vscode
+.aiexclude
+
+**/*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
+.cache/
+
+CMakeUserPresets.json
+build/
+dist/
+
+docs/build/
+docs/doxygen

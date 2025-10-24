@@ -1,0 +1,31 @@
+#pragma once
+
+#include <fmt/core.h>
+#include <fmt/format.h>
+#include <fmt/ostream.h>
+#include <omp.h>
+#include <simdjson.h>
+
+#include <algorithm>
+#include <cctype>
+#include <chrono>
+#include <cmath>
+#include <helper/config_parser.hpp>
+#include <helper/logger.hpp>
+#include <helper/measure_runtime.hpp>
+#include <iomanip>
+#include <iostream>
+#include <memory>
+#include <mlpack/core.hpp>
+#include <mlpack/core/metrics/metrics.hpp>
+#include <mlpack/core/tree/statistic.hpp>
+#include <mlpack/core/tree/tree.hpp>
+#include <mlpack/methods/neighbor_search/neighbor_search.hpp>
+#include <optional>
+#include <set>
+#include <sstream>
+#include <stdexcept>
+#include <string>
+#include <unordered_map>
+#include <utility>
+#include <vector>
