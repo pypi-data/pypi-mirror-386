@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}{{ run_name }} - OMNI-X Dashboard{% endblock %}
+
+{% block header %}{{ run_name }}{% endblock %}
+
+{% block content %}
+<script>
+    window.taskData = {{ tasks_for_alpine|tojson }};
+</script>
+
+<div x-data="{
+    filter: 'all',
+    searchQuery: '',
+    tasks: window.taskData,
+    get filteredTasks() {
+        return this.tasks.filter(t => {
+            const matchesFilter = this.filter === 'all' || t.status === this.filter;
+            const matchesSearch = this.searchQuery === '' ||
+                t.id.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                (t.description && t.description.toLowerCase().includes(this.searchQuery.toLowerCase()));
+            return matchesFilter && matchesSearch;
+        });
+    }
+}">
+    <!-- Stats Overview -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-3xl font-bold text-gray-900">{{ stats.total }}</div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide mt-1">Total Tasks</div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-3xl font-bold text-green-600">{{ stats.archived }}</div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide mt-1">Archived</div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-3xl font-bold text-red-600">{{ stats.discarded }}</div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide mt-1">Discarded</div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-3xl font-bold text-yellow-600">{{ stats.wip }}</div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide mt-1">WIP</div>
+        </div>
+    </div>
+
+    {% if stats.success_rate is not none %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="text-3xl font-bold text-blue-600">{{ "%.1f"|format(stats.success_rate * 100) }}%</div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide mt-1">Success Rate</div>
+            <div class="text-xs text-gray-500 mt-2">{{ stats.successful }}/{{ stats.evaluated }} tasks succeeded</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Task Browser -->
+    <div class="bg-white rounded-lg shadow mb-8">
+        <div class="p-6 border-b border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Task Browser</h3>
+
+            <!-- Filters and Search -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <div class="flex gap-2 flex-wrap">
+                    <button @click="filter = 'all'"
+                            :class="filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition">
+                        All
+                    </button>
+                    <button @click="filter = 'archived'"
+                            :class="filter === 'archived' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition">
+                        Archived
+                    </button>
+                    <button @click="filter = 'discarded'"
+                            :class="filter === 'discarded' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition">
+                        Discarded
+                    </button>
+                    <button @click="filter = 'wip'"
+                            :class="filter === 'wip' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition">
+                        WIP
+                    </button>
+                </div>
+                <input type="text"
+                       x-model="searchQuery"
+                       placeholder="Search by ID or description..."
+                       class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="mt-3 text-sm text-gray-600">
+                Showing <span x-text="filteredTasks.length"></span> of <span x-text="tasks.length"></span> tasks
+            </div>
+        </div>
+
+        <!-- Task Table -->
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-gray-50 border-b border-gray-200">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Success</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Parents</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <template x-for="task in filteredTasks" :key="task.id">
+                        <tr @click="window.location.href = `tasks/${task.id}.html`"
+                            class="hover:bg-gray-50 cursor-pointer transition">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900" x-text="task.id.substring(0, 8)"></td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span x-show="task.status === 'archived'"
+                                      class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                                    Archived
+                                </span>
+                                <span x-show="task.status === 'discarded'"
+                                      class="px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                                    Discarded
+                                </span>
+                                <span x-show="task.status === 'wip'"
+                                      class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                    WIP
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span x-show="task.success === true"
+                                      class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                                    ✓
+                                </span>
+                                <span x-show="task.success === false"
+                                      class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">
+                                    ✗
+                                </span>
+                                <span x-show="task.success === null"
+                                      class="text-gray-400">
+                                    —
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600" x-text="task.parents.length"></td>
+                            <td class="px-6 py-4 text-sm text-gray-700 max-w-md truncate" x-text="task.description || '—'"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Plots -->
+    {% if plots %}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        {% if plots.success_timeline %}
+        <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Success Over Time</h3>
+            <img src="{{ plots.success_timeline }}" alt="Success timeline" class="w-full h-auto">
+        </div>
+        {% endif %}
+
+        {% if plots.status_pie %}
+        <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Task Status</h3>
+            <img src="{{ plots.status_pie }}" alt="Status distribution" class="w-full h-auto">
+        </div>
+        {% endif %}
+    </div>
+
+    {% if plots.embedding_space %}
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Task Embedding Space</h3>
+        <img src="{{ plots.embedding_space }}" alt="Embedding space" class="w-full h-auto">
+    </div>
+    {% endif %}
+
+    {% if plots.lineage_tree %}
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Full Lineage Tree</h3>
+        <div class="overflow-x-auto">
+            <img src="{{ plots.lineage_tree }}" alt="Lineage tree" class="max-w-full h-auto">
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
