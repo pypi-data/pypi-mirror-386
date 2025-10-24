@@ -1,0 +1,60 @@
+[project]
+name = "dojo-sdk-client"
+version = "0.1.1"
+description = "Client sdk to intearct with Dojo"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "aiohttp>=3.12.15",
+    "pillow>=11.3.0",
+    "pydantic>=2.11.9",
+    "anthropic>=0.68.0",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "python-dotenv>=1.1.1",
+    "python-dotenv>=1.1.1",
+    "websockets>=15.0.1",
+    "openai>=1.109.1",
+    "certifi>=2025.8.3",
+    "dojo-sdk-core>=0.1.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0", "pytest-cov", "black", "isort", "mypy", "ruff"]
+multi_turn_env = ["verifiers>=0.0.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.isort]
+profile = "black"
+src_paths = ["src", "tests"]
+
+[tool.ruff]
+line-length = 128
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.hatch.version]
+path = "src/dojo-sdk-client/__about__.py"
+
+# [tool.hatch.metadata]
+# Remove later
+# allow-direct-references = true
+
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/README.md"]
+
+[tool.hatch.build]
+sources = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["dojo_sdk_client"]
