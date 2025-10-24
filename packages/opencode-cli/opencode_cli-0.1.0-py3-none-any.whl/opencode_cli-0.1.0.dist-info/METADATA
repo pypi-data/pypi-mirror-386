@@ -1,0 +1,82 @@
+Metadata-Version: 2.3
+Name: opencode-cli
+Version: 0.1.0
+Summary: CLI tool for opencode server API
+Keywords: opencode,ai,agent,cli
+Author: Fergus Fettes
+Author-email: Fergus Fettes <fergusfettes@gmail.com>
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: opencode-ai>=0.1.0a36
+Requires-Dist: rich>=14.2.0
+Requires-Dist: typer>=0.20.0
+Requires-Python: >=3.10
+Project-URL: Homepage, https://github.com/fergusfettes/opencode-cli
+Project-URL: Repository, https://github.com/fergusfettes/opencode-cli
+Description-Content-Type: text/markdown
+
+# opencode-cli
+
+CLI tool for [opencode](https://github.com/sst/opencode) server API. Built on top of the official [opencode-ai](https://pypi.org/project/opencode-ai/) Python SDK.
+
+## Installation
+
+```bash
+pip install opencode-cli
+```
+
+## Usage
+
+The `oc` command provides easy access to opencode server operations:
+
+```bash
+# List all sessions
+oc sessions
+
+# List sessions as JSON
+oc sessions --json
+
+# Get session info (by ID or title)
+oc info headless-1
+oc info ses_abc123
+
+# List messages in a session
+oc messages headless-1
+
+# Send a message to a session
+oc send headless-1 "hello world"
+
+# Create a new session
+oc create --title "My Session"
+```
+
+## Features
+
+- **Title resolution**: Use session titles instead of IDs (e.g., `headless-1` instead of `ses_abc123`)
+- **Rich formatting**: Beautiful tables and colored output
+- **JSON output**: Use `--json` flag for machine-readable output
+- **Built on official SDK**: Uses the official `opencode-ai` package under the hood
+
+## Environment Variables
+
+- `OPENCODE_SERVER` - Override default server URL (default: `http://localhost:36000`)
+
+## For Python SDK
+
+If you need the full Python SDK (not just CLI), use the official package:
+
+```bash
+pip install opencode-ai
+```
+
+See [official SDK docs](https://github.com/sst/opencode-sdk-python) for Python API usage.
+
+## License
+
+MIT
