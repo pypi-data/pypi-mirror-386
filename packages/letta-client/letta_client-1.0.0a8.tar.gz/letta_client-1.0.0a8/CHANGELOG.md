@@ -1,0 +1,60 @@
+# Changelog
+
+## 1.0.0-alpha.8 (2025-10-24)
+
+Full Changelog: [v1.0.0-alpha.7...v1.0.0-alpha.8](https://github.com/letta-ai/letta-python/compare/v1.0.0-alpha.7...v1.0.0-alpha.8)
+
+### Features
+
+* add stainless pagination for identities ([65eef2e](https://github.com/letta-ai/letta-python/commit/65eef2eab1c234a8146bcd2bec28e184a4626872))
+
+## 1.0.0-alpha.7 (2025-10-24)
+
+Full Changelog: [v1.0.0-alpha.6...v1.0.0-alpha.7](https://github.com/letta-ai/letta-python/compare/v1.0.0-alpha.6...v1.0.0-alpha.7)
+
+### Features
+
+* add agent template route to config ([8eeda3f](https://github.com/letta-ai/letta-python/commit/8eeda3f8e946eced4fe1a0dfb7798d748aabb8fc))
+* add new archive routes to sdk ([2b0a253](https://github.com/letta-ai/letta-python/commit/2b0a2536cd5c14d5dcf2770c79aabcab426642c4))
+* add openai-style include param for agents relationship loading ([acb797b](https://github.com/letta-ai/letta-python/commit/acb797bb966dc05ca59fef4fcec3b2b2bed83580))
+* deprecate append copy suffix, add override name [LET-5779] ([1b51b08](https://github.com/letta-ai/letta-python/commit/1b51b082a92e9183789e0fabe3838b4e75312a28))
+* fix patch approvals endpoint incorrectly using queyr params ([d6a4fe6](https://github.com/letta-ai/letta-python/commit/d6a4fe6a48cd93d891cc635f356f85a1ff199a4a))
+* remove run tool for external sdk ([3c1b717](https://github.com/letta-ai/letta-python/commit/3c1b71780b5baecda6e246f8c1d034d62adcecc2))
+* remove unused max length parameter ([85b5f00](https://github.com/letta-ai/letta-python/commit/85b5f00fcbb7d825dfdc7065f867600b718863b7))
+* rename multi agent group to managed group ([733e959](https://github.com/letta-ai/letta-python/commit/733e959a5951d080a5c7318c5a98d724c18d86ef))
+* replace agent.identity_ids with agent.identities ([900384e](https://github.com/letta-ai/letta-python/commit/900384e2d4a73a9a2dae9076182e19902daa77b7))
+* reset message incorrectly using query param ([06229f4](https://github.com/letta-ai/letta-python/commit/06229f43eaaffdf5a2b355e28f550abc7540c65f))
+* Revert "feat: revise mcp tool routes [LET-4321]" ([a77127e](https://github.com/letta-ai/letta-python/commit/a77127eb90b3e79264cf7cd6b12a70859393c9d7))
+* Support embedding config on the archive [LET-5832] ([ccfc935](https://github.com/letta-ai/letta-python/commit/ccfc935d425c24a782bdda272a39defd012b9bfa))
+
+
+### Bug Fixes
+
+* sdk config code gen ([6074e64](https://github.com/letta-ai/letta-python/commit/6074e6480ad03e057639b40f983029ae01d9f7d1))
+
+
+### Chores
+
+* add context_window_limit and max_tokens to UpdateAgent [LET-3743] [LET-3741] ([a841c73](https://github.com/letta-ai/letta-python/commit/a841c7333841aa79a70b805b9373b88429db1922))
+
+## 1.0.0-alpha.6 (2025-10-22)
+
+Full Changelog: [v0.0.1...v1.0.0-alpha.6](https://github.com/letta-ai/letta-python/compare/v0.0.1...v1.0.0-alpha.6)
+
+### Features
+
+* add new tool fields to helpers ([#23](https://github.com/letta-ai/letta-python/issues/23)) ([e51d3a7](https://github.com/letta-ai/letta-python/commit/e51d3a7078e82e30b8e0da89c4e60260f61a6fc4))
+* add pip requirements to create/upsert_from_func ([#20](https://github.com/letta-ai/letta-python/issues/20)) ([190c493](https://github.com/letta-ai/letta-python/commit/190c493b8a7844ead8cfdec1c986c48723c65d05))
+
+
+### Bug Fixes
+
+* make tools client async ([#16](https://github.com/letta-ai/letta-python/issues/16)) ([c88e8dd](https://github.com/letta-ai/letta-python/commit/c88e8ddc175d6c1d7d872908907d701b936173aa))
+
+
+### Chores
+
+* sync repo ([e59730b](https://github.com/letta-ai/letta-python/commit/e59730bb7e0cff18c984f692250e4d0d5f1985eb))
+* update poetry download step in workflow ([#22](https://github.com/letta-ai/letta-python/issues/22)) ([dfa262a](https://github.com/letta-ai/letta-python/commit/dfa262aa4fec42ade045e9a41ffb62b37986bab9))
+* update SDK settings ([4763bfe](https://github.com/letta-ai/letta-python/commit/4763bfe2245828c3ec8b09427a7d0893ab10dc85))
+* update SDK settings ([b54a23a](https://github.com/letta-ai/letta-python/commit/b54a23a21356915fa530c6e29494aa2964741762))
