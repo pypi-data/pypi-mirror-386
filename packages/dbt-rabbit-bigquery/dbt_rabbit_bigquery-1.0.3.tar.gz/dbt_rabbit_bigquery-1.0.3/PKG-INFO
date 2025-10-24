@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: dbt-rabbit-bigquery
+Version: 1.0.3
+Summary: The Rabbit BigQuery adapter plugin for dbt
+Home-page: https://followrabbit.ai
+Author: Rabbit Team
+Author-email: success@followrabbit.ai
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dbt-bigquery<2.0.0,>=1.5.0
+Requires-Dist: rabbit-bq-job-optimizer>=0.1.12
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+The Rabbit BigQuery adapter plugin for dbt
