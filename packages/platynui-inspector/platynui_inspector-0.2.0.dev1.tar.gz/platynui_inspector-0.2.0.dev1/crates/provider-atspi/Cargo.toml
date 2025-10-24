@@ -1,0 +1,18 @@
+[package]
+name = "platynui-provider-atspi"
+description = "AT-SPI accessibility provider for PlatynUI on Linux"
+version.workspace = true
+keywords.workspace = true
+categories.workspace = true
+edition.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+repository.workspace = true
+authors.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+platynui-core = { path = "../core" }
+once_cell = "1.21.3"
+inventory = "0.3"
