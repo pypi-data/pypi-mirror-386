@@ -1,0 +1,43 @@
+[project]
+name = "py-directus2"
+version = "0.0.31"
+description = "Python wrapper for asynchronous interaction with Directus"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Panos Stavrianos", email = "panos@orbitsystems.gr" }
+]
+maintainers = [
+    { name = "Rafał Krupiński", email = "oeklo.it@fastmail.com" }
+]
+keywords = ["python", "directus", "async", "asyncio", "api", "wrapper"]
+dependencies = [
+    "aiofiles>=23.2.1",
+    "httpx>=0.25.0,<1.0.0",
+    "json-fix>=0.5.2,<1.0.0",
+    "python-dotenv>=1.0.0,<2.0.0",
+    "python-magic>=0.4.27,<1.0.0",
+    "pydantic>2.0",
+    "rich>=13.6.0,<14.0.0",
+    "websockets>=11.0.3",
+    "platformdirs"
+]
+
+[project.optional-dependencies]
+fastapi = [
+    "anyio>=3.7.1,<4.0.0",
+    "fastapi",
+    "starlette"
+]
+
+[project.urls]
+Documentation = "https://oeklo.github.com/py-directus"
+
+[build-system]
+requires = ["uv_build>=0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+module-name = 'py_directus'
