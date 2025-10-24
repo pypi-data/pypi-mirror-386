@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "src/napari_matplotlib/_version.py"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    "ignore:(?s).*Pyarrow will become a required dependency of pandas",
+    # Coming from vispy
+    "ignore:distutils Version classes are deprecated:DeprecationWarning",
+    "ignore:`np.bool8` is a deprecated alias for `np.bool_`:DeprecationWarning",
+    # Coming from pydantic via napari
+    "ignore:Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.:DeprecationWarning",
+    # Until we stop supporting older numpy versions (<2.1)
+    "ignore:(?s).*`newshape` keyword argument is deprecated.*$:DeprecationWarning",
+]
+qt_api = "pyqt6"
+addopts = [
+    "--mpl",
+    "--mpl-baseline-relative",
+    "--strict-config",
+    "--strict-markers",
+    "-ra",
+]
+minversion = "7"
+testpaths = ["src/napari_matplotlib/tests"]
+log_cli_level = "INFO"
+xfail_strict = true
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.ruff]
+target-version = "py310"
+fix = true
+
+[tool.ruff.lint]
+select = ["B", "I", "UP", "F", "E", "W", "D"]
+ignore = [
+    "D100", # Missing docstring in public module
+    "D104", # Missing docstring in public package
+    "D200", # One-line docstring should fit on one line
+    "D205", # 1 blank line required between summary line and description
+    "D400", # First line should end with a period
+    "D401", # First line of docstring should be in imperative mood
+
+]
+
+[tool.ruff.lint.per-file-ignores]
+"docs/*" = ["D"]
+"examples/*" = ["D"]
+"src/napari_matplotlib/tests/*" = ["D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.mypy]
+python_version = "3.12"
+# Block below are checks that form part of mypy 'strict' mode
+strict = true
+disallow_subclassing_any = false # TODO: fix
+warn_return_any = false          # TODO: fix
+ignore_missing_imports = true
+
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+
+[[tool.mypy.overrides]]
+module = ["napari_matplotlib/tests/*"]
+disallow_untyped_defs = false
