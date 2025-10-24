@@ -1,0 +1,14 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+awshttp/__init__.py
+awshttp/awshttp.py
+awshttp/py.typed
+awshttp.egg-info/PKG-INFO
+awshttp.egg-info/SOURCES.txt
+awshttp.egg-info/dependency_links.txt
+awshttp.egg-info/requires.txt
+awshttp.egg-info/top_level.txt
+tests/test_basic.py
