@@ -1,0 +1,222 @@
+Metadata-Version: 2.2
+Name: salangdev
+Version: 1.0.1
+Summary: SaLangDev - A tiny educational programming language with simple syntax (digit, one_letter, letters, outcome)
+Author: Salman Fareed Chishty
+License: MIT
+Keywords: language interpreter education salang programming
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Education
+Classifier: Topic :: Software Development :: Interpreters
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
+
+# 🌀 SaLangDev — The Simple Abstract Language for Developers
+
+**Version:** 1.0.0
+**Author:** *Salman Fareed Chishty*
+**License:** MIT
+**Extension:** `.salangdev`
+
+---
+
+## 📖 Introduction
+
+**SaLangDev (Simple Abstract Language for Developers)** is a lightweight and beginner-friendly programming language designed to show **how interpreters and languages work internally**.
+
+Built entirely in **Python**, SaLangDev lets you write small programs using **human-friendly commands** instead of traditional syntax.
+
+The purpose of SaLangDev is **education**, **experimentation**, and **inspiration** — a great tool for learning the basics of language design and execution.
+
+---
+
+## ✨ Features
+
+✅ **Custom Syntax:** Write programs using commands like `digit`, `letters`, and `outcome`.
+✅ **Python-Powered Execution:** SaLangDev converts your code into Python and runs it instantly.
+✅ **No Dependencies:** 100% pure Python — just install and run.
+✅ **.salangdev File Support:** Run your own `.salangdev` scripts directly from the terminal.
+✅ **Extensible:** Add new keywords or grammar rules easily.
+
+---
+
+## 🧠 SaLangDev Syntax
+
+| SaLangDev Keyword | Meaning / Python Equivalent |
+| ----------------- | --------------------------- |
+| `digit`           | `int` (integer values)      |
+| `one_letter`      | `char` (single character)   |
+| `letters`         | `str` (string type)         |
+| `outcome`         | `print()` function          |
+| `+ - * /`         | Same as Python operators    |
+| `=`               | Assignment operator         |
+| `#`               | Comment indicator           |
+
+---
+
+## 💡 Example Program
+
+```salangdev
+# SaLangDev Example
+digit x = 10
+letters name = "Salman"
+
+outcome("Welcome to SaLangDev!")
+outcome(name)
+outcome(x + 5)
+```
+
+### Output:
+
+```
+Welcome to SaLangDev!
+Salman
+15
+```
+
+---
+
+## ⚙️ Installation
+
+You can install SaLangDev directly from [PyPI](https://pypi.org/project/salangdev/) using:
+
+```bash
+pip install salangdev
+```
+
+---
+
+## ▶️ Usage
+
+Create a new file:
+
+```bash
+nano test.salangdev
+```
+
+Write:
+
+```salangdev
+outcome("Hello from SaLangDev!")
+```
+
+Then run it:
+
+```bash
+salangdev test.salangdev
+```
+
+Output:
+
+```
+Hello from SaLangDev!
+```
+
+---
+
+## 🧩 Supported Data Types
+
+| Type Keyword | Description      | Example                     |
+| ------------ | ---------------- | --------------------------- |
+| `digit`      | Integer values   | `digit age = 25`            |
+| `letters`    | Strings or text  | `letters msg = "Hi there!"` |
+| `one_letter` | Single character | `one_letter grade = 'A'`    |
+
+---
+
+## 🔍 Internal Working
+
+When you execute a `.salangdev` file, the interpreter:
+
+1. Reads the file line by line.
+2. Replaces SaLangDev keywords with their Python equivalents.
+3. Runs the translated Python code.
+
+For example:
+
+```
+digit x = 5
+outcome(x)
+```
+
+Internally becomes:
+
+```python
+x = int(5)
+print(x)
+```
+
+---
+
+## 🧑‍💻 Development & Contribution
+
+Contributions are welcome! You can:
+
+* Add new keywords like `repeat`, `loop`, or `if`
+* Improve parsing logic
+* Add error handling and debugging
+* Extend the runtime
+
+To contribute:
+
+```bash
+git clone https://github.com/<yourusername>/salangdev
+cd salangdev
+pip install -e .
+```
+
+Then test:
+
+```bash
+salangdev examples/hello.salangdev
+```
+
+---
+
+## 🧰 Future Roadmap
+
+🚧 Planned Features:
+
+* Control structures (`if`, `loop`)
+* String concatenation and interpolation
+* File I/O support
+* Error tracking and debugging mode
+* Graphical editor for SaLangDev programs
+
+---
+
+## 📜 License
+
+```
+MIT License
+Copyright (c) 2025 Salman Fareed
+```
+
+You are free to use, modify, and distribute SaLangDev with proper attribution.
+
+---
+
+## ❤️ Credits
+
+Developed by **Salman Fareed Chishty**
+📍 Lahore Garrison University (LGU)
+🎯 Inspired by curiosity and passion for software construction.
+
+---
+
+## 🌐 Links
+
+🔗 **PyPI:** [https://pypi.org/project/salangdev](https://pypi.org/project/salangdev)
+🔗 **GitHub:** *(Add your GitHub repo link here)*
+🔗 **Author:** [Salman Fareed Chishty](https://www.linkedin.com/in/salmanfareedchishty)
