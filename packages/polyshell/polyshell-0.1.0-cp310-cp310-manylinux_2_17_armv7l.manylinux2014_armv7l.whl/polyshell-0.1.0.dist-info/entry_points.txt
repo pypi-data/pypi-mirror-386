@@ -1,0 +1,2 @@
+[console_scripts]
+polyshell=polyshell._cli:app
