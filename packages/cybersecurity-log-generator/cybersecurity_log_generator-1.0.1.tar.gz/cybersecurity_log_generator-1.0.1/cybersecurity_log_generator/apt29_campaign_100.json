@@ -1,0 +1,68 @@
+{
+  "id": "2d9e1559-2102-4fb8-bef7-7980b489c3f0",
+  "name": "ThreatActor.APT29 Campaign",
+  "threat_actor": "APT29",
+  "start_time": "2025-10-16 17:30:01.477917",
+  "end_time": "2025-10-17 17:30:01.477917",
+  "target_network": "corporate",
+  "attack_stages": [
+    "initial_access",
+    "persistence",
+    "exfiltration"
+  ],
+  "events": [
+    {
+      "id": "454cd654-c985-49b4-b163-01018f940fdd",
+      "timestamp": "2025-10-16 17:30:01.478543",
+      "log_type": "web_access",
+      "severity": "low",
+      "source": {
+        "ip_address": "192.168.84.215",
+        "port": 443,
+        "hostname": null,
+        "mac_address": null,
+        "location": null
+      },
+      "destination": {
+        "ip_address": "172.25.135.68",
+        "port": 24360,
+        "hostname": "email-06.mcintyre-glass.com",
+        "mac_address": null,
+        "location": null
+      },
+      "user": "root",
+      "process": null,
+      "event_id": null,
+      "message": "GET /api/orders - 204",
+      "raw_data": {
+        "method": "GET",
+        "resource": "/api/orders",
+        "status_code": "204",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "referrer": "-",
+        "bytes_sent": 2559,
+        "response_time": 1.753782729321795,
+        "security_event": false
+      },
+      "tags": [
+        "normal",
+        "web"
+      ],
+      "threat_actor": "APT29",
+      "attack_tactic": "initial_access",
+      "attack_technique": null,
+      "ioc_type": null,
+      "confidence_score": null,
+      "false_positive_probability": null
+    }
+  ],
+  "success_probability": 0.8,
+  "sophistication_level": "medium"
+}
+
+
+
+
+
+
+

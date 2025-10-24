@@ -1,0 +1,173 @@
+[
+  {
+    "_time": "2025-10-16T18:01:25.817069417Z",
+    "_stream_id": "0000000000000000e934a84adb05276890d7f7bfcadabe92",
+    "_stream": "{}",
+    "_msg": "missing _msg field; see https://docs.victoriametrics.com/victorialogs/keyconcepts/#message-field",
+    "attack_tactic": "impact",
+    "attack_technique": "data_encrypted_for_impact",
+    "ioc_type": "file_hash",
+    "log_type": "endpoint",
+    "confidence_score": 0.8210000000000001,
+    "false_positive_probability": 0.023,
+    "id": "cb153878-22e3-4407-99da-c9bdc972d8ac",
+    "ioc_value": "05cdfa0a4a67",
+    "message": "File encryption detected: 575 files locked",
+    "process": "crypto_locker.exe",
+    "raw_data": {
+      "encryption_type": "AES-256",
+      "file_count": "16",
+      "file_extensions": ".crypto",
+      "ransom_amount": "$46072",
+      "threat_level": "High"
+    },
+    "severity": "high",
+    "source": {
+      "hostname": "victim-099.corp.com",
+      "ip_address": "192.168.125.122",
+      "port": 39872
+    },
+    "tags": ["ransomware", "encryption", "file_lock"],
+    "threat_actor": "Lazarus",
+    "timestamp": "2025-10-16T11:03:04.803715",
+    "user": "user099"
+  },
+  {
+    "_time": "2025-10-16T18:01:25.817065792Z",
+    "_stream_id": "0000000000000000e934a84adb05276890d7f7bfcadabe92",
+    "_stream": "{}",
+    "_msg": "missing _msg field; see https://docs.victoriametrics.com/victorialogs/keyconcepts/#message-field",
+    "attack_tactic": "impact",
+    "attack_technique": "data_encrypted_for_impact",
+    "ioc_type": "file_hash",
+    "log_type": "endpoint",
+    "confidence_score": 0.866,
+    "false_positive_probability": 0.042,
+    "id": "5fcf3f69-ef1f-4e34-b810-aca65f6f1d4c",
+    "ioc_value": "0dc0340b3cf3",
+    "message": "Suspicious file encryption activity: 748 files modified",
+    "process": "suspicious.exe",
+    "raw_data": {
+      "encryption_type": "RSA-2048",
+      "file_count": "29",
+      "file_extensions": ".locked",
+      "ransom_amount": "$40315",
+      "threat_level": "High"
+    },
+    "severity": "high",
+    "source": {
+      "hostname": "victim-098.corp.com",
+      "ip_address": "192.168.79.185",
+      "port": 45913
+    },
+    "tags": ["ransomware", "suspicious", "encryption"],
+    "threat_actor": "Carbon Spider",
+    "timestamp": "2025-10-16T11:03:03.803715",
+    "user": "user098"
+  },
+  {
+    "_time": "2025-10-16T18:01:25.817062126Z",
+    "_stream_id": "0000000000000000e934a84adb05276890d7f7bfcadabe92",
+    "_stream": "{}",
+    "_msg": "missing _msg field; see https://docs.victoriametrics.com/victorialogs/keyconcepts/#message-field",
+    "attack_tactic": "impact",
+    "attack_technique": "data_encrypted_for_impact",
+    "ioc_type": "file_hash",
+    "log_type": "endpoint",
+    "confidence_score": 0.913,
+    "false_positive_probability": 0.049,
+    "id": "8111ca94-c96a-4b4b-accc-f7f43f721efa",
+    "ioc_value": "0b73af0daf14",
+    "message": "Suspicious file encryption activity: 863 files modified",
+    "process": "suspicious.exe",
+    "raw_data": {
+      "encryption_type": "RSA-2048",
+      "file_count": "148",
+      "file_extensions": ".locked",
+      "ransom_amount": "$45810",
+      "threat_level": "High"
+    },
+    "severity": "high",
+    "source": {
+      "hostname": "victim-097.corp.com",
+      "ip_address": "192.168.19.255",
+      "port": 24768
+    },
+    "tags": ["ransomware", "suspicious", "encryption"],
+    "threat_actor": "Carbon Spider",
+    "timestamp": "2025-10-16T11:03:02.803715",
+    "user": "user097"
+  },
+  {
+    "_time": "2025-10-16T18:01:25.816981376Z",
+    "_stream_id": "0000000000000000e934a84adb05276890d7f7bfcadabe92",
+    "_stream": "{}",
+    "_msg": "missing _msg field; see https://docs.victoriametrics.com/victorialogs/keyconcepts/#message-field",
+    "attack_tactic": "impact",
+    "attack_technique": "data_encrypted_for_impact",
+    "ioc_type": "file_hash",
+    "log_type": "endpoint",
+    "confidence_score": 0.845,
+    "false_positive_probability": 0.025,
+    "id": "a3f083ee-d08e-48ac-94da-e78d7eff4f2e",
+    "ioc_value": "0375ac0e6a73",
+    "message": "File encryption detected: 670 files locked",
+    "process": "crypto_locker.exe",
+    "raw_data": {
+      "encryption_type": "AES-256",
+      "file_count": "950",
+      "file_extensions": ".crypto",
+      "ransom_amount": "$4762",
+      "threat_level": "High"
+    },
+    "severity": "high",
+    "source": {
+      "hostname": "victim-096.corp.com",
+      "ip_address": "192.168.85.27",
+      "port": 44254
+    },
+    "tags": ["ransomware", "encryption", "file_lock"],
+    "threat_actor": "Lazarus",
+    "timestamp": "2025-10-16T11:03:01.803715",
+    "user": "user096"
+  },
+  {
+    "_time": "2025-10-16T18:01:25.816977751Z",
+    "_stream_id": "0000000000000000e934a84adb05276890d7f7bfcadabe92",
+    "_stream": "{}",
+    "_msg": "missing _msg field; see https://docs.victoriametrics.com/victorialogs/keyconcepts/#message-field",
+    "attack_tactic": "impact",
+    "attack_technique": "data_encrypted_for_impact",
+    "ioc_type": "file_hash",
+    "log_type": "endpoint",
+    "confidence_score": 0.806,
+    "false_positive_probability": 0.093,
+    "id": "cf65d371-b4f8-4c02-ba42-10e655ad0b3c",
+    "ioc_value": "024a310db422",
+    "message": "Ransomware attack detected: 329 files encrypted",
+    "process": "ransomware.exe",
+    "raw_data": {
+      "encryption_type": "AES-256",
+      "file_count": "560",
+      "file_extensions": ".locked",
+      "ransom_amount": "$15935",
+      "threat_level": "Critical"
+    },
+    "severity": "critical",
+    "source": {
+      "hostname": "victim-095.corp.com",
+      "ip_address": "192.168.177.206",
+      "port": 59179
+    },
+    "tags": ["ransomware", "malware", "critical", "encryption"],
+    "threat_actor": "APT29",
+    "timestamp": "2025-10-16T11:03:00.803715",
+    "user": "user095"
+  }
+]
+
+
+
+
+
+

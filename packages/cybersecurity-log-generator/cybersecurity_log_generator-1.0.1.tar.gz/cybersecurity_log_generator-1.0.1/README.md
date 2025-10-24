@@ -1,0 +1,303 @@
+# Cybersecurity Log Generator
+
+A comprehensive Python package for generating synthetic cybersecurity logs across all 24 cyberdefense pillars with realistic attack patterns and threat intelligence.
+
+## Features
+
+- **24 Cyberdefense Pillars**: Generate logs for all major cybersecurity domains
+- **Realistic Attack Patterns**: Simulate real-world threats and attack scenarios
+- **Multiple Log Types**: Support for IDS, web access, endpoint, Windows events, Linux syslog, firewall, and more
+- **Threat Actor Simulation**: Generate logs for known threat actors (APT29, APT28, Lazarus, etc.)
+- **Correlated Events**: Create realistic attack chains with correlated events
+- **Campaign Generation**: Simulate coordinated attack campaigns
+- **Multiple Export Formats**: JSON, CSV, Syslog, CEF, LEEF
+- **REST API**: FastAPI-based web service for log generation
+- **MCP Server**: Model Context Protocol server for AI integration
+- **CLI Tools**: Command-line interface for easy usage
+
+## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install cybersecurity-log-generator
+```
+
+### From Source
+
+```bash
+git clone https://github.com/your-org/cybersecurity-log-generator.git
+cd cybersecurity-log-generator
+pip install -e .
+```
+
+## Quick Start
+
+### Command Line Usage
+
+```bash
+# Generate basic IDS logs
+cybersecurity-log-gen generate --type ids --count 100
+
+# Generate authentication pillar logs
+cybersecurity-log-gen pillar --pillar authentication --count 200 --output auth_logs.json
+
+# List all supported types and pillars
+cybersecurity-log-gen list-types
+```
+
+### Python API Usage
+
+```python
+from cybersecurity_log_generator import LogGenerator, EnhancedLogGenerator
+from cybersecurity_log_generator.core.models import LogType, CyberdefensePillar
+
+# Basic log generation
+generator = LogGenerator()
+logs = generator.generate_logs(LogType.IDS, count=100, time_range="24h")
+
+# Enhanced pillar-specific generation
+enhanced_generator = EnhancedLogGenerator()
+logs = enhanced_generator.generate_logs(CyberdefensePillar.AUTHENTICATION, count=200)
+
+# Generate correlated events
+correlated_logs = enhanced_generator.generate_correlated_events(
+    pillars=[CyberdefensePillar.AUTHENTICATION, CyberdefensePillar.NETWORK_SECURITY],
+    count=100,
+    correlation_strength=0.8
+)
+
+# Generate campaign logs
+campaign_logs = enhanced_generator.generate_campaign_logs(
+    threat_actor="APT29",
+    duration="72h",
+    target_count=150
+)
+```
+
+### REST API Usage
+
+```bash
+# Start the API server (default port 9021)
+python -m cybersecurity_log_generator.api
+
+# Generate logs via API
+curl -X POST "http://localhost:9021/generate" \
+  -H "Content-Type: application/json" \
+  -d '{"log_type": "ids", "count": 100, "time_range": "24h"}'
+
+# Generate pillar logs via API
+curl -X POST "http://localhost:9021/pillar" \
+  -H "Content-Type: application/json" \
+  -d '{"pillar": "authentication", "count": 200, "time_range": "24h"}'
+```
+
+### MCP Server Usage
+
+The MCP (Model Context Protocol) server provides AI integration capabilities for Claude Desktop and Cursor IDE. **Note: This is NOT a REST API** - it uses JSON-RPC protocol.
+
+#### Quick Start
+```bash
+# STDIO mode (for Cursor IDE) - Recommended
+python -m cybersecurity_log_generator.mcp_server.server --transport stdio
+
+# HTTP mode (for remote access) - JSON-RPC over HTTP
+python -m cybersecurity_log_generator.mcp_server.server --transport http --host 0.0.0.0 --port 8003
+
+# Using Docker
+docker-compose up cybersecurity-log-generator-stdio --build
+```
+
+#### Cursor IDE Configuration
+Create `~/.cursor/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "cybersecurity_log_generator": {
+      "command": "/path/to/cybersecurity_log_generator/venv/bin/python",
+      "args": ["/path/to/cybersecurity_log_generator/mcp_server/server.py"],
+      "env": {
+        "PYTHONPATH": "/path/to/cybersecurity_log_generator"
+      }
+    }
+  }
+}
+```
+
+#### Claude Desktop Configuration
+Create `~/.claude/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "cybersecurity_log_generator": {
+      "command": "/path/to/cybersecurity_log_generator/venv/bin/python",
+      "args": ["/path/to/cybersecurity_log_generator/mcp_server/server.py"],
+      "env": {
+        "PYTHONPATH": "/path/to/cybersecurity_log_generator"
+      }
+    }
+  }
+}
+```
+
+**Available MCP Tools:**
+- `generate_logs` - Generate basic cybersecurity logs
+- `generate_pillar_logs` - Generate logs for specific cyberdefense pillars
+- `generate_campaign_logs` - Generate coordinated attack campaigns
+- `generate_correlated_logs` - Generate correlated events across pillars
+- `generate_siem_priority_logs` - Generate SIEM priority logs
+- `export_logs` - Export logs in various formats
+- `analyze_log_patterns` - Analyze log patterns and provide insights
+
+**MCP Server Features:**
+- AI model integration for intelligent log generation
+- Tool-based interface for AI assistants
+- Real-time log generation and analysis
+- VictoriaLogs integration for log ingestion
+- Comprehensive tool documentation
+- Docker support with docker-compose
+
+**Important:** The MCP server uses JSON-RPC protocol, not REST API. For REST API usage, see the "REST API Usage" section above.
+
+📖 **For detailed MCP server documentation, configuration examples, and troubleshooting, see the [MCP Server README](cybersecurity_log_generator/README.md)**
+
+## Supported Log Types
+
+- **IDS**: Intrusion Detection System logs
+- **Web Access**: Web application access logs
+- **Endpoint**: Endpoint Detection and Response logs
+- **Windows Event**: Windows Event Logs
+- **Linux Syslog**: Linux system logs
+- **Firewall**: Firewall and network security logs
+
+## Supported Cyberdefense Pillars
+
+- **Authentication**: Login attempts, failures, MFA events
+- **Authorization**: Permission changes, access control
+- **Network Security**: Firewall, IDS/IPS, network monitoring
+- **Endpoint Security**: EDR, malware detection, system events
+- **Cloud Security**: AWS, Azure, GCP security events
+- **Container Security**: Kubernetes, Docker security logs
+- **Data Protection**: Encryption, data loss prevention
+- **Incident Response**: Security incidents, forensics
+- **Threat Intelligence**: IOCs, threat indicators
+- **Vulnerability Management**: CVE tracking, patch management
+- And 14 more pillars...
+
+## Export Formats
+
+```python
+from cybersecurity_log_generator.utils import export_logs
+
+# Export in different formats
+export_logs(logs, format="json", output_path="logs.json")
+export_logs(logs, format="csv", output_path="logs.csv")
+export_logs(logs, format="syslog", output_path="logs.syslog")
+export_logs(logs, format="cef", output_path="logs.cef")
+export_logs(logs, format="leef", output_path="logs.leef")
+```
+
+## Configuration
+
+Create a `config.yaml` file or set environment variables:
+
+```yaml
+# config.yaml
+default_count: 100
+default_time_range: "24h"
+output_format: "json"
+include_metadata: true
+realistic_patterns: true
+correlation_enabled: true
+victorialogs_url: "http://localhost:9428"
+victorialogs_enabled: false
+# API settings
+api_host: "0.0.0.0"
+api_port: 9021
+api_workers: 1
+```
+
+Or use environment variables:
+
+```bash
+export CYBERSECURITY_LOG_DEFAULT_COUNT=200
+export CYBERSECURITY_LOG_DEFAULT_TIME_RANGE="48h"
+export CYBERSECURITY_LOG_OUTPUT_FORMAT="csv"
+export CYBERSECURITY_LOG_API_PORT=9021
+export CYBERSECURITY_LOG_API_HOST="0.0.0.0"
+```
+
+### API Server Configuration
+
+The REST API server runs on **port 9021** by default. You can customize this:
+
+```bash
+# Use default port 9021
+python -m cybersecurity_log_generator.api
+
+# Use custom port
+uvicorn cybersecurity_log_generator.api:app --host 0.0.0.0 --port 8080
+
+# Use environment variable
+export CYBERSECURITY_LOG_API_PORT=8080
+python -m cybersecurity_log_generator.api
+```
+
+## Testing
+
+```bash
+# Run all tests
+pytest
+
+# Run specific test categories
+pytest tests/test_generator.py
+pytest tests/test_enhanced_generator.py
+pytest tests/test_api.py
+pytest tests/test_integration.py
+
+# Run with coverage
+pytest --cov=cybersecurity_log_generator
+```
+
+## Development
+
+```bash
+# Install development dependencies
+pip install -e ".[dev]"
+
+# Run linting
+black cybersecurity_log_generator/
+flake8 cybersecurity_log_generator/
+
+# Run type checking
+mypy cybersecurity_log_generator/
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Run the test suite
+6. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+- **Documentation**: [GitHub Wiki](https://github.com/your-org/cybersecurity-log-generator/wiki)
+- **Issues**: [GitHub Issues](https://github.com/your-org/cybersecurity-log-generator/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-org/cybersecurity-log-generator/discussions)
+
+## Changelog
+
+### v1.0.0
+- Initial release
+- Support for 24 cyberdefense pillars
+- Multiple log types and formats
+- REST API and CLI tools
+- MCP server integration
+- Comprehensive test suite

@@ -1,0 +1,2 @@
+[console_scripts]
+cybersecurity-log-gen = cybersecurity_log_generator.cli:main

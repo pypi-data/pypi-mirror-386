@@ -1,0 +1,424 @@
+[
+  {
+    "id": "b26760bf-d8e7-43ea-a3ac-3d54e540ed12",
+    "timestamp": "2025-10-16 05:10:50.666166",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "10.246.68.102",
+      "port": 21,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "24.138.53.159",
+      "port": 80,
+      "hostname": "lt-14.fernandez.com",
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: HTTPS connection established from 10.246.68.102:995 to 24.138.53.159:465",
+    "raw_data": {
+      "protocol": "TCP",
+      "source_port": 995,
+      "destination_port": 465,
+      "flags": "SYN,ACK",
+      "packet_size": 373,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "689ccbfd-00e3-48fd-b31e-db3f86d90d77",
+    "timestamp": "2025-10-16 05:10:50.666413",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "192.168.166.207",
+      "port": 465,
+      "hostname": "email-60.ford.com",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "154.234.54.251",
+      "port": 52249,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: FTP file transfer initiated from 192.168.166.207:993 to 154.234.54.251:19024",
+    "raw_data": {
+      "protocol": "TCP",
+      "source_port": 993,
+      "destination_port": 19024,
+      "flags": "SYN",
+      "packet_size": 381,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "df78aea3-7575-45fe-9da0-302b08c689be",
+    "timestamp": "2025-10-16 05:10:50.666541",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "172.31.184.30",
+      "port": 587,
+      "hostname": "lt-13.mcdonald.org",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "141.8.137.184",
+      "port": 19492,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: Email client connecting to SMTP server from 172.31.184.30:50677 to 141.8.137.184:67",
+    "raw_data": {
+      "protocol": "UDP",
+      "source_port": 50677,
+      "destination_port": 67,
+      "flags": "SYN,ACK",
+      "packet_size": 902,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "0c7e0842-2702-41ef-a16d-1288a30e5e49",
+    "timestamp": "2025-10-16 05:10:50.666716",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "192.168.205.208",
+      "port": 21,
+      "hostname": "srv-43.wiley-good.biz",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "154.179.58.103",
+      "port": 110,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: HTTPS connection established from 192.168.205.208:25 to 154.179.58.103:443",
+    "raw_data": {
+      "protocol": "TCP",
+      "source_port": 25,
+      "destination_port": 443,
+      "flags": "FIN",
+      "packet_size": 504,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "cd172adf-b9d8-438f-81e7-32ffff10891a",
+    "timestamp": "2025-10-16 05:10:50.666785",
+    "log_type": "ids",
+    "severity": "high",
+    "source": {
+      "ip_address": "25.202.143.40",
+      "port": 110,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "10.107.165.203",
+      "port": 465,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Malicious traffic detected from 25.202.143.40:587 to 10.107.165.203:53 via TCP",
+    "raw_data": {
+      "protocol": "TCP",
+      "source_port": 587,
+      "destination_port": 53,
+      "flags": "SYN,ACK",
+      "packet_size": 1173,
+      "attack_signature": "SIG-1368",
+      "rule_id": "IDS-429"
+    },
+    "tags": [
+      "attack",
+      "security",
+      "malware_traffic"
+    ],
+    "threat_actor": "Lazarus",
+    "attack_tactic": "execution",
+    "attack_technique": "malware_traffic",
+    "ioc_type": null,
+    "confidence_score": 0.9445616126287296,
+    "false_positive_probability": 0.02231905495756753
+  },
+  {
+    "id": "64d9ecd5-2d14-49a3-bd0c-6def55a715a0",
+    "timestamp": "2025-10-16 05:10:50.666911",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "10.23.5.40",
+      "port": 43098,
+      "hostname": "db-15.kirby.com",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "221.99.236.165",
+      "port": 22,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: HTTP request to external website from 10.23.5.40:110 to 221.99.236.165:21",
+    "raw_data": {
+      "protocol": "TCP",
+      "source_port": 110,
+      "destination_port": 21,
+      "flags": "URG",
+      "packet_size": 1250,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "ae252b04-30b2-46ee-ac94-57c814aa1c4a",
+    "timestamp": "2025-10-16 05:10:50.667137",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "192.168.206.19",
+      "port": 22,
+      "hostname": "email-02.thomas.com",
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "217.179.79.76",
+      "port": 993,
+      "hostname": "email-67.peterson-anderson.com",
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: FTP file transfer initiated from 192.168.206.19:12372 to 217.179.79.76:32568",
+    "raw_data": {
+      "protocol": "ICMP",
+      "source_port": 12372,
+      "destination_port": 32568,
+      "flags": "PSH",
+      "packet_size": 1471,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "40c01ba6-ce2e-4071-8726-b14273da3782",
+    "timestamp": "2025-10-16 05:10:50.667192",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "192.168.31.237",
+      "port": 587,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "39.113.234.72",
+      "port": 53,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: SSH connection to remote server from 192.168.31.237:53 to 39.113.234.72:514",
+    "raw_data": {
+      "protocol": "UDP",
+      "source_port": 53,
+      "destination_port": 514,
+      "flags": "PSH",
+      "packet_size": 1296,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "c8b576f0-24ab-4e9a-a976-2ad3b864abad",
+    "timestamp": "2025-10-16 05:10:50.667243",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "10.197.104.195",
+      "port": 465,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "63.1.145.85",
+      "port": 465,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: SSH connection to remote server from 10.197.104.195:6536 to 63.1.145.85:17649",
+    "raw_data": {
+      "protocol": "FTP",
+      "source_port": 6536,
+      "destination_port": 17649,
+      "flags": "SYN,ACK",
+      "packet_size": 714,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  },
+  {
+    "id": "4aa8e1df-5464-45f4-a90c-d47e12812a14",
+    "timestamp": "2025-10-16 05:10:50.667293",
+    "log_type": "ids",
+    "severity": "low",
+    "source": {
+      "ip_address": "10.235.16.223",
+      "port": 35281,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "destination": {
+      "ip_address": "2.71.114.204",
+      "port": 993,
+      "hostname": null,
+      "mac_address": null,
+      "location": null
+    },
+    "user": null,
+    "process": null,
+    "event_id": null,
+    "message": "Normal network activity: HTTP request to external website from 10.235.16.223:161 to 2.71.114.204:162",
+    "raw_data": {
+      "protocol": "UDP",
+      "source_port": 161,
+      "destination_port": 162,
+      "flags": "SYN,ACK",
+      "packet_size": 1312,
+      "connection_state": "established"
+    },
+    "tags": [
+      "normal",
+      "network"
+    ],
+    "threat_actor": null,
+    "attack_tactic": null,
+    "attack_technique": null,
+    "ioc_type": null,
+    "confidence_score": null,
+    "false_positive_probability": null
+  }
+]

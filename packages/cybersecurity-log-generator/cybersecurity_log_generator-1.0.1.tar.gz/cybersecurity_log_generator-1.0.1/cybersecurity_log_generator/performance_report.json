@@ -1,0 +1,542 @@
+{
+  "timestamp": "2025-10-15T23:41:48.004082",
+  "results": [
+    {
+      "test_name": "Single ids Generation",
+      "duration": 0.11452412605285645,
+      "events": 1000,
+      "events_per_second": 8731.784598281665,
+      "memory_mb": 3.453125,
+      "memory_per_event": 0.003453125,
+      "cpu_percent": 0.0,
+      "details": "Generated 1000 ids events"
+    },
+    {
+      "test_name": "Single web_access Generation",
+      "duration": 0.21407485008239746,
+      "events": 1000,
+      "events_per_second": 4671.263343709454,
+      "memory_mb": 0.203125,
+      "memory_per_event": 0.000203125,
+      "cpu_percent": 0.0,
+      "details": "Generated 1000 web_access events"
+    },
+    {
+      "test_name": "Single endpoint Generation",
+      "duration": 0.10217499732971191,
+      "events": 1000,
+      "events_per_second": 9787.13017993107,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 1000 endpoint events"
+    },
+    {
+      "test_name": "Single windows_event Generation",
+      "duration": 0.13950419425964355,
+      "events": 1000,
+      "events_per_second": 7168.243258255102,
+      "memory_mb": 0.03125,
+      "memory_per_event": 3.125e-05,
+      "cpu_percent": 0.0,
+      "details": "Generated 1000 windows_event events"
+    },
+    {
+      "test_name": "Single linux_syslog Generation",
+      "duration": 0.16578006744384766,
+      "events": 1000,
+      "events_per_second": 6032.088268625635,
+      "memory_mb": 0.203125,
+      "memory_per_event": 0.000203125,
+      "cpu_percent": 0.0,
+      "details": "Generated 1000 linux_syslog events"
+    },
+    {
+      "test_name": "Single firewall Generation",
+      "duration": 0.12346291542053223,
+      "events": 1000,
+      "events_per_second": 8099.598139197166,
+      "memory_mb": 0.125,
+      "memory_per_event": 0.000125,
+      "cpu_percent": 0.0,
+      "details": "Generated 1000 firewall events"
+    },
+    {
+      "test_name": "Single ids Generation",
+      "duration": 0.011099815368652344,
+      "events": 100,
+      "events_per_second": 9009.158862445227,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 100 ids events"
+    },
+    {
+      "test_name": "Single ids Generation",
+      "duration": 0.05826401710510254,
+      "events": 500,
+      "events_per_second": 8581.625930427168,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 500 ids events"
+    },
+    {
+      "test_name": "Single ids Generation",
+      "duration": 0.11787009239196777,
+      "events": 1000,
+      "events_per_second": 8483.916315892739,
+      "memory_mb": 0.03125,
+      "memory_per_event": 3.125e-05,
+      "cpu_percent": 0.0,
+      "details": "Generated 1000 ids events"
+    },
+    {
+      "test_name": "Single ids Generation",
+      "duration": 0.587061882019043,
+      "events": 5000,
+      "events_per_second": 8516.989695879814,
+      "memory_mb": 12.265625,
+      "memory_per_event": 0.002453125,
+      "cpu_percent": 0.0,
+      "details": "Generated 5000 ids events"
+    },
+    {
+      "test_name": "Single ids Generation",
+      "duration": 1.1581051349639893,
+      "events": 10000,
+      "events_per_second": 8634.794629687007,
+      "memory_mb": 15.296875,
+      "memory_per_event": 0.0015296875,
+      "cpu_percent": 0.0,
+      "details": "Generated 10000 ids events"
+    },
+    {
+      "test_name": "Memory Test (1,000 events)",
+      "duration": 0.11363720893859863,
+      "events": 1000,
+      "events_per_second": 8799.934540281854,
+      "memory_mb": -13.0,
+      "memory_per_event": -0.013,
+      "cpu_percent": 0.0,
+      "details": "Memory per event: -0.013 MB"
+    },
+    {
+      "test_name": "Memory Test (5,000 events)",
+      "duration": 0.585211992263794,
+      "events": 5000,
+      "events_per_second": 8543.912404560171,
+      "memory_mb": 2.765625,
+      "memory_per_event": 0.000553125,
+      "cpu_percent": 0.0,
+      "details": "Memory per event: 0.001 MB"
+    },
+    {
+      "test_name": "Memory Test (10,000 events)",
+      "duration": 1.1375088691711426,
+      "events": 10000,
+      "events_per_second": 8791.140246041863,
+      "memory_mb": 27.671875,
+      "memory_per_event": 0.0027671875,
+      "cpu_percent": 0.0,
+      "details": "Memory per event: 0.003 MB"
+    },
+    {
+      "test_name": "Memory Test (20,000 events)",
+      "duration": 2.313196897506714,
+      "events": 20000,
+      "events_per_second": 8646.043067737579,
+      "memory_mb": 43.09375,
+      "memory_per_event": 0.0021546875,
+      "cpu_percent": 0.0,
+      "details": "Memory per event: 0.002 MB"
+    },
+    {
+      "test_name": "Campaign APT29 (1h, 50 targets)",
+      "duration": 0.007349967956542969,
+      "events": 48,
+      "events_per_second": 6530.6407162319965,
+      "memory_mb": -0.296875,
+      "memory_per_event": -0.006184895833333333,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (1h, 200 targets)",
+      "duration": 0.028973817825317383,
+      "events": 198,
+      "events_per_second": 6833.755951450319,
+      "memory_mb": -2.0,
+      "memory_per_event": -0.010101010101010102,
+      "cpu_percent": 0.0,
+      "details": "Generated 198 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (1h, 500 targets)",
+      "duration": 0.08204817771911621,
+      "events": 498,
+      "events_per_second": 6069.6046377148505,
+      "memory_mb": -2.0,
+      "memory_per_event": -0.004016064257028112,
+      "cpu_percent": 0.0,
+      "details": "Generated 498 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (6h, 50 targets)",
+      "duration": 0.0073049068450927734,
+      "events": 48,
+      "events_per_second": 6570.925682953099,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (6h, 200 targets)",
+      "duration": 0.02935194969177246,
+      "events": 198,
+      "events_per_second": 6745.718839096425,
+      "memory_mb": -1.0,
+      "memory_per_event": -0.005050505050505051,
+      "cpu_percent": 0.0,
+      "details": "Generated 198 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (6h, 500 targets)",
+      "duration": 0.07919597625732422,
+      "events": 498,
+      "events_per_second": 6288.198258733427,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 498 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (24h, 50 targets)",
+      "duration": 0.008083105087280273,
+      "events": 48,
+      "events_per_second": 5938.312007786922,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (24h, 200 targets)",
+      "duration": 0.03040170669555664,
+      "events": 198,
+      "events_per_second": 6512.7922581049925,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 198 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT29 (24h, 500 targets)",
+      "duration": 0.07752799987792969,
+      "events": 498,
+      "events_per_second": 6423.485718503211,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 498 events for APT29"
+    },
+    {
+      "test_name": "Campaign APT28 (1h, 50 targets)",
+      "duration": 0.005644083023071289,
+      "events": 48,
+      "events_per_second": 8504.481561272336,
+      "memory_mb": 0.015625,
+      "memory_per_event": 0.0003255208333333333,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (1h, 200 targets)",
+      "duration": 0.02397894859313965,
+      "events": 198,
+      "events_per_second": 8257.242774049217,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 198 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (1h, 500 targets)",
+      "duration": 0.06211686134338379,
+      "events": 498,
+      "events_per_second": 8017.14686205798,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 498 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (6h, 50 targets)",
+      "duration": 0.005609989166259766,
+      "events": 48,
+      "events_per_second": 8556.166255843604,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (6h, 200 targets)",
+      "duration": 0.023975133895874023,
+      "events": 198,
+      "events_per_second": 8258.556588669338,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 198 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (6h, 500 targets)",
+      "duration": 0.05773782730102539,
+      "events": 498,
+      "events_per_second": 8625.194664904819,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 498 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (24h, 50 targets)",
+      "duration": 0.005704402923583984,
+      "events": 48,
+      "events_per_second": 8414.552871353339,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (24h, 200 targets)",
+      "duration": 0.02417588233947754,
+      "events": 198,
+      "events_per_second": 8189.9802960523075,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 198 events for APT28"
+    },
+    {
+      "test_name": "Campaign APT28 (24h, 500 targets)",
+      "duration": 0.05816793441772461,
+      "events": 498,
+      "events_per_second": 8561.417987162566,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 498 events for APT28"
+    },
+    {
+      "test_name": "Campaign Lazarus (1h, 50 targets)",
+      "duration": 0.008887052536010742,
+      "events": 48,
+      "events_per_second": 5401.115814889336,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (1h, 200 targets)",
+      "duration": 0.035218000411987305,
+      "events": 200,
+      "events_per_second": 5678.914125173476,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 200 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (1h, 500 targets)",
+      "duration": 0.09105777740478516,
+      "events": 500,
+      "events_per_second": 5491.019155643531,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 500 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (6h, 50 targets)",
+      "duration": 0.008249998092651367,
+      "events": 48,
+      "events_per_second": 5818.18316330954,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (6h, 200 targets)",
+      "duration": 0.03325700759887695,
+      "events": 200,
+      "events_per_second": 6013.77016273568,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 200 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (6h, 500 targets)",
+      "duration": 0.08175802230834961,
+      "events": 500,
+      "events_per_second": 6115.607812946535,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 500 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (24h, 50 targets)",
+      "duration": 0.007966995239257812,
+      "events": 48,
+      "events_per_second": 6024.856116830261,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 48 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (24h, 200 targets)",
+      "duration": 0.03113102912902832,
+      "events": 200,
+      "events_per_second": 6424.458348969542,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 200 events for Lazarus"
+    },
+    {
+      "test_name": "Campaign Lazarus (24h, 500 targets)",
+      "duration": 0.08101820945739746,
+      "events": 500,
+      "events_per_second": 6171.452113650074,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Generated 500 events for Lazarus"
+    },
+    {
+      "test_name": "Export JSON",
+      "duration": 0.05033302307128906,
+      "events": 5000,
+      "events_per_second": 99338.36068058661,
+      "memory_mb": 5.227682113647461,
+      "memory_per_event": 0.0010455364227294922,
+      "cpu_percent": 0,
+      "details": "Output size: 5.23 MB"
+    },
+    {
+      "test_name": "Export CSV",
+      "duration": 0.10718679428100586,
+      "events": 5000,
+      "events_per_second": 46647.53744656052,
+      "memory_mb": 2.786897659301758,
+      "memory_per_event": 0.0005573795318603515,
+      "cpu_percent": 0,
+      "details": "Output size: 2.79 MB"
+    },
+    {
+      "test_name": "Export SYSLOG",
+      "duration": 0.008221864700317383,
+      "events": 5000,
+      "events_per_second": 608134.5512541685,
+      "memory_mb": 0.6601667404174805,
+      "memory_per_event": 0.0001320333480834961,
+      "cpu_percent": 0,
+      "details": "Output size: 0.66 MB"
+    },
+    {
+      "test_name": "Export CEF",
+      "duration": 0.0041201114654541016,
+      "events": 5000,
+      "events_per_second": 1213559.4004976563,
+      "memory_mb": 1.0082578659057617,
+      "memory_per_event": 0.00020165157318115235,
+      "cpu_percent": 0,
+      "details": "Output size: 1.01 MB"
+    },
+    {
+      "test_name": "Export LEEF",
+      "duration": 0.0037560462951660156,
+      "events": 5000,
+      "events_per_second": 1331187.0001269518,
+      "memory_mb": 1.001755714416504,
+      "memory_per_event": 0.0002003511428833008,
+      "cpu_percent": 0,
+      "details": "Output size: 1.00 MB"
+    },
+    {
+      "test_name": "Correlation (strength=0.3, window=30m)",
+      "duration": 0.0432591438293457,
+      "events": 300,
+      "events_per_second": 6934.9500115739465,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Correlated events: 0"
+    },
+    {
+      "test_name": "Correlation (strength=0.3, window=2h)",
+      "duration": 0.0443730354309082,
+      "events": 300,
+      "events_per_second": 6760.862697056643,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Correlated events: 0"
+    },
+    {
+      "test_name": "Correlation (strength=0.5, window=2h)",
+      "duration": 0.04254007339477539,
+      "events": 300,
+      "events_per_second": 7052.174010514163,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Correlated events: 0"
+    },
+    {
+      "test_name": "Correlation (strength=0.8, window=30m)",
+      "duration": 0.043192148208618164,
+      "events": 300,
+      "events_per_second": 6945.706857436203,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Correlated events: 0"
+    },
+    {
+      "test_name": "Correlation (strength=0.8, window=1h)",
+      "duration": 0.042618751525878906,
+      "events": 300,
+      "events_per_second": 7039.155049341001,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Correlated events: 0"
+    },
+    {
+      "test_name": "Correlation (strength=0.8, window=4h)",
+      "duration": 0.043807029724121094,
+      "events": 300,
+      "events_per_second": 6848.215957331011,
+      "memory_mb": 0.0,
+      "memory_per_event": 0.0,
+      "cpu_percent": 0.0,
+      "details": "Correlated events: 0"
+    }
+  ],
+  "summary": {
+    "total_tests": 53,
+    "avg_events_per_second": 68856.28469464564,
+    "max_events_per_second": 1331187.0001269518,
+    "avg_memory_mb": 1.8404553791262068,
+    "max_memory_mb": 43.09375
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "cybersecurity-log-generator": {
+      "command": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/venv/bin/python",
+      "args": [
+        "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator/mcp_server/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/Users/tredkar/Documents/GitHub/hd-syntheticdata/cybersecurity_log_generator"
+      }
+    }
+  }
+}
