@@ -1,0 +1,215 @@
+# EasyData - Data Science Function Runner
+
+EasyData is a Python library that makes it easy for data scientists to create reusable functions and run them on datasets through a beautiful terminal interface.
+
+## Features
+
+- 🎯 **Simple Decorator**: Wrap your data science functions with `@data_function`
+- 🖥️ **Terminal UI**: Browse directories and select datasets interactively
+- 📊 **Progress Tracking**: Built-in progress bars for long-running operations
+- 📁 **Multiple Formats**: Support for CSV, Excel, JSON, Parquet, and TSV files
+- 💾 **Easy Output**: Save results back to files with one click
+- 🔍 **File Preview**: See file information and sample data before processing
+
+## Installation
+
+### From PyPI (when published)
+```bash
+pip install easydata-ds
+```
+
+### From Source
+```bash
+git clone https://github.com/coleragone/easydata.git
+cd easydata
+pip install -e .
+```
+
+### Development Installation
+```bash
+git clone https://github.com/coleragone/easydata.git
+cd easydata
+pip install -e ".[dev]"
+```
+
+## Quick Start
+
+1. **Create a Python script with decorated functions:**
+
+```python
+import pandas as pd
+from easyData import data_function, run_data_functions
+
+@data_function(
+    description="Add True/False column based on condition",
+    input_types=['csv', 'xlsx'],
+    output_types=['csv'],
+    progress_enabled=True
+)
+def tag_condition(data):
+    """Tag rows where value > 100"""
+    data['is_high_value'] = data['value'] > 100
+    return data
+
+if __name__ == "__main__":
+    run_data_functions()
+```
+
+2. **Run your script:**
+
+```bash
+python your_script.py
+```
+
+3. **Use the terminal UI:**
+   - Select your function from the list
+   - Browse directories to find your dataset
+   - Preview file information and sample data
+   - Run the function with progress tracking
+   - Save results to a new file
+
+## Decorator Parameters
+
+The `@data_function` decorator accepts several parameters:
+
+- `description`: Human-readable description of what the function does
+- `input_types`: List of supported input file types (e.g., `['csv', 'xlsx', 'json']`)
+- `output_types`: List of supported output file types (e.g., `['csv', 'xlsx']`)
+- `progress_enabled`: Whether to show progress bars (default: `True`)
+- `batch_size`: Number of rows to process at once for progress tracking (default: `1000`)
+
+## Example Functions
+
+### Data Tagging
+```python
+@data_function(
+    description="Tag high-value customers",
+    input_types=['csv', 'xlsx'],
+    progress_enabled=True
+)
+def tag_high_value_customers(data):
+    data['is_high_value'] = data['revenue'] > 10000
+    return data
+```
+
+### Data Cleaning
+```python
+@data_function(
+    description="Clean and standardize text data",
+    input_types=['csv'],
+    batch_size=500
+)
+def clean_text(data):
+    text_cols = data.select_dtypes(include=['object']).columns
+    for col in text_cols:
+        data[col] = data[col].str.lower().str.strip()
+    return data
+```
+
+### Statistical Analysis
+```python
+@data_function(
+    description="Calculate summary statistics",
+    input_types=['csv', 'xlsx', 'json'],
+    progress_enabled=False
+)
+def calculate_stats(data):
+    return data.describe()
+```
+
+## Supported File Formats
+
+**Input Formats:**
+- CSV (`.csv`)
+- Excel (`.xlsx`, `.xls`)
+- JSON (`.json`)
+- Parquet (`.parquet`)
+- TSV (`.tsv`)
+
+**Output Formats:**
+- CSV (`.csv`)
+- Excel (`.xlsx`)
+- JSON (`.json`)
+- Parquet (`.parquet`)
+- TSV (`.tsv`)
+
+## Terminal UI Features
+
+- **Function Selection**: Choose from available decorated functions
+- **Directory Browsing**: Navigate through folders to find datasets
+- **File Preview**: See file size, type, columns, and sample data
+- **Progress Tracking**: Visual progress bars for long operations
+- **Result Saving**: Save processed data to new files
+- **Error Handling**: Clear error messages and recovery options
+
+## Requirements
+
+- Python 3.7+
+- pandas
+- rich (for beautiful terminal UI)
+- click (for command-line interface)
+- tqdm (for progress bars)
+
+## Publishing
+
+To build and publish this package:
+
+1. **Build the package:**
+   ```bash
+   python build.py
+   ```
+
+2. **Publish to PyPI:**
+   ```bash
+   python publish.py
+   ```
+
+3. **Test installation:**
+   ```bash
+   pip install easydata-ds
+   ```
+
+## Development
+
+### Setup Development Environment
+```bash
+git clone https://github.com/coleragone/easydata.git
+cd easydata
+pip install -e ".[dev]"
+```
+
+### Run Tests
+```bash
+pytest
+```
+
+### Code Formatting
+```bash
+black easydata/
+flake8 easydata/
+```
+
+## Contributing
+
+This is a startup project! Feel free to contribute by:
+- Adding new file format support
+- Improving the terminal UI
+- Adding more example functions
+- Enhancing error handling
+- Writing tests
+- Improving documentation
+
+## License
+
+MIT License - feel free to use this in your projects!
+
+## Changelog
+
+### v0.1.0 (2024-01-XX)
+- Initial release
+- Basic decorator functionality
+- Terminal UI for file browsing
+- Support for CSV, Excel, JSON, Parquet, TSV files
+- Progress tracking for long operations
+- Command-line interface
+

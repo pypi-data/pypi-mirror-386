@@ -1,0 +1,100 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "easydata-ds"
+version = "0.1.0"
+description = "A Python library for data scientists to easily apply functions to datasets with a terminal UI"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Cole Ragone", email = "coleragone@example.com"}
+]
+maintainers = [
+    {name = "Cole Ragone", email = "coleragone@example.com"}
+]
+keywords = ["data science", "pandas", "terminal ui", "data processing", "decorator"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "pandas>=1.0.0",
+    "rich>=10.0.0",
+    "click>=8.0.0",
+    "tqdm>=4.60.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+    "build",
+    "twine",
+]
+
+[project.urls]
+Homepage = "https://github.com/coleragone/easydata"
+Documentation = "https://github.com/coleragone/easydata#readme"
+Repository = "https://github.com/coleragone/easydata"
+"Bug Tracker" = "https://github.com/coleragone/easydata/issues"
+
+[project.scripts]
+easydata = "easydata.cli:main"
+
+[tool.setuptools]
+packages = ["easydata"]
+
+[tool.setuptools.package-data]
+easydata = ["*.md", "*.txt"]
+
+[tool.setuptools_scm]
+write_to = "easydata/_version.py"
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
