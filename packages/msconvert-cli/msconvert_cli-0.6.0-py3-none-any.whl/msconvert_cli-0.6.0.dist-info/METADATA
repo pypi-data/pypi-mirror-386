@@ -1,0 +1,155 @@
+Metadata-Version: 2.4
+Name: msconvert-cli
+Version: 0.6.0
+Summary: Python wrapper for ProteoWizard msconvert with Docker support and preset configs
+Project-URL: Homepage, https://github.com/pgarrett-scripps/msconvert-cli
+Project-URL: Repository, https://github.com/pgarrett-scripps/msconvert-cli
+Project-URL: Documentation, https://pgarrett-scripps.github.io/msconvert-cli/
+Project-URL: Issues, https://github.com/pgarrett-scripps/msconvert-cli/issues
+Author-email: Patrick Garrett <pgarrett@scripps.edu>
+License-File: LICENSE
+Keywords: docker,mass-spectrometry,msconvert,proteomics,proteowizard
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: <4.0,>=3.11
+Description-Content-Type: text/markdown
+
+# msconvert-cli
+
+A Python wrapper around the ProteoWizard msconvert Docker image for converting mass spectrometry files.
+
+## Installation
+
+```bash
+uv pip install msconvert-cli
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/pgarrett-scripps/msconvert-cli.git
+cd msconvert-cli
+uv pip install -e .
+```
+
+## Quick Start
+
+Basic conversion with a preset config:
+
+```bash
+# Convert files using Sage preset (mzML, 32-bit, compressed)
+mscli /path/to/raw/files/ -o /output/dir --sage
+
+# Convert with multiple workers (runs 1 file per worker due to Wine limitations)
+mscli /data/*.raw -o /output --blitzff --workers 4
+
+# Verbose logging
+mscli /data/*.raw -o /output --casanovo -v
+```
+
+## Available Presets
+
+- `--sage`: mzML, 32-bit, zlib/gzip compression
+- `--biosaur`: mzML format
+- `--blitzff`: mzML, MS1 only, 32-bit, zlib/gzip
+- `--casanovo`: mzML, MS2 only, m/z [50-2500], denoised, top 200 peaks
+- `--casanovo_mgf`: Same as casanovo but MGF format
+
+## Usage Examples
+
+```bash
+# Convert all RAW files in a directory
+mscli /data/raw_files/ -o /output --sage
+
+# Convert specific files with custom config
+mscli file1.raw file2.raw -o /output -c my_config.txt
+
+# Parallel conversion (4 workers, 1 file per worker)
+mscli /data/*.raw -o /output --blitzff --workers 4
+
+# Parallel conversion with resource limits
+mscli /data/*.raw -o /output --sage --workers 4 --worker-cores 2.0 --worker-memory 4g
+
+# Limit memory and disable swap
+mscli /data/*.raw -o /output --sage --worker-memory 4g --worker-swap 4g
+
+# Increase shared memory for large files
+mscli /data/*.raw -o /output --sage --worker-shm-size 2g
+
+# Verbose logging to custom file
+mscli /data/*.raw -o /output --sage -v --log conversion.log
+
+# Use a specific Docker image version
+mscli /data/*.raw -o /output --sage --docker-image proteowizard/pwiz-skyline-i-agree-to-the-vendor-licenses:3.0.23310
+
+# Pass additional msconvert arguments
+mscli data.raw -o /output --filter "peakPicking vendor msLevel=1"
+```
+
+## Docker Resource Limits
+
+You can control resource allocation for each worker container:
+
+- `--worker-cores`: CPU cores per container (e.g., `2.0`, `0.5`)
+- `--worker-memory`: RAM limit (e.g., `4g`, `2048m`)
+- `--worker-swap`: Swap limit (e.g., `1g`). Set equal to memory to disable swap.
+- `--worker-shm-size`: Shared memory size (default: `512m`). Increase for large files.
+
+Example with all limits:
+```bash
+mscli /data/*.raw -o /output --sage \
+  --workers 4 \
+  --worker-cores 2.0 \
+  --worker-memory 4g \
+  --worker-swap 4g \
+  --worker-shm-size 1g
+```
+
+## Logging
+
+Logs are automatically created in the output directory when using `-v` (verbose mode):
+
+```bash
+# Auto-generates: /output/msconvert_20251023_144550.log
+mscli /data/*.raw -o /output --sage -v
+
+# Or specify a custom log file
+mscli /data/*.raw -o /output --sage -v --log my_run.log
+```
+
+Log files include:
+- Full command details
+- Processing progress for each file
+- stdout/stderr from msconvert
+- Error details when conversions fail
+
+## Notes
+
+- Requires Docker to be installed and running
+- Uses `proteowizard/pwiz-skyline-i-agree-to-the-vendor-licenses` Docker image
+- Multi-worker mode processes 1 file per worker
+- Supports: `.raw`, `.wiff`, `.d`, `.baf`, and other vendor formats
+
+## Development
+
+```bash
+# Install with dev dependencies
+uv sync
+
+# Run pre-commit hooks
+uv run pre-commit run -a
+
+# Run the CLI locally
+uv run mscli --help
+```
+
+---
+
+Repository initiated with [fpgmaas/cookiecutter-uv](https://github.com/fpgmaas/cookiecutter-uv).
