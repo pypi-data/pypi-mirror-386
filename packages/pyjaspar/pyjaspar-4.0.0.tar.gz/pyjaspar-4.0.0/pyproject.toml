@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyjaspar"
+description = "A Pythonic interface to access different versions of the JASPAR database via Biopython"
+readme = "README.rst"
+requires-python = ">=3.8"
+authors = [{ name = "Aziz Khan", email = "azez.khan@gmail.com" }]
+license = { text = "MIT" }
+
+keywords = ["JASPAR", "transcription factors", "motifs", "TF", "bioinformatics"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics"
+]
+dependencies = ["biopython>=1.80"]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/asntech/pyjaspar"
+Source = "https://github.com/asntech/pyjaspar"
+Tracker = "https://github.com/asntech/pyjaspar/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "pyjaspar.__init__.__version__" }
+
+[tool.setuptools.package-data]
+pyjaspar = ["data/*.sqlite"]
