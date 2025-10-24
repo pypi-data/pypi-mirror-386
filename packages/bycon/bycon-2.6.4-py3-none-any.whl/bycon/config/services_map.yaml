@@ -1,0 +1,113 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+endpointSets:
+
+  api:
+    entryType: api
+    rootUrl: ___BEACON_ROOT___/services/api
+
+  byconschemas:
+    entryType: byconschemas
+    rootUrl: ___BEACON_ROOT___/services/byconschemas
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/schemas
+
+  cnvstats:
+    entryType: cnvstats
+    rootUrl: ___BEACON_ROOT___/services/cnvstats
+
+  collation:
+    entryType: collation
+    rootUrl: ___BEACON_ROOT___/services/collations
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/collations
+
+  collationplot:
+    entryType: collationplot
+    rootUrl: ___BEACON_ROOT___/services/collationplots
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/collationPlots
+
+  cytomapper:
+    entryType: cytobands
+    rootUrl: ___BEACON_ROOT___/services/cytomapper
+
+  dbstats:
+    entryType: dbstats
+    rootUrl: ___BEACON_ROOT___/services/dbstats
+
+  endpoints:
+    entryType: endpoints
+    rootUrl: ___BEACON_ROOT___/services/endpoints
+
+  genespans:
+    entryType: gene
+    rootUrl: ___BEACON_ROOT___/services/genespans
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/genes
+
+  geolocation:
+    entryType: geolocation
+    rootUrl: ___BEACON_ROOT___/services/geolocations
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/geolocs
+      - ___BEACON_ROOT___/services/geoLocations
+
+  ids:
+    entryType: ids
+    rootUrl: ___BEACON_ROOT___/services/ids
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/id
+
+  intervalFrequencies:
+    entryType: intervalFrequencies
+    rootUrl: ___BEACON_ROOT___/services/intervalFrequencies
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/interval_frequencies
+
+  ontologymaps:
+    entryType: ontologymaps
+    rootUrl: ___BEACON_ROOT___/services/ontologymaps
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/ontologyMaps
+
+  pgxsegvariants:
+    entryType: pgxsegvariants
+    rootUrl: ___BEACON_ROOT___/services/pgxsegvariants
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/pgxseg
+
+  publication:
+    entryType: publication
+    rootUrl: ___BEACON_ROOT___/services/publications
+
+  samplemap:
+    entryType: samplemap
+    rootUrl: ___BEACON_ROOT___/services/samplemap
+
+  samplematrix:
+    entryType: samplematrix
+    rootUrl: ___BEACON_ROOT___/services/samplematrix
+
+  sampleplots:
+    entryType: sampleplots
+    rootUrl: ___BEACON_ROOT___/services/sampleplots
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/samplesPlotter
+
+  sampletable:
+    entryType: sampletable
+    rootUrl: ___BEACON_ROOT___/services/sampletable
+
+  uploader:
+    entryType: uploader
+    rootUrl: ___BEACON_ROOT___/services/uploader
+
+  variantsbedfile:
+    entryType: variantsbedfile
+    rootUrl: ___BEACON_ROOT___/services/variantsbedfile
+
+  vcfvariants:
+    entryType: vcfvariants
+    rootUrl: ___BEACON_ROOT___/services/vcfvariants
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/services/vcf

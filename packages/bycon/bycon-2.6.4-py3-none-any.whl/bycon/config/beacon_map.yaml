@@ -1,0 +1,200 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+endpointSets:
+
+  datasetEndpoints:
+    entryType: dataset
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/datasets
+    rootUrl: ___BEACON_ROOT___/beacon/datasets
+    singleEntryUrl: ___BEACON_ROOT___/beacon/datasets/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      genomicVariantLookup:
+        returnedEntryType: genomicVariant
+        url: ___BEACON_ROOT___/beacon/datasets/{id}/g_variants
+      biosampleLookup:
+        returnedEntryType: biosample
+        url: ___BEACON_ROOT___/beacon/datasets/{id}/biosamples
+      individualLookup:
+        returnedEntryType: individual
+        url: ___BEACON_ROOT___/beacon/datasets/{id}/individuals
+      runLookup:
+        returnedEntryType: run
+        url: ___BEACON_ROOT___/beacon/datasets/{id}/runs
+      analysisLookup:
+        returnedEntryType: analysis
+        url: ___BEACON_ROOT___/beacon/datasets/{id}/analyses
+
+  cohortEndpoints:
+    entryType: cohort
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/cohorts
+    rootUrl: ___BEACON_ROOT___/beacon/cohorts
+    singleEntryUrl: ___BEACON_ROOT___/beacon/cohorts/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      individualLookup:
+        returnedEntryType: individual
+        url: ___BEACON_ROOT___/beacon/cohorts/{id}/individuals
+      genomicVariantLookup:
+        returnedEntryType: genomicVariant
+        url: ___BEACON_ROOT___/beacon/cohorts/{id}/g_variants
+      biosampleLookup:
+        returnedEntryType: biosample
+        url: ___BEACON_ROOT___/beacon/cohorts/{id}/biosamples
+      runLookup:
+        returnedEntryType: run
+        url: ___BEACON_ROOT___/beacon/cohorts/{id}/runs
+      analysisLookup:
+        returnedEntryType: analysis
+        url: ___BEACON_ROOT___/beacon/cohorts/{id}/analyses
+
+  genomicVariantEndpoints:
+    entryType: genomicVariant
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/genomicVariations
+    rootUrl: ___BEACON_ROOT___/beacon/g_variants
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/beacon/genomicVariations
+      - ___BEACON_ROOT___/beacon/variants
+    singleEntryUrl: ___BEACON_ROOT___/beacon/g_variants/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      individualLookup:
+        returnedEntryType: individual
+        url: ___BEACON_ROOT___/beacon/g_variants/{id}/individuals
+      biosampleLookup:
+        returnedEntryType: biosample
+        url: ___BEACON_ROOT___/beacon/g_variants/{id}/biosamples
+      analysisLookup:
+        returnedEntryType: analysis
+        url: ___BEACON_ROOT___/beacon/g_variants/{id}/analyses
+      runLookup:
+        returnedEntryType: run
+        url: ___BEACON_ROOT___/beacon/g_variants/{id}/runs
+
+  phenopacketEndpoints:
+    entryType: phenopacket
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/phenopackets
+    rootUrl: ___BEACON_ROOT___/beacon/phenopackets
+    singleEntryUrl: ___BEACON_ROOT___/beacon/phenopackets/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      biosampleLookup:
+        returnedEntryType: biosample
+        url: ___BEACON_ROOT___/beacon/phenopackets/{id}/biosamples
+      analysisLookup:
+        returnedEntryType: analysis
+        url: ___BEACON_ROOT___/beacon/phenopackets/{id}/analyses
+      runLookup:
+        returnedEntryType: run
+        url: ___BEACON_ROOT___/beacon/phenopackets/{id}/runs
+      genomicVariantLookup:
+        returnedEntryType: genomicVariant
+        url: ___BEACON_ROOT___/beacon/phenopackets/{id}/g_variants
+
+  individualEndpoints:
+    entryType: individual
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/individuals
+    rootUrl: ___BEACON_ROOT___/beacon/individuals
+    singleEntryUrl: ___BEACON_ROOT___/beacon/individuals/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      biosampleLookup:
+        returnedEntryType: biosample
+        url: ___BEACON_ROOT___/beacon/individuals/{id}/biosamples
+      analysisLookup:
+        returnedEntryType: analysis
+        url: ___BEACON_ROOT___/beacon/individuals/{id}/analyses
+      runLookup:
+        returnedEntryType: run
+        url: ___BEACON_ROOT___/beacon/individuals/{id}/runs
+      genomicVariantLookup:
+        returnedEntryType: genomicVariant
+        url: ___BEACON_ROOT___/beacon/individuals/{id}/g_variants
+
+  biosampleEndpoints:
+    entryType: biosample
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/biosamples
+    rootUrl: ___BEACON_ROOT___/beacon/biosamples
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/beacon/samples
+    singleEntryUrl: ___BEACON_ROOT___/beacon/biosamples/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      individualLookup:
+        returnedEntryType: individual
+        url: ___BEACON_ROOT___/beacon/biosamples/{id}/individuals
+      analysisLookup:
+        returnedEntryType: analysis
+        url: ___BEACON_ROOT___/beacon/biosamples/{id}/analyses
+      runLookup:
+        returnedEntryType: run
+        url: ___BEACON_ROOT___/beacon/biosamples/{id}/runs
+      genomicVariantLookup:
+        returnedEntryType: genomicVariant
+        url: ___BEACON_ROOT___/beacon/biosamples/{id}/g_variants
+
+  analysisEndpoints:
+    entryType: analysis
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/analyses
+    rootUrl: ___BEACON_ROOT___/beacon/analyses
+    singleEntryUrl: ___BEACON_ROOT___/beacon/analyses/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      individualLookup:
+        returnedEntryType: individual
+        url: ___BEACON_ROOT___/beacon/analyses/{id}/individuals
+      biosampleLookup:
+        returnedEntryType: biosample
+        url: ___BEACON_ROOT___/beacon/analyses/{id}/biosamples
+      runLookup:
+        returnedEntryType: run
+        url: ___BEACON_ROOT___/beacon/analyses/{id}/runs
+      genomicVariantLookup:
+        returnedEntryType: genomicVariant
+        url: ___BEACON_ROOT___/beacon/analyses/{id}/g_variants
+
+  runEndpoints:
+    entryType: run
+    openAPIEndpointsDefinition: ___BEACON_ROOT___/services/endpoints/runs
+    rootUrl: ___BEACON_ROOT___/beacon/runs
+    singleEntryUrl: ___BEACON_ROOT___/beacon/runs/{id}
+    filteringTermsUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    endpoints:
+      individualLookup:
+        returnedEntryType: individual
+        url: ___BEACON_ROOT___/beacon/runs/{id}/individuals
+      biosampleLookup:
+        returnedEntryType: biosample
+        url: ___BEACON_ROOT___/beacon/runs/{id}/biosamples
+      analysisLookup:
+        returnedEntryType: analysis
+        url: ___BEACON_ROOT___/beacon/runs/{id}/analyses
+      genomicVariantLookup:
+        returnedEntryType: genomicVariant
+        url: ___BEACON_ROOT___/beacon/runs/{id}/g_variants
+
+informationalEndpoints:
+  info:
+    entryType: info
+    rootUrl: ___BEACON_ROOT___/beacon/info
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/beacon/
+      - ___BEACON_ROOT___/beacon/service-info
+      - ___BEACON_ROOT___/beacon/service_info
+  beaconMap:
+    entryType: beaconMap
+    rootUrl: ___BEACON_ROOT___/beacon/map
+  configuration:
+    entryType: configuration
+    rootUrl: ___BEACON_ROOT___/beacon/configuration
+  configuration:
+    entryType: configuration
+    rootUrl: ___BEACON_ROOT___/beacon/configuration
+  entryType:
+    entryType: entryType
+    rootUrl: ___BEACON_ROOT___/beacon/entry_types
+  filteringTerm:
+    entryType: filteringTerm
+    rootUrl: ___BEACON_ROOT___/beacon/filtering_terms
+    rootUrlAliases: 
+      - ___BEACON_ROOT___/beacon/filteringTerms/
+
