@@ -1,0 +1,100 @@
+[project]
+name = "flask-super"
+version = "0.2.11"
+description = "Patterns and idioms for Flask applications."
+readme = "README.md"
+authors = [{ name = "Abilian SAS", email = "sf@abilian.com" }]
+# We're uing pattern matching, so we need Python >=3.10
+requires-python = ">=3.10,<4"
+
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+
+dependencies = [
+    "flask>=3.0",
+    "svcs>=24.1",
+    "sentry-sdk>=2",
+    "loguru>=0.7",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "abilian-devtools>=0.7.6",
+    "devtools>=0.12.2",
+    "pyrefly>=0.38.2",
+    "ruff>=0.14.1",
+    "toml>=0.10.2",
+]
+
+# ---
+
+[tool.isort]
+profile = "black"
+
+# ---
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    #    'ignore:.*contextfunction.*:DeprecationWarning',
+    #    'ignore:.*Unmanaged.*:sqlalchemy.exc.SAWarning'
+]
+addopts = "--tb=short"
+testpaths = [
+    "tests",
+    "src",
+]
+
+# ---
+
+[tool.bandit]
+skips = [
+    "B404", # blacklist
+    "B603", # subprocess_without_shell_equals_true
+]
+
+# ---
+
+[tool.deptry]
+ignore_obsolete = [
+]
+ignore_missing = [
+]
+ignore_transitive = [
+]
+exclude = [
+    '.tox', 'tests', 'sandbox', 'doc', 'scripts',
+]
+
+
+# ---
+
+[tool.pyright]
+exclude = [
+    '.tox',
+    '.nox',
+    'tests',
+    'sandbox',
+    'doc',
+    'scripts',
+    'tmp',
+]
+include = ["src"]
+
+# pyright has issues with modules imported from a root __init__.py
+reportPrivateImportUsage = false
+
+# Temp
+reportGeneralTypeIssues = false
+reportMissingImports = false
+reportOptionalSubscript = false
