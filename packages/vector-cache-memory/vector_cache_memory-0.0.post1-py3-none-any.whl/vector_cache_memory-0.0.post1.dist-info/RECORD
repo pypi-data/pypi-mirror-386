@@ -1,0 +1,13 @@
+vector_cache/__init__.py,sha256=Bma1ljiyR4DCNSQrZOI2U7g1xUc_dpdUt3uWj8R7tng,104
+vector_cache/core.py,sha256=FdCt8fcfcPIoBuJWXH9ypwe_LZgvnqVxwdjZahgMpXo,5282
+vector_cache/version.py,sha256=h3vX-dDsch9d3aigADKUSBZQiez3pXBwHEzrh3lylnY,170
+vector_cache/bin/db_server_darwin_amd64,sha256=6TQ3PENim4p6O2nAsxvUGF4R19LAnovM8ttwPnwT138,27644288
+vector_cache/bin/db_server_linux_amd64,sha256=KRqK_Biz1AW9wZkNu_yBcL3Py91t9fFENO47y1bgCag,26849753
+vector_cache/pb/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vector_cache/pb/vector_cache_pb2.py,sha256=lp_QJSPwvBmQEewQjMVCzZGjgyapHBDcouQxnq0Hr18,2714
+vector_cache/pb/vector_cache_pb2.pyi,sha256=xqRUTB3A-mI745sze_yYymbPngZJMhHpH2uI84hdchg,3822
+vector_cache/pb/vector_cache_pb2_grpc.py,sha256=jZnE1MSuON5CJkG_29iUCKY1crVp1zCt0bGUMKgun88,5138
+vector_cache_memory-0.0.post1.dist-info/METADATA,sha256=lhRRxjiDCsuLW018qOqsy4SW-2zQtisCvLYuZvoC8gU,508
+vector_cache_memory-0.0.post1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+vector_cache_memory-0.0.post1.dist-info/top_level.txt,sha256=XscgMa3lMLMjeKUOsuEOK7rmY0cGFmHd6-nBTTHkynw,13
+vector_cache_memory-0.0.post1.dist-info/RECORD,,
