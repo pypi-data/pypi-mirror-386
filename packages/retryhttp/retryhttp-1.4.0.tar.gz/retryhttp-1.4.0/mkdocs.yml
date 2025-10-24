@@ -1,0 +1,62 @@
+site_name: RetryHTTP
+site_description: Retry potentially transient HTTP errors in Python.
+site_url: https://retryhttp.readthedocs.io
+
+theme:
+  name: "material"
+  icon:
+    logo: "material/school"
+  palette:
+    - scheme: default
+      media: "(prefers-color-scheme: light)"
+      primary: "red"
+      accent: "red"
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      media: "(prefers-color-scheme: dark)"
+      primary: "red"
+      accent: "red"
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+repo_name: austind/retryhttp
+repo_url: https://github.com/austind/retryhttp
+edit_uri: ""
+
+nav:
+  - Introduction: index.md
+  - User Guide: guide.md
+  - API Reference: api.md
+  - Changelog: changelog.md
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      css_class: highlight
+
+extra_css:
+  - css/mkdocstrings.css
+
+plugins:
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          import:
+            - https://tenacity.readthedocs.io/en/latest/objects.inv
+          options:
+            show_source: false
+            docstring_style: google
+            show_bases: true
+            show_root_heading: true
+            show_symbol_type_heading: true
+            separate_signature: true
+            show_signature_annotations: true
+            docstring_section_style: spacy
+            heading_level: 3
+            signature_crossrefs: true
+            group_by_category: true
