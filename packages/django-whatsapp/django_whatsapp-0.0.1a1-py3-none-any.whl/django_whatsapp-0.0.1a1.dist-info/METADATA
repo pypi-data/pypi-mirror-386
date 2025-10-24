@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: django-whatsapp
+Version: 0.0.1a1
+Summary: Django application to handle WhatsApp Webhook incoming requests
+Project-URL: Documentation, https://github.com/olist/django-whatsapp#readme
+Project-URL: Issues, https://github.com/olist/django-whatsapp/issues
+Project-URL: Source, https://github.com/olist/django-whatsapp
+Author-email: Christian Hartung <christian.hartung@olist.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Keywords: django
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 5.2
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Requires-Dist: asgiref>=3.3
+Requires-Dist: django>=5.2
+Requires-Dist: typing-extensions; python_version < '3.12'
+Description-Content-Type: text/markdown
+
+# django-whatsapp
+
+[![PyPI - Version](https://img.shields.io/pypi/v/django-whatsapp.svg)](https://pypi.org/project/django-whatsapp)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django-whatsapp.svg)](https://pypi.org/project/django-whatsapp)
+
+-----
+
+## Table of Contents
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install django-whatsapp
+```
+
+## License
+
+`django-whatsapp` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
