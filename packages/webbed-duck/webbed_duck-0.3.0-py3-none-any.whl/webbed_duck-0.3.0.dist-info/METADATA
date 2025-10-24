@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: webbed-duck
+Version: 0.3.0
+Summary: A parameterized SQL web server for DuckDB routes compiled from Markdown
+Author: Isaac Moore
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: duckdb>=0.9.2
+Requires-Dist: fastapi>=0.104.1
+Requires-Dist: httpx>=0.25
+Requires-Dist: uvicorn>=0.23.2
+Requires-Dist: pyarrow>=14.0.1
+Dynamic: license-file
+
+# webbed_duck
+
+`webbed_duck` turns Markdown + SQL route files into HTTP endpoints powered by DuckDB.
+
+This MVP (v0.3) extends the core compiler and server with annotation-ready viewers and workflow helpers:
+
+* A Markdown compiler that translates `*.sql.md` files into Python route manifests and preserves per-route metadata for cards,
+  feeds, charts, overrides, and append targets.
+* A FastAPI-based server that executes DuckDB queries per-request, applies per-cell overrides from the overlay store, and
+  returns JSON payloads derived from Arrow tables, HTML tables (`html_t`), card grids (`html_c`), feed views, and Arrow stream
+  slices for virtualized viewers.
+* New endpoints for `/routes/{id}/schema`, `/routes/{id}/overrides`, and `/routes/{id}/append` to expose form metadata, manage
+  overrides, and persist CSV append operations.
+* Popularity analytics, folder indexes, and a pluggable auth adapter resolved via configuration.
+* Command-line tooling for compiling routes, running the development server, and iterating cursor-driven workloads via
+  `run-incremental`.
+
+See `routes_src/hello.sql.md` for an example route.
+
+## Usage
+
+Compile routes:
+
+```bash
+python -m webbed_duck.cli compile --source routes_src --build routes_build
+```
+
+Run the development server (requires the compiled routes):
+
+```bash
+python -m webbed_duck.cli serve --build routes_build --config config.toml
+```
+
+Visit `http://127.0.0.1:8000/hello?name=DuckDB` to exercise the sample route. Append `&format=html_c` or `&format=feed` to
+see the HTML viewers, or `&format=arrow&limit=25` for Arrow RPC slices. Use `POST /routes/hello/overrides` to annotate rows,
+`POST /routes/hello/append` to persist CSV records, and `GET /routes/hello/schema` to generate auto-form metadata.
