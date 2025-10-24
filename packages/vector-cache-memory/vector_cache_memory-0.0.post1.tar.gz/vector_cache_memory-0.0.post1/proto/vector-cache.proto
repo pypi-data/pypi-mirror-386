@@ -1,0 +1,38 @@
+syntax = "proto3";
+import "google/protobuf/struct.proto";
+
+option go_package = "pb/vectordb_pb";
+
+package vectorcache;
+
+service VectorCacheService {
+  rpc Set(SetRequest) returns (SetResponse) {}
+  rpc Get(GetRequest) returns (GetResponse) {}
+}
+
+message SetRequest {
+  repeated float emb = 1;
+  string uid = 2;
+  google.protobuf.Struct data = 3;
+}
+
+message SetResponse {
+  string status = 1;
+  string uid = 2;
+}
+
+message GetRequest {
+  repeated float emb = 1;
+  int32 topK = 2;
+}
+
+message Record {
+  string uid = 1;
+  repeated float emb = 2;
+  google.protobuf.Struct data = 3;
+}
+
+message GetResponse {
+  repeated Record results = 1;
+}
+
