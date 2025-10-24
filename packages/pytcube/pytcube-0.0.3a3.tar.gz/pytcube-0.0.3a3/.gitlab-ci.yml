@@ -1,0 +1,7 @@
+include:
+  - component: $CI_SERVER_FQDN/dev-ops/templates/automatisation/ci-cd/pipeline-documentation-sphinx@~latest
+    inputs:
+      documentation_conf_file: "docs/source/conf.py"
+      documentation_sourcedir: "docs/source/"
+      documentation_builddir: "docs/build/html/"
+      documentation_python_requirements: "ci/requirements/doc.txt"
