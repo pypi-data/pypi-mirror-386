@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+my_package_alina/__init__.py
+my_package_alina/main.py
+my_package_alina.egg-info/PKG-INFO
+my_package_alina.egg-info/SOURCES.txt
+my_package_alina.egg-info/dependency_links.txt
+my_package_alina.egg-info/top_level.txt

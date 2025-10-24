@@ -1,0 +1,12 @@
+[project]
+name = "my-package-alina"
+version = "0.1.0"
+description = "My sample project"
+authors = [{ name = "Alina", email = "alina@email.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+package = true
