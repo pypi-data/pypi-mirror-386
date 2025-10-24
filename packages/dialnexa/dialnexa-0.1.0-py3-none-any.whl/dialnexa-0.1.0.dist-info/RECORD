@@ -1,0 +1,13 @@
+dialnexa/__init__.py,sha256=VWCaTt6f-1IyKi47ZHIXXjEA8__Q0LC_XWzhBrKjuYc,288
+dialnexa/agents.py,sha256=MuLWRDkW2y14x4YLTi6kAE5Oi1lOOsLUpCBcg4znwCI,1391
+dialnexa/batch_calls.py,sha256=iKNSB2QRu5QrJnrhox6JxY0bPAYFLuk5vl2mgs8A0Mw,1729
+dialnexa/calls.py,sha256=ECm9l-bb0vzSj9n-8AN238L_DW7vlAGFEKIpsfMShbA,2024
+dialnexa/client.py,sha256=NB7BhKykT3dHbXhT72ZXl-1UgzYbdY2dNn-Tgfqw5iM,1481
+dialnexa/http.py,sha256=oXZn5NxmJyXhFrZ8nAZDB9Wv0z2wCgPY64uE3bWdgho,5102
+dialnexa/languages.py,sha256=mI9HCXftObBYdZjG_QBK3q7LZOXJ_60qddNrAUoKyqA,751
+dialnexa/llms.py,sha256=JALduVaugkD2RiU0OcFNfZJXH-mybfPIsIsFF6dpg7c,548
+dialnexa/voices.py,sha256=kClGzfL-jF-TL2tb1GN67yPSXBqEp-GNCM0ZeqnFcZU,1188
+dialnexa-0.1.0.dist-info/METADATA,sha256=4MFiiesFTkrSonZ3FhzkzWhsb8ykJu6ZJztNx0v8tFs,3081
+dialnexa-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dialnexa-0.1.0.dist-info/top_level.txt,sha256=3OF_peEYOS1nqLAaqeYDM1KIsDOl9QPZMEZqw-UpW28,9
+dialnexa-0.1.0.dist-info/RECORD,,
