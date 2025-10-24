@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: slider_solver
+Version: 0.1.0
+Summary: 通用滑块验证码缺口识别
+Home-page: https://github.com/yourusername/slider_solver
+Author: MiChen
+Author-email: rmcyyds@q.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: Pillow
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# slider_solver
+
+A Python package for solving slider captchas using OpenCV.
