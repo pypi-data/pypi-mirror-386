@@ -1,0 +1,2 @@
+[console_scripts]
+py-librescore = py_librescore.__main__:main
