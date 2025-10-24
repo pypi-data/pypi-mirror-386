@@ -1,0 +1,13 @@
+Metadata-Version: 2.3
+Name: libsh
+Version: 0.0.0
+Summary: Add your description here
+Author: shyndman
+Author-email: shyndman <scotty.hyndman@gmail.com>
+Requires-Dist: numpy<2
+Requires-Dist: pydantic>=2
+Requires-Dist: rich>=14.1.0
+Requires-Dist: structlog>=25.4.0
+Requires-Python: >=3.12
+Project-URL: Bug Tracker, https://github.com/shyndman/libsh-python/issues
+Project-URL: repository, https://github.com/shyndman/libsh-python
