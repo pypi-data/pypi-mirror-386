@@ -1,0 +1,8 @@
+psycopg2-binary==2.9.11
+requests==2.32.5
+pytz==2025.2
+python-tds==1.17.1
+selenium==4.36.0
+python-keycloak-client==0.2.3
+pysftp==0.2.9
+playwright==1.55.0
