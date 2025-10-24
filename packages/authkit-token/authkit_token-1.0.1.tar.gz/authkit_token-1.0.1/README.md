@@ -1,0 +1,92 @@
+# authkit-token
+
+[![pypi version](https://img.shields.io/pypi/v/authkit-token)](https://pypi.org/project/authkit-token) [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+
+Secure token generation for [Pica's AuthKit](https://docs.picaos.com/authkit) using Python.
+
+## Install
+
+```bash
+pip install authkit-token
+```
+
+## Creating a token endpoint
+
+You'll want to create an internal endpoint that's used to generate secure tokens for your frontend. You can do so by adding code that looks like the below snippet.
+
+### Synchronous Usage
+
+```python
+from authkit_token import AuthKitToken
+
+# In your Flask/FastAPI/Django endpoint
+@app.post("/authkit-token")
+async def create_authkit_token(request):
+    authkit_token = AuthKitToken("sk_live_1234")
+    token = authkit_token.create(
+        identity_type="user",
+        identity="user_123"
+    )
+    
+    return token
+```
+
+### Asynchronous Usage
+
+```python
+from authkit_token import AuthKitToken
+
+# In your async endpoint
+@app.post("/authkit-token")
+async def create_authkit_token(request):
+    authkit_token = AuthKitToken("sk_live_1234")
+    token = await authkit_token.create_async(
+        identity_type="user",
+        identity="user_123"
+    )
+    
+    return token
+```
+
+You can get your API key from the [Pica dashboard](https://dashboard.picaos.com/settings/api-keys).
+
+If you pass an `identity` or `identity_type` (`user`, `team`, `organization`, or `project`), you'll be able to query for all connections scoped to that identity. The identity is used to generate the unique Connection Key for the user once they successfully connect an account.
+
+## Frontend Implementation
+
+To implement the AuthKit component in your frontend, you'll need to use the `@picahq/authkit` package. It's fully compatible with popular frameworks such as React, Next.js, Vue, Svelte, and more.
+
+- **NPM package**: https://www.npmjs.com/package/@picahq/authkit
+- **Documentation**: https://docs.picaos.com/authkit
+- **Setup guide**: https://docs.picaos.com/authkit/setup
+
+## Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant YourApp as Your Application
+    participant YourBackend as Your Backend
+    participant Pica as Pica AuthKit
+    participant Integration as Third-party Integration
+
+    User->>YourApp: Clicks "Connect Integration"
+    YourApp->>Pica: Open AuthKit modal
+    Pica->>YourBackend: Request AuthKit token
+    YourBackend->>Pica: Generate token with user identity
+    Pica->>Pica: Display integrations list
+    User->>Pica: Select integration & authenticate
+    Pica->>Integration: OAuth handshake
+    Integration->>Pica: Access token
+    Pica->>Pica: Store encrypted credentials
+    Pica->>YourApp: Return connection details
+    YourApp->>User: Connection successful!
+```
+
+## Full Documentation
+
+Please refer to the official [Pica AuthKit](https://docs.picaos.com/authkit) docs for a more holistic understanding of AuthKit.
+
+## License
+
+GPL-3.0
