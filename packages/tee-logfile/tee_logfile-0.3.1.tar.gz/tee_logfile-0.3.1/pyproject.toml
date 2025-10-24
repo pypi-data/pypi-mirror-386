@@ -1,0 +1,16 @@
+[project]
+name = "tee-logfile"
+version = "0.3.1"
+description = ""
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "tee_logfile", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
