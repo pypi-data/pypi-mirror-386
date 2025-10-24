@@ -1,0 +1,15 @@
+rugo-0.1.15.dist-info/RECORD,,
+rugo-0.1.15.dist-info/WHEEL,sha256=CltXN3lQvXbHxKDtiDwW0RNzF8s2WyBuPbOAX_ZeQlA,109
+rugo-0.1.15.dist-info/top_level.txt,sha256=JjIK1YwSPgvdGtINn3RLoqr3WwFm_mF56CFmpXXYgE4,5
+rugo-0.1.15.dist-info/METADATA,sha256=yK1ekLMFELM4ha-0gaqxL1msUHGkBKHZ4Evqy78ExK8,31876
+rugo-0.1.15.dist-info/licenses/LICENSE,sha256=jesOZPL5NlZq8BmEr-9Y-jjY-0iyEZV0JexfTpTygH0,11342
+rugo/csv.cpython-312-darwin.so,sha256=tjTi-_rqrXjDL3YaSvk_E1Xbd9rbd9LBJ3TZH6kjfcg,175368
+rugo/__init__.py,sha256=3tIboK6we251ph-CSme3VzrFO-ldE5WKyQZlnqTG8Lk,577
+rugo/parquet.cpython-312-darwin.so,sha256=UEU1cYrExi0AmoGktWyZs_5k_IZiUVu8u0Eudd57Tk8,607568
+rugo/jsonl.cpython-312-darwin.so,sha256=_F3T_eO2IH_nLEmM5CAM4Haf3qE9Y7IqCWO31F5T3M0,242408
+rugo/converters/orso.py,sha256=gkuO6ci09v0LkgAP0OkllsNoGtu3Zx_2pAkLgyA49CY,9923
+rugo/converters/__init__.py,sha256=R30vdpgN2tjctNJtNuY7CagpEMIywXfME5_BqKVM_-k,118
+rugo/jsonl/jsonl_reader.pyx,sha256=72qfT2z8qarhGYtzDogohcP0_CrhBux_kShTu04dnog,21168
+rugo/csv/csv_reader.pyx,sha256=yJbfINW0w41rxHsjtwaPwF_H0X8fBXLvzeG5iVAKdWg,13376
+rugo/parquet/parquet_reader.pyx,sha256=S2rL0o6ic7uKTfGr-0a-cdV25_0WMJBVhWa12O0WqIQ,21862
+rugo/parquet/parquet_reader.pxd,sha256=RJgBFZZybMtkT_R5sDgNH10T93a8U55QOXggo-cxMCc,3630
