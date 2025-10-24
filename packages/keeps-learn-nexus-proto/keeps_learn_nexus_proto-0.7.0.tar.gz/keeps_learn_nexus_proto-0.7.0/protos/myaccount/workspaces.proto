@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package workspaces;
+
+service WorkspacesService {
+  rpc Get(GetWorkspacesRequest) returns (WorkspaceListResponse);
+}
+
+message GetWorkspacesRequest {
+  map<string, FilterValues> filters = 7;
+}
+
+message FilterValues {
+  repeated string values = 1;
+}
+
+message WorkspaceListResponse {
+  repeated Workspace items = 1;
+}
+
+message Workspace {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string address = 4;
+  string city = 5;
+  string country = 6;
+  string iconUrl = 7;
+  string logoUrl = 8;
+  string postCode = 9;
+  string state = 10;
+  string themeId = 11;
+  bool themeDark = 12;
+  string companyId = 13;
+  bool status = 14;
+  string hashId = 15;
+}

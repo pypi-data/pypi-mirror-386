@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package users;
+
+service UserService {
+  rpc Get(GetUsersRequest) returns (UserListResponse);
+  rpc CreateUser(CreateUsersRequest) returns (CreateUsersResponse);
+}
+
+message CreateUsersRequest {
+  repeated UserData users = 1;
+  repeated string permissions = 2;
+}
+
+message CreateUsersResponse {
+  repeated BatchResultDto users = 1;
+}
+
+message BatchResultDto {
+  string email = 1;
+  optional string error = 2;
+  optional string id = 3;
+}
+
+message UserData {
+  string email = 1;
+  string name = 2;
+  optional string ein = 3;
+  optional string job = 4;
+  optional string password = 5;
+  optional IdentityProvider identity_provider = 6;
+  optional EmployeeInfoCreate profile = 7;
+  optional string additional_data = 8;
+  optional string nickname = 9;
+  optional string secondary_email = 10;
+  optional string phone = 11;
+  optional string gender = 12;
+  optional string birthday = 13;
+  optional string address = 14;
+  optional string avatar = 15;
+  optional bool status = 16;
+  optional bool is_user_integration = 17;
+  optional string language_id = 18;
+  optional string country = 19;
+  optional string related_user_leader_id = 20;
+  optional string related_user_leader = 21;
+  optional bool email_verified = 22;
+  optional string time_zone = 23;
+  optional string admission_date = 24;
+  optional string contract_type = 25;
+  optional string cpf = 26;
+  optional string education = 27;
+  optional string ethnicity = 28;
+  optional string hierarchical_level = 29;
+  optional string marital_status = 30;
+}
+
+message IdentityProvider {
+  optional string alias = 1;
+  optional string user_id = 2;
+  optional string user_name = 3;
+}
+
+message EmployeeInfoCreate {
+  optional string id = 1;
+  optional string job_function_id = 2;
+  optional string job_position_id = 3;
+  optional string director = 4;
+  optional string manager = 5;
+  optional string area_of_activity = 6;
+  optional string user_id = 7;
+  optional string workspace_id = 8;
+}
+
+service InvitationService {
+  rpc ResendInvitation(ResendInvitationRequest) returns (ResendInvitationResponse);
+}
+
+message GetUsersRequest {
+  int32 page = 1;
+  int32 limit = 2;
+  string search = 3;
+  repeated string search_by = 4;
+  repeated string select = 5;
+  repeated string sort_by = 6;
+  map<string, FilterValues> filters = 7;
+}
+
+message FilterValues {
+  repeated string values = 1;
+}
+
+message UserListResponse {
+  repeated User items = 1;
+  int32 total = 2;
+  int32 page = 3;
+  int32 limit = 4;
+}
+
+message User {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  bool status = 4;
+}
+
+message ResendInvitationRequest {
+  string userId = 1;
+}
+
+message ResendInvitationResponse {
+  string status = 1;
+}

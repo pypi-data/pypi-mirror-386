@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mission;
+
+message Filters {
+  repeated string mission_model = 1;
+}
+
+message Mission {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message MissionListRecommendationResponse {
+  repeated Mission items = 1;
+}
+
+message MissionRecommendationRequest {
+  string user_id = 1;
+  string language = 2;
+  optional Filters filters = 3;
+}
+
+service MissionRecommendationService {
+  rpc Get(MissionRecommendationRequest) returns (MissionListRecommendationResponse);
+}

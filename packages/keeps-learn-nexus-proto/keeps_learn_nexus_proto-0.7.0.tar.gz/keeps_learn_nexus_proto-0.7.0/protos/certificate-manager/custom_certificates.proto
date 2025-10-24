@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package custom_certificates;
+
+enum CertificateTemplate {
+  MISSION = 0;
+  TRAIL = 1;
+}
+
+message CertificateData {
+  optional string learn_content_id = 1;
+  CertificateTemplate template = 2;
+  optional string language = 3;
+  string user_name = 4;
+  string performance = 5;
+  string time = 6;
+  string date_finish = 7;
+  string course_name = 8;
+  repeated CourseContent contents = 9;
+  string workspace_id = 10;
+  optional string signed_by = 11;
+}
+
+message CourseContent {
+  string title = 1;
+  string time = 2;
+  string description = 3;
+  string performance = 4;
+}
+
+message GenerateCertificateResponse {
+  string url = 1;
+}
+
+service PdfService {
+  rpc GenerateCertificate (CertificateData) returns (GenerateCertificateResponse);
+}
