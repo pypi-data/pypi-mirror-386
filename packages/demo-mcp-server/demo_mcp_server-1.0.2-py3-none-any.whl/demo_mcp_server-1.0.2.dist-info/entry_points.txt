@@ -1,0 +1,2 @@
+[console_scripts]
+demo-mcp-server = remote_main:run_server
