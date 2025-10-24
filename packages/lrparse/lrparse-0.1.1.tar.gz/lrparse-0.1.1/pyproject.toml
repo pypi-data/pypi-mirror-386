@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+
+Documentation = "https://github.com/haohanxabo1/lrparse"
+
+[project]
+name = "lrparse"
+version = "0.1.1"
+description = "Left/right substring extraction"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"   
+authors = [{ name = "Long Le Nhat", email = "longnhatleeee02@gmail.com" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: C",
+  
+]
+
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+ext-modules = [
+  { name = "lrparser._lrparser", sources = ["src/lrparser/lrparser.c"] }
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
