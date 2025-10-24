@@ -1,0 +1,12 @@
+dita/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dita/cleanup/__init__.py,sha256=iA5QvI-BHN5EPLnOF33UJHunWpic2XPNDM5Rt_50_1g,1530
+dita/cleanup/__main__.py,sha256=kSr9bYi-GVSCs6zFAYDnck2xT-a60M-yxovVHUBLnz8,1219
+dita/cleanup/cli.py,sha256=E_jI4tqNcT14baOdX_4p9F687m3t0QP0eHQroxv8LZA,6850
+dita/cleanup/out.py,sha256=dYrtBoIAipxgU4S4XCvqP8BpyNjDL6xsv4_AOLGDwRM,1499
+dita/cleanup/xml.py,sha256=UYDowRUqXuAXfR11cuFgQVybW3obN80IRsCjftZpRoo,7483
+dita_cleanup-0.9.3.dist-info/licenses/LICENSE,sha256=0qby_GlVkTnOlxGARsEXqHyBa-qGz8Wen9CpnylkBtc,1073
+dita_cleanup-0.9.3.dist-info/METADATA,sha256=aALlx4fDNiuzgpV9IxZg7fGjsgxD_9txZTSpMGjiovs,3500
+dita_cleanup-0.9.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dita_cleanup-0.9.3.dist-info/entry_points.txt,sha256=3gqSHvJ2B7ERJlHgIsGcjpAsYpQRyHmC_RXKwiTImwE,54
+dita_cleanup-0.9.3.dist-info/top_level.txt,sha256=pcySPGjS3m2yMBIIBm9b-Zdh7qTNpybOV9OxOjETKas,5
+dita_cleanup-0.9.3.dist-info/RECORD,,
