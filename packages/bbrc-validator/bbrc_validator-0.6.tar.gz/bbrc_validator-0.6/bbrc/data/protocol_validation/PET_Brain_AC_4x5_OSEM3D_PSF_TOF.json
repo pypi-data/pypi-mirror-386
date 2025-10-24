@@ -1,0 +1,14 @@
+{
+    "Manufacturer": "SIEMENS",
+    "ManufacturerModelName": "Biograph64_Vision X",
+    "Units": "BQML",
+    "Rows": 440,
+    "Columns": 440,
+    "PixelSpacing": [0.825, 0.825],
+    "SliceThickness": "1.64557",
+    "NumberOfSlices": 159,
+    "ActualFrameDuration": "300000",
+    "NumberOfTimeSlices": 4,
+    "ReconstructionMethod": "PSF+TOF 11i5s",
+    "ConvolutionKernel": "All-pass"
+}

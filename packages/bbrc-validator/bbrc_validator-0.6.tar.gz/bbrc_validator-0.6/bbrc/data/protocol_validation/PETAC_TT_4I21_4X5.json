@@ -1,0 +1,14 @@
+{
+    "Manufacturer": "SIEMENS",
+    "ManufacturerModelName": "Biograph64_mCT",
+    "Units": "BQML",
+    "Rows": 400,
+    "Columns": 400,
+    "PixelSpacing": [1.01821, 1.01821],
+    "SliceThickness": "2.027",
+    "NumberOfSlices": 109,
+    "ActualFrameDuration": "300000",
+    "NumberOfTimeSlices": 4,
+    "ReconstructionMethod": "PSF+TOF 4i21s",
+    "ConvolutionKernel": "All-pass"
+}

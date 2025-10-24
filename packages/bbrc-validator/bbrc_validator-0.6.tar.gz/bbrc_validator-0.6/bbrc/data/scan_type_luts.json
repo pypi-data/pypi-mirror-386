@@ -1,0 +1,194 @@
+{
+  "EMPTY" :
+  {
+    "T1": [],
+    "T2": [],
+    "RS": [],
+    "DWI": [],
+    "rDWI": [],
+    "IR" : [],
+    "FLAIR" : [],
+    "ASL" : [],
+    "M0" : []
+  },
+  "testenv" :
+  {
+    "T1": ["T1_ALFA1", "sT1W_3D_TFE_HR_32 iso1.2 long AT"],
+    "T2": ["T2_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_ALFA1", "DWI_MB2_PENSA"],
+    "rDWI": ["rDWI_ALFA1"],
+    "IR" : ["IR_ALFA1", "IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "ASL" : ["pCASL", "SOURCE - pCASL_SENSE"],
+    "M0" : ["M0_ASL"],
+    "SEap" : ["SE-fMRI-AP", "SE-fMRI-AP SENSE", "SE-fMRI-AP_FOV143 SENSE"],
+    "SEpa" : ["SE-fMRI-PA", "SE-fMRI-PA SENSE", "SE-fMRI-PA_FOV143 SENSE"],
+    "SWI" : ["DelRec - SWIp SENSE"],
+    "MRSAng" : ["SV_PRESS_100_Myo_CHESS_Ang"],
+    "MRSHippo" : ["SV_PRESS_100_Myo_CHESS_Hipo"],
+    "MRSCun" : ["SV_PRESS_100_Myo_CHESS_Cun"],
+    "CBF": ["3D-pCASL_ALFA2-V2"],
+    "MultiBLow": ["WIP muti-b bajo max", "WIP muti-b  bajo max"],
+    "MultiBMid": ["WIP muti-b medio max"],
+    "MultiBHigh": ["WIP muti-b altos max"],
+    "ReconAC4x5min": ["PET Brain AC 4x5 OSEM3D PSF TOF", "PETAC TT 4I21 4X5"]
+  },
+  "ALFA1" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": ["T2_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_ALFA1"],
+    "rDWI": ["rDWI_ALFA1"],
+    "IR" : ["IR_ALFA1", "IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "SEap" : ["SE-fMRI-AP", "SE-fMRI-AP SENSE", "SE-fMRI-AP_FOV143 SENSE"],
+    "SEpa" : ["SE-fMRI-PA", "SE-fMRI-PA SENSE", "SE-fMRI-PA_FOV143 SENSE"]
+  },
+  "ALFA" :
+  {
+    "T1": ["SAG FSPGR 3D"],
+    "T2": ["AXIAL T2 FRFSE"],
+    "RS": ["RESTING"],
+    "DWI": ["Ax DTI (64 direc) iso 2"],
+    "rDWI": [],
+    "IR" : [],
+    "FLAIR" : ["Ax T2 FLAIR_FS"]
+  },
+  "EPAD" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": [],
+    "RS": [],
+    "DWI": [],
+    "rDWI": [],
+    "IR" : [],
+    "FLAIR" : ["FLAIR_SAG"]
+  },
+  "ALFA_PLUS2" :
+  {
+    "T1": ["sT1W_3D_TFE_HR_32 iso1.2 long AT", "T1_ALFA1"],
+    "ASL" : ["pCASL", "SOURCE - pCASL_SENSE"],
+    "M0" : ["M0_ASL"],
+    "T2": ["T2_ALFA1"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "DWI": ["DWI_ALFA1"],
+    "rDWI": ["rDWI_ALFA1"],
+    "SWI" : ["DelRec - SWIp SENSE"],
+    "MRSAng" : ["SV_PRESS_100_Myo_CHESS_Ang"],
+    "MRSHippo" : ["SV_PRESS_100_Myo_CHESS_Hipo"],
+    "MRSCun" : ["SV_PRESS_100_Myo_CHESS_Cun"],
+    "MultiBLow": ["WIP muti-b bajo max", "WIP muti-b  bajo max"],
+    "MultiBMid": ["WIP muti-b medio max"],
+    "MultiBHigh": ["WIP muti-b altos max"]
+  },
+  "PENSA" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": ["T2_PENSA"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_MB2_PENSA"],
+    "SEap" : ["SE-fMRI-AP", "SE-fMRI-AP SENSE", "SE-fMRI-AP_FOV143 SENSE"],
+    "SEpa" : ["SE-fMRI-PA", "SE-fMRI-PA SENSE", "SE-fMRI-PA_FOV143 SENSE"],
+    "MRSCun" : ["SV_PRESS_100_Myo_CHESS_Cun"],
+    "MultiBLow": ["WIP muti-b bajo max", "WIP muti-b  bajo max"],
+    "MultiBMid": ["WIP muti-b medio max"],
+    "MultiBHigh": ["WIP muti-b altos max"]
+  },
+  "ALFA_PLUS2_V2" :
+  {
+    "T1": ["sT1W_3D_TFE_HR_32 iso1.2 long AT", "T1_ALFA1"],
+    "T2": ["T2_ALFA1"],
+    "IR" : ["IR_ALFA1", "IR_ALFA1 SENSE"],
+    "FLAIR": ["FLAIR_ALFA1"],
+    "SWI": ["DelRec - QSM_ALFA2-V2"],
+    "ASL": ["SOURCE - 3D-pCASL_ALFA2-V2", "WIP SOURCE - 3D-pCASL_ALFA2-V2", "WIP SOURCE - 3D-pCASL_T1RHO"],
+    "CBF": ["3D-pCASL_ALFA2-V2"],
+    "MRSHippo" : ["SV_PRESS_100_Myo_CHESS_Hipo"],
+    "MRSCun" : ["SV_PRESS_100_Myo_CHESS_Cun"],
+    "MultiBLow": ["WIP muti-b bajo max", "WIP muti-b  bajo max"],
+    "MultiBMid": ["WIP muti-b medio max"],
+    "MultiBHigh": ["WIP muti-b altos max"]
+  },
+  "BETA_AARC" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": ["T2_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_MB2_PENSA"],
+    "IR" : ["IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "SEap" : ["SE-fMRI-AP_FOV143 SENSE"],
+    "SEpa" : ["SE-fMRI-PA_FOV143 SENSE"],
+    "SWI": ["DelRec - QSM_ALFA2-V2"]
+  },
+  "ALFA_PLUS_EXP" :
+  {
+    "T1": ["sT1W_3D_TFE_HR_32 iso1.2 long AT"],
+    "IR" : ["IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "DWI": ["DWI_ALFA1"],
+    "rDWI": ["rDWI_ALFA1"],
+    "SWI" : ["DelRec - SWIp SENSE"],
+    "MRSAng" : ["SV_PRESS_100_Myo_CHESS_Ang"],
+    "MRSHippo" : ["SV_PRESS_100_Myo_CHESS_Hipo"],
+    "MRSCun" : ["SV_PRESS_100_Myo_CHESS_Cun"],
+    "MultiBLow": ["WIP muti-b bajo max", "WIP muti-b  bajo max"],
+    "MultiBMid": ["WIP muti-b medio max"],
+    "MultiBHigh": ["WIP muti-b altos max"]
+  },
+  "BETA_AARC_V3" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": ["T2_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_MB2_PENSA"],
+    "IR" : ["IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "SEap" : ["SE-fMRI-AP_FOV143 SENSE"],
+    "SEpa" : ["SE-fMRI-PA_FOV143 SENSE"],
+    "SWI": ["DelRec - QSM_ALFA2-V2"]
+  },
+  "ALFA_PLUS2_V3" :
+  {
+    "T1": ["sT1W_3D_TFE_HR_32 iso1.2 long AT", "T1_ALFA1"],
+    "T2": ["T2_ALFA1"],
+    "IR" : ["IR_ALFA1", "IR_ALFA1 SENSE"],
+    "FLAIR": ["FLAIR_ALFA1"],
+    "SWI": ["DelRec - QSM_ALFA2-V2"],
+    "M0" : ["M0_TE-ASL_ALFA2-V3"],
+    "ASL": ["TE-ASL_ALFA2-V3"],
+    "MRSHippo" : ["SV_PRESS_100_Myo_CHESS_Hipo"],
+    "MRSCun" : ["SV_PRESS_100_Myo_CHESS_Cun"],
+    "MultiBLow": ["WIP muti-b bajo max", "WIP muti-b  bajo max"],
+    "MultiBMid": ["WIP muti-b medio max"],
+    "MultiBHigh": ["WIP muti-b altos max"]
+  },
+  "GLYMPHA_LC" :
+  {
+    "T1": ["T1_3D_TFE_PHILIPS"],
+    "FLAIR": ["FLAIR_3D_1.5mm"]
+  },
+  "TV3MARATO_21" :
+  {
+    "T1": ["T1-3D_TFE_MARATO21"]
+  },
+  "BETA_AARC_V5" :
+  {
+    "T1": ["T1_ALFA1"],
+    "T2": ["T2_ALFA1"],
+    "RS": ["RS_ALFA1", "RS_ALFA1 SENSE"],
+    "DWI": ["DWI_MB2_PENSA"],
+    "IR" : ["IR_ALFA1 SENSE"],
+    "FLAIR" : ["FLAIR_ALFA1"],
+    "SEap" : ["SE-fMRI-AP_FOV143 SENSE"],
+    "SEpa" : ["SE-fMRI-PA_FOV143 SENSE"],
+    "SWI": ["DelRec - QSM_ALFA2-V2"]
+  },
+  "ALFA_PLUS_TAU" :
+  {
+    "ReconAC4x5min": ["PET Brain AC 4x5 OSEM3D PSF TOF", "PETAC TT 4I21 4X5"]
+  }
+}
