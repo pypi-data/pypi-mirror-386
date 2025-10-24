@@ -1,0 +1,114 @@
+Metadata-Version: 2.4
+Name: agent-diff
+Version: 0.0.2
+Summary: Python SDK for Agent Diff - test AI agents and train models against replicas of services
+Author-email: Agent Diff <hubert@uni.minerva.edu>
+License: MIT
+Project-URL: Repository, https://github.com/hubertpysklo/agent-diff
+Project-URL: Documentation, https://github.com/hubertpysklo/agent-diff/tree/main/docs
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.32.5
+Requires-Dist: pydantic>=2.12.1
+Requires-Dist: typing-extensions>=4.0.0
+Dynamic: license-file
+
+# Agent Diff Python SDK
+
+Python SDK for testing AI agents against isolated replicas of production services.
+
+## Installation
+
+```bash
+uv add agent-diff
+# or
+pip install agent-diff
+```
+
+## Quick Start
+
+```python
+from agent_diff import AgentDiff
+
+client = AgentDiff(
+    api_key="your-api-key",
+    base_url="https://api.yourdomain.com"
+)
+
+# 1. Create an isolated environment
+env = client.init_env(
+    templateService="slack",
+    templateName="slack_default",
+    impersonateUserId="U123456",
+    ttlSeconds=1800
+)
+
+
+# 2. Take before snapshot of the environment 
+run = client.start_run(envId=env.environmentId)
+
+# 3. Agents does it's thing to replica
+# (Use env.environmentUrl to call the service API)
+
+# 4. Compute the diff
+diff = client.diff_run(runId=run.runId)
+
+# Inspect changes
+diff.diff['inserts']   # New records
+diff.diff['updates']   # Modified records
+diff.diff['deletes']   # Deleted records
+
+# 5. Cleanup
+client.delete_env(env.environmentId)
+```
+
+## Environments
+
+Create isolated, ephemeral replicas of services:
+
+```python
+env = client.init_env(
+    templateService="slack",
+    templateName="slack_default",
+    impersonateUserId="U123",
+    ttlSeconds=3600
+)
+
+# Access environment details
+env.environmentId
+env.environmentUrl
+env.expiresAt
+
+# Delete when done
+client.delete_env(env.environmentId)
+```
+
+## Templates
+
+List and create environment templates:
+
+```python
+# List available templates
+templates = client.list_templates()
+
+# Create custom template - you can populate the replica and turn it into a template with custom data data
+custom = client.create_template_from_environment(
+    environmentId=env.environmentId,
+    service="slack",
+    name="my_template",
+    description="Custom template",
+    ownerScope="user" # user means only you can view the template 
+)
+```
+
+## License
+
+MIT License - see LICENSE file for details.
