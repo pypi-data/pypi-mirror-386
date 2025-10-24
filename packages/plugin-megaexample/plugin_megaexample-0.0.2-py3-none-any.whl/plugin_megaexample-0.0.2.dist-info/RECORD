@@ -1,0 +1,12 @@
+plugin_megaexample/__init__.py,sha256=Lqk6dMTI8odHVp68gymhBxVnhCVxiFa7mAAQ3Chsrt8,465
+plugin_megaexample/urls.py,sha256=jnYPLCGjpeXo8nQ2UpRb_WTw9gTjluX3Y7PbrjrTHM4,450
+plugin_megaexample/views.py,sha256=cJF6OrgyL0r_dveFssojqn8YdxkxmnCVNNGMsiiW-Eo,1303
+plugin_megaexample/templates/upload.html,sha256=kfZhX7JHTyXPTjs-uDJucVINE9ET9Tekzstl0WooR3s,740
+plugin_megaexample/xlsx_parser_lib/__init__.py,sha256=frcCV1k9oG9oKj3dpUqdJg1PxRT2RSN_XKdLCPjaYaY,2
+plugin_megaexample/xlsx_parser_lib/exceptions.py,sha256=uJzhxm4nXvplMaamf0Is53l0kRq49RjVXIqDB4rx9jk,216
+plugin_megaexample/xlsx_parser_lib/xlsx_parser.py,sha256=6Xe6mU377pKNJDOHxfs2nv1yCg3YXO2V2CnsVKkSJWg,1777
+plugin_megaexample-0.0.2.dist-info/METADATA,sha256=4yfzMOAaWOM9HmRJTpiECu79LeMINgn4HsGHiUax3VQ,9736
+plugin_megaexample-0.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+plugin_megaexample-0.0.2.dist-info/entry_points.txt,sha256=5VQaxUG__9d4DljwTeN3tL0hMRJ5Lug2J1_wnARZObs,48
+plugin_megaexample-0.0.2.dist-info/top_level.txt,sha256=slOtrTF8Qr748e_C19MAIj26KhgxNbayWvTWOIMUEDs,19
+plugin_megaexample-0.0.2.dist-info/RECORD,,
