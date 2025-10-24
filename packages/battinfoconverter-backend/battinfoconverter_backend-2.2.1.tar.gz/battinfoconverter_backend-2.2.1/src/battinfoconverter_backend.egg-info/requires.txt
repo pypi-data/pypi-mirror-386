@@ -1,0 +1,10 @@
+pandas>=2.0
+openpyxl>=3.1
+simplejson
+tomli
+
+[app]
+streamlit
+
+[dev]
+pytest>=8.4.2
