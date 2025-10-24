@@ -1,0 +1,17 @@
+api/main copy.py,sha256=w1A7xDX4ZlZUm9SXKrctvdrW0f23kfrChPRK_YsyzJI,30214
+api/main.py,sha256=w1A7xDX4ZlZUm9SXKrctvdrW0f23kfrChPRK_YsyzJI,30214
+api/usage_tracker.py,sha256=Qv6asZdjauBnQF0PQA5RpOdy5ExZIByoWWLgtB8nbFY,8175
+core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+core/speech_utils.py,sha256=cct0L7cTGOtQcgn1bjbPinP5DTQOzme5BIdgbYf0lFA,18324
+core/xtts_engine.py,sha256=12LTm-dWSfoL5IFPQu_bBA4SnX0K5zfEo6dFphIl9x0,10680
+talklabs/__init__.py,sha256=HMhfLeFEysqhMwU8dxWaQHn8rnY8-jDLEOPmwpuZczQ,251
+talklabs/sdk/__init__.py,sha256=g_CFMcBkUg4XYhkKZCLuvRxsKEP9VgPR9RQ3O7wk8EU,245
+talklabs/sdk/setup.py,sha256=ZdaOxvHNhFnDQoUS-M72EK2YLDI_1d7enyFEs3zEIiw,775
+talklabs/sdk/tts.py,sha256=EJiAA9vCyLVP2XGa5btF3c0aZ8zSWjzR6C6iyT-FIac,16239
+talklabs/sdk/build/lib/talklabs/__init__.py,sha256=YBdrwaGH7mTD9jjZWNmuHRrZuJCuOAZ-V9Px5wTHONw,245
+talklabs/sdk/build/lib/talklabs/tts.py,sha256=rV7aM3DWYEbi1wQxSq22HvojK4W-WjdJ_Rgc0TcSpy0,13311
+talklabs-1.0.3.dist-info/licenses/LICENSE,sha256=xrOEdfbfPpPA6JkSMRcnOBWq8n2iEbzarwvNhpapWXo,1065
+talklabs-1.0.3.dist-info/METADATA,sha256=v3t718gmn_mCMe-trO92HTvBQBQUAnkplWQj_aKSmI8,7463
+talklabs-1.0.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+talklabs-1.0.3.dist-info/top_level.txt,sha256=iGqca-dq0e2spRUuwX0H7yZNOvY9LELPfJ77pOin6iY,18
+talklabs-1.0.3.dist-info/RECORD,,
