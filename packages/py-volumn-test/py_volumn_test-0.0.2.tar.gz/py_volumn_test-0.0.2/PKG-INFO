@@ -1,0 +1,101 @@
+Metadata-Version: 2.4
+Name: py_volumn_test
+Version: 0.0.2
+Summary: A small package targeting to help on python project packaging process
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Issues, https://github.com/pypa/sampleproject/issues
+Author-email: Xeth Hung <admin@xethh.me>
+License-Expression: GPL-3.0-only
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: h-vault-extractor-xethhung12
+Requires-Dist: hvac
+Requires-Dist: j-vault-http-client-xethhung12>=0.1.1
+Requires-Dist: pyfilesizeutils
+Description-Content-Type: text/markdown
+
+
+# py_volumn_test
+This simple volumn testing framework for linux platform.
+
+## Requirements
+The application requires
+1. python 3.12+
+2. requires `df` command
+3. hashicorp vault
+
+## Setup
+### Hashicorp Vault
+Assume
+1. we create secret on mount point (mp)
+2. we create secret on path (abc)
+3. we create a policy of `policy-mp-abc`
+3. we create a approle of `ar-mp-abc`
+
+
+#### Create policy
+by creating a hashicorp policy `xxx.hcl`
+```hcl
+# assume `{mount_point}` is `mp`
+# assume `{path}` is `abc`
+# access the secret in cli `vault kv get mp/abc`
+# The actual path of the secret is `mp/data/abc`
+path "{mount_point}/data/{path}/*" {
+        capabilities = ["read"]
+}
+```
+
+Insert or update the policy by 
+```
+vault policy write {policy_name} {policy_file}
+# vault policy write policy-mp-abc xxx.hcl
+```
+
+#### Create app role
+```sh
+# ------ create app role
+vault write auth/approle/role/{app role name} token_policies="{policy name}" token_ttl="15m" token_max_ttl="2h"
+# vault write auth/approle/role/ar-mp-abc token_policies="policy-mp-abc" token_ttl="15m" token_max_ttl="2h"
+vault write auth/approle/role/{app role name} token_policies="{policy name}" token_ttl="15m" token_max_ttl="2h"
+
+# ------ get role id
+# The command return the role id
+vault read auth/approle/role/{app role name}/role-id
+# vault read auth/approle/role/ar-mp-abc/role-id
+
+# ------ get secret id
+# The command return the secret id (the secret is force to be generated, without re-view the secret id)
+vault write -f auth/approle/role/{app role name}/secret-id
+# vault write -f auth/approle/role/ar-mp-abc/secret-id
+
+# ------ login the vault in env
+# assume the role_id is `vault_role_id`
+# assume the secret_id is `vault_secret_id`
+export VAULT_TOKEN="$(vault write -format=json auth/approle/login role_id=$vault_role_id secret_id=$vault_secret_id | jq -r '.auth.client_token')"
+
+```
+
+#### Create secret
+
+```bash
+vault kv put mp/abc \
+    api_key=$api_key \                     # api key is the api key for restdb.io
+    host=$host \                           # host is url
+    collection_name=$collection_name \     # collection name is the collection name
+    filter_name=$filter_name \             # filter name is the configuration name to filter
+    bootstrap_id=$bootstrap_id             # the entry point to access
+```
+
+#### Run application
+```bash
+df | \
+    docker run \
+        -e VAULT_ADDR="$VAULT_ADDR" \
+        -e vault_role_id="$vault_role_id" \
+        -e vault_secret_id=$vault_secret_id \
+        -e vault_mount_point=$vault_mount_point \
+        -e vault_secret_path=$vault_secret_path \
+        -i py-volumn-test  
+``` 
