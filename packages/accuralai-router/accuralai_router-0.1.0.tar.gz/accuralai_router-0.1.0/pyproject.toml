@@ -1,0 +1,33 @@
+[project]
+name = "accuralai-router"
+version = "0.1.0"
+description = "Routing strategies for the AccuralAI orchestration pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "AccuralAI Maintainers" }]
+dependencies = [
+  "pydantic>=2.5",
+  "accuralai-core",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-anyio",
+  "pytest-mock",
+]
+
+[project.entry-points."accuralai_core.routers"]
+"direct" = "accuralai_router.strategies.direct:build_direct_router"
+"weighted" = "accuralai_router.strategies.weighted:build_weighted_router"
+"failover" = "accuralai_router.strategies.failover:build_failover_router"
+"rules" = "accuralai_router.strategies.rules:build_rules_router"
+
+[project.urls]
+homepage = "https://github.com/accuralai/accuralai-router"
+repository = "https://github.com/accuralai/accuralai-router"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
