@@ -1,0 +1,2 @@
+[console_scripts]
+static-refl = static_refl:main
