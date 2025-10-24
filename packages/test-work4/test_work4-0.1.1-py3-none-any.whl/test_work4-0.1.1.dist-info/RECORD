@@ -1,0 +1,10 @@
+test_work4/__init__.py,sha256=_jw5VKpBAJkqaW9qvjKUGgV7YVTY3HxgZj6R2D1garM,729
+test_work4/utils.py,sha256=wAVNltSq5M1EYOvFIOf5ygi7CGWjsK7GNg0uAM885ss,24
+test_work4/server/mcp/__init__.py,sha256=4dbl-lFcm0r2tkOP04OxqiZG2jR-rqF181qi2AfU6UA,123
+test_work4/server/mcp/prompt.py,sha256=OZrsyUfSQMOY_KX7dWthW209adz5JfELsQ0ODfuQR44,1245
+test_work4/server/router/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test_work4/server/router/prompt.py,sha256=08bDjlacW-i5DNa8oE139M_zVej_1WpEasu_tl2vFHU,4260
+test_work4-0.1.1.dist-info/METADATA,sha256=9tGi3ESw9sYPKq9Tn971f2N4f4R1Q7qnEoFd3Sl8NGI,417
+test_work4-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+test_work4-0.1.1.dist-info/top_level.txt,sha256=WJ_z3tv4oQWS8M_EHpE73ak669mPCZZhrjaddnPKArE,11
+test_work4-0.1.1.dist-info/RECORD,,
