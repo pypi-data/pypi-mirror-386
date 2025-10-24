@@ -1,0 +1,14 @@
+build
+__pycache__
+*.log
+tests.tar.zst
+tests
+dspawpy_proj/dspawpy_tests/outputs/doctest
+imgs
+ tests/outputs/us
+*.csv
+*.html
+*.cif
+*.xyz
+*.as
+.coverage
