@@ -1,0 +1,11 @@
+raspc_notif/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+raspc_notif/notif.py,sha256=rBJ_jsfJskf33Bb2ZTCyEX0FJ8eywayzdZslK9EV88k,5516
+raspc_notif/raspc_notif_lib3_arm64_ssl1.1.1.so,sha256=HN0Haxfo4oKsM42JN0yZy8L71WZac-J89SrCvnbbMQg,19472
+raspc_notif/raspc_notif_lib3_arm64_ssl3.0.11.so,sha256=VRY5DhW20uCVzw0lUigPyyeSapArXDp-YtukdHnycIM,72456
+raspc_notif/raspc_notif_lib3_armhf_ssl1.1.1.so,sha256=nrQgOIi1rD4PF_dFs3VEaD84mN1mBJGmQVHcsElbkgs,18064
+raspc_notif/raspc_notif_lib3_armhf_ssl3.0.11.so,sha256=sITZNRJIl8zgnR5bCWIFmV_xo8vG4pvGitZ8hj5BPBU,17840
+raspc_notif-1.1.1.dist-info/licenses/LICENSE,sha256=8prwaBdk8qqnkvDRpOqYsxRx4mHUlsr1y9v3pyhNq6c,1264
+raspc_notif-1.1.1.dist-info/METADATA,sha256=AoxECFZr6ZsYPXPfM5JweiPNbaRA4MRV2BJLFU_Ei-E,4108
+raspc_notif-1.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+raspc_notif-1.1.1.dist-info/top_level.txt,sha256=ePZSEn_f0IudrCZfU2i0i7PI5FP2ZFh7ulk77jaSTG4,12
+raspc_notif-1.1.1.dist-info/RECORD,,
