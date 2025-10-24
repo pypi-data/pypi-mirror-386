@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: python3-autopep8
+Version: 0.0.0
+Summary: Dummy python3-autopep8 package for PyPI
+Author-email: Your Name <you@example.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# python3-autopep8\nA dummy Python package version of python3-autopep8.

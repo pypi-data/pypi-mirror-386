@@ -1,0 +1,14 @@
+[build-python3-autopep8tem]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python3-autopep8"
+version = "0.0.0"
+description = "Dummy python3-autopep8 package for PyPI"
+authors = [{name="Your Name", email="you@example.com"}]
+readme = "README.md"
+requires-python = ">=3.7"
+
+[tool.setuptools.packages.find]
+where = ["src"]
