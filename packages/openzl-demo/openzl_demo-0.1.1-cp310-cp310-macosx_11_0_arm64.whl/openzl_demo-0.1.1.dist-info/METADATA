@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: openzl-demo
+Version: 0.1.1
+Project-URL: Homepage, https://openzl.org/pytorch-demo
+Requires-Python: >=3.8
+Requires-Dist: kaleido>=1.0.0
+Requires-Dist: numpy>=2.0.0
+Requires-Dist: openzl>=0.1.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: plotly>=6.0.0
+
