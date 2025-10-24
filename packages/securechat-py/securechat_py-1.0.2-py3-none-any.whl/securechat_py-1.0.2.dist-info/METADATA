@@ -1,0 +1,208 @@
+Metadata-Version: 2.4
+Name: securechat-py
+Version: 1.0.2
+Summary: Ultra-secure terminal-based chat with end-to-end encryption and decentralized networking
+Project-URL: Homepage, https://github.com/i-soumya18/securechat
+Project-URL: Documentation, https://github.com/i-soumya18/securechat#readme
+Project-URL: Repository, https://github.com/i-soumya18/securechat
+Project-URL: Bug Reports, https://github.com/i-soumya18/securechat/issues
+Author-email: Soumyaranjan sahoo <sahoosoumya242004@gmail.com>
+License: MIT
+License-File: LICENSE
+Keywords: chat,decentralized,encryption,messaging,security,terminal
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Security :: Cryptography
+Requires-Python: >=3.8
+Requires-Dist: cryptography>=3.4.0
+Description-Content-Type: text/markdown
+
+# SecureChat
+
+A spy movie style ultra-secure terminal-based bi-directional chatting application with end-to-end encryption, TLS transport security, and support for one-to-one, one-to-many, many-to-one, and many-to-many communication. Designed as a personal ultra-secure communication medium with comprehensive edge case handling.
+
+## Features
+
+- **End-to-End Encryption**: RSA-based encryption for direct messages with digital signatures
+- **TLS Transport Security**: All connections secured with SSL/TLS certificates
+- **Password-Protected Keys**: Private keys encrypted with user passwords
+- **Group Chat**: Create and join groups for multi-user conversations
+- **Offline Message Delivery**: Receive unread messages when you log back in
+- **Real-time Communication**: Instant message delivery with threading
+- **Cross-Platform**: Works on Windows, Linux, Mac
+- **Federation Support**: Connect multiple servers for decentralized communication
+- **Production-Ready**: Robust error handling, connection management, and security
+
+## Security Features
+
+### Cryptographic Security
+- **RSA 2048-bit Keys**: Generated per user with secure key derivation
+- **AES-GCM Encryption**: Symmetric encryption for group messages with PBKDF2 key derivation
+- **Digital Signatures**: PSS-based signatures for authenticity
+- **TLS 1.2+**: Transport layer security with certificate validation
+- **Password Protection**: Keys stored encrypted with strong passwords (8+ chars, mixed case, digits)
+- **Replay Prevention**: Server-generated timestamps prevent replay attacks
+- **Certificate Validation**: Automatic expiry checking and hostname validation for federation
+
+### Operational Security
+- **Rate Limiting**: Prevents abuse with message rate controls
+- **Input Validation**: Sanitized JSON communication with size limits
+- **Resource Limits**: Maximum clients, message sizes, and connection timeouts
+- **Audit Logging**: Security events logged to files
+- **Key Recovery**: Automatic backup and regeneration for corrupted keys
+- **Message TTL**: Automatic cleanup of old pending messages
+
+### Network Security
+- **Federation Authentication**: Password-protected federation connections
+- **Certificate Pinning**: SHA256 fingerprint validation for trusted federation servers
+- **Connection Timeouts**: Prevents hanging connections
+- **IP-based Tracking**: Basic connection monitoring
+- **Graceful Disconnection**: Clean shutdown handling
+
+## Edge Cases Handled
+
+### Security Edge Cases
+- **Key Corruption**: Automatic backup and regeneration
+- **Certificate Expiry**: Validation and warning system
+- **Replay Attacks**: Timestamp-based prevention
+- **Man-in-the-Middle**: Certificate validation and hostname checking
+- **Key Conflicts**: Username-based conflict resolution in federation
+
+### Network Edge Cases
+- **Connection Drops**: Automatic reconnection and message queuing
+- **Server Crashes**: Federation reconnection and state recovery
+- **Network Partitions**: Message queuing for offline users
+- **High Latency**: Non-blocking operations with timeouts
+- **Concurrent Connections**: Thread-safe message handling
+
+### Data Integrity Edge Cases
+- **Message Corruption**: JSON validation and size limits
+- **Storage Corruption**: Timestamp-based message validation
+- **Database Issues**: In-memory storage with periodic cleanup
+- **Large Messages**: Size limits and validation
+- **Memory Exhaustion**: Resource limits and cleanup threads
+
+### User Experience Edge Cases
+- **Duplicate Users**: Server-side username validation
+- **Invalid Input**: Comprehensive input sanitization
+- **Race Conditions**: Thread-safe operations with locks
+- **Keyboard Interrupts**: Graceful shutdown handling
+- **Password Errors**: Recovery mechanisms for key loading
+
+### Federation Edge Cases
+- **Server Conflicts**: ID-based conflict prevention
+- **Circular Dependencies**: Loop detection in federation
+- **Partial Failures**: Graceful degradation when servers disconnect
+- **User Migration**: Cross-server user discovery
+- **Message Routing**: Multi-hop message forwarding
+
+## Installation
+
+Install from PyPI:
+
+```bash
+pip install securechat-py
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/i-soumya18/securechat.git
+cd securechat
+pip install .
+```
+
+## Setup
+
+1. Generate SSL certificates:
+```bash
+securechat generate-certs
+```
+
+2. Start the secure server:
+```bash
+securechat server --cert server.crt --key server.key
+```
+
+3. (Optional) Start additional servers for federation:
+```bash
+securechat server --port 12348 --cert server.crt --key server.key
+```
+
+## Usage
+
+### Direct Messages (One-to-One)
+```bash
+securechat client localhost:12346 your_username
+```
+Then type: `to alice: Hello spy!`
+
+### Group Chat (One-to-Many/Many-to-Many)
+- `group create mygroup` - Create a new group
+- `group join mygroup` - Join an existing group
+- `group list` - List available groups
+- `to group:mygroup: Message for all` - Send to group
+
+### Federation (Cross-Server Communication)
+- `federate hostname:port` - Connect to another SecureChat server
+- Users from federated servers appear in your user list automatically
+
+### Commands
+- `list` - Show all known users (local + federated)
+- `to username: message` - Send direct message
+- `group create name` - Create group
+- `group join name` - Join group
+- `group leave name` - Leave group
+- `group list` - List groups
+- `federate host:port` - Connect to federated server
+- Ctrl+C to exit
+
+## Architecture
+
+- **Server**: Multi-threaded SSL server handling connections, message routing, and federation
+- **Client**: SSL client with real-time message handling, group management, and federation awareness
+- **Crypto**: RSA for keys, AES for messages, PSS for signatures, certificate validation
+- **Groups**: Server-managed group membership with broadcast messaging
+- **Federation**: Server-to-server protocol for decentralized communication
+- **Storage**: In-memory with periodic cleanup, file-based key storage
+
+## Security Best Practices
+
+1. **Use Strong Passwords**: At least 8 characters for key encryption
+2. **Keep Certificates Updated**: Regenerate before expiry
+3. **Monitor Logs**: Check server logs for security events
+4. **Network Security**: Run behind firewalls, use VPNs for remote access
+5. **Key Backup**: Keep backups of key files in secure locations
+6. **Regular Updates**: Keep dependencies updated for security patches
+
+## Troubleshooting
+
+### Certificate Issues
+- Regenerate certificates: `securechat generate-certs`
+- Check expiry: Server logs show certificate status on startup
+
+### Connection Issues
+- Verify server is running: Check for "Secure server started" message
+- Check firewall settings for the configured ports
+- Use `localhost` for local testing, actual hostname/IP for remote
+
+### Federation Issues
+- Ensure both servers have valid certificates
+- Check server logs for federation handshake messages
+- Verify ports are open (main port + federation port +1)
+
+### Key Issues
+- Delete corrupted key files to regenerate
+- Backups are created automatically for recovery
+
+Perfect for secure communications in any scenario! 🕵️‍♂️🔐 (Windows, Linux, Mac)

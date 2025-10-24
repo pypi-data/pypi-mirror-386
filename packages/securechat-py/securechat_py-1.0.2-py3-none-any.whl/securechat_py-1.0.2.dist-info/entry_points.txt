@@ -1,0 +1,2 @@
+[console_scripts]
+securechat = securechat.cli:main
