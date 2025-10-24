@@ -1,0 +1,33 @@
+[project]
+name = "accuralai-cache"
+version = "0.1.0"
+description = "Caching providers for the AccuralAI LLM pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "AccuralAI Maintainers" }]
+dependencies = [
+  "pydantic>=2.5",
+  "accuralai-core",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-anyio",
+  "pytest-mock",
+]
+
+[project.entry-points."accuralai_core.caches"]
+"advanced" = "accuralai_cache.memory:build_memory_cache"
+"memory" = "accuralai_cache.memory:build_memory_cache"
+"disk" = "accuralai_cache.disk:build_disk_cache"
+"layered" = "accuralai_cache.layered:build_layered_cache"
+
+[project.urls]
+homepage = "https://github.com/accuralai/accuralai-cache"
+repository = "https://github.com/accuralai/accuralai-cache"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
