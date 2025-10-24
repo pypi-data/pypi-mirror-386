@@ -1,0 +1,609 @@
+Metadata-Version: 2.1
+Name: aparavi_client_python
+Version: 1.1.0
+Summary: Aparavi Pipeline Python Client SDK
+Author-email: Aparavi Development Team <dev@aparavi.com>
+Maintainer-email: Aparavi Development Team <dev@aparavi.com>
+License: MIT
+Project-URL: Homepage, https://github.com/aparavi/aparavi-clients
+Project-URL: Documentation, https://github.com/aparavi/aparavi-clients#readme
+Project-URL: Repository, https://github.com/aparavi/aparavi-clients.git
+Project-URL: Bug Reports, https://github.com/aparavi/aparavi-clients/issues
+Keywords: aparavi,pipeline,dap,debug-adapter-protocol,data-processing,client-sdk,async,websocket
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: websockets>=11.0.0
+Requires-Dist: aiofiles>=23.0.0
+Requires-Dist: pydantic>=2.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: build>=0.10.0; extra == "dev"
+Requires-Dist: twine>=4.0.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=7.0.0; extra == "test"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "test"
+Requires-Dist: pytest-cov>=4.0.0; extra == "test"
+
+# Aparavi Client SDK (Python)
+
+A Python SDK for executing Aparavi pipelines using the Debug Adapter Protocol (DAP). This client provides a simplified interface for connecting to Aparavi DAP servers, executing pipelines, managing data transfer operations, and interacting with AI services.
+
+## Features
+
+- **DAP-based communication** for reliable pipeline execution
+- **Simple execute-and-exit workflow** for pipeline automation
+- **Comprehensive error handling** and logging
+- **Automatic API key management** for all DAP commands
+- **Object-oriented data pipe management** with context manager support
+- **Parallel file upload capabilities** with progress events (default: 64 concurrent)
+- **Token-based operations** for data pipe commands
+- **Type hints** with full typing support
+- **AI chat functionality** with structured JSON responses
+- **Event monitoring** for real-time pipeline status
+- **Automatic reconnection** with configurable persistence
+- **Command-line interface** for pipeline management
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [CLI Basics](#cli-basics)
+- [SDK Quick Start](#sdk-quick-start)
+- [API Reference](#api-reference)
+- [Common Patterns](#common-patterns)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
+## Installation
+
+```bash
+pip install aparavi-client-python
+```
+
+**Note:** The distribution files use underscores (`aparavi_client_python`), but the module is imported as `aparavi_client`:
+```python
+from aparavi_client import AparaviClient
+```
+
+The package includes both the SDK library and a CLI tool.
+
+## Configuration
+
+### Environment Variables
+
+You can configure the client using environment variables or a `.env` file:
+
+```env
+# .env file
+APARAVI_APIKEY=your-api-key-here
+APARAVI_URI=https://eaas.aparavi.com
+```
+
+The client will automatically parse the `.env` file if it exists and use the values as defaults. The priority order is:
+
+1. **Constructor parameters** (highest priority)
+2. **`.env` file values**
+3. **Default values** (lowest priority)
+
+You can also pass configuration directly to the constructor:
+
+```python
+client = AparaviClient(
+    uri='https://eaas.aparavi.com',
+    auth='your-api-key'
+)
+```
+
+### Environment Variable Substitution in Pipelines
+
+The SDK automatically performs template variable substitution in pipeline configurations. Any string containing `${APARAVI_*}` will be replaced with the corresponding value from your `.env` file.
+
+**Example `.env` file:**
+```env
+APARAVI_APIKEY=your-api-key
+APARAVI_URI=https://eaas.aparavi.com
+APARAVI_PROJECT_ID=project-123
+APARAVI_INPUT_PATH=/data/input
+APARAVI_OUTPUT_PATH=/data/output
+```
+
+**Example pipeline configuration:**
+```json
+{
+  "pipeline": {
+    "project_id": "${APARAVI_PROJECT_ID}",
+    "components": [
+      {
+        "id": "data-processor",
+        "provider": "transform",
+        "config": {
+          "inputPath": "${APARAVI_INPUT_PATH}",
+          "outputPath": "${APARAVI_OUTPUT_PATH}",
+          "apiKey": "${APARAVI_APIKEY}"
+        }
+      }
+    ]
+  }
+}
+```
+
+**Using the pipeline:**
+```python
+# Variables are automatically substituted when the pipeline starts
+result = await client.use(filepath='pipeline.json')
+```
+
+**Key features:**
+- ✅ Only variables starting with `APARAVI_` are substituted (for security)
+- ✅ Unknown variables are left unchanged
+- ✅ Works with nested objects and arrays
+- ✅ Preserves the original pipeline configuration object
+
+## CLI Basics
+
+The package includes an `aparavi` command-line tool for managing pipelines and file uploads.
+
+### CLI Commands
+
+**Start a pipeline:**
+```bash
+aparavi start my-pipeline.json --apikey YOUR_KEY
+```
+
+**Upload files:**
+```bash
+aparavi upload files/*.csv --pipeline ./pipeline.json --apikey YOUR_KEY
+# or with existing task token
+aparavi upload files/*.csv --token TASK_TOKEN --apikey YOUR_KEY
+# with custom thread count (default is 4)
+aparavi upload files/*.csv --token TASK_TOKEN --threads 10 --apikey YOUR_KEY
+```
+
+**Monitor pipeline status:**
+```bash
+aparavi status --token TASK_TOKEN --apikey YOUR_KEY
+```
+
+**Monitor pipeline events:**
+```bash
+aparavi events DETAIL,SUMMARY --token TASK_TOKEN --apikey YOUR_KEY
+# or monitor all events
+aparavi events ALL --token TASK_TOKEN --apikey YOUR_KEY
+# with log file
+aparavi events ALL --token TASK_TOKEN --log events.log --apikey YOUR_KEY
+```
+
+**Stop a pipeline:**
+```bash
+aparavi stop --token TASK_TOKEN --apikey YOUR_KEY
+```
+
+## SDK Quick Start
+
+### Basic Pipeline Execution
+
+```python
+from aparavi_client import AparaviClient
+
+# Create client
+client = AparaviClient(
+    uri='https://eaas.aparavi.com',
+    auth='your-api-key'
+)
+
+# Connect to server
+await client.connect()
+
+# Start pipeline from file
+result = await client.use(filepath='pipeline.json')
+print(f'Pipeline started with token: {result["token"]}')
+
+# Disconnect
+await client.disconnect()
+```
+
+### Using Context Manager (Recommended)
+
+```python
+from aparavi_client import AparaviClient
+
+# Context manager handles connect/disconnect automatically
+async with AparaviClient(uri='https://eaas.aparavi.com', auth='your-api-key') as client:
+    # Client is automatically connected
+    result = await client.use(filepath='pipeline.json')
+    token = result['token']
+    
+    # Send data
+    response = await client.send(token, 'Process this text')
+    # Client automatically disconnects here
+```
+
+### Persistent Connection with Auto-Reconnect
+
+```python
+from aparavi_client import AparaviClient
+
+# Declare connection callbacks
+async def on_connected(info: str) -> None:
+    print(f'Connected: {info}')
+
+async def on_disconnected(reason: str, has_error: bool) -> None:
+    if has_error:
+        print(f'Connection lost: {reason}')
+
+# Create client with automatic reconnection enabled
+client = AparaviClient(
+    uri='https://eaas.aparavi.com',
+    auth='your-api-key',
+    persist=True,              # Enable automatic reconnection
+    reconnect_delay=2.0,       # Wait 2 seconds before reconnection attempts (default: 1.0)
+    on_connected=on_connected,
+    on_disconnected=on_disconnected
+)
+
+await client.connect()
+# If connection is lost, the client will automatically attempt to reconnect
+```
+
+### Data Transfer with Pipes
+
+```python
+# Using context manager (recommended)
+import json
+
+async with await client.pipe(token=myToken, mimetype='application/json') as pipe:
+    for item in data_items:
+        await pipe.write(json.dumps(item).encode())
+    results = await pipe.close()
+```
+
+### Bulk File Upload (Parallel)
+
+```python
+from aparavi_client import AparaviClient
+
+# Declare event handler
+async def handle_events(event):
+    if event['event'] == 'apaevt_status_upload':
+        body = event['body']
+        print(f"{body['filepath']}: {body['action']} - {body['bytes_sent']}/{body['file_size']} bytes")
+
+client = AparaviClient(
+    auth='your-api-key',
+    on_event=handle_events
+)
+
+await client.connect()
+
+# Simple file list (default: 64 concurrent uploads)
+files = ['doc1.pdf', 'data.csv', 'report.docx']
+results = await client.send_files(files, token)
+
+# With custom concurrency control
+results = await client.send_files(files, token, max_concurrent=10)
+
+# With metadata and MIME types
+files = [
+    ('report.pdf', {'department': 'finance'}),
+    ('data.csv', {'type': 'sales_data'}, 'text/csv')
+]
+results = await client.send_files(files, token)
+
+await client.disconnect()
+```
+
+## API Reference
+
+### AparaviClient
+
+#### Constructor
+
+```python
+AparaviClient(uri: str, auth: str, **kwargs)
+```
+
+**Parameters:**
+- `uri` (str): Server URI (default: `https://eaas.aparavi.com`)
+- `auth` (str): API key for authentication
+- `on_event` (callable, optional): Event handler for server events
+- `on_connected` (callable, optional): Connection established callback
+- `on_disconnected` (callable, optional): Connection lost callback
+- `persist` (bool, optional): Enable automatic reconnection (default: False)
+- `reconnect_delay` (float, optional): Delay between reconnection attempts in seconds (default: 1.0)
+
+#### Connection Methods
+
+**`async connect() -> None`**  
+Establish connection to the Aparavi server.
+
+**`async disconnect() -> None`**  
+Close connection to the Aparavi server and stop automatic reconnection.
+
+#### Execution Methods
+
+**`async use(**kwargs) -> Dict[str, Any]`**  
+Start an Aparavi pipeline for processing data. Automatically performs environment variable substitution on the pipeline configuration.
+
+Parameters:
+- `pipeline` (dict, optional): Pipeline configuration dictionary
+- `filepath` (str, optional): Path to JSON file containing pipeline configuration
+- `token` (str, optional): Custom token for the pipeline (auto-generated if not provided)
+- `threads` (int, optional): Number of threads for execution (default: 1)
+- `args` (List[str], optional): Command line arguments to pass to pipeline
+
+Returns: Dictionary containing the task token and other metadata
+
+**`async terminate(token: str) -> None`**  
+Terminate a running pipeline.
+
+**`async get_task_status(token: str) -> Dict[str, Any]`**  
+Get the current status of a running pipeline.
+
+#### Data Methods
+
+**`async send(token: str, data: Union[str, bytes], objinfo: Dict = {}, mimetype: str = None) -> Dict[str, Any]`**  
+Send data directly to a pipeline.
+
+**Important:** Use this method with pipelines that have `webhook`, `filesys`, or `dropper` as the source component. For chat/Q&A systems, use `chat()` method instead with a `chat` source component.
+
+**`async send_files(files: List, token: str, max_concurrent: int = 64) -> List[Dict[str, Any]]`**  
+Upload multiple files in parallel with configurable concurrency.
+
+Parameters:
+- `files` (list): List of file paths or tuples (filepath, objinfo) or (filepath, objinfo, mimetype)
+- `token` (str): Task token of the pipeline
+- `max_concurrent` (int, optional): Maximum concurrent uploads (default: 64)
+
+**`async pipe(token: str, objinfo: Dict = {}, mimetype: str = None, provider: str = None) -> DataPipe`**  
+Create a streaming data pipe for sending large datasets.
+
+#### Chat Methods
+
+**`async chat(token: str, question: Question) -> Dict[str, Any]`**  
+Ask a question to Aparavi's AI and get an intelligent response.
+
+**Important:** Use this method with pipelines that have `chat` as the source component. For document processing/uploads, use `send()` or `send_files()` with a `webhook` source instead.
+
+**Example:**
+```python
+from aparavi_client.schema import Question
+
+question = Question()
+question.addQuestion('What are the key findings?')
+
+response = await client.chat(token='chat-token', question=question)
+```
+
+#### Event Methods
+
+**`async set_events(token: str, event_types: List[str]) -> None`**  
+Subscribe to specific types of events from the server.
+
+**Example:**
+```python
+await client.set_events(token, ['apaevt_status_upload', 'apaevt_status_processing'])
+```
+
+### DataPipe
+
+Created via `client.pipe()` method. Provides a stream-like interface for uploading data.
+
+**`async open() -> DataPipe`**  
+Open the pipe for data transmission. Must be called before any write() operations.
+
+**`async write(buffer: bytes) -> None`**  
+Write data to the pipe. Can be called multiple times to stream large datasets.
+
+**`async close() -> Optional[Dict[str, Any]]`**  
+Close the pipe and get the processing results.
+
+### Question
+
+Question builder for AI chat operations.
+
+#### Constructor
+
+```python
+Question(expectJson: bool = False)
+```
+
+#### Methods
+
+**`addQuestion(text: str) -> Question`**  
+Add the main question text.
+
+**`addInstruction(subtitle: str, instructions: str) -> Question`**  
+Add specific instructions to guide the AI's response.
+
+**`addExample(given: str, result: Any) -> Question`**  
+Provide an example of the desired response format.
+
+**`addContext(context: Union[str, Dict[str, Any]]) -> Question`**  
+Add contextual information for the AI.
+
+**`addHistory(history: QuestionHistory) -> Question`**  
+Add conversation history for context.
+
+**`addDocument(doc: Doc) -> Question`**  
+Add a document to the question context.
+
+**`addFilter(filter: DocFilter) -> Question`**  
+Add a document filter to narrow the search scope.
+
+## Common Patterns
+
+### AI Chat with Structured JSON Responses
+
+```python
+from aparavi_client import AparaviClient
+from aparavi_client.schema import Question
+
+# Start chat pipeline once at the beginning
+client = AparaviClient(auth='your-api-key')
+await client.connect()
+
+result = await client.use(filepath='chat_pipeline.json')
+token = result['token']
+
+# Simple question
+async def ask_question(my_question: str) -> str:
+    question = Question()
+    question.addQuestion(my_question)
+    
+    response = await client.chat(token=token, question=question)
+    
+    if 'answers' in response and len(response['answers']) > 0:
+        return response['answers'][0]
+    return 'No answer received'
+
+# Structured JSON response
+async def extract_data(source_document: str):
+    question = Question(expectJson=True)
+    question.addQuestion('Extract email addresses and phone numbers')
+    question.addExample(
+        'Find contacts',
+        {'emails': ['john@company.com'], 'phones': ['555-1234']}
+    )
+    question.addContext(source_document)
+    
+    response = await client.chat(token=token, question=question)
+    
+    if 'answers' in response and len(response['answers']) > 0:
+        return response['answers'][0]
+    return {}
+
+# Use the functions
+answer = await ask_question('What are the main themes in these documents?')
+data = await extract_data('Contact us at john@company.com or 555-1234')
+```
+
+### Document Processing Workflow
+
+```python
+from aparavi_client import AparaviClient
+
+async def process_documents():
+    async with AparaviClient(uri='https://eaas.aparavi.com', auth='api_key') as client:
+        # Start document processing pipeline
+        result = await client.use(filepath='document_analyzer.json')
+        token = result['token']
+        
+        # Upload files
+        files = ['report1.pdf', 'data.xlsx', 'notes.txt']
+        results = await client.send_files(files, token)
+        
+        return results
+```
+
+### Event Monitoring
+
+```python
+from typing import Dict, Any
+
+async def handle_events(event: Dict[str, Any]) -> None:
+    event_type = event['event']
+    body = event['body']
+    
+    if event_type == 'apaevt_status_upload':
+        if body['action'] == 'write':
+            progress = (body['bytes_sent'] / body['file_size']) * 100
+            print(f'Upload progress: {progress:.1f}%')
+
+# Create client with event handler
+client = AparaviClient(
+    uri='https://eaas.aparavi.com',
+    auth='api_key',
+    on_event=handle_events
+)
+
+await client.connect()
+
+# Start pipeline and subscribe to events
+result = await client.use(filepath='pipeline.json')
+await client.set_events(result['token'], ['apaevt_status_upload', 'apaevt_status_processing'])
+
+# Monitor status
+while True:
+    status = await client.get_task_status(result['token'])
+    if status['state'] in ['completed', 'failed']:
+        break
+    await asyncio.sleep(1)
+```
+
+## Troubleshooting
+
+### Error Handling
+
+```python
+from aparavi_client import AparaviClient, AparaviException
+
+try:
+    client = AparaviClient(uri='https://eaas.aparavi.com', auth='your-api-key')
+    await client.connect()
+    
+    result = await client.use(filepath='pipeline.json')
+    print(f'Pipeline started: {result["token"]}')
+    
+except AparaviException as e:
+    print(f'Aparavi Error: {e}')
+except ConnectionError as e:
+    print(f'Connection Error: {e}')
+except Exception as e:
+    print(f'Error: {e}')
+finally:
+    if client:
+        await client.disconnect()
+```
+
+### Common Issues
+
+**Connection Failed**:
+- Ensure you're using the latest version: `pip install --upgrade aparavi-client-python`
+- Check your network connection and firewall settings
+
+**403 Forbidden Error**:
+- Your API key is invalid, expired, or lacks permissions
+- Get a new API key from your Aparavi account settings
+
+**Pipeline Not Found**:
+- Verify the pipeline file path and JSON format
+- Use absolute paths if relative paths don't work
+
+**Upload Errors**:
+- Ensure files are accessible and not too large
+- Check file permissions
+
+**Authentication Errors**:
+- Verify your API key is correct
+- Ensure the key has the necessary permissions
+
+## Requirements
+
+- Python 3.8 or higher
+- Valid API key for authentication
+
+## License
+
+MIT
+
+## Support
+
+- Documentation: [https://docs.aparavi.com](https://docs.aparavi.com)

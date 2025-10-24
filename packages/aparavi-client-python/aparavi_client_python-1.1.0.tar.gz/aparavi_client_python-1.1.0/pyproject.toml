@@ -1,0 +1,102 @@
+[build-system]
+requires = ["setuptools==75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aparavi_client_python"
+version = "1.1.0"
+description = "Aparavi Pipeline Python Client SDK"
+readme = "README.md"
+authors = [
+    {name = "Aparavi Development Team", email = "dev@aparavi.com"}
+]
+maintainers = [
+    {name = "Aparavi Development Team", email = "dev@aparavi.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Networking",
+    "Topic :: Internet :: WWW/HTTP",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+keywords = [
+    "aparavi",
+    "pipeline",
+    "dap", 
+    "debug-adapter-protocol",
+    "data-processing",
+    "client-sdk",
+    "async",
+    "websocket",
+]
+dependencies = [
+    "websockets>=11.0.0",
+    "aiofiles>=23.0.0",
+    "pydantic>=2.0.0",
+]
+requires-python = ">=3.8"
+
+[project.license]
+text = "MIT"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+]
+
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/aparavi/aparavi-clients"
+Documentation = "https://github.com/aparavi/aparavi-clients#readme"
+Repository = "https://github.com/aparavi/aparavi-clients.git"
+"Bug Reports" = "https://github.com/aparavi/aparavi-clients/issues"
+
+[project.scripts]
+aparavi = "aparavi_client.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["aparavi_client*"]
+
+[tool.setuptools.package-data]
+aparavi_client = ["py.typed"]
+
+# Black formatting
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+# MyPy type checking
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+
+# Pytest configuration
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+asyncio_mode = "auto"
