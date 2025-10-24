@@ -1,0 +1,32 @@
+[package]
+name = "polars_quant"
+version = "0.4.0"
+edition = "2024"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "polars_quant"
+crate-type = ["cdylib"]
+
+[dependencies]
+chrono = "0.4.42"
+polars = { version = "0.51.0", features = ["full"] }
+pyo3 = { version = "0.25.1", features = ["abi3-py39", "extension-module"] }
+pyo3-polars = "0.24.0"
+rayon = "1.10"
+serde = "1.0.219"
+serde_json = "1.0.143"
+
+# Performance optimizations
+[profile.release]
+lto = "fat"              # Enable Link Time Optimization for maximum performance
+codegen-units = 1        # Single codegen unit for better optimization (slower build, faster runtime)
+opt-level = 3            # Maximum optimization
+strip = true             # Strip symbols to reduce binary size
+panic = "abort"          # Smaller code, no unwinding overhead
+
+# Optional: Disable reference pool for better performance (but need careful Drop handling)
+# Uncomment if you ensure all Py<T> drops happen with GIL held
+# [build]
+# rustflags = ["--cfg", "pyo3_disable_reference_pool"]
