@@ -1,0 +1,5 @@
+[console_scripts]
+provide-testkit = provide.testkit.main:main
+
+[pytest11]
+provide_testkit = provide.testkit.pytest_plugin
