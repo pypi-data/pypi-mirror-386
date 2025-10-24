@@ -1,0 +1,281 @@
+Metadata-Version: 2.4
+Name: yoki-terminal
+Version: 1.0.0
+Summary: AI-powered natural language → terminal command converter
+Author: Vivek Sharma
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer>=0.12.0
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: google-generativeai>=0.3.0
+Dynamic: license-file
+
+# Yoki CLI — AI-Powered Terminal Tool
+
+**Yoki** is a powerful CLI tool that allows you to run AI-powered commands directly from your terminal. It connects to **Gemini / OpenAI API** to generate code, scripts, or automate tasks, providing a smart terminal experience.
+
+> ⚠️ Note: Yoki is **online only**. It requires an internet connection and a valid API key.
+
+---
+
+## Features
+
+* 💡 Generate code, scripts, or automation tasks via terminal.
+* 🌐 Fully online, powered by Gemini / OpenAI API.
+* 🖥️ Works on Windows, Linux, and Mac.
+* 🛠️ Modular design—easily add new commands.
+* 📦 Simple installation and environment setup.
+
+---
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Environment Setup](#environment-setup)
+4. [Running Yoki](#running-yoki)
+5. [Commands](#commands)
+6. [Adding New Commands](#adding-new-commands)
+7. [Contributing](#contributing)
+8. [Folder Structure](#folder-structure)
+9. [Troubleshooting](#troubleshooting)
+10. [License](#license)
+
+---
+
+## Prerequisites
+
+* Python **3.10+**
+* Git installed
+* Internet connection
+* OpenAI or Gemini API key
+
+Check Python version:
+
+```bash
+python --version
+```
+
+Check Git version:
+
+```bash
+git --version
+```
+
+---
+
+## Installation
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/onipinaka/yoki.git
+cd yoki
+```
+
+### Step 2: Create a Python Virtual Environment
+
+**Linux / Mac:**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**Windows (PowerShell):**
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+---
+
+### Step 3: Install Dependencies
+
+Upgrade pip first:
+
+```bash
+pip install --upgrade pip
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+**`requirements.txt` should include:**
+
+```
+openai>=1.8.0
+requests>=2.31.0
+click>=8.1.7
+rich>=13.5.2
+python-dotenv>=1.0.0
+tabulate>=0.9.0
+aiohttp>=3.9.0
+```
+
+---
+
+## Environment Setup
+
+### Step 4: Configure API Key
+
+1. Create a `.env` file in the root directory:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+2. Load the API key in Python:
+
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+```
+
+> This ensures your API key is secure and not hardcoded.
+
+---
+
+## Running Yoki CLI
+
+Run the CLI:
+
+```bash
+python yoki.py
+```
+
+### Running Commands
+
+You can run AI commands directly:
+
+```bash
+yoki "generate a Python script to read CSV files"
+yoki "summarize this text"
+yoki "translate this text to French"
+```
+
+* Commands are **interpreted and executed online** using Gemini / OpenAI.
+* You must have a valid API key in `.env`.
+
+---
+
+## Available Commands
+
+| Command     | Description                           |
+| ----------- | ------------------------------------- |
+| `help`      | Lists all available commands          |
+| `list`      | Shows all registered commands         |
+| `generate`  | AI-generated scripts or code          |
+| `summarize` | Summarize text input                  |
+| `translate` | Translate text to another language    |
+| `example`   | Example command to test functionality |
+
+> Commands can accept flags:
+
+```bash
+yoki "generate --lang python --task read_csv"
+yoki "translate --lang French 'Hello World'"
+```
+
+---
+
+## Adding New Commands
+
+1. Go to the `commands/` folder.
+2. Create a Python file, e.g., `my_command.py`.
+3. Add a function named `run(args)`:
+
+```python
+def run(args):
+    print("Hello from my new command!", args)
+```
+
+4. Import and register your command in `commands/__init__.py`.
+5. Run it via CLI:
+
+```bash
+yoki "my_command arg1 arg2"
+```
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch:
+
+```bash
+git checkout -b feature/my-new-command
+```
+
+3. Add new commands under `commands/`.
+4. Update `README.md` if needed.
+5. Test your command:
+
+```bash
+python yoki.py "my-new-command test"
+```
+
+6. Commit your changes:
+
+```bash
+git add .
+git commit -m "Add my new command"
+git push origin feature/my-new-command
+```
+
+7. Open a Pull Request.
+
+> Follow PEP8 style and ensure your code works with the online API.
+
+---
+
+## Folder Structure
+
+```
+yoki/
+│
+├── yoki.py             # Main CLI entry point
+├── commands/           # Built-in commands
+│   ├── __init__.py     # Imports and registers commands
+│   └── example.py      # Example command
+├── requirements.txt    # Python dependencies
+├── README.md           # This file
+└── .env                # OpenAI API key
+```
+
+---
+
+## Troubleshooting
+
+* **Command not found:** Make sure your command is registered in `commands/__init__.py`.
+* **API key errors:** Check `.env` file and ensure key is valid.
+* **No internet connection:** Yoki requires online mode; AI commands won't work offline.
+* **Dependency errors:** Run `pip install -r requirements.txt` again.
+
+---
+
+## License
+
+MIT License © 2025 [Your Name]
+
+---
+
+## Notes
+
+* Designed for developers and AI enthusiasts.
+* Fully online; works with Gemini / OpenAI API.
+* Modular, easy to extend, and beginner-friendly.
+* Cross-platform support for Windows, Linux, and Mac.
+
+```
+```
