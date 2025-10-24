@@ -1,0 +1,14 @@
+README.txt,sha256=zsPsHXNWbp3n3siPPO-Yk9T7Qh7sBFWcokjkGneA17A,1903
+VERSION.txt,sha256=H5MN0fEzwfl6lP46y42zQ3LPTAH_2ys_9Mpy-UlBIek,6
+iway_certbot_dns_auth/__init__.py,sha256=yEgUaxUV0DnarULN3qE0OAUECVHRknYjHTey3YjBhZA,86
+iway_certbot_dns_auth/api.py,sha256=ZDZZRIfvmFcplonhHN5Edac91oQIxOkLQa_N8AQEmCE,4205
+iway_certbot_dns_auth/dns_challenge.py,sha256=vSzBc59uo1Xok6bM5_vDLZZ8mpAkXRE5nAy0Ep3bImY,6760
+iway_certbot_dns_auth/hooks.py,sha256=yJ6_U92AW8f8Qy6K2eFMS3oTedofunk7RJ1wTrHYB4Q,214
+iway_certbot_dns_auth/utils.py,sha256=LaJFSJAOZayfmJ_xXvxJ4g6MMqHrP8mPcSkwEYp-G28,3633
+requirements-dev.txt,sha256=7WIIrYa4-RumiH7nk-eB3iGy2K92qTW-GRFKuzI_uEk,34
+requirements.txt,sha256=ZZgthGV60gXr_Un_Q0khY5SawHwh6_agpr9bR-MF7Hg,21
+iway_certbot_dns_auth-0.2.0.dist-info/LICENSE,sha256=uY42JTqwvjtjneUMPljgcPucMZpTxPb3SHwteHqcqK8,1064
+iway_certbot_dns_auth-0.2.0.dist-info/METADATA,sha256=3PMi9pYFOkOXvM3pwgj6fbtBZADwUuLaB9o4RetWrxU,2803
+iway_certbot_dns_auth-0.2.0.dist-info/WHEEL,sha256=FMvqSimYX_P7y0a7UY-_Mc83r5zkBZsCYPm7Lr0Bsq4,88
+iway_certbot_dns_auth-0.2.0.dist-info/entry_points.txt,sha256=4VlNIHDQObsjszJTC4P5HXnPedZzkQZsXryNhNiIOog,163
+iway_certbot_dns_auth-0.2.0.dist-info/RECORD,,
