@@ -1,0 +1,2 @@
+recursive-include defect_megareport/templates *
+recursive-include defect_megareport/static *
