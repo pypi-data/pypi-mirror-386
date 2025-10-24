@@ -1,0 +1,11 @@
+multimodars-0.0.7.dist-info/METADATA,sha256=_1romYwB6rE4X_caAZDx4NSJYdoaH2r8BOew2ei8xeI,10379
+multimodars-0.0.7.dist-info/WHEEL,sha256=n8ZdhGDUio-M1d1jdBhS3kD6MKEN1SRxo8BOjWwZdsg,96
+multimodars-0.0.7.dist-info/licenses/LICENSE,sha256=u4nSznuDOS1i9uPBvymDW5o0DZPZgnIr8cs-Q8GsekI,1072
+multimodars/__init__.py,sha256=7W3mb-6xSysTOF_ND1XNBjMqu3bVCLIZesdUEU97No8,1431
+multimodars/_converters.py,sha256=oMC0pJyASu4ghNQ_5YbE77SDagzrHElB8lV7r5yaZs8,7186
+multimodars/_wrappers.py,sha256=YbeZqzuYFks7fA79fSpAsYhwTpcTD9JjlJtBjIprdgs,19845
+multimodars/io/__init__.py,sha256=IDxCUo8DtG2HpNFvn0QxURrXD8qqgHw8aS11sTQC3Ys,64
+multimodars/io/read_geometrical.py,sha256=C_wppNfYuvhgX36Rjt_qv8cgVIPf2PvXr3KEU8cdjBk,2746
+multimodars/io/write_geometries.py,sha256=yR3Xkzt3UZQzuc76h-YgA9UlcAbxMEFQ5Y4BJkaf-gE,1649
+multimodars/multimodars.cp312-win_amd64.pyd,sha256=lVA8Z32_mqSxmLEGYSodrYeTNz5yYJuQnmeZ1MLgzxo,5628416
+multimodars-0.0.7.dist-info/RECORD,,
