@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: fractalinator
+Version: 1.0
+Summary: Live-drawing tool for multibrot fractals
+Home-page: https://github.com/fcseidl/fractalinator/
+Author: Frank Seidl
+Author-email: frankcseidl@gmail.com
+License: MIT
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
