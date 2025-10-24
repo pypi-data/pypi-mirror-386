@@ -1,0 +1,108 @@
+# 🧩 microservice-starter
+
+`microservice-starter` is a Python library and CLI tool designed to **automatically scaffold production-ready microservice projects** with **FastAPI**, **Celery**, **RabbitMQ**, and **Docker** — following a clean, layered architecture.
+
+It helps developers quickly bootstrap consistent microservice structures across different services (like PDF extraction, model inference, authentication, etc.), ensuring every project follows the same conventions.
+
+---
+
+## 🚀 Features
+
+- 🏗️ **Automatic project generator** — creates all folders and files in one command  
+- ⚙️ **Pre-configured Docker & Docker Compose** environment  
+- 🐇 **Celery & RabbitMQ** integration ready out-of-the-box  
+- 🗄️ **PostgreSQL + SQLAlchemy + Alembic** setup  
+- 🔐 **.env** separation for development and production  
+- 🔁 **Consistent microservice structure** across your system  
+
+---
+
+## 🧱 Generated Architecture
+
+When you run the generator, it creates a full microservice structure like this:
+
+my_microservice/
+│
+│
+├── env/
+│ ├── .env.dev
+│ └── .env.prod
+│
+│
+├── src/
+│ ├── configs/
+│ ├── dependencies/
+│ ├── models/
+│ ├── repositories/
+│ ├── routers/
+│ ├── schemas/
+│ ├── services/
+│ ├── tasks/
+│ ├── utils/
+│ ├── celery.py
+│ ├── main.py
+│ └── run.py
+│
+├── Dockerfile
+├── .dockerignore
+├── requirements.txt
+├── wait_for_rabbitmq.sh
+└── README.md
+
+---
+
+## 🧰 Installation
+
+```bash
+pip install microservice-starter
+```
+
+## 🧩 Usage
+
+Run the following command to create a new microservice project:
+
+```bach
+microservice-starter try_service
+```
+
+
+This will generate the full folder structure with:
+
+*FastAPI application under src/
+
+*Celery background task system
+
+*RabbitMQ broker service
+
+*Environment configs and Docker setup
+
+
+## 🗄️ Database Management with Alembic
+
+Each generated microservice includes Alembic to handle database migrations in a clean, version-controlled way.
+
+### What is Alembic?
+
+Alembic is a lightweight database migration tool for SQLAlchemy.
+It allows you to evolve your database schema safely and consistently — by tracking structural changes like new tables, columns, constraints, etc.
+
+### Typical Workflow
+
+To use Alembic inside your Docker container:
+
+1. Enter the running app container:
+```bash
+docker exec -it <your_service_name>_container /bin/bash
+```
+2.Initialize Alembic (only once):
+```bash
+docker exec -it <your_service_name>_container /bin/bash
+```
+3.Create a new migration after changing models:
+```bash
+alembic revision --autogenerate -m "add new table"
+```
+4.Apply migrations to update the database:
+```bash
+alembic upgrade head
+```

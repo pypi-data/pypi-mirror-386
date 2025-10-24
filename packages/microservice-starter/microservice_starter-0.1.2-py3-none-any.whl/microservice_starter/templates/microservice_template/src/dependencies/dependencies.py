@@ -1,0 +1,1 @@
+# you can add dependencies here if needed for your microservice
