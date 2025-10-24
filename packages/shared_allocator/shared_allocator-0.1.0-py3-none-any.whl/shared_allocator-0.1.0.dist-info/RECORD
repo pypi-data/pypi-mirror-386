@@ -1,0 +1,8 @@
+shared_allocator/__init__.py,sha256=8F70PdgisD29H-8CpGrAvaqGLNeJrApijq5gUX0aLwg,205
+shared_allocator/bump.py,sha256=Tu7ZBFCzvc5bPjyXvYXcCQcWjir-vNIdY69sUgXiJQ8,7531
+shared_allocator/freelist.py,sha256=Ybf9bhWD51oYw58Grp5jsuovEF87XUhY6mXusCG3Fsw,8757
+shared_allocator/slab.py,sha256=CecLUjGBaIrjvO7HvzOHTBxQs3-Tchohc6aX0DbhuQE,9839
+shared_allocator-0.1.0.dist-info/METADATA,sha256=zzUazIFaBRClY6bZwqhaVIy0cPH12J3J6YbLPw2an7U,4177
+shared_allocator-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+shared_allocator-0.1.0.dist-info/top_level.txt,sha256=h0qQ-SojMYmYzaThb3AOgxh4kamcv_duV9k75XKCtt8,17
+shared_allocator-0.1.0.dist-info/RECORD,,
