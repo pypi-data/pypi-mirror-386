@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: cwms-cli
+Version: 0.1.1
+Summary: Command line utilities for Corps Water Management Systems (CWMS) python scripts. This is a collection of shared scripts across the enterprise Water Management Enterprise System (WMES) teams.
+License: LICENSE
+License-File: LICENSE
+Keywords: USACE,CWMS,CLI,Hydrologic Engineering Center,HEC,Hydrology,Hydraulics,Water Resources,DSS
+Author: Eric Novotny
+Author-email: eric.v.novotny@usace.army.mil
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: click (>=8.1.8,<9.0.0)
+Project-URL: Repository, https://github.com/HydrologicEngineeringCenter/cwms-cli
+Description-Content-Type: text/markdown
+
+# cwms-cli
+
+command line utilities used for Corps Water Management Systems (CWMS) processes
+
+[![Docs](https://readthedocs.org/projects/cwms-cli/badge/?version=latest)](https://cwms-cli.readthedocs.io/en/latest/)
+
+## Install
+
+```sh
+pip install git+https://github.com/HydrologicEngineeringCenter/cwms-cli.git@main
+```
+
+## Command line implementation
+
+```sh
+cwms-cli --help
+```
+
