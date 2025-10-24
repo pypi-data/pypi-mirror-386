@@ -1,0 +1,3 @@
+[console_scripts]
+cds = codesi.cli:main
+codesi = codesi.cli:main
