@@ -1,0 +1,16 @@
+interpn-0.6.4.dist-info/METADATA,sha256=oz6nnSb8H94tgVZrBIRON80vU64y0wWI5pEwXcEUyjU,7223
+interpn-0.6.4.dist-info/WHEEL,sha256=dtDRtmb8ugdlQQiOTIfQg6qwccecUkp34WgpWvjGLGA,94
+interpn-0.6.4.dist-info/licenses/LICENSE-APACHE,sha256=vnG2Zpa4ndnPKQhtz4GzjlNyndoyC6HGzYQxqZiloiA,566
+interpn-0.6.4.dist-info/licenses/LICENSE-MIT,sha256=00q7nfKf9L7lT7vXsRm0qTY6L4vT1Fu_q1nGsNlBNLQ,1080
+interpn/__init__.py,sha256=Uwlj020WqzU_JPBRLfvx4PeSAlqxRp5Of_VphMTB6xE,788
+interpn/interpn.pyd,sha256=FdlGj0_QZRV_Im9lV3VGkkSJXv3ZIlrc3lDOvmBE2c0,964608
+interpn/multicubic_rectilinear.py,sha256=BwzFtg7TvKghAvyTG45hkbL5XIdQcr0F_5MKT8hywDI,7966
+interpn/multicubic_regular.py,sha256=gnCKW6K-T-h3-BVjlDP9oFqZIxOhrDGHyTpM9uYVfx8,8323
+interpn/multilinear_rectilinear.py,sha256=8gRcCRev9lqeLpGy0AeqNl655go23f9fQ8mbzltmuhY,7038
+interpn/multilinear_regular.py,sha256=2jt2cd2aJi3cklcn8bjAIv3K73Z99yrsdC6aEbuUzhA,7366
+interpn/nearest_rectilinear.py,sha256=JcJIcpZBjDEWgEoUPzzgNEfot3_oKz2JTrq3H_Uk40c,6884
+interpn/nearest_regular.py,sha256=EeXw4yXvQuN7YkevQ1rOUk2lL64Wvbb5nGZGpgYO5Ew,7326
+interpn/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+interpn/raw.py,sha256=pYkPg-X85e_QYlYszc0yeXF_YE0nZCWm3KBBP2_ZpnE,1329
+interpn/serialization.py,sha256=UDwunvGPGdcKs7TazM4THhaVQG4kPM99cOwe-PmSL5g,2235
+interpn-0.6.4.dist-info/RECORD,,
