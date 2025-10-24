@@ -1,0 +1,78 @@
+[project]
+name = "retire-coal"
+version = "0.1.0"
+description = "A data-driven approach to strategizing US coal plant retirement using network analysis and contextual vulnerabilities."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Krv Labs", email = "team@krv.ai"}
+]
+keywords = ["coal", "energy", "retirement", "network-analysis", "policy", "visualization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "ipykernel>=6.30.1",
+    "ipywidgets>=8.1.7",
+    "matplotlib>=3.5.0",
+    "nbformat>=5.10.4",
+    "networkx>=2.8",
+    "numpy>=1.21.0",
+    "pandas>=1.5.0",
+    "plotly>=5.0.0",
+    "scikit-learn>=1.1.0",
+    "seaborn>=0.11.0",
+    "thema >= 0.1.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/Krv-Analytics/retire/"
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["retire*"]
+
+[tool.setuptools.package-data]
+retire = ["resources/*.csv", "resources/graph/*.csv", "resources/results/*.csv"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0",
+    "benson>=0.1.4",
+    "tqdm>=4.67.1",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "furo>=2022.6.21",
+    "myst-parser>=0.18.0",
+    "sphinx-autodoc-typehints>=1.19.0",
+    "sphinx-autobuild>=2021.3.14",
+    "sphinx-plotly-directive>=0.1.3",
+    "jupyter-sphinx>=0.4.0",
+]
+notebooks = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+    "nbformat>=5.0.0",
+]
+
+[tool.setuptools]
+include-package-data = true
+
