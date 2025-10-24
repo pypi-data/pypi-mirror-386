@@ -1,0 +1,115 @@
+[project]
+name = "django-ai-core"
+version = "0.1.5"
+description = "Django AI Core provides developer-focused AI features for implementing AI tooling in to Django sites."
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Wagtail core team + contributors", email = "hello@wagtail.org" },
+]
+requires-python = ">=3.11"
+dependencies = [
+    "any-llm-sdk==0.20.3",
+    "queryish>=0.3.0",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Web Environment",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Framework :: Django",
+  "Framework :: Django :: 5.2",
+  "Framework :: Django :: 6.0",
+]
+
+[project.urls]
+Home = "https://github.com/wagtail/django-ai-core"
+
+
+[dependency-groups]
+dev = [
+    "django>=5.2.3",
+    "django-stubs>=5.2.5",
+    "mkdocs>=1.6.1",
+    "mkdocs-awesome-nav>=3.2.0",
+    "mkdocs-material>=9.6.20",
+    "prek>=0.2.2",
+]
+test = [
+    "psycopg[binary]>=3.2.10",
+    "pgvector>=0.4.1",
+    "pytest-django>=4.11.1",
+    "coverage>=7.10.7",
+    "pytest>=8.4.1",
+    "dj-database-url>=3.0.1",
+    "pytest-cov>=7.0.0",
+    "tox>=4.30.2",
+    "tox-gh-actions>=3.3.0",
+    "tox-uv>=1.28.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+default-groups = ["dev", "test"]
+
+[tool.ruff.lint]
+select = [
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "C90", # mccabe
+    "DJ",  # flake8-django
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "RUF", # ruff-specific rules
+    "TRY", # tryceratops
+    "PT",  # flake8-pytest-style
+    "SIM", # flake8-simplify
+]
+ignore = ["TRY003", "E501", "RUF012"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "testapp.settings"
+pythonpath = ["./src", "./tests"]
+log_level = "INFO"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+    "--disable-warnings"
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "asyncio: marks tests as async"
+]
+
+[tool.coverage.run]
+branch = true
+source = ["src/django_ai_core"]
+omit = ["*/migrations/*", "*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    'pragma: no cover',
+    'def __repr__',
+    'if self\.debug',
+    'raise AssertionError',
+    'raise NotImplementedError',
+    'if 0:',
+    'if __name__ == .__main__.:'
+]
+ignore_errors = true
