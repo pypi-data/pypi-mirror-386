@@ -1,0 +1,10 @@
+[build-system]
+requires = [
+    "setuptools",
+    "beautifulsoup4",
+    "requests",
+    "html5lib",
+    "pandas",
+    "lxml"
+    ]
+build-backend = "setuptools.build_meta"
