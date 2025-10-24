@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python test:*)",
+      "Bash(python:*)",
+      "Read(//Volumes/External/misc-physics-projects/clf4hep/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

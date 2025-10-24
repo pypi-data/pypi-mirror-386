@@ -1,0 +1,67 @@
+
+======================================================================
+LAP Solver Benchmark - Available Solvers
+======================================================================
+Available Solvers:
+------------------------------------------------------------
+✓ Scipy                     [pure_python]
+✓ ScipyMP8                  [pure_python, batch_parallel, multiprocessing]
+✓ BatchedScipyOMP           [cpp, batch_parallel]
+                            Features: OpenMP
+✓ BatchedScipySequential    [cpp]
+✓ Lap1015OMP                [cpp, optimized, intra_matrix_parallel]
+                            Features: OpenMP
+✓ Lap1015Sequential         [cpp, optimized]
+✓ Lap1015OMPNoEps           [cpp, optimized, intra_matrix_parallel, no_epsilon]
+                            Features: OpenMP
+✓ Lap1015SequentialNoEps    [cpp, optimized, no_epsilon]
+
+======================================================================
+LAP Solver Benchmark Suite
+======================================================================
+
+======================================================================
+SINGLE PROBLEM BENCHMARKS (solve_single)
+======================================================================
+
+======================================================================
+Generator: get_full_square_matrix
+Matrix size: (10, 10)
+======================================================================
+BatchedScipyOMP          :    0.037 ms
+BatchedScipySequential   :    0.005 ms
+Lap1015                  :    0.009 ms
+Lap1015OMP               :    2.287 ms
+Lap1015OMPNoEps          :    1.908 ms
+Lap1015Sequential        :    0.009 ms
+Lap1015SequentialNoEps   :    0.003 ms
+Scipy                    :    0.005 ms
+ScipyMP8                 :    0.003 ms
+
+======================================================================
+Generator: get_full_square_matrix
+Matrix size: (50, 50)
+======================================================================
+BatchedScipyOMP          :    0.061 ms
+BatchedScipySequential   :    0.049 ms
+Lap1015                  :    0.073 ms
+Lap1015OMP               :   13.541 ms
+Lap1015OMPNoEps          :    8.646 ms
+Lap1015Sequential        :    0.100 ms
+Lap1015SequentialNoEps   :    0.038 ms
+Scipy                    :    0.042 ms
+ScipyMP8                 :    0.028 ms
+
+======================================================================
+Generator: get_full_square_matrix
+Matrix size: (100, 100)
+======================================================================
+BatchedScipyOMP          :    0.254 ms
+BatchedScipySequential   :    0.210 ms
+Lap1015                  :    0.297 ms
+Lap1015OMP               :   33.148 ms
+Lap1015OMPNoEps          :   32.148 ms
+Lap1015Sequential        :    0.313 ms
+Lap1015SequentialNoEps   :    0.226 ms
+Scipy                    :    0.206 ms
+ScipyMP8                 :    0.180 ms
