@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "owasp-dependency-track-client"
+dynamic = ["version"]
+description = "Inofficial OWASP Dependency Track API Python client"
+readme = "README.md"
+#requires-python = ">=3.13"
+dependencies = [
+    "attrs>=22.1.0",
+    "httpx>=0.23.0",
+    "python-dateutil>=2.8.2",
+]
+
+[project.optional-dependencies]
+build = [
+    "build",
+    "twine",
+]
+
+test = [
+    "pytest>=7",
+    "pytest-depends",
+    "pytest-cov",
+    "dotenv== 0.9.9",
+    "openapi-python-client",
+    "tinystream==0.1.18",
+    "is_empty==1.0.1",
+]
