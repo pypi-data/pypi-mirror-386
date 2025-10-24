@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: cx-logger
+Version: 2025.10.23.post2
+Summary: That is simple logger library, that can manage logs dir.
+Author-email: Cixo <cixo@cixoelectronic.pl>
+Maintainer-email: Cixo <cixo@cixoelectronic.pl>
+License-Expression: MIT
+Project-URL: Homepage, https://git.cixoelectronic.pl/cixo-electronic/cx-logger
+Project-URL: Repository, https://git.cixoelectronic.pl/cixo-electronic/cx-logger
+Project-URL: Documentation, https://git.cixoelectronic.pl/cixo-electronic/cx-logger/wiki/Quickstart
+Project-URL: Issues, https://git.cixoelectronic.pl/cixo-electronic/cx-logger/issues
+Keywords: logger,simple,base,logging,safety,web app,server app,app,logs,log
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# cx-logger
+
+That is really easy to use automatic logger. To start using it in app just
+install it.
+
+```bash
+pip install cx-logger
+```
+
+When library had been installed, import it. All code snippets above would use that import.
+
+```python
+import cx_logger as logger
+```
+
+How create log directory? That is really simple, just type.
+
+```python
+import cx_logger as logger
+import pathlib
+
+manager = logger.logs_manager(pathlib.Path("./logs"))
+logging = manager.get_logger(logger.sync_logger)
+
+logging.use_handler(logger.stderr_handler())
+
+logging.info("That is only info.")
+logging.warning("Oh, that's warning!!!")
+```
+
+After that operation You would see something like that in stderr.
+
+```
+[info] 2025-10-23 14:12:12 That is only info.
+[warning] 2025-10-23 14:12:12 Oh, that's warning!!!
+```
+
+Directory ./logs would be created if not already exists, and in it You
+would see somethind like "2025-10-23-1.log". When You run script twice, then second file would be named like "2025-10-23-2.log".
+
+### More info
+ * See in the [wiki](https://git.cixoelectronic.pl/cixo-electronic/cx-logger/wiki/_pages)
