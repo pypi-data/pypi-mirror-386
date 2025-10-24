@@ -1,0 +1,6 @@
+
+[dev]
+ruff>=0.14.1
+
+[test]
+pytest
