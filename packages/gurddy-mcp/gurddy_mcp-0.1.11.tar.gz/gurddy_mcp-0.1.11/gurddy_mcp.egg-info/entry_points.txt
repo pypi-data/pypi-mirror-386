@@ -1,0 +1,3 @@
+[console_scripts]
+gurddy-mcp = mcp_server.mcp_stdio_server:main
+gurddy-mcp-build = scripts.build_hook:main
