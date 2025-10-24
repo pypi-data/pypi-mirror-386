@@ -1,0 +1,220 @@
+A) CNRI License Agreement for DOIP Client Library--Python Version
+========================================================================
+
+© Corporation for National Research Initiatives 2025
+
+1. This CNRI License Agreement for DOIP Client Library—-Python
+Version ("Agreement") is between Corporation for National Research
+Initiatives ("CNRI"), having an office at 1895 Preston White Drive,
+Reston, VA 20191-5434, and the Individual or Organization("Licensee")
+that has installed or otherwise used the DOIP Client
+Library--Python Version software (the "Software") (collectively
+the "Parties"). Licensee shall be deemed to have entered into, signed,
+and agreed to be bound by the terms and conditions of this Agreement
+upon Licensee's accessing, installing or otherwise using the Software.
+
+2. CNRI hereby grants to Licensee a non-exclusive, fully paid-up,
+world-wide license to use, reproduce, distribute, perform and/or
+display publicly, and prepare derivative works based on the Software,
+and to authorize others to do so, in source or binary form, provided,
+however, that CNRI's copyright notice and this Agreement are included
+in the Software alone, or in any derivative version prepared by
+Licensee, or by others authorized by Licensee.
+
+3. CNRI is making the Software available to Licensee on an "AS IS”
+basis. CNRI MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION, CNRI MAKES NO AND
+DISCLAIMS ANY REPRESENTATION OR WARRANTY OF FITNESS FOR ANY PARTICULAR
+PURPOSE, MERCHANTABILITY, OR THAT THE USE OF THE SOFTWARE WILL NOT
+INFRINGE ANY THIRD-PARTY RIGHTS.
+
+4. CNRI SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF THE
+SOFTWARE FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS
+AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE, OR ANY
+DERIVATIVE THEREOF EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+
+5. This Agreement will automatically terminate upon a material breach
+of its terms and conditions. Nothing in the Agreement shall be deemed
+to create any relationship of agency, partnership, or joint venture
+between CNRI and Licensee. The Agreement does not grant permission to
+use the mark CNRI in a trademark sense to endorse or promote products
+or services of Licensee, or any third party.
+
+6. This Agreement shall be governed by United States Federal law, and,
+to the extent such Federal law does not apply, by the law of the
+Commonwealth of Virginia, excluding Virginia's conflict of law
+provisions; and the courts within such State shall be the only courts
+of competent jurisdiction.
+
+
+B) Third-Party License Agreements
+========================================================================
+
+(1) DONA Copyright License Agreement for
+    Digital Object Interface Protocol Specification Version 2.0
+
+© DONA Foundation 2018
+
+1. This License Agreement (Agreement) is between the
+DONA Foundation (DONA), a registered Swiss non-profit entity, and
+the Individual or Organization (User) that has accessed, downloaded
+or implemented this Digital Object Interface Protocol Specification
+Version 2.0 (hereinafter called DOIP(v2)) available to the public
+free of charge subject to the terms and conditions in the Agreement.
+
+2. DOIP(v2) is based on the standard ITU-T Recommendation X.1255 that
+is publicly available at the ITU Internet site. While there are no
+patent claims asserted by DONA in the Digital Object Architecture
+itself, or in DOIP(v2), there may be third party rights or interests
+in the external specifications referenced in DOIP(v2); and no licenses
+under such third party external specifications are granted to User in
+this Agreement.
+
+3. DONA hereby grants User a non-exclusive, fully paid-up, world-wide
+license to reproduce, implement and further disseminate DOIP(v2) to
+the public, provided that the DONA Foundation copyright notice and this
+Agreement are both retained in DOIP(v2). When creating software
+implementations of DOIP(v2), User is permitted to make modifications to
+DOIP(v2) that are necessary to integrate DOIP(v2) with their software.
+
+4. User hereby acknowledges that DONA is making DOIP(v2) available to
+the public on an "AS IS" basis and DONA MAKES  NO REPRESENTATIONS OR
+WARRANTIES, EXPRESS   OR   IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION,
+DONA MAKES NO AND DISCLAIMS ANY REPRESENTATION OR WARRANTY OF FITNESS FOR
+ANY PARTICULAR PURPOSE, OR THAT THE USE OF DOIP(V2) WILL NOT INFRINGE ANY
+THIRD PARTY RIGHTS.
+
+5. The Agreement will automatically terminate upon a material breach of
+its terms and conditions. Neither the names of the persons acknowledged
+as contributing to the preparation of DOIP(v2) nor the mark DONA may be
+used in a trademark sense to endorse or promote products or services of
+User, or any third party.
+
+6. The Agreement shall be construed and enforced in accordance with the
+laws of Switzerland.
+
+========================================================================
+
+(2) requests
+
+Copyright 2019 Kenneth Reitz. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+========================================================================
+
+(3) requests_toolbelt
+
+Copyright 2014 Ian Cordasco, Cory Benfield
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+========================================================================
+
+(4) cryptography
+
+Copyright 2013-2025 The Python Cryptographic Authority and individual contributors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+========================================================================
+
+(5) PyJWT
+
+Copyright (c) 2015-2022 José Padilla
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+========================================================================
+
+(6) ijson
+
+Copyright (c) 2010, Ivan Sagalaev
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name "ijson" nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+========================================================================
+
+(7) yajl
+
+Copyright (c) 2007-2014, Lloyd Hilaiel <me@lloyd.io>
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
