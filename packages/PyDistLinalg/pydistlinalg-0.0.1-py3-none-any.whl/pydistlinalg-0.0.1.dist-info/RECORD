@@ -1,0 +1,12 @@
+PyDistLinalg/__init__.py.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+PyDistLinalg/config.py,sha256=D8a5kJ5lPeUN_j7emWT4-SzBduHpRQyUogknhr0kvF8,295
+PyDistLinalg/core.py,sha256=GZehHmYHr5YxJV54OSdSk7Fxm_y93ohSWyDFKN3PRB8,3479
+PyDistLinalg/decompositions.py,sha256=wVTCrDWaUA-EaekupChGDYzQyo8PoPyLVMNCK4i0YQw,3126
+PyDistLinalg/interface.py,sha256=E4gRlZsoJdAj0oK9Gq61un9U0VxdxOtxlkM2PAXWhDU,361
+PyDistLinalg/solvers.py,sha256=R6dRI3VTcj3O8jWnhMh74q21eO6keqBYGFz5GDimEOc,575
+PyDistLinalg/utils.py,sha256=3DEX_lxqEOC7KY9KdCwkwCLt3ZfvaqGAfsHOKrz8-jY,2265
+pydistlinalg-0.0.1.dist-info/licenses/LICENSE,sha256=lba1BFf21YFuEPFjB0ywAGG5a6gnHhA-JPmT3nwRUxg,1059
+pydistlinalg-0.0.1.dist-info/METADATA,sha256=wOMWb1Cd9n-8W5Ed5dHRpL2yr5hJQJ8jxRlJAQqNyaE,2270
+pydistlinalg-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pydistlinalg-0.0.1.dist-info/top_level.txt,sha256=tDaJSRuVnTLOWzHU7YReAdPu7NhTOXSNudLcWNBSEHE,13
+pydistlinalg-0.0.1.dist-info/RECORD,,

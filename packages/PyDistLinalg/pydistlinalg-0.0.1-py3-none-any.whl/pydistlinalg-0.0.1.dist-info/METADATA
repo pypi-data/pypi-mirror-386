@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: PyDistLinalg
+Version: 0.0.1
+Summary: A small example package
+Author-email: Example Author <author@example.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Issues, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+Концепция программного модуля PyDistLinalg
+Название модуля: PyDistLinalg (Python Distributed Linear Algebra)
+Цель: Предоставление высокоуровневого API для выполнения фундаментальных операций линейной алгебры и алгоритмов матричных разложений над большими, распределенными по памяти или диску массивами данных, используя масштабируемые вычисления.
+Ключевые особенности:
+NumPy-подобный API: Максимально приближенный к NumPy для легкости перехода и использования.
+Распределенные вычисления: Использование Dask для автоматического распределения и параллелизации вычислений по кластеру.
+Работа с Out-of-Core данными: Обработка массивов, которые не помещаются целиком в оперативную память одного узла.
+Ленивые вычисления (Lazy Evaluation): Вычисления выполняются только тогда, когда результат явно запрашивается (.compute()), что позволяет оптимизировать вычислительный граф.
+Гибкая настройка: Возможность настройки размера чанков (блоков данных), используемого планировщика Dask (локальный, распределенный).
