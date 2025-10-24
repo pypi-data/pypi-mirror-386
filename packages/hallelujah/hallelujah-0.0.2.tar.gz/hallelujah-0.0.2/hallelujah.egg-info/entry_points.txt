@@ -1,0 +1,4 @@
+[console_scripts]
+batch_pray = hallelujah.batch:main
+pray = hallelujah.app:main
+test_pray = hallelujah.test:main
