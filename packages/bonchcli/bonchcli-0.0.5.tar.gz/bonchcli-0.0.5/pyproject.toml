@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "bonchcli"
+version = "0.0.5"
+description = "lk.sut.ru console client"
+authors = ["Karimullin Arthur <KarimullinArthur@disroot.org>"]
+readme = "README.md"
+
+packages = [
+    {include = "bonchcli"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+selenium = "^4.28.0"
+bonchapi = "0.0.7"
+tomlkit = "^0.13.2"
+
+[tool.poetry.scripts]
+bonchcli = "bonchcli.bonchcli:sync_main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[pytest]
+pythonpath = "bonchcli"
