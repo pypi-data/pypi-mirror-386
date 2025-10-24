@@ -1,0 +1,361 @@
+Metadata-Version: 2.3
+Name: django-zooy
+Version: 0.1.1
+Summary: Django integration for Zooy UI framework with Carbon Design System widgets
+Author: Jan Badenhorst
+Author-email: Jan Badenhorst <jan@trintel.co.za>
+License: MIT
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.0
+Classifier: Framework :: Django :: 4.1
+Classifier: Framework :: Django :: 4.2
+Classifier: Framework :: Django :: 5.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Dist: django>=3.2
+Requires-Dist: pytest>=8.0.0 ; extra == 'dev'
+Requires-Dist: pytest-django>=4.5.0 ; extra == 'dev'
+Requires-Dist: ruff>=0.12.3 ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: uv-build ; extra == 'dev'
+Requires-Python: >=3.11
+Project-URL: Documentation, https://github.com/trinity-telecomms/django-zooy#readme
+Project-URL: Homepage, https://github.com/trinity-telecomms/django-zooy
+Project-URL: Issues, https://github.com/trinity-telecomms/django-zooy/issues
+Project-URL: Repository, https://github.com/trinity-telecomms/django-zooy
+Provides-Extra: all
+Provides-Extra: carbon
+Provides-Extra: dev
+Provides-Extra: mdc
+Description-Content-Type: text/markdown
+
+# django-zooy
+
+Django integration for the Zooy UI framework with Carbon Design System widgets.
+
+Provides seamless integration between Django forms and the Zooy JavaScript UI framework, with support for Carbon Design System web components.
+
+## Features
+
+- **Automatic label injection** - No more manually setting widget labels in `__init__`
+- **Carbon Design System widgets** - Text input, email, password, textarea
+- **Clean form mixins** - Simple inheritance-based configuration
+- **Type-safe** - Full type hints and docstrings
+- **Production ready** - Used in Trinity Telecomms projects
+
+## Installation
+
+Using `uv`:
+
+```bash
+uv add django-zooy
+```
+
+Using `pip`:
+
+```bash
+pip install django-zooy
+```
+
+### Development Installation
+
+For local development with editable install:
+
+```bash
+cd /path/to/django-zooy
+uv add --editable .
+```
+
+Or from your project directory:
+
+```bash
+uv add --editable ../django-zooy
+```
+
+## Quick Start
+
+### 1. Add to INSTALLED_APPS
+
+```python
+# settings.py
+INSTALLED_APPS = [
+    ...
+    'django_zooy',
+]
+```
+
+### 2. Use Carbon widgets with automatic labels
+
+**Before django-zooy:**
+
+```python
+from z2widgets.widgets import CarbonTextInput, CarbonEmailInput
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+        widgets = {
+            'first_name': CarbonTextInput(),
+            'last_name': CarbonTextInput(),
+            'email': CarbonEmailInput(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Manually inject labels - tedious and repetitive!
+        for field_name, field in self.fields.items():
+            field.widget.attrs['label'] = field.label
+```
+
+**After django-zooy:**
+
+```python
+from django_zooy import CarbonFormMixin
+from django_zooy.carbon import CarbonTextInput, CarbonEmailInput
+
+class UserProfileForm(CarbonFormMixin, forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+        widgets = {
+            'first_name': CarbonTextInput(),
+            'last_name': CarbonTextInput(),
+            'email': CarbonEmailInput(),
+        }
+
+    # That's it! Labels are automatically injected.
+```
+
+## Available Widgets
+
+### Carbon Design System
+
+```python
+from django_zooy.carbon import (
+    CarbonTextInput,      # <cds-text-input>
+    CarbonEmailInput,     # <cds-text-input type="email">
+    CarbonPasswordInput,  # <cds-password-input>
+    CarbonTextarea,       # <cds-textarea>
+)
+```
+
+## Form Mixins
+
+### CarbonFormMixin
+
+Automatically injects field labels into Carbon widget attributes.
+
+```python
+from django_zooy import CarbonFormMixin
+
+class MyForm(CarbonFormMixin, forms.Form):
+    name = forms.CharField(widget=CarbonTextInput())
+    email = forms.EmailField(widget=CarbonEmailInput())
+```
+
+Features:
+- Only affects Carbon widgets (safe to use with mixed widget types)
+- Preserves existing labels if already set
+- Works with `Form`, `ModelForm`, and custom forms
+
+### ZooyFormMixin
+
+Base mixin for Zooy integration. Use `CarbonFormMixin` for Carbon widgets.
+
+```python
+from django_zooy import ZooyFormMixin
+
+class MyForm(ZooyFormMixin, forms.Form):
+    # Provides base Zooy integration
+    pass
+```
+
+## Widget Attributes
+
+All Carbon widgets support standard HTML attributes:
+
+```python
+CarbonTextInput(attrs={
+    'label': 'Custom Label',  # Override auto-injected label
+    'placeholder': 'Enter text...',
+    'required': True,
+    'disabled': False,
+    'readonly': False,
+})
+```
+
+## Carbon Icons
+
+django-zooy provides server-side rendering of Carbon Design System icons. Icons are rendered as inline SVG at template render time - no JavaScript, no CDN, no placeholders.
+
+### Usage
+
+```django
+{% load carbon %}
+
+{# Basic usage #}
+{% carbon_icon "add" %}
+
+{# With size #}
+{% carbon_icon "edit" 20 %}
+
+{# With attributes #}
+{% carbon_icon "save" 16 slot="icon" class="my-icon" %}
+
+{# Using constants #}
+{% carbon_icon_const "ADD" %}
+{% carbon_icon_const "EDIT" 16 class="toolbar-icon" %}
+```
+
+### Setup
+
+Icons are read from `@carbon/icons` NPM package. django-zooy auto-detects common locations:
+
+1. `../zooy/node_modules/@carbon/icons/svg` (workspace structure)
+2. `static/js/node_modules/@carbon/icons/svg` (project npm install)
+3. `node_modules/@carbon/icons/svg` (project root)
+
+**Custom path** (optional):
+
+```python
+# settings.py
+CARBON_ICONS_PATH = '/path/to/node_modules/@carbon/icons/svg'
+```
+
+### Icon Names
+
+Browse the full icon library: https://carbondesignsystem.com/guidelines/icons/library/
+
+Common icons are available as constants:
+
+```python
+from django_zooy.carbon.icons import Icon
+
+Icon.ADD          # 'add'
+Icon.EDIT         # 'edit'
+Icon.DELETE       # 'trash-can'
+Icon.SAVE         # 'save'
+Icon.CLOSE        # 'close'
+Icon.SEARCH       # 'search'
+Icon.CHEVRON_DOWN # 'chevron--down'
+# ... and more
+```
+
+### Benefits
+
+- ✅ **No JavaScript required** - Icons render server-side
+- ✅ **No network requests** - SVG embedded in HTML
+- ✅ **No placeholders** - Instant rendering
+- ✅ **No import maps** - Works everywhere
+- ✅ **Progressive enhancement** - Works without JS
+- ✅ **Type-safe** - Icon constants prevent typos
+
+## Django Settings
+
+Add `django_zooy` to `INSTALLED_APPS` to enable template loading:
+
+```python
+# settings.py
+INSTALLED_APPS = [
+    ...
+    'django_zooy',
+]
+```
+
+## Development
+
+### Setup
+
+```bash
+git clone https://github.com/trinity-telecomms/django-zooy
+cd django-zooy
+uv sync --all-extras --all-groups
+```
+
+### Run Tests
+
+```bash
+pytest
+```
+
+### Lint
+
+```bash
+ruff check .
+isort .
+```
+
+### Build and Publish
+
+```bash
+# Update version in pyproject.toml
+vim pyproject.toml
+
+# Sync dependencies
+uv sync --upgrade --all-extras --all-groups
+
+# Run tests
+pytest
+
+# Build
+rm -rf dist/ build/ *.egg-info/
+uv build
+
+# Publish to PyPI
+uv publish
+```
+
+
+## Roadmap
+
+- [x] Carbon Design System widgets
+- [x] Automatic label injection
+- [x] Form mixins
+- [ ] Additional Carbon widgets (date, number, file, select, checkbox, radio)
+- [ ] Material Design Components support
+- [ ] Comprehensive test suite
+- [ ] Documentation site
+
+## Contributing
+
+Contributions welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
+
+## License
+
+MIT License. See [LICENCE](LICENCE) for details.
+
+## Links
+
+- **GitHub**: https://github.com/trinity-telecomms/django-zooy
+- **Issues**: https://github.com/trinity-telecomms/django-zooy/issues
+- **Zooy UI Framework**: https://github.com/trinity-telecomms/zooy
+- **Carbon Design System**: https://web-components.carbondesignsystem.com/
+
+#### To build and publish to pypi:
+
+Update the version in the `pyproject.toml` file, then:
+```bash
+uv sync --upgrade --all-extras --all-groups
+pytest
+rm -rf dist/ build/ *.egg-info/
+uv build
+uv publish
+```
+
+## Credits
+
+Developed and maintained by Trinity Telecomms.
