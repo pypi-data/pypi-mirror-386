@@ -1,0 +1,5 @@
+[console_scripts]
+xasmapviewer = ewoksid24.apps.xasmap_viewer:main
+
+[ewoks.tasks.class]
+ewoksid24.tasks.* = ewoksid24
