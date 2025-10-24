@@ -1,0 +1,13 @@
+[project]
+name = "mar-eval"
+version = "0.1.0"
+description = "Metal Artifact Reduction Evaluation Toolkit (Annex GG)"
+authors = [{ name="Christopher D. Cocchiaraley" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy", "scipy", "scikit-learn"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
