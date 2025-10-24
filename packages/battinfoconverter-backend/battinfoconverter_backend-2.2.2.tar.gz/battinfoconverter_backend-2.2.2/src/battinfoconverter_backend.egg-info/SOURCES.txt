@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/battinfoconverter_backend/__init__.py
+src/battinfoconverter_backend/auxiliary.py
+src/battinfoconverter_backend/excel_tools.py
+src/battinfoconverter_backend/json_convert.py
+src/battinfoconverter_backend/json_template.py
+src/battinfoconverter_backend.egg-info/PKG-INFO
+src/battinfoconverter_backend.egg-info/SOURCES.txt
+src/battinfoconverter_backend.egg-info/dependency_links.txt
+src/battinfoconverter_backend.egg-info/requires.txt
+src/battinfoconverter_backend.egg-info/top_level.txt
+test/test_standard_conversion.py
