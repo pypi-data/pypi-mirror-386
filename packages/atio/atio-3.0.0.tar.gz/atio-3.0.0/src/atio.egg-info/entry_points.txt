@@ -1,0 +1,2 @@
+[console_scripts]
+atio = atio.cli:app
