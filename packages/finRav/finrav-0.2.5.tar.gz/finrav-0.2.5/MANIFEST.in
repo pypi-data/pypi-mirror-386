@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+include src/finr/py.typed
+recursive-include src/finr *.py
