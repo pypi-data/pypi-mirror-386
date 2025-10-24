@@ -1,0 +1,26 @@
+from ._aion import *
+
+__all__ = [
+    "AionVendor",
+    "AionSchemaGUID",
+    "AionSchemaData",
+    "AionObjectType",
+    "AionTag",
+    "AionSentiment",
+    "AionGPS",
+    "AionEmotion",
+    "AionMedia",
+    "AionTranscription",
+    "AionAge",
+    "AionPoint",
+    "AionPoly",
+    "AionFaceLandmark",
+    "AionObjectCategory",
+    "AionStructureData",
+    "AionObject",
+    "AionWord",
+    "AionSeries",
+    "AionEmbedding",
+    "AionProcessedStats",
+    "Aion",
+]

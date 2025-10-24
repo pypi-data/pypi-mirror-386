@@ -1,0 +1,5 @@
+# This file gets copied in by ariadne-codegen
+from aiware.client._base.async_base_client import _AsyncBaseClient as __AsyncBaseClient
+
+class _AsyncBaseClient(__AsyncBaseClient):
+    pass
