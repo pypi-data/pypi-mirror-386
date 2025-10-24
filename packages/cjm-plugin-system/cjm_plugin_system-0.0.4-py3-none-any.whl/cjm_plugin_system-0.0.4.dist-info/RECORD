@@ -1,0 +1,14 @@
+cjm_plugin_system/__init__.py,sha256=1mptEzQihbdyqqzMgdns_j5ZGK9gz7hR2bsgA_TnjO4,22
+cjm_plugin_system/_modidx.py,sha256=iAkqHto5I4mXicwEkDP_TAArBuX8VvgEz_JJ7B0V3bY,12354
+cjm_plugin_system/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cjm_plugin_system/core/interface.py,sha256=r9Og0LY0v4ryDp50fC3moQxA6O_2MqhodfzQDTrGOds,4458
+cjm_plugin_system/core/manager.py,sha256=Xlg6gm4XXlUz6bEU44CFvsz6PI52fhsc3dXmuM8QyYU,17778
+cjm_plugin_system/core/metadata.py,sha256=-aHClZP_B_Y1fJV8Yv999tJeW_adSdGG3gFRQI4uBPw,783
+cjm_plugin_system/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cjm_plugin_system/utils/validation.py,sha256=274OmmmPB6glG_sTwmdwbj9THRInEC-9FNw0-f4AaX8,4319
+cjm_plugin_system-0.0.4.dist-info/licenses/LICENSE,sha256=xV8xoN4VOL0uw9X8RSs2IMuD_Ss_a9yAbtGNeBWZwnw,11337
+cjm_plugin_system-0.0.4.dist-info/METADATA,sha256=6kYm757fHHdoIXjYs1w_5rJh_Mr5ggIUBPJ2stwtu1g,14201
+cjm_plugin_system-0.0.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+cjm_plugin_system-0.0.4.dist-info/entry_points.txt,sha256=QhJ62e5DlXYUfJOBBFFhlT2um1FD3C-pMJztdDnMvS4,56
+cjm_plugin_system-0.0.4.dist-info/top_level.txt,sha256=RbRgR25L_zklWxSC4btY4HFpOiBS6M4KR_UUzxkyN-Y,18
+cjm_plugin_system-0.0.4.dist-info/RECORD,,
