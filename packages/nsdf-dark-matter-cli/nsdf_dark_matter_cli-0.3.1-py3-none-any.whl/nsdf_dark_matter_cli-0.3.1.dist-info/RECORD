@@ -1,0 +1,10 @@
+nsdf_dark_matter_cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nsdf_dark_matter_cli/cli.py,sha256=xz63QqGsdb5WgSmKhvskN-5QhI2nkcz_vIVwR2JG3-w,5344
+nsdf_dark_matter_cli/r_dataset.csv,sha256=fdJL22nUxhJ0dYF0HP9hqp2ImxndmIIQGV7vcuwMlVA,2684138
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_cli.py,sha256=Jhg04FftC7249O8E5qbGBoJJa7A1uPXLPRrEVEXHIb0,1867
+nsdf_dark_matter_cli-0.3.1.dist-info/METADATA,sha256=jfwbiWWi4aTn2hlnO2vt5F_RA0Me_ZqAG4BEaXkuCjI,1404
+nsdf_dark_matter_cli-0.3.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+nsdf_dark_matter_cli-0.3.1.dist-info/entry_points.txt,sha256=acHdvxOxyOMEFBagFFZKYbdTRgguoqevKwn6Dm5sqNs,58
+nsdf_dark_matter_cli-0.3.1.dist-info/top_level.txt,sha256=iBbMxJQydkv6oowzgeVGsfnmQMUOYTL5ziUsu4Q7u8E,27
+nsdf_dark_matter_cli-0.3.1.dist-info/RECORD,,
