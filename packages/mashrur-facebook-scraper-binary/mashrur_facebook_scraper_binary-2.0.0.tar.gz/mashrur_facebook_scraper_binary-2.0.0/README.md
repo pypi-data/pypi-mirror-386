@@ -1,0 +1,199 @@
+# Mashrur Facebook Scraper - Binary Edition
+
+**Made by Mashrur Rahman**
+
+## 🚀 Ultra Simple - Just 5 Parameters
+
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+posts = scrape_facebook_posts("email", "password", "page_url", num_posts, "output_file.json")
+```
+
+## 📦 Installation
+
+```bash
+pip install mashrur-facebook-scraper-binary
+```
+
+## 💻 Usage
+
+### Create your scraper file:
+
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+posts = scrape_facebook_posts(
+    "your_email@example.com",
+    "your_password",
+    "https://www.facebook.com/indianexpress",
+    5,
+    "my_data.json"
+)
+
+print(f"Scraped {len(posts)} posts!")
+```
+
+### Function Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `email` | str | Your Facebook email |
+| `password` | str | Your Facebook password |
+| `page_url` | str | Facebook page URL |
+| `num_posts` | int | Number of posts |
+| `output_filename` | str | Output JSON filename |
+
+## 🛡️ Nuitka Compilation (Code Protection)
+
+Compile your scraper for maximum code protection:
+
+### Step 1: Install Nuitka
+```bash
+pip install nuitka
+```
+
+### Step 2: Create Your Scraper Script
+```python
+# my_scraper.py
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+posts = scrape_facebook_posts(
+    "your_email@example.com",
+    "your_password",
+    "https://www.facebook.com/page",
+    5,
+    "results.json"
+)
+```
+
+### Step 3: Compile with Nuitka
+```bash
+# Basic compilation
+python -m nuitka --standalone --onefile my_scraper.py
+
+# Advanced compilation (maximum protection)
+python -m nuitka \
+    --standalone \
+    --onefile \
+    --remove-output \
+    --assume-yes-for-downloads \
+    --python-flag=no_docstrings \
+    --windows-disable-console \
+    --output-filename="facebook_scraper.exe" \
+    my_scraper.py
+```
+
+### Step 4: Distribute Protected Binary
+- Share only the compiled `.exe` file
+- No source code exposure
+- No Python installation required for end users
+- Maximum code protection
+
+## 📊 Output Format
+
+The scraper generates clean JSON data with the following structure:
+
+```json
+[
+  {
+    "post_id": "123456789",
+    "url": "https://facebook.com/posts/123456789",
+    "content": "Post content text here...",
+    "user_username_raw": "Page Name",
+    "date_posted": "2025-01-15T10:30:00Z",
+    "likes": 1250,
+    "num_comments": 45,
+    "num_shares": 12,
+    "media_urls": ["https://facebook.com/image1.jpg"],
+    "hashtags": ["#example", "#hashtag"],
+    "post_type": "Post",
+    "is_sponsored": false
+  }
+]
+```
+
+## 🔧 Advanced Examples
+
+### Batch Processing Multiple Pages
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+pages = [
+    "https://www.facebook.com/cnn",
+    "https://www.facebook.com/bbc",
+    "https://www.facebook.com/reuters"
+]
+
+for page in pages:
+    page_name = page.split('/')[-1]
+    filename = f"{page_name}_posts.json"
+
+    posts = scrape_facebook_posts(
+        email="your_email@example.com",
+        password="your_password",
+        page_url=page,
+        num_posts=20,
+        output_filename=filename
+    )
+
+    print(f"Scraped {len(posts)} posts from {page_name}")
+```
+
+### Error Handling
+```python
+from mashrur_facebook_scraper import scrape_facebook_posts
+
+try:
+    posts = scrape_facebook_posts(
+        email="your_email@example.com",
+        password="your_password",
+        page_url="https://www.facebook.com/invalidpage",
+        num_posts=10
+    )
+except ValueError as e:
+    print(f"Input error: {e}")
+except Exception as e:
+    print(f"Scraping error: {e}")
+```
+
+## 📋 Requirements
+
+- Python 3.7 or higher
+- Chrome browser installed
+- Valid Facebook credentials
+- Stable internet connection
+
+## ⚡ Performance & Protection
+
+### Standard Python
+- ✅ Easy to use
+- ❌ Source code visible
+- ❌ Requires Python installation
+
+### Nuitka Compiled
+- ✅ Maximum code protection
+- ✅ Standalone executable
+- ✅ Better performance
+- ✅ No Python dependency
+- ✅ Professional distribution
+
+## 📞 Support
+
+- **Email**: mashrur.rahman@support.com
+- **Documentation**: https://docs.mashrur-scraper.com
+
+## 📄 License
+
+Proprietary - All rights reserved to Mashrur Rahman
+
+## 🎯 Perfect For
+
+- **Commercial Software**: Sell compiled executables
+- **Client Projects**: Protect your scraping algorithms
+- **Team Collaboration**: Share binaries, not source code
+- **Enterprise Solutions**: Professional deployment
+
+---
+
+**Transform your scraping expertise into protected, professional software with Nuitka compilation!**

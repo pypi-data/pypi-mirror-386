@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+mashrur_facebook_scraper/__init__.py
+mashrur_facebook_scraper_binary.egg-info/PKG-INFO
+mashrur_facebook_scraper_binary.egg-info/SOURCES.txt
+mashrur_facebook_scraper_binary.egg-info/dependency_links.txt
+mashrur_facebook_scraper_binary.egg-info/requires.txt
+mashrur_facebook_scraper_binary.egg-info/top_level.txt
