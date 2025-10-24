@@ -1,0 +1,11 @@
+pyciaaw/__init__.py,sha256=Jma15OONVKTtxc9il95gLw1WRGYFYeJfF7KQl4l5ce0,2507
+pyciaaw/_ciaaw.cpython-311-x86_64-linux-gnu.so,sha256=qPMJ72YRWqhvoK-cEm_QXf-So7ipoPv29pO8SHUJwZ8,30192
+pyciaaw/libciaaw.a,sha256=R8ytmntLgQlU7Ws5uqsZso6nSt7WslyuZB3JuXIfU7o,560704
+pyciaaw/libciaaw.so,sha256=WUtKCAxxysOMMILDMKQyUPrQIS6kaEN5jXKx3joxo6s,566512
+pyciaaw.libs/libgfortran-3ec47101.so.5.0.0,sha256=1N71JfDHoUiMjSC6cBVqN9m7Qas7UHb1X4z1hFzFBeY,3082712
+pyciaaw.libs/libquadmath-67d31475.so.0.0.0,sha256=Fuf5b9JBLm8rvxtgfjxdvWjUmfFNzNzrThaHEz8SHF4,292976
+pyciaaw-1.1.0.dist-info/METADATA,sha256=tA50bpdNtlOCxusIRKmlGznFfFo3j86UolZx3NY0Inc,940
+pyciaaw-1.1.0.dist-info/WHEEL,sha256=u09EJI1AKMLqzgyqtxYdjt5gq1Pp7yDi5eNGGl6ZGjA,152
+pyciaaw-1.1.0.dist-info/top_level.txt,sha256=IRCyNd8GkILV853CkTNUBvsrUoEl0uRg3sH6VMu_B84,8
+pyciaaw-1.1.0.dist-info/RECORD,,
+pyciaaw-1.1.0.dist-info/licenses/LICENSE,sha256=rPuuWRMCUNHTwM4-8LwcNyw9xUWFQTYN6-Tl0QcqCiI,1064
