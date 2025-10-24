@@ -1,0 +1,8 @@
+torch
+matplotlib
+numpy
+torchvision
+requests
+tqdm
+tensorboard
+torch-tb-profiler
