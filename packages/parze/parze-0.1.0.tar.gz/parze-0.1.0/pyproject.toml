@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "parze"
+description = "Python SDK for the Parze API"
+authors = [ { name = "gideononyewuenyi" } ]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["requests>=2.31"]
+license = {file = "LICENSE"}
+keywords = ["parze", "sdk", "document-processing", "api"]
+dynamic = ["version"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+urls = { "Homepage" = "https://parze.com", "Repository" = "https://github.com/parze/parze" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["parze*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "parze.__version__"}
