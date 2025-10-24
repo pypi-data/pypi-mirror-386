@@ -1,0 +1,29 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include CHANGELOG.md
+
+# Include the package data
+recursive-include nnez *.py
+recursive-include nnez *.typed
+
+# Include test files
+recursive-include tests *.py
+recursive-include tests *.json
+recursive-include tests *.txt
+
+# Include documentation
+recursive-include docs *.rst
+recursive-include docs *.py
+recursive-include docs *.md
+
+# Exclude compiled files
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude *.dylib
+global-exclude *~
+global-exclude .git*
+global-exclude .coverage
+global-exclude .tox

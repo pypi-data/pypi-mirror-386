@@ -1,0 +1,16 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+nnez/__init__.py
+nnez/core.py
+nnez/grammar.py
+nnez/py.typed
+nnez.egg-info/PKG-INFO
+nnez.egg-info/SOURCES.txt
+nnez.egg-info/dependency_links.txt
+nnez.egg-info/not-zip-safe
+nnez.egg-info/requires.txt
+nnez.egg-info/top_level.txt
