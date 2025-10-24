@@ -1,0 +1,230 @@
+name: Wheels
+# Build distribution wheels with OpenSim dependencies
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_ubuntu:
+        description: 'Build Ubuntu wheels'
+        required: false
+        default: true
+        type: boolean
+      build_macos:
+        description: 'Build macOS wheels'
+        required: false
+        default: true
+        type: boolean
+      build_windows:
+        description: 'Build Windows wheels'
+        required: false
+        default: true
+        type: boolean
+      force_rebuild_cache:
+        description: 'Force rebuild OpenSim cache (ignores existing cache)'
+        required: false
+        default: false
+        type: boolean
+  # pull_request:
+  # push:
+  #   branches:
+  #     - master
+  #     - main
+  release:
+    types:
+      - published
+
+env:
+  FORCE_COLOR: 3
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  matrix_prep:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: set-matrix
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # Manual trigger - build only selected platforms
+            matrix="[]"
+            if [ "${{ inputs.build_ubuntu }}" = "true" ]; then
+              matrix=$(echo $matrix | jq '. += [{"os": "ubuntu-latest"}]')
+            fi
+            if [ "${{ inputs.build_macos }}" = "true" ]; then
+              matrix=$(echo $matrix | jq '. += [{"os": "macos-latest"}]')
+            fi
+            if [ "${{ inputs.build_windows }}" = "true" ]; then
+              # Pin to windows-2022 to match official OpenSim CI
+              # windows-latest now points to Windows Server 2025 (as of Sept 2025)
+              # but OpenSim is tested on windows-2022
+              matrix=$(echo $matrix | jq '. += [{"os": "windows-2022"}]')
+            fi
+          else
+            # Pin to windows-2022 to match official OpenSim CI and ensure consistent build environment
+            # Note: windows-latest migrated to Windows Server 2025 in Sept 2025
+            matrix='[{"os": "ubuntu-latest"}, {"os": "macos-latest"}, {"os": "windows-2022"}]'
+          fi
+          echo "matrix={\"include\":$(echo $matrix)}" >> $GITHUB_OUTPUT
+
+
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    needs: matrix_prep
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.matrix_prep.outputs.matrix) }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Get OpenSim Core submodule SHA
+        id: opensim-sha
+        run: |
+          OPENSIM_SHA=$(git rev-parse HEAD:src/opensim-core)
+          echo "opensim_sha=$OPENSIM_SHA" >> $GITHUB_OUTPUT
+          echo "OpenSim Core SHA: $OPENSIM_SHA"
+        shell: bash
+
+
+      # Ensure cache directory exists to prevent path validation errors
+      - name: Create cache directory structure
+        run: |
+          mkdir -p opensim-cache
+        shell: bash
+
+      # Cache OpenSim build per container environment and architecture
+      - name: Restore OpenSim cache
+        id: opensim-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            opensim-cache
+          key: opensim-${{ matrix.os }}-${{ runner.arch }}-${{ steps.opensim-sha.outputs.opensim_sha }}-v3${{ inputs.force_rebuild_cache && '-rebuild' || '' }}
+          restore-keys: |
+            opensim-${{ matrix.os }}-${{ runner.arch }}-${{ steps.opensim-sha.outputs.opensim_sha }}-
+            opensim-${{ matrix.os }}-${{ runner.arch }}-
+
+      # Check if OpenSim was actually restored (exact or partial cache match)
+      - name: Check OpenSim build status
+        id: opensim-status
+        run: |
+          if [ "${{ runner.os }}" = "Linux" ]; then
+            OPENSIM_DIR="opensim-cache/linux-$(uname -m)/opensim-install"
+          elif [ "${{ runner.os }}" = "macOS" ]; then
+            OPENSIM_DIR="opensim-cache/macos-universal2/opensim-install"
+          elif [ "${{ runner.os }}" = "Windows" ]; then
+            OPENSIM_DIR="opensim-cache/windows-AMD64/opensim-install"
+          fi
+
+          if [ -d "$OPENSIM_DIR" ]; then
+            echo "needs_build=false" >> $GITHUB_OUTPUT
+            echo "OpenSim found in cache directory: $OPENSIM_DIR"
+          else
+            echo "needs_build=true" >> $GITHUB_OUTPUT
+            echo "OpenSim not found, will build from source"
+          fi
+        shell: bash
+
+      # Build OpenSim separately to cache it before wheel build
+      # NOTE: Linux and macOS builds happen inside cibuildwheel's environment
+      # to ensure compatibility and correct CMake versions.
+      # Only Windows builds outside the container due to Visual Studio requirements.
+
+      - name: Build OpenSim (Windows)
+        if: runner.os == 'Windows' && steps.opensim-status.outputs.needs_build == 'true'
+        run: |
+          powershell -ExecutionPolicy Bypass -File scripts/ci/build_opensim.ps1 -CacheDir "${{ github.workspace }}/opensim-cache/windows-AMD64" -Jobs 4
+        shell: bash
+
+      # Save the cache immediately after building OpenSim for Windows only
+      # Linux and macOS build inside cibuildwheel, so their cache is saved after cibuildwheel
+      - name: Save OpenSim cache (Windows)
+        if: runner.os == 'Windows' && steps.opensim-cache.outputs.cache-hit != 'true' && steps.opensim-status.outputs.needs_build == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            opensim-cache
+          key: opensim-${{ matrix.os }}-${{ runner.arch }}-${{ steps.opensim-sha.outputs.opensim_sha }}-v3${{ inputs.force_rebuild_cache && '-rebuild' || '' }}
+
+      # All cibuildwheel configuration is in pyproject.toml under [tool.cibuildwheel]
+      # This keeps the workflow clean and maintainable
+      - uses: pypa/cibuildwheel@v3.1.3
+        env:
+          # Only workflow-specific environment variables here
+          OPENSIM_SHA: ${{ steps.opensim-sha.outputs.opensim_sha }}
+          # Set OPENSIM_INSTALL_DIR for Windows to ensure CMake finds cached build
+          # We only use environment variable (not CMAKE_ARGS) because:
+          # 1. github.workspace contains backslashes on Windows (D:\a\pyopensim\pyopensim)
+          # 2. Backslashes in YAML format() get interpreted as escape sequences (\a becomes bell char)
+          # 3. CMake detects and normalizes env var paths correctly (mixed slashes work fine)
+          # 4. Currently working via environment variable fallback (CMakeLists.txt:126-131)
+          OPENSIM_INSTALL_DIR: ${{ runner.os == 'Windows' && format('{0}/opensim-cache/windows-AMD64/opensim-install', github.workspace) || '' }}
+
+      # Save cache for Linux and macOS after cibuildwheel (since build happens inside cibuildwheel environment)
+      - name: Save OpenSim cache (Linux/macOS)
+        if: runner.os != 'Windows' && steps.opensim-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            opensim-cache
+          key: opensim-${{ matrix.os }}-${{ runner.arch }}-${{ steps.opensim-sha.outputs.opensim_sha }}-v3${{ inputs.force_rebuild_cache && '-rebuild' || '' }}
+
+      - name: Verify clean directory
+        run: |
+          # Exclude submodules from diff check since build process may touch them
+          git diff --exit-code -- . ':!src/opensim-core'
+        shell: bash
+        timeout-minutes: 5
+
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.os }}
+          path: wheelhouse/*.whl
+
+
+  build_sdist:
+    name: Build source distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Build sdist
+        run: pipx run build --sdist
+
+      - name: Upload sdist
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-sdist
+          path: dist/*.tar.gz
+
+  upload_all:
+    name: Upload if release
+    needs: [build_wheels, build_sdist]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
+    environment: pypi
+    permissions:
+      id-token: write
+
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: dist-*
+          merge-multiple: true
+          path: dist
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
