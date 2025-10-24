@@ -1,0 +1,2 @@
+[console_scripts]
+yoki = yoki.cli:app
