@@ -1,0 +1,137 @@
+Metadata-Version: 2.4
+Name: agentify_ai
+Version: 0.0.1
+Project-URL: Home, https://github.com/datalayer/agentify-ai
+Author-email: Datalayer <info@datalayer.io>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2025, Datalayer
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE
+Keywords: Jupyter
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: click
+Requires-Dist: fastapi
+Requires-Dist: jupyter-kernel-client>=0.7.3
+Requires-Dist: jupyter-nbmodel-client>=0.13.5
+Requires-Dist: jupyter-server-api
+Requires-Dist: pydantic
+Requires-Dist: uvicorn
+Provides-Extra: lint
+Requires-Dist: mdformat-gfm>=0.3.5; extra == 'lint'
+Requires-Dist: mdformat>0.7; extra == 'lint'
+Requires-Dist: ruff; extra == 'lint'
+Provides-Extra: test
+Requires-Dist: datalayer-pycrdt==0.12.17; extra == 'test'
+Requires-Dist: ipykernel; extra == 'test'
+Requires-Dist: jupyter-collaboration==4.0.2; extra == 'test'
+Requires-Dist: jupyter-server<3,>=1.6; extra == 'test'
+Requires-Dist: jupyterlab==4.4.1; extra == 'test'
+Requires-Dist: pillow>=10.0.0; extra == 'test'
+Requires-Dist: pytest-asyncio; extra == 'test'
+Requires-Dist: pytest-timeout>=2.1.0; extra == 'test'
+Requires-Dist: pytest>=7.0; extra == 'test'
+Provides-Extra: typing
+Requires-Dist: mypy>=0.990; extra == 'typing'
+Description-Content-Type: text/markdown
+
+<!--
+  ~ Copyright (c) 2023-2024 Datalayer, Inc.
+  ~
+  ~ BSD 3-Clause License
+-->
+
+[![Datalayer](https://assets.datalayer.tech/datalayer-25.svg)](https://datalayer.io)
+
+[![Become a Sponsor](https://img.shields.io/static/v1?label=Become%20a%20Sponsor&message=%E2%9D%A4&logo=GitHub&style=flat&color=1ABC9C)](https://github.com/sponsors/datalayer)
+
+# ✨ 🤖 Agentify AI
+
+[![PyPI - Version](https://img.shields.io/pypi/v/agentify-ai)](https://pypi.org/project/agentify-ai)
+
+Agentify AI is a Python and TypeScript library to develop and deploy an `Agent Driven Architecture` (ADA).
+
+Agentify AI embraces [A2A](https://github.com/a2aproject) as [MCP](https://github.com/modelcontextprotocol) (see [Ecosystem](#ecosystem) for alternative solutions) and can be deployed on your laptop or on [Kubernetes](https://github.com/kubernetes).
+
+The main features added to A2A and MCP are:
+
+- Agent identity with Delegation
+- Long running process with async tools
+- Agent authorizations with permissions
+- Controls with Guardrails
+- Rich and custom user interactions with AG-UI
+- Discovery with a Registry
+- Observability with OpenTelemetry
+
+An agent has:
+
+- A public `Identity`.
+- Some `Guardrails` defined by its `Manager`.
+- Some `Tools`.
+- Some `Skills` gained using the `Tools`.
+
+An Agent:
+
+- Interacts with other `Agents`.
+- Reports to a single `Manager`.
+
+An agent collaborates with a another Agent based its `Skills`.
+
+## Identity
+
+Outside Agents Identity is provided with:
+
+- PKCI
+- OAuth with automatic registration: Dynamic Client Registration (RFC 7591 / RFC 7592) allows clients (internal services, for example) to automatically register with an authorization server (AuthZ server) via an API, obtain their own client_id (and possibly secret or key pair) programmatically, optionally update or delete their registration later.
+
+Inside Agents Identity is provided with:
+
+- SPIFFE – Secure Production Identity Framework for Everyone - A set of standards for securely identifying software systems in dynamic and heterogeneous environments.
+- SPIRE – SPIFFE Runtime Environment - An implementation of SPIFFE that issues and manages identities (SVIDs) for workloads.
+
+## Integrations
+
+- VS Code Copilot: Via the  A2A edition
+
+## Ecosystem
+
+- AG2: https://ag2.ai
+- AgentScope: https://agentscope.io
+- AGNTCY: https://agntcy.org by Cisco
+- Bee AI: https://beeai.dev by IBM
+- Fast A2A: https://github.com/pydantic/fasta2a by Pydantic AI.
+- Kagent-dev: https://github.com/kagent-dev by Solo, to deploy single Agents or MCP servers on Kubernetes.
+- MassGen: https://massgen.ai
+- MCP Agent: https://github.com/lastmile-ai/mcp-agent
+- OpenAgents: https://openagents.org
+- OpenAI Swarm: https://github.com/openai/swarm by OpenAI.

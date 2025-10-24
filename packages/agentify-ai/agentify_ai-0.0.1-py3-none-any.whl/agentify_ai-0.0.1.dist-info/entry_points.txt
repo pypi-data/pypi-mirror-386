@@ -1,0 +1,2 @@
+[console_scripts]
+agentify-ai = agentify_ai.server:server
