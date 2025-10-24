@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(jupyter server extension enable nextgen_kernels_api)",
+      "Bash(python:*)",
+      "Bash(jupyter server extension enable nextgen_kernels_api --py --sys-prefix)",
+      "Bash(jupyter server extension list)",
+      "Bash(twine check:*)",
+      "Bash(twine upload:*)",
+      "WebFetch(domain:jupyter-client.readthedocs.io)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
