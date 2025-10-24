@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix2mpo-plus"
+dynamic = ["version"]
+description = "A Python package for Matrix Product Operator (MPO) decomposition"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Matrix2MPO Plus Team", email = "matrix2mpo@example.com"}
+]
+maintainers = [
+    {name = "Matrix2MPO Plus Team", email = "matrix2mpo@example.com"}
+]
+keywords = ["matrix", "mpo", "tensor", "decomposition", "svd", "machine learning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "numpy>=1.19.0",
+    "torch>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-username/matrix2mpo-plus"
+Documentation = "https://matrix2mpo-plus.readthedocs.io/"
+Repository = "https://github.com/your-username/matrix2mpo-plus.git"
+"Bug Tracker" = "https://github.com/your-username/matrix2mpo-plus/issues"
+
+[tool.setuptools]
+packages = ["matrix2mpo_plus"]
+
+[tool.setuptools.package-data]
+matrix2mpo_plus = ["libs/*.so"]
+
+[tool.setuptools_scm]
+write_to = "matrix2mpo_plus/_version.py"
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

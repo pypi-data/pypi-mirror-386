@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+matrix2mpo_plus/Matrix2MPO_plus.py
+matrix2mpo_plus/__init__.py
+matrix2mpo_plus.egg-info/PKG-INFO
+matrix2mpo_plus.egg-info/SOURCES.txt
+matrix2mpo_plus.egg-info/dependency_links.txt
+matrix2mpo_plus.egg-info/requires.txt
+matrix2mpo_plus.egg-info/top_level.txt
+matrix2mpo_plus/libs/svd_module.cpython-310-x86_64-linux-gnu.so

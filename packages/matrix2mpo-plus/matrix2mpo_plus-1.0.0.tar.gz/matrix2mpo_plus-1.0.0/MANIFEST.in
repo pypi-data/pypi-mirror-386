@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+recursive-include matrix2mpo_plus *.py
+recursive-include matrix2mpo_plus/libs *.so
