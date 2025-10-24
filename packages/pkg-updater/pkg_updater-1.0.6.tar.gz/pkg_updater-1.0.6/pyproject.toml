@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkg-updater"
+version = "1.0.6"
+dependencies = ["PyQt6==6.5.3", "PyQt6-Qt6==6.5.3", "PyQt6-sip==13.6.0"]
+requires-python = ">=3"
+authors = [{ name = "Pradish Bijukchhe", email = "pradishbijukchhe@gmail.com" }]
+description = "A python script to update packages"
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = []
+classifiers = ["Programming Language :: Python :: 3"]
+
+[project.urls]
+Homepage = "https://github.com/sandbox-pokhara/pkg-updater"
+Issues = "https://github.com/sandbox-pokhara/pkg-updater/issues"
+
+[project.gui-scripts]
+pkg-updater = "pkg_updater.app:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-dir]
+"pkg_updater" = "pkg_updater"
+
+[tool.isort]
+line_length = 79
+force_single_line = true
+
+[tool.black]
+line-length = 79
+preview = true
+
+[tool.pyright]
+typeCheckingMode = "strict"
+reportUnknownMemberType = false

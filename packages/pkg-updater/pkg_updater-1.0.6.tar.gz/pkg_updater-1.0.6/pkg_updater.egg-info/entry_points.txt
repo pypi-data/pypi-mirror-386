@@ -1,0 +1,2 @@
+[gui_scripts]
+pkg-updater = pkg_updater.app:main
