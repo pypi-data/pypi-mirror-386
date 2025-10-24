@@ -1,0 +1,2 @@
+[console_scripts]
+china-union-lotto = tobe_time_mcp.server:main
