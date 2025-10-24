@@ -1,0 +1,19 @@
+[project]
+name = "tee-logfile"
+version = "0.3.6"
+description = "A simple utility to tee stdout and stderr to a logfile."
+authors = [
+    { name = "cy" }
+]
+readme = "README.md"
+requires-python = ">=3.9"
+urls = { "Repository" = "https://github.com/firstim21cy/tee-logfile"}
+[tool.poetry]
+packages = [{include = "tee_logfile", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
