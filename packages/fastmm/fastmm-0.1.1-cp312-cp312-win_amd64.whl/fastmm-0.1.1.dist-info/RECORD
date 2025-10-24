@@ -1,0 +1,13 @@
+fastmm/fastmm.pyd,sha256=f7AXaW9IUS4YPtGlPzCfqEsnP-GwSoXuqIFR5uJE-VM,319488
+fastmm/fastmmlib.dll,sha256=oMflY98HYgh5UKKnQcR1iLxzrdLejRxJ6V0DlFcu87k,945152
+fastmm/matcher.py,sha256=fr5ENTKLai8AdSWnYh_CIPDDonw9c4Xn5kj3yhKuIBI,1501
+fastmm/_version.py,sha256=CumYt3gz5LUgsCCfFi7JxfsYB-qg28j-eqTeJC61ajo,746
+fastmm/__init__.py,sha256=wJFIMYjk_HxlIwz7QO6hQB0U7iZAK_yMJxgADdmjNi4,1071
+fastmm-0.1.1.dist-info/DELVEWHEEL,sha256=IGhWtwY99i5JLUE5soyiWrUHZNUaP52vv2IKXGcqJlE,502
+fastmm-0.1.1.dist-info/METADATA,sha256=Q23gUnbXoYGPVfUESsPpE_-7Rp4PG5D46WmG2yXUb3k,4265
+fastmm-0.1.1.dist-info/RECORD,,
+fastmm-0.1.1.dist-info/WHEEL,sha256=chqeLhPBtPdrOoreR34YMcofSk3yWDQhkrsDJ2n48LU,106
+fastmm-0.1.1.dist-info/licenses/LICENSE.TXT,sha256=_clHiE6vbAtRl4e5yVHHnJL8n6u-xf7Vd-_kasmmzLI,11514
+fastmm.libs/boost_serialization-vc143-mt-x64-1_89-ee27240a6fac055d0d642d1660b4ffdd.dll,sha256=EJyMB4ZxyFnV_aKgayq8UsZLWT0kizCpnulSuzhDRsU,221696
+fastmm.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll,sha256=pMIim9wqKmMKzcCVtNhgCOXD47x3cxdDVPPaT1vrnN4,575056
+fastmm.libs/vcomp140-55aba23cdcd6484fbb06f4155b8ca75a.dll,sha256=VauiPNzWSE-7BvQVW4ynWt_OeogfEK_QxJRXFl5ncWQ,193152
