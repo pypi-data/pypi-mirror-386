@@ -1,0 +1,79 @@
+[project]
+name = "confy-cli"
+version = "0.1.2"
+description = "CLI client for the Confy encrypted communication system"
+authors = [
+    {name = "Henrique Sebastião", email = "contato@henriquesebastiao.com"},
+    {name = "Lucas Sousa", email = "lucasdedeus-15@hotmail.com"},
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Telecommunications Industry",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications :: Chat",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Utilities",
+]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "typer (>=0.15.4,<0.16.0)",
+    "websockets (>=15.0.1,<16.0.0)",
+    "pydantic-settings (>=2.11.0,<3.0.0)",
+    "confy-addons (>=1.1.0,<2.0.0)",
+    "prompt-toolkit (>=3.0.52,<4.0.0)",
+]
+
+[tool.poetry.urls]
+"Source" = "https://github.com/confy-security/cli"
+"Bug Tracker" = "https://github.com/confy-security/cli/issues"
+"Changelog" = "https://github.com/confy-security/cli/blob/main/CHANGELOG"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.14.2"
+taskipy = "^1.14.1"
+radon = "^6.0.1"
+bandit = "^1.8.6"
+mypy = "^1.18.2"
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT', 'D', 'UP', 'PERF']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"main.py" = ['PLW0603', 'PLR0915', 'PLR0912', 'PLR0914']
+"__init__.py" = ['D104']
+
+[tool.poetry.scripts]
+confy = 'confy_cli.main:app'
+
+[tool.taskipy.tasks]
+lint = 'poetry run ruff check .; poetry run ruff check . --diff'
+format = 'poetry run ruff format .; poetry run ruff check . --fix'
+mypy = 'poetry run mypy -p confy_cli --ignore-missing-imports'
+radon = 'poetry run radon cc ./confy_cli -a -na'
+bandit = 'poetry run bandit -r ./confy_cli'
