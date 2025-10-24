@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+angkajaditeks/__init__.py
+angkajaditeks/angka_jadi_teks.py
+angkajaditeks.egg-info/PKG-INFO
+angkajaditeks.egg-info/SOURCES.txt
+angkajaditeks.egg-info/dependency_links.txt
+angkajaditeks.egg-info/entry_points.txt
+angkajaditeks.egg-info/top_level.txt

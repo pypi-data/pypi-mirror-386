@@ -1,0 +1,2 @@
+[console_scripts]
+angkajaditeks = angkajaditeks.angka_jadi_teks:main
