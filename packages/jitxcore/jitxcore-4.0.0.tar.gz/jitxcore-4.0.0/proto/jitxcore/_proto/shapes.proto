@@ -1,0 +1,89 @@
+edition = "2023";
+
+import "jitxcore/_proto/enums.proto";
+
+// Shapes
+message Shape {
+  oneof shape {
+    Polygon polygon = 1;
+    ArcPolygon arc_polygon = 2;
+    Polyline polyline = 3;
+    ArcPolyline arc_polyline = 4;
+    Circle circle = 5;
+    EmptyShape empty_shape = 6;
+    PolygonSet polygon_set = 7;
+    Text text = 8;
+    Union union = 9;
+  }
+}
+
+message Point {
+  double x = 1;
+  double y = 2;
+}
+
+message Arc {
+  Point center = 1;
+  double radius = 2;
+  double start_angle = 3;
+  double angle = 4;
+}
+
+message Polygon {
+  repeated Point points = 1;
+}
+
+message PolygonSet {
+  repeated HolePolygon components = 1;
+}
+
+message HolePolygon {
+  Polygon outer = 1;
+  repeated Polygon inners = 2;
+}
+
+message Polyline {
+  double width = 1;
+  repeated Point points = 2;
+}
+
+message ArcPolyline {
+  double width = 1;
+  repeated Element elements = 2;
+}
+
+message Circle {
+  Point center = 1;
+  double radius = 2;
+}
+
+message Element {
+  oneof element {
+    Point point = 1;
+    Arc arc = 2;
+  }
+}
+
+message ArcPolygon {
+  repeated Element elements = 1;
+}
+
+message EmptyShape {
+}
+
+message Text {
+  string string = 1;
+  double size = 2;
+  Anchor anchor = 3;
+  Pose pose = 4;
+}
+
+message Union {
+  repeated Shape shapes = 1;
+}
+
+message Pose {
+  Point center = 1;
+  double angle = 2;
+  bool flipx = 3;
+}

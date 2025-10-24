@@ -1,0 +1,42 @@
+edition = "2023";
+
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/geom.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/mapping.proto";
+import "jitxcore/_proto/shapes.proto";
+
+// Landpattern
+message Landpattern {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  repeated Layer layers = 4;
+  repeated LandpatternPad pads = 5;
+  repeated Geom geoms = 6;
+  repeated Model3D model3ds = 7;
+}
+
+message LandpatternPad {
+  FileInfo info = 1;
+  int32 id = 2;
+  string ref = 3;
+  int32 pad = 4;
+  Pose pose = 5;
+  Side side = 6;
+}
+
+message Model3D {
+  string filename = 1;
+  Vec3D position = 2;
+  Vec3D scale = 3;
+  Vec3D rotation = 4;
+  repeated Property properties = 5;
+}
+
+message Vec3D {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}

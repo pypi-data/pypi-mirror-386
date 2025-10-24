@@ -1,0 +1,36 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/mapping.proto";
+import "jitxcore/_proto/shapes.proto";
+
+message Geom {
+  oneof geom {
+    Copper copper = 1;
+    Pour pour = 2;
+    ViaInstance via = 3;
+  }
+}
+
+message Copper {
+  FileInfo info = 1;
+  LayerIndex layer = 2;
+  Shape shape = 3;
+}
+
+message Pour {
+  FileInfo info = 1;
+  LayerIndex layer = 2;
+  Shape shape = 3;
+  double isolate = 4;
+  int32 rank = 5;
+  bool orphans = 6;
+}
+
+message ViaInstance {
+  FileInfo info = 1;
+  string via = 2;
+  Point point = 3;
+  repeated Property properties = 4;
+}

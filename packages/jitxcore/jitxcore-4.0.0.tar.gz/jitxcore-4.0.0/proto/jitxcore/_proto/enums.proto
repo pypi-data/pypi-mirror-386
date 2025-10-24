@@ -1,0 +1,95 @@
+edition = "2023";
+
+enum Dir {
+  UP = 0;
+  DOWN = 1;
+  LEFT = 2;
+  RIGHT = 3;
+}
+
+enum Side {
+  TOP = 0;
+  BOTTOM = 1;
+}
+
+enum Anchor {
+  N = 0;
+  S = 1;
+  E = 2;
+  W = 3;
+  NE = 4;
+  SE = 5;
+  SW = 6;
+  NW = 7;
+  C = 8;
+}
+
+enum PadType {
+  SMD = 0;
+  TH = 1;
+}
+
+enum MaterialType {
+  CONDUCTOR = 0;
+  DIELECTRIC = 1;
+}
+
+enum ViaDrillType {
+  MECHANICAL_DRILL = 0;
+  LASER_DRILL = 1;
+}
+
+enum TentMode {
+  TENT_TOP = 0;
+  TENT_BOTTOM = 1;
+  TENT_BOTH = 2;
+  TENT_NONE = 3;
+}
+
+enum ClearanceType {
+  MIN_COPPER_WIDTH = 0;
+  MIN_COPPER_COPPER_SPACE = 1;
+  MIN_COPPER_HOLE_SPACE = 2;
+  MIN_COPPER_EDGE_SPACE = 3;
+  MIN_ANNULAR_RING = 4;
+  MIN_DRILL_DIAMETER = 5;
+  MIN_SILKSCREEN_WIDTH = 6;
+  MIN_PITCH_LEADED = 7;
+  MIN_PITCH_BGA = 8;
+  MAX_BOARD_WIDTH = 9;
+  MAX_BOARD_HEIGHT = 10;
+  SOLDER_MASK_REGISTRATION = 11;
+  MIN_SILKSCREEN_TEXT_HEIGHT = 12;
+  MIN_SILK_SOLDER_MASK_SPACE = 13;
+  MIN_TH_PAD_EXPAND_OUTER = 14;
+  MIN_SOLDER_MASK_OPENING = 15;
+  MIN_SOLDER_MASK_BRIDGE = 16;
+  MIN_HOLE_TO_HOLE = 17;
+  MIN_PTH_PIN_SOLDER_CLEARANCE = 18;
+}
+
+enum Paper {
+  ISO_A0 = 0;
+  ISO_A1 = 1;
+  ISO_A2 = 2;
+  ISO_A3 = 3;
+  ISO_A4 = 4;
+  ISO_A5 = 5;
+  ANSI_A = 6;
+  ANSI_B = 7;
+  ANSI_C = 8;
+  ANSI_D = 9;
+  ANSI_E = 10;
+}
+
+enum ObjectTagType {
+  IsCopper = 0;
+  IsTrace = 1;
+  IsPour = 2;
+  IsVia = 3;
+  IsPad = 4;
+  IsBoardEdge = 5;
+  IsThroughHole = 6;
+  IsNeckdown = 7;
+  IsHole = 8;
+}

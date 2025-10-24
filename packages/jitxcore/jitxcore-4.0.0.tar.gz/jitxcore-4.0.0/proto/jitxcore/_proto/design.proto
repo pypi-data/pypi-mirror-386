@@ -1,0 +1,66 @@
+edition = "2023";
+
+import "jitxcore/_proto/board.proto";
+import "jitxcore/_proto/bundle.proto";
+import "jitxcore/_proto/component.proto";
+import "jitxcore/_proto/design-rules.proto";
+import "jitxcore/_proto/diff-routing.proto";
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/landpattern.proto";
+import "jitxcore/_proto/material.proto";
+import "jitxcore/_proto/module.proto";
+import "jitxcore/_proto/pad.proto";
+import "jitxcore/_proto/pin-assignment.proto";
+import "jitxcore/_proto/routing.proto";
+import "jitxcore/_proto/rules.proto";
+import "jitxcore/_proto/schematic.proto";
+import "jitxcore/_proto/stackup.proto";
+import "jitxcore/_proto/symbol.proto";
+import "jitxcore/_proto/via.proto";
+
+package jitxcore;
+
+message Design {
+  oneof api {
+    DesignV1 v1 = 1;
+  }
+}
+
+message DesignV1 {
+  repeated Board boards = 1;
+  repeated Rules ruless = 2;
+  repeated Module modules = 3;
+  repeated Component components = 4;
+  repeated Stackup stackups = 5;
+  repeated Material materials = 6;
+  repeated Bundle bundles = 7;
+  repeated Landpattern landpatterns = 8;
+  repeated Symbol symbols = 9;
+  repeated Pad pads = 10;
+  repeated Via vias = 11;
+  repeated Routing routings = 12;
+  repeated DifferentialRouting differential_routings = 13;
+  repeated SchematicTemplate schematic_templates = 14;
+  repeated DesignRule design_rules = 15;
+  repeated string files = 16;
+  string name = 17;
+  int32 board = 18;
+  int32 rules = 19;
+  int32 module = 20;
+  int32 schematic_template = 21;
+  repeated SchematicPageMarking schematic_page_markings = 22;
+  string schematic_title_page = 23;
+  repeated RestrictEntry restricts = 24;
+  Paper paper = 25;
+  repeated string filenames = 26;
+  int32 version = 27;
+}
+
+message SchematicPageMarking {
+  string marking = 1;
+  Anchor anchor = 2;
+}
+
+// TODO: Create a table of file names. (similar to the UI's code)
+//       Then FileInfo referring to the table.
+//       Always a list of locations (in the future we may want to populate a stack trace).

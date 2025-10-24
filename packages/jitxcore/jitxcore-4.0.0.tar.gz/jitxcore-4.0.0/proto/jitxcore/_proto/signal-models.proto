@@ -1,0 +1,37 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/local.proto";
+
+message Toleranced {
+  double typ = 1;
+  double tol_plus = 2;
+  double tol_minus = 3;
+}
+
+message PinModel {
+  Toleranced delay = 1;
+  Toleranced loss = 2;
+}
+
+message PinModelStmt {
+  FileInfo info = 1;
+  Local a = 2;
+  Local b = 3;
+  PinModel pin_model = 4;
+}
+
+message TimingConstraint {
+  double min_delay = 1;
+  double max_delay = 2;
+}
+
+message InsertionLossConstraint {
+  double min_loss = 1;
+  double max_loss = 2;
+}
+
+message TimingDifferenceConstraint {
+  double min_delta = 1;
+  double max_delta = 2;
+}

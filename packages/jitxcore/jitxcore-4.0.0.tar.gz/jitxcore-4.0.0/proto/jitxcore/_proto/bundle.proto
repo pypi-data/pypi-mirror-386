@@ -1,0 +1,14 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/mapping.proto";
+import "jitxcore/_proto/ports.proto";
+
+// Bundle
+message Bundle {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  repeated Port ports = 4;
+  repeated IDMappingEntry differential_pairs = 5;
+}

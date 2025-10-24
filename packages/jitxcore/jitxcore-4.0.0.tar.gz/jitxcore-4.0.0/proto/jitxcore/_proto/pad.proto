@@ -1,0 +1,24 @@
+edition = "2023";
+
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/shapes.proto";
+
+message Pad {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  PadType type = 4;
+  Shape shape = 5;
+  Shape nfp_shape = 6;
+  repeated PadShape shapes = 7;
+  bool edge = 8;
+  repeated Layer layers = 9;
+}
+
+message PadShape {
+  Shape shape = 1;
+  Shape nfp = 2;
+  repeated LayerIndex layers = 3;
+}

@@ -1,0 +1,50 @@
+edition = "2023";
+
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/shapes.proto";
+
+// Symbol
+message Symbol {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  repeated SymbolLayer layers = 4;
+  repeated SymbolPin pins = 5;
+  SymbolOrientation symbol_orientation = 6;
+  int32 altium_substitution = 7;
+}
+
+message SymbolLayer {
+  string name = 1;
+  Shape shape = 2;
+}
+
+message SymbolPin {
+  int32 id = 1;
+  string ref = 2;
+  Point point = 3;
+  PinProperties properties = 4;
+}
+
+message PinProperties {
+  double length = 1;
+  Dir dir = 2;
+  double number_size = 3;
+  double name_size = 4;
+}
+
+message SymbolOrientation {
+  oneof orientation {
+    AnyRotation any_rotation = 1;
+    PreferRotation prefer_rotation = 2;
+  }
+}
+
+message AnyRotation {
+
+}
+
+message PreferRotation {
+  repeated int32 rotations = 1;
+}

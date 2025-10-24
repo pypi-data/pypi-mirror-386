@@ -1,0 +1,32 @@
+edition = "2023";
+
+import "jitxcore/_proto/local.proto";
+import "jitxcore/_proto/mapping.proto";
+import "jitxcore/_proto/ports.proto";
+
+message Support {
+  int32 bundle = 1;
+  repeated Option options = 2;
+}
+
+message Option {
+  repeated Require requires = 1;
+  repeated Restrict restricts = 2;
+  repeated Property properties = 3;
+  repeated IDMappingEntry entries = 4;
+}
+
+message Require {
+  Port port = 1;
+  Local instance = 2;
+}
+
+message Restrict {
+  int32 index = 1;
+  Local port = 2;
+  bool permit = 3;
+}
+
+message RestrictEntry {
+  repeated Local affected = 1;
+}

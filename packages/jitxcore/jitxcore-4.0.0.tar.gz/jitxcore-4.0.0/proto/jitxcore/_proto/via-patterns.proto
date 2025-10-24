@@ -1,0 +1,38 @@
+edition = "2023";
+
+message ViaStitchPattern {
+  oneof pattern {
+    SquareViaStitchGrid square = 1;
+    TriangularViaStitchGrid triangular = 2;
+  }
+}
+
+message SquareViaStitchGrid {
+  double pitch = 1;
+  double inset = 2;
+}
+
+message TriangularViaStitchGrid {
+  double pitch = 1;
+  double inset = 2;
+}
+
+message ViaFencePattern {
+  double pitch = 1;
+  double offset = 2;
+  int32 num_rows = 3;
+  double min_pitch = 4;
+  double max_pitch = 5;
+  double initial_offset = 6;
+  bool input_shape_only = 7;
+}
+
+message StitchVia {
+  string definition = 1;
+  ViaStitchPattern pattern = 2;
+}
+
+message FenceVia {
+  string definition = 1;
+  ViaFencePattern pattern = 2;
+}

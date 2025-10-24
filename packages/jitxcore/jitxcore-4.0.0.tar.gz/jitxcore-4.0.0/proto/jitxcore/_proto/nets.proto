@@ -1,0 +1,14 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/local.proto";
+import "jitxcore/_proto/ports.proto";
+
+// Net
+message Net {
+  FileInfo info = 1;
+  string name = 2;
+  int32 id = 3;
+  PortType type = 4;
+  repeated Local refs = 5;
+}

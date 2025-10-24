@@ -1,0 +1,53 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/local.proto";
+import "jitxcore/_proto/mapping.proto";
+import "jitxcore/_proto/pin-assignment.proto";
+import "jitxcore/_proto/ports.proto";
+import "jitxcore/_proto/signal-models.proto";
+
+// Component
+message Component {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  string value = 4;
+  string mpn = 5;
+  string datasheet = 6;
+  string manufacturer = 7;
+  string reference_prefix = 8;
+  repeated Port ports = 9;
+  DefMapping landpattern_map = 10;
+  SymbolDefMapping symbol_map = 11;
+  SpiceModel spice = 12;
+  repeated PinModelStmt pin_models = 13;
+  repeated IDMappingEntry differential_pairs = 14;
+  repeated Local no_connects = 15;
+  repeated Support supports = 16;
+}
+
+message SymbolDefMapping {
+  repeated SymbolUnitDefMapping units = 1;
+}
+
+message SymbolUnitDefMapping {
+  int32 unit = 1;
+  DefMapping mapping = 2;
+}
+
+message SpiceModel {
+  repeated SpiceSnippet snippets = 1;
+}
+
+message SpiceSnippet {
+  repeated SnippetItem items = 1;
+}
+
+message SnippetItem {
+  oneof item {
+    string string = 1;
+    Local local = 2;
+    string name = 3;
+  }
+}

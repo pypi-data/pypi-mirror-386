@@ -1,0 +1,152 @@
+edition = "2023";
+
+import "jitxcore/_proto/design-rules.proto";
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/instances.proto";
+import "jitxcore/_proto/geom.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/local.proto";
+import "jitxcore/_proto/mapping.proto";
+import "jitxcore/_proto/nets.proto";
+import "jitxcore/_proto/pin-assignment.proto";
+import "jitxcore/_proto/ports.proto";
+import "jitxcore/_proto/routing-structures.proto";
+import "jitxcore/_proto/shapes.proto";
+import "jitxcore/_proto/signal-models.proto";
+
+// Module
+message Module {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  repeated Instance instances = 4;
+  repeated Port ports = 5;
+  repeated Net nets = 6;
+  repeated Layer layers = 7;
+  repeated NetGeom net_geoms = 8;
+  repeated InstancePose instance_poses = 9;
+  repeated Support supports = 10;
+  repeated Require requires = 11;
+  repeated Restrict restricts = 12;
+  repeated IDMappingEntry short_traces = 13;
+  repeated ReferenceDesignator reference_designators = 14;
+  repeated RefLabel ref_labels = 15;
+  repeated ValueLabel value_labels = 16;
+  repeated SchematicGroup schematic_groups = 17;
+  repeated SameSchematicGroup same_schematic_groups = 18;
+  repeated SchematicGroupOrder schematic_group_order = 19;
+  repeated LayoutGroup layout_groups = 20;
+  repeated SameLayoutGroup same_layout_groups = 21;
+  repeated NetSymbol net_symbols = 22;
+  repeated PinModelStmt pin_models = 23;
+  repeated IDMappingEntry topology_segments = 24;
+  repeated TopologyDef topology_defs = 25;
+  repeated IDMappingEntry differential_pairs = 26;
+  repeated ConstrainTiming constrain_timings = 27;
+  repeated ConstrainInsertionLoss constrain_insertion_losses = 28;
+  repeated ConstrainTimingDifference constrain_timing_differences = 29;
+  repeated Structure structures = 30;
+  repeated DifferentialStructure differential_structures = 31;
+  repeated Local no_connects = 32;
+  repeated ApplyTag apply_tags = 33;
+  repeated IDProperty properties = 34;
+  repeated InstanceStatus instance_statuses = 35;
+  repeated string annotations = 36;
+}
+
+message NetGeom {
+  Local ref = 1;
+  Geom geom = 2;
+}
+
+message InstancePose {
+  Local instance = 1;
+  Pose pose = 2;
+  Side side = 3;
+  Local anchor = 4;
+}
+
+message ReferenceDesignator {
+  Local instance = 1;
+  string reference = 2;
+}
+
+message RefLabel {
+  Local instance = 1;
+  string text = 2;
+}
+
+message ValueLabel {
+  Local instance = 1;
+  string text = 2;
+}
+
+message SchematicGroup {
+  Local instance = 1;
+  int32 unit = 2;
+  string group = 3;
+}
+
+message SameSchematicGroup {
+  Local instance = 1;
+  int32 instance_unit = 2;
+  Local anchor = 3;
+  int32 anchor_unit = 4;
+}
+
+message SchematicGroupOrder {
+  repeated string groups = 1;
+}
+
+message LayoutGroup {
+  Local instance = 1;
+  string group = 2;
+}
+
+message SameLayoutGroup {
+  Local instance = 1;
+  Local anchor = 2;
+}
+
+message NetSymbol {
+  Local net = 1;
+  int32 symbol = 2;
+}
+
+message TopologyDef {
+  FileInfo info = 1;
+  string name = 2;
+  IDMappingEntry path = 3;
+}
+
+message ConstrainTiming {
+  FileInfo info = 1;
+  IDMappingEntry path = 2;
+  TimingConstraint constraint = 3;
+}
+
+message ConstrainInsertionLoss {
+  FileInfo info = 1;
+  IDMappingEntry path = 2;
+  InsertionLossConstraint constraint = 3;
+}
+
+message ConstrainTimingDifference {
+  FileInfo info = 1;
+  IDMappingEntry path1 = 2;
+  IDMappingEntry path2 = 3;
+  TimingDifferenceConstraint constraint = 4;
+}
+
+message ApplyTag {
+  Local local = 1;
+  repeated UserTag tags = 2;
+}
+
+message InstanceStatus {
+  Local instance = 1;
+  bool in_bom = 2;
+  bool soldered = 3;
+  bool schematic_x_out = 4;
+}

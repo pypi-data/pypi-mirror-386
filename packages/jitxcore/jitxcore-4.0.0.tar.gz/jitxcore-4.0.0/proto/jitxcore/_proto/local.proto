@@ -1,0 +1,7 @@
+edition = "2023";
+
+// Path of original IDs (earlier numbers are higher in the hierarchy)
+// The first number is an ID in the current scope
+message Local {
+  repeated int32 path = 1;
+}

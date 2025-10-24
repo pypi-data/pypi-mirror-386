@@ -1,0 +1,33 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/routing-structures.proto";
+import "jitxcore/_proto/via-patterns.proto";
+
+// Routing Structures
+message Routing {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  repeated RoutingLayer layers = 4;
+}
+
+message RoutingLayer {
+  LayerIndex layer = 1;
+  double trace_width = 2;
+  double velocity = 3;
+  double insertion_loss = 4;
+  double clearance = 5;
+  NeckDown neck_down = 6;
+  repeated RefLayer ref_layers = 7;
+  repeated AddGeom add_geoms = 8;
+  FenceVia fence = 9;
+}
+
+message NeckDown {
+  double trace_width = 1;
+  double clearance = 2;
+  double insertion_loss = 3;
+  double velocity = 4;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/routing-structures.proto";
+import "jitxcore/_proto/via-patterns.proto";
+
+// Differential Routing Structures
+message DifferentialRouting {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  int32 uncoupled_region = 4;
+  repeated DifferentialRoutingLayer layers = 5;
+}
+
+message DifferentialRoutingLayer {
+  LayerIndex layer = 1;
+  double trace_width = 2;
+  double velocity = 3;
+  double insertion_loss = 4;
+  double pair_spacing = 5;
+  double clearance = 6;
+  DifferentialNeckDown neck_down = 7;
+  repeated RefLayer ref_layers = 8;
+  repeated AddGeom add_geoms = 9;
+  FenceVia fence = 10;
+}
+
+message DifferentialNeckDown {
+  double pair_spacing = 1;
+  double trace_width = 2;
+  double clearance = 3;
+  double insertion_loss = 4;
+  double velocity = 5;
+}

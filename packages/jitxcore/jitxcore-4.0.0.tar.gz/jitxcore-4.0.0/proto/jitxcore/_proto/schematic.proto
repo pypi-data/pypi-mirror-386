@@ -1,0 +1,39 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+
+// SchematicTemplate
+message SchematicTemplate {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  AuthorTable table = 4;
+  int32 width = 5;
+  int32 height = 6;
+}
+
+message AuthorTable {
+  repeated AuthorRow rows = 1;
+}
+
+message AuthorRow {
+  repeated AuthorCell cells = 1;
+  double height = 2;
+}
+
+message AuthorCell {
+  oneof type {
+    DataCell data = 1;
+    TableCell table = 2;
+  }
+}
+
+message DataCell {
+  string value = 1;
+  double width = 2;
+}
+
+message TableCell {
+  AuthorTable table = 1;
+  double width = 2;
+}

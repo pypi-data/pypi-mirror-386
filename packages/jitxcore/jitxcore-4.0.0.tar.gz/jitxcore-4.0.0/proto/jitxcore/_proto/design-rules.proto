@@ -1,0 +1,95 @@
+edition = "2023";
+
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/via-patterns.proto";
+
+message DesignRule {
+  string name = 1;
+  int32 priority = 2;
+  repeated BoolExpr conditions = 3;
+  repeated ConstraintEffect effects = 4;
+}
+
+message ConstraintEffect {
+  oneof effect {
+    TraceWidthEffect trace_width = 1;
+    ClearanceEffect clearance = 2;
+    StitchVia stitch_via = 3;
+    FenceVia fence_via = 4;
+    ThermalReliefEffect thermal_relief = 5;
+  }
+}
+
+message TraceWidthEffect {
+  double width = 1;
+}
+
+message ClearanceEffect {
+  double clearance = 1;
+}
+
+message ThermalReliefEffect {
+  double gap_distance = 1;
+  double spoke_width = 2;
+  int32 num_spokes = 3;
+}
+
+message Tag {
+  oneof tag {
+    BuiltinTag builtin = 1;
+    UserTag user = 2;
+  }
+}
+
+message BuiltinTag {
+  oneof tag {
+    OnLayerTag layer = 1;
+    ObjectTag object = 2;
+  }
+}
+
+message UserTag {
+  string name = 1;
+  repeated string parents = 2;
+}
+
+message OnLayerTag {
+  LayerIndex layer = 1;
+}
+
+message ObjectTag {
+  ObjectTagType type = 1;
+}
+
+message BoolExpr {
+  oneof expr {
+    TrueExpr true_expr = 1;
+    AtomExpr atom_expr = 2;
+    NotExpr not_expr = 3;
+    OrExpr or_expr = 4;
+    AndExpr and_expr = 5;
+  }
+}
+
+message TrueExpr {
+
+}
+
+message AtomExpr {
+  Tag atom = 1;
+}
+
+message NotExpr {
+  BoolExpr expr = 1;
+}
+
+message OrExpr {
+  BoolExpr left = 1;
+  BoolExpr right = 2;
+}
+
+message AndExpr {
+  BoolExpr left = 1;
+  BoolExpr right = 2;
+}

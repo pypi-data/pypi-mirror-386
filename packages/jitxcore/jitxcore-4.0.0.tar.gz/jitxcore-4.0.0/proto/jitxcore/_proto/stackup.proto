@@ -1,0 +1,17 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+
+// Stackup
+message Stackup {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  repeated StackupLayer layers = 4;
+}
+
+message StackupLayer {
+  string name = 1;
+  double thickness = 2;
+  int32 material = 3;
+}

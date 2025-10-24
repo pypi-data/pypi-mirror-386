@@ -1,0 +1,11 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+
+// Instances
+message Instance {
+  FileInfo info = 1;
+  string name = 2;
+  int32 id = 3;
+  int32 instantiable = 4;
+}

@@ -1,0 +1,88 @@
+edition = "2023";
+
+import "jitxcore/_proto/shapes.proto";
+import "jitxcore/_proto/enums.proto";
+
+// Layers
+message LayerSpecifier {
+  oneof layer {
+    Silkscreen silkscreen = 1;
+    Cutout cutout = 2;
+    Courtyard courtyard = 3;
+    Soldermask soldermask = 4;
+    Paste paste = 5;
+    Glue glue = 6;
+    Finish finish = 7;
+    ForbidRegion forbid_region = 8;
+    ForbidCopper forbid_copper = 9;
+    ForbidVia forbid_via = 10;
+    BoardEdge board_edge = 11;
+    CustomLayer custom_layer = 12;
+  }
+}
+
+message Silkscreen {
+  string name = 1;
+  Side side = 2;
+}
+
+message Cutout {
+  
+}
+
+message Courtyard {
+  Side side = 1;
+}
+
+message Soldermask {
+  Side side = 1;
+}
+
+message Paste {
+  Side side = 1;
+}
+
+message Glue {
+  Side side = 1;
+}
+
+message Finish {
+  Side side = 1;
+}
+
+message ForbidRegion {
+  bool forbid_pours = 1;
+  bool forbid_vias = 2;
+  bool forbid_routes = 3;
+  LayerIndex start = 4;
+  LayerIndex end = 5;
+}
+
+
+message ForbidCopper {
+  LayerIndex start = 1;
+  LayerIndex end = 2;
+}
+
+message ForbidVia {
+  
+}
+
+message BoardEdge {
+  
+}
+
+message CustomLayer {
+  string name = 1;
+  Side side = 2;
+}
+
+message Layer {
+  LayerSpecifier layer = 1;
+  Shape shape = 2;
+}
+
+message LayerIndex {
+  int32 index = 1;
+  Side side = 2;
+}

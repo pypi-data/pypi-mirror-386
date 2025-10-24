@@ -1,0 +1,39 @@
+edition = "2023";
+
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/local.proto";
+import "jitxcore/_proto/mapping.proto";
+
+message RefLayer {
+  LayerIndex layer = 1;
+  double desired_width = 2;
+  double required_width = 3;
+}
+
+message AddGeom {
+  LayerSpecifier layer = 1;
+  double desired_width = 2;
+}
+
+message RefLayerNet {
+  LayerIndex layer = 1;
+  Local ref = 2;
+}
+
+message Structure {
+  FileInfo info = 1;
+  IDMappingEntry path = 2;
+  repeated RefLayerNet ref_layer_nets = 3;
+  repeated RefLayerNet via_fence_nets = 4;
+  int32 routing_structure = 5;
+}
+
+message DifferentialStructure {
+  FileInfo info = 1;
+  IDMappingEntry path1 = 2;
+  IDMappingEntry path2 = 3;
+  repeated RefLayerNet ref_layer_nets = 4;
+  repeated RefLayerNet via_fence_nets = 5;
+  int32 differential_routing_structure = 6;
+}

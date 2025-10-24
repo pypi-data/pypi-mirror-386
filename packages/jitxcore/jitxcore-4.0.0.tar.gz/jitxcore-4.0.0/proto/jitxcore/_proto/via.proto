@@ -1,0 +1,52 @@
+edition = "2023";
+
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/file-info.proto";
+import "jitxcore/_proto/layers.proto";
+import "jitxcore/_proto/signal-models.proto";
+
+message Via {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  LayerIndex start = 4;
+  LayerIndex stop = 5;
+  double diameter = 6;
+  double antipad_diameter = 7;
+  double nfp_diameter = 8;
+  double nfp_antipad_diameter = 9;
+  repeated ViaDiameter diameters = 10;
+  double hole_diameter = 11;
+  ViaDrillType type = 12;
+  bool filled = 13;
+  TentMode tented = 14;
+  bool via_in_pad = 15;
+  BackdrillSet backdrill = 16;
+  repeated StructureModel structure_models = 17;
+}
+
+message BackdrillSet {
+  Backdrill top = 1;
+  Backdrill bottom = 2;
+}
+
+message Backdrill {
+  double diameter = 1;
+  double startpad_diameter = 2;
+  double solder_mask_opening = 3;
+  double copper_clearance = 4;
+}
+
+message StructureModel {
+  LayerIndex entry = 1;
+  LayerIndex exit = 2;
+  PinModel model = 3;
+}
+
+message ViaDiameter {
+  double pad = 1;
+  double antipad = 2;
+  double nfp = 3;
+  double nfp_antipad = 4;
+  repeated LayerIndex layers = 5;
+}

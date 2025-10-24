@@ -1,0 +1,17 @@
+edition = "2023";
+
+import "jitxcore/_proto/enums.proto";
+import "jitxcore/_proto/file-info.proto";
+
+// Rules
+message Rules {
+  FileInfo info = 1;
+  int32 id = 2;
+  string name = 3;
+  repeated Clearance clearances = 4;
+}
+
+message Clearance {
+  ClearanceType type = 1;
+  double value = 2;
+}
