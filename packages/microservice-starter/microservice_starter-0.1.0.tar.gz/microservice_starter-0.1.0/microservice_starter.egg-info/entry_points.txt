@@ -1,0 +1,2 @@
+[console_scripts]
+microservice-starter = microservice_starter.cli:main
