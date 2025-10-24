@@ -1,0 +1,3 @@
+[console_scripts]
+axmp-ai-agent-core = axmp_ai_agent_core:main
+
