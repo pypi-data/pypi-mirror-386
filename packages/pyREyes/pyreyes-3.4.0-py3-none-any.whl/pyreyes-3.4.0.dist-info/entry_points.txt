@@ -1,0 +1,10 @@
+[console_scripts]
+append-targets-3-1 = pyREyes.append_targets_nav:main
+create-final-targets-4 = pyREyes.create_final_targets_nav:main
+dif-map-2 = pyREyes.dif_map:main
+eucentricity-1 = pyREyes.eucentricity:main
+grid-squares-0 = pyREyes.grid_squares:main
+manual-squares-0-1 = pyREyes.manual_squares:main
+mnt-maps-targets-5 = pyREyes.mnt_maps_targets:main
+reyes-monitor = pyREyes.REyes:main
+write-targets-3 = pyREyes.write_sorted_targets_nav:main
