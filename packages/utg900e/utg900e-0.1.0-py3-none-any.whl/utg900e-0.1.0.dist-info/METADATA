@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: utg900e
+Version: 0.1.0
+Summary: A Python library for controlling UTG900E series signal generators via SCPI commands using VISA interface
+Author: Shagen Dorunts
+Author-email: sdorunts@yandex.com
+License: MIT
+Project-URL: Homepage, https://github.com/sdorunts/utg900e
+Project-URL: Repository, https://github.com/sdorunts/utg900e
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: pyvisa>=1.11.0
+Requires-Dist: colorlog>=6.9.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
