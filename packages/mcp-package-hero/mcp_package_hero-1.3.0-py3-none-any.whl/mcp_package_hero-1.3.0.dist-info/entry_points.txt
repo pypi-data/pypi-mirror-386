@@ -1,0 +1,3 @@
+[console_scripts]
+mcp-package-hero = mcp_package_hero.server:mcp.run
+
