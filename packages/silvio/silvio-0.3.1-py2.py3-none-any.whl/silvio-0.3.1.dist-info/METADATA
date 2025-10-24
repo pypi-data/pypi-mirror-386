@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: silvio
+Version: 0.3.1
+Summary: silvio is an environment for Simulation of Virtual Organisms. silvio contains several linked microbial models.
+Home-page: https://git.rwth-aachen.de/ulf.liebal/silvio.git
+Author: Ulf Liebal
+Author-email: ulf.liebal@rwth-aachen.de
+License: MIT license
+Keywords: biotechnology,microbiology,virtual cell,systems biology
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: biopython==1.79
+Requires-Dist: cobra==0.29.0
+Requires-Dist: joblib==1.4.2
+Requires-Dist: matplotlib==3.7.0
+Requires-Dist: numpy==1.24.4
+Requires-Dist: pandas==2.2.2
+Requires-Dist: pickleshare~=0.7
+Requires-Dist: scikit-learn==1.2.2
+Requires-Dist: scipy==1.10.0
+Requires-Dist: jinja2==3.0.3
+Requires-Dist: openpyxl==3.1.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
