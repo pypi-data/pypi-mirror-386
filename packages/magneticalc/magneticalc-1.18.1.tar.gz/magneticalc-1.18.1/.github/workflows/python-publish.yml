@@ -1,0 +1,35 @@
+name: Publish Python Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install project Python version
+        run: uv python install
+
+      - name: Configure project environment
+        run: uv sync --frozen
+
+      - name: Build distributions
+        run: uv build
+
+      - name: Upload to PyPI or TestPyPI
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          TESTPYPI_TOKEN: ${{ secrets.TESTPYPI_TOKEN }}
+        run: |
+          # USE TESTPYPI
+          # uv publish --repository testpypi --token "$TESTPYPI_TOKEN"
+          # ... OR ...
+          # USE PYPI
+          uv publish --token "$PYPI_TOKEN"
