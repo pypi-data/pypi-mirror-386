@@ -1,0 +1,3 @@
+[sphinx.builders]
+typst = typsphinx
+typstpdf = typsphinx
