@@ -1,0 +1,15 @@
+[package]
+description = "Linux X11 platform backend for PlatynUI"
+name = "platynui-platform-linux-x11"
+version.workspace = true
+keywords.workspace = true
+categories.workspace = true
+edition.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+repository.workspace = true
+authors.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]

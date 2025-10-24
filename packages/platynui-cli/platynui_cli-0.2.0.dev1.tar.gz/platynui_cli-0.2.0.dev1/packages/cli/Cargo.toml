@@ -1,0 +1,17 @@
+[package]
+name = "platynui-cli-pybin"
+version = "0.2.0-dev.1"
+edition = "2024"
+license = "Apache-2.0"
+description = "CLI application for PlatynUI"
+repository = "https://github.com/imbus/robotframework-PlatynUI"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+platynui-cli = { path = "../../crates/cli" }
+
+[[bin]]
+name = "platynui-cli"
+path = "src/main.rs"
