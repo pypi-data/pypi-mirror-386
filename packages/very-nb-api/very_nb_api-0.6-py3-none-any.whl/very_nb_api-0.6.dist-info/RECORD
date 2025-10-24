@@ -1,0 +1,13 @@
+nb_api/__init__.py,sha256=8VMdQMJea1sXbrN2QNZOMjJFNTKKrqlR7VTGcqo92MI,287
+nb_api/contrib/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nb_api/contrib/fastapi_helpers.py,sha256=q92RJljaY5DbheihbRSOf--TXUDW2BIqe35T60Hu_vU,3527
+nb_api/core/__init__.py,sha256=5nEHxIuIaCWn5HpspXlqd1zw6RsQtW43G1BsoP8zpEM,26
+nb_api/core/base.py,sha256=0i6q_fxlYAicRYJcpEe3d1KMXkRdd3Ph6ONF2KbK0ys,9714
+nb_api/core/mem.py,sha256=Kloje5rVB1kDkxrFlnaX6-emhvrpBe9CRayFm6g4Ai4,4209
+nb_api/core/sqlmodel.py,sha256=PHqy_3GYG6Wo2fEFyfU_WWBOfic5_fL-lMFzkM6OzPY,8975
+nb_api/core/types.py,sha256=0P4zrYyWrspsUbcXN3hjoe23GS3_hFI02U8eMZOy4PI,1417
+nb_api/core/utils.py,sha256=4ScVZsGH7XjyWHrW22ER7qkYWtMmyikLbq-3868gxbg,3304
+very_nb_api-0.6.dist-info/METADATA,sha256=aA44-Mnm2IWAd7BRh6SPlOy6dc-OBsf28GnJuhNCXV8,7309
+very_nb_api-0.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+very_nb_api-0.6.dist-info/top_level.txt,sha256=qvIXDg3i-nP0SlobPXF9v1uAPxY2ew3ocyP5tjiJa0E,7
+very_nb_api-0.6.dist-info/RECORD,,
