@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mcp-ticketer": {
+      "command": "/Users/masa/.local/bin/mcp-ticketer",
+      "args": [
+        "serve"
+      ],
+      "cwd": "/Users/masa/Projects/mcp-ticketer"
+    }
+  }
+}
