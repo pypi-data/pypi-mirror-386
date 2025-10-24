@@ -1,0 +1,2 @@
+[console_scripts]
+petepak = petepak.cli:main
