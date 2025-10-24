@@ -1,0 +1,17 @@
+awscli<2.0,>=1.32
+llm-foundry[gpu]<1.0,>=0.17.1
+mosaicml-streaming<1.0,>=0.7.0
+torch<3.0,>=2.5.0
+scanpy<2.0,>=1.9.0
+
+[all]
+toml<0.11,>=0.10.2
+packaging<23,>=21
+ipykernel
+pre-commit<4,>=3.4.0
+
+[dev]
+pre-commit<4,>=3.4.0
+toml<0.11,>=0.10.2
+ipykernel
+packaging<23,>=21
