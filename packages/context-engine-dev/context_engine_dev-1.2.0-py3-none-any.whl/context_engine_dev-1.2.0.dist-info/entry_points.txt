@@ -1,0 +1,2 @@
+[console_scripts]
+context-engine-backend = context_engine.main:main
