@@ -1,0 +1,37 @@
+site_name: LoopBot
+site_description: Python SDK for the OpenCode CLI
+site_url: https://botassembly.org/loopbot
+repo_url: https://github.com/botassembly/loopbot
+theme:
+  name: material
+  features:
+    - navigation.expand
+    - navigation.instant
+    - content.code.copy
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Guides:
+      - Agents & Sessions: guides/01-agents-and-sessions.md
+      - Permissions & Tools: guides/02-permissions-and-tools.md
+      - Structured Outputs: guides/03-structured-outputs.md
+      - Async Usage: guides/04-async-usage.md
+      - Working Directory: guides/05-working-directory.md
+      - Error Handling: guides/06-error-handling.md
+      - Testing & CI: guides/07-testing-and-ci.md
+      - Troubleshooting: guides/08-troubleshooting.md
+  - API Reference: api-reference.md
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_root_toc_entry: false
+            show_source: false
+markdown_extensions:
+  - admonition
+  - fenced_code
+  - codehilite
+  - tables

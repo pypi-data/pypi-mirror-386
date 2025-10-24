@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test-matrix:
+    name: tests (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Show uv and Python
+        run: |
+          uv --version
+          uv run --python=${{ matrix.python-version }} python -V
+
+      - name: Install and run tests
+        env:
+          # Ensure E2E stays opt-in; unset by default
+          OPENAGENT_E2E: ""
+        run: |
+          uv run --isolated --python=${{ matrix.python-version }} --extra dev pytest -q
+
+  make-target-smoke:
+    name: make test-all-versions (smoke)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Run make test-all-versions for a single version
+        env:
+          PY_VERSIONS: "3.12"
+        run: |
+          make test-all-versions ARGS="-q"
+
