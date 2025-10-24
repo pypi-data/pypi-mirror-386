@@ -1,0 +1,279 @@
+Metadata-Version: 2.4
+Name: bapao
+Version: 0.0.3
+Summary: Developer Environment Sync Engine - Make your entire development environment portable
+Home-page: https://gitlab.com/bapao/bapao-sync
+Author: BAPAO Team
+Author-email: KankerBapao <4duxjx7x9jr7covy0sv7@kubehub.eu>
+Maintainer-email: KankerBapao <4duxjx7x9jr7covy0sv7@kubehub.eu>
+License: Proprietary
+Project-URL: Homepage, https://example.com
+Keywords: development,environment,sync,git,ssh,gpg,devtools
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: cryptography>=3.4.0
+Requires-Dist: rich>=10.0.0
+Requires-Dist: pathlib>=1.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.10.0; extra == "dev"
+Requires-Dist: flake8>=4.0.0; extra == "dev"
+Requires-Dist: mypy>=0.950; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# BAPAO - Developer Environment Sync Engine
+
+**Make your entire development environment portable.**
+
+BAPAO is a command-line tool that manages multiple developer identities and configurations, allowing you to seamlessly switch between different projects, clients, or organizations without configuration conflicts.
+
+## Features
+
+- **Profile Management**: Create isolated developer profiles for different contexts
+- **Key Generation**: Automatic SSH (Ed25519) and GPG key generation
+- **Smart Configuration**: Git and SSH configuration with directory-based switching  
+- **Host Aliases**: Automatic SSH host alias generation (e.g., `gitlab.com-myprofile`)
+- **Health Verification**: Comprehensive profile health checks
+- **Interactive Cleanup**: Forensic removal of profiles with zero traces left behind
+
+## Installation
+
+```bash
+pip install bapao
+```
+
+## Quick Start
+
+### 1. Create a Profile
+
+```bash
+bapao init work --name "John Doe" --email "john@company.com" --base-dir "~/code/work"
+```
+
+### 2. Generate Keys
+
+```bash
+bapao forge work
+```
+
+### 3. Configure Git & SSH
+
+```bash
+bapao wire work
+```
+
+### 4. Verify Everything Works
+
+```bash
+bapao verify work
+```
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `bapao init <profile_name> [options]` | Initialize a new BAPAO profile with Git identity |
+| `bapao forge <profile_name>` | Generate SSH Ed25519 and GPG keys for a profile |
+| `bapao wire <profile_name> [--force]` | Configure Git and SSH settings for a profile |
+| `bapao verify <profile_name>` | Verify profile setup and show health status |
+| `bapao list [--verbose]` | List all configured profiles with status |
+| `bapao cleanup [profile_name] [options]` | Remove all traces of a profile (interactive if no name) |
+| `bapao banner` | Display the BAPAO ASCII art banner |
+
+## How It Works
+
+### Directory-Based Identity Switching
+BAPAO uses Git's `includeIf` feature to automatically switch your identity based on your current directory:
+
+```bash
+# Working in ~/code/client-a/ automatically uses client-a profile
+cd ~/code/client-a/
+git config user.name  # Returns: "Client A Developer"
+
+# Working in ~/code/personal/ automatically uses personal profile  
+cd ~/code/personal/
+git config user.name  # Returns: "Personal Projects"
+```
+
+### SSH Host Aliases
+Each profile gets unique SSH host aliases to prevent key conflicts:
+
+```bash
+# Instead of: git clone git@gitlab.com:user/repo.git
+# Use: git clone git@gitlab.com-myprofile:user/repo.git
+```
+
+### Profile Isolation
+Each profile maintains:
+- Dedicated SSH keys (`~/.ssh/id_ed25519_profilename`)
+- Separate Git configuration (`~/.gitconfig-profilename`) 
+- Unique GPG keys for commit signing
+- Isolated SSH host configurations
+
+## Typical Workflow
+
+1. **Setup**: Create profiles for different contexts (work, personal, clients)
+2. **Generate**: Create SSH and GPG keys for each profile
+3. **Configure**: Wire up Git and SSH configurations
+4. **Work**: Cd into any project directory and your identity switches automatically
+5. **Cleanup**: Remove profiles completely when no longer needed
+
+## Example: Multi-Client Setup
+
+```bash
+# Client A setup
+bapao init client-a --name "Client A Dev" --email "dev@client-a.com" --base-dir "~/code/client-a"
+bapao forge client-a  
+bapao wire client-a
+
+# Client B setup  
+bapao init client-b --name "Client B Developer" --email "developer@client-b.com" --base-dir "~/code/client-b"
+bapao forge client-b
+bapao wire client-b
+
+# Personal projects
+bapao init personal --name "Your Name" --email "you@personal.com" --base-dir "~/code/personal"
+bapao forge personal
+bapao wire personal
+
+# List all profiles
+bapao list --verbose
+
+# Interactive cleanup when done
+bapao cleanup
+```
+
+Now when you work in any directory, your Git identity, SSH keys, and GPG signing automatically match the appropriate profile.
+
+## Command Details
+
+### Init Command Options
+
+The `bapao init` command supports several options for customization:
+
+```bash
+bapao init <profile_name> [OPTIONS]
+
+Options:
+  --name TEXT        Git name for commits
+  --email TEXT       Git email for commits  
+  --base-dir TEXT    Base working directory for this profile
+  --host-alias TEXT  Custom Git host alias (auto-generated if not provided)
+```
+
+**Example with all options:**
+```bash
+bapao init work-gitlab \
+  --name "John Doe" \
+  --email "john.doe@company.com" \
+  --base-dir "~/projects/work" \
+  --host-alias "gitlab.company.com-work"
+```
+
+### Cleanup Command Features
+
+The `bapao cleanup` command offers flexible profile removal:
+
+```bash
+# Interactive selection - shows table of all profiles
+bapao cleanup
+
+# Remove specific profile with confirmation
+bapao cleanup work-profile
+
+# Force removal without confirmation  
+bapao cleanup work-profile --force
+
+# Interactive mode (same as no arguments)
+bapao cleanup --interactive
+```
+
+**What gets removed:**
+- SSH private and public keys
+- GPG secret and public keys  
+- Git configuration files
+- SSH host configuration entries
+- Profile entry from `~/.config/bapao/profiles.yaml`
+- Empty base directory (if specified and empty)
+
+## Configuration
+
+BAPAO stores profiles in `~/.config/bapao/profiles.yaml`. Each profile contains:
+- Base directory path
+- SSH key paths  
+- Git configuration file path
+- GPG key fingerprint
+- SSH host alias
+
+## Security Features
+
+- **Ed25519 SSH Keys**: Modern, secure SSH key generation
+- **GPG Integration**: Automatic GPG key creation and Git signing setup
+- **Forensic Cleanup**: Complete profile removal with zero traces
+- **Key Isolation**: Each profile uses dedicated keys to prevent conflicts
+
+## Platform Support
+
+BAPAO works on **Linux**, **macOS**, and **Windows** with the following requirements:
+
+### All Platforms
+- Python 3.8+
+- Git 2.13+ (for `includeIf` support)
+
+### Platform-Specific Requirements
+
+**Linux/macOS:**
+- OpenSSH client (usually pre-installed)
+- GPG/GnuPG (usually pre-installed or available via package manager)
+
+**Windows:**
+- Git for Windows (includes SSH client)
+- GPG4Win or similar GPG implementation
+- Windows Subsystem for Linux (WSL) recommended for best compatibility
+
+### Key Features by Platform
+
+| Feature | Linux | macOS | Windows | Notes |
+|---------|-------|-------|---------|--------|
+| SSH Key Generation | ✅ | ✅ | ✅ | Uses Python cryptography library |
+| GPG Key Generation | ✅ | ✅ | ⚠️ | Requires GPG installation |
+| Git Configuration | ✅ | ✅ | ✅ | Cross-platform paths handled |
+| SSH Config | ✅ | ✅ | ✅ | Standard SSH config format |
+| Directory Switching | ✅ | ✅ | ✅ | Git `includeIf` works everywhere |
+
+**Windows Notes:**
+- Use forward slashes (`/`) or double backslashes (`\\`) in paths
+- WSL provides the most Unix-like experience
+- PowerShell and Command Prompt are supported
+
+## License
+
+Proprietary software - All rights reserved.
+
+## Support
+
+For support, feature requests, or bug reports, please contact the development team directly through PyPI or the package maintainer.
