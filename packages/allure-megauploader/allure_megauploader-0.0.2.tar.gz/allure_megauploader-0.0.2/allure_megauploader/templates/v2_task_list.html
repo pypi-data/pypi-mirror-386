@@ -1,0 +1,39 @@
+{% extends 'v2_base.html' %}
+
+{% block title %}Configs{% endblock %}
+
+{% block content %}
+<h2>Currently running tasks</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Task id</th>
+            <th scope="col">Task name</th>
+            <th scope="col">Task status</th>
+            <th scope="col">delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.pk }}</td>
+            <td>
+                <a href="{% url 'plugins:allure_megauploader:task-status' task.task_id %}">
+                    {{ task.name }}
+                </a>
+            </td>
+            <td>{{ task.status }}</td>
+            <td>
+                <a href="{% url 'plugins:allure_megauploader:task-delete' task.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No tasks found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

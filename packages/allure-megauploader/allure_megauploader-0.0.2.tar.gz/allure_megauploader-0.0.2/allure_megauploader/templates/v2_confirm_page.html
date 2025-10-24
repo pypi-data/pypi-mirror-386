@@ -1,0 +1,50 @@
+{% extends 'v2_base.html' %}
+
+{% block title %}Confirm upload{% endblock %}
+{% block content %}
+    <div class="py-3">
+        <li style="list-style-type: none;">Processing status: {{ processing_status }}</li>
+        {% if suites %}
+            <li style="list-style-type: none;">Allure report parsed at: {{ report_parsed_at }}</li>
+        {% endif %}
+        <hr>
+        {% if suites %}
+            Suites to be created
+        {% endif %}
+        <ul>
+            {% for suite_name, suite_info in suites.content.items %}
+                {% if not suite_info.suite_id and not skip_creating %}
+                    <li>{{ suite_name }}</li>
+                    <ul>
+                        {% for case in suite_info.cases %}
+                            <li>{{ case.test_name }}</li>
+                            {#Здесь можно было бы добавить параметры но без их обработки выглядит очень страшно#}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% if suites %}
+            Cases to be created within existing suites
+        {% endif %}
+        <ul>
+            {% for suite_name, suite_info in suites.content.items %}
+                {% if suite_info.suite_id %}
+                    {% for case in suite_info.cases %}
+                        {% if not case.case_id and not case.test_status == 'unknown' and not skip_creating %}
+                            <li>{{ suite_info.name }} | {{ case.test_name }}</li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% if suites %}
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-primary" name="submit" value="submit">Submit</button>
+                <button class="btn btn-danger" name="decline" value="submit">Decline</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

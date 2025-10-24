@@ -1,0 +1,9 @@
+<option value="">---------</option>
+
+{% for parent_plan_title, plan_list in plans.items %}
+    <optgroup label="{{ parent_plan_title }}">
+        {% for plan in plan_list %}
+            <option value="{{ plan.pk }}">{{ plan.title }}</option>
+        {% endfor %}
+    </optgroup>
+{% endfor %}
