@@ -1,0 +1,192 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-autoapi-framework"
+version = "1.0.0"
+description = "Zero-boilerplate REST APIs for Django with row-level security"
+readme = "django_autoapi/README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Backend Development Team", email = "dev@example.com" },
+]
+maintainers = [
+    { name = "Backend Development Team", email = "dev@example.com" },
+]
+
+keywords = [
+    "django",
+    "rest-api",
+    "crud",
+    "autoapi",
+    "record-rules",
+    "row-level-security",
+    "permissions",
+    "django-rest-framework",
+    "drf",
+    "api-framework",
+    "rapid-development",
+]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Natural Language :: Indonesian",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Database",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "Django>=4.2",
+    "djangorestframework>=3.14",
+    "django-filter>=23.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "isort>=5.0",
+    "mypy>=1.0",
+    "django-stubs>=4.2",
+]
+
+docs = [
+    "mkdocs>=1.5",
+    "mkdocs-material>=9.0",
+    "mkdocstrings>=0.24",
+    "mkdocstrings-python>=0.10",
+]
+
+test = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+    "pytest-cov>=4.0",
+    "factory-boy>=3.3",
+]
+
+all = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "isort>=5.0",
+    "mypy>=1.0",
+    "django-stubs>=4.2",
+    "mkdocs>=1.5",
+    "mkdocs-material>=9.0",
+    "mkdocstrings>=0.24",
+    "mkdocstrings-python>=0.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/nakula-academy/django-autoapi"
+Documentation = "https://github.com/nakula-academy/django-autoapi#readme"
+Repository = "https://github.com/nakula-academy/django-autoapi"
+"Bug Tracker" = "https://github.com/nakula-academy/django-autoapi/issues"
+Changelog = "https://github.com/nakula-academy/django-autoapi/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["django_autoapi"]
+
+[tool.setuptools.package-data]
+django_autoapi = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_mode = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip_glob = ["*/migrations/*"]
+
+[tool.mypy]
+python_version = "3.8"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_redundant_casts = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+
+[[tool.mypy.overrides]]
+module = [
+    "django_autoapi.tests.*",
+    "tests.*",
+]
+ignore_errors = true
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "django_autoapi.tests.conftest"
+python_files = ["test_*.py"]
+addopts = "-v --cov=django_autoapi --cov-report=html --cov-report=term-missing"
+testpaths = ["django_autoapi/tests"]
+
+[tool.coverage.run]
+source = ["django_autoapi"]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/site-packages/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]

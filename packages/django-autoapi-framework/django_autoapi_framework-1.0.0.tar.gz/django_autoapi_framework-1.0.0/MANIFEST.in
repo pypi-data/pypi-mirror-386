@@ -1,0 +1,29 @@
+# Include documentation files
+include README.md
+include CHANGELOG.md
+include LICENSE
+include RELEASE_NOTES_v1.0.0.md
+
+# Include package files
+recursive-include django_autoapi *.py
+recursive-include django_autoapi *.txt
+
+# Include test files (optional, but useful for distribution)
+recursive-include django_autoapi/tests *.py
+
+# Include documentation in package
+recursive-include docs *.md
+recursive-include docs *.txt
+
+# Exclude unnecessary files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *$py.class
+global-exclude .DS_Store
+global-exclude .gitignore
+global-exclude .pytest_cache
+global-exclude .coverage
+global-exclude htmlcov
+
+# Include type hints
+include django_autoapi/py.typed
