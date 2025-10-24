@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block title %}Task {{ task.id[:8] }} - OMNI-X{% endblock %}
+
+{% block header %}Task {{ task.id[:8] }}{% endblock %}
+
+{% block content %}
+<!-- Task Navigation Sidebar -->
+<div class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-gray-200 overflow-y-auto pt-20 z-10">
+    <div class="px-4 py-3 border-b border-gray-200">
+        <a href="../index.html" class="text-blue-600 hover:text-blue-800 text-sm inline-block mb-3">← Back to Dashboard</a>
+        <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Tasks</h3>
+        <!-- Legend -->
+        <div class="text-xs text-gray-600 space-y-1">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+                <span>Success</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                <span>Failed</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-gray-400"></span>
+                <span>Not evaluated</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-yellow-600">★</span>
+                <span>Parent task</span>
+            </div>
+        </div>
+    </div>
+    <div class="py-2">
+        {% for t in all_tasks %}
+        <a href="{{ t.id }}.html"
+           class="block px-4 py-2 text-sm hover:bg-gray-50 transition {% if t.id == task.id %}bg-blue-50 border-l-4 border-blue-600 font-semibold{% endif %}">
+            <div class="flex items-center gap-2">
+                {% if t.archive_idx is not none %}
+                <span class="font-mono text-xs text-gray-600">#{{ t.archive_idx }}</span>
+                {% elif t.done and t.success is none %}
+                <span class="font-mono text-xs text-gray-500">Disc</span>
+                {% else %}
+                <span class="font-mono text-xs text-yellow-600">WIP</span>
+                {% endif %}
+                {% if t.archive_idx in (task.parents or []) %}
+                <span class="text-yellow-600">★</span>
+                {% endif %}
+                <span class="font-mono text-xs truncate">{{ t.id[:8] }}</span>
+            </div>
+            <div class="mt-1">
+                {% if t.success %}
+                <span class="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+                {% elif t.success is false %}
+                <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                {% else %}
+                <span class="inline-block w-2 h-2 rounded-full bg-gray-400"></span>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Main content with left margin for sidebar -->
+<div class="ml-64">
+<div x-data="{
+    showMetadata: false,
+    showCode: true,
+    showLlmLogs: false,
+    copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Copied to clipboard!');
+        });
+    }
+}">
+    <!-- Header with status badges -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+            <h2 class="text-xl font-semibold text-gray-900 font-mono break-all">{{ task.id }}</h2>
+            {% if task.archive_idx is not none %}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                Archived #{{ task.archive_idx }}
+            </span>
+            {% elif task.done and task.success is none %}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                Discarded
+            </span>
+            {% else %}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                WIP
+            </span>
+            {% endif %}
+
+            {% if task.success is not none %}
+            {% if task.success %}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                ✓ Success
+            </span>
+            {% else %}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800">
+                ✗ Failed
+            </span>
+            {% endif %}
+            {% endif %}
+
+            {% if task.interesting is not none %}
+            {% if task.interesting %}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">
+                Interesting
+            </span>
+            {% else %}
+            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                Not Interesting
+            </span>
+            {% endif %}
+            {% endif %}
+        </div>
+
+        {% if task.error %}
+        <!-- Error Alert -->
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-medium text-red-800">Error</h3>
+                    <div class="mt-2 text-sm text-red-700">
+                        <pre class="whitespace-pre-wrap font-mono text-xs">{{ task.error }}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Quick stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div>
+                <dt class="text-gray-600 font-medium">Parents</dt>
+                <dd class="text-gray-900">{{ task.parents|length if task.parents else 0 }}</dd>
+            </div>
+            <div>
+                <dt class="text-gray-600 font-medium">Trained</dt>
+                <dd class="text-gray-900">{{ 'Yes' if task.trained else 'No' }}</dd>
+            </div>
+            {% if task.metadata.eval %}
+            <div>
+                <dt class="text-gray-600 font-medium">Eval Success Rate</dt>
+                <dd class="text-gray-900">{{ "%.1f"|format(task.metadata.eval.success_rate * 100) }}%</dd>
+            </div>
+            <div>
+                <dt class="text-gray-600 font-medium">Eval Episodes</dt>
+                <dd class="text-gray-900">{{ task.metadata.eval.num_success }}/{{ task.metadata.eval.num_episodes }}</dd>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Description -->
+    {% if task.description %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Description</h3>
+        <div class="prose max-w-none text-gray-700 whitespace-pre-line">{{ task.description }}</div>
+    </div>
+    {% endif %}
+
+    <!-- Parents -->
+    {% if task.parents %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Parent Tasks</h3>
+        <div class="flex flex-wrap gap-2">
+            {% for parent_idx in task.parents %}
+            <a href="../tasks/{{ parent_tasks[parent_idx].id }}.html"
+               class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-mono text-blue-600 transition">
+                #{{ parent_idx }}: {{ parent_tasks[parent_idx].id[:8] }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Code -->
+    {% if task.code %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-gray-900">Environment Code</h3>
+            <div class="flex gap-2">
+                <button @click="copyToClipboard({{ task.code|tojson }})" class="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 border border-blue-600 rounded">
+                    Copy
+                </button>
+                <button @click="showCode = !showCode" class="text-sm text-blue-600 hover:text-blue-800">
+                    <span x-show="!showCode">Show</span>
+                    <span x-show="showCode">Hide</span>
+                </button>
+            </div>
+        </div>
+        <pre x-show="showCode" class="!mt-0"><code class="language-python">{{ task.code }}</code></pre>
+    </div>
+    {% endif %}
+
+    <!-- Lineage Tree -->
+    {% if lineage_svg_path %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Lineage Tree</h3>
+        <div class="flex justify-center">
+            <img src="../{{ lineage_svg_path }}" alt="Lineage tree" class="max-w-full h-auto">
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Videos -->
+    {% if videos %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Videos</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for video in videos %}
+            <div class="bg-gray-900 rounded-lg overflow-hidden">
+                <video controls class="w-full">
+                    <source src="../{{ video.path }}" type="video/mp4">
+                </video>
+                <div class="px-3 py-2 text-xs text-gray-300 text-center">
+                    <span class="font-semibold">{{ video.source }}:</span> {{ video.name }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Metadata (collapsible) -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-gray-900">Full Metadata</h3>
+            <div class="flex gap-2">
+                <button @click="copyToClipboard({{ task_json|tojson }})" class="px-3 py-1 text-sm text-blue-600 hover:text-blue-800 border border-blue-600 rounded">
+                    Copy
+                </button>
+                <button @click="showMetadata = !showMetadata" class="text-sm text-blue-600 hover:text-blue-800">
+                    <span x-show="!showMetadata">Show</span>
+                    <span x-show="showMetadata">Hide</span>
+                </button>
+            </div>
+        </div>
+        <pre x-show="showMetadata" class="text-xs bg-gray-50 p-4 rounded overflow-x-auto"><code class="language-json">{{ task_json }}</code></pre>
+    </div>
+
+    <!-- LLM Logs (collapsible) -->
+    {% if task.metadata.llm_calls %}
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-gray-900">LLM Reasoning Traces</h3>
+            <button @click="showLlmLogs = !showLlmLogs" class="text-sm text-blue-600 hover:text-blue-800">
+                <span x-show="!showLlmLogs">Show</span>
+                <span x-show="showLlmLogs">Hide</span>
+            </button>
+        </div>
+        <div x-show="showLlmLogs" class="space-y-4">
+            {% for call in task.metadata.llm_calls %}
+            <div class="border border-gray-200 rounded-lg p-4">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-semibold text-gray-900">{{ call.step }}</span>
+                    <span class="text-xs text-gray-600">{{ call.model }}</span>
+                </div>
+                <div class="text-xs text-gray-600 mb-2">
+                    Tokens: {{ call.input_tokens }} in / {{ call.output_tokens }} out
+                </div>
+                {% if llm_logs.get(call.log_file) %}
+                <div class="bg-gray-50 p-3 rounded text-xs">
+                    <div class="font-semibold mb-1">Reasoning:</div>
+                    <div class="text-gray-700 whitespace-pre-wrap">{{ llm_logs[call.log_file].reasoning }}</div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
