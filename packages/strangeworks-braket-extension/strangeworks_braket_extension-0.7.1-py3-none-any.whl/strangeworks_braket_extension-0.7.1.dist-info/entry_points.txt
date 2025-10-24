@@ -1,0 +1,2 @@
+[sdk-extensions]
+amazon-braket = strangeworks_braket_extension:setup
