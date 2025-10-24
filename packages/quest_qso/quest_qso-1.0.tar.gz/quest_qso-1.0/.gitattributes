@@ -1,0 +1,21 @@
+ProjectStatus.md export-ignore
+pyproject.toml export-ignore
+prep_public_pkg.sh export-ignore
+
+src/ml_qso_model/examples export-ignore
+src/ml_qso_model/datasets export-ignore
+src/ml_qso_model/reconstruct export-ignore
+
+src/ml_qso_model/data/_* export-ignore
+src/ml_qso_model/data/vandenberk_template.csv export-ignore
+
+src/ml_qso_model/utils/autofit.py export-ignore
+src/ml_qso_model/utils/sdss.py export-ignore
+src/ml_qso_model/utils/qsofunc.py export-ignore
+
+src/ml_qso_model/scripts/fit* export-ignore
+src/ml_qso_model/scripts/sort_run_results* export-ignore
+src/ml_qso_model/scripts/latent_space_FOB.py export-ignore
+src/ml_qso_model/scripts/latent_space_FOR.py export-ignore
+src/ml_qso_model/scripts/train_composite_infovae_FOB.py export-ignore
+src/ml_qso_model/scripts/train_composite_infovae_FOR.py export-ignore
