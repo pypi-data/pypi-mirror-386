@@ -1,0 +1,279 @@
+Metadata-Version: 2.4
+Name: easygui-wrap
+Version: 0.10.5
+Summary: Stylish, hybrid callback GUI wrapper for Python (Tkinter & DearPyGui)
+Author: Thesmal
+Author-email: stickma6@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: dearpygui>=2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 🎨 EasyGUI — The Easiest Python GUI Wrapper (Tkinter + DearPyGui)
+
+> **Make GUIs in seconds, not hours!**
+>
+> EasyGUI is a lightweight, stylish, and beginner-friendly GUI wrapper for Python that works on both **Tkinter** and **DearPyGui** — automatically selecting whichever is installed.
+>
+> ✨ *Simple. Clean. Powerful. Instantly fun.*
+
+---
+
+## 🧠 Features
+
+- 🪄 **Hybrid Backend** — Uses `DearPyGui` if available, falls back to `Tkinter`
+- 🔖 **Tag-based System** — Access and update any widget with its tag
+- ⚡ **Hybrid Callbacks** — Mix normal args and live widget values effortlessly
+- 🎨 **Easy Styling** — Colors, fonts, padding, bold/italic, etc.
+- 🔁 **Dynamic Updates** — Update labels, entries, sliders, etc. on the fly
+- 🧩 **QOL Helpers** — `get_value`, `update_value`, and auto var access
+- 🧒 **Friendly API** — If you can `print("hello world")`, you can make a GUI!
+
+---
+
+## ⚙️ Installation
+
+```bash
+pip install easygui
+```
+
+> Optionally, for advanced visuals:
+> ```bash
+> pip install dearpygui
+> ```
+
+---
+
+## 🚀 Quick Start Example
+
+```python
+from easygui import EasyGUI
+
+def greet(name, mood):
+    message = f"Hello {name}! You seem {mood} today."
+    app.update_value("output_label", message)
+
+app = EasyGUI("EasyGUI Demo", (600, 400), bg_color="lightblue")
+
+# Inputs
+app.add_entry("Alice", tag="entry_name")
+app.add_entry("happy", tag="entry_mood")
+
+# Output label
+app.add_label("Press the button below 👇", tag="output_label", fg="blue", font_size=16)
+
+# Button (mixes tag values)
+app.add_button("Say Hello", greet, args_tags=["entry_name", "entry_mood"], fg="white", bg="green")
+
+app.show()
+```
+
+✅ Result:  
+A GUI where you type a name + mood, click a button, and the label updates dynamically.
+
+---
+
+## 🧱 Widget Reference (Documentation)
+
+Below are all widgets and helper methods included in EasyGUI.
+
+---
+
+### 🏷️ `add_label(text, tag=None, fg=None, bg=None, font_size=12, bold=False, italic=False, padding=5)`
+Creates a text label.
+
+**Example:**
+```python
+app.add_label("Hello!", fg="blue", font_size=18, tag="greeting")
+```
+
+---
+
+### 📝 `add_entry(default_text="", tag=None, fg=None, bg=None, font_size=12, padding=5)`
+Creates a single-line text input field.
+
+**Example:**
+```python
+app.add_entry("Enter your name", tag="name_input")
+```
+
+---
+
+### 🔘 `add_button(text, callback, args_tags=None, args=None, tag=None, fg=None, bg=None, font_size=12, bold=False, padding=5)`
+Adds a button that triggers a callback function.
+
+**Features:**
+- `args_tags`: List of widget tags whose live values will be passed to the callback.
+- `args`: Normal static arguments to pass to the callback.
+
+**Example:**
+```python
+def greet(name):
+    print("Hello", name)
+
+app.add_entry("Alice", tag="name")
+app.add_button("Say Hello", greet, args_tags=["name"])
+```
+
+---
+
+### 🎚️ `add_slider(min_value=0, max_value=100, default_value=0, tag=None, padding=5)`
+Creates a horizontal slider.
+
+**Example:**
+```python
+app.add_slider(0, 100, default_value=50, tag="volume")
+```
+
+---
+
+### ☑️ `add_checkbox(text="Check me", default=False, tag=None, padding=5)`
+Adds a checkbox widget.
+
+**Example:**
+```python
+app.add_checkbox("Enable feature", tag="feature_toggle")
+```
+
+---
+
+### 🧾 `add_text_area(default_text="", tag=None, padding=5)`
+Creates a multiline text box.
+
+**Example:**
+```python
+app.add_text_area("Enter your notes here...", tag="notes")
+```
+
+---
+
+### 🎨 `add_color_picker(default=(255,255,255), tag=None, padding=5)`
+Creates a color picker button or widget.
+
+**Example:**
+```python
+app.add_color_picker(default=(200,150,50), tag="chosen_color")
+```
+
+---
+
+## 🧩 Utility Methods
+
+### 🧭 `get_value(tag)`
+Fetch the current value of any widget.
+
+```python
+name = app.get_value("name_input")
+print(name)
+```
+
+---
+
+### 🔄 `update_value(tag, new_value)`
+Update a widget’s displayed value dynamically.
+
+```python
+app.update_value("greeting", "Hi there!")
+```
+
+Works with:
+- Labels
+- Entries
+- Sliders
+- Text Areas
+- Checkboxes  
+
+---
+
+### 🌀 `_wrap_callback(callback, args_tags=None, args=None)`
+(Internal magic method)  
+Wraps callbacks so you can mix widget values and normal variables.
+
+Example (internally used in all buttons):
+```python
+def wrapped_callback():
+    values = [app.get_value(tag) for tag in args_tags]
+    callback(*values, *args)
+```
+
+---
+
+### ▶️ `show()`
+Starts the GUI event loop.
+
+**Example:**
+```python
+app.show()
+```
+
+---
+
+## 💅 Styling Reference
+
+All widgets can be styled with the following optional arguments:
+
+| Option | Description | Example |
+|--------|-------------|----------|
+| `fg` | Foreground (text) color | `"white"` |
+| `bg` | Background color | `"blue"` |
+| `font_size` | Font size | `16` |
+| `bold` | Bold text | `True` |
+| `italic` | Italic text | `True` |
+| `padding` | Padding around widget | `10` |
+
+Example:
+```python
+app.add_label("Stylish Label", fg="white", bg="black", bold=True, italic=True, font_size=18)
+```
+
+---
+
+## 🧩 Example: Mixing Static + Dynamic Arguments
+
+```python
+def fancy_greet(name, age, static_text):
+    msg = f"{static_text} {name}, age {age}"
+    app.update_value("output", msg)
+
+app.add_entry("Alice", tag="entry_name")
+app.add_entry("12", tag="entry_age")
+app.add_label("", tag="output")
+
+# Mix widget values and static args
+app.add_button("Click Me", fancy_greet,
+               args_tags=["entry_name", "entry_age"],
+               args=["Greetings from EasyGUI!"])
+app.show()
+```
+
+✅ Automatically fetches live entry values **and** includes static text.
+
+---
+
+## 🧙 Advanced: Color Picker & Text Area
+
+```python
+def update_note(color):
+    app.update_value("note_output", f"Selected color: {color}")
+
+app.add_label("Choose a color:", fg="darkred")
+app.add_color_picker(default=(255,100,100), tag="color_picker")
+app.add_text_area("This is a text box!", tag="note_output")
+app.show()
+```
+
+---
+
+## 🧑‍💻 Author
+Created with ❤️ by **Zaik**  
+Simplified, styled, and powered by **EasyGUI**.
