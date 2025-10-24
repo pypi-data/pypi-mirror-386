@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: materia-epd
+Version: 0.1.0
+Summary: Generic EPD Aggregator
+Author-email: Paul Baustert <p.m.baustert@gmail.com>
+License-Expression: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: click
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: pycountry
+Requires-Dist: comtradeapicall
+Provides-Extra: dev
+Requires-Dist: black==23.9.1; extra == "dev"
+Requires-Dist: flake8==6.1.0; extra == "dev"
+Requires-Dist: pytest==7.4.2; extra == "dev"
+Requires-Dist: pytest-cov==4.1.0; extra == "dev"
+Requires-Dist: pre-commit==3.4.0; extra == "dev"
+Requires-Dist: deptry; extra == "dev"
+Requires-Dist: sphinx; extra == "dev"
+Dynamic: license-file
+
+# Generic EPD Aggregator
+
+[![Build](https://github.com/killileg/MaterIA/actions/workflows/ci.yml/badge.svg)](https://github.com/killileg/MaterIA/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/killileg/MaterIA/branch/main/graph/badge.svg)](https://codecov.io/gh/killileg/MaterIA)
+[![PyPI](https://img.shields.io/pypi/v/materia-epd.svg)](https://pypi.org/project/materia-epd/)
+[![Python](https://img.shields.io/pypi/pyversions/materia.svg)](https://pypi.org/project/materia-epd/)
+[![License](https://img.shields.io/github/license/killileg/MaterIA)](https://github.com/killileg/MaterIA/blob/main/LICENSE.txt)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/)
+
+---
+
+# Features
+
+- Parse ILCD process and flow XMLs
+- Normalize material properties and LCIA modules
+- Aggregate impacts and compute weighted averages
+- Write new ILCD XML datasets
