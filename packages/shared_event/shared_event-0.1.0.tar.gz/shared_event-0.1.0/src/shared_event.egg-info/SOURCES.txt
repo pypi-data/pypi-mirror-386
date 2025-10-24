@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/shared_event/__init__.py
+src/shared_event/event.py
+src/shared_event.egg-info/PKG-INFO
+src/shared_event.egg-info/SOURCES.txt
+src/shared_event.egg-info/dependency_links.txt
+src/shared_event.egg-info/top_level.txt
+tests/test_event.py
+tests/test_stress.py

@@ -1,0 +1,157 @@
+# Shared Event
+
+A shared-memory based multiprocessing event for cross-process synchronization. Unlike `multiprocessing.Event`, this event is fully picklable and can be shared between processes by name.
+
+## Features
+
+- **Picklable**: Can be safely passed between processes via pickle
+- **Named events**: Multiple processes can connect to the same event by name
+- **Shared memory backed**: Uses `multiprocessing.shared_memory` for efficient IPC
+- **Simple API**: Drop-in replacement for `threading.Event` / `multiprocessing.Event`
+- **Run namespacing**: Isolate events by run_id to prevent collisions
+
+## Installation
+
+```bash
+pip install shared_event
+```
+
+Or for development:
+
+```bash
+git clone <repo-url>
+cd shared_event
+uv sync
+uv pip install -e .
+```
+
+## Quick Start
+
+```python
+from shared_event import SharedMemoryEvent
+from multiprocessing import Process
+import time
+
+def worker(event_name: str, run_id: str):
+    # Connect to existing event by name
+    event = SharedMemoryEvent(name=event_name, create=False, run_id=run_id)
+
+    print("Worker waiting for signal...")
+    event.wait()  # Block until event is set
+    print("Worker received signal!")
+
+    event.close()
+
+def main():
+    run_id = "my_app"
+
+    # Create the event in main process
+    ready_event = SharedMemoryEvent(name="ready", create=True, run_id=run_id)
+
+    # Start worker process
+    p = Process(target=worker, args=("ready", run_id))
+    p.start()
+
+    # Do some work...
+    time.sleep(2)
+
+    # Signal the worker
+    print("Signaling worker...")
+    ready_event.set()
+
+    p.join()
+
+    # Cleanup
+    ready_event.unlink()  # Delete shared memory
+
+if __name__ == "__main__":
+    main()
+```
+
+## API Reference
+
+### `SharedMemoryEvent(name, create=False, run_id="")`
+
+Creates or connects to a shared memory event.
+
+**Parameters:**
+- `name` (str): Event identifier
+- `create` (bool): Whether to create new event (`True`) or connect to existing (`False`)
+- `run_id` (str): Optional run identifier for namespacing events
+
+**Methods:**
+- `set()`: Set the event (wake up all waiters)
+- `clear()`: Clear the event
+- `is_set() -> bool`: Check if event is currently set
+- `wait(timeout=None) -> bool`: Wait for event to be set. Returns `True` if set, `False` on timeout
+- `close()`: Close connection to shared memory
+- `unlink()`: Delete the shared memory segment (call from creator process)
+
+## Use Cases
+
+### 1. Process Coordination
+
+```python
+# Coordinator process
+coordinator_event = SharedMemoryEvent("start_processing", create=True, run_id="batch_job")
+
+# Worker processes connect by name
+worker_event = SharedMemoryEvent("start_processing", create=False, run_id="batch_job")
+worker_event.wait()  # Wait for coordinator signal
+```
+
+### 2. Replacing Non-Picklable Events
+
+```python
+# Instead of this (won't work across process boundaries):
+# event = multiprocessing.Event()  # Can't pickle reliably
+
+# Use this:
+event = SharedMemoryEvent("sync_point", create=True, run_id="app")
+# This event can be safely pickled and passed to subprocesses
+```
+
+### 3. Multiple Event Coordination
+
+```python
+# Setup phase
+setup_done = SharedMemoryEvent("setup", create=True, run_id="pipeline")
+data_ready = SharedMemoryEvent("data", create=True, run_id="pipeline")
+processing_done = SharedMemoryEvent("processing", create=True, run_id="pipeline")
+
+# Workers connect to relevant events
+setup_event = SharedMemoryEvent("setup", create=False, run_id="pipeline")
+setup_event.wait()  # Wait for setup to complete
+```
+
+## Implementation Notes
+
+- Uses `multiprocessing.shared_memory` for efficient cross-process communication
+- Currently uses polling with 1ms sleep for `wait()` - futex support planned for more efficient waiting
+- Each event uses 1 byte of shared memory
+- Event names are automatically prefixed with run_id for isolation
+- Supports both timeout and indefinite waiting
+- Proper cleanup with `close()` and `unlink()` methods
+
+## Development
+
+```bash
+# Install dependencies
+uv sync
+
+# Run tests
+uv run pytest
+
+# Run tests with coverage
+uv run pytest --cov=shared_event
+
+# Type checking
+uv run mypy .
+
+# Linting
+uv run ruff check .
+```
+
+## License
+
+MIT
