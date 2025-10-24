@@ -1,0 +1,11 @@
+fastmm/libfastmmlib.dylib,sha256=Qla-hCMB0zSuGMkTiD-uy0hUuH6xH9KeEr2wjqXBwvA,721312
+fastmm/matcher.py,sha256=cZOFPInRMNYE-Fka_ISsUgKWUV90eEZ5asRy4mYKrgQ,1469
+fastmm/_version.py,sha256=F6bGBuyHKm-GPl4AsazYD8lPOC3maNoMAyGcJ43qsBQ,712
+fastmm/__init__.py,sha256=ZRgvqa5fiA73Q4vt9mUiJWKx9arYsHiZa8eEEn_xCpY,712
+fastmm/fastmm.cpython-39-darwin.so,sha256=N1k5J8FNxE43uEJ6LmmDAO7e4HRPkUc8JHsKGIQTRbw,340448
+fastmm/.dylibs/libomp.dylib,sha256=ezTmtJ5JfLmjCEzZIALkiQI7POlxY7eZtLqIpnvZ2yc,743584
+fastmm/.dylibs/libboost_serialization.dylib,sha256=-ccYqRO-WQL9F4p_mteZsv5JQUmWnWXYcGpL8-weqbg,488304
+fastmm-0.1.0.dist-info/RECORD,,
+fastmm-0.1.0.dist-info/WHEEL,sha256=ZF0EG4evfIAXWc5yWRjXEB82QuVPxkr7Vob35_6t9b0,112
+fastmm-0.1.0.dist-info/METADATA,sha256=4nMt9vLaG9cTuyReZlotzXPu8iY8Cr9Fg_Lz5Yr7U2M,4265
+fastmm-0.1.0.dist-info/licenses/LICENSE.TXT,sha256=ORqBCyCnu0ktEIRH91V-IzQM9Apd9F8z9WfZv_V83IY,11314
