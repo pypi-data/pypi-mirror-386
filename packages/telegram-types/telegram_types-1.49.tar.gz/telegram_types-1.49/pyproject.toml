@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "telegram-types"
+version = "1.49"
+description = ""
+authors = ["Dan"]
+
+[tool.poetry.dependencies]
+python = "~=3.8"
+pydantic = "2.6.4"
+typing_extensions = "4.10.0"
+annotated-types = "0.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
