@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'gx-converter'
+description = 'A tool to convert g-code into the FlashPrint .gx file format'
+dynamic = ["version"]
+authors = [{ name = 'bkienzle3', email = 'pypi@bkienzle.com' }]
+license = { text = 'GNU General Public License v3 (GPLv3)' }
+readme = 'README.md'
+keywords = [
+    'flashprint',
+    'flashforge',
+    'adventurer',
+    'voxel',
+    'monoprice',
+    '3d',
+    'printer',
+    'printing',
+    'gcode',
+    'gx',
+]
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Education',
+    'Intended Audience :: End Users/Desktop',
+    'Intended Audience :: Other Audience',
+    'Intended Audience :: Manufacturing',
+    'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+    'Natural Language :: English',
+    'Operating System :: OS Independent',
+    'Operating System :: MacOS :: MacOS X',
+    'Operating System :: MacOS',
+    'Operating System :: Microsoft :: MS-DOS',
+    'Operating System :: Microsoft :: Windows',
+    'Operating System :: Microsoft',
+    'Operating System :: POSIX :: BSD :: FreeBSD',
+    'Operating System :: POSIX :: BSD',
+    'Operating System :: POSIX :: Linux',
+    'Operating System :: POSIX :: SunOS/Solaris',
+    'Operating System :: POSIX',
+    'Operating System :: Unix',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python',
+    'Topic :: Printing',
+    'Topic :: Other/Nonlisted Topic',
+    'Topic :: Utilities',
+    'Typing :: Typed',
+]
+
+requires-python = '>3.9'
+dependencies = [
+    'Pillow',
+]
+
+[project.scripts]
+gx-converter = "gx_converter.main:main"
+
+[project.urls]
+bugs = 'https://github.com/bkienzle/gx-converter/issues'
+repository = 'https://github.com/bkienzle/gx-converter'
+homepage = 'https://bkienzle.com'
