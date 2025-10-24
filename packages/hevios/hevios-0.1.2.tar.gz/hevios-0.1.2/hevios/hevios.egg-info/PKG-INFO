@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: hevios
+Version: 0.1.2
+Summary: A sample Python package for ZDIT
+Author-email: "worsoon.com" <airego@qq.com>
+Project-URL: Homepage, https://go.worsoon.com/FwLink/?LinkID=44
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+HeviOS是一个Python帮助类。
