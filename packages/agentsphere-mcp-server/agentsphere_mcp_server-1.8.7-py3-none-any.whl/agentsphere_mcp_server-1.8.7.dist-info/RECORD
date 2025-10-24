@@ -1,0 +1,11 @@
+agentsphere_mcp/__init__.py,sha256=Z91p32jlKzTfeUQMODhGe-WyMJCGMDpwg22GJS36A2s,1522
+agentsphere_mcp/asphere_mcp_stdio.py,sha256=tvbOHiwlg5-ucb1e1uPez3kEltjr_BTqobQxZPHJo68,77549
+agentsphere_mcp/logger.py,sha256=fNVG_xFdf3a5iLpewxzP93lfFXKhZlj5LyKsxpNW9IQ,385
+agentsphere_mcp/sandbox_pty_manager.py,sha256=9COxEVX4VDXvpyhFK5Qaims6tVqfG87OxMQSwM2CFQg,18166
+agentsphere_mcp/single_sandbox_manager.py,sha256=apQcwYXCdOGkNQNl1eKIJbrQA_Vuimbx70fPjciNE1s,7149
+agentsphere_mcp/tlv_protocol.py,sha256=fzQbll3btrHdfPmA-25StmFtAQFGlyPQrka9VGeaKWM,11918
+agentsphere_mcp_server-1.8.7.dist-info/METADATA,sha256=1sBriH888UdHojDZgKDYcphHjbimCm-GSE2S8eL3hCk,9347
+agentsphere_mcp_server-1.8.7.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+agentsphere_mcp_server-1.8.7.dist-info/entry_points.txt,sha256=1FJb5RIwfwh0akivZCV0dgKZwbKaE4tVNvte79NGXdQ,82
+agentsphere_mcp_server-1.8.7.dist-info/licenses/LICENSE,sha256=modEriwYXbjhWSkOCM7tdetp5CekRY4LVHbSnnlk6zE,1110
+agentsphere_mcp_server-1.8.7.dist-info/RECORD,,
