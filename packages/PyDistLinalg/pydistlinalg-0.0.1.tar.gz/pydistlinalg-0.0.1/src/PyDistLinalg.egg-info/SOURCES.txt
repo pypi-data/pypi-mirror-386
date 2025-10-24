@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/PyDistLinalg/__init__.py.py
+src/PyDistLinalg/config.py
+src/PyDistLinalg/core.py
+src/PyDistLinalg/decompositions.py
+src/PyDistLinalg/interface.py
+src/PyDistLinalg/solvers.py
+src/PyDistLinalg/utils.py
+src/PyDistLinalg.egg-info/PKG-INFO
+src/PyDistLinalg.egg-info/SOURCES.txt
+src/PyDistLinalg.egg-info/dependency_links.txt
+src/PyDistLinalg.egg-info/top_level.txt
