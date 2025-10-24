@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: mcp-seniverse-weather-galaxy
+Version: 0.2.0
+Summary: Add your description here
+License-File: LICENSE
+Requires-Python: >=3.12
+Requires-Dist: mcp[cli]>=1.18.0
+Requires-Dist: requests>=2.32.5
+Description-Content-Type: text/markdown
+
+# mcp-seniverse-weather
+指定城市名返回当前的天气情况
