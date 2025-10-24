@@ -1,0 +1,131 @@
+/* responsive.css (обновленная версия) */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem 0.5rem;
+    }
+
+    .step-content {
+        padding: 1rem;
+    }
+
+    .progress-indicator {
+        gap: 0.5rem;
+    }
+
+    .progress-step {
+        min-width: 80px;
+    }
+
+    .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+    }
+
+    .step-title {
+        font-size: 0.75rem;
+    }
+
+    /* Стили для мобильного списка проектов */
+    .projects-list {
+        max-height: 300px;
+    }
+
+    .project-item {
+        padding: 0.75rem 1rem;
+    }
+
+    .project-icon {
+        font-size: 1.25rem;
+        margin-right: 0.75rem;
+        min-width: 32px;
+    }
+
+    .project-info h5 {
+        font-size: 0.9rem;
+    }
+
+    .project-info p {
+        font-size: 0.8rem;
+    }
+
+    .navigation-buttons .btn {
+        min-width: 100px;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .templates-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .tree-container {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-indicator {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .progress-step {
+        flex-direction: row;
+        min-width: auto;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .step-number {
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+
+    .step-title {
+        text-align: left;
+    }
+
+    .navigation-buttons .d-flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navigation-buttons .d-flex > div:empty {
+        display: none;
+    }
+
+    /* Компактный список проектов для малых экранов */
+    .project-item {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .project-icon {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+        min-width: 24px;
+    }
+
+    .project-info h5 {
+        font-size: 0.85rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .project-info p {
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+}
+
+/* Утилиты для скрытия на мобильных */
+@media (max-width: 768px) {
+    .d-md-none {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .d-md-block {
+        display: block !important;
+    }
+}

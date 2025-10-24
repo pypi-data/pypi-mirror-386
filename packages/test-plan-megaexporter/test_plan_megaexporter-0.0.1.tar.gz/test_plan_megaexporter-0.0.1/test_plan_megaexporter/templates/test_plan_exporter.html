@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+    <title>Test Plan Exporter</title>
+    <link href="{% static 'test_plan_exporter/css/bootstrap.min.css' %}" rel="stylesheet"/>
+
+    <link href="{% static 'test_plan_exporter/css/base.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/layout.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/steps.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/navigation.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/project-selector.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/plan-tree.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/document-types.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/loading.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/responsive.css' %}" rel="stylesheet"/>
+    <link href="{% static 'test_plan_exporter/css/tree_checkboxes.css' %}" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container" style="min-height: auto">
+</div>
+
+
+<script src="{% static 'test_plan_exporter/js/config.js' %}"></script>
+<script src="{% static 'test_plan_exporter/js/utils.js' %}"></script>
+<script src="{% static 'test_plan_exporter/js/api.js' %}"></script>
+<script src="{% static 'test_plan_exporter/js/state.js' %}"></script>
+<script src="{% static 'test_plan_exporter/js/navigation.js' %}"></script>
+<script src="{% static 'test_plan_exporter/js/tree-search.js' %}"></script>
+<script src="{% static 'test_plan_exporter/js/steps.js' %}"></script>
+<script src="{% static 'test_plan_exporter/js/tree_checkbox_manager.js' %}"></script>
+
+<script src="{% static 'test_plan_exporter/js/app.js' %}"></script>
+
+</body>
+<footer style="text-align: center; padding: 20px; width: 100%; font-size: 12px;">
+    <p style="margin: 0;">TestY TMS {{ TESTY_VERSION }}. Released under the AGPL-v3 License.</p>
+    <p style="margin: 0;">&copy; {% now 'Y' %} <a href="https://yadro.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">KNS Group LLC (YADRO).</a></p>
+</footer>
+</html>

@@ -1,0 +1,75 @@
+/* document-types.css */
+.document-type-card {
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    background: white;
+    height: 100%;
+    overflow: hidden;
+}
+
+.document-type-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0,123,255,0.15);
+    transform: translateY(-2px);
+}
+
+.document-type-card.selected {
+    border-color: var(--primary-color);
+    background: #f0f8ff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.card-header {
+    padding: 1.5rem 1rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.type-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--dark-color);
+}
+
+.document-type-card.selected .card-header h5 {
+    color: var(--primary-color);
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body p {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    padding: 0.25rem 0;
+    font-size: 0.875rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.features-list li:before {
+    content: "✓";
+    color: var(--success-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
