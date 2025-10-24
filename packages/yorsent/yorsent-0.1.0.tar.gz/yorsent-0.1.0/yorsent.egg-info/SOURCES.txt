@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+sentiment/__init__.py
+sentiment/sentiment.py
+yorsent.egg-info/PKG-INFO
+yorsent.egg-info/SOURCES.txt
+yorsent.egg-info/dependency_links.txt
+yorsent.egg-info/requires.txt
+yorsent.egg-info/top_level.txt
