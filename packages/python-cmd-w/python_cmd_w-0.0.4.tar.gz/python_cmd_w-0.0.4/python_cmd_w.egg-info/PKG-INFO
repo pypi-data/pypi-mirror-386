@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: python-cmd-w
+Version: 0.0.4
+Summary: Execute command in python
+Home-page: https://github.com/wayne931121/python-cmd
+Author: wayne931121
+Author-email: 
+License: Attribution 4.0 International, Copyright (c) 2025 wayne931121
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: chardet
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# python-cmd
+
+Excute cmd in python
+
+```
+pip install python-cmd-w
+```
+
+```py
+import pycmd
+pycmd.cmd("dir",prt=True)
+```
