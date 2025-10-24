@@ -1,0 +1,15 @@
+﻿# Include root docs in the source distribution (sdist)
+include README.md
+include USAGE.md
+include LICENSE
+
+# Include the examples folder in sdist
+recursive-include src/team_digest/examples *
+
+# Exclude local/dev clutter from sdist
+prune .venv
+prune .venv-test
+prune outputs
+exclude *.pyc
+exclude *.pyo
+exclude __pycache__/
