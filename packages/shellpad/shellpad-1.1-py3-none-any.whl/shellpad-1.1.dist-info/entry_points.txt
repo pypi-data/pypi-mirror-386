@@ -1,0 +1,2 @@
+[console_scripts]
+shellpad = shellpad.main:cli
