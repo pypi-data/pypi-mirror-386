@@ -1,0 +1,2 @@
+[console_scripts]
+mern = mern.cli:main
