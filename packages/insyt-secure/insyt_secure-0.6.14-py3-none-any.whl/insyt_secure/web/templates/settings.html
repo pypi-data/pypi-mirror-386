@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Insyt Secure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50" x-data="settingsApp()">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-800">Insyt Secure</h1>
+                    <span class="ml-3 text-sm text-gray-500">Settings</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/dashboard" class="text-gray-600 hover:text-gray-900">Dashboard</a>
+                    <span class="text-gray-600">{{ username }}</span>
+                    <a href="/logout" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Retention Policy Settings -->
+        <div class="bg-white rounded-lg shadow mb-6">
+            <div class="p-6 border-b">
+                <h2 class="text-xl font-semibold text-gray-800">Retention Policy</h2>
+                <p class="text-sm text-gray-500 mt-1">Configure automatic log retention and purging settings</p>
+            </div>
+            <div class="p-6">
+                <form @submit.prevent="updateRetentionPolicy()" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Maximum Database Size (GB)</label>
+                        <input type="number" step="0.1" min="0.1" x-model="retention.max_size_gb"
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                        <p class="text-xs text-gray-500 mt-1">Logs will be automatically purged when database exceeds this size</p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Maximum Retention (Days)</label>
+                        <input type="number" min="1" x-model="retention.max_retention_days"
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                        <p class="text-xs text-gray-500 mt-1">Logs older than this will be automatically deleted</p>
+                    </div>
+                    
+                    <div x-show="retention.message" :class="retention.success ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'"
+                        class="p-4 rounded-lg" x-text="retention.message"></div>
+                    
+                    <button type="submit" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700">
+                        Save Retention Policy
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Web Server Configuration -->
+        <div class="bg-white rounded-lg shadow mb-6">
+            <div class="p-6 border-b">
+                <h2 class="text-xl font-semibold text-gray-800">Web Server Configuration</h2>
+                <p class="text-sm text-gray-500 mt-1">Configure web interface settings (requires restart to apply)</p>
+            </div>
+            <div class="p-6">
+                <form @submit.prevent="updateWebConfig()" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Web Interface Port</label>
+                        <input type="number" min="1024" max="65535" x-model="webConfig.port"
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                        <p class="text-xs text-gray-500 mt-1">Default: 8080. Requires restart to apply.</p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Binding Interface</label>
+                        <select x-model="webConfig.host" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                            <option value="127.0.0.1">Localhost only (127.0.0.1) - Secure</option>
+                            <option value="0.0.0.0">All interfaces (0.0.0.0) - Public access</option>
+                        </select>
+                        <p class="text-xs text-gray-500 mt-1">
+                            <strong>127.0.0.1:</strong> Only accessible from this machine (secure)<br>
+                            <strong>0.0.0.0:</strong> Accessible from any IP address (use with reverse proxy)
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center space-x-2 cursor-pointer">
+                            <input type="checkbox" x-model="webConfig.enabled" 
+                                class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
+                            <span class="text-sm font-medium text-gray-700">Enable Web Interface</span>
+                        </label>
+                        <p class="text-xs text-gray-500 mt-1 ml-6">
+                            When disabled, the web interface will stop on next restart. Core service continues running.
+                        </p>
+                    </div>
+                    
+                    <div x-show="webConfig.message" :class="webConfig.success ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'"
+                        class="p-4 rounded-lg" x-text="webConfig.message"></div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <p class="text-sm text-yellow-700">
+                            <strong>Note:</strong> Changes will be saved but require restarting the web server to take effect.
+                        </p>
+                    </div>
+                    
+                    <button type="submit" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700">
+                        Save Web Configuration
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Password Management -->
+        <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b">
+                <h2 class="text-xl font-semibold text-gray-800">Password Management</h2>
+                <p class="text-sm text-gray-500 mt-1">Change your password</p>
+            </div>
+            <div class="p-6">
+                <form @submit.prevent="changePassword()" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+                        <input type="password" x-model="password.old_password" required
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">New Password</label>
+                        <input type="password" x-model="password.new_password" required
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+                        <input type="password" x-model="password.confirm_password" required
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                    </div>
+                    
+                    <div x-show="password.message" :class="password.success ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'"
+                        class="p-4 rounded-lg" x-text="password.message"></div>
+                    
+                    <button type="submit" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700">
+                        Change Password
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function settingsApp() {
+            return {
+                retention: {
+                    max_size_gb: {{ config.max_size_gb }},
+                    max_retention_days: {{ config.max_retention_days }},
+                    message: '',
+                    success: false
+                },
+                webConfig: {
+                    port: {{ config.web_port }},
+                    host: '{{ config.web_host }}',
+                    enabled: {{ 'true' if config.web_enabled else 'false' }},
+                    message: '',
+                    success: false
+                },
+                password: {
+                    old_password: '',
+                    new_password: '',
+                    confirm_password: '',
+                    message: '',
+                    success: false
+                },
+                
+                async updateRetentionPolicy() {
+                    this.retention.message = '';
+                    
+                    try {
+                        const response = await fetch('/api/settings/retention', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                max_size_gb: parseFloat(this.retention.max_size_gb),
+                                max_retention_days: parseInt(this.retention.max_retention_days)
+                            })
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            this.retention.success = true;
+                            this.retention.message = 'Retention policy updated successfully!';
+                        } else {
+                            this.retention.success = false;
+                            this.retention.message = data.error || 'Failed to update retention policy';
+                        }
+                    } catch (error) {
+                        this.retention.success = false;
+                        this.retention.message = 'Connection error. Please try again.';
+                    }
+                },
+                
+                async updateWebConfig() {
+                    this.webConfig.message = '';
+                    
+                    try {
+                        const response = await fetch('/api/settings/web-config', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                port: parseInt(this.webConfig.port),
+                                host: this.webConfig.host,
+                                enabled: this.webConfig.enabled
+                            })
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            this.webConfig.success = true;
+                            this.webConfig.message = 'Web configuration saved! Restart the web server for changes to take effect.';
+                        } else {
+                            this.webConfig.success = false;
+                            this.webConfig.message = data.error || 'Failed to update web configuration';
+                        }
+                    } catch (error) {
+                        this.webConfig.success = false;
+                        this.webConfig.message = 'Connection error. Please try again.';
+                    }
+                },
+                
+                async changePassword() {
+                    this.password.message = '';
+                    
+                    if (this.password.new_password !== this.password.confirm_password) {
+                        this.password.success = false;
+                        this.password.message = 'New passwords do not match';
+                        return;
+                    }
+                    
+                    if (this.password.new_password.length < 4) {
+                        this.password.success = false;
+                        this.password.message = 'Password must be at least 4 characters';
+                        return;
+                    }
+                    
+                    try {
+                        const response = await fetch('/api/change-password', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                old_password: this.password.old_password,
+                                new_password: this.password.new_password
+                            })
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            this.password.success = true;
+                            this.password.message = 'Password changed successfully! Redirecting to login...';
+                            setTimeout(() => {
+                                window.location.href = '/login';
+                            }, 2000);
+                        } else {
+                            this.password.success = false;
+                            this.password.message = data.error || 'Failed to change password';
+                        }
+                    } catch (error) {
+                        this.password.success = false;
+                        this.password.message = 'Connection error. Please try again.';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
