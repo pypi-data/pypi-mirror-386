@@ -1,0 +1,14 @@
+arrow_mssql/__init__.py,sha256=fmTBQuHm-ehn-DWMePybDiRmCy72espGBd_ZjHYo804,230
+arrow_mssql/connector.py,sha256=QuR-8yTWfcIUEw8kBDfYNRMzvZCASO0awqyUcEgUk6M,1341
+arrow_mssql/export.py,sha256=c-LELOgLBmY_R-LePqRPZNZ9cE6KBHUvC3GocO1qbaQ,3039
+arrow_mssql/input/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+arrow_mssql/input/datatypes.py,sha256=wQBLORzUUaPyf0i5qoLyYI-bOW1qLfQXJ5temEf67XM,3575
+arrow_mssql/input/schema.py,sha256=3_k4jcQWp9-uObLrKkAaU1ir3Au-RWPHulN_4kzKUfE,1511
+arrow_mssql/iport.py,sha256=DiMaf-jMJVzqK9yELUr6XGw_j8gSry41wpjIS7VFhp0,4583
+arrow_mssql/output/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+arrow_mssql/output/datatypes.py,sha256=Uc3VVZBhXrLI3UAT1B9kNArzzOkWpRyZ1IGCp-JXSro,2525
+arrow_mssql/output/schemas.py,sha256=2XQt1VkhF3urXC14Wnp0eYyYDB7jiJWtE9vRACqCd0I,2782
+arrow_mssql/utils.py,sha256=1rBTO8hpJ5CIeg4Zqr2xMlU83Jzppmw-VfgYnqxvxks,677
+arrow_mssql-0.0.88.dist-info/METADATA,sha256=FDyUhe8hLY9cBMdJFTv2vY1WC7FKvNYSS0g1WhJjpl8,2840
+arrow_mssql-0.0.88.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+arrow_mssql-0.0.88.dist-info/RECORD,,
