@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: parsevasp
+Version: 3.4.0
+Summary: A general parser for VASP
+Keywords: vasp,parser
+Author-email: Espen Flage-Larsen	 <espen.flage-larsen@sigma2.no>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: lxml
+Requires-Dist: pyyaml
+Requires-Dist: pre-commit~=2.2 ; extra == "pre-commit"
+Requires-Dist: pytest~=7.0 ; extra == "tests"
+Requires-Dist: pytest-cov~=2.7,<2.11 ; extra == "tests"
+Requires-Dist: coverage~=6.0 ; extra == "tests"
+Project-URL: Source, https://github.com/aiida-vasp/parsevasp
+Provides-Extra: pre-commit
+Provides-Extra: tests
+
+# Parsevasp - a parser for VASP
+
+[![PyPI](https://img.shields.io/pypi/dm/parsevasp.svg?maxAge=2592000)](https://pypi.org/project/parsevasp)
+[![PyPI](https://img.shields.io/pypi/pyversions/parsevasp)](https://pypi.org/project/parsevasp)
+[![codecov](https://codecov.io/gh/aiida-vasp/parsevasp/branch/develop/graph/badge.svg)](https://codecov.io/gh/aiida-vasp/parsevasp)
+[![GitHub Actions](https://github.com/aiida-vasp/parsevasp/workflows/parsevasp/badge.svg)](https://github.com/aiida-vasp/parsevasp/actions)
+
+A parser for VASP using lxml or fallback elementTree.
+
