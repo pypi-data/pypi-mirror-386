@@ -1,0 +1,22 @@
+[CDF-26037] 🐛 Cognite Function Delete 429 (#2116)
+
+# Description
+
+We already handle 429 in the create endpoint, but we apparently get 429
+on the delete as well.
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Fixed
+
+- In `cdf deploy`, Toolkit no longer raises 429 from the API when
+updating more than 10 functions.
+
+## templates
+
+No changes.
