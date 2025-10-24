@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: cciic
+Version: 0.1.0
+Summary: cc1024程序员日快乐！！！
+Keywords: music,gif,animation,哈基米,momo,耄耋
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Classifier: Topic :: Desktop Environment :: Window Managers
+Requires-Python: >=3.7
+Requires-Dist: pygame
+Requires-Dist: Pillow
+Dynamic: classifier
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
