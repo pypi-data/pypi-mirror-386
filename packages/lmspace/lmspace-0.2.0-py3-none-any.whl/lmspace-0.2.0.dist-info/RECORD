@@ -1,0 +1,12 @@
+lmspace/__init__.py,sha256=ko0g2FSdX3e7jEGTMT3xchPZS71ONWIbaAxR-AI9d18,83
+lmspace/cli.py,sha256=imxRRb9SYSOTJHPIEHZgJvqoYAbOkWD83_TAFAz7Ay0,2062
+lmspace/vscode/__init__.py,sha256=p7hW9V1tp8PA9G42L3nSpQqmKp3sFNqyaBXwu1kGvzs,240
+lmspace/vscode/agent_dispatch.py,sha256=LsUL-LMms6_GB2BbBOHugYkNm6Z4JBwlbSCtgYMou84,22901
+lmspace/vscode/cli.py,sha256=JdHCzK9aY-4Uts2HkvLhMCIllyS5p76lLTKrUUjt2rY,10150
+lmspace/vscode/provision.py,sha256=PRZXmVHOCY0cqQfgZb3KBrsGCIdKWAX0G3caw4WMvqA,11936
+lmspace/vscode/subagent_template/subagent.code-workspace,sha256=FoiaT0TJzR9QzEkWK838tyLR5Z48y8sG_HByDNVdPLs,138
+lmspace/vscode/subagent_template/wakeup.chatmode.md,sha256=6fX7jSy5qW7oU2pESSzCI2gsuxlN8wOBs0uBAVnqtlY,247
+lmspace-0.2.0.dist-info/WHEEL,sha256=ELhySV62sOro8I5wRaLaF3TWxhBpkcDkdZUdAYLy_Hk,78
+lmspace-0.2.0.dist-info/entry_points.txt,sha256=WT_sobPMbGG9F14vEddU9ZwqWf6zBjkmrX4IuyiLyEU,42
+lmspace-0.2.0.dist-info/METADATA,sha256=9rn4aa-h-ecc7KBhhEYGqPRLdPxSrRecrrSUfv1zzgg,4847
+lmspace-0.2.0.dist-info/RECORD,,
