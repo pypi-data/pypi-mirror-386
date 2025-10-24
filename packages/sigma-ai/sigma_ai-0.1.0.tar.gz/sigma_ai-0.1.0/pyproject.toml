@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sigma-ai"
+version = "0.1.0"
+description = "Comparative evaluation harness to benchmark local vs cloud LLMs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Andrii Meleshkov" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+sigma = "sigma_ai.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/andrwl1/sigma-ai"
+
+[tool.setuptools]
+packages = ["sigma_ai"]

@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+sigma_ai/__init__.py
+sigma_ai/cli.py
+sigma_ai.egg-info/PKG-INFO
+sigma_ai.egg-info/SOURCES.txt
+sigma_ai.egg-info/dependency_links.txt
+sigma_ai.egg-info/entry_points.txt
+sigma_ai.egg-info/requires.txt
+sigma_ai.egg-info/top_level.txt
+tests/test_basic.py
+tests/test_imports.py
+tests/test_io.py
+tests/test_smoke.py
