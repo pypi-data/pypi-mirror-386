@@ -1,0 +1,19 @@
+[project]
+name = "simpleprompts"
+version = "0.1.2a1"
+description = "A simple library for constructing LLM prompts"
+authors = [
+  { name = "Yasser Ahmed", email = "yasserfawzi1029@outlook.com" },
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.urls]
+repository  = "https://github.com/Infrared1029/simpleprompts"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.0.1",
+]
