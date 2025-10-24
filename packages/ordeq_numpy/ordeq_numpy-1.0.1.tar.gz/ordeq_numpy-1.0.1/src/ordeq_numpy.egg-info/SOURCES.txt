@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/ordeq_numpy/__init__.py
+src/ordeq_numpy/_version.py
+src/ordeq_numpy/binary_array.py
+src/ordeq_numpy/py.typed
+src/ordeq_numpy/text_array.py
+src/ordeq_numpy.egg-info/PKG-INFO
+src/ordeq_numpy.egg-info/SOURCES.txt
+src/ordeq_numpy.egg-info/dependency_links.txt
+src/ordeq_numpy.egg-info/requires.txt
+src/ordeq_numpy.egg-info/top_level.txt
