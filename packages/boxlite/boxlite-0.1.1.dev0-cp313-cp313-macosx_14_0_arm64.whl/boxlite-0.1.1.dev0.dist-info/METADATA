@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: boxlite
+Version: 0.1.1.dev0
+Requires-Dist: pytest>=7.0 ; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.21 ; extra == 'dev'
+Provides-Extra: dev
+Summary: Python bindings for Boxlite runtime
+Author: Dorian Zheng
+Requires-Python: >=3.10
