@@ -1,0 +1,17 @@
+[build-system]
+requires =  ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-seniverse-weather-galaxy"
+version = "0.4.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp[cli]>=1.18.0",
+    "requests>=2.32.5",
+]
+
+[project.scripts]
+mcp-seniverse-weather-galaxy = "mcp_seniverse_weather_galaxy:main"
