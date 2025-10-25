@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: aiogram-telemetry
+Version: 0.2.1
+Summary: Telemetry and observability helpers for aiogram 3 bots.
+Author: aiogram-telemetry maintainers
+License: MIT
+Project-URL: Homepage, https://github.com/example/aiogram-telemetry
+Project-URL: Documentation, https://github.com/example/aiogram-telemetry/docs
+Keywords: aiogram,telemetry,prometheus,redis,observability
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiogram>=3
+Requires-Dist: redis>=5
+Requires-Dist: prometheus-client>=0.20
+Requires-Dist: pydantic-settings>=2
+Requires-Dist: aiohttp>=3
+Provides-Extra: postgres
+Requires-Dist: SQLAlchemy>=2; extra == "postgres"
+Requires-Dist: asyncpg>=0.29; extra == "postgres"
+Dynamic: license-file
+
+# aiogram-telemetry
+
+**aiogram-telemetry** is a lightweight observability layer for [aiogram 3.x](https://docs.aiogram.dev) bots.  
+It automatically tracks handler performance, errors, and custom metrics across Redis, Prometheus, and optional PostgreSQL backends.
+
+---
+
+## 🚀 Features
+
+- 📊 **Automatic Metrics Collection** — track message/update counts, handler execution times, and errors.  
+- ⚙️ **Zero-Boilerplate Setup** — plug it in once; no code changes to your existing handlers.  
+- 🔌 **Pluggable Backends** — supports Redis (for aggregation), Prometheus (for export), and optional PostgreSQL (for persistence).  
+- 🧩 **Async & Non-Blocking** — built fully on asyncio to integrate seamlessly with aiogram 3.x.  
+- 🪶 **Lightweight** — minimal overhead and no extra dependencies beyond aiogram and redis.
+
+---
+
+## 🧠 Installation
+
+```bash
+pip install aiogram-telemetry
+# optional PostgreSQL support
+pip install aiogram-telemetry[postgres]
