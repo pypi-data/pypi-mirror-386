@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: pytermcolors
+Version: 1.0.0
+Summary: Terminal output styling - ANSI colors and styles for Python
+Author-email: Etsor <etsorucheba@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/Etsor/PyTermColors
+Project-URL: Repository, https://github.com/Etsor/PyTermColors
+Keywords: terminal,ansi,colors,cli,styling
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+Simple Python class with ANSI escape codes for styling and coloring terminal output
+
+---
+
+## Installation
+
+Just copy `pytermcolors.py` into your project folder
+
+---
+
+## Example
+
+```python
+from pytermcolors import colorize, Color
+
+print(colorize("Hello World!", fg=Color.FG_CYAN, bg=Color.BG_WHITE, bold=True, italic=True))
+print(colorize("Warning!", fg=Color.FG_YELLOW, bold=True, underline=True))
+print(colorize("Error!", fg=Color.FG_RED, strike=True))
+```
+
+![example](res/example.png)
