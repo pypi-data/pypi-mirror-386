@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiogram-telemetry"
+version = "0.2.2"
+description = "Telemetry and observability helpers for aiogram 3 bots."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "aiogram-telemetry maintainers" }]
+license = { text = "MIT" }
+keywords = ["aiogram", "telemetry", "prometheus", "redis", "observability"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Framework :: AsyncIO",
+]
+dependencies = [
+    "aiogram>=3",
+    "redis>=5",
+    "prometheus-client>=0.20",
+    "pydantic-settings>=2",
+    "aiohttp>=3",
+]
+
+[project.optional-dependencies]
+postgres = [
+    "SQLAlchemy>=2",
+    "asyncpg>=0.29",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/aiogram-telemetry"
+Documentation = "https://github.com/example/aiogram-telemetry/docs"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["aiogram_telemetry*"]
+exclude = ["docs*", "examples*", "tests*"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP", "PERF"]
+ignore = ["E203"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+
+[tool.mypy]
+config_file = "mypy.ini"
+
+[tool.coverage.run]
+branch = true
+source = ["aiogram_telemetry"]
