@@ -1,0 +1,16 @@
+pytest_case_provider/__init__.py,sha256=Y9UXGoAuGFxIdeQDa00hngiBpSvKH8l0Sn53bvwXW-0,271
+pytest_case_provider/abc.py,sha256=A5tOh4z9X8du5UWZZQIgg6bCYDSvuyfbqWcm-LjOdjI,679
+pytest_case_provider/case/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytest_case_provider/case/decorator.py,sha256=7Ytgm-SItO4SvMsPak-6zn4BcJU4jc-l4N4sPAyxgyg,4465
+pytest_case_provider/case/generator.py,sha256=G4LbFttPgfGdi0aKpvqDsE7g0CJKahnCpxmO2BEJKmI,2016
+pytest_case_provider/case/info.py,sha256=Xqxq1W9mlRkxVvjRYu8mIJgHHYGj4OocMt61uRIY7iQ,318
+pytest_case_provider/case/provider.py,sha256=z3cw094TCWu93Df3FBjp2MDnQ6mUkXgsootGNcYHMYs,1918
+pytest_case_provider/case/storage.py,sha256=IqpfNgbE_yPc8A-64b-lCGto9y_LVq6iNg1rCpe7ov8,2864
+pytest_case_provider/fixture.py,sha256=WTTweGvmhIgIqGwYtHSR21FJ8s_yzhhGVPkG6VnJSe0,1436
+pytest_case_provider/mark.py,sha256=UwR6XGAHVa_kug997ed6OhiCw9lZSXAfEA_axvDGMj4,1868
+pytest_case_provider/plugin.py,sha256=W1h-bvapgHDt1CDmBjH-xgqukXJWRDCgl81y7pS8nXc,333
+pytest_case_provider-0.1.2.dist-info/METADATA,sha256=moYMwYxjcE3WocVj_II0RmfLM4XBnno_uf2Uruj5Cok,5974
+pytest_case_provider-0.1.2.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+pytest_case_provider-0.1.2.dist-info/entry_points.txt,sha256=ZvM04agrjMSnrH2adZutsoNAx7vZnrNyh7so3uNumAY,54
+pytest_case_provider-0.1.2.dist-info/licenses/LICENSE,sha256=FMDtInsEgUHG1oGhR6u-_AEH6mHXjPnwSqGcbWCvL28,1071
+pytest_case_provider-0.1.2.dist-info/RECORD,,
