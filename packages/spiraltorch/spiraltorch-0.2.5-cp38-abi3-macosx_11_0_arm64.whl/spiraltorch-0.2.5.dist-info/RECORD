@@ -1,0 +1,14 @@
+spiral/__init__.py,sha256=3qGWfhPHn4ISV6o3VanSPLmqCsaiVMDDS8pYr4KNImo,375
+spiral/cli.py,sha256=A77qITO4fs6_L-DmmB3kWW-eSbEs67s5zzFRnkkHwaM,9423
+spiral/export.py,sha256=-R3gqxRilWJZgnfct-WO2JIcBpUdzzsha3Izor7kr10,5618
+spiral/tests/__init__.py,sha256=p5IH26nejAOZNX-sTT4itmFxj7q8nK-FKwgU0ocBGpo,64
+spiral/tests/objectives.py,sha256=ueCLyW7i6UgEudOq_qvQqyrGPfaCifqmY0L15a_y9us,554
+spiraltorch-0.2.5.dist-info/METADATA,sha256=mhcRlSUJbWyhQZcIQAovSfV3Owf7X0sNDeOqtCf_mxc,20070
+spiraltorch-0.2.5.dist-info/WHEEL,sha256=gnJiauUA-C9eduukCSYPRAnEnckuUqP6yenZ8c1xV7c,102
+spiraltorch-0.2.5.dist-info/entry_points.txt,sha256=5gfrsqeRqk11NrbEYcl4KX35Ws0Hjnxegv21-jLtxUM,47
+spiraltorch/__init__.py,sha256=7O4O7tzPK0q8q9jb1UFsBzQjlrn0d6aIBKFdWvfAczA,45454
+spiraltorch/_meta.py,sha256=7vJywIUeymJG2EW886YbcKlOJNYPEQkGDKnWrWn1kqE,3120
+spiraltorch/spiralk.pyi,sha256=gbVYaobPsnfSJcrnk9t_haJOSfp2BrT_WtWv7SxC5CY,5001
+spiraltorch/spiraltorch.abi3.so,sha256=sYgbETa3sckMjDRnT2tmnhH7DnE-0-yWpmhc9rIpt4g,6335920
+spiraltorch/zspace_inference.py,sha256=mTVPdSUtOc5C9a8BJo88cPBxNTNd01VV4ClNJjWymA8,58369
+spiraltorch-0.2.5.dist-info/RECORD,,
