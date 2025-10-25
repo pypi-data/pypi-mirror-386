@@ -1,0 +1,6 @@
+Metadata-Version: 2.3
+Name: bratly-io-fs
+Version: 0.1.4
+Summary: an extension of bratly for file IO support
+Requires-Dist: bratly
+Requires-Python: >=3.10
