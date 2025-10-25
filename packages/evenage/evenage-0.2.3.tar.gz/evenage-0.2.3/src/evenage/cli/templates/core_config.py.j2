@@ -1,0 +1,12 @@
+import yaml
+from pathlib import Path
+
+
+def load_config():
+    """Load project configuration from evenage.yml.
+    
+    Returns:
+        dict: Project configuration
+    """
+    with open(Path(__file__).parent.parent / 'evenage.yml') as f:
+        return yaml.safe_load(f)

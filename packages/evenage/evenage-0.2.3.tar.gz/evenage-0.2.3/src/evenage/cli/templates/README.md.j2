@@ -1,0 +1,81 @@
+# {{ project_name }}
+
+An EvenAge agent project.
+
+## Getting Started
+
+1) Initialize (already done)
+
+2) Run the environment
+
+```bash
+evenage run dev
+```
+
+This will start:
+- PostgreSQL (with pgvector)
+- Redis
+- MinIO
+- Jaeger (tracing)
+- Prometheus (metrics)
+- API server (from evenage library)
+- Agent workers
+- Dashboard
+
+### Access services
+
+- Dashboard: http://localhost:5173
+- API: http://localhost:8000
+- Jaeger: http://localhost:16686
+- Prometheus: http://localhost:9090
+- MinIO: http://localhost:9001
+
+### Add more
+
+- `evenage add agent <name>` - Add a new agent
+- `evenage add tool <name>` - Add a custom tool
+- `evenage logs <agent>` - View agent logs
+- `evenage scale <agent> <N>` - Scale agent to N replicas
+- `evenage stop` - Stop all services
+
+## Project Structure
+
+```
+{{ project_name }}/
+├── evenage.yml          # Project configuration
+├── docker-compose.yml   # Infrastructure services
+├── .env                 # Environment variables
+├── core/                # Tier 1: Project core (editable)
+│   ├── message_bus.py
+│   ├── database.py
+│   ├── agent_runtime.py
+│   ├── controller.py
+│   └── config.py
+├── agents/              # Tier 2: Agent implementations (YOUR CODE)
+│   └── <agent_name>/
+│       ├── agent.yml    # Agent configuration
+│       ├── handler.py   # Agent logic
+│       └── tools/       # Agent tools
+├── workers/             # Tier 2: Worker entry points (YOUR CODE)
+│   └── <agent>_worker.py
+└── pipelines/           # Tier 2: Pipeline definitions (YOUR CODE)
+    └── *.yml
+```
+
+## Three-Tier Architecture
+
+- **Tier 0 (Library)**: Core EvenAge primitives (API, observability, base classes)
+- **Tier 1 (Project Core)**: Generated core modules you can customize
+- **Tier 2 (Your Code)**: Agents, tools, pipelines
+
+## Configuration
+
+Edit `.env` to set API keys:
+- `GEMINI_API_KEY` - For Gemini LLM
+- `OPENAI_API_KEY` - For OpenAI GPT models
+- `SERPER_API_KEY` - For web search tool
+
+## Learn More
+
+- [EvenAge Documentation](https://docs.evenage.dev)
+- [Examples](https://github.com/evenage/evenage/tree/main/examples)
