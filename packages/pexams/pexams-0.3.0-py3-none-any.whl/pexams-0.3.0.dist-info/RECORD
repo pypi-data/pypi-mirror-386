@@ -1,0 +1,17 @@
+pexams/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pexams/analysis.py,sha256=2aYwb4XZYFuBksY8mk69GfKe4wGIZ_0PXhN6k7LUwNU,11132
+pexams/correct_exams.py,sha256=QJlkLNHK1GO7-tnOHMpgw5TLDwyH7W_oADoE7zaKahw,25712
+pexams/generate_exams.py,sha256=sZB3dJD2RdrIhub_vkLX_-fg3EJ5CdKJy1EXbUXt0rk,25862
+pexams/layout.py,sha256=VmyG_nuyegPqdlwJEhfjkzhNK-uriOK8okcJU-LDN2I,6945
+pexams/main.py,sha256=Nr43Z_M6UkG1-3c1v93xQ-qFdcnfXzm20Tm9wtaIf6c,12978
+pexams/pexams.css,sha256=wruwxK5vjikbI4E22K0VqH-kMn8_vOrqC4l-xCleJjU,5056
+pexams/schemas.py,sha256=d0p4L99RfS3Fm-b1dGm2_zCz-YKCx8W2SkkOBrzsIAc,1452
+pexams/translations.py,sha256=-_vyUFnskXrwqqYodH04uLM9CVamfLesBZzUBGAjbLM,6664
+pexams/utils.py,sha256=AOpT1Vy3vZl1XL02Y4Mei2coa-r6QCW-ZbfG8qNZ26I,93
+pexams/assets/sample_test.json,sha256=WWNz8NR_SLR5K_AzVYlKqO77bUq3YystLBTGF5nlZUU,2673
+pexams-0.3.0.dist-info/licenses/LICENSE,sha256=LhuYYVOZJZDJoPJkKRrihK1LHQJpUhJ0t2xWgDNf9s0,1084
+pexams-0.3.0.dist-info/METADATA,sha256=TXFskrTpq7mDJcLFPHNPmoFxYBIxxndo4BgvtPZH6lQ,8744
+pexams-0.3.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pexams-0.3.0.dist-info/entry_points.txt,sha256=kX3qAR4HYiXK9nF7kQy0KrHVzNbfoKAkoP9Vc-lb-DY,44
+pexams-0.3.0.dist-info/top_level.txt,sha256=rAXfOCd5esKJH2IPDKkhuZ0Z3wKLlI7FbSnimv-APnA,7
+pexams-0.3.0.dist-info/RECORD,,
