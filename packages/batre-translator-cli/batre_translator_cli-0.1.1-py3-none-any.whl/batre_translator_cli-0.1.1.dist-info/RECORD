@@ -1,0 +1,16 @@
+batre/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+batre/aggregate.py,sha256=TVttF9oRWfD79Oans6BrCPEU3Z1nmoYqxqydNCE65vk,3191
+batre/export-working-dry.py,sha256=VY0O9WVU84Pgm7bAV-1A9uw2jxfI3FtXiCGdepDK0Ys,3046
+batre/export.py,sha256=cZjG3O7tsSAYpUyUiPK1mBYAe1031c0HTv4VyU-3mtM,6332
+batre/samplebase.py,sha256=2o5pGc78in9o4Fx6JqvssopesMRzMpLO18zspsVeP1Y,219
+batre/sync.py,sha256=QIGZ2WMPCFtZ-EAOEnql7S4FL4S_dqpPxZwhEK_BCys,3436
+batre/utils.py,sha256=GoI7ehnUjvKGcL95LuVIBXZFfUzqd2Fx4IYzUZyxIPo,2186
+batre/vcs/base_strategy.py,sha256=DLoeqARBWD5TUavtWX4B4f_nxTMN2V09mGy9gGQ_2Cc,260
+batre/vcs/bitbucket_strategy.py,sha256=O_xZWZWGRWwqiaEod1zCGwEsfTDfPCRILM6soahPcC4,279
+batre/vcs/github_strategy.py,sha256=v8Hh8D96tLBD3cHIYtdzXPxVKJYLYSzjlmkQL9krADY,373
+batre/vcs/gitlab_strategy.py,sha256=UzXwLpb7ay6Bci2_gVep_6HlsXTgR5UuyPQiW0y0gqQ,1569
+batre_translator_cli-0.1.1.dist-info/METADATA,sha256=yqOOss0daB_0BSPelgY-xXj74UivH2UZp5pYsfwUa_U,5794
+batre_translator_cli-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+batre_translator_cli-0.1.1.dist-info/entry_points.txt,sha256=F28Dx3fSrkRxwk-W7Ema_tbJTv6u0_yJMYzi_3fAjzM,42
+batre_translator_cli-0.1.1.dist-info/top_level.txt,sha256=-OKx0FV3EK_s6zIrWsNY5b86NYXqEJFrjUggB13Px7U,6
+batre_translator_cli-0.1.1.dist-info/RECORD,,
