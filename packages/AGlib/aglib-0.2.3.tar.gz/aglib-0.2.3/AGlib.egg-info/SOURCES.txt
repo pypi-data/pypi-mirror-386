@@ -1,0 +1,15 @@
+LICENSE
+setup.cfg
+setup.py
+AGlib.egg-info/PKG-INFO
+AGlib.egg-info/SOURCES.txt
+AGlib.egg-info/dependency_links.txt
+AGlib.egg-info/requires.txt
+AGlib.egg-info/top_level.txt
+aglib/FF.py
+aglib/__init__.py
+aglib/functions.py
+aglib/mcstas_reader.py
+aglib/mcstas_runner.py
+aglib/peakfinder.py
+aglib/res.py
