@@ -1,0 +1,2 @@
+[console_scripts]
+github-backup-supabase = github_backup_supabase.cli:cli
