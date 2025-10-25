@@ -1,0 +1,3 @@
+[console_scripts]
+mrisnapshot_create_report = MRISnapshot.create_report:main
+mrisnapshot_prep_data = MRISnapshot.prep_data:main
