@@ -1,0 +1,3 @@
+[console_scripts]
+life=life.cli:main_with_personas
+
