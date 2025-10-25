@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+datasette_pretty_traces/__init__.py
+datasette_pretty_traces.egg-info/PKG-INFO
+datasette_pretty_traces.egg-info/SOURCES.txt
+datasette_pretty_traces.egg-info/dependency_links.txt
+datasette_pretty_traces.egg-info/entry_points.txt
+datasette_pretty_traces.egg-info/requires.txt
+datasette_pretty_traces.egg-info/top_level.txt
+datasette_pretty_traces/static/datasette-pretty-traces.js
+tests/test_pretty_traces.py
