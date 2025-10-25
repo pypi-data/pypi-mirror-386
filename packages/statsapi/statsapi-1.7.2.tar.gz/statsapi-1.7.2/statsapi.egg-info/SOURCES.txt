@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+statsapi/__init__.py
+statsapi.egg-info/PKG-INFO
+statsapi.egg-info/SOURCES.txt
+statsapi.egg-info/dependency_links.txt
+statsapi.egg-info/top_level.txt
