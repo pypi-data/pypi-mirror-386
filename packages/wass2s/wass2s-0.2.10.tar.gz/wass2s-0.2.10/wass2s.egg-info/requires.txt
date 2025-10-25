@@ -1,0 +1,7 @@
+statsmodels
+pykrige
+cartopy
+xeofs==3.0.4
+xskillscore==0.0.26
+properscoring
+cdsapi==0.7.4
