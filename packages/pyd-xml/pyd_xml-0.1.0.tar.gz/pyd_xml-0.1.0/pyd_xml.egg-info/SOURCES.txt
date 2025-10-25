@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+pyd_xml/__init__.py
+pyd_xml/base.py
+pyd_xml/decoder.py
+pyd_xml/encoder.py
+pyd_xml/exceptions.py
+pyd_xml/fields.py
+pyd_xml/py.typed
+pyd_xml/utils.py
+pyd_xml.egg-info/PKG-INFO
+pyd_xml.egg-info/SOURCES.txt
+pyd_xml.egg-info/dependency_links.txt
+pyd_xml.egg-info/requires.txt
+pyd_xml.egg-info/top_level.txt
+tests/test_pydantic_xml.py
