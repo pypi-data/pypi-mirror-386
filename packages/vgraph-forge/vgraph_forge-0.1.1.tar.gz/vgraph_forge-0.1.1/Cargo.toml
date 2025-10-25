@@ -1,0 +1,15 @@
+[package]
+name = "vgraph-forge"
+version = "0.1.0"
+edition = "2021"
+readme = "README.md"
+
+[lib]
+name = "vgraph_forge"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module", "abi3-py39"] }
+
+[dev-dependencies]
+criterion = "0.3"
