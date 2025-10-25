@@ -1,0 +1,13 @@
+quantium/__init__.py,sha256=erSZjLpmeSbS-JXm54o-5ZN-ze-_nTI026iCEAYuYs8,1808
+quantium/core/dimensions.py,sha256=wHMaNIVNBF8dzEXbCLqKBmoWPzg-7KjJvRLzWGIDNUE,4248
+quantium/core/quantity.py,sha256=jbbKV1CwS15zWsVYrjlioHdtxhuHy0Gaam-ijzziy14,22540
+quantium/core/utils.py,sha256=Qs5cGm_uZICdFZn8WzeE2lGmkUlxY5qZkI95I00S7x4,12738
+quantium/units/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+quantium/units/parser.py,sha256=ee5CcmDHpuZ1tR4M-4_Ppp6CZy77cxFA0pyfMdXUwdE,6724
+quantium/units/prefixes.py,sha256=K3L8qdjxOlLVLEBtM6atBZ17K379YDrRNoJw5AQ6NZ0,1213
+quantium/units/registry.py,sha256=Fu_rn0A1EG8rFtKp3kxC9_-x-BzJKDC-En7ZjhiLAtU,16762
+quantium-0.1.0.dist-info/licenses/LICENSE,sha256=YK6Dxl7CGXWkQY6kW320cKfGUa5rjqLMIPkDnVOwM6Y,1070
+quantium-0.1.0.dist-info/METADATA,sha256=EvjPaLpmFmEJ3SSpZtkUbZBwL30D3S3O4Gke_6irark,1837
+quantium-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+quantium-0.1.0.dist-info/top_level.txt,sha256=Plo2P-CWbD0PqBa_o5RnxWot0oaurvYa96gHnO0Wr0g,9
+quantium-0.1.0.dist-info/RECORD,,
