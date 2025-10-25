@@ -1,0 +1,2 @@
+[console_scripts]
+aiexec-base = aiexec.__main__:main
