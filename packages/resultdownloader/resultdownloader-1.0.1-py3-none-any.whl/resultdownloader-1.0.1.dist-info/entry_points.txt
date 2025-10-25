@@ -1,0 +1,3 @@
+[console_scripts]
+resultdownloader = resultdownloader.cli:main
+
