@@ -1,0 +1,41 @@
+[project]
+name = "antchain"
+version = "0.0.3"
+description = "一个函数式编程风格的数据流式处理管道库，支持流式数据的多种处理操作"
+authors = [
+    {name = "tumingjian", email = "tumingjian@qq.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+]
+keywords = ["ant-chain","antchain","data-processing", "stream-processing","data-chain"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
+]
+
+[project.urls]
+Homepage = "https://github.com/chinese-code/antchain"
+Repository = "https://github.com/chinese-code/antchain.git"
+"Bug Tracker" = "https://github.com/chinese-code/antchain/issues"
+
+# 添加示例文件作为包数据
+[project.package-data]
+antchain = ["../example/**/*"]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
