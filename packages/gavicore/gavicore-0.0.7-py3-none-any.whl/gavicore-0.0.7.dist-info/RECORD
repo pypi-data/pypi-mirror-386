@@ -1,0 +1,17 @@
+gavicore/__init__.py,sha256=cQQQg4kHhu8ciIqHKpOmLBxRHLrt_l3nbfnjag9BblM,1001
+gavicore/models.py,sha256=NOF2B4rNHlWsTPT5VunJ5-B8Is37DXYt4Xk1POw4wyQ,8595
+gavicore/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gavicore/service.py,sha256=Kx73ohH4Y_2dZLuF_AB9s6DASfpR2kyoXMNW0odIXkE,4299
+gavicore/util/__init__.py,sha256=dhXaOWahing1XSafk1lDfEVvz9HdB-rRrYP3e9UvNQA,182
+gavicore/util/dynimp.py,sha256=Lw-YzMg8HZHOIV3ObK2DE66fEU_w-ojUss6M8qaN-dQ,2088
+gavicore/util/obj.py,sha256=ctqj6t-u5nGALG1clfHKkJuiNxfGvkW1iFm71LoDBOA,4444
+gavicore/util/request.py,sha256=_eETA3JhZUZdlcW2Qn6UFbRQF8SisF4I2nUc7QmHusw,8374
+gavicore/util/schema.py,sha256=iTu_6GpG3p_Mn8IxYO8bfl_-Gs1DZXnK2ILG5QQgCZM,3968
+gavicore/util/testing.py,sha256=vDzsZ5hLMIz24yKsfcxPA4819TqaiQcSRmEZDwlCRsQ,2091
+gavicore/util/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gavicore/util/cli/group.py,sha256=AFoq8FL6qdEG1uyaSlZjK6DZ_O8UhBHtDvN8pKsrvxo,1528
+gavicore/util/cli/parameters.py,sha256=6P7PmTgej09rbqzUhyXP7TM3PaNFuK4bwFZGU5LqSXg,1049
+gavicore-0.0.7.dist-info/METADATA,sha256=hJI9a0Anz6WZ5f-1G_xUciImLiMDclDkkjXpXbnAb-A,2200
+gavicore-0.0.7.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+gavicore-0.0.7.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+gavicore-0.0.7.dist-info/RECORD,,
