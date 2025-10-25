@@ -1,0 +1,2 @@
+[jupyter_server.extension_points]
+jupyter_server_mcp = jupyter_server_mcp.extension:MCPExtensionApp
