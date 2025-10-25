@@ -1,0 +1,1 @@
+"""BAPAO CLI commands."""
