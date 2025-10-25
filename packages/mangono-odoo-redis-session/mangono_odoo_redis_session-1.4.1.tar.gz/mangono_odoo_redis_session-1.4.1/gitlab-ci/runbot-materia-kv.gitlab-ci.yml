@@ -1,0 +1,72 @@
+include:
+  - component: $CI_SERVER_FQDN/gitlab-ci/odoo-quality/runbot@1
+    inputs:
+      name: "runbot:materia"
+      odoo_version: "12.0"
+      runbot_args: "--steps=test"
+  - component: $CI_SERVER_FQDN/gitlab-ci/odoo-quality/runbot@1
+    inputs:
+      name: "runbot:materia"
+      odoo_version: "13.0"
+      runbot_args: "--steps=test"
+  - component: $CI_SERVER_FQDN/gitlab-ci/odoo-quality/runbot@1
+    inputs:
+      name: "runbot:materia"
+      odoo_version: "14.0"
+      runbot_args: "--steps=test"
+  - component: $CI_SERVER_FQDN/gitlab-ci/odoo-quality/runbot@1
+    inputs:
+      name: "runbot:materia"
+      odoo_version: "15.0"
+      runbot_args: "--steps=test"
+  - component: $CI_SERVER_FQDN/gitlab-ci/odoo-quality/runbot@1
+    inputs:
+      name: "runbot:materia"
+      odoo_version: "16.0"
+      runbot_args: "--steps=test --steps=test_http"
+  - component: $CI_SERVER_FQDN/gitlab-ci/odoo-quality/runbot@1
+    inputs:
+      name: "runbot:materia"
+      odoo_version: "17.0"
+      runbot_args: "--steps=test --steps=test_http"
+  - component: $CI_SERVER_FQDN/gitlab-ci/odoo-quality/runbot@1
+    inputs:
+      name: "runbot:materia"
+      odoo_version: "18.0"
+      runbot_args: "--steps=test --steps=test_http"
+
+
+.tmpl:runbot:materia:
+  variables:
+    LOAD_REDIS_SESSION_STORE: "redis_session_store"
+    REDIS_HOST: "$KV_HOST"
+    REDIS_PASSWORD: "$MATERIA_KV_TOKEN"
+    REDIS_PORT: "$KV_PORT"
+
+".tmpl:odoo:runbot:materia:12.0":
+  extends:
+    - ".tmpl:runbot:materia"
+
+".tmpl:odoo:runbot:materia:13.0":
+  extends:
+    - ".tmpl:runbot:materia"
+
+".tmpl:odoo:runbot:materia:14.0":
+  extends:
+    - ".tmpl:runbot:materia"
+
+".tmpl:odoo:runbot:materia:15.0":
+  extends:
+    - ".tmpl:runbot:materia"
+
+".tmpl:odoo:runbot:materia:16.0":
+  extends:
+    - ".tmpl:runbot:materia"
+
+".tmpl:odoo:runbot:materia:17.0":
+  extends:
+    - ".tmpl:runbot:materia"
+
+".tmpl:odoo:runbot:materia:18.0":
+  extends:
+    - ".tmpl:runbot:materia"
