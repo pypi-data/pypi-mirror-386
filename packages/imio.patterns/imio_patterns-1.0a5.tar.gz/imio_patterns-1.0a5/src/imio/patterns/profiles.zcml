@@ -1,0 +1,47 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="imio.patterns">
+
+  <genericsetup:registerProfile
+      name="install-base"
+      title="imio.patterns installation"
+      directory="profiles/base"
+      description="Installs the imio.patterns add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <configure zcml:condition="not-have plone-60">
+    <genericsetup:registerProfile
+        zcml:condition="have plone-5"
+        name="default"
+        title="imio.patterns plone5 installation"
+        directory="profiles/plone5"
+        description="Installs the imio.patterns add-on on Plone 5."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+  </configure>
+
+  <genericsetup:registerProfile
+      zcml:condition="have plone-60"
+      name="default"
+      title="imio.patterns plone6 installation"
+      directory="profiles/plone6"
+      description="Installs the imio.patterns add-on on Plone 6."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+       name="uninstall"
+       title="Uninstall Messagesviewlet"
+       directory="profiles/uninstall"
+       description="Uninstall Messages Viewlet."
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+  <utility factory=".setuphandlers.HiddenProfiles" name="imio.patterns" />
+
+</configure>

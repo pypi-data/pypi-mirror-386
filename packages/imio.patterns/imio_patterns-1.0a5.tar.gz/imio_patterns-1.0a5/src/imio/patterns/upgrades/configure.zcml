@@ -1,0 +1,27 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:zcml="http://namespaces.zope.org/zcml">
+
+    <genericsetup:registerProfile
+      zcml:condition="have plone-60"
+      name="upgrade_1000_to_1001"
+      title="Upgrade imio.patterns from 1000 to 1001"
+      directory="profiles/1000_to_1001"
+      description="Plone6 only use bundles. Resources are deprecated"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+    <genericsetup:upgradeSteps
+        zcml:condition="have plone-60"
+        source="1000"
+        destination="1001"
+        profile="imio.patterns:default">
+      <genericsetup:upgradeDepends
+        title="Plone6 only use bundles. Resources are deprecated"
+        import_profile="imio.patterns:upgrade_1000_to_1001"
+        import_steps="plone.app.registry"
+        />
+    </genericsetup:upgradeSteps>
+
+</configure>
