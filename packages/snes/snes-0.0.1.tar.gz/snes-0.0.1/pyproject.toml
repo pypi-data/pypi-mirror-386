@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snes"
+version = "0.0.1"
+description = "Simple Narrative Edge Segmenter — a ModernBERT-based scene/chapter boundary detector"
+authors = [
+    {name = "Mitchell Currie", email = "dev@example.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["nlp", "scene-segmentation", "longform", "modernbert", "fiction", "story-structure"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3"
+]
+
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.45",
+    "datasets>=2.20",
+    "evaluate>=0.4",
+    "scikit-learn>=1.4",
+    "numpy",
+    "tqdm",
+    "pyyaml"
+]
+
+[project.scripts]
+snes-train = "snes.train:main"
+snes-eval  = "snes.evaluate:main"
+snes-infer = "snes.infer:main"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["snes*"]
+
