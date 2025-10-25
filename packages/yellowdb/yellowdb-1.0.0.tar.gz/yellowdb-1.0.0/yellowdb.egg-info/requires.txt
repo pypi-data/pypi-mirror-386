@@ -1,0 +1,5 @@
+sortedcontainers>=2.4.0
+
+[dev]
+ruff>=0.6.0
+pre-commit>=3.0.0
