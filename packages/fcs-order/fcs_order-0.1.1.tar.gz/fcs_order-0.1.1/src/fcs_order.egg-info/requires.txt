@@ -1,0 +1,8 @@
+ase>=3.22.1
+click>=8.1.8
+cython>=3.0.12
+jupyter>=1.1.1
+numpy>=1.21.6
+scipy>=1.7.3
+spglib>=2.2.0
+twine

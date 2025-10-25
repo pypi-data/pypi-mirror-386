@@ -1,0 +1,3 @@
+[console_scripts]
+fourthorder = fourthorder.fourthorder_wrapper:fourthorder
+thirdorder = thirdorder.thirdorder_wrapper:thirdorder
