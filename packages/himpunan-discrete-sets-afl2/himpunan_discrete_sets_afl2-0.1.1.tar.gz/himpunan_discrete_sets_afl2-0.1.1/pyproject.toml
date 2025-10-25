@@ -1,0 +1,79 @@
+[project]
+name = "himpunan-discrete-sets-afl2"
+version = "0.1.1"
+description = "A package for set operations including union, intersection, difference, and symmetric difference."
+readme = "README.md"
+authors = [
+  {name = "Group6 Discrete", email = "letsworkwithinno@gmail.com"}
+]
+maintainers = [
+  {name = "Group6 Discrete", email = "letsworkwithinno@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education", 
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11", 
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Education",
+]
+license = {text = "MIT"}
+dependencies = [
+  "typer"
+]
+requires-python = ">= 3.10"
+
+[project.optional-dependencies]
+test = [
+    "coverage>=7.0",  # testing coverage
+    "pytest>=7.0",  # testing framework
+    "pytest-cov>=4.0",  # pytest coverage plugin
+    "ruff>=0.1.0",  # linting and formatting
+    "mypy>=1.0",  # type checking (fixed from "ty")
+    "ipdb>=0.13",  # debugging
+]
+dev = [
+    "build>=0.10",  # build tool
+    "twine>=4.0",  # upload to PyPI
+    "sphinx>=5.0",  # documentation
+    "sphinx-rtd-theme>=1.0",  # documentation theme
+]
+
+[project.urls]
+repository = "https://github.com/1nnocentia/group6_afl2_setfunc.git"
+bugs = "https://github.com/1nnocentia/group6_afl2_setfunc/issues"
+changelog = "https://github.com/1nnocentia/group6_afl2_setfunc/blob/main/HISTORY.md"
+homepage = "https://github.com/1nnocentia/group6_afl2_setfunc"
+documentation = "https://github.com/1nnocentia/group6_afl2_setfunc/blob/main/README.md"
+
+[project.scripts]
+set_function = "set_function.cli:app"
+
+[tool.ty]
+# All rules are enabled as "error" by default; no need to specify unless overriding.
+# Example override: relax a rule for the entire project (uncomment if needed).
+# rules.TY015 = "warn"  # For invalid-argument-type, warn instead of error.
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+]
+
+[tool.uv]
+package = true

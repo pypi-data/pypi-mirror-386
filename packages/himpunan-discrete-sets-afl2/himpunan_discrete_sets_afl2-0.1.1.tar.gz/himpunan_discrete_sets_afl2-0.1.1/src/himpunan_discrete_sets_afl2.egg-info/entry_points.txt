@@ -1,0 +1,2 @@
+[console_scripts]
+set_function = set_function.cli:app
