@@ -1,0 +1,10 @@
+packaging
+pyperf
+
+[:python_version < "3.11"]
+tomli
+
+[dev]
+mypy==1.18.2
+tomli
+tox
