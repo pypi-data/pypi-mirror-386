@@ -1,0 +1,163 @@
+Metadata-Version: 2.4
+Name: pycacheable
+Version: 0.1.0
+Summary: Decorator de cache para funções e métodos Python, com backends InMemory e SQLite, TTL configurável e hash estável de parâmetros.
+Author-email: Leonardo Pinho <contato@leonardopinho.com>
+License: MIT License
+        
+        Copyright (c) 2025 Leonardo Pinho
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/leonardopinho/pycacheable
+Project-URL: Repository, https://github.com/leonardopinho/pycacheable
+Project-URL: Issues, https://github.com/leonardopinho/pycacheable/issues
+Keywords: cache,decorator,sqlite,python,performance,memoization,pycharm
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typing-extensions>=4.0.0
+Dynamic: license-file
+
+# PyCacheable
+
+Decorator de cache para métodos e funções Python com backends em memória e SQLite — serialização automática, hash estável de parâmetros, suporte a instância/estado e arquitetura plugável.
+
+---
+
+## Problema
+
+Em muitos aplicativos Python existem métodos que:
+
+- fazem consultas repetidas ao banco de dados ou a APIs externas;
+- recebem os mesmos parâmetros múltiplas vezes;
+- repetem trabalho caro de CPU ou I/O;
+- ou seja: fazem **o mesmo trabalho mais de uma vez**, desperdiçando tempo e recursos.
+
+Sem um mecanismo de cache, cada chamada resulta em reexecução completa, levando a latências elevadas, carga extra no banco/serviço, e experiência de usuário piorada.
+
+---
+
+## Solução
+
+A biblioteca fornece:
+
+- Um decorator `@cacheable(...)` que envolve funções ou métodos, gera uma **chave estável** a partir dos parâmetros (serialização canônica + sha256);
+- Suporte a backends:
+  - `InMemoryCache`: cache volátil em memória com LRU + TTL.
+  - `SQLiteCache`: cache persistente em disco (SQLite) com TTL, ideal para entre execuções ou processos;
+- Logs claros de fluxo: HIT / MISS / EXPIRE — permitindo entender se o cache está funcionando;
+- Métodos auxiliares:
+  - `.cache_clear()`, `.cache_info()` no wrapper para inspeção/manutenção;
+
+---
+
+## Como usar
+
+```python
+from src.pycacheable.backend_sqlite import SQLiteCache
+from src.pycacheable.backend_memory import InMemoryCache
+from src.pycacheable.cacheable import cacheable
+
+mem = InMemoryCache(max_entries=512)
+disk = SQLiteCache(path="./.cache/myapp.sqlite")
+
+
+class Repo:
+    @cacheable(ttl=60, backend=mem)
+    def get_user(self, user_id: int) -> dict:
+        # consulta cara ao banco
+        return {"user_id": user_id, "name": f"user{user_id}"}
+
+    @cacheable(ttl=300, backend=disk)
+    def get_orders(self, user_id: int, status: str = "open") -> list:
+        return [{"order_id": 101, "user_id": user_id, "status": status}]
+
+
+repo = Repo()
+u1 = repo.get_user(42)  # MISS → executa consulta
+u2 = repo.get_user(42)  # HIT → retorna cache, consulta não é executada
+```
+
+---
+
+## Benefícios
+
+- Menor latência em chamadas repetidas (hit quase instantâneo).  
+- Menor carga no banco/serviço, menos I/O repetido.  
+- Persistência local (via SQLite) permite cache entre reinícios/processos.  
+- Transparente para o usuário da função — apenas aplicar o decorator.  
+- Logs e métricas ajudam a monitorar impacto real.
+
+---
+
+## Quando usar
+
+- Funções/métodos com **resultado determinístico** (mesmos parâmetros → mesmo resultado)  
+- Consultas idempotentes e repetidas  
+- Cálculos caros de CPU ou I/O  
+- Cenários onde latência importa e repetição deve ser evitada
+
+---
+
+## Considerações e limites
+
+- O cache evita reexecuções **somente** se os parâmetros para o método forem os mesmos e serializáveis.  
+- Se o método depende de estados mutáveis fora dos parâmetros (ex.: `self.some_state`), você deve usar `include_self=True` ou custom `key_fn`.  
+- TTL é usado para expiração — resultados podem ficar “stale” se parâmetros ou contexto mudarem sem mudar a chave.  
+- Embora o backend SQLite seja persistente, ele **não substitui** um cache distribuído (ex.: Redis) em cenários multi‑processo/semi‑distribuídos.
+
+---
+
+## Benchmarks
+
+Veja resultados reais que medem MISS vs HIT:
+
+| Backend | MISS (s) | HIT (s) | Speedup | Calls |
+|----------|-----------|----------|----------|--------|
+| RAW | 0.6827 | — | — | — |
+| InMemory | 0.6630 | 0.000113 | ~5 870× | 1 |
+| SQLite | 0.7157 | 0.000098 | ~7 300× | 1 |
+
+O cache reduz o tempo de execução de ~0.68 s para ~0.0001 s — um **speedup superior a 5 000×**.
+
+---
+
+## Próximos passos
+
+- Suporte a funções `async def` (decorator awaitable)   
+- Backend Redis / LMDB para cenários distribuídos  
+- Métricas e integração com Prometheus  
+
+---
+
+## Licença
+
+MIT License — veja o arquivo `LICENSE` para detalhes.
