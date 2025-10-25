@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycountryinfo"
+version = "1.0.9"
+description = "A Python package that provides information about countries, including their name, nationality, and other relevant data. Perfect for geographic data applications."
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [
+    {name = "Justice Nyame", email = "nyamejustice2000@gmail.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "requests"
+]
+requires-python = ">=3.6"
+urls = {homepage = "https://github.com/Jnyame21/pycountryinfo"}
+
+[tool.setuptools]
+include-package-data = true
+packages = ["pycountryinfo"]
+
+[tool.setuptools.package-data]
+"pycountryinfo" = ["data/*"]
