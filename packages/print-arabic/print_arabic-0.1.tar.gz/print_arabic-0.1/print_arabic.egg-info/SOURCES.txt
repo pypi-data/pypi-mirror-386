@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+print_arabic.py
+setup.py
+print_arabic.egg-info/PKG-INFO
+print_arabic.egg-info/SOURCES.txt
+print_arabic.egg-info/dependency_links.txt
+print_arabic.egg-info/requires.txt
+print_arabic.egg-info/top_level.txt
