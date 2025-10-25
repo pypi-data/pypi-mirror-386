@@ -1,0 +1,3 @@
+[console_scripts]
+mcp-url-downloader = mcp_url_downloader.server:main
+
