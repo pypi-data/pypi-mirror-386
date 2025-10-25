@@ -1,0 +1,2 @@
+[console_scripts]
+data-manager-client = client.cli:main
