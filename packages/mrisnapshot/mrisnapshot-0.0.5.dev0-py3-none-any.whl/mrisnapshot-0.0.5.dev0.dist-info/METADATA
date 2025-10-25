@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: mrisnapshot
+Version: 0.0.5.dev0
+Summary: QC tool for verification of datasets with MRI images and derived maps
+Home-page: https://github.com/CBICA/MRISnapshot
+Author: Guray Erus
+Author-email: guray.erus@pennmedicine.upenn.edu
+License: MIT
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Unix
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: nibabel
+Requires-Dist: pillow
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+
+MRISnapshot: Fast Visual QC of MRI Datasets
+===========================================
+
+Full documentation:  **https://cbica.github.io/MRISnapshot/**
+
+About
+-----
+``MRISnapshot`` is a tool designed to facilitate the quality control (QC) process of raw and processed MRI datasets. 
+
+``MRISnapshot`` is used to create a QC report in *.html* format with a few simple commands. The QC report displays snapshots of underlay and overlay images for multiple subjects, with easy navigation between scans, and with an editable QC form for annotations, which can be saved in a *.csv* report file. 
+
+``MRISnapshot`` provides a set of configuration parameters to allow users to customize the contents of the report for different needs and use cases.
+
+.. figure:: docs/resources/qcreport_example.png
+   
+   Example QC Report that shows ICV and Brainmask overlays on T1 scans in axial, sagittal and coronal views
+
+
+
+
