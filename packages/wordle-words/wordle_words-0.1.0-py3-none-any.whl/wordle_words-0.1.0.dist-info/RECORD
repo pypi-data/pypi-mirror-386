@@ -1,0 +1,10 @@
+wordle_manager/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+wordle_manager/cli.py,sha256=pebT2VTV4IpSF4CI02hu7keDB9IMlNIY4DuhR5L8ntw,882
+wordle_manager/main.py,sha256=g-ouSyR3XQrHYb5TY3h8r6Wr6GSUKiLuTbteUoKnaiQ,1730
+wordle_manager/utils.py,sha256=O53bMd8OZxMB9dwzE72vWOqOEYdX0xETFQHDyKQ99x4,4225
+wordle_manager/words.py,sha256=1bOccFs_t6sM65S4PuVQTQcYh1hOk1bqfXgJ5Tr6elk,11978
+wordle_words-0.1.0.dist-info/METADATA,sha256=ceQeFAXStQlTrs91kdePxZtuNWaR3KMRawu9sy6_fY4,3076
+wordle_words-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+wordle_words-0.1.0.dist-info/entry_points.txt,sha256=PZUrT3NG7d19DmFiQ5Eahkjstn8j5Nqz48qO4ta5j4Q,48
+wordle_words-0.1.0.dist-info/licenses/LICENSE,sha256=Tvmbt84d_fUPARrOxdonHM1GTVDCk8fqS1_FC55XiJo,1094
+wordle_words-0.1.0.dist-info/RECORD,,
