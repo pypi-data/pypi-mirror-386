@@ -1,0 +1,30 @@
+---
+site_name: "noctua-mcp"
+theme:
+  name: material
+  # palette:
+  #  scheme: slate
+  #  primary: cyan
+  features:
+    - content.tabs.link
+
+# for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+
+plugins:
+  - search
+  - mknotebooks:
+      execute: false
+  - mermaid2:
+      version: 11.4.1
+  
+#watch:
+#  - src/noctua_mcp/schema
+
+nav:
+  - Home: index.md
+  
+exclude_docs: |
+  /templates-linkml/
+
+site_url: https://geneontology.github.io/noctua-mcp
+repo_url: https://github.com/geneontology/noctua-mcp
