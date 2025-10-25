@@ -1,0 +1,726 @@
+# Riveter
+
+**Infrastructure Rule Enforcement as Code** - Validate your Terraform configurations against security and compliance standards with pre-built rule packs or custom rules.
+
+[![Tests](https://github.com/riveter/riveter/workflows/Tests/badge.svg)](https://github.com/riveter/riveter/actions)
+[![Coverage](https://codecov.io/gh/riveter/riveter/branch/main/graph/badge.svg)](https://codecov.io/gh/riveter/riveter)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Why Riveter?
+
+**Shift-left security and compliance** - Catch infrastructure issues before deployment:
+
+- 🚫 **Prevent misconfigurations** before they reach production
+- 📋 **Enforce compliance** with CIS, SOC 2, and custom standards
+- ⚡ **Fast feedback** - validate locally without cloud deployment
+- 🔧 **Easy integration** - works with existing Terraform workflows
+- 📦 **Ready-to-use** rule packs for common frameworks
+
+## Quick Start
+
+Get started in under 2 minutes:
+
+```bash
+# 1. Install Riveter
+git clone https://github.com/riveter/riveter.git && cd riveter
+python3 -m venv venv && source venv/bin/activate
+pip install -e .
+
+# 2. See available compliance rule packs
+riveter list-rule-packs
+
+# 3. Validate your Terraform with AWS security best practices
+riveter scan -p aws-security -t main.tf
+
+# 4. Or use multiple compliance frameworks
+riveter scan -p aws-security -p cis-aws -p soc2-security -t main.tf
+```
+
+**That's it!** Riveter will analyze your Terraform and show any security or compliance issues.
+
+## Common Use Cases
+
+### 🏢 Enterprise Compliance
+```bash
+# Validate against multiple compliance frameworks
+riveter scan -p cis-aws -p soc2-security -t infrastructure/ --output-format junit
+```
+
+### 🔒 Security-First Development
+```bash
+# Check AWS security best practices before deployment
+riveter scan -p aws-security -t main.tf
+```
+
+### 🎯 Custom Organizational Policies
+```bash
+# Combine your custom rules with industry standards
+riveter scan -r company-policies.yml -p aws-security -t main.tf
+```
+
+### 🚀 CI/CD Integration
+```bash
+# Generate SARIF output for security dashboards
+riveter scan -p aws-security -t main.tf --output-format sarif > security-results.sarif
+```
+
+## What You Get
+
+### 📦 Pre-built Compliance Rule Packs
+| Framework | Rules | What It Covers |
+|-----------|-------|----------------|
+| **AWS Security** | 26 rules | EC2, S3, RDS, VPC, IAM, CloudTrail, KMS, Lambda |
+| **CIS AWS** | 22 rules | Identity, Storage, Logging, Networking benchmarks |
+| **CIS Azure** | 34 rules | Security Center, Storage, Database, VMs, Key Vault |
+| **SOC 2 Security** | 28 rules | Access Control, Authentication, Encryption, Monitoring |
+
+### 🔧 Flexible Validation Options
+- **Custom Rules**: Write your own YAML rules for organization-specific policies
+- **Mixed Approach**: Combine pre-built packs with custom rules
+- **Advanced Operators**: regex, comparisons, length checks, subset validation
+- **Smart Filtering**: Target specific environments, resource types, or severity levels
+
+### 📊 Multiple Output Formats
+- **Table** (default): Human-readable terminal output
+- **JSON**: For programmatic processing and automation
+- **JUnit XML**: CI/CD pipeline integration
+- **SARIF**: Security tool ecosystem compatibility
+
+## Installation
+
+**Requirements**: Python 3.12+
+
+```bash
+# Clone and install
+git clone https://github.com/riveter/riveter.git
+cd riveter
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+# OR: .\venv\Scripts\activate  # Windows
+pip install -e .
+```
+
+> 💡 **Tip**: Remember to activate the virtual environment (`source venv/bin/activate`) each time you use Riveter.
+
+## Quick Start
+
+**Note**: Make sure your virtual environment is activated before running the commands below.
+
+### Option 1: Using Pre-built Rule Packs (Recommended)
+
+The fastest way to get started is using pre-built rule packs:
+
+```bash
+# List available rule packs
+riveter list-rule-packs
+
+# Scan with AWS security best practices
+riveter scan -p aws-security -t main.tf
+
+# Scan with multiple rule packs
+riveter scan -p aws-security -p cis-aws -t main.tf
+
+# Output results in JSON format
+riveter scan -p aws-security -t main.tf --output-format json
+```
+
+### Option 2: Using Custom Rules
+
+1. Create a validation rules file (`rules.yml`):
+
+```yaml
+rules:
+  - id: security-group-allowed-ports
+    description: Security groups must only allow HTTP and HTTPS from 0.0.0.0/0
+    resource_type: aws_security_group
+    assert:
+      ingress:
+        - from_port: 443
+          to_port: 443
+          protocol: tcp
+          cidr_blocks: ["0.0.0.0/0"]
+        - from_port: 80
+          to_port: 80
+          protocol: tcp
+          cidr_blocks: ["0.0.0.0/0"]
+
+  - id: ec2-instance-size
+    description: Production EC2 instances must be at least t3.large
+    resource_type: aws_instance
+    filter:
+      tags:
+        Environment: production
+    assert:
+      instance_type: t3.large
+```
+
+2. Create your Terraform configuration (`main.tf`):
+```hcl
+resource "aws_security_group" "web" {
+  name        = "web-server-sg"
+  description = "Allow HTTP and HTTPS traffic"
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_instance" "web" {
+  instance_type = "t3.large"
+  # ... other configuration ...
+
+  tags = {
+    Environment = "production"
+  }
+}
+```
+
+3. Run Riveter:
+```bash
+riveter scan -r rules.yml -t main.tf
+```
+
+### Option 3: Combining Custom Rules and Rule Packs
+
+You can combine your custom rules with pre-built rule packs:
+
+```bash
+# Use both custom rules and AWS security pack
+riveter scan -r custom-rules.yml -p aws-security -t main.tf
+```
+
+Riveter will validate your Terraform configuration and report any violations of your rules.
+
+## Rule Packs
+
+Rule packs are collections of pre-built rules that implement common compliance frameworks and security best practices. They provide an easy way to get started with infrastructure validation without writing rules from scratch.
+
+### Available Rule Packs
+
+| Rule Pack | Description | Rules | Coverage |
+|-----------|-------------|-------|----------|
+| `aws-security` | AWS Security Best Practices | 26 | EC2, S3, RDS, VPC, IAM, CloudTrail, KMS, Lambda, ALB |
+| `cis-aws` | CIS AWS Foundations Benchmark v1.4.0 | 22 | Identity, Storage, Logging, Networking |
+| `cis-azure` | CIS Azure Foundations Benchmark v1.3.0 | 34 | Identity, Security Center, Storage, Database, Logging, Networking, VMs, Key Vault |
+| `soc2-security` | SOC 2 Security Trust Service Criteria | 28 | Access Control, Authentication, Network Security, Encryption, Monitoring |
+
+### Rule Pack Commands
+
+```bash
+# List all available rule packs
+riveter list-rule-packs
+
+# Validate a rule pack file
+riveter validate-rule-pack rule_packs/aws-security.yml
+
+# Create a new rule pack template
+riveter create-rule-pack-template my-company-rules my-rules.yml
+```
+
+### Using Rule Packs
+
+```bash
+# Basic usage with a single rule pack
+riveter scan -p aws-security -t main.tf
+
+# Use multiple rule packs
+riveter scan -p aws-security -p cis-aws -p soc2-security -t main.tf
+
+# Combine rule packs with custom rules
+riveter scan -r custom-rules.yml -p aws-security -t main.tf
+
+# Different output formats
+riveter scan -p aws-security -t main.tf --output-format json
+riveter scan -p aws-security -t main.tf --output-format junit
+riveter scan -p aws-security -t main.tf --output-format sarif
+```
+
+### Rule Pack Examples
+
+#### AWS Security Best Practices
+```bash
+# Check EC2 instances for security best practices
+riveter scan -p aws-security -t main.tf
+```
+Includes rules for:
+- EC2 instances without public IPs in production
+- Encrypted EBS volumes
+- Approved instance types
+- Required tags
+- S3 bucket encryption and public access controls
+- RDS encryption and backup settings
+- VPC security groups and flow logs
+- IAM policy restrictions
+- CloudTrail logging requirements
+
+#### CIS Compliance
+```bash
+# AWS CIS Benchmark compliance
+riveter scan -p cis-aws -t main.tf
+
+# Azure CIS Benchmark compliance
+riveter scan -p cis-azure -t main.tf
+```
+Implements specific CIS control requirements with references to control numbers.
+
+#### SOC 2 Security Criteria
+```bash
+# SOC 2 Trust Service Criteria compliance
+riveter scan -p soc2-security -t main.tf
+```
+Covers security criteria including access controls, authentication, network security, encryption, and monitoring across AWS, Azure, and GCP.
+
+### Creating Custom Rule Packs
+
+You can create your own rule packs for your organization's specific requirements:
+
+```bash
+# Generate a template
+riveter create-rule-pack-template company-standards company-rules.yml
+
+# Edit the template to add your rules
+# Validate your rule pack
+riveter validate-rule-pack company-rules.yml
+
+# Use your custom rule pack
+riveter scan -p company-standards -t main.tf
+```
+
+### Rule Pack Format
+
+Rule packs are YAML files with metadata and rules sections:
+
+```yaml
+metadata:
+  name: my-rule-pack
+  version: 1.0.0
+  description: Custom rule pack for my organization
+  author: My Team
+  created: 2024-01-01
+  updated: 2024-01-01
+  dependencies: []
+  tags: [security, compliance]
+  min_riveter_version: 0.1.0
+
+rules:
+  - id: my_custom_rule
+    resource_type: aws_instance
+    description: Custom rule description
+    severity: error
+    assert:
+      instance_type:
+        regex: "^(t3|m5)\\.(large|xlarge)$"
+    metadata:
+      tags: [ec2, security]
+      references: ["https://example.com/policy"]
+```
+
+## Writing Custom Rules
+
+### Simple Rule Example
+
+```yaml
+rules:
+  - id: require-encryption
+    description: "EBS volumes must be encrypted"
+    resource_type: aws_instance
+    severity: error
+    assert:
+      root_block_device.encrypted: true
+```
+
+### Advanced Rule with Filtering
+
+```yaml
+rules:
+  - id: production-instance-size
+    description: "Production instances must be at least t3.large"
+    resource_type: aws_instance
+    severity: error
+    filter:
+      tags.Environment: production  # Only check production resources
+    assert:
+      instance_type:
+        regex: "^(t3|m5|c5)\\.(large|xlarge|2xlarge)$"
+    metadata:
+      tags: [security, cost-optimization]
+      references: ["https://company.com/aws-standards"]
+```
+
+### Available Operators
+
+| Operator | Example | Description |
+|----------|---------|-------------|
+| `eq` | `instance_type: t3.large` | Exact match (default) |
+| `ne` | `publicly_accessible: {ne: true}` | Not equal |
+| `regex` | `name: {regex: "^prod-.*"}` | Regular expression |
+| `gt/gte` | `volume_size: {gte: 100}` | Greater than (or equal) |
+| `lt/lte` | `max_size: {lte: 10}` | Less than (or equal) |
+| `contains` | `cidr_blocks: {contains: "10.0.0.0/8"}` | List contains value |
+| `length` | `ingress: {length: {lte: 5}}` | List/string length |
+| `present` | `backup_retention_period: present` | Property exists |
+
+### Rule Structure Reference
+
+```yaml
+rules:
+  - id: unique-rule-id           # Required: Unique identifier
+    description: "What it checks" # Recommended: Human-readable description
+    resource_type: aws_instance   # Required: Terraform resource type
+    severity: error               # Optional: error|warning|info (default: error)
+    filter:                       # Optional: Which resources to check
+      tags.Environment: prod      # Filter by tags or other properties
+    assert:                       # Required: Validation conditions
+      property: value             # Simple equality check
+      nested.property: value      # Nested property access
+      property: {operator: value} # Using operators
+    metadata:                     # Optional: Additional information
+      tags: [security]            # Categorization tags
+      references: ["https://..."] # Documentation links
+```
+
+## CLI Commands
+
+### Scan Command
+
+The main command for validating Terraform configurations:
+
+```bash
+# Basic syntax
+riveter scan [OPTIONS] -t TERRAFORM_FILE
+
+# Options:
+#   -r, --rules PATH          Path to custom rules YAML file
+#   -p, --rule-pack NAME      Rule pack name (can be used multiple times)
+#   -t, --terraform PATH      Path to Terraform main.tf file (required)
+#   -f, --output-format FORMAT  Output format: table, json, junit, sarif (default: table)
+
+# Examples:
+riveter scan -r rules.yml -t main.tf
+riveter scan -p aws-security -t main.tf
+riveter scan -p aws-security -p cis-aws -t main.tf --output-format json
+riveter scan -r custom.yml -p aws-security -t main.tf
+```
+
+### Rule Pack Management Commands
+
+```bash
+# List available rule packs
+riveter list-rule-packs
+
+# Validate a rule pack file
+riveter validate-rule-pack RULE_PACK_FILE
+
+# Create a rule pack template
+riveter create-rule-pack-template PACK_NAME OUTPUT_FILE
+```
+
+### Output Formats
+
+- **table** (default): Human-readable table format
+- **json**: JSON format for programmatic processing
+- **junit**: JUnit XML format for CI/CD integration
+- **sarif**: SARIF format for security tools integration
+
+### Exit Codes
+
+- `0`: All validations passed
+- `1`: One or more validation failures or errors
+
+## Troubleshooting
+
+### Common Issues
+
+**❌ "Rule pack 'xyz' not found"**
+```bash
+# List available rule packs to see correct names
+riveter list-rule-packs
+```
+
+**❌ "No rules loaded"**
+```bash
+# Make sure to specify either --rules or --rule-pack
+riveter scan -p aws-security -t main.tf  # ✅ Correct
+```
+
+**❌ Virtual environment issues**
+```bash
+# Always activate the virtual environment first
+source venv/bin/activate  # Linux/Mac
+.\venv\Scripts\activate   # Windows
+```
+
+**❌ "Failed to parse Terraform file"**
+- Ensure your `.tf` file has valid HCL syntax
+- Riveter expects standard Terraform resource definitions
+- Check that the file path is correct
+
+### Getting Help
+
+```bash
+# Show all available commands
+riveter --help
+
+# Get help for specific commands
+riveter scan --help
+riveter list-rule-packs --help
+```
+
+## CI/CD Integration
+
+### GitHub Actions
+
+```yaml
+name: Infrastructure Validation
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Riveter
+        run: |
+          git clone https://github.com/riveter/riveter.git
+          cd riveter && pip install -e .
+
+      - name: Validate Infrastructure
+        run: |
+          cd riveter
+          source venv/bin/activate
+          riveter scan -p aws-security -p cis-aws -t ../main.tf --output-format junit > results.xml
+
+      - name: Publish Results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Infrastructure Validation
+          path: riveter/results.xml
+          reporter: java-junit
+```
+
+### GitLab CI
+
+```yaml
+infrastructure-validation:
+  stage: validate
+  image: python:3.12
+  script:
+    - git clone https://github.com/riveter/riveter.git
+    - cd riveter && pip install -e .
+    - source venv/bin/activate
+    - riveter scan -p aws-security -t ../main.tf --output-format json > validation-results.json
+  artifacts:
+    reports:
+      junit: riveter/validation-results.json
+    when: always
+```
+
+### Jenkins Pipeline
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Validate Infrastructure') {
+            steps {
+                sh '''
+                    git clone https://github.com/riveter/riveter.git
+                    cd riveter
+                    python3 -m venv venv
+                    source venv/bin/activate
+                    pip install -e .
+                    riveter scan -p aws-security -t ../Terraform/main.tf --output-format junit > results.xml
+                '''
+            }
+            post {
+                always {
+                    junit 'riveter/results.xml'
+                }
+            }
+        }
+    }
+}
+```
+
+## Technical Documentation
+
+For detailed technical documentation about how Riveter works internally, please refer to the [TECHNICAL.md](docs/TECHNICAL.md) file in the docs directory. This document provides in-depth explanations of each component, code examples, and architectural details.
+
+## Project Structure
+
+```
+riveter/
+├── src/
+│   └── riveter/              # Python package
+│       ├── __init__.py       # Package initialization
+│       ├── cli.py           # Command-line interface
+│       ├── extract_config.py # Terraform HCL parsing
+│       ├── rules.py         # Rule parsing and validation
+│       ├── rule_packs.py    # Rule pack management system
+│       ├── scanner.py       # Resource scanning logic
+│       └── reporter.py      # Results reporting
+├── rule_packs/              # Pre-built rule packs
+│   ├── aws-security.yml     # AWS Security Best Practices
+│   ├── cis-aws.yml         # CIS AWS Foundations Benchmark
+│   ├── cis-azure.yml       # CIS Azure Foundations Benchmark
+│   └── soc2-security.yml   # SOC 2 Security Trust Service Criteria
+├── docs/                    # Documentation
+│   └── TECHNICAL.md         # Technical documentation
+├── examples/                # Example configurations
+│   └── terraform/           # Terraform examples
+└── tests/                   # Test files
+    ├── fixtures/            # Test fixtures
+    │   └── rule_packs/      # Rule pack test fixtures
+    └── test_*.py           # Test modules
+```
+
+## How It Works
+
+Riveter follows a simple, modular architecture with a clear flow:
+
+1. **Parse Terraform Configuration** → **Load Rules** → **Validate Resources** → **Report Results**
+
+Each component has a specific responsibility:
+
+- **extract_config.py**: Parses Terraform HCL files into a normalized format using python-hcl2
+- **rules.py**: Loads and validates rule definitions from YAML files
+- **scanner.py**: Implements the core validation logic that checks resources against rules
+- **reporter.py**: Formats and displays validation results with rich terminal output
+- **cli.py**: Provides the command-line interface and orchestrates the workflow
+
+## Development Roadmap
+
+### Completed Features ✅
+- ✅ Command-line parser with multiple output formats
+- ✅ Rules file parser with YAML validation
+- ✅ Terraform configuration parser (HCL2)
+- ✅ Advanced assertion engine with operators
+- ✅ Rich reporting (table, JSON, JUnit, SARIF)
+- ✅ **Rule Pack System**: Pre-built compliance rule collections
+- ✅ **AWS Security Best Practices**: 26 security rules
+- ✅ **CIS Compliance**: AWS and Azure benchmark rules
+- ✅ **SOC 2 Security**: Trust service criteria rules
+- ✅ **Rule Pack Management**: CLI commands for rule pack operations
+- ✅ **Advanced Operators**: regex, comparisons, length, subset validation
+- ✅ **Rule Filtering**: By severity, resource type, and tags
+- ✅ **Rule Pack Merging**: Combine multiple rule packs
+
+### Planned Features 🚧
+1. **Enhanced Cloud Provider Support**
+   - GCP resource validation expansion
+   - Multi-cloud rule packs
+   - Cloud-specific best practices
+
+2. **Advanced Rule Features**
+   - Custom validation functions
+   - Cross-resource validation
+   - Conditional rule execution
+   - Rule dependencies and ordering
+
+3. **Integration & Automation**
+   - GitHub Actions integration
+   - Terraform Cloud/Enterprise integration
+   - Policy as Code workflows
+   - Automated rule pack updates
+
+## Contributing
+
+We welcome contributions! Here's how to get started:
+
+### Development Setup
+```bash
+# Clone and setup development environment
+git clone https://github.com/riveter/riveter.git
+cd riveter
+python3 -m venv venv
+source venv/bin/activate
+
+# Complete development setup (installs dependencies + pre-commit hooks)
+make dev-setup
+```
+
+### Running Tests
+```bash
+# Run all tests with coverage
+make test
+
+# Run tests without coverage (faster)
+make test-fast
+
+# Run tests with detailed coverage report
+make test-cov
+```
+
+### Code Quality
+```bash
+# Format code
+make format
+
+# Check formatting without changes
+make format-check
+
+# Run linting
+make lint
+
+# Run linting with auto-fix
+make lint-fix
+
+# Type checking
+make type-check
+
+# Quick quality checks (format-check + lint + type-check)
+make quick-check
+
+# Complete quality pipeline (format + lint + type-check + test)
+make all
+```
+
+### Adding New Rule Packs
+
+1. Create your rule pack YAML file in `rule_packs/`
+2. Add comprehensive tests in `tests/fixtures/rule_packs/`
+3. Update documentation
+4. Submit a pull request
+
+See our [Contributing Guide](CONTRIBUTING.md) for detailed guidelines.
+
+## Resources
+
+- 📖 **[Technical Documentation](docs/TECHNICAL.md)** - Deep dive into Riveter's architecture
+- 🚀 **[Release Workflow](docs/RELEASE_WORKFLOW.md)** - Automated release process documentation
+- 🐛 **[Issue Tracker](https://github.com/riveter/riveter/issues)** - Report bugs or request features
+- 💬 **[Discussions](https://github.com/riveter/riveter/discussions)** - Ask questions and share ideas
+- 🔄 **[Changelog](CHANGELOG.md)** - See what's new in each release
+
+## Related Projects
+
+- **[Terraform](https://terraform.io)** - Infrastructure as Code
+- **[Checkov](https://checkov.io)** - Static analysis for Terraform
+- **[TFLint](https://github.com/terraform-linters/tflint)** - Terraform linter
+- **[Terrascan](https://runterrascan.io)** - Infrastructure security scanner
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+**Made with ❤️ by the Riveter team**
+
+*Riveter helps you build secure, compliant infrastructure from day one.*
