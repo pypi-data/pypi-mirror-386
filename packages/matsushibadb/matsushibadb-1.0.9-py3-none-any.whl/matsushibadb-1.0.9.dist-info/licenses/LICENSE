@@ -1,0 +1,75 @@
+MATSUSHIBA PROPRIETARY SOFTWARE LICENSE AGREEMENT
+Version 2.0 - January 2025
+
+1. DEFINITIONS
+"Licensor" means Matsushiba Foundation, a legal entity incorporated under the laws of [Jurisdiction].
+"Licensee" means the individual or entity that downloads, installs, or uses the Software.
+"Software" means MatsushibaDB database software, including all components, libraries, documentation, and related materials.
+"Derivative Work" means any work based upon the Software, including modifications, enhancements, or adaptations.
+
+2. GRANT OF LICENSE
+Subject to the terms and conditions of this Agreement, Licensor hereby grants to Licensee a non-exclusive, non-transferable, revocable license to use the Software solely for Licensee's internal business purposes.
+
+3. PERMITTED USES
+Licensee may:
+- Install and use the Software on Licensee's systems
+- Integrate the Software into Licensee's applications
+- Use the Software for commercial and non-commercial purposes
+- Distribute applications that include the Software as an embedded component
+- Create backup copies for archival purposes
+
+4. RESTRICTIONS
+Licensee may not:
+- Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code
+- Modify, adapt, alter, or create Derivative Works
+- Remove, alter, or obscure any proprietary notices or labels
+- Distribute, sublicense, lease, rent, or otherwise transfer the Software
+- Use the Software in violation of any applicable laws or regulations
+- Circumvent any security measures or access controls
+
+5. INTELLECTUAL PROPERTY RIGHTS
+The Software and all related materials are proprietary to Licensor and protected by copyright, trademark, and other intellectual property laws. All rights, title, and interest in and to the Software remain with Licensor.
+
+6. PAYMENT TERMS
+While this license grants usage rights, Licensor reserves the right to:
+- Request payment for commercial usage exceeding specified thresholds
+- Charge fees for enterprise licensing, support, and maintenance
+- Require payment for custom development and consulting services
+- Implement usage-based pricing for high-volume deployments
+
+7. WARRANTY DISCLAIMER
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NONINFRINGEMENT, AND TITLE. LICENSOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE OR UNINTERRUPTED.
+
+8. LIMITATION OF LIABILITY
+IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS INTERRUPTION, ARISING OUT OF OR RELATING TO THE USE OF THE SOFTWARE, REGARDLESS OF THE THEORY OF LIABILITY.
+
+9. INDEMNIFICATION
+Licensee agrees to indemnify, defend, and hold harmless Licensor from any claims, damages, or expenses arising from Licensee's use of the Software or violation of this Agreement.
+
+10. TERMINATION
+This license is effective until terminated. Licensor may terminate this license immediately upon notice if Licensee breaches any terms of this Agreement. Upon termination, Licensee must cease all use of the Software and destroy all copies.
+
+11. GOVERNING LAW AND JURISDICTION
+This Agreement shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to conflict of law principles. Any disputes shall be resolved in the courts of [Jurisdiction].
+
+12. SEVERABILITY
+If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+
+13. ENTIRE AGREEMENT
+This Agreement constitutes the entire agreement between the parties regarding the Software and supersedes all prior agreements and understandings.
+
+14. MODIFICATIONS
+Licensor reserves the right to modify this Agreement at any time. Continued use of the Software after modifications constitutes acceptance of the modified terms.
+
+15. CONTACT INFORMATION
+For questions regarding this license, please contact:
+
+Matsushiba Foundation
+Legal Department
+Email: legal@matsushiba.co
+Support: support@matsushiba.co
+Website: https://www.matsushiba.co
+Database: https://db.matsushiba.co
+
+© 2025 Matsushiba Foundation. All rights reserved.
+This license is proprietary and confidential. Unauthorized distribution is prohibited.
