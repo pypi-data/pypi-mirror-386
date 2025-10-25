@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: tushare-crawler
+Version: 0.1.0
+Summary: Add your description here
+License: MIT
+Requires-Python: >=3.12
+Requires-Dist: requests>=2.32.5
+Description-Content-Type: text/markdown
+
+tushare-etl
+
+
+hao.liu Tanghao@2012
+
+tushare
+
+pypi-AgEIcHlwaS5vcmcCJDVjYTA4Yjg4LTI3N2MtNDAzMC05ODk4LTQyNDIwZmM1MDBhNgACKlszLCJiZDQ0ZDFjNC0zZWUwLTQ3NGYtOTkwNC0yYjdiODlhNDc2YzEiXQAABiCO7li0UMWib6Fj1pECj_paTKVJr-7rB6-BS2aA10utrg
+
+wjX_RxbhpGAXssqXAo1231T6
+
+[pypi]
+  username = __token__
+  password = pypi-AgEIcHlwaS5vcmcCJDVjYTA4Yjg4LTI3N2MtNDAzMC05ODk4LTQyNDIwZmM1MDBhNgACKlszLCJiZDQ0ZDFjNC0zZWUwLTQ3NGYtOTkwNC0yYjdiODlhNDc2YzEiXQAABiCO7li0UMWib6Fj1pECj_paTKVJr-7rB6-BS2aA10utrg
