@@ -1,0 +1,12 @@
+{
+  "db_config": "default_configs/db_config.json",
+  "run_config": "default_configs/run.json",
+  "ai_api_config": "default_configs/google_api_config.json",
+  "web_config": "default_configs/web_config.json",
+  "cloud_config": "default_configs/s3_config.json",
+  "output_settings": {
+    "mode": "local",
+    "extensions_output_location": "",
+    "intermediate_steps_output_location": ""
+  }
+}

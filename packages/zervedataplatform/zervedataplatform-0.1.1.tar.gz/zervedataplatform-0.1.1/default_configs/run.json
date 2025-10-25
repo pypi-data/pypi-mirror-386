@@ -1,0 +1,951 @@
+{
+  "pipeline_activity_log_path": "output/pipeline/activity.log",
+  "jobs_output": "output/jobs",
+  "repeat_scrape_count": 2,
+  "key_identifiers": null,
+  "steps_to_process": ["extract", "transform", "request", "validation"],
+  "jobs": [
+    {
+      "site_name": "saksfifthavenue",
+      "base_site": "www.saksfifthavenue.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.saksfifthavenue.com/account/login",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": [
+            "https://www.saksfifthavenue.com/product/la-mer-the-concentrate-12852896.html"
+          ],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": [
+              "<button data-testid=\"cta.addToBagButton\" class=\"cxds-button cxds-buttonPrimary cxds-buttonMedium cxds-buttonLabel\" data-id=\"addToBagButton\"><span>ADD TO BAG</span></button>"
+            ],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": [
+              "<h1 data-testid=\"pdp.body.desktop.header.titleAndSubtitle.titleAndButtons.title\" class=\"textview cxds-titleBrand\">Valentino Garavani</h1>"
+            ]
+          }
+        },
+        "cart": {
+          "site_urls": [
+            "https://www.saksfifthavenue.com/cart"
+          ],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [
+              "<div class=\"cart-description bonus-line-item-row \"></div>"
+            ],
+            "cart": [
+              "<div class=\"prdt-cart-details d-flex flex-column\" updatedlineitems=\"[]\" data-wltileurl=\"/on/demandware.store/Sites-SaksFifthAvenue-Site/en_US/Tile-Show\"></div>"
+            ],
+            "pay_button": [
+              "<a href=\"https://www.saksfifthavenue.com/checkout/login\" class=\"btn btn-primary btn-block checkout-btn proxy-checkout-btn trigger-checkout-btn btn-primary\" role=\"button\" aria-pressed=\"true\">Check Out</a>"
+            ],
+            "save_for_later_button": ["<a href=\"/on/demandware.store/Sites-SaksFifthAvenue-Site/en_US/Wishlist-CartAddToWL\" class=\"move\" data-pid=\"12852896\" data-name=\"The Concentrate\" data-action=\"/cart-product-remove\" data-uuid=\"a1bc95943176df18b6d89bf564\" title=\"Move to Wishlist\">Move to Wishlist</a>"],
+            "quantity_button": ["<div class=\"input-group quantity-field\">"],
+            "quantity": ["<input aria-label=\"Current quantity\" type=\"number\" name=\"quant[a1bc95943176df18b6d89bf564]\" class=\"form-control input-number quantity-val bfx-product-qty\" data-uuid=\"a1bc95943176df18b6d89bf564\" value=\"1\" min=\"1.0\" max=\"100.0\" data-pid=\"12852896\" data-remove-action=\"/cart-product-remove\">"],
+            "price": ["<span class=\"text-right grand-total-sum bfx-price\">$449.95</span>"],
+            "name": ["<span class=\"brand-name\">La Mer</span>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": [
+            "https://www.saksfifthavenue.com/checkout/start?stage=shipping#shipping"
+          ],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": [
+              "<div class=\"order-summary-total\">$440.00</div>"
+            ],
+            "shipping": [
+              "<div class=\"shipping-total\">$9.95</div>"
+            ],
+            "tax": [
+              "<div class=\"tax-total\">$38.50</div>"
+            ],
+            "pay_now": [
+              "<div class=\"order-summary-total\">$488.45</div>"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "site_name": "kohls",
+      "base_site": "www.kohls.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.kohls.com/myaccount/signin.jsp",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": [
+            "https://www.kohls.com/product/prd-3570402/mens-nike-6-pair-everyday-cushion-crew-training-socks.jsp?pfm=bdrecs-WebStore-ProductNotFound-Horizontal1-b609-316&bdrecsId=f4fb345a-ba14-4aa1-a69c-de1284b8c1f4"
+          ],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": [
+              "<input type=\"button\" title=\"Add To Cart\" alt=\"Add To Cart\" class=\"pdp-addtobag\" id=\"addtobagID\" name=\"pdp-addtobag\" data-prodid=\"3570402\" value=\"Add to Cart\">"
+            ],
+            "buy_now": [],
+            "quantity": [
+              "<li class=\"product-quantity-value-wrapper\"><input name=\"productQuantity\" id=\"panel154684552\" alt=\"Product quantity\" title=\"Product quantity\" type=\"text\" value=\"1\" class=\"pdp-product-quantity\"></li>"
+            ],
+            "product_name": [
+              "<h1 class=\"product-title\">Men's Nike 6-Pack Everyday Cushioned Crew Training Socks</h1>"
+            ]
+          }
+        },
+        "cart": {
+          "site_urls": [
+            "https://www.kohls.com/checkout/shopping_cart.jsp"
+          ],
+          "identifier_rel_path": "/shopping_cart/",
+          "selector_example_for_llm": {
+            "cart_item": [
+              "<div class=\"cart-item-panel-item\"></div>"
+            ],
+            "cart": [
+              "<div class=\"cart-item-panel cart-item-panel-redesign\" id=\"panel1069\"></div>"
+            ],
+            "pay_button": [
+              "<button title=\"Proceed to Checkout\" class=\"btn btn-primary\" id=\"button-panel1074\" tabindex=\"0\" aria-label=\"Proceed to checkout\" type=\"button\"><slot-fb hidden=\"\"><span></span></slot-fb>PROCEED TO CHECKOUT</button>"
+            ],
+            "save_for_later_button": [],
+            "quantity_button": [
+              "<div class=\"product-change-quantity\"></div>"
+            ],
+            "quantity": [
+              "<label data-quantity=\"1\" data-cartitemid=\"53591790994190001\" data-skuid=\"20878888\" data-prdid=\"4568212\">1</label>"
+            ],
+            "price": [
+              "<span class=\"product-price-list-sale-price black-color\">$24.00</span>"
+            ],
+            "name": [
+              "<div class=\"product-name\"><a href=\"/product/prd-4568212/new-balance-515-v3-mens-sneakers.jsp?skuId=20878888\">New Balance 515 v3 Men's Sneakers</a></div>"
+            ],
+            "url": [
+              "<a href=\"/product/prd-4568212/new-balance-515-v3-mens-sneakers.jsp?skuId=20878888\">New Balance 515 v3 Men's Sneakers</a>"
+            ]
+          }
+        },
+        "checkout": {
+          "site_urls": [
+            "https://www.kohls.com/checkout/v2/checkout.jsp"
+          ],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": [
+              "<span class=\"cart-block-item-value\">$94.33</span>"
+            ],
+            "shipping": [
+              "<span class=\"cart-block-item-value body-02\">$8.95</span>"
+            ],
+            "tax": [
+              "<span class=\"cart-block-item-value body-02\">$5.34</span>"
+            ],
+            "pay_now": [
+              "<button title=\"Place Order\" class=\"btn btn-primary\" id=\"button-panel1084\" tabindex=\"0\" aria-label=\"Place order\" type=\"button\"><slot-fb hidden=\"\"><span></span></slot-fb>PLACE ORDER</button>"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "site_name": "bloomingdales",
+      "base_site": "www.bloomingdales.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.bloomingdales.com/account/signin",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": [
+            "https://www.bloomingdales.com/shop/product/saint-laurent-le-5-a-7-hobo?ID=4180539&CategoryID=17311"
+          ],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": [
+              "<button type=\"button\" class=\"emphasis expanded button\" aria-busy=\"false\" aria-label=\"Add To Bag\"><!--[--><!--[--><span>Add To Bag</span><!--]--><!--]--></button>"
+            ],
+            "buy_now": [
+              "<button type=\"button\" class=\"secondary expanded button margin-top-xs\" aria-busy=\"false\" aria-label=\"Buy Now\" style=\"\"><!--[--> Buy Now <!--]--></button>"
+            ],
+            "quantity": [],
+            "product_name": [
+              "<span class=\"subtitle-2\" itemprop=\"name\" data-v-5dfeb52f=\"\">Polo ID Mini Shoulder Bag</span>"
+            ]
+          }
+        },
+        "cart": {
+          "site_urls": [
+            "https://www.bloomingdales.com/my-bag"
+          ],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [
+              "<div class=\"cart-item\"></div>"
+            ],
+            "cart": [
+              "<div class=\"product-tile product-tile-bag checkout-product-tile\"></div>"
+            ],
+            "pay_button": [
+              "<button type=\"button\" class=\"emphasis expanded button expanded margin-top-xs\" aria-busy=\"false\" aria-label=\"Checkout\"><!--[--> Checkout <!--]--></button>"
+            ],
+            "save_for_later_button": ["<span class=\"link-body text-transform-parity\" data-v-009cfbeb=\"\" data-v-6e1bdcbb-s=\"\">Save for later</span>"],
+            "quantity_button": ["<div class=\"quantity-selector-container\" data-v-54df0ad6=\"\" data-v-009cfbeb=\"\"><button aria-label=\"Decrease quantity\" class=\"quantity-button-minus\" disabled=\"\" tabindex=\"-1\" data-v-54df0ad6=\"\"></button>"],
+            "quantity": ["<input id=\"2774484\" type=\"number\" title=\"Quantity\" class=\"quantity-selector-input\" aria-describedby=\"2775397\" name=\"quantity\" disabled=\"\" inputmode=\"\" aria-disabled=\"false\" data-v-54df0ad6=\"\">"],
+            "price": ["<span data-v-5368eae3=\"\">$2,400.00</span>"],
+            "name": ["<a href=\"/shop/product/saint-laurent-le-5-a-7-hobo?ID=4180539&amp;upc_ID=6076271&amp;Quantity=1&amp;seqNo=3&amp;EXTRA_PARAMETER=BAG&amp;pickInStore=false\" class=\"medium\" data-v-82c451a8=\"\">Saint Laurent Le 5 À 7 Hobo  </a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": [
+            "https://www.bloomingdales.com/checkout/shipping"
+          ],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<div class=\"grid-x large rc-order-row \">\n            <span id=\"rc-order-grandtotal-txt\" class=\"cell small-8\">Order Total</span>\n"],
+            "shipping": ["<div class=\"cell auto grid-x\" data-v-dcb09224=\"\"><span class=\"price-label align-self-middle\" data-v-dcb09224=\"\">Shipping</span><button class=\"tooltip-small\" data-v-dcb09224=\"\" data-pd-tooltip=\"true\"></button></div>"],
+            "tax": ["<div id=\"rc-order-tax-txt\" class=\"cell small-8 rc-estimated-tax-info\">\nEstimated Tax\n"],
+            "pay_now": ["<button class=\"button primary expanded place-order-cta\" id=\"rc-place-order-btn\" disabled=\"disabled\">\nPlace Order\n</button>"]
+          }
+        }
+      }
+    },
+    {
+      "site_name": "costco",
+      "base_site": "www.costco.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.costco.com/LinkYourMembershipInterruptView?langId=-1&krypto=RDypwvtRzXe2ewZ9kDQ08096gKsGs2AxWoztYvCNM3ngyPBjDdI1tc%2B%2B9hCGArVa7HqykI8hGoLWW7NEeZPqdp3nOJ5M8tIrTBTmzgKF08MSpDmaiDiNTXY743lGtKU2PpEiqMsKYjZ8HIA8z1u3j8toOefEsFvRv2pRKn8tEJTO70Uwts1tmxW1Ci38QDLtk6N3MO4%2BVJpnLQ2wfKKzN18q5xerB%2F%2F9e8e1ABWZDaX5amH07RoGT5PquU3T1Q7FNLfM%2BjJaeRkmJ84Qgz8mHMzmLQl9uajdJaj2tf6PMPg%3D&ddkey=http%3AOAuthLogonCmd",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.costco.com/bounty-advanced-paper-towels,-2-ply,-101-sheets,-12-count.product.4000137876.html?ADBUTLERID=homepage_third_hero_MVM_Bounty"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<input type=\"button\" id=\"add-to-cart-btn\" automation-id=\"addToCartButton\" name=\"add-to-cart\" value=\"Add to Cart\" class=\"primary-button-v2 valid\" onclick=\"COSTCO.Header.validateZipCodeExists(event);\" hasclickevent=\"true\" aria-invalid=\"false\">"],
+            "buy_now": [],
+            "quantity": ["<input type=\"tel\" id=\"minQtyText\" automation-id=\"quantityInput\" class=\"form-control valid\" name=\"quantity\" maxlength=\"3\" value=\"1\" aria-required=\"true\" aria-labelledby=\"qty-description\" data-error-message=\"Quantity must be in increments of\" aria-live=\"polite\" aria-describedby=\"product-error\" aria-invalid=\"false\">"],
+            "product_name": ["<span class=\"product-title\" itemprop=\"name\">Bounty Advanced Paper Towels, 2-Ply, 101 Sheets, 12-count</span>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.costco.com/CheckoutCartDisplayView?catalogId=10701&storeId=10301&langId=-1&krypto=qkpcEvDK8HMFeTzEIUe9nbdziWQ%2Bkwk4hCMnHmRJp%2FUs4%2FD4rt%2BJlDcCIMDfEgpjtGdKP6PKRtpBVtXXB9ltOvtTILk0SZY4DvigDGMhyZA%3D&ddkey=http%3ACheckoutCartView"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": ["<div id=\"order-items-grocery\">\n\t"],
+            "cart": [""],
+            "pay_button": [],
+            "save_for_later_button": ["<a class=\"h8-style-guide-link\" href=\"#\" aria-haspopup=\"true\" aria-label=\"Save for Later\" onclick=\"COSTCO.OrderItems.saveForLater.save('3074457345619975932', 415308891);\">\n\t\t\t\t\t\t\tSave for Later\n\t\t\t\t\t\t</a>"],
+            "quantity_button": ["<button type=\"button\" name=\"minusQty\" automation-id=\"decreaseButton_0\" aria-label=\"Decrease Quantity\" id=\"sub-1\" aria-describedby=\"product-name_415308891\" onkeypress=\"COSTCO.util.clickElementOnEnter('sub-1')\" onclick=\"COSTCO.OrderItems.changeQuantityValue(quantity_1, false);\">"],
+            "quantity": ["<input type=\"tel\" automation-id=\"quantityInput_1\" value=\"1\" id=\"quantity_1\" name=\"quantity_1\" aria-label=\"Quantity\" size=\"3\" maxlength=\"3\" aria-live=\"polite\" aria-atomic=\"true\" class=\"valid\" aria-invalid=\"false\">"],
+            "price": ["<div class=\"h7-style-guide-v2\" automation-id=\"totalPriceOutput_1\">\n  $29.99\n</div>"],
+            "name": ["<a href=\"https://www.costco.com/.product.1720981.html\" data-bi-tc=\"nav:Cart | Product Description\" automation-id=\"productTitleLinks_1\">Bounty Advanced Paper Towels, 2-Ply, 101 Sheets, 12-count</a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.costco.com/SinglePageCheckoutView?storeId=10301&catalogId=10701&langId=-1&krypto=0LUxh3mXbwDqP4Gk7RV0mDmSH3sUCRG1PCaf%2Feitn2IcZ6K2zCZbb8fmKn%2Fm3bY4YIf1bFmYhV10BP88mCS1%2FO4JR%2B%2FJsLohCHa3Bam3myoVmY4irzHfiaiaI%2BnXoVYMgNV4rMZwg0S5zkGMMc%2BhSkgYG41lgyDWpasoNoR7arplN2IZZivEGke9W12Cc6QFfpfhrQcpI3VmK%2BfaxmTyCQ1eSmc9h5Ov20msTjHeX25zTSAx7%2F2CHo4XRqTwxcGb1EJfc1XwvQQowrrvpCwjBNPtneCLP1MP%2FVkxR%2BuK0is%3D&ddkey=http%3AManageShoppingCartCmd"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<p class=\"h6-style-guide summary-right surchargeOrderTotal\" id=\"orderTotalOutput\" automation-id=\"orderTotalOutput\">\n\t\t$29.49\n\t</p>"],
+            "shipping": ["<p class=\"h8-style-guide summary-right\" automation-id=\"shippingPriceOutput\">--</p>"],
+            "tax": ["<p class=\"h8-style-guide summary-right\" automation-id=\"taxOutputText\">--</p>"],
+            "pay_now": [""]
+          }
+        }
+      }
+    },
+    {
+      "site_name": "lowes",
+      "base_site": "www.lowes.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.lowes.com/u/login/oauth2/authorize?redirect_uri=https%3A%2F%2Fwww.lowes.com%2Fu%2Flogin%2Foauth2%2Fpostauthorize&scope=general-digital-access&client_id=loweswebclient&state=a0FsaUVzMEZoV3NINEI5RlVkRnVaVFlmR3hyVUtCdlV1ZllHV2w1cnFHdXN1SmhVc3gxZERPVHVncTNvT0RYNw%3D%3D&code_challenge=hS5djMWScxmSIGI-R4I5Vw0nxq-J3F0zTzzwXfU7AWg&code_challenge_method=S256&redirect=",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.lowes.com/pd/Frigidaire-60-Decibel-Filtration-Built-In-Dishwasher-Stainless-Steel-Common-24-in-Actual-24-in-ENERGY-STAR/1000507507"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button class=\"ButtonBase-sc-1ngvxvr-0 jEYXMi backyard button size--medium variant--primary color--green shape--rounded atc btn-add full-width\" color=\"green\" type=\"submit\" id=\"atcButton\" hasclickevent=\"true\" style=\"--btn-base: var(--bds-color-action-green); --btn-hover: var(--bds-color-action-green-hover); --btn-pressed: var(--bds-color-action-green-pressed); --btn-focus: var(--bds-color-focus-default); --btn-text: var(--bds-color-text-solid-inverse); --btn-icon: var(--bds-color-icon-solid-inverse); --btn-disabled: var(--bds-color-text-disabled); --btn-onDisabled: var(--bds-color-text-disabled-inverse);\"><span class=\"label btn-label\">Add to Cart</span></button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<h1 class=\"styles__H1-sc-11vpuyu-0 krJSUv typography variant--h1 align--left product-brand-description\" color=\"text_primary\">Frigidaire 24-in Front Control Built-In Dishwasher (Stainless Steel) ENERGY STAR, 55-dBA Standard Sound Level</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.lowes.com/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [""],
+            "cart": ["<div class=\"sc-iOpksm ksVmjz\">"],
+            "pay_button": [""],
+            "save_for_later_button": ["<span class=\"label link-label\">Save For Later</span>"],
+            "quantity_button": ["<div data-selector=\"art-sc-qty\" data-test=\"cc-product-quantity\" class=\"sc-gvZAcH iCpzgU\">"],
+            "quantity": ["<input type=\"number\" id=\"quantity\" class=\"textinput type--number backyard stepper itemQuantityStepper completed\" value=\"1\" aria-label=\"Quantity\" data-value-current=\"1\" data-value-previous=\"1\" max=\"9999\" min=\"0\" step=\"1\" pattern=\"[0-9]*\" role=\"spinbutton\" name=\"quantity\" data-selector=\"art-sc-quantity-input\">"],
+            "price": ["<span><span> </span><sup>$</sup><span>349</span><sup class=\"cent\">.00</sup><span></span></span>"],
+            "name": ["<div class=\"sc-dxcDKg gbsllo\">"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.lowes.com/checkout"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<div class=\"GridStyles__GridRow-sc-1ejksnu-1 bkMCuK row sc-kxZkPw dYwskU\">"],
+            "shipping": ["<div class=\"GridStyles__GridColumn-sc-1ejksnu-2 hqhYYm col sc-hUsbtx dwDMYV sm-8 lg-8\" data-selector=\"art-sc-deliveryFeeLbl\">Estimated Delivery</div>"],
+            "tax": ["Estimated Tax</div><div class=\"GridStyles__GridColumn-sc-1ejksnu-2 hqhYYm col sc-faiBKc dJygZw sm-4 lg-4\"><div class=\"sc-futREh eDhzGj\" color=\"success\" data-selector=\"art-sc-taxesVal\"><span><span> </span><sup>$</sup><span>40</span><sup class=\"cent\">.13</sup><span></span></span></div></div></div>"],
+            "pay_now": ["<span class=\"label btn-label\">Place Order</span>"]
+          }
+        }
+      }
+    },
+    {
+      "site_name": "zappos",
+      "base_site": "www.zappos.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://auth.zappos.com/ap/signin?openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&siteState=f0a0438e-7252-42bd-8556-1a1119515482%3Afkc1yb2xr2MgLqbgRS2m5y%2BphMO2VF4kQYBEu5wHbIk%3D%3Anull&pageId=zappos_us_desktop_native&openid.return_to=https%3A%2F%2Fwww.zappos.com%2Fzap%2FloginComplete&openid.assoc_handle=zappos_us_desktop_native&openid.oa2.response_type=code&openid.mode=checkid_setup&openid.ns.oa2=http%3A%2F%2Fwww.amazon.com%2Fap%2Fext%2Foauth%2F2&tokenExchangeRedirect=false&openid.oa2.scope=auth_code&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.oa2.client_id=iba%3Aamzn1.application-oa2-client.ce5075dead7c4aa7ae316059988839d5&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.zappos.com/a/the-style-room/p/kate-spade-new-york-bleecker-saffiano-leather-large-tote-parchment/product/9913641/color/1329"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button type=\"submit\" id=\"add-to-cart-button\" class=\"Mea-z\" data-stock-id=\"58618554\" data-track-action=\"Product-Page\" data-track-label=\"PrForm\" data-track-value=\"Add-To-Cart\">Add to Bag</button>"],
+            "buy_now": [],
+            "quantity": ["<select id=\"quantity-B0CNV3P9VM\" data-asin=\"B0CNV3P9VM\" name=\"quantity\"><option value=\"0\">Remove</option><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option><option value=\"7\">7</option><option value=\"8\">8</option><option value=\"9\">9</option><option value=\"10\">10</option></select>"],
+            "product_name": ["<span class=\"Eq-z\">Bleecker Saffiano Leather Large Tote</span>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.zappos.com/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": ["<div class=\"Wl-z\"><div class=\"fO-z hO-z\"><a data-te=\"TE_CART_PRODUCTCLICKED\" data-ted=\"B0CNV3P9VM\" href=\"/p/asin/B0CNV3P9VM\"><span class=\"iO-z\">Kate Spade New York</span><span class=\"jO-z\"> Bleecker Saffiano Leather Large Tote</span></a><ul><li>Color: <span>Parchment</span></li><li>Size: <span>One Size</span></li></ul></div><div class=\"Rl-z\"><em class=\"Zl-z\">$496.00</em><span class=\"am-z\">$248.00 each</span></div></div>"],
+            "cart": [""],
+            "pay_button": [""],
+            "save_for_later_button": [],
+            "quantity_button": ["<select id=\"quantity-B0CNV3P9VM\" data-asin=\"B0CNV3P9VM\" name=\"quantity\"><option value=\"0\">Remove</option><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option><option value=\"7\">7</option><option value=\"8\">8</option><option value=\"9\">9</option><option value=\"10\">10</option></select>"],
+            "quantity": ["<select id=\"quantity-B0CNV3P9VM\" data-asin=\"B0CNV3P9VM\" name=\"quantity\"><option value=\"0\">Remove</option><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option><option value=\"6\">6</option><option value=\"7\">7</option><option value=\"8\">8</option><option value=\"9\">9</option><option value=\"10\">10</option></select>"],
+            "price": ["<em class=\"Zl-z\">$496.00</em>"],
+            "name": ["<span class=\"jO-z\"> Bleecker Saffiano Leather Large Tote</span>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.zappos.com/checkout/address?pid=106-6282633-5418635"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<div class=\"QF-z NF-z\">Order Total<div>$644.00</div></div>"],
+            "shipping": ["<div class=\"NF-z\">Shipping<div class=\"TF-z\">FREE</div></div>"],
+            "tax": ["<div class=\"NF-z\">Estimated tax to be collected<div>$0.00</div></div>"],
+            "pay_now": ["<button type=\"button\" class=\"nM-z oM-z\">Place Your Order</button>"]
+          }
+        }
+      }
+    },
+    {
+      "site_name": "macys",
+      "base_site": "www.macys.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.macys.com/account/signin",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.macys.com/shop/product/pokemon-carry-case-battle-desert-playset-with-figure?ID=16426560&cm_sp=c2_1111US_browse_sale-kids-_-row1-_-ppp_extra-30%25-off-fall-styles-with-code-vip"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button type=\"button\" class=\"emphasis expanded button\" aria-busy=\"false\" aria-label=\"Add To Bag\"><!--[--><!--[--><span>Add To Bag</span><!--]--><!--]--></button>"],
+            "buy_now": ["<button type=\"button\" class=\"secondary expanded button margin-top-xs\" aria-busy=\"false\" aria-label=\"Buy Now\" style=\"\"><!--[--> Buy Now <!--]--></button>"],
+            "quantity": [],
+            "product_name": ["<span class=\"subtitle-1\" itemprop=\"name\" data-v-0694d199=\"\">Carry Case Battle Desert Playset with Figure</span>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.macys.com/my/bag"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": ["<div class=\"bag-separator line-item padding-bottom-s padding-top-s\" data-v-009cfbeb=\"\" data-tagg-processed=\"16426560\"><div data-v-009cfbeb=\"\">"],
+            "cart": ["<section id=\"bagitems\" data-v-5dd1cb42=\"\"><h2 class=\"show-for-sr\"> Bag items </h2>"],
+            "pay_button": ["<button aria-disabled=\"false\" class=\"primary button flex-button-content align-middle button emphasis expanded margin-bottom-xs\" data-v-6e1bdcbb=\"\" data-v-243e65d1=\"\"><!----><span class=\"\" data-v-6e1bdcbb=\"\"> Proceed To Checkout </span></button>"],
+            "save_for_later_button": ["<span class=\"link-body text-transform-parity\" data-v-009cfbeb=\"\" data-v-6e1bdcbb-s=\"\">Save for later</span>"],
+            "quantity_button": ["<div class=\"quantity-selector-container\" data-v-54df0ad6=\"\" data-v-009cfbeb=\"\">"],
+            "quantity": ["<input id=\"6386690\" type=\"number\" title=\"Quantity\" class=\"quantity-selector-input\" aria-describedby=\"6387124\" name=\"quantity\" disabled=\"\" inputmode=\"\" aria-disabled=\"false\" data-v-54df0ad6=\"\">"],
+            "price": ["<div class=\"cell bag-price-SALE bag-margin-top-xxxs\" data-v-5368eae3=\"\"><span data-v-5368eae3=\"\">$20.99</span></div>"],
+            "name": ["<a href=\"/shop/product/pokemon-carry-case-battle-desert-playset-with-figure?ID=16426560\" class=\"medium\" data-v-82c451a8=\"\">Pokemon Carry Case Battle Desert Playset with Figure</a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.macys.com/my-checkout"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<span id=\"rc-order-grandtotal-txt\" class=\"cell small-8\">Order Total</span>"],
+            "shipping": ["<span id=\"rc-order-shippingfee-txt\" class=\"cell small-8\">"],
+            "tax": ["<div id=\"rc-order-tax-txt\" class=\"cell small-8 rc-estimated-tax-info\">"],
+            "pay_now": ["<button class=\"button primary expanded place-order-cta\" id=\"rc-place-order-btn\" disabled=\"disabled\">\nPlace Order\n</button>"]
+          }
+        }
+      }
+    },
+    {
+      "site_name": "samsclub",
+      "base_site": "www.samsclub.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.samsclub.com/login?redirectURL=%2F&xid=hdr_account_login",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.samsclub.com/p/frito-lay-classic-mix-variety-pack-50-pk/P03002653?xid=hpg_carousel_rich-relevance.rye_cold_start_3"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<span class=\"visible\">Add to cart</span>"],
+            "buy_now": [],
+            "quantity": ["<span class=\"bst-select-trailing\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"49\" height=\"48\" fill=\"none\" viewBox=\"0 0 49 48\" class=\"\" aria-hidden=\"true\" role=\"presentation\" style=\"width: 1.25rem; height: 1.25rem;\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M24.764 37.533 2.606 15.375a2.875 2.875 0 0 1 4.066-4.066l18.092 18.092L42.856 11.31a2.875 2.875 0 0 1 4.066 4.066L24.764 37.533Z\" clip-rule=\"evenodd\"></path></svg></span>"],
+            "product_name": ["<h1 class=\"\">Frito-Lay Classic Mix Variety Pack Chips, 50 pk.</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.samsclub.com/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [""],
+            "cart": ["<div class=\"sc-cart-2a-shipping-items\">"],
+            "pay_button": [""],
+            "save_for_later_button": ["<button class=\"bst-btn bst-btn-small bst-btn-ghost\" type=\"button\" aria-label=\"Save Frito-Lay Classic Mix Variety Pack Chips, 50 pk. for later\">Save for later</button>"],
+            "quantity_button": ["<div class=\"bst-stepper-panels\" role=\"presentation\"><div class=\"bst-stepper-panel\"><button class=\"bst-btn bst-btn-small bst-btn-tertiary bst-icon-button bst-icon-button-small bst-icon-button-overlay bst-stepper-button\" type=\"button\" aria-label=\"delete\" data-testid=\"remove-quantity\" tabindex=\"0\">"],
+            "quantity": ["<input class=\"\" aria-label=\"Quantity 1\" aria-live=\"polite\" step=\"1\" tabindex=\"0\" id=\"li-308572f3-b000-4ebe-adfc-a44c066a23ba-qty\" inputmode=\"numeric\" type=\"number\" value=\"1\">"],
+            "price": ["<p class=\"sc-cart-price-info-sub-total\">$18.48</p>"],
+            "name": ["<div class=\"sc-cart-item-title\">Frito-Lay Classic Mix Variety Pack Chips, 50 pk.</div>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": [],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<div class=\"sc-cart-estimated-total\">Est. total<div class=\"sc-cart-order-summary-price sc-cart-estimated-total-price\">$18.48</div></div>"],
+            "shipping": ["<div class=\"sc-cart-order-summary-line-item\"><div class=\"sc-cart-shipping-items-summary-desc\"><span>Est. shipping costs</span><div class=\"sc-cart-shipping-items-summary-tooltip\">"],
+            "tax": ["<div class=\"sc-cart-estimated-sales-tax\" id=\"salestax\">Sales tax<div class=\"sc-cart-order-summary-price\"><div aria-hidden=\"true\">--</div></div><p class=\"sc-cart-order-summary-hidden-price-msg\">(calculated in checkout)</p></div>"],
+            "pay_now": ["<button class=\"bst-btn bst-btn-medium bst-btn-primary w-full\" type=\"button\"><span class=\"visible\">Begin checkout</span></button>"]
+          }
+        }
+      }
+    },
+     {
+      "site_name": "jcrew.com",
+      "base_site": "https://www.jcrew.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.jcrew.com/p/womens/categories/accessories/hats/jcrewtrade-baseball-hat/BX833?display=standard&fit=Classic&color_name=light-khaki&colorProductCode=BX833"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<div data-testid=\"mobile-border\" class=\"ProductActions__mobile-tap-border___KKh2T\"></div>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<h1 id=\"product-name__p\" data-qaid=\"pdpProductName\" class=\"ProductName__name___w_F49 product__name\">J.Crew™ baseball hat</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.jcrew.com/checkout/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [""],
+            "cart": [""],
+            "pay_button": [""],
+            "save_for_later_button": ["<button data-qaid=\"saveForLater0\" class=\"cart-actions__save_for_later_btn___RlzZX\" type=\"button\" aria-label=\"Save for later J.Crew&amp;trade; baseball hat\" data-cnstrc-btn=\"save_for_later\">Save for Later</button>"],
+            "quantity_button": ["<button class=\"icon-btn icon-btn--small icon-btn--expand quantity-edit__icon-btn___7SYqb\" type=\"button\" aria-label=\"Increase quantity by 1 for J.Crew&amp;trade; baseball hat; currently 1\"></button>"],
+            "quantity": ["<p class=\"quantity-edit__quantity___2XOpR\">1</p>"],
+            "price": [""],
+            "name": ["<a data-qaid=\"itemName0\" href=\"/p/BX833?mode=add&amp;N=ONE SIZE&amp;NUM_ITEMS=1&amp;cartId=94fe104d0209fbb639bff1d19f&amp;color_name=light-khaki&amp;selectedShipmentId=HOME\">J.Crew™ baseball hat</a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.jcrew.com/checkout/cart?checkout=true&screenId=memberHome&screenData="],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<li class=\"price-breakdown__row_container___2_h8N price-breakdown__emphasis___251Uh\"><div class=\"price-breakdown__left_align___1TDPS price-summary__label_class___2kE4f\"><span>Estimated Total</span><div class=\"price-breakdown__subtext___3bZk4\"><span>Tax calculated in Checkout</span></div></div><div data-qaid=\"estimatedTotal\" class=\"price-breakdown__price___2yJa-\"><span>$29.50</span></div></li>"],
+            "shipping": ["<span>Estimated Shipping</span>"],
+            "tax": ["<span>Tax</span>"],
+            "pay_now": ["<button disabled=\"\" class=\"action-button__button___JuU10 action-button__theme_primary___cO9nu place-order-button__place_order_button___3h5s0\" aria-describedby=\"paymentFooterDisclaimer\">Place My Order</button>"]
+          }
+        }
+      }
+  },
+  {
+      "site_name": "converse.com",
+      "base_site": "https://www.converse.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.converse.com/shop/p/3-pack-double-stripe-crew-socks-womens-socks/10026871-A02.html?dwvar_10026871-A02_color=white&styleNo=10026871-A02&cgid=womens-socks"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button id=\"add-to-cart-10026871-A02_OneSize\" type=\"submit\" title=\"Add to Cart\" value=\"Add to Cart\" class=\"button button--primary button--add-to-cart-pdp set--full set--themeable\">Add to Cart</button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<p class=\"pdp-primary-information__product-name\" data-product-name=\"\">3-Pack Double Stripe Crew Socks</p>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.converse.com/shop-cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": ["<div class=\"buy-product-card__text-section buy-product-card__text-section--cart\"><div class=\"buy-product-card__removed buy-product-card__removed--cart\"><div class=\"buy-product-card__removed-text uppercase\" data-removed-text=\"Removed\" data-saved-for-later-text=\"Saved for later\">Removed</div><button type=\"button\" title=\"Undo\" data-key=\"Undo\" class=\"buy-button  buy-product-card__removed-button\">Undo<span></span></button></div><div class=\"buy-product-card__text\"><div class=\"buy-product-card__status buy-product-card__status--cart\" tabindex=\"0\">Added</div><div class=\"buy-product-card__primary-information buy-product-card__primary-information--cart\"><div class=\"buy-product-card__details buy-product-card__details--cart\"><h3 class=\"buy-product-card__name  buy-product-card__name--cart\" label=\"Product Title\" tabindex=\"0\" aria-label=\"3-Pack Double Stripe Crew Socks\">3-Pack Double Stripe Crew Socks</h3></div><div class=\"product-attributes product-attributes--cart\"><ul class=\"product-attributes__list product-attributes__list--cart\" id=\"product-card__attributes\" label=\"Product Attributes\"><li class=\"product-attribute product-attribute--cart capitalize\" aria-labelledby=\"product-card__attributes\" label=\"Product Color\" tabindex=\"0\">white</li><li class=\"product-attribute product-attribute--cart\" aria-labelledby=\"product-card__attributes\" label=\"Product Size\" tabindex=\"0\">One Size</li><li class=\"product-attribute product-attribute--cart product-attribute--style\" aria-labelledby=\"product-card__attributes\" label=\"Style\" tabindex=\"0\">Style: 10026871-A02</li><li class=\"buy-product-card__attribute buy-product-card__attribute--cart buy-product-card__qty-control \" aria-labelledby=\"product-card__attributes\" label=\"Product Quantity\" tabindex=\"0\"><span class=\"buy-product-card__qty-control--text\">Quantity:</span><button class=\"buy-product-card__qty-control--minus buy-product-card__qty-control--minus-disabled\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 21 21\" fill=\"none\"><g id=\"State=Default\"><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><path id=\"Rectangle 19717\" d=\"M6 10H15V11H6V10Z\" fill=\"#E5E5E5\"></path><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" stroke=\"#E5E5E5\"></rect></g></svg></button><span class=\"buy-product-card__qty-control--text\">1</span><button class=\"buy-product-card__qty-control--plus \"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 21 21\" fill=\"none\"><g id=\"Quantity +\"><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><g id=\"Vector\"><path d=\"M6 10H15V11H6V10Z\" fill=\"#757575\"></path><path d=\"M10 15L10 6L11 6L11 15H10Z\" fill=\"#757575\"></path></g><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" stroke=\"#E5E5E5\"></rect></g></svg></button></li></ul></div><div class=\"buy-product-card__price buy-product-card__price--cart\"><div tabindex=\"0\" aria-label=\"Price: $16.00\">$16.00</div></div></div></div></div>"],
+            "cart": [],
+            "pay_button": ["<svg class=\"buy-button__checkout-chevron-animation--svg \" xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"14\" viewBox=\"0 0 12 14\" fill=\"none\" aria-hidden=\"true\" role=\"img\" focusable=\"false\"><path id=\"chevron-path\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"white\" d=\"M 2 0, H 0.291, L 6.3442 7.0002, L 0.291 13.6668, H 2, L 8 7, L 2 0\"></path><animate xlink:href=\"#chevron-path\" attributeName=\"d\" attributeType=\"XML\" values=\"m 2 0, H 0.291, L 6.3442 7.0002, L 0.291 13.6668, H 2, L 8 7, L 2 0; m 6 0, H 0.291, L 6.3442 7.0002, L 0.291 13.6668, H 6, L 12 7, L 6 0; m 6 0, H 0.291, L 6.3442 7.0002, L 0.291 13.6668, H 6, L 12 7, L 6 0; m 6 0, H 4, L 10 7, L 4 14, H 6, L 12 7, L 6 0;\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate><animate xlink:href=\"#chevron-path\" attributeName=\"opacity\" values=\"0;1;1;0;\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate><animateTransform attributeName=\"transform\" attributeType=\"XML\" type=\"translate\" from=\"0 0\" to=\"5 0\" dur=\"1.5s\" calcMode=\"linear\" repeatCount=\"indefinite\"></animateTransform></svg>"],
+            "save_for_later_button": ["<button type=\"button\" title=\"Save for later\" data-key=\"Save for later\" class=\"buy-button  buy-product-card__button buy-product-card__button--cart buy-product-card__button-save capitalize\" data-auth-trigger=\"\">Save for later<span></span></button>"],
+            "quantity_button": ["<li class=\"buy-product-card__attribute buy-product-card__attribute--cart buy-product-card__qty-control \" aria-labelledby=\"product-card__attributes\" label=\"Product Quantity\" tabindex=\"0\"><span class=\"buy-product-card__qty-control--text\">Quantity:</span><button class=\"buy-product-card__qty-control--minus buy-product-card__qty-control--minus-disabled\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 21 21\" fill=\"none\"><g id=\"State=Default\"><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><path id=\"Rectangle 19717\" d=\"M6 10H15V11H6V10Z\" fill=\"#E5E5E5\"></path><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" stroke=\"#E5E5E5\"></rect></g></svg></button><span class=\"buy-product-card__qty-control--text\">1</span><button class=\"buy-product-card__qty-control--plus \"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 21 21\" fill=\"none\"><g id=\"Quantity +\"><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" fill=\"white\"></rect><g id=\"Vector\"><path d=\"M6 10H15V11H6V10Z\" fill=\"#757575\"></path><path d=\"M10 15L10 6L11 6L11 15H10Z\" fill=\"#757575\"></path></g><rect x=\"0.5\" y=\"0.5\" width=\"20\" height=\"20\" rx=\"10\" stroke=\"#E5E5E5\"></rect></g></svg></button></li>"],
+            "quantity": ["<span class=\"buy-product-card__qty-control--text\">1</span>"],
+            "price": ["<div tabindex=\"0\" aria-label=\"Price: $16.00\">$16.00</div>"],
+            "name": ["<h3 class=\"buy-product-card__name  buy-product-card__name--cart\" label=\"Product Title\" tabindex=\"0\" aria-label=\"3-Pack Double Stripe Crew Socks\">3-Pack Double Stripe Crew Socks</h3>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": [],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<input type=\"text\" placeholder=\"Promo Code\" name=\"Promo Code\" class=\"buy-promo-code__input \" value=\"\">"],
+            "shipping": ["<span tabindex=\"0\" aria-label=\"Shipping\">Shipping</span>"],
+            "tax": ["<span class=\"buy-order-summary__calculations--tooltip\"><span tabindex=\"0\" aria-label=\"Est. Tax\">Est. Tax</span><div class=\"buy-tooltip buy-order-summary__tooltip buy-order-summary__tooltip--cart\" tabindex=\"0\"><svg class=\"buy-icon--medium buy-tooltip__icon\" viewBox=\"0 0 32 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" focusable=\"false\" aria-hidden=\"true\"><circle cx=\"16\" cy=\"16\" r=\"12\" stroke=\"#757575\" stroke-width=\"2\"></circle><rect x=\"14.999\" y=\"12.9995\" width=\"2\" height=\"10\" fill=\"#757575\"></rect><rect x=\"14.999\" y=\"8.99951\" width=\"2\" height=\"2\" fill=\"#757575\"></rect></svg><div class=\"buy-tooltip__info buy-tooltip__info--neutral hidden is-top is-right\" tabindex=\"-1\" aria-expanded=\"false\" role=\"tooltip\"><button type=\"button\" class=\"tooltip-info__close\" tabindex=\"0\"><svg class=\"buy-icon buy-icon--small buy-icon--neutral\" viewBox=\"0 0 37 37\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"nonzero\" clip-rule=\"evenodd\" d=\"M36.533 3.533L33 0 18.267 14.733 3.533 0 0 3.533l14.733 14.734L0 33l3.533 3.533L18.267 21.8 33 36.533 36.533 33 21.8 18.267z\"></path></svg></button><div class=\"tooltip-info \"></div></div></div></span>"],
+            "pay_now": [""]
+          }
+        }
+      }
+  },
+  {
+      "site_name": "reebok.com",
+      "base_site": "https://www.reebok.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.reebok.com/account-login",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.reebok.com/p/100208385/reebok-logo-cuff-hat"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button type=\"button\" class=\"btn--1eE4Z theme-rr-navy--3ttBH size-large--3vbcz product-wrapper-info-add-to-cart-btn--3f9Dj\" data-optly-f0d1f5c5a3e142cba7611467fc8a55f5=\"\" style=\"background-color: rgb(33, 70, 163);\">Add to Cart</button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<h1 class=\"tag_h1_light--2sTWu  product-wrapper-title--1ky4m\">Reebok Logo Cuff Hat</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.reebok.com/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [],
+            "cart": ["<div class=\"col--TywhC      cart-item-info-section--F6QcX\"><div class=\"flex-row--1XndU justify-space-between--1fJgx         text-align-left--3KlWV\"><h6 class=\"tag_h6_title--EqL5x  cart-item-info-name--2Y01F\"><a href=\"/p/100208385/reebok-logo-cuff-hat\" class=\" \" title=\"Reebok Logo Cuff Hat\">Reebok Logo Cuff Hat</a></h6><h6 class=\"tag_h6_small--1VdSQ  cart-item-info-price--3CpSA\"><a href=\"/p/100208385/reebok-logo-cuff-hat\" class=\" \">$20.00</a></h6></div><a href=\"/p/100208385/reebok-logo-cuff-hat\" class=\" \"><h6 class=\"tag_h6_title--EqL5x  cart-item-info-color--fXaME\">Black</h6><h6 class=\"tag_h6_title--EqL5x\">Size: ONE SIZE (M/L)</h6></a></div>"],
+            "pay_button": [],
+            "save_for_later_button": [""],
+            "quantity_button": ["<div class=\"col--TywhC\"><span>Qty: 1</span></div>"],
+            "quantity": ["<span>Qty: 1</span>"],
+            "price": ["<p class=\"tag_p_bold--v2mye  line-item--p8kAnp_bold\">$20.00</p>"],
+            "name": ["<a href=\"/p/100208385/reebok-logo-cuff-hat\" class=\" \" title=\"Reebok Logo Cuff Hat\">Reebok Logo Cuff Hat</a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.reebok.com/delivery"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": [],
+            "shipping": [],
+            "tax": [],
+            "pay_now": ["<button type=\"submit\" class=\"btn--1eE4Z theme-black--bcofs size-small--1XFhu delivery-btn--36x3h\">Review and Pay </button>"]
+          }
+        }
+      }
+  },
+  {
+      "site_name": "saucony.com",
+      "base_site": "https://www.saucony.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.saucony.com/en/outpace-petite-hat/54328U.html?dwvar_54328U_color=SAU800041-EG#cgid=womens-apparel-accessories&prefn1=isOnSale&prefv1=false&start=1"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button tabindex=\"0\" id=\"add-to-cart\" type=\"submit\" title=\"Add to Cart\" value=\"Add to Cart\" class=\"cta-primary add-to-cart\" data-disabled=\"true\" name=\"Add to Cart\" data-href=\"\">Add to Cart</button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<h1 class=\"product-name-v2 bfx-product-name\" itemprop=\"name\" data-stock-number=\"SAU800041-EG\" data-name=\"Outpace Petite Hat\" data-size-type=\"Unisex\" data-category-browse=\"Hats\" data-merch-category=\"mens\" data-browse-category=\"mens-apparel\" data-list=\"Hats / MEN\" tabindex=\"0\" role=\"presentation\">\n\t\t\t\tOutpace Petite Hat\n\t\t\t</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.saucony.com/en/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [],
+            "cart": ["<tr class=\"cart-row bfx-product unisex-product\">\n\t\t\t\t\t<td class=\"cart-row-product-name\" data-productname=\"Outpace Petite Hat\">\n\t\t\t\t\t\t<div class=\"name\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<a href=\"https://www.saucony.com/en/outpace-petite-hat/195020475508.html\">Outpace Petite Hat</a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class=\"item-image\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.saucony.com/en/outpace-petite-hat/195020475508.html\" title=\"Outpace Petite Hat\">\n\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t<img src=\"https://s7d4.scene7.com/is/image/WolverineWorldWide/SAU800041-EG_1?$dw-cartthm$\" data-src=\"https://s7d4.scene7.com/is/image/WolverineWorldWide/SAU800041-EG_1?$dw-cartthm$\" loading=\"lazy\" alt=\"Outpace Petite Hat, Eggplant, dynamic\" class=\"bfx-product-image\">\n\n\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<td class=\"item-name bfx-product-name\" data-productname=\"Outpace Petite Hat\" data-itemid=\"54328U\" data-categorybrowse=\"Hats\" data-merchcategory=\"mens\" data-browsecategory=\"mens-apparel\" data-category=\"Accessories\" data-list=\"Hats / MEN\" data-isfinalsale=\"false\">\n\t\t\t\t\t\t\t<div class=\"clear\"><!-- clear --></div>\n\t\t\t\t\t\t\t<div class=\"item-details \">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    \n      <div class=\"attribute\" data-attribute=\"color\">\n        \n<span class=\"value \" tabindex=\"0\">\n  \n    \n  \n      \n      <span class=\"value bfx-product-color\" data-color=\"Eggplant\">\n        Color:\n        Eggplant\n      </span>\n      \n  \n  \n    </span>\n\n    \n      </div>\n    \n    \n    \n    \n          \n          \n            <span class=\"value \" tabindex=\"0\">\n          \n            Size:\n            \n          </span>\n    \n\n<span class=\"value \" tabindex=\"0\" style=\"display: none;\">\n  \n    \n  \n    <span class=\"value bfx-product-size\" data-size=\"One Size\">\n      One Size\n    </span>\n\n  \n  \n    </span>\n\n    \n    \n\n    \n    \n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"sku\" tabindex=\"0\">\n\t\t\t\t\t\t\t\t\t<span class=\"attribute-label\">Item #: </span><span class=\"value bfx-sku\" data-sku=\"195020475508\">195020475508</span>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t    <div class=\"item-edit-details\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t    <a class=\"item-edit-details\" href=\"https://www.saucony.com/en/outpace-petite-hat/195020475508.html?Quantity=1&amp;uuid=5fd576adfbd94af4509ea2b844\" aria-label=\"Edit Outpace Petite Hat\">\n\t\t\t\t\t\t\t\t\t\tEdit\n\t\t\t\t\t\t\t\t\t   </a>\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<button class=\"button-text remove-item \" type=\"submit\" value=\"Remove\" name=\"dwfrm_cart_shipments_i0_items_i0_deleteProduct\" data-product-name=\"Outpace Petite Hat\" title=\"Remove\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<span class=\"remove-button-text\">Remove</span>\n\t\t\t\t\t\t\t\t\t\t</button></div><!-- end item-edit-details -->\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class=\"item-price\">\n\t\t\t\t\t\t<p class=\"item-style\">Each</p>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\n\n\n\n\n\n\n\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\n\n\n\n\n\t<span class=\"price-sales bfx-price bfx-list-price\" tabindex=\"0\">$35.00</span>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<td class=\"item-quantity bfx-product-qty \">\n\t\t\t\t\t\t\t<p class=\"item-style\">Quantity</p>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"quantity-wrapper\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"quantity-minus\" data-field=\"quantity\"><img src=\"/on/demandware.static/Sites-saucony_us-Site/-/default/dwfc0b1d71/images/cartqty-minus-new.png\" alt=\"Remove Quantity\"></button>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" class=\"cart_lineitem_quantity quantity-number valid\" id=\"cart_lineitem_quantity_54328U\" name=\"dwfrm_cart_shipments_i0_items_i0_quantity\" size=\"4\" maxlength=\"3\" value=\"1\" aria-label=\"Quantity: 1\" aria-invalid=\"false\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"quantity-plus\" data-field=\"quantity\"><img src=\"/on/demandware.static/Sites-saucony_us-Site/-/default/dw4f785a6e/images/cartqty-plus-new.png\" alt=\"Add Quantity\"></button>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t<button class=\"button-text update-item\" type=\"submit\" value=\"dwfrm_cart_updateCart\" name=\"dwfrm_cart_updateCart\" style=\"display:none;\">Update</button></td>\n\t\t\t\t\t\t<td class=\"item-total\" data-price=\"USD 35.00\">\n\t\t\t\t\t\t<p class=\"item-style\">Subtotal</p><span class=\"price-total bfx-price bfx-product-subtotal\"><span class=\"price-sales bfx-price bfx-list-price\" tabindex=\"0\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"visually-hidden\">Subtotal</span><span class=\"price-override\">\n\t\t\t\t\t\t\t\t<!-- Price override button --></tr>"],
+            "pay_button": [],
+            "save_for_later_button": [],
+            "quantity_button": ["<div class=\"quantity-wrapper\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"quantity-minus\" data-field=\"quantity\"><img src=\"/on/demandware.static/Sites-saucony_us-Site/-/default/dwfc0b1d71/images/cartqty-minus-new.png\" alt=\"Remove Quantity\"></button>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" class=\"cart_lineitem_quantity quantity-number valid\" id=\"cart_lineitem_quantity_54328U\" name=\"dwfrm_cart_shipments_i0_items_i0_quantity\" size=\"4\" maxlength=\"3\" value=\"1\" aria-label=\"Quantity: 1\" aria-invalid=\"false\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"quantity-plus\" data-field=\"quantity\"><img src=\"/on/demandware.static/Sites-saucony_us-Site/-/default/dw4f785a6e/images/cartqty-plus-new.png\" alt=\"Add Quantity\"></button>\n\t\t\t\t\t\t\t\t\t</div>"],
+            "quantity": ["<input type=\"number\" class=\"cart_lineitem_quantity quantity-number valid\" id=\"cart_lineitem_quantity_54328U\" name=\"dwfrm_cart_shipments_i0_items_i0_quantity\" size=\"4\" maxlength=\"3\" value=\"1\" aria-label=\"Quantity: 1\" aria-invalid=\"false\">"],
+            "price": ["<span class=\"price-sales bfx-price bfx-list-price\" tabindex=\"0\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"visually-hidden\">Subtotal</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t$35.00\n\t\t\t\t\t\t\t\t\t\t\t\t</span>"],
+            "name": ["<td class=\"cart-row-product-name\" data-productname=\"Outpace Petite Hat\">\n\t\t\t\t\t\t<div class=\"name\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<a href=\"https://www.saucony.com/en/outpace-petite-hat/195020475508.html\">Outpace Petite Hat</a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</td>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": [],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<td>Subtotal</td>"],
+            "shipping": ["<tr class=\"order-shipping\" tabindex=\"0\">"],
+            "tax": ["<tr class=\"order-sales-tax\" tabindex=\"0\">"],
+            "pay_now": []
+          }
+        }
+      }
+  },
+  {
+      "site_name": "asics.com",
+      "base_site": "https://www.asics.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://id.asics.com/login?client_id=sfcc_us_asics_web&locale=en-US&privacy_url=https://www.asics.com/us/en-us/privacy-policy.html&terms_privacy_country=US&terms_url=https://www.asics.com/us/en-us/terms.html&state=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdpbmFsIjoiaHR0cHM6Ly93d3cuYXNpY3MuY29tL3VzL2VuLXVzLyIsInN0YXRlIjp7ImJyYW5kIjoiYXNpY3MiLCJzY29wZSI6ImxvZ2luIiwib3JkZXJObyI6IiIsInJlZGlyZWN0SWQiOiIiLCJyZWRpcmVjdFVSTCI6Imh0dHBzOi8vd3d3LmFzaWNzLmNvbS91cy9lbi11cy9hdXRoLXJlc3BvbnNlLWFzaWNzaWQvbG9naW4vIiwib3JkZXJVVUlEIjoiIn19.oo8meTo4XRCNYOhNX3rbkgCaEjMqOP81LkERqmpaj2FFoenvOwWjcAN0MCrENdb5q-Mnzfhgl3Mn8huDyGHN_JI_dzmB0_CjjzD9XwFI8KT1OxqYeISKH9DGzIrA2c1Gaj7umTuyEgFHAOEagRGSdNe1AG0jv6IFIjLLiyzWGtcFh_1rd8KqLYtQA3O0UrQfRFmmho6Dr8WzL-CxciUOQsWxd31ETr4uqt6sv5ffoumbj-jGByoDXq4uU0RAlEj8E9SY5-aCi_rusrRHc_8wUkkLRb3vhMF2fyUcC2_eVAFTgrBggNUA3xtiG1HK-k6Gfm3qGFdmEJS9yS0ZZx6LbA&terms_privacy_version=20240213-SFCC-us&style=asics_perf_ana&send_confirm_email=false&no_confirm=true&action=login&sfcc_referer=&send_confirm_email=false&no_confirm_email=true&oneasics_terms_url=https://www.asics.com/us/en-us/terms-conditions.html&grant_type=code&redirect_uri=https://www.asics.com/us/en-us/auth-response-asicsid/login/",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.asics.com/us/en-us/nagino-headband/p/ANA_3012A041-402.html"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["https://www.asics.com/us/en-us/nagino-headband/p/ANA_3012A041-402.html"],
+            "buy_now": [],
+            "quantity": ["<input type=\"text\" class=\"input-text valid\" name=\"Quantity\" id=\"Quantity\" size=\"2\" maxlength=\"2\" value=\"1\" data-available=\"0.0\" readonly=\"\" aria-invalid=\"false\">"],
+            "product_name": ["<h1 class=\"pdp-top__product-name-mobile large-bold\" itemprop=\"name\">\nNAGINO HEADBAND\n</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.asics.com/us/en-us/cart/"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [""],
+            "cart": ["<tr class=\"cart-row\" tabindex=\"0\" data-uuid=\"42e30fed28ddab0de7f33fb32f\">"],
+            "pay_button": [],
+            "save_for_later_button": [],
+            "quantity_button": ["<select class=\"cart-select-quantity xx-small-bold valid\" aria-label=\"Qty\" name=\"dwfrm_cart_shipments_i0_items_i0_quantity\" id=\"dwfrm_cart_shipments_i0_items_i0_quantity\" data-tealium=\"{&quot;product_id&quot;:[&quot;20051372.402&quot;],&quot;product_pid&quot;:[&quot;ANA_20051372004&quot;],&quot;product_name&quot;:[&quot;NAGINO HEADBAND&quot;],&quot;product_brand&quot;:[&quot;ASICS&quot;],&quot;product_type&quot;:[&quot;null&quot;],&quot;product_variant&quot;:[&quot;Rich Navy Heather&quot;],&quot;product_color&quot;:[&quot;402&quot;],&quot;product_category&quot;:[&quot;women/clothing &amp; gear/gear &amp; accessories&quot;],&quot;product_category_id&quot;:[&quot;AA20312000&quot;],&quot;product_stock&quot;:[&quot;yes&quot;],&quot;product_unit_price&quot;:[&quot;28.00&quot;],&quot;product_unit_original_price&quot;:[&quot;28.00&quot;],&quot;product_marked_down&quot;:[&quot;no&quot;],&quot;product_marked_down_price&quot;:[&quot;0.00&quot;],&quot;product_marked_down_total&quot;:[&quot;0&quot;],&quot;product_size&quot;:[&quot;OS&quot;],&quot;product_sizes&quot;:[&quot;OS&quot;],&quot;product_sizes_stock&quot;:[&quot;yes&quot;],&quot;product_no_stock_sizes&quot;:&quot;&quot;,&quot;product_style&quot;:[&quot;ANA_3012A041&quot;],&quot;product_width&quot;:[&quot;&quot;],&quot;product_gender&quot;:[&quot;WOMEN&quot;],&quot;product_customer&quot;:[&quot;no&quot;],&quot;product_lottery&quot;:[&quot;no&quot;],&quot;product_full_id&quot;:[&quot;0020051372.402.S.OS&quot;],&quot;product_status&quot;:[&quot;new&quot;],&quot;online_status&quot;:[&quot;available&quot;]}\" aria-invalid=\"false\">\n<option value=\"1\" selected=\"\">1</option>\n\n<option value=\"2\">2</option>"],
+            "quantity": [],
+            "price": ["<span class=\"price-total small-bold\">\n$28.00\n</span>"],
+            "name": [""],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.asics.com/us/en-us/checkout/?stage=shipping#shipping"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<div class=\"value order-value small-bold\" data-total=\"USD 33.00\" value=\"USD 33.00\">$33.00</div>"],
+            "shipping": ["<div class=\"value x-small-reg\">\n\n\n$10.00\n\n\n</div>"],
+            "tax": ["<span class=\"estimated-tax-label\">Estimated Tax</span>"],
+            "pay_now": []
+          }
+        }
+      }
+  },
+  {
+      "site_name": "fashionnova.com",
+      "base_site": "https://www.fashionnova.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.fashionnova.com/account",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.fashionnova.com/products/mother-of-all-pearls-necklace-white-gold"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button type=\"submit\" class=\"button-primary button-full-width md:px-8 md:py-[18px]\">Add to bag</button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<div data-testid=\"product-title\" class=\"body-2xs-bold lg:body-xs-bold\">Mother Of All Pearls Necklace - White/Gold</div>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.fashionnova.com/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [],
+            "cart": ["<div class=\"flex flex-col gap-y-1\"><a class=\"body-xs overflow-hidden text-ellipsis whitespace-nowrap leading-[140%] hover:underline\" data-discover=\"true\" href=\"/products/mother-of-all-pearls-necklace-white-gold?variant=39283314327676\">Mother Of All Pearls Necklace - White/Gold</a><div class=\"flex items-center\">"],
+            "pay_button": [],
+            "save_for_later_button": ["<p class=\"body-xs mr-2 leading-3 tracking-[0.25px]\">Move to Wishlist</p>"],
+            "quantity_button": ["<div class=\"flex items-center gap-x-4 leading-4 h-4\"><form method=\"post\" action=\"/cart\"><input type=\"hidden\" name=\"cartFormInput\" value=\"{&quot;action&quot;:&quot;LinesRemove&quot;,&quot;inputs&quot;:{&quot;lineIds&quot;:[&quot;gid://shopify/CartLine/5f0ee2e7-655e-4306-8af2-38b6e6c9a6f7?cart=Z2NwLXVzLXdlc3QxOjAxSjlNNjU5UTFEUldDTTA4UFhFWFJSRUJO&quot;]}}\"><button aria-label=\"Remove item\" class=\"p-0.5 rounded-sm hover:bg-neutral-300 active:bg-neutral-400 transition-colors duration-[.15s] ease-[ease]\" type=\"submit\"><svg width=\"12\" height=\"12\" fill=\"none\" viewBox=\"0 0 12 16\"><path stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M11.5 8H.5\"></path></svg></button></form><form method=\"get\" action=\"/cart?index\" data-discover=\"true\"><input name=\"cartFormInput\" class=\"body-md-bold border-0 focus:ring-2 rounded-[2px] focus:ring-neutral-900 p-0 text-center leading-4 w-4 h-4\" type=\"number\" min=\"0\" aria-label=\"Update Item Quantity\" value=\"1\"></form><form method=\"post\" action=\"/cart\"><input type=\"hidden\" name=\"cartFormInput\" value=\"{&quot;action&quot;:&quot;LinesUpdate&quot;,&quot;inputs&quot;:{&quot;lines&quot;:[{&quot;id&quot;:&quot;gid://shopify/CartLine/5f0ee2e7-655e-4306-8af2-38b6e6c9a6f7?cart=Z2NwLXVzLXdlc3QxOjAxSjlNNjU5UTFEUldDTTA4UFhFWFJSRUJO&quot;,&quot;quantity&quot;:2}]}}\"><button class=\"p-0.5 rounded-sm hover:bg-neutral-300 active:bg-neutral-400 transition-colors duration-[.15s] ease-[ease]\" aria-label=\"Increase quantity\" name=\"increase-quantity\" value=\"2\"><svg width=\"12\" height=\"12\" fill=\"none\" viewBox=\"0 0 16 16\"><g stroke=\"#000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" clip-path=\"url(#clip0_17265_8782)\"><path d=\"M8 .667v14.666M15.333 8H.667\"></path></g><defs><path fill=\"#fff\" d=\"M0 0H16V16H0z\"></path></defs></svg></button></form></div>"],
+            "quantity": ["<input name=\"cartFormInput\" class=\"body-md-bold border-0 focus:ring-2 rounded-[2px] focus:ring-neutral-900 p-0 text-center leading-4 w-4 h-4\" type=\"number\" min=\"0\" aria-label=\"Update Item Quantity\" value=\"1\">"],
+            "price": ["<span class=\"leading-[15px] body-md-bold text-red-600\">$8.99</span>"],
+            "name": ["<a class=\"body-xs overflow-hidden text-ellipsis whitespace-nowrap leading-[140%] hover:underline\" data-discover=\"true\" href=\"/products/mother-of-all-pearls-necklace-white-gold?variant=39283314327676\">Mother Of All Pearls Necklace - White/Gold</a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.fashionnova.com/checkouts/cn/Z2NwLXVzLXdlc3QxOjAxSjlNNjU5UTFEUldDTTA4UFhFWFJSRUJO"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<strong translate=\"no\" class=\"_19gi7yt0 _19gi7yt10 _19gi7ytz _1fragemnw _19gi7yt2 notranslate\">$8.99</strong>"],
+            "shipping": ["<span class=\"_19gi7yt0 _19gi7ytw _19gi7ytv _1fragemnu\">Shipping</span>"],
+            "tax": [],
+            "pay_now": ["<button id=\"checkout-pay-button\" type=\"submit\" class=\"_1m2hr9ge _1m2hr9gd _1fragemsp _1fragemlj _1fragemnk _1fragem2i _1fragems4 _1fragemsf _1fragemsk _1fragems9 _1m2hr9g1h _1m2hr9g1d _1fragemne _1m2hr9g16 _1m2hr9g13 _1fragemop _1fragemon _1fragemor _1fragemol _1fragempl _1fragemph _1fragempp _1fragempd _1fragemb4 _1fragemaf _1fragembt _1fragem9q _1fragems9 _1m2hr9g1q _1m2hr9g1o _1m2hr9g10 _1m2hr9gx _1m2hr9g12 _1m2hr9g11 _1fragemri _1m2hr9g1b _1m2hr9g19 _1fragems5\"><span class=\"_1m2hr9gr _1m2hr9gq _1fragems0 _1fragemsg _1fragemsa _1fragemsk _1m2hr9gn _1m2hr9gl _1fragem28 _1fragem6t _1fragems2\"><span class=\"_19gi7yt0 _19gi7yt10 _19gi7ytz _1fragemnw\">Pay now</span></span></button>"]
+          }
+        }
+      }
+  },
+  {
+      "site_name": "samsung.com",
+      "base_site": "https://www.samsung.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://account.samsung.com/accounts/v1/samsung_com_us/signInGate?response_type=code&client_id=kv5di1wr19&locale=en_US&countryCode=US&redirect_uri=https:%2F%2Fwww.samsung.com%2Faemapi%2Fv6%2Fdata-login%2FafterLogin.us.json&state=GLB2d390ccpy8o&goBackURL=https:%2F%2Fwww.samsung.com%2Fus%2F&scope=",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/galaxy-buds3-pro-silver-sm-r630nzaaxar/"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button class=\"Button_button__bVLLA Button_btnlarge__N_mXf Button_small__n4E5H Button_radius40__4_WQO Button_weight400__a7Hgq Button_SamsungOne700__r9gFE Button_backgroundPrimary__LmzuM Button_white__BpzaT  undefined undefined\" id=\"default_atom_button\" data-di-id=\"#default_atom_button\" aria-label=\"Continue - Add to Cart\">Continue</button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<h1 class=\" H1_xlarge__vnpr_ H1_weight700__6lGkS H1_default__qANWL}\">Galaxy Buds3 Pro</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": [""],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [""],
+            "cart": [""],
+            "pay_button": [""],
+            "save_for_later_button": [""],
+            "quantity_button": [""],
+            "quantity": [""],
+            "price": [""],
+            "name": [""],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.samsung.com/us/web/express/checkout"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<span class=\" undefined Label_LabelText__3xQYH Label_samsungOne700__lo2lv Label_s16__YBXIs undefined undefined Label_bold__REE8A Label_default__2xj2C Label_padding0__f9SCP Label_left__2Rfu6 undefined undefined undefined undefined undefined undefined\" data-testid=\"atom_label\" id=\"\">$229.99</span>"],
+            "shipping": [],
+            "tax": [],
+            "pay_now": []
+          }
+        }
+      }
+  },
+  {
+      "site_name": "apple.com",
+      "base_site": "https://www.apple.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://secure9.store.apple.com/shop/signIn?ssi=1AAABklmkKHMgDQ80B9flDSzvyDYkC7t4ieTYeKf-PKn68NjxZtRReJ8AAABJaHR0cHM6Ly9zZWN1cmU5LnN0b3JlLmFwcGxlLmNvbS9zaG9wL2NoZWNrb3V0L3N0YXJ0P3BsdG49RTlDOUY3OUJ8fDtNVzJIMwACAQfYxaY2jiLcbqo6RJMysrgsRxZH6eLHkjGHyRuDy7k9&up=t",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.apple.com/shop/product/MW2H3AM/A/35w-dual-usb-c-port-compact-power-adapter?fnode=9abbe3f5055f82fc9c60a4c4393d92ce6abfab6193dea6bbb528379671e51c723157a3642dd2c5829e12d0ad4a30f401398e5134d22d9bbe1ab27f29b62111cf089d295744d117e1bac6f75514fbbdb8ebd80143a9eebfeaf11a432e0cdbfee0"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button type=\"submit\" class=\"button button-block\" id=\"add-to-cart\" name=\"add-to-cart\" value=\"add-to-cart\" data-autom=\"add-to-cart\">Add to Bag</button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<h1 class=\"rf-pdp-title\" data-autom=\"productTitle\">35W Dual USB-C Port Compact Power Adapter</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.apple.com/shop/bag"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": ["<div class=\"rs-iteminfo-details\"><div class=\"rs-iteminfo-title-wrapper large-6 small-12\"><h2 class=\"rs-iteminfo-title\"><a href=\"/shop/product/MW2H3AM/A/35w-dual-usb-c-port-compact-power-adapter\" data-evar1=\"Cart||MW2H3AM/A\" data-s-object-id=\"8d195ef405f59105aa3fff54bd95c163\" data-autom=\"bag-item-name\">35W Dual USB-C Port Compact Power Adapter</a></h2><div class=\"rs-iteminfo-actions-left\"></div></div><div class=\"rs-iteminfo-quantity\"><div class=\"rs-quantity\"><div class=\"rs-quantity-selector\"><div class=\"rs-quantity-wrapper form-dropdown\"><select class=\"rs-quantity-dropdown form-dropdown-select\" id=\"cart-items-item-e6ff9a6d-10b0-4124-810a-d8718555accb-itemQuantity\" data-autom=\"item-quantity-dropdown\" style=\"width: 2.35294rem;\"><option value=\"1\" aria-label=\"1 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">1</option><option value=\"2\" aria-label=\"2 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">2</option><option value=\"3\" aria-label=\"3 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">3</option><option value=\"4\" aria-label=\"4 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">4</option><option value=\"5\" aria-label=\"5 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">5</option><option value=\"6\" aria-label=\"6 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">6</option><option value=\"7\" aria-label=\"7 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">7</option><option value=\"8\" aria-label=\"8 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">8</option><option value=\"9\" aria-label=\"9 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">9</option><option value=\"10\" aria-label=\"10+ ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">10+</option></select><label for=\"cart-items-item-e6ff9a6d-10b0-4124-810a-d8718555accb-itemQuantity\" aria-hidden=\"true\" class=\"visuallyhidden\">1</label><span class=\"rs-quantity-icon form-dropdown-chevron\" aria-hidden=\"true\"></span><select aria-hidden=\"true\" class=\"rs-quantity-hidden-select\"><option>1</option></select></div></div></div></div><div class=\"rs-iteminfo-pricedetails large-last\"><div data-autom=\"Monthly_price\" class=\"rs-iteminfo-price\"><p>$59.00</p></div><div class=\"rs-iteminfo-actions-right\"><button type=\"button\" class=\"rs-iteminfo-remove as-buttonlink\" id=\"shoppingCart.items.item-e6ff9a6d-10b0-4124-810a-d8718555accb.delete\" data-autom=\"bag-item-remove-button\"><span>Remove</span><span class=\"visuallyhidden\">35W Dual USB-C Port Compact Power Adapter</span></button></div><div class=\"rs-iteminfo-actions-right\"></div></div></div>"],
+            "cart": [],
+            "pay_button": ["<button id=\"shoppingCart.actions.checkout\" type=\"button\" class=\"form-button\" data-autom=\"checkout\"><span>Check Out</span></button>"],
+            "save_for_later_button": [],
+            "quantity_button": [],
+            "quantity": ["<select class=\"rs-quantity-dropdown form-dropdown-select\" id=\"cart-items-item-e6ff9a6d-10b0-4124-810a-d8718555accb-itemQuantity\" data-autom=\"item-quantity-dropdown\" style=\"width: 2.35294rem;\"><option value=\"1\" aria-label=\"1 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">1</option><option value=\"2\" aria-label=\"2 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">2</option><option value=\"3\" aria-label=\"3 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">3</option><option value=\"4\" aria-label=\"4 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">4</option><option value=\"5\" aria-label=\"5 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">5</option><option value=\"6\" aria-label=\"6 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">6</option><option value=\"7\" aria-label=\"7 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">7</option><option value=\"8\" aria-label=\"8 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">8</option><option value=\"9\" aria-label=\"9 ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">9</option><option value=\"10\" aria-label=\"10+ ,  Quantity for 35W Dual USB-C Port Compact Power Adapter\">10+</option></select>"],
+            "price": ["<div data-autom=\"Monthly_price\" class=\"rs-iteminfo-price\"><p>$59.00</p></div>"],
+            "name": ["<a href=\"/shop/product/MW2H3AM/A/35w-dual-usb-c-port-compact-power-adapter\" data-evar1=\"Cart||MW2H3AM/A\" data-s-object-id=\"8d195ef405f59105aa3fff54bd95c163\" data-autom=\"bag-item-name\">35W Dual USB-C Port Compact Power Adapter</a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": [],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": [],
+            "shipping": [],
+            "tax": [],
+            "pay_now": []
+          }
+        }
+      }
+  },
+  {
+      "site_name": "roku.com",
+      "base_site": "https://www.roku.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://my.roku.com/signin?next=https%3A%2F%2Fwww.roku.com",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.roku.com/products/roku-express"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<button data-gtm-category=\"product_detail\" data-gtm-label=\"express:pdp_hero:ecommerce:3960R:primary-button:add-to-cart\" class=\"ks-button progress\" data-automation=\"in-stock-c2\">Add to cart</button>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<img src=\"https://image.roku.com/w/rapid/images/pdp-hero-items/c96dbe24-c329-402e-b95a-fdde9ebb11e6.svg\" alt=\"Roku Express Logo\">"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.roku.com/checkout"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": ["<div class=\"product-item\"><div class=\"item__img\"><img class=\"img-responsive\" src=\"https://image.roku.com/w/shop/3960R.png\" alt=\"Image of Roku Express\"></div><div class=\"item__content\"><span class=\"name\">Roku Express</span><span class=\"price-with-discount\">$17.99<span class=\"price-discount\">$29.99</span><span class=\"price-save\">Save $12.00</span></span><span class=\"status grey500\">In stock</span><span class=\"qty\">Quantity</span><span class=\"qty-select\"><div class=\"Roku-Form select-wrapper\"><select aria-label=\"Quantity selector for Roku Express\" data-sku=\"3960R\" data-id=\"1285284\" class=\"cart-qty-option\"><option value=\"0\">0</option><option value=\"1\" selected=\"\">1</option><option value=\"2\">2</option><option value=\"3\">3</option></select></div><a data-gtm-category=\"Ecommerce\" data-gtm-label=\"checkout_cart:ecommerce:3960R:remove\" class=\"btn-remove\" role=\"button\">Remove</a></span></div></div>"],
+            "cart": [],
+            "pay_button": [],
+            "save_for_later_button": [],
+            "quantity_button": ["<option value=\"0\">0</option><option value=\"1\" selected=\"\">1</option><option value=\"2\">2</option><option value=\"3\">3</option></select>"],
+            "quantity": ["<select aria-label=\"Quantity selector for Roku Express\" data-sku=\"3960R\" data-id=\"1285284\" class=\"cart-qty-option\">"],
+            "price": ["<h6>Estimated total</h6>"],
+            "name": ["<span class=\"name\">Roku Express</span>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.roku.com/checkout/shipping"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<h6>Estimated total</h6>"],
+            "shipping": ["<h6>Shipping</h6>"],
+            "tax": ["<div class=\"totals-item fc\"><h6>Tax</h6><span class=\"\">-</span></div>"],
+            "pay_now": []
+          }
+        }
+      }
+  },
+  {
+      "site_name": "hp.com",
+      "base_site": "https://www.hp.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://login3.id.hp.com/login3?flow=https://directory.id.hp.com/directory/v1/authentication/login/AWGh19gjTkfe4BkNCgWKH1qxUBTzAAAAAAAAAAA_Aj64O8kUUnRYtPWkEWC8-llWPiIF1fPY6TJzHzxl7TtVGQ1uFfgsYNrGQ6LSFbj4ZveRlaYFioim3MNyRXXY-MxHCtAeTCsMwSDRBagkTURCH_G15pRlFIM5ey5nmEypcW_JqsQVDIRDgWKmIU4PUKbtBAQzCwy6Fdc86sDC57-4l02LTq8lp9H4MK4nwUFK7b7H2X95ZwY5BSut30DbASBgoOJ4UqN4dUp_kDfGCxm3rjOstc5wY1qmIB6jilIon8RGJlmpegDZBpGPIUY3o7OAhimE0IOLSU7trRP7at1WjnEFfMN6lp6S0JwSP8mzDo-m4cEX6ilivI47VxvMJh-64Kn0ZS6eOrCN-ICjz72wgbbM5RWrC8otXeo6s_crnLPi2s_FC--49mShR-xwlUQu0rsOKfoNdW-OXaT8UYXQcAb4sgD0UpVI2x7WdztHvlMOuCaOfS8_8VkokPF6yWlMuMGixBWiuS9kP3KCaVmWjt9QiosauRWwfPvmTio",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!1"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.hp.com/us-en/shop/pdp/hp-pavilion-plus-laptop-16-ab0010nr"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" height=\"20\" width=\"20\" data-test-hook=\"@hpstellar/core/icon/Plus\" aria-hidden=\"true\"><g><path d=\"M16 9h-5V4a1 1 0 0 0-2 0v5H4a1 1 0 0 0 0 2h5v5a1 1 0 0 0 2 0v-5h5a1 1 0 0 0 0-2Z\"></path></g></svg>"],
+            "buy_now": [],
+            "quantity": [],
+            "product_name": ["<h1 data-test-hook=\"@hpstellar/core/typography\" class=\"Typography-module_root__eQwd4 Typography-module_titleL__KGv-3 pdp-title Typography-module_responsive__iddT7\">HP Pavilion Plus Laptop 16-ab0010nr, Windows 11 Home,&nbsp;16\",&nbsp;Intel® Core™ i7,&nbsp;16GB RAM,&nbsp;512GB SSD,&nbsp;WQXGA,&nbsp;Natural silver</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.hp.com/us-en/shop/AjaxOrderItemDisplayView?storeId=10151&catalogId=10051&langId=-1&krypto=9IvbaBrlQfzH5NPVHt2yaerFumbMcpyYmAxzByjfInbandifSfDYnYbgtMrVsDtI%2F6FQeEtDYNR1397488o2AB%2FlURQ0%2BrYQkLFmm5%2Bk6N91GBKm0Y8bGYo2uey9d4CtEKGSPT17%2FtMlJQL32B1lHFHZtoNwS0B9uZLzHzao5QuOH07zGWXXLwxqrDwJ1JpkyyUOM1UgQ%2BkudiQ26QB5WYUFTjQqmrgTUUmRvZR%2F1TA03P6Evbk%2Fn3aP36q0J9KYU%2BLCp5xvozEHLI%2F6yaKXw2ZUV7X4aeljaotMp8WkbEIspQZ%2BGfRMye%2BS7BBoruxjOI2rnkPdNADAZ6PexDHlttvipvcgqJbmFHG9Cr4luJI%3D&ddkey=https%3AOrderCalculate"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": ["<div class=\"qtypriceCont  intraday-promotion-active\">\n\t\t\t\t<div class=\"mcprodqty mcprodqtySubs\">\n\t\t\t\t <!-- <span>QTY:</span> -->\n\t\t\t\t\t\t\n\t\t\t\t\t\t<!--Gekko UX changes qty end-->\n\t\t\t</div>"],
+            "cart": [],
+            "pay_button": [],
+            "save_for_later_button": ["<div id=\"xo_stickybtn\" class=\"xo_stickybtn\">CHECKOUT</div>"],
+            "quantity_button": ["<button class=\"plus-button hide-for-print\" id=\"qty_221050739\" data-ui=\"{&quot;id&quot;:&quot;221050739&quot;, &quot;qty&quot;:&quot;1&quot;, &quot;sku&quot;:&quot;3074457345620940322&quot;, &quot;img&quot;:&quot;https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08861434.png&quot;, &quot;pn&quot;:&quot;HP Pavilion Plus Laptop 16-ab0010nr, Windows 11 Home,&amp;nbsp;16&amp;quot;,&amp;nbsp;Intel&amp;reg; Core&amp;trade; i7,&amp;nbsp;16GB RAM,&amp;nbsp;512GB SSD,&amp;nbsp;WQXGA,&amp;nbsp;Natural silver&quot;}\" data-omni=\"{&quot;actionFrom&quot;:&quot;new.link&quot;, &quot;partNumber&quot;:&quot;8B898UA#ABA&quot;, &quot;qty&quot;:&quot;1&quot;, &quot;totalPrice&quot;:&quot;799.99&quot;, &quot;productLine&quot;:&quot;KV:Pavilion&quot;,&quot;pn&quot;:&quot;HP Pavilion Plus Laptop 16-ab0010nr, Windows 11 Home,&amp;nbsp;16&amp;quot;,&amp;nbsp;Intel&amp;reg; Core&amp;trade; i7,&amp;nbsp;16GB RAM,&amp;nbsp;512GB SSD,&amp;nbsp;WQXGA,&amp;nbsp;Natural silver&quot;,&quot;productBrand&quot;:&quot;pavilion&quot;,&quot;productVariant&quot;:&quot;#ABA&quot;,&quot;productCategory&quot;:&quot;KV/laptops/HP Home Laptop PCs/Standard laptop&quot;}\"></button>"],
+            "quantity": ["<input type=\"text\" class=\"value-holder\" value=\"1\" disabled=\"\">"],
+            "price": ["<div class=\"product-price-tab\">\n\t\t\t\t\t\t\t<!-- Price :: 1099.99 :: 819.99 :: 799.99 :: GS -->\n\t\t\t\t\t\t\t<span aria-hidden=\"true\">$799.99</span>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<span class=\"stricked\" aria-hidden=\"true\">$1,099.99</span>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"offscrn_pt\">"],
+            "name": ["<a href=\"/us-en/shop/pdp/hp-pavilion-plus-laptop-16-ab0010nr\" title=\"HP Pavilion Plus Laptop 16-ab0010nr, Windows 11 Home,&nbsp;16&quot;,&nbsp;Intel® Core™ i7,&nbsp;16GB RAM,&nbsp;512GB SSD,&nbsp;WQXGA,&nbsp;Natural silver\">HP Pavilion Plus Laptop 16-ab0010nr, Windows 11 Home,&nbsp;16\",&nbsp;Intel® Core™ i7,&nbsp;16GB RAM,&nbsp;512GB SSD,&nbsp;WQXGA,&nbsp;Natural silver</a>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": ["https://www.hp.com/us-en/shop/OrderShippingBillingView?storeId=10151&catalogId=10051&langId=-1&krypto=2e2mMYMJbbdTEQ4Psr3%2B5G4AS3t58WQF8emr37ErFeFx2AxMwFJxOBhUAzGTCvFNELF4T54NamXn1pgK%2BMWRX%2B%2BQ4RqFA1m9T60%2FqufwSvu00PZQNrj1ZlHQPvD5smrWrKM9IiUpxU%2BXAGCNim1yFn6kcXrO4W2r%2FvYBRgXaRc1PWReCyOpYu2HcvSvbBjAziZtOeurdbFVJiRrdJdFiUZ7DIhKlFenA66fU2yo8HGqXPtjCP%2Bze14QwcmoUAnpca5hcH0tXIW4hrIEe83RO2pr8w9aRKKZrdfEwIjKAk2eJXxbqRW%2BhPvl2Bxio9MehwzlPWtLr8hmB2BSzLJJVEl%2FHd25qHQp4aC%2Bva9a95e797RBsaPpFzABDP5f0BQASXw40ZgTpBTtW4YWCI%2FTiMUuURVb2hMZy2bXVzOXh0jt7kXKwHqelwbAWi7REJnDjy%2FyV0dqDAGN%2FgHHz2EQMyQ%3D%3D&ddkey=https%3AOrderCalculate"],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<li class=\"summary-item resume-item\">\n<div class=\"item-label\">Total</div>\n<div class=\"value\">$870.99 </div>\n</li>"],
+            "shipping": ["<div class=\"item-label\">Shipping</div>"],
+            "tax": ["<div class=\"item-label\">Estimated Tax</div>\n<div class=\"value\">$71.00</div>\n</li>"],
+            "pay_now": [""]
+          }
+        }
+      }
+  }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+    "dbname": "storeautomationpipeline",
+    "user": "postgres",
+    "password": "uhTJNnA9A7Cet1ACqgNs",
+    "host": "storeautomation-dev-instance-1.cj8su6a06dhp.us-west-2.rds.amazonaws.com",
+    "port": "5432",
+    "options": "-c search_path=dev",
+    "schema": "dev",
+    "database_type": "postgres",
+    "db_settings": {
+        "site_table_name": "sites",
+        "product_identifier_table": "product_selectors",
+        "cart_identifier_table": "cart_selectors",
+        "checkout_identifier_table": "checkout_selectors",
+        "pipeline_run_config_table": "pipelinerunconfig",
+        "pipeline_activity_tracker_table": "pipeline_activity_tracker"
+    }
+}

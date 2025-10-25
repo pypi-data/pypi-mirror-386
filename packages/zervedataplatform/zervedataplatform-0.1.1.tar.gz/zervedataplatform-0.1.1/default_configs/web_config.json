@@ -1,0 +1,20 @@
+{
+    "browsers": ["chrome"],
+    "targetElements": [
+        "button", "a", "input", "span", "select", "h1", "h2", "h3", "h4", "h5", "div"
+    ],
+    "webAttributesToIgnore": [],
+    "excludeHiddenElements": true,
+    "timeout": 50,
+    "login_timeout": 150,
+    "max_retries": 4,
+    "batch_size_per_element_scrape": 500,
+    "max_value_text_characters": 15,
+    "css_selector_config": {
+        "checkout": {
+            "id": {
+                "allow_attribute": true
+            }
+        }
+    }
+}

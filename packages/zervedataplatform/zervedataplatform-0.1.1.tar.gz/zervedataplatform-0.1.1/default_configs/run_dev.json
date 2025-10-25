@@ -1,0 +1,58 @@
+{
+  "pipeline_activity_log_path": "output/pipeline/activity.log",
+  "jobs_output": "output/jobs",
+  "repeat_scrape_count": 2,
+  "key_identifiers": null,
+  "steps_to_process": ["extract", "transform", "request", "validation"],
+  "jobs": [
+
+    {
+      "site_name": "samsclub",
+      "base_site": "www.samsclub.com",
+      "guest_checkout_enabled": true,
+      "fail_on_login_failure": false,
+      "login_credentials": {
+        "login_url": "https://www.samsclub.com/login?redirectURL=%2F&xid=hdr_account_login",
+        "username": "stacieroy1@gmail.com",
+        "password": "SwipeSwipeLLM!"
+      },
+      "site_test_cases": {
+        "product": {
+          "site_urls": ["https://www.samsclub.com/p/frito-lay-classic-mix-variety-pack-50-pk/P03002653?xid=hpg_carousel_rich-relevance.rye_cold_start_3"],
+          "identifier_rel_path": "/product/",
+          "selector_example_for_llm": {
+            "add_to_cart": ["<span class=\"visible\">Add to cart</span>"],
+            "buy_now": [],
+            "quantity": ["<span class=\"bst-select-trailing\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"49\" height=\"48\" fill=\"none\" viewBox=\"0 0 49 48\" class=\"\" aria-hidden=\"true\" role=\"presentation\" style=\"width: 1.25rem; height: 1.25rem;\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M24.764 37.533 2.606 15.375a2.875 2.875 0 0 1 4.066-4.066l18.092 18.092L42.856 11.31a2.875 2.875 0 0 1 4.066 4.066L24.764 37.533Z\" clip-rule=\"evenodd\"></path></svg></span>"],
+            "product_name": ["<h1 class=\"\">Frito-Lay Classic Mix Variety Pack Chips, 50 pk.</h1>"]
+          }
+        },
+        "cart": {
+          "site_urls": ["https://www.samsclub.com/cart"],
+          "identifier_rel_path": "/cart/",
+          "selector_example_for_llm": {
+            "cart_item": [""],
+            "cart": ["<div class=\"sc-cart-2a-shipping-items\"><div class=\"sc-cart-group-sub-header sc-cart-group-sub-header-redesign\"><div class=\"sc-cart-zip-code sc-cart-zip-code-shipping-group\"><button class=\"bst-btn bst-btn-small bst-btn-ghost sc-cart-zip-code-button\" type=\"button\">Enter a ZIP Code</button></div></div><div class=\"sc-cart-item sc-cart-item-redesign\"><div class=\"sc-cart-item-details\"><div class=\"sc-cart-product-info-image-col\"><a class=\"bst-link bst-link-small bst-link-primary\" href=\"/p/frito-lay-classic-mix-variety-pack-50-pk/P03002653\" draggable=\"false\" role=\"link\"><div class=\"sc-cart-item-image\"><div class=\"sc-image-wrapper\" style=\"text-align: center;\"><img class=\"sc-cart-item-image-thumb sc-image-wrapper-full-res sc-image-wrapper-full-res-loaded\" alt=\"Frito-Lay Classic Mix Variety Pack Chips, 50 pk.\" src=\"https://scene7.samsclub.com/is/image/samsclub/0002840069718_A?wid=200&amp;hei=200\" data-src=\"\" loading=\"lazy\"></div></div></a></div><div class=\"sc-cart-product-info-info-col\"><a class=\"bst-link bst-link-small bst-link-primary\" href=\"/p/frito-lay-classic-mix-variety-pack-50-pk/P03002653\" draggable=\"false\" role=\"link\"><div class=\"sc-cart-item-title\">Frito-Lay Classic Mix Variety Pack Chips, 50 pk.</div></a><p class=\"sc-cart-item-number\">Item 990004981</p></div><div class=\"sc-cart-quantity\"><div class=\"sc-quantity-stepper\"><div class=\"bst-stepper bst-stepper-small\"><div class=\"bst-stepper-panels\" role=\"presentation\"><div class=\"bst-stepper-panel\"><button class=\"bst-btn bst-btn-small bst-btn-tertiary bst-icon-button bst-icon-button-small bst-icon-button-overlay bst-stepper-button\" type=\"button\" aria-label=\"delete\" data-testid=\"remove-quantity\" tabindex=\"0\"><span class=\"visible\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"49\" fill=\"none\" viewBox=\"0 0 48 49\" class=\"bst-stepper-button\" aria-hidden=\"true\" role=\"presentation\" style=\"width: 1rem; height: 1rem;\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M18.6 6.318v1.818h10.8V6.318H18.6Zm12.6 1.818V5.41a.905.905 0 0 0-.9-.909H17.7c-.497 0-.9.407-.9.91v2.726h-9c-.994 0-1.8.814-1.8 1.819v1.818h2.002l1.632 29.295c.107 1.926 1.684 3.432 3.594 3.432h21.544c1.91 0 3.487-1.506 3.594-3.432l1.632-29.295H42V9.955a1.81 1.81 0 0 0-1.8-1.819h-9Zm5.192 3.637H11.608l1.62 29.09h21.544l1.62-29.09ZM20.4 18.136c.497 0 .9.407.9.91V33.59a.905.905 0 0 1-.9.909.905.905 0 0 1-.9-.91V19.046c0-.502.403-.909.9-.909Zm8.1.91a.905.905 0 0 0-.9-.91c-.497 0-.9.407-.9.91V33.59c0 .502.403.909.9.909s.9-.407.9-.91V19.046Z\" clip-rule=\"evenodd\"></path></svg></span></button></div><div class=\"bst-text-input bst-text-input-small bst-stepper-input\"><div class=\"bst-text-input-container\"><input class=\"\" aria-label=\"Quantity 1\" aria-live=\"polite\" step=\"1\" tabindex=\"0\" id=\"li-308572f3-b000-4ebe-adfc-a44c066a23ba-qty\" inputmode=\"numeric\" type=\"number\" value=\"1\"></div></div><div class=\"bst-stepper-panel\"><button class=\"bst-btn bst-btn-small bst-btn-tertiary bst-icon-button bst-icon-button-small bst-icon-button-overlay bst-stepper-button\" type=\"button\" aria-label=\"increase\" data-testid=\"add-quantity\" tabindex=\"0\"><span class=\"visible\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"49\" fill=\"none\" viewBox=\"0 0 48 49\" class=\"bst-stepper-button\" aria-hidden=\"true\" role=\"presentation\" style=\"width: 1rem; height: 1rem;\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M21.7 45.2a2.3 2.3 0 1 0 4.6 0V26.8h18.4a2.3 2.3 0 1 0 0-4.6H26.3V3.8a2.3 2.3 0 1 0-4.6 0v18.4H3.3a2.3 2.3 0 1 0 0 4.6h18.4v18.4Z\" clip-rule=\"evenodd\"></path></svg></span></button></div></div></div></div></div><div class=\"sc-cart-price-info\"><p class=\"sc-cart-price-info-sub-total\">$18.48</p></div></div><div class=\"sc-cart-child-line-items\"></div><div class=\"sc-cart-item-actions sc-cart-item-actions-border\"><button class=\"bst-btn bst-btn-small bst-btn-ghost\" type=\"button\" aria-label=\"Remove Frito-Lay Classic Mix Variety Pack Chips, 50 pk. from cart\">Remove</button><i class=\"sc-cart-item-actions-pipe\"></i><button class=\"bst-btn bst-btn-small bst-btn-ghost\" type=\"button\" aria-label=\"Save Frito-Lay Classic Mix Variety Pack Chips, 50 pk. for later\">Save for later</button></div><hr class=\"bst-divider bst-divider-horizontal bst-divider-solid bst-divider-grey sc-cart-item-divider sc-cart-item-divider-redesign\"></div></div>"],
+            "pay_button": [""],
+            "save_for_later_button": ["<button class=\"bst-btn bst-btn-small bst-btn-ghost\" type=\"button\" aria-label=\"Save Frito-Lay Classic Mix Variety Pack Chips, 50 pk. for later\">Save for later</button>"],
+            "quantity_button": ["<div class=\"bst-stepper-panels\" role=\"presentation\"><div class=\"bst-stepper-panel\"><button class=\"bst-btn bst-btn-small bst-btn-tertiary bst-icon-button bst-icon-button-small bst-icon-button-overlay bst-stepper-button\" type=\"button\" aria-label=\"delete\" data-testid=\"remove-quantity\" tabindex=\"0\"><span class=\"visible\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"49\" fill=\"none\" viewBox=\"0 0 48 49\" class=\"bst-stepper-button\" aria-hidden=\"true\" role=\"presentation\" style=\"width: 1rem; height: 1rem;\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M18.6 6.318v1.818h10.8V6.318H18.6Zm12.6 1.818V5.41a.905.905 0 0 0-.9-.909H17.7c-.497 0-.9.407-.9.91v2.726h-9c-.994 0-1.8.814-1.8 1.819v1.818h2.002l1.632 29.295c.107 1.926 1.684 3.432 3.594 3.432h21.544c1.91 0 3.487-1.506 3.594-3.432l1.632-29.295H42V9.955a1.81 1.81 0 0 0-1.8-1.819h-9Zm5.192 3.637H11.608l1.62 29.09h21.544l1.62-29.09ZM20.4 18.136c.497 0 .9.407.9.91V33.59a.905.905 0 0 1-.9.909.905.905 0 0 1-.9-.91V19.046c0-.502.403-.909.9-.909Zm8.1.91a.905.905 0 0 0-.9-.91c-.497 0-.9.407-.9.91V33.59c0 .502.403.909.9.909s.9-.407.9-.91V19.046Z\" clip-rule=\"evenodd\"></path></svg></span></button></div><div class=\"bst-text-input bst-text-input-small bst-stepper-input\"><div class=\"bst-text-input-container\"><input class=\"\" aria-label=\"Quantity 1\" aria-live=\"polite\" step=\"1\" tabindex=\"0\" id=\"li-308572f3-b000-4ebe-adfc-a44c066a23ba-qty\" inputmode=\"numeric\" type=\"number\" value=\"1\"></div></div><div class=\"bst-stepper-panel\"><button class=\"bst-btn bst-btn-small bst-btn-tertiary bst-icon-button bst-icon-button-small bst-icon-button-overlay bst-stepper-button\" type=\"button\" aria-label=\"increase\" data-testid=\"add-quantity\" tabindex=\"0\"><span class=\"visible\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"49\" fill=\"none\" viewBox=\"0 0 48 49\" class=\"bst-stepper-button\" aria-hidden=\"true\" role=\"presentation\" style=\"width: 1rem; height: 1rem;\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M21.7 45.2a2.3 2.3 0 1 0 4.6 0V26.8h18.4a2.3 2.3 0 1 0 0-4.6H26.3V3.8a2.3 2.3 0 1 0-4.6 0v18.4H3.3a2.3 2.3 0 1 0 0 4.6h18.4v18.4Z\" clip-rule=\"evenodd\"></path></svg></span></button></div></div>"],
+            "quantity": ["<input class=\"\" aria-label=\"Quantity 1\" aria-live=\"polite\" step=\"1\" tabindex=\"0\" id=\"li-308572f3-b000-4ebe-adfc-a44c066a23ba-qty\" inputmode=\"numeric\" type=\"number\" value=\"1\">"],
+            "price": ["<p class=\"sc-cart-price-info-sub-total\">$18.48</p>"],
+            "name": ["<div class=\"sc-cart-item-title\">Frito-Lay Classic Mix Variety Pack Chips, 50 pk.</div>"],
+            "url": []
+          }
+        },
+        "checkout": {
+          "site_urls": [],
+          "identifier_rel_path": "/checkout/",
+          "selector_example_for_llm": {
+            "total_amount": ["<div class=\"sc-cart-estimated-total\">Est. total<div class=\"sc-cart-order-summary-price sc-cart-estimated-total-price\">$18.48</div></div>"],
+            "shipping": ["<div class=\"sc-cart-order-summary-line-item\"><div class=\"sc-cart-shipping-items-summary-desc\"><span>Est. shipping costs</span><div class=\"sc-cart-shipping-items-summary-tooltip\"><div class=\"bst-tooltip bst-tooltip-small\"><div aria-label=\"Tooltip\" class=\"bst-tooltip-icon\" role=\"button\" tabindex=\"0\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"48\" fill=\"none\" viewBox=\"0 0 48 48\" class=\"\" aria-hidden=\"true\" role=\"presentation\" style=\"width: 1rem; height: 1rem;\"><path fill=\"currentColor\" d=\"M24.02 10.583c1.4 0 2.41.973 2.41 2.295s-1.01 2.294-2.41 2.294c-1.44 0-2.45-.972-2.45-2.294s1.01-2.295 2.45-2.295Zm1.866 8.361v18.473h-3.733V18.944h3.733Z\"></path><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M24 1C11.297 1 1 11.297 1 24s10.297 23 23 23 23-10.297 23-23S36.703 1 24 1ZM4.833 24C4.833 13.415 13.415 4.833 24 4.833c10.586 0 19.167 8.582 19.167 19.167 0 10.586-8.581 19.167-19.167 19.167-10.585 0-19.167-8.581-19.167-19.167Z\" clip-rule=\"evenodd\"></path></svg></div></div></div></div><div class=\"sc-cart-order-summary-price\"><span>$7.69</span></div></div>"],
+            "tax": ["<div class=\"sc-cart-estimated-sales-tax\" id=\"salestax\">Sales tax<div class=\"sc-cart-order-summary-price\"><div aria-hidden=\"true\">--</div></div><p class=\"sc-cart-order-summary-hidden-price-msg\">(calculated in checkout)</p></div>"],
+            "pay_now": ["<button class=\"bst-btn bst-btn-medium bst-btn-primary w-full\" type=\"button\"><span class=\"visible\">Begin checkout</span></button>"]
+          }
+        }
+      }
+    }
+  ]
+}
