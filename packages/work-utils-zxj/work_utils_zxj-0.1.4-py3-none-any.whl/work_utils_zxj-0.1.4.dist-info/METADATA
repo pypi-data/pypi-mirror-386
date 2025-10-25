@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: work-utils-zxj
+Version: 0.1.4
+Summary: work util for self
+License-Expression: MIT
+License-File: LICENSE
+Author: zxj
+Author-email: 1114062513@qq.com
+Requires-Python: >=3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: pandas (>=2.3.3,<3.0.0)
+Requires-Dist: playwright (==1.51.0)
+Requires-Dist: playwright-stealth (==1.0.6)
+Description-Content-Type: text/markdown
+
+# work-utils
+## [0.1.4] - 2025-10-23
+### fix
+- 移除无用依赖
+
+## [0.1.3] - 2025-10-23
+### fix
+- 继续修复Playwright日志导入问题
+
+## [0.1.2] - 2025-10-23
+### fix
+- 修复Playwright日志导入问题
+
+## [0.1.1] - 2025-10-23
+### 新增
+- 增加Playwright基础方法
+
+## [0.1.0] - 2025-10-20
+### 初始发布
+- 包含日志、CSV处理等工具
