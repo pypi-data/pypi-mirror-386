@@ -1,0 +1,164 @@
+___________________________________________________
+
+Solve crypt arithmetic problem using ALLDIFF Constraints
+
+_______________________________________________________
+
+def solve_cryptarithmetic(problem):
+    letters = extract_unique_letters(problem)
+    # used_digits is a boolean array to keep track of digits already used (0-9)
+    used_digits = [False] * 10
+    # mapping stores the current assignment of letters to digits
+    mapping = {}
+
+    if solve(letters, used_digits, mapping, 0, problem):
+        print_solution(mapping)
+    else:
+        print("No solution found")
+
+def solve(letters, used_digits, mapping, index, problem):
+    # Base case: if all letters have been assigned a digit
+    if index == len(letters):
+        return is_valid(mapping, problem)
+
+    current_letter = letters[index]
+
+    # Try assigning each digit (0-9) to the current letter
+    for digit in range(10):
+        if not used_digits[digit]:
+            # Assign the digit
+            used_digits[digit] = True
+            mapping[current_letter] = digit
+
+            # Recursively call solve for the next letter
+            if solve(letters, used_digits, mapping, index + 1, problem):
+                return True
+
+            # If the recursive call didn't lead to a solution, backtrack
+            used_digits[digit] = False
+            mapping[current_letter] = None
+    return False
+
+def is_valid(mapping, problem):
+    # The problem is expected to be a list of strings representing the cryptarithmetic problem
+    # For example: ["TWO", "TWO", "FOUR"] for TWO + TWO = FOUR
+
+    # Extract words from the problem
+    words = [word.strip() for word in problem if word.strip()]
+    
+    # Assuming the last word is the result and the others are operands
+    if len(words) < 2:
+        return False # Not enough words to form an equation
+
+    operands_str = words[:-1]
+    result_str = words[-1]
+
+    # Check for leading zeros
+    for word_str in words:
+        if mapping[word_str[0]] == 0 and len(word_str) > 1:
+            return False
+
+    # Convert words to their numeric values
+    operand_values = []
+    for word_str in operands_str:
+        value = 0
+        for char in word_str:
+            value = value * 10 + mapping[char]
+        operand_values.append(value)
+    
+    result_value = 0
+    for char in result_str:
+        result_value = result_value * 10 + mapping[char]
+
+    # Check if the sum of operands equals the result
+    return sum(operand_values) == result_value
+
+def extract_unique_letters(problem):
+    # Extracts unique letters from the problem, maintaining order of appearance
+    unique_letters = []
+    seen_letters = set()
+    for line in problem:
+        for char in line:
+            if 'A' <= char <= 'Z' and char not in seen_letters:
+                unique_letters.append(char)
+                seen_letters.add(char)
+    return unique_letters
+
+def print_solution(mapping):
+    print("Solution found:")
+    for letter, digit in mapping.items():
+        print(f"{{ {letter} = {digit} }}")
+
+# Sample Input
+sample_problem = [
+    "  T W O  ",
+    "+ T W O  ",
+    "---------",
+    "F O U R  "
+]
+
+# Clean up the problem input to only include the words that matter for calculation
+# For TWO + TWO = FOUR, the relevant words are ["TWO", "TWO", "FOUR"]
+clean_problem_for_solver = ["TWO", "TWO", "FOUR"]
+
+print("Solving Cryptarithmetic Problem:")
+print("T W O")
+print("+ T W O")
+print("-------")
+print("F O U R")
+solve_cryptarithmetic(clean_problem_for_solver)
+
+print("\n--- Another Example: SEND + MORE = MONEY ---")
+send_more_money_problem = [
+    "S E N D",
+    "+ M O R E",
+    "---------",
+    "M O N E Y"
+]
+clean_send_more_money = ["SEND", "MORE", "MONEY"]
+solve_cryptarithmetic(clean_send_more_money)
+
+
+________________________________________
+
+CROSS + ROADS + DANGER USING ALLDFIFF CONSTRAINTS
+________________________________________
+
+from itertools import permutations
+
+# Unique letters in the puzzle
+letters = list(set("CROSSROADSANGER"))
+
+# There are 10 digits (0-9), so if letters > 10, no solution
+if len(letters) > 10:
+    raise ValueError("Too many unique letters for digits 0-9")
+
+# Leading letters cannot be zero
+leading_letters = ['C', 'R', 'D']
+
+# Try all permutations of digits for the letters
+for perm in permutations(range(10), len(letters)):
+    assign = dict(zip(letters, perm))
+    
+    # Check leading letters not zero
+    if any(assign[l] == 0 for l in leading_letters):
+        continue
+    
+    # Compute numeric values
+    C, R, O, S, A, D, N, G, E = [assign[l] for l in 'CROADSNGE']
+    
+    cross  = C*10000 + R*1000 + O*100 + S*10 + S
+    roads  = R*10000 + O*1000 + A*100 + D*10 + S
+    danger = D*100000 + A*10000 + N*1000 + G*100 + E*10 + R
+    
+    if cross + roads == danger:
+        print("Solution Found")
+        print("Letter → Digit Mapping:")
+        for k in sorted(assign.keys()):
+            print(f"{k} = {assign[k]}")
+        print(f"\nCROSS = {cross}")
+        print(f"ROADS = {roads}")
+        print(f"DANGER = {danger}")
+        break
+else:
+    print("No solution found")

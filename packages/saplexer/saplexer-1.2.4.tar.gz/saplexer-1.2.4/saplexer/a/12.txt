@@ -1,0 +1,325 @@
+________________________________________
+
+## Use Unification algorithm to unify the given pair of Logical expressions
+_______________________________________
+
+def UNIFY(x, y, theta=None):
+    if theta is None:
+        theta = {}
+
+    if theta == "failure":
+        return "failure"
+    elif x == y:
+        return theta
+    elif VARIABLE(x):
+        return UNIFY_VAR(x, y, theta)
+    elif VARIABLE(y):
+        return UNIFY_VAR(y, x, theta)
+    elif COMPOUND(x) and COMPOUND(y):
+        op_theta = UNIFY(x.op, y.op, theta)
+        return UNIFY(x.args, y.args, op_theta)
+    elif LIST(x) and LIST(y):
+        first_theta = UNIFY(x.first, y.first, theta)
+        return UNIFY(x.rest, y.rest, first_theta)
+    else:
+        return "failure"
+
+
+def UNIFY_VAR(var, x, theta):
+    for k, v in theta.items():
+        if k == var:
+            return UNIFY(v, x, theta)
+        elif k == x:  # Check if x is also a variable already bound
+            return UNIFY(var, v, theta)
+
+    if OCCUR_CHECK(var, x):
+        return "failure"
+    else:
+        new_theta = theta.copy()
+        new_theta[var] = x
+        return new_theta
+
+
+def VARIABLE(x):
+    # For simplicity, we'll assume variables are single uppercase letters
+    # and not part of compound expressions like F(A, B)
+    return isinstance(x, str) and len(x) == 1 and x.isupper()
+
+
+def COMPOUND(x):
+    # A compound expression is represented as an object with 'op' and 'args' attributes
+    # For this simplified implementation, we'll represent them as tuples:
+    # ("F", ("A", "B")) for F(A, B)
+    return isinstance(x, tuple) and len(x) == 2 and isinstance(x[1], tuple)
+
+
+def LIST(x):
+    # A list is represented as a tuple of elements
+    return isinstance(x, tuple) and all(isinstance(item, str) for item in x)
+
+
+def OCCUR_CHECK(var, x):
+    # Checks if 'var' occurs as a part of 'x'
+    # This is a simplified version; a full implementation would involve
+    # recursively checking within compound expressions and lists.
+    if isinstance(x, str):
+        return var == x
+    elif isinstance(x, tuple):  # Compound or list
+        if COMPOUND(x):
+            return OCCUR_CHECK(var, x[0]) or any(OCCUR_CHECK(var, arg) for arg in x[1])
+        elif LIST(x):
+            return any(OCCUR_CHECK(var, item) for item in x)
+    return False
+
+
+# Helper class to represent compound expressions for clarity
+class Expression:
+    def __init__(self, op, args):
+        self.op = op
+        self.args = args
+
+    def __eq__(self, other):
+        return (
+            isinstance(other, Expression)
+            and self.op == other.op
+            and self.args == other.args
+        )
+
+    def __hash__(self):
+        return hash((self.op, self.args))
+
+    def __repr__(self):
+        return f"{self.op}({', '.join(map(str, self.args))})"
+
+
+# Helper class to represent lists for clarity
+class List:
+    def __init__(self, items):
+        if not items:
+            self.first = None
+            self.rest = None
+        else:
+            self.first = items[0]
+            self.rest = List(items[1:])
+
+    def __eq__(self, other):
+        if not isinstance(other, List):
+            return False
+        if self.first != other.first:
+            return False
+        if self.rest is None and other.rest is None:
+            return True
+        if self.rest is None or other.rest is None:
+            return False
+        return self.rest == other.rest
+
+    def __hash__(self):
+        return hash((self.first, self.rest))
+
+    def __repr__(self):
+        items = []
+        current = self
+        while current and current.first is not None:
+            items.append(str(current.first))
+            current = current.rest
+        return f"({', '.join(items)})"
+
+
+# Override COMPOUND and LIST functions to work with Expression and List classes
+def COMPOUND(x):
+    return isinstance(x, Expression)
+
+
+def LIST(x):
+    return isinstance(x, List)
+
+
+# Sample Input and Output
+
+# Prime(13) and Prime(y)
+# Output: Θ = {y/13}
+prime1 = Expression("Prime", (13,))
+prime2 = Expression("Prime", ("y",))
+result1 = UNIFY(prime1, prime2)
+print(f"Prime(13) and Prime(y): {result1}")
+
+# Knows(John, x) and Knows(y, Mother(y))
+# Output: Θ = { {y/John, x/Mother(John) }
+knows1 = Expression("Knows", ("John", "x"))
+mother_y = Expression("Mother", ("y",))
+knows2 = Expression("Knows", ("y", mother_y))
+result2 = UNIFY(knows1, knows2)
+print(f"Knows(John, x) and Knows(y, Mother(y)): {result2}")
+
+# pro(b, X, f(g(Z))) and pro(Z, f(Y), f(Y))
+# Output: Θ = { Z/b, X/f(Y), Y/g(b) }
+f_g_z = Expression("f", (Expression("g", ("Z",)),))
+pro1 = Expression("pro", ("b", "X", f_g_z))
+
+f_y = Expression("f", ("Y",))
+pro2 = Expression("pro", ("Z", f_y, f_y))
+result3 = UNIFY(pro1, pro2)
+print(f"pro(b, X, f(g(Z))) and pro(Z, f(Y), f(Y)): {result3}")
+
+# Quick(a, g(x, a), f(y)) and Quick(a, g(f(b), a), x)
+# Output: Θ = { a/a, x/f(b), y/b}
+g_x_a = Expression("g", ("x", "a"))
+f_y = Expression("f", ("y",))
+quick1 = Expression("Quick", ("a", g_x_a, f_y))
+
+g_f_b_a = Expression("g", (Expression("f", ("b",)), "a"))
+quick2 = Expression("Quick", ("a", g_f_b_a, "x"))
+result4 = UNIFY(quick1, quick2)
+print(f"Quick(a, g(x, a), f(y)) and Quick(a, g(f(b), a), x): {result4}")
+
+
+
+__________
+## 2
+________
+
+def UNIFY(x, y, theta=None):
+    if theta is None:
+        theta = {}
+
+    if theta == "failure":
+        return "failure"
+    elif x == y:
+        return theta
+    elif VARIABLE(x):
+        return UNIFY_VAR(x, y, theta)
+    elif VARIABLE(y):
+        return UNIFY_VAR(y, x, theta)
+    elif COMPOUND(x) and COMPOUND(y):
+        op_theta = UNIFY(x["OP"], y["OP"], theta)
+        return UNIFY(x["ARGS"], y["ARGS"], op_theta)
+    elif isinstance(x, list) and isinstance(y, list):  # Handle lists of arguments
+        if not x and not y:
+            return theta
+        if not x or not y:  # One list is empty, the other is not
+            return "failure"
+        first_theta = UNIFY(x[0], y[0], theta)
+        return UNIFY(x[1:], y[1:], first_theta)
+    else:
+        return "failure"
+
+
+def UNIFY_VAR(var, x, theta):
+    # Check if 'var' is already in theta as a key
+    if var in theta:
+        return UNIFY(theta[var], x, theta)
+    # Check if 'x' is a variable and is already in theta as a key
+    elif VARIABLE(x) and x in theta:
+        return UNIFY(var, theta[x], theta)
+    elif OCCUR_CHECK(var, x, theta):
+        return "failure"
+    else:
+        new_theta = theta.copy()
+        new_theta[var] = x
+        return new_theta
+
+
+def VARIABLE(x):
+    # A variable is a string that is a single uppercase letter
+    # For this problem, we'll extend it to also consider 'x', 'y', 'Z' as variables
+    return isinstance(x, str) and (len(x) == 1 and x.isupper() or x in ["x", "y"])
+
+
+def COMPOUND(x):
+    # A compound expression is a dictionary with 'OP' and 'ARGS' keys
+    return isinstance(x, dict) and "OP" in x and "ARGS" in x
+
+
+def OCCUR_CHECK(var, x, theta):
+    # Checks if 'var' occurs as a part of 'x'
+    # This needs to consider substitutions in theta as well.
+    if var == x:
+        return True
+    if var in theta:
+        # If var is already bound, check its binding
+        return OCCUR_CHECK(theta[var], x, theta)
+    if isinstance(x, dict) and "ARGS" in x:  # Compound expression
+        for arg in x["ARGS"]:
+            if OCCUR_CHECK(var, arg, theta):
+                return True
+    elif isinstance(x, list):  # List of arguments
+        for item in x:
+            if OCCUR_CHECK(var, item, theta):
+                return True
+    elif VARIABLE(x) and x in theta:  # If x is a variable bound in theta
+        return OCCUR_CHECK(var, theta[x], theta)
+    return False
+
+
+def apply_substitutions(expression, theta):
+    if theta == "failure":
+        return "failure"
+
+    if isinstance(expression, str):
+        if expression in theta:
+            return apply_substitutions(theta[expression], theta)
+        return expression
+    elif isinstance(expression, dict):  # Compound expression
+        new_args = [apply_substitutions(arg, theta) for arg in expression["ARGS"]]
+        return {"OP": expression["OP"], "ARGS": new_args}
+    elif isinstance(expression, list):  # List of arguments
+        return [apply_substitutions(item, theta) for item in expression]
+    return expression
+
+
+# Helper function to convert the internal representation to a more readable string
+def expr_to_str(expr):
+    if isinstance(expr, dict):
+        op = expr["OP"]
+        args_str = ", ".join([expr_to_str(arg) for arg in expr["ARGS"]])
+        return f"{op}({args_str})"
+    elif isinstance(expr, list):
+        return f"[{', '.join([expr_to_str(item) for item in expr])}]"
+    else:
+        return str(expr)
+
+
+# Sample Input
+expr1 = {"OP": "Prime", "ARGS": [13]}
+expr2 = {"OP": "Prime", "ARGS": ["y"]}
+theta1 = UNIFY(expr1, expr2)
+print(f"Θ = {theta1}")
+print(f"Unified Expression: {expr_to_str(apply_substitutions(expr1, theta1))}\n")
+
+expr3 = {"OP": "Knows", "ARGS": ["John", "x"]}
+expr4 = {"OP": "Knows", "ARGS": ["y", {"OP": "Mother", "ARGS": ["y"]}]}
+theta2 = UNIFY(expr3, expr4)
+print(f"Θ = {theta2}")
+print(f"Unified Expression: {expr_to_str(apply_substitutions(expr3, theta2))}\n")
+
+
+expr5 = {
+    "OP": "pro",
+    "ARGS": ["b", "X", {"OP": "f", "ARGS": [{"OP": "g", "ARGS": ["Z"]}]}],
+}
+expr6 = {
+    "OP": "pro",
+    "ARGS": ["Z", {"OP": "f", "ARGS": ["Y"]}, {"OP": "f", "ARGS": ["Y"]}],
+}
+theta3 = UNIFY(expr5, expr6)
+print(f"Θ = {theta3}")
+print(f"Unified Expression: {expr_to_str(apply_substitutions(expr5, theta3))}\n")
+
+
+expr7 = {
+    "OP": "Quick",
+    "ARGS": ["a", {"OP": "g", "ARGS": ["x", "a"]}, {"OP": "f", "ARGS": ["y"]}],
+}
+expr8 = {
+    "OP": "Quick",
+    "ARGS": [
+        "a",
+        {"OP": "g", "ARGS": [{"OP": "f", "ARGS": ["b"]}, "a"]},
+        "x",
+    ],
+}
+theta4 = UNIFY(expr7, expr8)
+print(f"Θ = {theta4}")
+print(f"Unified Expression: {expr_to_str(apply_substitutions(expr7, theta4))}\n")
+
+

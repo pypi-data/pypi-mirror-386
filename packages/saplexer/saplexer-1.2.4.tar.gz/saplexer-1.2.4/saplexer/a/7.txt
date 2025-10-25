@@ -1,0 +1,136 @@
+___________________________________________________________
+
+## Implement Alpha-Beta Pruning for solving Tic-Tac-Toe game
+__________________________________________________________
+
+import math
+
+class TicTacToe:
+    def __init__(self):
+        self.board = [[' ' for _ in range(3)] for _ in range(3)]
+        self.current_winner = None
+
+    def print_board(self):
+        for row in self.board:
+            print('| ' + ' | '.join(row) + ' |')
+
+    def print_board_nums(self):
+        # Tells us what number corresponds to which box; i.e., a helper function to see the board
+        number_board = [[str((r * 3) + c + 1) for c in range(3)] for r in range(3)]
+        for row in number_board:
+            print('| ' + ' | '.join(row) + ' |')
+
+    def available_moves(self):
+        return [(r, c) for r in range(3) for c in range(3) if self.board[r][c] == ' ']
+
+    def empty_squares(self):
+        return ' ' in (square for row in self.board for square in row)
+
+    def make_move(self, square, letter):
+        row, col = square
+        if self.board[row][col] == ' ':
+            self.board[row][col] = letter
+            if self.winner(square, letter):
+                self.current_winner = letter
+            return True
+        return False
+
+    def winner(self, square, letter):
+        row_ind, col_ind = square
+        row = self.board[row_ind]
+        if all([s == letter for s in row]):
+            return True
+
+        col = [self.board[r][col_ind] for r in range(3)]
+        if all([s == letter for s in col]):
+            return True
+
+        if row_ind == col_ind:
+            if all([self.board[i][i] == letter for i in range(3)]):
+                return True
+
+        if row_ind + col_ind == 2:
+            if all([self.board[i][2-i] == letter for i in range(3)]):
+                return True
+                
+        return False
+
+def alpha_beta(ttt, depth, alpha, beta, maximizing_player):
+    if depth == 0 or not ttt.empty_squares() or ttt.current_winner:
+        return None, 1 if ttt.current_winner == 'O' else -1 if ttt.current_winner == 'X' else 0
+
+    if maximizing_player:
+        max_eval = -math.inf
+        best_move = None
+        for move in ttt.available_moves():
+            ttt.make_move(move, 'O')
+            current_eval = alpha_beta(ttt, depth-1, alpha, beta, False)[1]
+            ttt.board[move[0]][move[1]] = ' '
+            ttt.current_winner = None
+            if current_eval > max_eval:
+                max_eval = current_eval
+                best_move = move
+            alpha = max(alpha, current_eval)
+            if beta <= alpha:
+                break
+        return best_move, max_eval
+    else:
+        min_eval = math.inf
+        best_move = None
+        for move in ttt.available_moves():
+            ttt.make_move(move, 'X')
+            current_eval = alpha_beta(ttt, depth-1, alpha, beta, True)[1]
+            ttt.board[move[0]][move[1]] = ' '
+            ttt.current_winner = None
+            if current_eval < min_eval:
+                min_eval = current_eval
+                best_move = move
+            beta = min(beta, current_eval)
+            if beta <= alpha:
+                break
+        return best_move, min_eval
+
+def play_game():
+    ttt = TicTacToe()
+    print("Welcome to Tic Tac Toe!")
+    ttt.print_board_nums()
+    
+    player_letter = 'X'
+    ai_letter = 'O'
+    turn = 'player'
+    
+    while ttt.empty_squares() and not ttt.current_winner:
+        if turn == 'player':
+            valid_move = False
+            while not valid_move:
+                try:
+                    square = int(input("Enter your move (1-9): ")) - 1
+                    row = square // 3
+                    col = square % 3
+                    if (row, col) in ttt.available_moves():
+                        valid_move = True
+                    else:
+                        print("Invalid move. Position already taken or out of bounds.")
+                except ValueError:
+                    print("Invalid input. Please enter a number between 1 and 9.")
+                    
+            ttt.make_move((row, col), player_letter)
+            turn = 'ai'
+            
+        else:
+            row, col = alpha_beta(ttt, len(ttt.available_moves()), -math.inf, math.inf, True)[0]
+            print(f"Computer plays: {row * 3 + col + 1}")
+            ttt.make_move((row, col), ai_letter)
+            turn = 'player'
+
+        ttt.print_board()
+        print()
+
+    if ttt.current_winner:
+        print(f"Player {ttt.current_winner} wins!")
+    else:
+        print("It's a tie!")
+
+if __name__ == "__main__":
+    play_game()
+

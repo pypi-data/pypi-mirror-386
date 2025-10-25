@@ -1,0 +1,187 @@
+- Step 1: Create HDFS directory for Cloudera user
+hdfs dfs -mkdir -p /user/cloudera
+
+-- Step 2: Create local input file: 
+
+Medicine.txt
+Paracetamol,500,2020,2025,PharmaA
+Ibuprofen,200,2019,2023,PharmaB
+Aspirin,100,2021,2024,PharmaC
+Amoxicillin,250,2018,2022,PharmaD
+Ciprofloxacin,500,2022,2026,PharmaE
+Metformin,850,2020,2025,PharmaF
+Atorvastatin,20,2021,2025,PharmaG
+Omeprazole,40,2019,2023,PharmaH
+
+-- Step 3: Create local input file: med1.txt
+PharmaA,USA,4.5
+PharmaB,Germany,4.2
+PharmaC,India,4.8
+PharmaD,UK,3.9
+PharmaE,USA,4.6
+PharmaF,Japan,4.1
+PharmaG,Germany,4.7
+PharmaH,India,4.3
+
+-- Step 4: Upload both files to HDFS
+hdfs dfs -put -f /home/cloudera/Medicine.txt /user/cloudera/
+hdfs dfs -put -f /home/cloudera/med1.txt /user/cloudera/
+
+-- Step 5: Verify files in HDFS
+hdfs dfs -ls /user/cloudera/
+-rw-r--r--   1 cloudera cloudera       270 2025-10-25 13:00 /user/cloudera/Medicine.txt
+-rw-r--r--   1 cloudera cloudera       120 2025-10-25 13:00 /user/cloudera/med1.txt
+
+-- Step 6: View Medicine.txt content from HDFS
+hdfs dfs -cat /user/cloudera/Medicine.txt
+Paracetamol,500,2020,2025,PharmaA
+Ibuprofen,200,2019,2023,PharmaB
+Aspirin,100,2021,2024,PharmaC
+Amoxicillin,250,2018,2022,PharmaD
+Ciprofloxacin,500,2022,2026,PharmaE
+Metformin,850,2020,2025,PharmaF
+Atorvastatin,20,2021,2025,PharmaG
+Omeprazole,40,2019,2023,PharmaH
+
+-- Step 7: View med1.txt content from HDFS
+hdfs dfs -cat /user/cloudera/med1.txt
+PharmaA,USA,4.5
+PharmaB,Germany,4.2
+PharmaC,India,4.8
+PharmaD,UK,3.9
+PharmaE,USA,4.6
+PharmaF,Japan,4.1
+PharmaG,Germany,4.7
+PharmaH,India,4.3
+
+------------------------------------------------------------
+-- Step 8: SORT OPERATION (sort_med.pig)
+------------------------------------------------------------
+-- SORT OPERATION: Sort medicines by quantity in descending order
+-- Run script:
+pig -x local sort_med.pig
+
+-- Inside sort_med.pig:
+-- Load and display data
+-- Sort by quantity descending
+
+-- Expected Output:
+(Paracetamol,500,2020,2025,PharmaA)
+(Ibuprofen,200,2019,2023,PharmaB)
+(Aspirin,100,2021,2024,PharmaC)
+(Amoxicillin,250,2018,2022,PharmaD)
+(Ciprofloxacin,500,2022,2026,PharmaE)
+(Metformin,850,2020,2025,PharmaF)
+(Atorvastatin,20,2021,2025,PharmaG)
+(Omeprazole,40,2019,2023,PharmaH)
+
+-- Sorted Output:
+(Metformin,850,2020,2025,PharmaF)
+(Paracetamol,500,2020,2025,PharmaA)
+(Ciprofloxacin,500,2022,2026,PharmaE)
+(Amoxicillin,250,2018,2022,PharmaD)
+(Ibuprofen,200,2019,2023,PharmaB)
+(Aspirin,100,2021,2024,PharmaC)
+(Omeprazole,40,2019,2023,PharmaH)
+(Atorvastatin,20,2021,2025,PharmaG)
+
+------------------------------------------------------------
+-- Step 9: GROUP OPERATION (group_med.pig)
+------------------------------------------------------------
+-- Run script:
+pig -x local group_med.pig
+
+-- Inside group_med.pig:
+-- Group medicines by supplier and manufacturing year
+
+-- Expected Output (Grouped by supplier):
+(PharmaA, {(Paracetamol,500,2020,2025,PharmaA)})
+(PharmaB, {(Ibuprofen,200,2019,2023,PharmaB)})
+(PharmaC, {(Aspirin,100,2021,2024,PharmaC)})
+(PharmaD, {(Amoxicillin,250,2018,2022,PharmaD)})
+(PharmaE, {(Ciprofloxacin,500,2022,2026,PharmaE)})
+(PharmaF, {(Metformin,850,2020,2025,PharmaF)})
+(PharmaG, {(Atorvastatin,20,2021,2025,PharmaG)})
+(PharmaH, {(Omeprazole,40,2019,2023,PharmaH)})
+
+-- Stats per supplier (total medicines & avg quantity)
+(PharmaA,1,500.0)
+(PharmaB,1,200.0)
+(PharmaC,1,100.0)
+(PharmaD,1,250.0)
+(PharmaE,1,500.0)
+(PharmaF,1,850.0)
+(PharmaG,1,20.0)
+(PharmaH,1,40.0)
+
+-- Grouped by manufacturing year:
+(2018, {(Amoxicillin,250,2018,2022,PharmaD)})
+(2019, {(Ibuprofen,200,2019,2023,PharmaB),(Omeprazole,40,2019,2023,PharmaH)})
+(2020, {(Paracetamol,500,2020,2025,PharmaA),(Metformin,850,2020,2025,PharmaF)})
+(2021, {(Aspirin,100,2021,2024,PharmaC),(Atorvastatin,20,2021,2025,PharmaG)})
+(2022, {(Ciprofloxacin,500,2022,2026,PharmaE)})
+
+-- Yearly count output:
+(2018,1)
+(2019,2)
+(2020,2)
+(2021,2)
+(2022,1)
+
+------------------------------------------------------------
+-- Step 10: JOIN OPERATION (join_med.pig)
+------------------------------------------------------------
+-- Run script:
+pig -x local join_med.pig
+
+-- Inside join_med.pig:
+-- Join Medicine.txt and med1.txt on supplier
+
+-- Expected Output:
+(Paracetamol,500,USA,4.5)
+(Ibuprofen,200,Germany,4.2)
+(Aspirin,100,India,4.8)
+(Amoxicillin,250,UK,3.9)
+(Ciprofloxacin,500,USA,4.6)
+(Metformin,850,Japan,4.1)
+(Atorvastatin,20,Germany,4.7)
+(Omeprazole,40,India,4.3)
+
+------------------------------------------------------------
+-- Step 11: PROJECT + FILTER OPERATION (project_filter_med.pig)
+------------------------------------------------------------
+-- Run script:
+pig -x local project_filter_med.pig
+
+-- Inside project_filter_med.pig:
+-- FILTER: medicines with quantity > 200
+-- FILTER: medicines expiring after 2024
+-- PROJECT: name, quantity, supplier
+-- COMBINATION: Filter + Project
+
+-- Output for quantity > 200:
+(Paracetamol,500,2020,2025,PharmaA)
+(Amoxicillin,250,2018,2022,PharmaD)
+(Ciprofloxacin,500,2022,2026,PharmaE)
+(Metformin,850,2020,2025,PharmaF)
+
+-- Output for expiry > 2024:
+(Paracetamol,500,2020,2025,PharmaA)
+(Ciprofloxacin,500,2022,2026,PharmaE)
+(Metformin,850,2020,2025,PharmaF)
+(Atorvastatin,20,2021,2025,PharmaG)
+
+-- Projected data (selected columns):
+(Paracetamol,500,PharmaA)
+(Ibuprofen,200,PharmaB)
+(Aspirin,100,PharmaC)
+(Amoxicillin,250,PharmaD)
+(Ciprofloxacin,500,PharmaE)
+(Metformin,850,PharmaF)
+(Atorvastatin,20,PharmaG)
+(Omeprazole,40,PharmaH)
+
+-- Combined Filter + Project (quantity > 300):
+(Paracetamol,500,2025)
+(Ciprofloxacin,500,2026)
+(Metformin,850,2025)

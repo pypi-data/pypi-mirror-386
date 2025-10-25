@@ -1,0 +1,293 @@
+################################################################################
+
+# 14. Implement Support Vector Machine on Titanic Dataset
+
+################################################################################
+
+### 1. Check and Install Libraries
+# This initial step ensures that all required libraries are installed.
+import sys
+import importlib.util
+import os
+
+def check_and_install_libraries(packages):
+    """
+    Checks if a list of libraries is installed and installs them if they are not.
+    """
+    for package in packages:
+        package_name = package.split('==')[0]
+        spec = importlib.util.find_spec(package_name)
+        if spec is None:
+            print(f"{package} not found, installing...")
+            try:
+                # Using {sys.executable} to ensure pip is installed for the correct Python interpreter
+                !{sys.executable} -m pip install -q {package}
+                print(f"{package} installed successfully.")
+            except Exception as e:
+                print(f"Error installing {package}: {e}")
+        else:
+            print(f"{package_name} is already installed.")
+
+# List of required libraries
+required_packages = ['pyspark', 'pandas', 'numpy', 'matplotlib', 'seaborn', 'scikit-learn']
+check_and_install_libraries(required_packages)
+
+
+### 2. Import Libraries
+# Import all necessary modules for both Scikit-learn and PySpark analysis.
+
+# --- FIX: Import classes with conflicting names using aliases ---
+from pyspark.sql import SparkSession
+from pyspark.ml.feature import VectorAssembler, StringIndexer
+from pyspark.ml.feature import OneHotEncoder as SparkOneHotEncoder # Aliased import
+from pyspark.ml.feature import StandardScaler as SparkStandardScaler # Aliased import
+from pyspark.ml.classification import LinearSVC
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+from pyspark.ml import Pipeline
+from pyspark.sql.functions import col
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder as SklearnOneHotEncoder # Aliased import
+from sklearn.impute import SimpleImputer
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline as SklearnPipeline
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.decomposition import PCA
+# -----------------------------------------------------------------
+
+
+# --- ADD THIS LINE TO DISPLAY GRAPHS IN NOTEBOOKS ---
+%matplotlib inline
+# -------------------------------------------
+
+# Set global settings for plots and random state for reproducibility
+sns.set(style="whitegrid")
+RANDOM_STATE = 42
+
+
+### 3. Initialize SparkSession
+# Create a SparkSession, which is the entry point to any Spark functionality.
+spark = SparkSession.builder.master("local[*]").appName("TitanicSVMCombined").getOrCreate()
+spark.sparkContext.setLogLevel("WARN")
+
+
+### 4. Load and Explore the Titanic Dataset
+# Load the Titanic dataset from a CSV file and perform basic Exploratory Data Analysis (EDA).
+try:
+    df_pd = pd.read_csv("/content/titanic.csv")
+except FileNotFoundError:
+    print("FATAL: titanic.csv not found.")
+    print("Please ensure the 'titanic.csv' file is in the same directory as this script.")
+    # Stop the script if the file is not found
+    spark.stop()
+    sys.exit()
+
+
+print("--- Exploratory Data Analysis (EDA) ---")
+print("\nFirst 5 rows of the dataset:")
+display(df_pd.head())
+
+print("\nDataset Info:")
+df_pd.info()
+
+print("\nDescriptive Statistics:")
+display(df_pd.describe())
+
+print("\nSurvival Distribution:")
+display(df_pd['Survived'].value_counts(normalize=True))
+
+# Correlation Heatmap for numerical features
+print("\nNumerical Feature Correlation Heatmap:")
+plt.figure(figsize=(12, 10))
+# Select only numeric columns for correlation
+numeric_cols = df_pd.select_dtypes(include=np.number).columns
+sns.heatmap(df_pd[numeric_cols].corr(), annot=True, cmap='coolwarm', fmt=".2f")
+plt.title("Correlation Matrix of Numerical Titanic Features")
+plt.show()
+
+
+### 5. Data Preparation for Machine Learning
+# Prepare the data for both Scikit-learn and PySpark.
+# This includes handling missing values, encoding categorical features, and feature scaling.
+
+#### 5.1 Scikit-learn Data Preparation
+# Drop columns that are not useful for prediction
+df_sklearn = df_pd.drop(['PassengerId', 'Name', 'Ticket', 'Cabin'], axis=1)
+
+# Separate target variable
+X = df_sklearn.drop('Survived', axis=1)
+y = df_sklearn['Survived']
+
+# Identify categorical and numerical features
+categorical_features = ['Embarked', 'Sex', 'Pclass']
+numerical_features = ['Age', 'SibSp', 'Parch', 'Fare']
+
+# Create preprocessing pipelines for numerical and categorical features
+numerical_transformer = SklearnPipeline(steps=[
+    ('imputer', SimpleImputer(strategy='median')),
+    ('scaler', StandardScaler())
+])
+
+categorical_transformer = SklearnPipeline(steps=[
+    ('imputer', SimpleImputer(strategy='most_frequent')),
+    # --- FIX: Use the aliased SklearnOneHotEncoder ---
+    ('onehot', SklearnOneHotEncoder(handle_unknown='ignore'))
+])
+
+# Create a preprocessor object using ColumnTransformer
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numerical_transformer, numerical_features),
+        ('cat', categorical_transformer, categorical_features)
+    ],
+    remainder='passthrough' # Keep other columns (if any)
+)
+
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=RANDOM_STATE)
+
+# Apply preprocessing
+X_train_prepared = preprocessor.fit_transform(X_train)
+X_test_prepared = preprocessor.transform(X_test)
+
+print("Scikit-learn training data shape (prepared):", X_train_prepared.shape)
+
+
+#### 5.2 PySpark Data Preparation
+# Drop columns that are not useful for prediction and create Spark DataFrame
+df_spark = spark.createDataFrame(df_pd.drop(['PassengerId', 'Name', 'Ticket', 'Cabin'], axis=1))
+
+# Fill missing values for key columns
+df_spark = df_spark.na.fill({'Age': df_pd['Age'].median()})
+# Determine the most frequent 'Embarked' value and fill missing values with it
+most_frequent_embarked = df_pd['Embarked'].mode()[0]
+df_spark = df_spark.na.fill({'Embarked': most_frequent_embarked})
+
+# Identify categorical and numerical features
+# Pclass is treated as categorical
+categorical_cols = ['Sex', 'Embarked', 'Pclass']
+numerical_cols = ['Age', 'SibSp', 'Parch', 'Fare']
+
+# Create a list of stages for the pipeline
+stages = []
+
+# StringIndexer and OneHotEncoder for categorical columns
+for col_name in categorical_cols:
+    string_indexer = StringIndexer(inputCol=col_name, outputCol=col_name + "_index", handleInvalid="keep")
+    # --- FIX: Use the aliased SparkOneHotEncoder ---
+    encoder = SparkOneHotEncoder(inputCols=[string_indexer.getOutputCol()], outputCols=[col_name + "_vec"])
+    stages += [string_indexer, encoder]
+
+# VectorAssembler for numerical columns
+numerical_assembler = VectorAssembler(inputCols=numerical_cols, outputCol="numerical_features")
+stages += [numerical_assembler]
+
+# StandardScaler for numerical features
+scaler = SparkStandardScaler(inputCol="numerical_features", outputCol="scaled_numerical_features")
+stages += [scaler]
+
+# VectorAssembler to combine all features
+assembler_inputs = [c + "_vec" for c in categorical_cols] + ["scaled_numerical_features"]
+final_assembler = VectorAssembler(inputCols=assembler_inputs, outputCol="features")
+stages += [final_assembler]
+
+
+# Create and fit the pipeline
+pipeline = Pipeline(stages=stages)
+pipeline_model = pipeline.fit(df_spark)
+df_transformed = pipeline_model.transform(df_spark)
+
+# Rename 'Survived' to 'label' for PySpark ML
+df_transformed = df_transformed.withColumnRenamed('Survived', 'label')
+
+# Split the data
+train_data, test_data = df_transformed.randomSplit([0.8, 0.2], seed=RANDOM_STATE)
+
+print("\nPySpark training data count:", train_data.count())
+train_data.select("features", "label").show(5, truncate=False)
+
+
+### 6. Model Training and Evaluation
+# Build and evaluate SVM models using both frameworks.
+
+#### 6.1 Scikit-learn: Model Training and Evaluation
+# Initialize and train the SVM classifier
+svm_sklearn = SVC(kernel='rbf', random_state=RANDOM_STATE, probability=True)
+svm_sklearn.fit(X_train_prepared, y_train)
+
+# Make predictions
+y_pred_sklearn = svm_sklearn.predict(X_test_prepared)
+
+# Evaluate the model
+print("\n--- Scikit-learn SVM Evaluation ---")
+accuracy_sklearn = accuracy_score(y_test, y_pred_sklearn)
+print(f"Accuracy: {accuracy_sklearn:.4f}")
+print("\nClassification Report:\n", classification_report(y_test, y_pred_sklearn))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_sklearn))
+
+
+#### 6.2 PySpark: Model Training and Evaluation
+# Initialize and train the LinearSVC model
+# Note: PySpark MLlib primarily offers a Linear SVM.
+lsvc = LinearSVC(featuresCol='features', labelCol='label', maxIter=10, regParam=0.1)
+lsvc_model = lsvc.fit(train_data)
+
+# Make predictions
+predictions = lsvc_model.transform(test_data)
+
+# Evaluate the model
+evaluator = MulticlassClassificationEvaluator(metricName="accuracy")
+accuracy_spark = evaluator.evaluate(predictions)
+
+print("\n--- PySpark LinearSVC Evaluation ---")
+print(f"Accuracy: {accuracy_spark:.4f}")
+
+# Show a sample of predictions
+print("\nPySpark Predictions Sample:")
+predictions.select("prediction", "label", "features").show(5)
+
+
+### 7. Visualization of Results
+# Use PCA to reduce dimensions for visualizing the classification results.
+# Use the preprocessed scikit-learn test data for PCA
+pca = PCA(n_components=2, random_state=RANDOM_STATE)
+
+# Ensure the data is in a dense format for PCA
+X_test_prepared_dense = X_test_prepared.toarray() if hasattr(X_test_prepared, "toarray") else X_test_prepared
+X_test_pca = pca.fit_transform(X_test_prepared_dense)
+
+
+df_pca = pd.DataFrame(X_test_pca, columns=['PCA1', 'PCA2'])
+df_pca['True Class'] = y_test.values
+df_pca['SVM Prediction'] = y_pred_sklearn
+
+fig, axes = plt.subplots(1, 2, figsize=(18, 8), sharex=True, sharey=True)
+sns.scatterplot(ax=axes[0], data=df_pca, x='PCA1', y='PCA2', hue='True Class', palette='viridis', s=100, alpha=0.8).set_title('Ground Truth')
+sns.scatterplot(ax=axes[1], data=df_pca, x='PCA1', y='PCA2', hue='SVM Prediction', palette='viridis', s=100, alpha=0.8).set_title('Scikit-learn SVM Predictions')
+plt.suptitle("Classification Visualization using PCA Components", fontsize=16)
+plt.show()
+
+
+### 8. Final Summary
+# A summary of the final classification evaluation scores from both frameworks.
+print("\n--- Summary of Classification Evaluation Scores ---")
+summary_data = {
+    'Framework': ['Scikit-learn', 'PySpark'],
+    'Model': ['SVC (RBF Kernel)', 'LinearSVC'],
+    'Accuracy': [accuracy_sklearn, accuracy_spark]
+}
+summary_df = pd.DataFrame(summary_data)
+display(summary_df)
+
+
+### 9. Stop SparkSession
+# Stop the SparkSession at the end of the analysis.
+print("\nStopping SparkSession...")
+spark.stop()
+print("SparkSession stopped.")
