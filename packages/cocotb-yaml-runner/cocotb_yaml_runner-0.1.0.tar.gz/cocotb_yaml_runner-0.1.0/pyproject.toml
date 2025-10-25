@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cocotb-yaml-runner"
+version = "0.1.0"
+description = "YAML-based test runner for cocotb with Verilator"
+readme = "README.md"
+authors = [{name = "Kevin Lau", email = "kevinlauofficial01@gmail.com"}]
+license = {text = "MIT"}
+requires-python = ">=3.8"
+dependencies = [
+    "cocotb",
+    "pyyaml",
+]
+keywords = ["cocotb", "verilator", "systemverilog", "hdl", "testing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.scripts]
+cocotb-yaml = "cocotb_yaml_runner.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/booth-algo/cocotb-verilator-utils"
+Repository = "https://github.com/booth-algo/cocotb-verilator-utils"
+
