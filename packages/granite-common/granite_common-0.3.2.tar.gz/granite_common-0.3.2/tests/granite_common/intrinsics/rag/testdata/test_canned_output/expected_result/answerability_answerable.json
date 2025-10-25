@@ -1,0 +1,14 @@
+{
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "content": "{\"answerability_likelihood\": 0.9991958643582448}",
+                "role": "assistant",
+                "tool_calls": []
+            },
+            "finish_reason": "stop"
+        }
+    ],
+    "prompt_logprobs": null
+}
