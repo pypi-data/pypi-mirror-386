@@ -1,0 +1,1 @@
+This is a placeholder package to reserve the name agentstack-sdk.
