@@ -1,0 +1,9 @@
+include MANIFEST.in
+include LICENSE
+include README.md
+include requirements.txt
+graft django_admin_daterange_listfilter
+exclude django_admin_daterange_listfilter_demo
+exclude django_admin_daterange_listfilter_example
+global-exclude __pycache__
+global-exclude *.py[co]
