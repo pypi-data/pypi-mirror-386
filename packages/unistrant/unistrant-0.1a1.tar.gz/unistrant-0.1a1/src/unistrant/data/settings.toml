@@ -1,0 +1,15 @@
+[logging]
+version = 1
+disable_existing_loggers = false
+
+[logging.formatters.standard]
+format = "%(asctime)s [%(levelname)s] %(message)s"
+datefmt = "%Y-%m-%dT%H:%M:%S%z"
+
+[logging.handlers.console]
+formatter = "standard"
+class = "logging.StreamHandler"
+
+[logging.loggers.""]
+handlers = ["console"]
+level = "INFO"
