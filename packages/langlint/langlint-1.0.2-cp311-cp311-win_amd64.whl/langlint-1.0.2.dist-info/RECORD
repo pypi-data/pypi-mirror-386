@@ -1,0 +1,9 @@
+langlint_py.cp311-win_amd64.pyd,,
+langlint-1.0.2.dist-info/METADATA,sha256=wtCi9f2TIVWfaHQw1n8u98SHAhDiq9M5JvNPDsbkqf4,26862
+langlint-1.0.2.dist-info/WHEEL,sha256=bNaa2-XeaoMXnkzV391Sm2NgCjpJ3A2VmfN6ZUnNTZA,96
+langlint-1.0.2.dist-info/entry_points.txt,sha256=PZ2lgSIGhceHNuUc8iAvTqWtioBbA9cqEkyCi32Y0Dc,45
+langlint-1.0.2.dist-info/RECORD,,
+langlint/cli.py,,
+langlint/langlint.exe,,
+langlint/py.typed,,
+langlint/__init__.py,,
