@@ -1,0 +1,4 @@
+colorama>=0.4.6
+
+[plus]
+prompt_toolkit
