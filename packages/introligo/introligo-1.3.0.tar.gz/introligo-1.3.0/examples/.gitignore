@@ -1,0 +1,12 @@
+# Generated documentation
+*/docs/_build/
+*/docs/generated/
+*/docs/*.rst
+
+# Doxygen output
+*/output/
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+**/*.pyo

@@ -1,0 +1,268 @@
+# Introligo Documentation Configuration
+# Modular configuration using !include directive
+#
+# Copyright (c) 2025 WT Tech Jakub Brzezowski
+# This is an open-source component of the Celin Project
+
+index:
+  title: "📚 Introligo Documentation"
+  description: "YAML to reStructuredText documentation generator for Sphinx"
+  overview: |
+    **Introligo** streamlines the documentation process by converting structured YAML
+    configurations into properly formatted reStructuredText files for Sphinx.
+
+    It supports hierarchical page organization, automatic toctree generation, and rich
+    content features including code examples, API documentation, and custom sections.
+
+    .. note::
+
+       Introligo is one of the open-source components of the Celin Project, available
+       for free use in any project.
+
+generate_index: true
+
+# Sphinx configuration - auto-generates conf.py
+sphinx:
+  project: "Introligo"
+  author: "WT Tech Jakub Brzezowski"
+
+  # Version management from git tags
+  version_from_git: true
+  fallback_version: "1.1.0"
+
+  # Path configuration
+  project_root: "."
+  add_project_to_path: true
+
+  # Sphinx extensions
+  extensions:
+    - "sphinx.ext.autodoc"
+    - "sphinx.ext.viewcode"
+    - "sphinx.ext.napoleon"
+    - "sphinx.ext.intersphinx"
+
+  # Template and build settings
+  templates_path: ["_templates"]
+  exclude_patterns: ["_build", "Thumbs.db", ".DS_Store"]
+  language: "en"
+
+  # Intersphinx mapping
+  intersphinx_mapping:
+    python:
+      - "https://docs.python.org/3"
+      - null
+    sphinx:
+      - "https://www.sphinx-doc.org/en/master"
+      - null
+
+  # HTML output configuration
+  html_theme: "furo"
+  html_static_path: ["_static"]
+  html_title: "Introligo Documentation"
+  html_logo: "str(PROJECT_ROOT / '_assets' / 'introligo-logo.png')"
+  html_favicon: "str(PROJECT_ROOT / '_assets' / 'favicon.ico')"
+
+  # Use Celin color palette
+  palette: "celin"
+
+  # Theme options for Furo
+  html_theme_options:
+    sidebar_hide_name: false
+
+modules:
+  # ============================================================================
+  # GETTING STARTED - Using modular !include structure
+  # ============================================================================
+
+  getting_started: !include modules/getting_started/_main.yaml
+  installation: !include modules/getting_started/installation.yaml
+  quickstart: !include modules/getting_started/quickstart.yaml
+  complete_guide: !include modules/getting_started/complete_guide.yaml
+  hub_architecture: !include modules/getting_started/hub_architecture.yaml
+
+  # ============================================================================
+  # USER GUIDE
+  # ============================================================================
+
+  user_guide: !include modules/user_guide/_main.yaml
+
+  # Basic usage with inline definition (can be moved to file later)
+  basic_usage:
+    parent: "user_guide"
+    title: "🚀 Basic Usage Examples"
+    description: "Common usage patterns and examples"
+    markdown_includes: "markdown/md_tutorial/basic_usage.md"
+
+  # Sphinx integration
+  sphinx_integration:
+    parent: "user_guide"
+    title: "🔧 Sphinx Integration"
+    description: "How to integrate Introligo with your Sphinx project"
+    markdown_includes: "markdown/sphinx_tutorial/01_introduction.md"
+
+  # Markdown includes tutorial
+  markdown_includes:
+    parent: "user_guide"
+    title: "📝 Markdown Includes"
+    description: "Include markdown files in your documentation"
+    overview: |
+      Include external markdown files as part of your module documentation.
+      This feature demonstrates itself! Each subpage below is created from
+      markdown files that are automatically converted to RST.
+
+  md_basic_usage:
+    parent: "markdown_includes"
+    title: "📚 Basic Usage"
+    markdown_includes: "markdown/md_tutorial/basic_usage.md"
+
+  md_best_practices:
+    parent: "markdown_includes"
+    title: "🎯 Best Practices"
+    markdown_includes: "markdown/md_tutorial/best_practices.md"
+
+  md_use_cases:
+    parent: "markdown_includes"
+    title: "💼 Use Cases"
+    markdown_includes: "markdown/md_tutorial/use_cases.md"
+
+  md_troubleshooting:
+    parent: "markdown_includes"
+    title: "🔧 Troubleshooting"
+    markdown_includes: "markdown/md_tutorial/troubleshooting.md"
+
+  md_link_conversion:
+    parent: "markdown_includes"
+    title: "🔗 Link Conversion"
+    description: "Automatic markdown to RST link conversion"
+    markdown_includes: "markdown/md_tutorial/link_conversion.md"
+
+  md_link_examples:
+    parent: "markdown_includes"
+    title: "💡 Link Examples"
+    description: "Real-world link conversion examples"
+    markdown_includes: "markdown/md_tutorial/link_examples.md"
+
+  md_working_with_images:
+    parent: "markdown_includes"
+    title: "🖼️ Working with Images"
+    description: "How to include and work with images in documentation"
+    markdown_includes: "markdown/md_tutorial/working_with_images.md"
+
+  # Sphinx Tutorial
+  sphinx_tutorial:
+    parent: "user_guide"
+    title: "📘 Sphinx Configuration Tutorial"
+    description: "Complete guide to using Sphinx with Introligo"
+    overview: |
+      Learn how to configure and use Sphinx with Introligo's auto-generation features.
+      This comprehensive tutorial covers everything from basic setup to advanced features
+      like autodoc, themes, color palettes, and custom extensions.
+
+  sphinx_tutorial_intro:
+    parent: "sphinx_tutorial"
+    title: "1️⃣ Introduction"
+    description: "Get started with Sphinx and Introligo"
+    markdown_includes: "markdown/sphinx_tutorial/01_introduction.md"
+
+  sphinx_tutorial_config:
+    parent: "sphinx_tutorial"
+    title: "2️⃣ Configuration"
+    description: "Learn how to configure Sphinx in YAML"
+    markdown_includes: "markdown/sphinx_tutorial/02_configuration.md"
+
+  sphinx_tutorial_themes:
+    parent: "sphinx_tutorial"
+    title: "3️⃣ Themes and Colors"
+    description: "Make your documentation beautiful"
+    markdown_includes: "markdown/sphinx_tutorial/03_themes_and_colors.md"
+
+  sphinx_tutorial_advanced:
+    parent: "sphinx_tutorial"
+    title: "4️⃣ Advanced Features"
+    description: "Master autodoc, Breathe, and more"
+    markdown_includes: "markdown/sphinx_tutorial/04_advanced.md"
+
+  # Devcontainer Tutorial
+  devcontainer_tutorial:
+    parent: "user_guide"
+    title: "🐳 Development Containers"
+    description: "Complete guide to using and configuring devcontainers"
+    overview: |
+      Learn how to use Introligo's pre-configured development container for a consistent
+      development environment, and how to set up devcontainers in your own projects.
+
+  devcontainer_usage:
+    parent: "devcontainer_tutorial"
+    title: "1️⃣ Running Code in Devcontainer"
+    description: "Complete guide for using Introligo's devcontainer"
+    markdown_includes: "markdown/devcontainer_tutorial/devcontainer_usage.md"
+
+  devcontainer_setup:
+    parent: "devcontainer_tutorial"
+    title: "2️⃣ Setting Up Devcontainer"
+    description: "Configure devcontainers for your own projects"
+    markdown_includes: "markdown/devcontainer_tutorial/devcontainer_setup.md"
+
+  # ============================================================================
+  # EXAMPLES
+  # ============================================================================
+
+  examples: !include modules/examples/_main.yaml
+
+  generic_usage: !include modules/examples/generic_usage.yaml
+  hub_example: !include modules/examples/hub_example.yaml
+  hub_project: !include modules/examples/hub_project.yaml
+
+  # ============================================================================
+  # API REFERENCE
+  # ============================================================================
+
+  api:
+    title: "🔧 API Reference"
+    description: "Introligo Python API documentation"
+    overview: |
+      Use Introligo programmatically in your Python scripts.
+
+  api_main:
+    parent: "api"
+    module: "introligo"
+    title: "Main Module"
+    description: "Core Introligo functionality"
+
+  # ============================================================================
+  # ABOUT - Using modular !include structure
+  # ============================================================================
+
+  about: !include modules/about/_main.yaml
+  license: !include modules/about/license.yaml
+  changelog: !include modules/about/changelog.yaml
+
+  contributing:
+    parent: "about"
+    title: "🤝 Contributing"
+    description: "How to contribute to Introligo"
+    overview: |
+      Introligo is an open-source project and welcomes contributions!
+
+      **Ways to Contribute:**
+
+      - Report bugs and issues
+      - Suggest new features
+
+      **Links:**
+
+      - GitHub: https://github.com/JakubBrzezo/introligo
+      - Issue Tracker: https://github.com/JakubBrzezo/introligo/issues
+
+  resources:
+    parent: "about"
+    title: "📚 Resources"
+    description: "External resources and references"
+    see_also:
+      - "https://www.sphinx-doc.org - Sphinx documentation"
+      - "https://breathe.readthedocs.io - Breathe documentation (C/C++ integration)"
+      - "https://www.doxygen.nl - Doxygen documentation generator"
+      - "https://yaml.org - YAML specification"
+      - "https://jinja.palletsprojects.com - Jinja2 templates"
+      - "https://github.com/JakubBrzezo/introligo - Introligo GitHub"
+      - "https://www.apache.org/licenses/LICENSE-2.0 - Apache License 2.0"

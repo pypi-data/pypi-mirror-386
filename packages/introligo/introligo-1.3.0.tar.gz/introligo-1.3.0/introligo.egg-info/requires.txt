@@ -1,0 +1,15 @@
+PyYAML>=6.0
+Jinja2>=3.0
+sphinx>=4.0
+
+[cpp]
+breathe>=4.0
+
+[dev]
+pytest>=7.0
+ruff>=0.1.0
+mypy>=1.0
+watchdog>=3.0
+
+[docs]
+furo>=2023.3.27
