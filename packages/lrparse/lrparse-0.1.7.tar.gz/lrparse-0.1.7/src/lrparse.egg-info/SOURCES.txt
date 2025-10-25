@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/lrparse/lrparse.c
+src/lrparse/__init__.py
+src/lrparse/lrparse.c
+src/lrparse.egg-info/PKG-INFO
+src/lrparse.egg-info/SOURCES.txt
+src/lrparse.egg-info/dependency_links.txt
+src/lrparse.egg-info/top_level.txt
