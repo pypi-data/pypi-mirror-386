@@ -1,0 +1,23 @@
+[project]
+name = "jsonvalidatingschemaextractor"
+version = "0.1.0"
+description = "Validate and extract values from JSON objects using JSON schema."
+authors = [
+    {name = "Fasih Khatib",email = "hellofasih.confound928@passinbox.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema (>=4.25.1,<5.0.0)",
+    "pre-commit (>=4.3.0,<5.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+test = [
+    "pytest (>=8.4.2,<9.0.0)"
+]
