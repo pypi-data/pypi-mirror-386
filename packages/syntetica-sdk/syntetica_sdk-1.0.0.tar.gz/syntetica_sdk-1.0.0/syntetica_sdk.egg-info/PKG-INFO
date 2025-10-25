@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: syntetica-sdk
+Version: 1.0.0
+Summary: SDK Python pour interagir avec l'API Syntetica
+Author-email: Furrer Yann <infra@syntetica.com>
+License: MIT
+Project-URL: Homepage, https://syntetica.net
+Project-URL: Documentation, https://dataset-generation-doc.gitbook.io/dataset-generation-doc
+Project-URL: Repository, https://github.com/yann-furrer/Dataset_Generation_python_sdk.git
+Project-URL: Issues, https://dataset-generation-doc.gitbook.io/dataset-generation-doc
+Keywords: synthetic-data,sdk,test-data,data-generation,yaml,syntetica,fake-data,api-client
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.31.0
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: typing-extensions>=4.12.2
+Dynamic: license-file
+
+# Syntetica Python SDK
+
+SDK **Python** pour interagir avec l’API **Syntetica** et piloter vos générations de jeux de données synthétiques : **soumission**, **validation** de configuration et **suivi** d’avancement.
+
+> Basé sur `syntetica_sdk/dataset_config.py`.  
+> Version Python recommandée : **3.9+**.
+
+---
+
+## ✨ Fonctionnalités
+
+- Générer un dataset depuis un **fichier YAML** *ou* un **`dict` Python**
+- **Valider** une configuration sans lancer de génération
+- **Suivre** l’état d’un job (waiting / generating / success / error + pourcentage & lignes)
+- Gestion dédiée des erreurs de **conversion YAML → JSON** (`YamlToJsonError`)
+- Paramétrage d’**environnement** via `base_url` (dev / prod)
+
+---
+
+## 📦 Installation
+
+Depuis PyPI :
+
+```bash
+pip install syntetica-sdk

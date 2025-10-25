@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=75.3.0", "wheel", "requests"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "syntetica-sdk"
+version = "1.0.0"
+description = "SDK Python pour interagir avec l'API Syntetica"
+authors = [{name="Furrer Yann", email="infra@syntetica.com"}]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "requests>=2.31.0",
+  "pyyaml>=6.0.2",
+  "typing-extensions>=4.12.2"
+]
+license = {text = "MIT"}
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Software Development :: Testing",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+keywords = [
+  "synthetic-data",
+  "sdk",
+  "test-data",
+  "data-generation",
+  "yaml",
+  "syntetica",
+  "fake-data",
+  "api-client"
+]
+
+[project.urls]
+Homepage = "https://syntetica.net"
+Documentation = "https://dataset-generation-doc.gitbook.io/dataset-generation-doc"
+Repository = "https://github.com/yann-furrer/Dataset_Generation_python_sdk.git"
+Issues = "https://dataset-generation-doc.gitbook.io/dataset-generation-doc"
+
+[tool.setuptools]
+packages = ["syntetica_sdk"]
+include-package-data = true

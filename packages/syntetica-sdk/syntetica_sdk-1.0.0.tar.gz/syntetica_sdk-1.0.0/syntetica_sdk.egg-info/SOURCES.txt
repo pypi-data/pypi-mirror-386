@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+syntetica_sdk/__init__.py
+syntetica_sdk/core.py
+syntetica_sdk/dataset.py
+syntetica_sdk/dataset_config.py
+syntetica_sdk/exception.py
+syntetica_sdk/rules.py
+syntetica_sdk/utils.py
+syntetica_sdk.egg-info/PKG-INFO
+syntetica_sdk.egg-info/SOURCES.txt
+syntetica_sdk.egg-info/dependency_links.txt
+syntetica_sdk.egg-info/requires.txt
+syntetica_sdk.egg-info/top_level.txt
