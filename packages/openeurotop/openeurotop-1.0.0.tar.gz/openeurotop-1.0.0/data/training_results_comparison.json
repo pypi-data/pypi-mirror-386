@@ -1,0 +1,31 @@
+{
+  "neural_network_kfold": {
+    "r2_mean": 0.674457158551013,
+    "r2_std": 0.021669668231524202,
+    "rmse_mean": 0.6892212905087385,
+    "mae_mean": 0.5243180466610605
+  },
+  "neural_network_final": {
+    "r2": 0.7772146379865219,
+    "rmse": 0.5707482348703317,
+    "mae": 0.42001397692723197
+  },
+  "xgboost_kfold": {
+    "r2_mean": 0.854600482325521,
+    "r2_std": 0.006100400951577611,
+    "rmse_mean": 0.46080319486970456,
+    "mae_mean": 0.33072307961773334
+  },
+  "xgboost_optimized": {
+    "r2": 0.8790926766539406,
+    "best_params": {
+      "n_estimators": 422,
+      "learning_rate": 0.05090181983574461,
+      "max_depth": 10,
+      "subsample": 0.6758094979423189,
+      "colsample_bytree": 0.8690491710631163,
+      "min_child_weight": 8,
+      "gamma": 0.0223020866211191
+    }
+  }
+}

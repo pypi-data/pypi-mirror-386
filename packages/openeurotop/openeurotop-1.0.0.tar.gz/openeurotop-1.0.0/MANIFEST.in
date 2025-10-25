@@ -1,0 +1,39 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include pyproject.toml
+
+# Documentation
+recursive-include docs *.md
+recursive-include docs *.rst
+recursive-include docs/sphinx *.py *.rst *.txt
+
+# Exemples
+recursive-include examples *.py *.ipynb *.md
+
+# Données du package
+recursive-include openeurotop/data *.pkl *.json *.txt
+
+# Exclusions
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude .git*
+global-exclude .coverage
+global-exclude htmlcov
+
+# Exclusion des fichiers de développement
+exclude *.png
+exclude *.txt
+exclude .gitignore
+prune venv*
+prune htmlcov
+prune .pytest_cache
+prune build
+prune dist
+prune *.egg-info
+
+# Exclusion du dossier Biblio (PDFs de référence non nécessaires)
+prune Biblio
