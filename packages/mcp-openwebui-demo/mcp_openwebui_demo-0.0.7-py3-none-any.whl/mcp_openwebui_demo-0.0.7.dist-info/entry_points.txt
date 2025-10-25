@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-openwebui-demo = mcp_openwebui_demo.mcp_main:main
