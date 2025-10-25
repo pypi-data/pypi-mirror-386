@@ -1,0 +1,6 @@
+tiferet>=1.1.11
+requests>=2.32.4
+
+[test]
+pytest>=8.3.3
+pytest_env>=1.1.5

@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: tiferet-monday
+Version: 0.1.2
+Summary: A client library for interacting with the Monday.com API using Tiferet.
+Author-email: "Andrew Shatz, Great Strength Systems" <andrew@greatstrength.me>
+License: MIT
+Project-URL: Homepage, https://github.com/greatstrength/tiferet-monday
+Project-URL: Repository, https://github.com/greatstrength/tiferet-monday
+Project-URL: Download, https://github.com/greatstrength/tiferet-monday
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tiferet>=1.1.11
+Requires-Dist: requests>=2.32.4
+Provides-Extra: test
+Requires-Dist: pytest>=8.3.3; extra == "test"
+Requires-Dist: pytest_env>=1.1.5; extra == "test"
+Dynamic: license-file
+
+# tiferet-monday
+A Tiferet extension for building monday.com apps with Python.
