@@ -1,0 +1,27 @@
+[project]
+name = "bratly-eval"
+version = "0.1.4"
+description = "an extension of bratly with evaluation tools"
+requires-python = ">=3.10"
+dependencies = [
+    "bratly",
+    "bratly-io-fs",
+    "numpy>=2.2.3",
+    "pandas>=2.2.3",
+    "tqdm>=4.67.1",
+    "xlsxwriter>=3.2.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "bratly.eval"
+
+[tool.uv.sources]
+bratly = { workspace = true }
+bratly-io-fs = { workspace = true }
+
+[tool.hatch.metadata]
+allow-direct-references = true
