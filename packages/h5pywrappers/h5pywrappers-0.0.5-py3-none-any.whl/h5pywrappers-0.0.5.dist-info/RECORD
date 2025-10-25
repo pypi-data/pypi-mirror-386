@@ -1,0 +1,15 @@
+h5pywrappers/__init__.py,sha256=4Z2uodYQD6Opc4QWsyMg5HpuY4VZiO5wX9E3Xyf4uPw,1592
+h5pywrappers/attr.py,sha256=X_BJYHLk8prw5dLc49kCguRHGtT9VddSo_M2YF-i69w,11420
+h5pywrappers/dataset.py,sha256=B8X3VG13QneUJZM6p1YGA4CpAYqyzc_veqN6meKk_fQ,10528
+h5pywrappers/datasubset.py,sha256=VLQ4JvxpHlSEwOBqfG3U4EvwBpu95MeQR2PWsWPyY44,26391
+h5pywrappers/group.py,sha256=wMsXEIRlWjO1OkXSoQzkgqb5HStgm-3CaqqytzsKcoI,8835
+h5pywrappers/obj.py,sha256=zTJdCCXAhCi2ag7kk6LFMu2OfBIGpBMwaKdTl-QknbA,15802
+h5pywrappers/scalar.py,sha256=EKXDpSLYHO9SolSFFr6cPDPYMO-VEZMEQr-ijWtdS2M,6370
+h5pywrappers/version.py,sha256=YRV1ohn6CdKEhsUOmFFMmr5UTjMv4Ydw3WJGxF2BHBs,704
+h5pywrappers/json/__init__.py,sha256=zyJyONdFWavn6Y5sJ_idd4PenQ_i5OGl2TwHIKogu-s,1152
+h5pywrappers/json/document.py,sha256=NrDTea--_pmFuibBy8wKUq8m9pCtYMhnHGga3Fh4L10,7048
+h5pywrappers-0.0.5.dist-info/licenses/LICENSE,sha256=N0P3pKtRMvfb64jmgJdlerg3TnS0a2QC776AzPsbZIg,35128
+h5pywrappers-0.0.5.dist-info/METADATA,sha256=sFSsWbvL8gyI29s9_L7fXNViPeYCWnXLbOkLXRR1Mes,6860
+h5pywrappers-0.0.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+h5pywrappers-0.0.5.dist-info/top_level.txt,sha256=2FHQzg72fQpu0EUQ71ZNH7trcT9MEcMiyIdmS0ROHo0,13
+h5pywrappers-0.0.5.dist-info/RECORD,,
