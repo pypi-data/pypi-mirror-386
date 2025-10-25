@@ -1,0 +1,13 @@
+macrorecorder/__init__.py,sha256=EEJ8xgyBmulPj7iPlFKB3ZW87HGAgNJmsZLH0J6X3MA,95
+macrorecorder/__main__.py,sha256=73KdQjBRNsuw2kNTjjkLtpyvYuuoVjl7C7HVfLV4YEE,120
+macrorecorder/core/__init__.py,sha256=btqPdKor9I7_igInWsZYH3tbgIqXfkze6BiSnoMKXCU,51
+macrorecorder/core/config.py,sha256=adveroVx3uIOUnOJrkL99RkxyAWvJRTzcW6O8m2M8Rk,1643
+macrorecorder/core/recorder.py,sha256=z5MedrRxXque_2P8iwed5shnLNCTL5TrAeaG-4RQNUg,3947
+macrorecorder/core/storage.py,sha256=THjnugN3mlAQwHF57ei-E4Moz9UekkRPaRAUGiXJvk4,945
+macrorecorder/gui/__init__.py,sha256=BS61zSEgSNtF5oHORuqVMkDoqZ-5dueNdpshA189V8U,115
+macrorecorder/gui/application.py,sha256=jPxkC9dqBbt_fquMkh7suDTgyPXFr7qa8_IvMhGAfh8,8536
+simple_macrorecorder-1.0.4.dist-info/METADATA,sha256=bFjrg1ufpmqNmX2fekIApwp2Skby-7DE8MHYo41oGPM,3012
+simple_macrorecorder-1.0.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+simple_macrorecorder-1.0.4.dist-info/entry_points.txt,sha256=NC2t4r2BOwjt0ZPxRJmYYvG7c38wjeaEfB-SV95RabI,69
+simple_macrorecorder-1.0.4.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+simple_macrorecorder-1.0.4.dist-info/RECORD,,
