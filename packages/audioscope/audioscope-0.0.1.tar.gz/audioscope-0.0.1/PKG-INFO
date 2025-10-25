@@ -1,0 +1,15 @@
+Metadata-Version: 2.3
+Name: audioscope
+Version: 0.0.1
+Summary: Audio-Scope: forensic & diagnostic toolkit for robust speech benchmarking (name reservation release)
+Keywords: speech,asr,speaker-verification,robustness,benchmark
+Author: Sarthak Bisht
+Author-email: Sarthak Bisht <sbisht@cs.cmu.edu>
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Requires-Dist: pytest>=8.4.2
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# audioscope
+A Forensic &amp; Diagnostic Benchmark for Speech AI tasks
