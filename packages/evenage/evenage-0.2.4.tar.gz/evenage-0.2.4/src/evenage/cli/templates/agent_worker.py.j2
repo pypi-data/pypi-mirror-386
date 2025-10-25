@@ -1,0 +1,80 @@
+"""
+{{ agent_name }}_worker - Worker process for {{ agent_name }} agent.
+
+Consumes tasks from Redis Streams and executes agent logic.
+"""
+
+from __future__ import annotations
+import os
+import sys
+import time
+from pathlib import Path
+from typing import Any
+
+# Add project root to Python path to enable imports
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+from agents.{{ agent_name }}.handler import {{ agent_name | pascal_case }}Agent, AgentConfig
+from core.message_bus import MessageBus, TaskMessage, ResponseMessage
+
+
+def main():
+    """Worker main loop."""
+    agent_name = "{{ agent_name }}"
+    redis_url = os.getenv("REDIS_URL", "redis://redis:6379")
+    database_url = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@postgres:5432/evenage")
+
+    cfg = AgentConfig(name=agent_name, redis_url=redis_url, database_url=database_url)
+    agent = {{ agent_name | pascal_case }}Agent(cfg)
+
+    bus: MessageBus = agent.bus
+
+    print(f"[{agent_name}] Worker started, listening for tasks...")
+
+    # Worker loop consuming tasks from Redis Streams
+    while True:
+        try:
+            tasks = bus.consume_tasks(agent_name, block_ms=5000, count=1)
+            if not tasks:
+                continue
+
+            for task_msg in tasks:
+                print(f"[{agent_name}] Processing task {task_msg.task_id}")
+                
+                # Convert TaskMessage to simple dict for handler
+                task_dict: dict[str, Any] = {
+                    "task_id": task_msg.task_id,
+                    "job_id": task_msg.job_id,
+                    "payload": task_msg.payload or {},
+                }
+                
+                try:
+                    result = agent.handle(task_dict)
+                    response = ResponseMessage(
+                        task_id=task_msg.task_id,
+                        job_id=task_msg.job_id,
+                        agent_name=agent_name,
+                        status="completed",
+                        result=result,
+                    )
+                except Exception as e:
+                    print(f"[{agent_name}] Error processing task: {e}")
+                    response = ResponseMessage(
+                        task_id=task_msg.task_id,
+                        job_id=task_msg.job_id,
+                        agent_name=agent_name,
+                        status="failed",
+                        error=str(e),
+                    )
+
+                bus.publish_response(response)
+
+        except Exception as e:
+            print(f"[{agent_name}] Unexpected error: {e}")
+            # Backoff on unexpected errors to avoid tight crash loops
+            time.sleep(1)
+
+
+if __name__ == "__main__":
+    main()

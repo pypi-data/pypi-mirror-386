@@ -1,0 +1,22 @@
+try:
+    from evenage.core.message_bus_base import (MessageBusBase, TaskMessage, ResponseMessage)
+except ImportError:  # pragma: no cover
+    from evenage.core.message_bus import MessageBus as MessageBusBase, TaskMessage, ResponseMessage
+
+
+class MessageBus(MessageBusBase):
+    """Project-specific message bus wrapper.
+    
+    Extends the base MessageBus with project-specific logging and behavior.
+    """
+
+    def __init__(self, url="redis://localhost:6379"):
+        super().__init__(url)
+
+    def publish_task(self, message: TaskMessage) -> str:
+        print(f'[MessageBus] → Publishing to {message.target_agent}')
+        return super().publish_task(message)
+
+    def publish_response(self, response: ResponseMessage) -> str:
+        print(f'[MessageBus] → Publishing response for {response.agent_name}')
+        return super().publish_response(response)

@@ -1,0 +1,28 @@
+  {{ agent_name }}_worker:
+    build: .
+    command: python workers/{{ agent_name }}_worker.py
+    env_file: .env
+    environment:
+      AGENT_NAME: {{ agent_name }}
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/evenage
+      REDIS_URL: redis://redis:6379
+      MINIO_ENDPOINT: minio:9000
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+    depends_on:
+      - redis
+      - postgres
+    volumes:
+      - .:/app
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+        reservations:
+          cpus: "0.5"
+          memory: 512M

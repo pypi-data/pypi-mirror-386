@@ -1,0 +1,36 @@
+from evenage.database.base import DatabaseAdapter, DatabaseConfig
+from evenage.database.models import Job, AgentTrace, TaskExecution
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
+class DatabaseService(DatabaseAdapter):
+    """Project-specific database service.
+    
+    Wraps the base DatabaseAdapter with convenience methods.
+    """
+
+    def __init__(self, config: DatabaseConfig):
+        super().__init__(config)
+        self.connect()
+
+    def save_result(self, job_id, data, embedding=None):
+        """Save job result to database.
+        
+        Args:
+            job_id: Job identifier
+            data: Result data dictionary
+            embedding: Optional embedding vector
+        """
+        print(f'[Database] Saving result for job {job_id}')
+        session = self.get_session()
+        job = Job(
+            job_id=job_id,
+            pipeline_name='unknown',
+            status='completed',
+            inputs={},
+            outputs=data
+        )
+        session.add(job)
+        session.commit()
+        session.close()
