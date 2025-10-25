@@ -1,0 +1,45 @@
+[project]
+name = "mcp-server-gcodeclean"
+version = "0.2.0"
+description = "MCP server for G-code syntax validation using GCodeClean"
+readme = "README.md"
+license = { text = "AGPL-3.0" }
+authors = [
+    { name = "ivan", email = "ivan@eriad.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=0.4.0",
+]
+keywords = ["mcp", "gcode", "cnc", "validation", "manufacturing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Manufacturing",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Scientific/Engineering",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/ivan-loh/mcp-server-gcodeclean"
+Repository = "https://github.com/ivan-loh/mcp-server-gcodeclean"
+Issues = "https://github.com/ivan-loh/mcp-server-gcodeclean/issues"
+
+[project.scripts]
+mcp-server-gcodeclean = "mcp_server_gcodeclean.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_server_gcodeclean"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"resources" = "mcp_server_gcodeclean/resources"

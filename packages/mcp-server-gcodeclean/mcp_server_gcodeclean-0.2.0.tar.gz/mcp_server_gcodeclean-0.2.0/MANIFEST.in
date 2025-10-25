@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+include pyproject.toml
+recursive-include resources *
+recursive-include src/mcp_server_gcodeclean *.py py.typed

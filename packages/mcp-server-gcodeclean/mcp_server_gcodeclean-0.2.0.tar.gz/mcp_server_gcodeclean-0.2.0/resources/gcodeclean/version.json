@@ -1,0 +1,42 @@
+{
+  "version": "1.4.2",
+  "release_date": "2024-07-08",
+  "source": "https://github.com/aersida/GCodeClean",
+  "license": "AGPL-3.0",
+  "platforms": {
+    "linux-x64": {
+      "binary": "1.4.2/linux-x64/GCC",
+      "url": "https://github.com/aersida/GCodeClean/releases/download/v1.4.2/gcodeclean-cli-1.4.2-linux-x64.zip",
+      "size_mb": 6.6
+    },
+    "linux-arm": {
+      "binary": "1.4.2/linux-arm/GCC",
+      "url": "https://github.com/aersida/GCodeClean/releases/download/v1.4.2/gcodeclean-cli-1.4.2-linux-arm.zip",
+      "size_mb": 5.5
+    },
+    "win-x64": {
+      "binary": "1.4.2/win-x64/GCC.exe",
+      "url": "https://github.com/aersida/GCodeClean/releases/download/v1.4.2/gcodeclean-cli-1.4.2-win-x64.zip",
+      "size_mb": 6.2
+    },
+    "osx-x64": {
+      "binary": "1.4.2/osx-x64/GCC",
+      "built_with": ".NET SDK 9.0.109",
+      "architecture": "x86-64 (Intel)",
+      "size_mb": 15,
+      "note": "Fallback for Intel Macs or if ARM64 binary unavailable"
+    },
+    "osx-arm64": {
+      "binary": "1.4.2/osx-arm64/GCC",
+      "built_with": ".NET SDK 9.0.109",
+      "architecture": "ARM64 (Apple Silicon native)",
+      "size_mb": 14,
+      "note": "Preferred for M1/M2/M3 Macs - 10-20% faster than x64"
+    }
+  },
+  "notes": [
+    "Binaries are self-contained and do not require .NET runtime",
+    "Source code available at https://github.com/aersida/GCodeClean",
+    "GCodeClean is licensed under AGPL-3.0"
+  ]
+}
