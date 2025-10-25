@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+include src/finRav/py.typed
+recursive-include src/finRav *.py

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+dist/
+build/
+.ipynb_checkpoints/
+*.npy
+*.csv
+*.pkl
+*.json
+*.data
