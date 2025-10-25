@@ -1,0 +1,3 @@
+[console_scripts]
+google-images-scraper = image_scraper.scraper:main
+scrape = image_scraper.scraper:main
