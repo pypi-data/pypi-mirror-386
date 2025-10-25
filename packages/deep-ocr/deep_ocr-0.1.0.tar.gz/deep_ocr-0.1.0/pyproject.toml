@@ -1,0 +1,148 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "deep-ocr"
+version = "0.1.0"
+description = "A Python wrapper for DeepSeek-OCR model with easy-to-use API, CPU/GPU support, and Flash Attention optimization"
+readme = "README.md"
+license = "MIT"
+authors = [
+    {name = "Gershon Omoraka", email = "gershblocks@gmail.com"}
+]
+maintainers = [
+    {name = "Gershon Omoraka", email = "gershblock@gmail.com"}
+]
+keywords = ["ocr", "deepseek", "computer-vision", "text-extraction", "ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "addict>=2.4.0",
+    "easydict>=1.13",
+    "einops>=0.8.1",
+    "Pillow>=10.0.0",
+    "tokenizers==0.20.3",
+    "torch==2.6.0",
+    "torchvision",
+    "transformers==4.46.3",
+]
+
+[project.optional-dependencies]
+flash-attn = [
+    "flash-attn==2.7.3",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+
+# [tool.uv]
+# dev-dependencies = [
+#     "pytest>=7.0.0",
+#     "pytest-cov>=4.0.0",
+#     "black>=23.0.0",
+#     "flake8>=6.0.0",
+#     "isort>=5.12.0",
+#     "mypy>=1.0.0",
+# ]
+
+[tool.uv.sources]
+# Add any custom sources if needed
+
+[tool.uv.workspace]
+# Workspace configuration
+
+[tool.uv.pip]
+# Handle flash-attn build dependencies
+extra-index-url = ["https://download.pytorch.org/whl/cpu"]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/deep-ocr"
+Repository = "https://github.com/yourusername/deep-ocr"
+Documentation = "https://github.com/yourusername/deep-ocr#readme"
+"Bug Tracker" = "https://github.com/yourusername/deep-ocr/issues"
+
+[project.scripts]
+deep-ocr = "deep_ocr.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["deep_ocr*"]
+
+[tool.setuptools.package-data]
+deep_ocr = ["*.md", "*.txt", "*.yml", "*.yaml"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["deep_ocr"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/deep_ocr",
+    "/tests",
+    "/examples",
+    "/.github",
+    "/README.md",
+    "/LICENSE",
+    "/ATTRIBUTION.md",
+    "/pyproject.toml",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["deep_ocr"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
