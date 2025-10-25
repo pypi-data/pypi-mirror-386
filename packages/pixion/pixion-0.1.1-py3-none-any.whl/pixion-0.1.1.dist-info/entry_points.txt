@@ -1,0 +1,3 @@
+[console_scripts]
+hue-picker=tools.color_thresholding:main
+
