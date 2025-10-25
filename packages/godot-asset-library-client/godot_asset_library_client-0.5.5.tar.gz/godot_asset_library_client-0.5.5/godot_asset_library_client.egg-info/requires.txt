@@ -1,0 +1,7 @@
+yamlns
+requests
+pygments
+typer
+python-dotenv
+pytest
+pytest-cov<4
