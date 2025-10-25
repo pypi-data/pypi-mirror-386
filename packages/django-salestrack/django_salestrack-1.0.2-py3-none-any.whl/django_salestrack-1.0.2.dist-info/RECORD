@@ -1,0 +1,11 @@
+django_salestrack-1.0.2.dist-info/licenses/LICENSE,sha256=uWAIjTiA6dajersqS-SjENa_HW6lsFyrrPgvcgyM5ww,1079
+salestrack/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+salestrack/apps.py,sha256=1y7-hotsfkaZfeNNbxH7YBK8K0tiQqFe1O2e_oVnCsE,152
+salestrack/urls.py,sha256=u4UnPXjDiAXvZ_I6EjRfkBJdjuVMC8VwXxFgnvMgq7c,329
+salestrack/utils.py,sha256=vMZZt6O5SJt2nmSRSdMbTIWcVBRldKOoLviyXOqWzac,4640
+salestrack/views.py,sha256=Hzuo0Sg5-Ri7ULkIsE6kjrKHV8xccMlAbKszGVbT1mY,23180
+salestrack/templates/salestrack/home.html,sha256=ozsWryLjcCQi5GObaRhS2eywgfILIe8Hb4HiwzlWn0A,47448
+django_salestrack-1.0.2.dist-info/METADATA,sha256=_u9f2P35xeDF1oc0XFiHXb6IwQXbqjaShcOrhKXO3so,14783
+django_salestrack-1.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+django_salestrack-1.0.2.dist-info/top_level.txt,sha256=woGQVS5tvKsgqm9MbikUuYwRvgpRSB_VyZdTiVHAv1U,11
+django_salestrack-1.0.2.dist-info/RECORD,,
