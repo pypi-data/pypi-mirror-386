@@ -1,0 +1,189 @@
+# pantsonfire 🔥
+
+Find wrong information in technical documentation online. A tool for detecting outdated, incorrect, or deprecated information in blog posts and technical articles by cross-referencing against official documentation.
+
+## ✨ Key Features
+
+- **🧠 Natural Language Analysis**: Use simple English commands like "find outdated API info on tech blogs"
+- **🕷️ Intelligent Web Crawling**: Automatically discover similar issues across entire websites
+- **📚 Oxen AI Integration**: Versioned, traceable storage with complete audit trails
+- **🔍 Multi-Level Detection**: Pattern matching + AI-powered analysis for comprehensive coverage
+- **🌐 Universal Sources**: Websites, GitHub repos, documentation sites, local files
+- **📊 Rich Reporting**: Browser-integrated reports with JSON/CSV export
+- **🚀 Dual Analysis Modes**: Basic pattern matching or full LLM analysis via OpenRouter
+- **🔗 Automatic Report Opening**: Direct links to versioned analysis results
+
+## Installation
+
+```bash
+pip install -e .
+```
+
+### Environment Setup
+
+Create a `.env` file or set environment variables:
+
+```bash
+# For LLM analysis (optional - falls back to pattern matching)
+OPENROUTER_API_KEY=your_openrouter_key_here
+
+# For Oxen AI storage (optional - uses local storage if not set)
+OXEN_API_KEY=your_oxen_key_here
+```
+
+## 🚀 Quick Start
+
+### Natural Language Analysis
+
+```bash
+# Analyze a website for outdated information
+pantsonfire analyze "find outdated API references on python-requests blog posts" --crawl --openrouter --open-report
+```
+
+### Traditional Analysis
+
+```bash
+# Check specific content
+pantsonfire --mode external check 
+    "https://blog.example.com/outdated-tutorial" 
+    "https://docs.example.com/current-api" 
+    --crawl --open-report
+```
+
+## 📚 Oxen AI Integration
+
+Pantsonfire uses [Oxen AI](https://oxen.ai) for versioned, traceable data storage:
+
+- **Automatic Repository Creation**: Each analysis gets its own Oxen repository
+- **Versioned Branches**: Findings stored in timestamped branches
+- **Complete Traceability**: All prompts, content, and metadata preserved
+- **Web Interface**: Direct links to browse analysis results
+- **Collaborative**: Multiple analysts can contribute to findings
+
+### Storage Structure
+
+```
+your-namespace/
+├── analysis_check_20241023_143052/
+│   ├── data/
+│   │   ├── findings.json
+│   │   └── findings.csv
+│   ├── reports/
+│   │   └── findings.txt
+│   ├── sources/
+│   │   ├── extracted_content.txt
+│   └── metadata/
+│       └── analysis_metadata.json
+```
+
+## Configuration
+
+1. Get an OpenRouter API key from [openrouter.ai/keys](https://openrouter.ai/keys)
+2. Set your API key:
+
+```bash
+export OPENROUTER_API_KEY="your_key_here"
+```
+
+Or create a `.env` file:
+
+```bash
+cp .env.example .env
+# Edit .env with your API key
+```
+
+## Usage
+
+### Basic Check
+
+Check a blog post against official documentation:
+
+```bash
+# Internal mode (local files)
+pantsonfire check blog_post.md official_docs.md
+
+# External mode (web URLs)
+pantsonfire --mode external check https://blog.example.com/old-post https://docs.example.com/current
+```
+
+### View Results
+
+```bash
+# View recent detections
+pantsonfire logs
+
+# Export results
+pantsonfire export results.json --format json
+pantsonfire export results.csv --format csv
+```
+
+### Configuration
+
+```bash
+# Test LLM connection
+pantsonfire config --test
+
+# View current config
+pantsonfire config
+```
+
+## Real-World Example: Oxen AI Documentation Analysis
+
+pantsonfire successfully identified outdated "Get Early Access" references across Oxen AI's website. See `oxen-ai-example.md` for a complete demonstration.
+
+### Contextual Hints
+
+Provide natural language hints to guide the LLM analysis:
+
+```bash
+pantsonfire check "blog-url" "docs-url" --hints "the beta program ended in 2024 and docs now show the production API"
+```
+
+This helps the LLM focus on specific types of changes you're looking for.
+
+### Natural Language Analysis
+
+```bash
+pantsonfire analyze "the oxen website has outdated get early access buttons for fine tuning, find all similar issues on their site" --openrouter --crawl --open-report
+```
+
+### Direct URL Analysis
+
+```bash
+pantsonfire check "https://www.oxen.ai/entry/fine-tuning-a-with-oxen-ai" \
+  "https://docs.oxen.ai/examples/fine-tuning/image_editing#kicking-off-the-fine-tune" \
+  "https://github.com/Oxen-AI/Oxen" \
+  --hints "the early access program is done and the api docs show the ground truth today" \
+  --openrouter --open-report
+```
+
+## Example Output
+
+```
+🔥 ISSUE #1
+Blog: unknown
+Truth: https://docs.oxen.ai/examples/fine-tuning/image_editing#kicking-off-the-fine-tune
+Confidence: 0.90
+Problem: References 'Get Early Access' which appears to be outdated
+Evidence: Official documentation no longer mentions 'Get Early Access'
+Time: 2025-10-23T22:52:35
+```
+
+## Architecture
+
+- **Factory Pattern**: Simple app creation with mode switching
+- **Modular Extractors**: Separate handling for local vs web content
+- **LLM Integration**: Structured prompts for factual verification
+- **Storage Backends**: Extensible result storage (JSON default)
+
+## Development
+
+Run tests:
+
+```bash
+python tests/test_sample.py
+```
+
+## License
+
+MIT
