@@ -1,0 +1,13 @@
+pyspade_native/__init__.py,sha256=FVWYOO2YOXl78CWw9EABsHSbPD3--dZINU2a-Pxj5ow,4458
+pyspade_native/__main__.py,sha256=Zp_mRCwhetBzh2VhCtTZwmMRuumaiwqoz71TPracfEU,357
+pyspade_native/bin/spade_wrapper.dll,sha256=F3p0U4VJo6kzELzkdDh4uNnXuKemFS7Io_HDMn6hlkg,8704
+pyspade_native/cmake/pyspade_native-config-version.cmake,sha256=K5occA7sAP67fu5p9z-I2Cc8wyrKqh1ar7Ig-hVxvAc,2827
+pyspade_native/cmake/pyspade_native-config.cmake,sha256=3pXYpWKw-uEAJGB0TWWwKdplrf2tRIJMLxN2Y9TTxSo,2995
+pyspade_native/include/spade_ffi.h,sha256=0mDwEjo92NKyoDcDzLIL6ZH3N0lnPib21fQCCaGn-mI,2338
+pyspade_native/include/spade_wrapper.h,sha256=H0Rfv59aHktze6KkoFF03A0AQ0o3ZQe1DcCw408mjDE,2651
+pyspade_native/lib/spade_ffi.dll,sha256=wrcPWuIOzoRcG73-SAoOJENVh0QN_d4f44A2nRjUL2U,206336
+pyspade_native/lib/spade_ffi.dll.lib,sha256=LMPcOc4hCDoJv0DxAiz4Lyry-NJjjXtPdVaixCRONHk,3702
+dtcc_pyspade_native-0.1.1.dist-info/METADATA,sha256=npo27W6FwyOS8K7T1LdC6fd68EaxUtFrlEcDiXnEZvQ,7664
+dtcc_pyspade_native-0.1.1.dist-info/WHEEL,sha256=NGU6Frf-29DEGl5ygL8EG5QcJjZoUuT3CWNCWltFATs,100
+dtcc_pyspade_native-0.1.1.dist-info/licenses/LICENSE,sha256=NCWdj8ZDaThtAaIzr7eJj1vbyJI4z-HvHvgkzxYYyk4,10563
+dtcc_pyspade_native-0.1.1.dist-info/RECORD,,
