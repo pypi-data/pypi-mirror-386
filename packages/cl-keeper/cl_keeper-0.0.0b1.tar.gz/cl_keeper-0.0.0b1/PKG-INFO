@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: cl-keeper
+Version: 0.0.0b1
+Summary: A CLI tool for keeping your changelogs tidy
+Author-email: Tamika Nomara <taminomara@gmail.com>
+License-Expression: MIT
+Project-URL: Documentation, https://cl-keeper.readthedocs.io/en/stable/
+Project-URL: Issues, https://github.com/taminomara/cl-keeper/issues/
+Project-URL: Source, https://github.com/taminomara/cl-keeper/
+Project-URL: Changelog, https://github.com/taminomara/cl-keeper/blob/main/CHANGELOG.md
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Version Control :: Git
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: yuio<3.0,>=2.0.0.b5
+Requires-Dist: giturlparse==0.12.0
+Requires-Dist: markdown-it-py==3.0.0
+Requires-Dist: mdformat==0.7.22
+Requires-Dist: mdformat-gfm==0.4.1
+Requires-Dist: mdformat_footnote==0.1.1
+Requires-Dist: mdformat_frontmatter==2.0.8
+Requires-Dist: mdformat_gfm_alerts==2.0.0
+Requires-Dist: mdformat_tables==1.0.0
+Requires-Dist: semver==3.0.4
+Requires-Dist: packaging==25.0
+Requires-Dist: PyYAML==6.0.3
+Dynamic: license-file
+
+# cl-keeper
+
+Work in progress...

@@ -1,0 +1,2 @@
+[console_scripts]
+chk = cl_keeper.app:main.run
