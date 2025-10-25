@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+recursive-include cli_task_manager *.py
+recursive-include tests *.py
+recursive-include docs *.md *.rst *.txt
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .DS_Store
