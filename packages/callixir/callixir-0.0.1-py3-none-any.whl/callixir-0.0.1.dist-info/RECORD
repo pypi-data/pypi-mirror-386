@@ -1,0 +1,15 @@
+callixir/__init__.py,sha256=DFztRiIVb9qPNTTwnDwO3mUmUGATD0E4-mYE_7WSc7g,1188
+callixir/_command.py,sha256=MgNZl8T4BZ_-quYE1ygVlo4-AwjH8XFql6iYb3JEYXc,514
+callixir/_command_dispatcher.py,sha256=2GO5gk_4TR7JDMYtw815pdzdyiFZwjKDFxX4kd3N7IQ,1999
+callixir/_command_meta.py,sha256=W0tOX8ZF_ecgPkXz30BItkX_I5VVUEOYIsPMjkMHE4E,319
+callixir/_core.py,sha256=ZC6hBpXhXIXDV54ihgcEktB9NFgrNMRwR88pPsXmHyk,1713
+callixir/_exceptions.py,sha256=c56UeqXHZYsh-NOkKyQbU5M-g38jZKtfudhxM-RLpNo,155
+callixir/_fingerprint.py,sha256=iROsxgNe9rpZ2-WCuaLDKSk9dhi2pOVULDCbA_h65Fw,258
+callixir/dispatchers/__init__.py,sha256=RNqt4-URRa529OOjitxdgvfSogVdjmqG-hhKY9xIgqM,43
+callixir/dispatchers/sync_dispatcher.py,sha256=wPH0gmST92RNx28WSy8CLeyq3gYG0qoC-ABty4SBIPA,2031
+callixir/shells/__init__.py,sha256=6hD5dyPwpYH0Fy6aCIbOWO8TAMSePD9s4myjhttqUk0,37
+callixir/shells/simple_shell.py,sha256=c4OJqNQG8dSKdpIz3r8q6Jt6eCpsmgX44TAq9JdInhs,905
+callixir-0.0.1.dist-info/LICENSE,sha256=Z0RH8JnSkO7AiPHwGbteQGydHxvU_pm4pkpHYVXLMD0,1097
+callixir-0.0.1.dist-info/METADATA,sha256=hHvWaQ-A_k3EQqNy8UVg9T-Oza481MYEz-UoXXNsUTQ,1317
+callixir-0.0.1.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+callixir-0.0.1.dist-info/RECORD,,
