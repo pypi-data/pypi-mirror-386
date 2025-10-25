@@ -1,0 +1,9 @@
+splatstream/__init__.py,sha256=Xy-AN6g2faATE97Mbenn25npejc14nhMyWrriWAvImM,96
+splatstream/_core.cp311-win_amd64.pyd,sha256=cgYF6aOIphU_FxYjTPyawM2GQzRg93qbO5GoNbKj3HA,182272
+splatstream/rendered_image.py,sha256=sBbm4N2gWvPeOWRsmTNT3Uta2Ir0m4fQnk8Y0TzNgVc,508
+splatstream/renderer.py,sha256=Sy4UuVA-lN1XdzbKy2S51ihzasAkm05KxYeSCEblDK8,3544
+splatstream/vkgs_api.dll,sha256=TgddxV8rDVmNTSMk4AxCMFMHqSA3CX7PmM-263cT-qc,352256
+splatstream/vkgs_api.lib,sha256=rLcRYKBwJ3uHdtu8hW61MJgHLeApid9z_dlIzKgOclw,9972
+splatstream-0.0.3.dist-info/METADATA,sha256=B5Ki_KtDQtT8CJ4FOK1MCEizBRzsbh4N-AHB4k1O4jI,244
+splatstream-0.0.3.dist-info/WHEEL,sha256=oXhHG6ewLm-FNdEna2zwgy-K0KEl4claZ1ztR4VTx0I,106
+splatstream-0.0.3.dist-info/RECORD,,
