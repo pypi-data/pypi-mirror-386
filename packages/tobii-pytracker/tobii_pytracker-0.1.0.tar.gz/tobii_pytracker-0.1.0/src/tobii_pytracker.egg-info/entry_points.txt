@@ -1,0 +1,2 @@
+[console_scripts]
+tobii-pytracker = tobii_pytracker.main:cli
