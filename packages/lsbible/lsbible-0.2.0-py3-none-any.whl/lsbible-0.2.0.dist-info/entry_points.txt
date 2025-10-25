@@ -1,0 +1,2 @@
+[console_scripts]
+lsbible-mcp = lsbible.mcp.server:main
