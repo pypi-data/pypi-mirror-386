@@ -1,0 +1,13 @@
+tf_kan_latest-1.1.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+tfkan/__init__.py,sha256=Q-NcbctjwRxJxHhUPd7LdnpYmo3OBDyHlHHAGzXtXVs,5516
+tfkan/layers/__init__.py,sha256=DWfX3124IQojhasUNVeneOAxVjmBU1iX9AY9nUcLq6I,150
+tfkan/layers/base.py,sha256=rC0c5TF-Aqc0Y7NepVT38RtSogTMH6BZm-GF7DXfz-k,2269
+tfkan/layers/convolution.py,sha256=CdzJS7xG-g7o8Vkw3yvprNe2mccn4hAuem2qrd1G8b4,6478
+tfkan/layers/dense.py,sha256=z83eGyfuy15-fIVjw01GNzSaik_GepxguiPG1aLRuuo,7100
+tfkan/ops/__init__.py,sha256=oWovXG6YZsI4Xw8JVR6XfHokzuWgutW-FPnSjMkY9Yw,172
+tfkan/ops/grid.py,sha256=r1owX48VHKEdX5kYdKsbtPMSjPlJENAZg1BgENH9MHY,2526
+tfkan/ops/spline.py,sha256=X7ASKiPTxL_UzTJAnJbmFaK8aV-VpjFVKzxwKjRwCrE,3384
+tf_kan_latest-1.1.0.dist-info/METADATA,sha256=vejXyrC-35Ed_Zgtk2L_Or2Uw-dgDT2AZHYLbjgDy7Q,8342
+tf_kan_latest-1.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tf_kan_latest-1.1.0.dist-info/top_level.txt,sha256=wXvPRj832JWApEIiypzEN_HqPNo4I10FX1mTvuo_bHs,6
+tf_kan_latest-1.1.0.dist-info/RECORD,,
