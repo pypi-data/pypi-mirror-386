@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+opentelemetry_instrumentor_dramatiq/__init__.py
+opentelemetry_instrumentor_dramatiq.egg-info/PKG-INFO
+opentelemetry_instrumentor_dramatiq.egg-info/SOURCES.txt
+opentelemetry_instrumentor_dramatiq.egg-info/dependency_links.txt
+opentelemetry_instrumentor_dramatiq.egg-info/requires.txt
+opentelemetry_instrumentor_dramatiq.egg-info/top_level.txt
+opentelemetry_instrumentor_dramatiq/src/__init__.py
+opentelemetry_instrumentor_dramatiq/src/package.py
+opentelemetry_instrumentor_dramatiq/src/version.py
+tests/test_instrumentation.py
