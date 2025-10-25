@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: bragg
+Version: 0.0.0
+Summary: Bragg
+Author: Daehee Kim
+Author-email: Daehee Kim <76981513+DayNice@users.noreply.github.com>
+License-Expression: MIT
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+
+# Bragg
+
+## Development
+
+```bash
+# Create and activate virtual environment
+uv sync
+. .venv/bin/activate
+
+# Install pre-commit hooks
+pre-commit install
+```
