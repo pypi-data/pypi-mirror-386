@@ -1,0 +1,12 @@
+EdrParser_.cpython-313-x86_64-linux-gnu.so,sha256=3ihbtPh9TGxD4mqGLNhBwMRqZyE_IwaMmtUgDF75zYA,1301784
+TprParser_.cpython-313-x86_64-linux-gnu.so,sha256=6v9plW80IHg60VDo8G99yXGlr7uGVo5-X1eq-DipSU0,5337288
+TprParser/EdrReader.py,sha256=GbjZVk7Z996q9OgAgusQhynV_571d4WOtNb-GUh9IFY,608
+TprParser/TprMakeTop.py,sha256=XK9YZ_PAu7RaHFJbZmW8GtcM8JmESPerNchCNjyx-nI,7218
+TprParser/TprReader.py,sha256=5JufI37L_x2S3CJEJzXGX_MdVw9TE8w7_fuK_sQofTg,13497
+TprParser/__init__.py,sha256=_P9hWC3DhlECD9wfMqskuUJilVgdDTWMWk1CkbBwZEc,100
+TprParser/version.py,sha256=UncyNsq2xi5fwDXGnqunSpAOHSnwKGp8GVy0EIf5xZA,65
+tprparser-0.1.58.dist-info/METADATA,sha256=SMi1ULKM3Hjmd5KPObjnNT0MUrbTv6BqEgDf3JYDU-A,6625
+tprparser-0.1.58.dist-info/WHEEL,sha256=sLnxkimgGZnkHfiVG0CKXk3cbEzmkkBUHrkKJEO9o6g,151
+tprparser-0.1.58.dist-info/top_level.txt,sha256=jn4gQiOMVJxV4hJCH9znttkCb80eM5NnPk6WLN-Frj4,32
+tprparser-0.1.58.dist-info/RECORD,,
+tprparser-0.1.58.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
