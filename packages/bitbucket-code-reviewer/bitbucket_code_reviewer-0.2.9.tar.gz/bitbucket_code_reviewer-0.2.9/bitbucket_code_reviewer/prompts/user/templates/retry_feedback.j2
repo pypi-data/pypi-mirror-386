@@ -1,0 +1,50 @@
+❌ JSON PARSING ERROR DETECTED
+
+Error: {{ error_message }}
+
+{% if error_context %}
+Context around error:
+```
+...{{ error_context }}...
+```
+
+{% endif %}
+⚠️ CRITICAL: Your previous attempt had a JSON formatting error, NOT a content error.
+
+DO NOT re-investigate or make up new issues!
+DO NOT call any tools (read_file, read_diff, etc.) - you already did the investigation.
+DO NOT invent file paths for COMMENTS - use ONLY the paths from files changed in this PR:
+
+{% for path in file_paths %}
+  ✓ {{ path }}
+{% endfor %}
+
+💡 These paths are for the "file_path" field in your changes array.
+
+YOUR TASK:
+1. Take the SAME findings you already discovered in your investigation
+2. Remove any duplicates (check against previous comments using the "one fix" test)
+3. Format them as valid JSON with proper escaping
+4. Use ONLY the file paths marked with ✓ above
+5. Use the EXACT field names specified (NOT alternatives)
+
+⚠️ COMMON MISTAKES TO AVOID:
+- ❌ DON'T use "file" - use "file_path"
+- ❌ DON'T use "type" or "issue_type" - use "category"
+- ❌ DON'T use "message" - use "description"
+- ❌ DON'T use "proposed_fix" - use "suggestion"
+- ❌ DON'T omit ANY of the 11 required fields
+- ❌ DON'T make title longer than 80 characters (keep it SHORT!)
+
+✅ REQUIRED FIELDS (ALL 11 in EVERY change object):
+file_path, start_line, end_line, severity, category, title, description, suggestion, code_snippet, suggested_code, rationale
+
+Requirements for the JSON:
+- All strings must be properly escaped (especially quotes, newlines, backslashes)
+- All brackets and braces must be balanced
+- No trailing commas in arrays or objects
+- Valid JSON structure throughout
+- Use ONLY file paths from the ✓ list above
+
+Generate the corrected JSON now (ONLY valid JSON, no markdown or explanations):
+
