@@ -1,0 +1,2 @@
+[console_scripts]
+bella = bella_companion.cli:main
