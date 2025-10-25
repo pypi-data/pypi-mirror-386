@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: harp-protocol
+Version: 0.4.0
+Summary: Library with the base types for Harp protocol usage.
+Keywords: python,harp
+Author: Hardware and Software Platform, Champalimaud Foundation
+Author-email: Hardware and Software Platform, Champalimaud Foundation <software@research.fchampalimaud.org>
+License-Expression: MIT
+Requires-Python: >=3.10, <4.0
