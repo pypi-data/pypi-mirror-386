@@ -1,0 +1,16 @@
+langmiddle/__init__.py,sha256=1earWBV0_Aq2znorapeS9kuemFTd12AQJMJ98QDTNr4,436
+langmiddle/history.py,sha256=4H3bS001UF3BpUo3selR77PGpauCgRQZ8RtXkYMtVdk,13198
+langmiddle/py.typed,sha256=Ptrx6PU2H815JHZJxESj27JOVQfc2UJgWY2kf89qCX8,73
+langmiddle/storage/__init__.py,sha256=od5KiWTwU6OrUBceaNuDdNPPsi9uYcIsUD6OVHRhH2k,8789
+langmiddle/storage/base.py,sha256=ZNKbG7C3TIb2_EsTAhF34rGFE72ie81IiQ8q2j1-cuk,2253
+langmiddle/storage/firebase_backend.py,sha256=_Qhtvnqj5AVg-Y9MSglKsp2FW6SZAJAXV5yO4Us5B50,7960
+langmiddle/storage/sqlite_backend.py,sha256=4FQWwlzu2eAkGsiwdqhZJyYEYHUjI-V2MOAkoj9sHeU,10538
+langmiddle/storage/supabase_backend.py,sha256=ry-C0pfCQ5C9S0CInyx8b2YoKEWpnR8Rvy3THezGO5g,14318
+langmiddle/storage/supabase/chat_messages.sql,sha256=z29IclDT41lm5y-3K4stCWDuEl1-vgWKJOoB3HmpE_4,1274
+langmiddle/storage/supabase/chat_threads.sql,sha256=j77qdFM9q3AnnxTGbil3prnD48K7pqFKnLDqJxLrCt0,926
+langmiddle/utils/logging.py,sha256=WWGpUdy_7B2OH-vwKUerdf9qrn3_TLuK-I1dpEhc3Xw,10146
+langmiddle-0.1.1a1.dist-info/licenses/LICENSE,sha256=X2q6R1wlQbmJAhbRgxXz5pkmgh02SDq28EQWbRJS5Dk,1067
+langmiddle-0.1.1a1.dist-info/METADATA,sha256=f8Zs7QEsbG_Ng3eQrAHcO9mxZWNHc6Gvl5GE87GAQpQ,4901
+langmiddle-0.1.1a1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+langmiddle-0.1.1a1.dist-info/top_level.txt,sha256=gMq5yhHCbrKtbvM0Fw6EzmYnmTwhnghEWNmGwVdZ-Jw,11
+langmiddle-0.1.1a1.dist-info/RECORD,,
