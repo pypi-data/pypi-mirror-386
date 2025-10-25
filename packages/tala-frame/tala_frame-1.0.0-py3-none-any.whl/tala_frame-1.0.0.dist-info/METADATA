@@ -1,0 +1,96 @@
+Metadata-Version: 2.4
+Name: tala-frame
+Version: 1.0.0
+Summary: Vue.js-like framework for Python - Build modern web apps with Python syntax
+Home-page: https://github.com/tala/tala
+Author: Tala Team
+Author-email: hello@tala.dev
+License: MIT
+Project-URL: Homepage, https://tala.dev
+Project-URL: Documentation, https://docs.tala.dev
+Project-URL: Repository, https://github.com/tala/tala
+Project-URL: Bug Reports, https://github.com/tala/tala/issues
+Project-URL: Changelog, https://github.com/tala/tala/releases
+Keywords: vue,frontend,framework,reactive,web,components,python,javascript,spa,router
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: watchdog>=2.0.0
+Requires-Dist: click>=8.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=3.0; extra == "dev"
+Requires-Dist: black>=22.0; extra == "dev"
+Requires-Dist: flake8>=4.0; extra == "dev"
+Requires-Dist: mypy>=0.900; extra == "dev"
+Requires-Dist: twine>=4.0; extra == "dev"
+Requires-Dist: build>=0.7; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: mkdocs>=1.4; extra == "docs"
+Requires-Dist: mkdocs-material>=8.0; extra == "docs"
+Provides-Extra: full
+Requires-Dist: watchdog>=2.0.0; extra == "full"
+Requires-Dist: aiohttp>=3.8.0; extra == "full"
+Requires-Dist: Jinja2>=3.0.0; extra == "full"
+Requires-Dist: click>=8.0.0; extra == "full"
+Requires-Dist: colorama>=0.4.0; extra == "full"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: platform
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Tala Framework
+
+A Vue.js-like framework for Python lovers.
+
+## Features
+
+- 🎯 **Vue-like Syntax**: Familiar .tala files with template, script, and style sections
+- ⚡ **Reactive System**: Full reactivity with ref, reactive, computed, and watch
+- 🧩 **Component Based**: Build reusable components with props and events
+- 🚦 **Router Included**: Client-side routing with RouterView and RouterLink
+- 🛠 **CLI Tools**: Create, develop, build, and serve your apps
+- 🔥 **Hot Reload**: Instant updates during development
+
+## Quick Start
+
+```bash
+# Install Tala
+pip install tala
+
+# Create a new project
+tala create my-app
+cd my-app
+
+# Start development server
+tala dev
+
+# Build for production
+tala build
+
+# Serve production build
+tala serve
