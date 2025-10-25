@@ -1,0 +1,2 @@
+[console_script]
+osonbot = osonbot.cli:app
