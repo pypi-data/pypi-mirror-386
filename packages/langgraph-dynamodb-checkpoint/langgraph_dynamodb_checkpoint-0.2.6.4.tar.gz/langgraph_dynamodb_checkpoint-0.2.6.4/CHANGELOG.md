@@ -1,0 +1,32 @@
+# Changelog
+
+All changes to this project will be documented in this file.
+
+## [0.2.6.4]
+### Changed
+- Compatibility with langgraph 1.0.1
+
+## [0.2.6.2]
+### Changed
+- Logger added
+- Interrupt functionality fix
+
+## [0.2.6]
+### Changed
+- Async support
+
+## [0.2.2] - 2025-04-04
+### Added
+- TTL Support
+- Fix with Delete
+- Fix for list method
+- DynamoDB sort key fix
+
+## [0.2.0] - 2025-03-03
+### Added
+- Implements Delete
+- encoding bug fix
+
+## [0.1.5]
+### Changed
+- Initial Release
