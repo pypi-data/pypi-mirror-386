@@ -1,0 +1,73 @@
+"""
+web_search tool for EvenAge agents.
+
+Uses Serper.dev API for real web search results.
+"""
+
+from typing import Any
+import os
+import json
+
+
+def run(params: dict[str, Any] | None = None) -> str:
+    """
+    Search the web using Serper.dev API.
+
+    Args:
+        params: Tool parameters
+            - query: Search query string
+            - max_results: Maximum number of results to return (default: 5)
+
+    Environment:
+        SERPER_API_KEY: Your Serper.dev API key (get from https://serper.dev)
+        
+    Returns:
+        str: Formatted search results
+    """
+    params = params or {}
+    query = params.get("query", "")
+    max_results = int(params.get("max_results", 5))
+    api_key = os.getenv("SERPER_API_KEY")
+
+    if not api_key:
+        return (
+            "Error: SERPER_API_KEY not set. "
+            "Get your API key from https://serper.dev and add it to .env"
+        )
+
+    try:
+        import requests
+
+        url = "https://google.serper.dev/search"
+        payload = json.dumps({
+            "q": query,
+            "num": max_results
+        })
+        headers = {
+            "X-API-KEY": api_key,
+            "Content-Type": "application/json"
+        }
+
+        response = requests.post(url, headers=headers, data=payload, timeout=10)
+        response.raise_for_status()
+
+        data = response.json()
+
+        # Format results
+        results = []
+        if "organic" in data:
+            for idx, item in enumerate(data.get("organic", [])[:max_results], 1):
+                title = item.get("title", "")
+                link = item.get("link", "")
+                snippet = item.get("snippet", "")
+                results.append(f"{idx}. {title}\n   {snippet}\n   {link}")
+
+        if not results:
+            return f"No results found for query: {query}"
+
+        return "\n\n".join(results)
+
+    except ImportError:
+        return "Error: requests library not installed. Run: pip install requests"
+    except Exception as e:
+        return f"Error searching web: {str(e)}"

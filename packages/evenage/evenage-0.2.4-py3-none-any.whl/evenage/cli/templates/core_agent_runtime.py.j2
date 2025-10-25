@@ -1,0 +1,18 @@
+try:
+    from evenage.core.agent_base import AgentBase
+except ImportError:  # pragma: no cover
+    from evenage.core.agent import Agent as AgentBase
+from .message_bus import MessageBus
+from .database import DatabaseService
+
+
+class Agent(AgentBase):
+    """Project-specific agent runtime.
+    
+    Extends AgentBase with project-specific message bus and database connections.
+    """
+
+    def __init__(self, config, llm=None, tools=None):
+        super().__init__(config, llm, tools)
+        self.bus = MessageBus(config.redis_url)
+        self.db = DatabaseService(config.database_url)

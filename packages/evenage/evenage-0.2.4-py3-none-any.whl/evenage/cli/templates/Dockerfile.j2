@@ -1,0 +1,26 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    postgresql-client \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install evenage library
+# For development: Copy local library to use latest changes
+# For production: Use PyPI version (comment out COPY line, uncomment RUN line below)
+COPY ../lib/evenage /tmp/evenage
+RUN pip install --no-cache-dir /tmp/evenage && rm -rf /tmp/evenage
+# RUN pip install --no-cache-dir evenage
+
+# Install additional Python dependencies (from requirements.txt)
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code (project files mounted in dev via volumes)
+COPY . .
+
+CMD ["python", "-m", "evenage.api.main"]
