@@ -1,0 +1,6 @@
+cryptography>=46.0.3
+pathlib>=1.0.1
+pywin32>=306
+xtlog>=0.1.9
+
+[dev]
