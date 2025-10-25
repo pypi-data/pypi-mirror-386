@@ -1,0 +1,13 @@
+dbt/adapters/rabbitbigquery/__init__.py,sha256=3VMsdB9QGfKbLi2SJ-g4PUxCS6C9aOwKRfxkaeASQAU,696
+dbt/adapters/rabbitbigquery/__version__.py,sha256=DUgqvy7DQCjOhlkT2-wTiYSkLwen7I5Uj35bhCFfibA,19
+dbt/adapters/rabbitbigquery/connections.py,sha256=EBAy25RxtPLu59B9TM68crcenm3dOtC6fc29afYYMmw,4823
+dbt/adapters/rabbitbigquery/credentials.py,sha256=7cKJ8Ru29HPL1nfriDfpzhKvX0dUq2apkYkzhrtuvVY,2184
+dbt/adapters/rabbitbigquery/impl.py,sha256=Z_wQ9mQTtqfYntK6a9eYTlg7zKPsz8Jn_xOk1Adbx1U,469
+dbt/include/rabbitbigquery/__init__.py,sha256=XPeb1kXX9AOgEpXyo1tluVxin0Qf55DkN7TRVFyomHM,53
+dbt/include/rabbitbigquery/dbt_project.yml,sha256=3VJUagjXn1-zs4w0CN8unWmW1aEcuBj-qsoAhUDk39w,193
+dbt_rabbit_bigquery-1.0.4.dist-info/licenses/LICENSE,sha256=z5FkFwXd9QmeqWfAHAJTup3MTKzEKK2aRFtdIpFFDxE,10172
+dbt_rabbit_bigquery-1.0.4.dist-info/METADATA,sha256=ttZLlvsP_pf8gxxkgUx0hx-Ds-3RJCcT8YONSbB7scE,1000
+dbt_rabbit_bigquery-1.0.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dbt_rabbit_bigquery-1.0.4.dist-info/entry_points.txt,sha256=-ZYSpiryi3s0pXgHf_kHuhHC6Usl2lCz6ybhZI8HrRU,60
+dbt_rabbit_bigquery-1.0.4.dist-info/top_level.txt,sha256=B2YH4he17ajilEWOGCKHbRcEJlCuZKwCcgFcLPntLsE,4
+dbt_rabbit_bigquery-1.0.4.dist-info/RECORD,,
