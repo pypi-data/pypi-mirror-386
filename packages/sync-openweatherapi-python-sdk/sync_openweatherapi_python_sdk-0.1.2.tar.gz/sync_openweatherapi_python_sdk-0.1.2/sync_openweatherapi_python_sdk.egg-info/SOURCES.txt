@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+openweather/__init__.py
+openweather/client.py
+openweather/endpoints.py
+openweather/exceptions.py
+openweather/models.py
+openweather/utils.py
+sync_openweatherapi_python_sdk.egg-info/PKG-INFO
+sync_openweatherapi_python_sdk.egg-info/SOURCES.txt
+sync_openweatherapi_python_sdk.egg-info/dependency_links.txt
+sync_openweatherapi_python_sdk.egg-info/requires.txt
+sync_openweatherapi_python_sdk.egg-info/top_level.txt
+tests/test_client_sync.py

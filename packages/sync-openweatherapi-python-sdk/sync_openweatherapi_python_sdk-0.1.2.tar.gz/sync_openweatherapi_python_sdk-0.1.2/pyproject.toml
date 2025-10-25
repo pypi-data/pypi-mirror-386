@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sync_openweatherapi_python_sdk"
+version = "0.1.2"
+description = "Sync-only Python SDK for OpenWeatherMap (base pattern)"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Nitin S Kulkarni" }]
+license = { text = "MIT" }
+keywords = ["openweathermap", "sdk", "weather"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "requests>=2.31",
+  "pydantic>=2.7"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "responses>=0.25",
+  "ruff>=0.6",
+  "mypy>=1.11",
+  "python-dotenv>=1.0",
+  "types-requests>=2.32"
+]
+
+[project.urls]
+Homepage = "https://github.com/nkpythondeveloper/sync_openweatherapi_python_sdk"
+Issues = "https://github.com/nkpythondeveloper/sync_openweatherapi_python_sdk/issues"
+
+[tool.setuptools]
+packages = ["openweather"]
+license-files = ["LICENSE"]
