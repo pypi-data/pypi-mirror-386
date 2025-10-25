@@ -1,0 +1,2 @@
+[console_scripts]
+xrpc = xmlrpcutils.server:simple_xrpc_controller
