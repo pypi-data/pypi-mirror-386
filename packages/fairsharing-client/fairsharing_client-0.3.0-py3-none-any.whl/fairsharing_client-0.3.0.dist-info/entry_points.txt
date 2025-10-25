@@ -1,0 +1,3 @@
+[console_scripts]
+fairsharing_client = fairsharing_client.cli:main
+
