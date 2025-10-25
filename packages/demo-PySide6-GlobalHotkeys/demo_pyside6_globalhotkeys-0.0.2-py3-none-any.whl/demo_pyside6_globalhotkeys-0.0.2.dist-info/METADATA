@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: demo-PySide6-GlobalHotkeys
+Version: 0.0.2
+Summary: Demo app for system-wide hotkeys for applications developed with PySide6.
+Author-email: develOseven <devel.oseven@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/develOseven/demo-PySide6-GlobalHotkeys
+Project-URL: Issues, https://github.com/develOseven/demo-PySide6-GlobalHotkeys/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PySide6-GlobalHotkeys
+Dynamic: license-file
+
+# Demo Global Hotkeys for PySide6 Applications
+
+An example application for the PySide6-GlobalHotkeys library https://github.com/develOseven/PySide6-GlobalHotkeys
+
+Shows hotkey presses/releases in a text box.
+Has a button to show the hotkey configuration user interface.
+
+Install the `data/demo-PySide6-GlobalHotkeys.desktop` file for it to work:
+
+```sh
+cp data/demo-PySide6-GlobalHotkeys.desktop ~/.local/share/applications/
+```
