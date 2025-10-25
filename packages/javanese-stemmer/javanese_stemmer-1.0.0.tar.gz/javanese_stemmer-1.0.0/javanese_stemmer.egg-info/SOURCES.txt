@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+javanese_stemmer/__init__.py
+javanese_stemmer/stemmer.py
+javanese_stemmer.egg-info/PKG-INFO
+javanese_stemmer.egg-info/SOURCES.txt
+javanese_stemmer.egg-info/dependency_links.txt
+javanese_stemmer.egg-info/requires.txt
+javanese_stemmer.egg-info/top_level.txt

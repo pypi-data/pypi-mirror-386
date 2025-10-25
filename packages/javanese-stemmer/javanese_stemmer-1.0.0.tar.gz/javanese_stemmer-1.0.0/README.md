@@ -1,0 +1,322 @@
+# 🇮🇩 Javanese Stemmer
+
+A comprehensive Javanese language stemmer with advanced morphophonological rules support.
+
+## ✨ Features
+
+- ✅ Comprehensive morphological analysis
+- ✅ Nasal assimilation handling (ny, ng, m, n)
+- ✅ Prefix, suffix, infix, and confix support
+- ✅ Passive and active voice transformation
+- ✅ Person marking (1st, 2nd person)
+- ✅ Phonological rule application
+- ✅ High accuracy stemming
+- ✅ Sastrawi-compatible interface
+
+## 📦 Installation
+
+```bash
+pip install javanese-stemmer
+```
+
+## 🚀 Quick Start
+
+### Basic Stemming
+
+```python
+from javanese_stemmer import stem_word
+
+# Stem a single word
+result = stem_word("mangan")
+print(result)  # Output: "pangan"
+```
+
+### Using the Stemmer Class
+
+```python
+from javanese_stemmer import JavaneseStemmerLibrary
+
+# Initialize stemmer
+stemmer = JavaneseStemmerLibrary()
+
+# Stem words
+print(stemmer.stem("mangan"))      # "pangan"
+print(stemmer.stem("dipangan"))    # "pangan"
+print(stemmer.stem("tetuku"))      # "tuku"
+print(stemmer.stem("nyapu"))       # "sapu"
+print(stemmer.stem("nggawa"))      # "gawa"
+```
+
+### Stem Sentences
+
+```python
+from javanese_stemmer import JavaneseStemmerLibrary
+
+stemmer = JavaneseStemmerLibrary()
+
+sentence = "Aku mangan sega ing warung"
+stemmed = stemmer.stem_kalimat(sentence)
+print(stemmed)
+# Output: ['aku', 'pangan', 'sega', 'ing', 'warung']
+```
+
+### Stem Text
+
+```python
+from javanese_stemmer import stem_text
+
+text = "Dheweke lagi mangan panganan enak"
+stemmed_text = stem_text(text)
+print(stemmed_text)
+```
+
+### Detailed Morphological Analysis
+
+```python
+from javanese_stemmer import JavaneseStemmerLibrary
+
+stemmer = JavaneseStemmerLibrary()
+
+# Get detailed analysis
+analysis = stemmer.stem_detailed("dipanganiake")
+print(f"Original: {analysis['original']}")
+print(f"Stem: {analysis['stem']}")
+print(f"Morphemes: {analysis['morphemes']}")
+print(f"Confidence: {analysis['confidence']}")
+```
+
+## 📖 Complete Examples
+
+### Example 1: Basic Word Stemming
+
+```python
+from javanese_stemmer import stem_word
+
+words = ["mangan", "dipangan", "panganan", "takpanganiake"]
+for word in words:
+    print(f"{word:20} → {stem_word(word)}")
+
+# Output:
+# mangan              → pangan
+# dipangan            → pangan
+# panganan            → pangan
+# takpanganiake       → pangan
+```
+
+### Example 2: Batch Processing
+
+```python
+from javanese_stemmer import JavaneseStemmerLibrary
+
+stemmer = JavaneseStemmerLibrary()
+
+sentences = [
+    "Aku mangan sega",
+    "Dheweke lagi turu",
+    "Bocah-bocah dolanan ing alun-alun"
+]
+
+for sentence in sentences:
+    stemmed = stemmer.stem_kalimat(sentence)
+    print(f"{sentence:40} → {' '.join(stemmed)}")
+```
+
+### Example 3: Document Processing
+
+```python
+from javanese_stemmer import JavaneseStemmerLibrary
+
+stemmer = JavaneseStemmerLibrary()
+
+document = """
+Jawa iku basa sing sugih. Akeh wong nganggo basa Jawa
+kanggo komunikasi saben dina. Basa Jawa nduweni tataran
+krama lan ngoko.
+"""
+
+result = stemmer.process_document(document, detailed=True)
+print(f"Total words: {result['document_stats']['total_words']}")
+print(f"Unique stems: {result['document_stats']['unique_stems']}")
+```
+
+## 🔧 API Reference
+
+### Main Functions
+
+#### `stem_word(word: str) -> str`
+Quickly stem a single word.
+
+**Parameters:**
+- `word` (str): Word to stem
+
+**Returns:**
+- str: Stemmed word
+
+#### `stem_sentence(sentence: str) -> list`
+Stem all words in a sentence.
+
+**Parameters:**
+- `sentence` (str): Sentence to stem
+
+**Returns:**
+- list: List of stemmed words
+
+#### `stem_text(text: str) -> str`
+Stem entire text while preserving structure.
+
+**Parameters:**
+- `text` (str): Text to stem
+
+**Returns:**
+- str: Text with all words stemmed
+
+### Classes
+
+#### `JavaneseStemmerLibrary`
+Main stemmer class with Sastrawi-compatible interface.
+
+**Methods:**
+
+##### `stem(word: str) -> str`
+Stem a single word.
+
+##### `stem_kalimat(sentence: str) -> list`
+Stem a sentence and return list of stemmed words.
+
+##### `stem_text(text: str) -> str`
+Stem text while preserving structure.
+
+##### `stem_detailed(word: str) -> dict`
+Get detailed morphological analysis.
+
+**Returns:**
+```python
+{
+    'original': str,
+    'stem': str,
+    'morphemes': list,
+    'transformations': list,
+    'confidence': float
+}
+```
+
+##### `process_document(text: str, detailed: bool = False) -> dict`
+Process entire document with statistics.
+
+**Returns:**
+```python
+{
+    'processed_sentences': list,
+    'document_stats': {
+        'total_words': int,
+        'unique_stems': int,
+        'total_sentences': int
+    }
+}
+```
+
+#### `StemmerFactory`
+Factory class for creating stemmer instances.
+
+```python
+from javanese_stemmer import StemmerFactory
+
+stemmer = StemmerFactory.create_stemmer()
+```
+
+## 🎯 Supported Features
+
+### Nasal Prefixes
+- `ny-` (nyapu → sapu, nyuci → suci)
+- `ng-` (nggawa → gawa, nggambar → gambar)
+- `m-` (mangan → pangan, mbanyu → banyu)
+- `n-` (nulis → tulis, nduweni → duweni)
+- `nge-` (ngelak → elak)
+
+### Passive Prefixes
+- `di-` (dipangan → pangan)
+- `dipun-` (dipunpangan → pangan, formal)
+- `ka-` (kapangan → pangan, archaic)
+- `ke-` (kepangan → pangan, accidental)
+
+### Active Prefixes (Person Marking)
+- `tak-` (1st person informal: takpangan → pangan)
+- `dak-` (1st person very informal: dakpangan → pangan)
+- `kok-` (2nd person informal: kokpangan → pangan)
+
+### Other Prefixes
+- `pa-` (pasugihan → sugih)
+- `pi-` (piandel → andel)
+- `pra-` (pramugari → mugari)
+- `sa-` (saperlu → perlu)
+- `tar-` (taruban → uban)
+
+### Suffixes
+- `-ake` (panganiake → pangan)
+- `-e` (pangane → pangan)
+- `-i` (pangani → pangan)
+- `-an` (panganan → pangan)
+- `-en` (panganen → pangan)
+- `-na` (panganna → pangan)
+
+### Confixes (Prefix + Suffix combinations)
+- `pa-...-an` (pasugihan → sugih)
+- `ka-...-an` (kabahagiaan → bahagia)
+- `di-...-ake` (dipanganiake → pangan)
+- `tak-...-ake` (takpanganiake → pangan)
+- `ke-...-an` (kepanasan → panas)
+- `sa-...-e` (sagedhene → gedhe)
+
+### Infixes
+- `-in-` (tinulis → tulis)
+- `-um-` (kumaput → kaput)
+
+## 🧪 Technical Details
+
+This stemmer implements:
+- **Comprehensive morphophonological rules** for Javanese
+- **Nasal assimilation patterns** (m, n, ny, ng)
+- **Vowel harmony** considerations
+- **Consonant cluster** handling
+- **Etymology tracking**
+- **Confidence scoring** for stem accuracy
+- **Recursive affix** removal
+- **Irregular word** handling
+
+## 💻 Requirements
+
+- Python >= 3.7
+- pandas >= 1.0.0
+
+## 📝 License
+
+MIT License
+
+Copyright (c) 2025 Stevia Anlena Putri
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Contact
+
+For questions and feedback:
+- Email: your.email@example.com
+- GitHub: https://github.com/yourusername/javanese-stemmer
+
+## 🙏 Acknowledgments
+
+Special thanks to the Javanese linguistics community and all contributors to Javanese NLP research.
+
+## 📚 Citation
+
+If you use this stemmer in your research, please cite:
+
+```bibtex
+@software{javanese_stemmer,
+  title={Javanese Stemmer: A Comprehensive Morphological Analyzer},
+  author={Stevia Anlena Putri},
+  year={2025},
+  url={https://github.com/yourusername/javanese-stemmer}
+}
+```
