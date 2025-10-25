@@ -1,0 +1,46 @@
+[project]
+name = "obsidian-base-logger"
+version = "0.1.0"
+description = "A CLI tool that wraps shell processes and logs execution metadata to Obsidian-compatible Markdown files"
+authors = [
+    {name = "obsidian-base-logger contributors"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "psutil>=5.9.0",
+]
+
+[project.scripts]
+obsidian-base-logger = "obsidian_base_logger.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=obsidian_base_logger --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "**/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
