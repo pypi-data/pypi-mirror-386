@@ -1,0 +1,17 @@
+czekitout
+
+[all]
+fancytypes[docs,examples,tests]
+
+[docs]
+sphinx
+sphinx_rtd_theme
+sphinx-autodoc-typehints
+numpydoc
+docutils
+
+[examples]
+jupyter
+
+[tests]
+pytest-cov
