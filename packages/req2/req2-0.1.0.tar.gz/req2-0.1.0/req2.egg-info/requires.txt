@@ -1,0 +1,7 @@
+pycurl>=7.45.3
+
+[dev]
+pytest>=7.0
+
+[docs]
+sphinx>=7.0

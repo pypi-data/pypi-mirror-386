@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+req2/__init__.py
+req2/adapters.py
+req2/exceptions.py
+req2/models.py
+req2/sessions.py
+req2/utils.py
+req2.egg-info/PKG-INFO
+req2.egg-info/SOURCES.txt
+req2.egg-info/dependency_links.txt
+req2.egg-info/requires.txt
+req2.egg-info/top_level.txt
+tests/test_timings.py
