@@ -1,0 +1,14 @@
+audiocomplib/audio_dynamics.py,sha256=phWuh4pLK8oOVQk19HA0_CLlJR-zgvFnMZyU9Aytsqo,11331
+audiocomplib/smooth_gain_reduction.cpython-311-x86_64-linux-gnu.so,sha256=VIys9oNeRlbnbDMEm4oYhIGxqbuPskPnnwXdkU5qgWE,355840
+audiocomplib/audio_compressor.py,sha256=FSJrrn8xU85iMcrOLyr30hVOCRC9dpp3owQ74ZRSp58,4834
+audiocomplib/smooth_gain_reduction_py.py,sha256=F9TZ0oyh3HGstkSlexxHa6rjmXfhop7iAm05vhqPEDY,1450
+audiocomplib/smooth_gain_reduction.pyx,sha256=rYnY7oDwdE8VIfVZ2Vd4geAlTfAtxCmlKzFXEsGJyFU,2372
+audiocomplib/smooth_gain_reduction.c,sha256=ReXkUN62sHfBcrn7qxWWnbXhfHFCYB8eRQMbuOZjfg4,483943
+audiocomplib/__init__.py,sha256=asVEL5Omsr6rRMOPjx3JUBoFug3E3vTf0FmrkM8Dl9k,129
+audiocomplib/peak_limiter.py,sha256=d8JJwBsm3K7nGkdTYaqLSleUBDLv4YebEkabvU5O3l8,4784
+audiocomplib/smooth_gain_reduction_init.py,sha256=HxT-CjbK_lHQ2_wbElecIgBOltN1TerkZzV8Kda8f5s,776
+audiocomplib-0.2.0.dist-info/WHEEL,sha256=MerhEK-QOqn9qFOPGOxLHYkz8Z6eRdDuoFfdt4pMQf0,224
+audiocomplib-0.2.0.dist-info/top_level.txt,sha256=ckNmYgRoFJ_A3EJ7X_6hEIiy8SHtNJnfX_87esvTByE,13
+audiocomplib-0.2.0.dist-info/METADATA,sha256=6PIjUGyrM_aWJOziXzzg4pMbTcRgmK5NVQkGqR29Bwc,11699
+audiocomplib-0.2.0.dist-info/RECORD,,
+audiocomplib-0.2.0.dist-info/licenses/LICENSE,sha256=IgtP-6QFef_ipeXWoJTzCy1MHFG7902EFrdOstcizNg,1072
