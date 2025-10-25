@@ -1,0 +1,3 @@
+[console_scripts]
+talkdo = cli_task_manager.cli:app
+talkdo-daemon = cli_task_manager.daemon:main
