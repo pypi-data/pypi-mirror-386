@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+src/mcp_openwebui_demo/__init__.py
+src/mcp_openwebui_demo/__main__.py
+src/mcp_openwebui_demo/exampple-server-http.py
+src/mcp_openwebui_demo/functions.py
+src/mcp_openwebui_demo/mcp_main.py
+src/mcp_openwebui_demo.egg-info/PKG-INFO
+src/mcp_openwebui_demo.egg-info/SOURCES.txt
+src/mcp_openwebui_demo.egg-info/dependency_links.txt
+src/mcp_openwebui_demo.egg-info/entry_points.txt
+src/mcp_openwebui_demo.egg-info/requires.txt
+src/mcp_openwebui_demo.egg-info/top_level.txt
