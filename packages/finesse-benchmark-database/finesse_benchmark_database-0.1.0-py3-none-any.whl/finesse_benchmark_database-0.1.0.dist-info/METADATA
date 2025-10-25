@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: finesse-benchmark-database
+Version: 0.1.0
+Summary: Data generation factory for atomic probes in Finesse benchmark. Generates probes_atomic.jsonl from Wikimedia Wikipedia.
+License-File: licence
+Author: winter.sci.dev
+Author-email: enzoescipy@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: datasets (>=4.3.0,<5.0.0)
+Requires-Dist: torch (>=2.1.0,<3.0.0)
+Requires-Dist: transformers (>=4.35.0,<5.0.0)
+Description-Content-Type: text/markdown
+
+---
+license: apache-2.0
+---
+
