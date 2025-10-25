@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+distry/__init__.py
+distry/client.py
+distry/exceptions.py
+distry/worker.py
+distry_py.egg-info/PKG-INFO
+distry_py.egg-info/SOURCES.txt
+distry_py.egg-info/dependency_links.txt
+distry_py.egg-info/entry_points.txt
+distry_py.egg-info/requires.txt
+distry_py.egg-info/top_level.txt
+tests/test_client.py
+tests/test_decorator.py
+tests/test_worker.py
