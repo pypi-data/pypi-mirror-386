@@ -1,0 +1,64 @@
+---
+license: apache-2.0
+---
+
+# Finesse Benchmark Database
+
+## Overview
+
+`finesse-benchmark-database` is a data generation factory for atomic probes in the Finesse benchmark. It generates `probes_atomic.jsonl` files from Wikimedia Wikipedia datasets, leveraging Hugging Face's `datasets` library, tokenizers from `transformers`, and optional PyTorch support.
+
+This tool is designed to create high-quality, language-specific probe datasets for benchmarking fine-grained understanding in NLP tasks.
+
+## Installation
+
+Install the package from PyPI:
+
+```bash
+pip install finesse-benchmark-database
+```
+
+Ensure you have Python 3.10+ installed.
+
+## Usage
+
+Here's a complete example of how to configure and generate a dataset:
+
+```python
+from finesse_benchmark_database.config import ProbeConfig
+from finesse_benchmark_database.main import generate_dataset
+
+# Define the configuration
+my_config = ProbeConfig(
+    languages=['en', 'ko'],  # Languages to generate probes for
+    samples_per_language=10,  # Number of samples per language (reduce for testing)
+    output_file='my_first_probes.jsonl',  # Output file path
+    seed=123  # Random seed for reproducibility
+)
+
+# Generate the dataset
+print(f"Generating '{my_config.output_file}'...")
+generate_dataset(my_config)
+print("Dataset generation completed!")
+```
+
+### Configuration Options
+
+- `languages`: List of language codes (e.g., ['en', 'ko', 'fr']).
+- `samples_per_language`: Number of probe samples to generate per language.
+- `output_file`: Path to the output JSONL file.
+- `seed`: Optional seed for deterministic results.
+
+## Requirements
+
+- `datasets`
+- `transformers`
+- `torch` (for tokenization)
+
+## License
+
+This project is licensed under the Apache-2.0 license.
+
+## Contributing
+
+Contributions are welcome! Please open issues or pull requests on the [GitHub repository](https://github.com/your-repo/finesse-benchmark-database).
