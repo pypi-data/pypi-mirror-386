@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+arcturus/__init__.py
+arcturus/arcturus-buildkit.py
+arcturus/data_arcturus.py
+arcturus_buildkit.egg-info/PKG-INFO
+arcturus_buildkit.egg-info/SOURCES.txt
+arcturus_buildkit.egg-info/dependency_links.txt
+arcturus_buildkit.egg-info/top_level.txt
