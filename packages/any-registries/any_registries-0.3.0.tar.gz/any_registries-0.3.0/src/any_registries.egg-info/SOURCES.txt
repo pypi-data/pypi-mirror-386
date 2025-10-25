@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/any_registries/__init__.py
+src/any_registries/exceptions.py
+src/any_registries/py.typed
+src/any_registries.egg-info/PKG-INFO
+src/any_registries.egg-info/SOURCES.txt
+src/any_registries.egg-info/dependency_links.txt
+src/any_registries.egg-info/requires.txt
+src/any_registries.egg-info/top_level.txt
+tests/__init__.py
+tests/test_registry.py
