@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/qtqp/__init__.py
+src/qtqp/direct.py
+src/qtqp.egg-info/PKG-INFO
+src/qtqp.egg-info/SOURCES.txt
+src/qtqp.egg-info/dependency_links.txt
+src/qtqp.egg-info/requires.txt
+src/qtqp.egg-info/top_level.txt
+tests/test_qtqp.py
