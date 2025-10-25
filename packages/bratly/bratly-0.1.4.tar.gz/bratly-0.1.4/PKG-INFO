@@ -1,0 +1,11 @@
+Metadata-Version: 2.3
+Name: bratly
+Version: 0.1.4
+Summary: a simple Python library to create, manipulate, compare (collections of) annotated documents in Brat standoff format
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: bratly-io-fs ; extra == 'eval'
+Requires-Dist: bratly-eval ; extra == 'eval'
+Requires-Dist: bratly-io-fs ; extra == 'io'
+Requires-Python: >=3.10
+Provides-Extra: eval
+Provides-Extra: io

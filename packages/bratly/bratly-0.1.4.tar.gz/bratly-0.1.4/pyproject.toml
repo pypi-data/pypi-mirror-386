@@ -1,0 +1,21 @@
+[project]
+name = "bratly"
+version = "0.1.4"
+description = "a simple Python library to create, manipulate, compare (collections of) annotated documents in Brat standoff format"
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.10.6"]
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+bratly-io-fs = { workspace = true }
+bratly-eval = { workspace = true }
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[project.optional-dependencies]
+io = ["bratly-io-fs"]
+eval = ["bratly-io-fs", "bratly-eval"]
