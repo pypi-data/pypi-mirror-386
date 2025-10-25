@@ -1,0 +1,14 @@
+codicodec/__init__.py,sha256=129KM0IEeWTdFFEJSWPrELWr3zqFaEHX50Fy-9jlCpM,37
+codicodec/audio.py,sha256=aMAR6Df50GDKt-N4ukKPOJkNwBbX6fg-9NUbORZ68KI,9910
+codicodec/hparams.py,sha256=7hjM0jvpXk94WM_3moo0R578Bv_k0Osl-2jA03iWGoI,3446
+codicodec/hparams_inference.py,sha256=fp8CXVh9LtLvOpX5elZI6qLZ732j6VLUxAuPxunA3Qo,516
+codicodec/inference.py,sha256=Eeyh8l8NZ1ud9kDhuDLSKsW3AVdFCS2k1jiJjmhdNZA,13974
+codicodec/models.py,sha256=WP48bZ0mUfNCBHPdAC8BqAs6nxes6pWvrPiyM56gFNE,38975
+codicodec/transformer.py,sha256=a9SqrhzAVAFvFOQw7ncNhpJY3in4WcjdjnB9UuCsf88,8424
+codicodec/transformer_layers.py,sha256=2j85tVL7JMSL8wEIGJ_9Cd7-47HL02DZMQ68G5nks20,6138
+codicodec/utils.py,sha256=2ncSLPldintxfoayJB-xT-eZcLp-erwa8gceuXcjdTY,9278
+codicodec-0.1.1.dist-info/LICENSE,sha256=OVxq-_9vc4-H_BXAMdPRGXS620NOVzXUB3yjAqSbMlM,18758
+codicodec-0.1.1.dist-info/METADATA,sha256=Tzhjz9XlRkzW4C69NeRBsGdAmFudGcyaatuwlRnnl3Q,10863
+codicodec-0.1.1.dist-info/WHEEL,sha256=yQN5g4mg4AybRjkgi-9yy4iQEFibGQmlz78Pik5Or-A,92
+codicodec-0.1.1.dist-info/top_level.txt,sha256=GIpnjJCqdE-U16LmABJy1rkR1XJCASdVx4HGMkXKq3Q,10
+codicodec-0.1.1.dist-info/RECORD,,
