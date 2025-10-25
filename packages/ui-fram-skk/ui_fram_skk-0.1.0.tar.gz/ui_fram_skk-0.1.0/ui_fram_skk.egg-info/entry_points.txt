@@ -1,0 +1,2 @@
+[console_scripts]
+ui-cli = ui.cli:main
