@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: anthology
+Version: 0.1.7
+Summary: Python Poetry Monorepo Tooling
+License: Apache-2.0
+Author: Zack Clark-Kington
+Author-email: zack@causalens.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: cffi (>=1.17.1,<2.0.0)
+Requires-Dist: cleo (>=2.1.0,<3.0.0)
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: poetry (>=1.8.2,<1.9.0)
+Requires-Dist: poetry-core (>=1.9.0,<1.10.0)
+Requires-Dist: pydantic (>=2.7.1,<3.0.0)
+Requires-Dist: tomli (>=2.0.1,<3.0.0) ; python_version < "3.11"
+Description-Content-Type: text/markdown
+
+# Anthology
+
+Anthology is a command-line tool designed to streamline common tasks in Poetry based mono-repos. It provides commands for installing dependencies, running scripts, and managing project versions.
+
+## Installation
+
+To install Anthology, use poetry:
+
+```bash
+poetry self add anthology
+```
+
+## Usage
+
+Anthology provides several commands to manage Anthology projects:
+
+```bash
+poetry anthology install [dir]
+```
+
+This command installs sub-packages defined in the Anthology project. It reads the Anthology configuration, updates package sources, locks sub-packages, generates the meta pyproject.toml document, and installs dependencies.
+
+```bash
+poetry anthology run [script_name] [args]
+```
+
+This command runs scripts defined in the Anthology project. It reads the Anthology configuration, locates the package directory, retrieves the scripts defined in the Anthology configuration for the target, and executes the specified script using subprocess.
+
+```bash
+poetry anthology version [args]
+```
+
+This command manages versioning within the Anthology project. It reads the Anthology configuration, executes 'poetry version' command in each of the sub-packages, updates package sources, locks sub-packages, extracts the version of the sub-package, and generates the meta pyproject.toml document with the updated version.
+
+## Examples
+
+To install sub-packages in the current directory:
+
+```bash
+poetry anthology install
+```
+
+To run a script named 'build' in the Anthology project:
+
+```bash
+poetry anthology run build
+```
+
+To update the version of sub-packages in the Anthology project:
+
+```bash
+poetry anthology version
+```
+
