@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "libequalizer"
+version = "1.0.0"
+description = "Квантовая синхронизация AI моделей - отечественная замена transformers и peft"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "NativeMindNONC"}
+authors = [
+    {name = "NativeMind & УРАБИ.РФ", email = "info@ураби.рф"}
+]
+maintainers = [
+    {name = "Anton Dodonov", email = "info@ураби.рф"}
+]
+keywords = [
+    "ai",
+    "machine-learning", 
+    "quantum-computing",
+    "model-synchronization",
+    "transformers",
+    "peft",
+    "import-substitution",
+    "russian-ai"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "torch>=1.13.0",
+    "numpy>=1.21.0",
+    "transformers>=4.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+crypto = [
+    "cryptography>=41.0.0",
+]
+all = [
+    "libequalizer[dev,crypto]",
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/antondodonov/libEqualizer"
+Documentation = "https://gitlab.com/antondodonov/libEqualizer/wiki"
+Repository = "https://gitlab.com/antondodonov/libEqualizer.git"
+"Bug Tracker" = "https://gitlab.com/antondodonov/libEqualizer/issues"
+
+[project.scripts]
+quantum-sync = "quantum_sync.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["quantum_sync*", "urabi*", "common*"]
+exclude = ["tests*", "docs*", "examples*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src --cov-report=html --cov-report=term"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+

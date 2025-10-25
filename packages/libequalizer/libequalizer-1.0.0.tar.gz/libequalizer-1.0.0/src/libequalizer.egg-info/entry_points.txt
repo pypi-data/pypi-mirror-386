@@ -1,0 +1,2 @@
+[console_scripts]
+quantum-sync = quantum_sync.cli:main
