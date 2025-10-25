@@ -1,0 +1,19 @@
+framework,version,device,op_name,kernel_source,quant_type,num_token,hidden_size,intermediate_size,avg_ms
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,1,7168,2048,0.04406720101833343
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,2,7168,2048,0.039638400077819824
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,4,7168,2048,0.03962239921092987
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,8,7168,2048,0.04047040045261383
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,16,7168,2048,0.03961600065231323
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,32,7168,2048,0.03498240113258362
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,64,7168,2048,0.02778240144252777
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,128,7168,2048,0.03478719890117645
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,256,7168,2048,0.046000000834465024
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,512,7168,2048,0.06051200032234192
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,1024,7168,2048,0.10130879878997803
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,2048,7168,2048,0.1898527979850769
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,4096,7168,2048,0.32144320011138916
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,8192,7168,2048,0.627558422088623
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,16384,7168,2048,1.2344063758850097
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,32768,7168,2048,2.451593589782715
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,65536,7168,2048,5.3340095520019535
+SGLang,0.5.0,NVIDIA H100,mlp,deepseek_v2_cuda_graph,fp8_block,131072,7168,2048,11.197235107421875

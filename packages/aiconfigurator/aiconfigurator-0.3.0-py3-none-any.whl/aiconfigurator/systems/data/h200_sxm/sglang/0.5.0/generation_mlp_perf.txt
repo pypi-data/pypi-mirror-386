@@ -1,0 +1,22 @@
+framework,version,device,op_name,kernel_source,quant_type,num_token,hidden_size,intermediate_size,avg_ms
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,1,7168,2048,0.04254719913005829
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,2,7168,2048,0.03639360070228577
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,4,7168,2048,0.03630400002002716
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,8,7168,2048,0.035596799850463864
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,16,7168,2048,0.03654080033302307
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,32,7168,2048,0.03223679959774017
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,64,7168,2048,0.024694399535655977
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,128,7168,2048,0.03015359938144684
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,256,7168,2048,0.03951680064201355
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,512,7168,2048,0.055113601684570315
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,1024,7168,2048,0.09145600199699402
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,2048,7168,2048,0.16857600212097168
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,4096,7168,2048,0.2890431880950928
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,8192,7168,2048,0.5631392002105713
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,16384,7168,2048,1.1071423530578612
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,32768,7168,2048,2.1803104400634767
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,65536,7168,2048,4.333404922485352
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,131072,7168,2048,9.017513275146484
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,262144,7168,2048,18.181674194335937
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,524288,7168,2048,36.278543090820314
+SGLang,0.5.0,NVIDIA H200,mlp,deepseek_v2_cuda_graph,fp8_block,1048576,7168,2048,74.14131469726563
