@@ -1,0 +1,94 @@
+[build-system]
+requires = ["uv_build>=0.9.3,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "authstar"
+module-root = ""
+
+[project]
+name = "authstar"
+version = "0.0.6"
+description = "Authstar ASGI Middleware for client authentication"
+authors = [{name = "John Wagenleitner", email = "johnwa@mail.fresnostate.edu"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["Authentication", "ASGI"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Developers",
+]
+requires-python = ">=3.12,<3.15.0"
+dependencies = []
+
+[project.urls]
+Home = "https://github.com/jowage58/authstar"
+Source = "https://github.com/jowage58/authstar"
+
+[dependency-groups]
+dev = [
+    "async-lru>=2.0.5",
+    "fastapi>=0.120.0",
+    "httptools>=0.7.1",
+    "itsdangerous>=2.2.0",
+    "joserfc>=1.4.0",
+    "mypy>=1.16.0",
+    "pydantic>=2.12.3",
+    "pytest>=8.4.2",
+    "python-multipart>=0.0.20",
+    "starlette>=0.48.0",
+    "ty>=0.0.1a24",
+    "uvicorn>=0.38.0",
+    "uvloop>=0.22.1; sys_platform == 'linux'",
+    "watchfiles>=1.1.1",
+]
+
+[tool.mypy]
+packages = ["authstar", "example"]
+strict = true
+warn_unreachable = true
+
+[tool.ruff]
+target-version = "py312"
+extend-exclude = [".*"]
+
+[tool.ruff.format]
+preview = true
+
+[tool.ruff.lint]
+select = [
+    "A",  # shadowing builtins
+    "ARG",  # unused arguments
+    "ASYNC",  # async checks
+    "B",  # bugbear
+    "C4",  # comprehensions
+    "DTZ",  # checks for naive datetimes
+    "E",  # pycodestyle (errors)
+    "ERA",  # eradicate (commented out code)
+    "F",  # Pyflakes
+    "FBT",  # boolean trap
+    "I",   # isort
+    "ISC",  # Implicit String Concat
+    "LOG",  # logging checks
+    "N",  # pep8-naming
+    "PIE",  # misc lints
+    "PL",  # Pylint
+    "PT",  # Pytest
+    "PTH",  # favor pahtlib.Path
+    "RET",  # returns
+    "RUF",  # Ruff-specific rules
+    "S",  # bandit
+    "SIM",  # simplify
+    "T20",  # print statements
+    "TRY",  # tryceratops
+    "UP",  # pyupgrade
+    "W",  # pycodestyle (warnings)
+]
+ignore = ["ISC001"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "S105"]
+
+[tool.ruff.lint.pylint]
+max-args = 10
