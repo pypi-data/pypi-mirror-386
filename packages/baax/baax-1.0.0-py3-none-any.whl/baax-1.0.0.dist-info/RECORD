@@ -1,0 +1,12 @@
+baax/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+baax/cli.py,sha256=tesiRoTrTptG9xAZU_A_P04w0owMTKM0n71nXN9TQH8,1014
+baax/scaffolder/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+baax/scaffolder/django_scaffold.py,sha256=jbG-spnGtKkBOYEaTvRIj8FvdkQM2T2-FXR5GLkppTs,717
+baax/scaffolder/fastapi_scaffold.py,sha256=uv0WmT8Hffjc_DdJLLGvS9Rnhjef8JMPpLT3hUJOWbo,683
+baax/scaffolder/flask_scaffold.py,sha256=ekVIVdIndrZZfizZNr2RSYxlfU304ObOWfCAlqSF6jM,1258
+baax-1.0.0.dist-info/licenses/LICENSE,sha256=fmp-oLGeYR0jzjH63cC-0CuianCIjqhoZmYISun7PYk,631
+baax-1.0.0.dist-info/METADATA,sha256=vb3P1MBkrnTQxGKSpWzsJO4I7r7-GuUqgcAK-E77yUY,2556
+baax-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+baax-1.0.0.dist-info/entry_points.txt,sha256=ERVrxLRNsfRYMfXr3dAWMeCGzna4SpvNuQj8zSGgl-I,39
+baax-1.0.0.dist-info/top_level.txt,sha256=ZSg6oVWMHHQu4fls3P1BBJ63NhYEs03SLtK3oVZU6dE,5
+baax-1.0.0.dist-info/RECORD,,
