@@ -1,0 +1,41 @@
+# Editor config folders
+## Vscode
+.settings/
+.project
+.vscode/
+.vs/
+## PyCharm/IntelliJ-generated files
+*.iml
+.idea/
+
+# Python cached sources
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv*/
+venv*/
+
+# Pytest and coverage
+.coverage
+.pytest/
+.pytest_cache/
+htmlcov/
+
+# Mypy Cache
+.mypy_cache/
+
+# Setuptools/twine-generated files, compiled sources.
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+*.so
+*.o
+*.pyd
+
+# Misc
+*.pem
+out/
+.cache/
+.DS_Store
