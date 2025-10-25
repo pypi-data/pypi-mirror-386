@@ -1,0 +1,271 @@
+# Define constants, variables, functions, and predicates in FOL
+
+# ----- Basic Components -----
+class Constant:
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+
+class Variable:
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+
+class Function:
+    def __init__(self, name, *args):
+        self.name = name
+        self.args = args
+
+    def __repr__(self):
+        return f"{self.name}({', '.join(map(str, self.args))})"
+
+
+class Predicate:
+    def __init__(self, name, *args):
+        self.name = name
+        self.args = args
+
+    def __repr__(self):
+        return f"{self.name}({', '.join(map(str, self.args))})"
+
+
+# ----- Quantifiers -----
+def ForAll(var, expression):
+    return f"FOR ALL {var}: {expression}"
+
+def Exists(var, expression):
+    return f"THERE EXISTS {var}: {expression}"
+
+# ----- Example Conversions -----
+# English: "John is a King"
+John = Constant("John")
+King = Predicate("King", John)
+print("1. John is a King  =>", King)
+
+# English: "John has a left leg"
+LeftLegOf = Function("LeftLegOf", John)
+Has = Predicate("Has", John, LeftLegOf)
+print("2. John has a left leg  =>", Has)
+
+# English: "John is the brother of Richard"
+Richard = Constant("Richard")
+Brother = Predicate("Brother", John, Richard)
+print("3. John is brother of Richard  =>", Brother)
+
+# English: "Everyone has a left leg"
+x = Variable("x")
+statement = ForAll(x, Predicate("Has", x, Function("LeftLegOf", x)))
+print("4. Everyone has a left leg  =>", statement)
+
+# English: "There exists a person who is King"
+y = Variable("y")
+statement2 = Exists(y, Predicate("King", y))
+print("5. There exists a person who is King  =>", statement2)
+
+# English: "Father-of(John) = Richard"
+FatherOf = Function("FatherOf", John)
+equality = f"{FatherOf} = {Richard}"
+print("6. Father of John is Richard  =>", equality)
+
+
+
+________________________________
+
+## 2
+
+_________
+
+# ----- Basic FOL Components -----
+
+# Term can be a Constant, Variable, or Function
+class Term:
+    pass
+
+
+# ---- Constant ----
+class Constant(Term):
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+
+# ---- Variable ----
+class Variable(Term):
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+
+# ---- Function (term built from other terms) ----
+class Function(Term):
+    def __init__(self, name, *args):
+        self.name = name
+        self.args = args  # list of terms
+
+    def __repr__(self):
+        return f"{self.name}({', '.join(map(str, self.args))})"
+
+
+# ---- Predicate (Atomic formula) ----
+class Predicate:
+    def __init__(self, name, *args):
+        self.name = name
+        self.args = args  # terms
+
+    def __repr__(self):
+        return f"{self.name}({', '.join(map(str, self.args))})"
+
+
+# ============================================================
+#               Example: Creating terms, variables, atoms
+# ============================================================
+
+# Constants (individuals in the world)
+john = Constant("John")
+mary = Constant("Mary")
+
+# Variables (placeholders for individuals)
+x = Variable("x")
+y = Variable("y")
+
+# Functions (return another term)
+father = Function("FatherOf", john)
+mother = Function("MotherOf", mary)
+
+# Predicates (relations or properties)
+king = Predicate("King", john)                # King(John)
+brother = Predicate("Brother", john, mary)    # Brother(John, Mary)
+has = Predicate("Has", john, Function("LeftLegOf", john))  # Has(John, LeftLegOf(John))
+
+# Display results
+print("---- Terms ----")
+print("Constant:", john)
+print("Variable:", x)
+print("Function:", father)
+
+print("\n---- Atoms ----")
+print("Predicate 1:", king)
+print("Predicate 2:", brother)
+print("Predicate 3:", has)
+
+_____________
+
+## 3 
+
+_________
+
+%pip install sympy
+
+# Install sympy if you haven't already
+%pip install sympy
+
+from sympy import symbols, Function, Eq
+from sympy.logic.boolalg import And, Or, Not, Implies, Equivalent, BooleanFunction
+
+# --- 1. Defining Variables ---
+x, y, a, b = symbols('x y a b')
+print(f"Defined variables: x={x}, y={y}, a={a}, b={b}\n")
+
+# --- 2. Defining Constants (as specific symbols or values) ---
+KingJohn = symbols('KingJohn')
+UCB = symbols('UCB')
+two = 2
+print(f"Defined constants: KingJohn={KingJohn}, UCB={UCB}, two={two}\n")
+
+# --- 3. Defining Predicates (as functions that return boolean expressions) ---
+# CORRECTED: Inherit from BooleanFunction to tell sympy these are boolean propositions
+class Brother(BooleanFunction):
+    nargs = (2,) # Specifies that Brother takes exactly 2 arguments
+class GreaterThan(BooleanFunction):
+    nargs = (2,) # Specifies that GreaterThan takes exactly 2 arguments
+class IsEven(BooleanFunction):
+    nargs = (1,) # Specifies that IsEven takes exactly 1 argument
+
+# Creating "atoms" (atomic sentences) using predicates and terms
+atom1 = Brother(KingJohn, x) # KingJohn is the brother of x
+atom2 = GreaterThan(y, two) # y is greater than 2
+atom3 = IsEven(two) # 2 is even
+atom4 = IsEven(y) # y is even
+
+print("--- Atomic Sentences (Atoms) ---")
+print(f"Brother(KingJohn, x): {atom1}")
+print(f"GreaterThan(y, 2): {atom2}")
+print(f"IsEven(2): {atom3}")
+print(f"IsEven(y): {atom4}\n")
+
+# --- 4. Defining Functions (for terms that are not variables or constants) ---
+# These are still regular Functions, as they return terms, not booleans.
+LeftLegOf = Function('LeftLegOf')
+Sqrt = Function('Sqrt')
+
+# Creating complex terms using functions
+term1 = LeftLegOf(KingJohn)
+term2 = Sqrt(a)
+term3 = LeftLegOf(LeftLegOf(UCB)) # Nested function call
+
+print("--- Complex Terms ---")
+print(f"LeftLegOf(KingJohn): {term1}")
+print(f"Sqrt(a): {term2}")
+print(f"LeftLegOf(LeftLegOf(UCB)): {term3}\n")
+
+# --- 5. Combining Atoms with Connectives to form Complex Sentences ---
+print("--- Complex Sentences using Connectives ---")
+
+# Example: Brother(KingJohn, x) AND IsEven(y)
+sentence1 = And(Brother(KingJohn, x), IsEven(y))
+print(f"Brother(KingJohn, x) AND IsEven(y): {sentence1}")
+
+# Example: NOT GreaterThan(y, 2) OR IsEven(2)
+sentence2 = Or(Not(GreaterThan(y, two)), IsEven(two))
+print(f"NOT GreaterThan(y, 2) OR IsEven(2): {sentence2}")
+
+# Example: IsEven(2) IMPLIES Brother(KingJohn, x)
+sentence3 = Implies(IsEven(two), Brother(KingJohn, x))
+print(f"IsEven(2) IMPLIES Brother(KingJohn, x): {sentence3}\n")
+
+# --- 6. Equality ---
+# Eq returns a Boolean object, so it works directly with connectives if needed.
+eq_sentence1 = Eq(x, KingJohn) # x is equal to KingJohn
+eq_sentence2 = Eq(LeftLegOf(KingJohn), term1) # LeftLegOf(KingJohn) is equal to term1 (which is LeftLegOf(KingJohn))
+eq_sentence3 = Eq(two + two, 4) # This simplifies to True
+
+print("--- Equality ---")
+print(f"x = KingJohn: {eq_sentence1}")
+print(f"LeftLegOf(KingJohn) = term1: {eq_sentence2}")
+print(f"2 + 2 = 4: {eq_sentence3}\n") # Note: Sympy's Eq is for symbolic equality, (2+2 == 4) would be Python's boolean evaluation.
+
+# --- 7. Quantifiers (Conceptual Representation) ---
+universal_quantifier_str = "FORALL"
+existential_quantifier_str = "EXISTS"
+
+print("--- Conceptual Representation of Quantifiers ---")
+# Example: FORALL x, Brother(KingJohn, x) => IsEven(LeftLegOf(x))
+# Note: Implies is written as '>>' when formatting with string, or use Implies() function
+quantified_sentence1_str = f"{universal_quantifier_str} {x}, {Implies(Brother(KingJohn, x), IsEven(LeftLegOf(x)))}"
+print(f"Universal Quantifier Example: {quantified_sentence1_str}")
+
+# Example: EXISTS y, IsEven(y) AND GreaterThan(y, 2)
+# Note: And is written as '&' when formatting with string, or use And() function
+quantified_sentence2_str = f"{existential_quantifier_str} {y}, {And(IsEven(y), GreaterThan(y, two))}"
+print(f"Existential Quantifier Example: {quantified_sentence2_str}\n")
+
+print("\n--- Summary of Concepts ---")
+print("Variables (x, y): Symbolic placeholders")
+print("Constants (KingJohn, 2): Specific individuals or values")
+print("Predicates (Brother, IsEven): Functions that assert properties or relationships, resulting in boolean atoms")
+print("Functions (LeftLegOf, Sqrt): Functions that map terms to other terms")
+print("Atoms (Brother(KingJohn, x)): Basic statements formed by predicates and terms")
+print("Terms (x, KingJohn, LeftLegOf(KingJohn)): Refer to objects in the domain")
+print("Connectives (^, _, :, ), ,): Operators for combining sentences (And, Or, Not, Implies)")
+print("Equality (=): Asserting two terms refer to the same object")
+print("Quantifiers (FORALL, EXISTS): Indicate the scope of variables (conceptually represented here)")
