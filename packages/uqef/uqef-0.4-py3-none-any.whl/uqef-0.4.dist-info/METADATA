@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: uqef
+Version: 0.4
+Summary: Framework for Efficient Uncertainty Quantification
+Home-page: https://github.com/flo2k/UQEF
+Author: Florian Kuenzner
+Author-email: florian.kuenzner@th-rosenheim.de
+License: MIT
+Keywords: uncertainty quantification
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: chaospy
+Requires-Dist: dill
+Requires-Dist: joblib
+Requires-Dist: matplotlib
+Requires-Dist: more_itertools
+Requires-Dist: mpi4py
+Requires-Dist: numpy
+Requires-Dist: psutil
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: seaborn
+Requires-Dist: setuptools
+Requires-Dist: tabulate
+Dynamic: license-file
+
+# UQEF - Uncertainty Quantification Execution Framework
+
+A framework for efficient uncertainty quantification.
