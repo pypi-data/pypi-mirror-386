@@ -1,0 +1,159 @@
+Metadata-Version: 2.4
+Name: minchin.pelican.plugins.optimize_images
+Version: 1.3.0
+Summary: This Pelican plugin optimizes images (jpg and png).
+Author-email: William Minchin <w_minchin@hotmail.com>
+Maintainer-email: William Minchin <w_minchin@hotmail.com>
+License-Expression: AGPL-3.0-only
+Project-URL: Bug Tracker, https://github.com/MinchinWeb/minchin.pelican.plugins.optimize_images/issues
+Project-URL: Repository, https://github.com/MinchinWeb/minchin.pelican.plugins.optimize_images
+Project-URL: Changelog, https://github.com/minchinweb/minchin.pelican.plugins.optimize_images/blob/master/CHANGELOG.rst
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Framework :: Pelican :: Plugins
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+Requires-Dist: pelican
+Requires-Dist: minchin.pelican.plugins.autoloader>=1.2.0
+Provides-Extra: build
+Requires-Dist: pip-tools; extra == "build"
+Requires-Dist: minchin.releaser>=0.8.2; extra == "build"
+Provides-Extra: docs
+Provides-Extra: test
+Dynamic: license-file
+
+===============
+Optimize Images
+===============
+
+``Optimize Images`` is a plugin for
+`Pelican <http://docs.getpelican.com/>`_, a static site generator written
+in Python.
+
+``Optimize Images``  applies lossless compression on JPEG and PNG images,
+with no effect on image quality. It uses jpegtran_ and OptiPNG_.
+
+.. image:: https://img.shields.io/pypi/v/minchin.pelican.plugins.optimize-images.svg?style=flat
+    :target: https://pypi.python.org/pypi/minchin.pelican.plugins.optimize-images/
+    :alt: PyPI version number
+
+.. image:: https://img.shields.io/badge/-Changelog-success
+   :target: https://github.com/MinchinWeb/minchin.pelican.plugins.optimize_images/blob/master/CHANGELOG.rst
+   :alt: Changelog
+
+.. image:: https://img.shields.io/pypi/pyversions/minchin.pelican.plugins.optimize-images?style=flat
+    :target: https://pypi.python.org/pypi/minchin.pelican.plugins.optimize-images/
+    :alt: Supported Python version
+
+.. image:: https://img.shields.io/pypi/l/minchin.pelican.plugins.optimize-images.svg?style=flat&color=green
+    :target: https://github.com/MinchinWeb/minchin.pelican.plugins.optimize_images/blob/master/LICENSE.txt
+    :alt: License
+
+.. image:: https://img.shields.io/pypi/dm/minchin.pelican.plugins.optimize-images.svg?style=flat
+    :target: https://pypi.python.org/pypi/minchin.pelican.plugins.optimize-images/
+    :alt: Download Count
+
+
+Installation
+============
+
+The easiest way to install ``Optimize Images`` is through the use of pip.
+This will also install the required Python dependencies automatically.
+
+.. code-block:: sh
+
+  pip install minchin.pelican.plugins.optimize_images
+
+It is assumed both jpegtran_ and OptiPNG_ are installed on system path.
+
+If you are using Pelican 4.5, it should automatically be activated (through my
+AutoLoader plugin). 
+
+If you are using an earlier version of Pelican or autoloading isn't working,
+then in your ``pelicanconf.py`` file, add ``Optimize Images`` to your list of
+plugins:
+
+.. code-block:: python
+
+  PLUGINS = [
+      # others...
+      "minchin.pelican.plugins.optimize_images",
+      # ...
+  ]
+
+
+Requirements
+============
+
+``Optimize Images`` depends on (and is really only useful with) Pelican.
+This can be manually installed with pip:
+
+.. code-block:: sh
+
+   pip install pelican
+
+It is assumed both jpegtran_ and OptiPNG_ are installed on system path. On
+Windows, installers are available at each respective website. On Ubuntu
+systems, the two can be installed via ``apt-get``:
+
+.. code-block:: sh
+
+  apt-get install optipng libjpeg-progs
+
+
+Configuration and Usage
+=======================
+
+The plugin will activate and optimize images upon ``finalized`` signal of
+pelican.
+
+If add ``OPTIMIZE_IMAGES_DEV_MODE = True`` to your ``pelicanconf.py``, this
+will disable the plugin, which is useful when developing your site locally.
+
+
+Known Issues
+============
+
+Image manipulation like this can take some time to run. You may consider only
+adding this plugin to your ``publishconf.py`` (rather than your base
+``pelicanconf.py``) or add ``OPTIMIZE_IMAGES_DEV_MODE = True`` to your
+``pelicanconf.py``, which will then only run this image optimization in
+preparation for site publication.
+
+An issue, as such, is that there is no formal test suite. Testing is
+currently limited to my in-use observations. I also run a basic check upon
+uploaded the package to PyPI that it can be downloaded and loaded into
+Python.
+
+The package is tested in Python 3.10; compatibility with other version of
+Python is unknown, but there should be nothing particular keeping it from
+working with other "modern" versions of Python.
+
+
+Credits
+=======
+
+Original plugin from the `Pelican-Plugins repo
+<https://github.com/getpelican/pelican-plugins>`_.
+
+
+License
+=======
+
+The plugin code is assumed to be under the AGPLv3 license (this is the
+license of the Pelican-Plugins repo).
+
+
+.. _jpegtran: http://jpegclub.org/jpegtran/ 
+.. _OptiPNG: http://optipng.sourceforge.net/
