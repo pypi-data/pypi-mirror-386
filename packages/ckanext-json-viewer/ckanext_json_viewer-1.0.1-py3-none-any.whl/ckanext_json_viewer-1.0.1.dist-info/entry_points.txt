@@ -1,0 +1,2 @@
+[ckan.plugins]
+json_viewer = ckanext.json_viewer.plugin:JsonViewerPlugin

@@ -1,0 +1,53 @@
+version: 1
+groups:
+  - annotation: ckanext-json-viewer
+    options:
+      - key: ckanext.json_viewer.default_theme
+        description: Default theme for preview
+        default: default-light
+        editable: true
+
+      - key: ckanext.json_viewer.default_max_height
+        description: Default maximum height for the JSON viewer (in pixels)
+        default: 700
+        editable: true
+
+      - key: ckanext.json_viewer.default_view_name
+        description: Default view name
+        default: JSON Viewer
+        editable: true
+
+      - key: ckanext.json_viewer.default_description
+        description: Default description
+        default: ""
+        editable: true
+
+      - key: ckanext.json_viewer.default_expand
+        description: Whether to expand all nodes by default
+        default: false
+        editable: true
+
+      - key: ckanext.json_viewer.default_indentation
+        description: Default indentation level for JSON formatting
+        default: 4
+        editable: true
+
+      - key: ckanext.json_viewer.default_show_data_types
+        description: Whether to show data types in the JSON viewer
+        default: false
+        editable: true
+
+      - key: ckanext.json_viewer.default_show_toolbar
+        description: Whether to show the toolbar in the JSON viewer
+        default: true
+        editable: true
+
+      - key: ckanext.json_viewer.default_show_copy_button
+        description: Whether to show the copy button in the JSON viewer
+        default: true
+        editable: true
+
+      - key: ckanext.json_viewer.default_show_sizes
+        description: Whether to show sizes of the JSON data
+        default: false
+        editable: true
