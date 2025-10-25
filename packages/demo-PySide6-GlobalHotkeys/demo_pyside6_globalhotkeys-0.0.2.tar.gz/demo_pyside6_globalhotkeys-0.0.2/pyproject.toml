@@ -1,0 +1,25 @@
+[project]
+name = "demo-PySide6-GlobalHotkeys"
+version = "0.0.2"
+authors = [
+  { name="develOseven", email="devel.oseven@gmail.com" },
+]
+description = "Demo app for system-wide hotkeys for applications developed with PySide6."
+readme = "README.md"
+requires-python = ">=3.10.8"
+dependencies = [
+  "PySide6-GlobalHotkeys",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.scripts]
+demo-PySide6-GlobalHotkeys = "demo_PySide6_GlobalHotkeys:main.main"
+
+[project.urls]
+Homepage = "https://github.com/develOseven/demo-PySide6-GlobalHotkeys"
+Issues = "https://github.com/develOseven/demo-PySide6-GlobalHotkeys/issues"

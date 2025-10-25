@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/demo_PySide6_GlobalHotkeys/__init__.py
+src/demo_PySide6_GlobalHotkeys/main.py
+src/demo_PySide6_GlobalHotkeys.egg-info/PKG-INFO
+src/demo_PySide6_GlobalHotkeys.egg-info/SOURCES.txt
+src/demo_PySide6_GlobalHotkeys.egg-info/dependency_links.txt
+src/demo_PySide6_GlobalHotkeys.egg-info/entry_points.txt
+src/demo_PySide6_GlobalHotkeys.egg-info/requires.txt
+src/demo_PySide6_GlobalHotkeys.egg-info/top_level.txt

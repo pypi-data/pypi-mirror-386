@@ -1,0 +1,2 @@
+[console_scripts]
+demo-PySide6-GlobalHotkeys = demo_PySide6_GlobalHotkeys:main.main
