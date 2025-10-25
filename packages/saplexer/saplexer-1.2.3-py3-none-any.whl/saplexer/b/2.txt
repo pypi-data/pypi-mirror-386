@@ -1,0 +1,143 @@
+===============
+## WORD COUNT 
+## MAPPER.PY
+==============
+
+#!/usr/bin/env python
+import sys
+
+from datetime import datetime
+
+i = 0
+
+for line in sys.stdin:
+
+    if 1-i:
+
+        i+=1
+
+        continue
+
+    line = line.strip().split(',')
+
+    date = line[1].split('-')
+
+    date = datetime(int(date[0]), int(date[1]), int(date[2]))
+
+    temp = float(line[2])
+
+    if not line:
+
+        continue
+
+        
+
+    try:
+
+         year = date.year
+
+         temp = float(temp)
+
+         print str(year)+ "\t"+str(temp)+'\t'+str(1)
+
+    except ValueError:
+
+         continue
+
+==========
+## REDUCER.py
+===========
+
+#!/usr/bin/env python
+import sys
+
+
+
+def reducer():
+
+    yearly_min = {}  
+
+    
+
+    for line in sys.stdin:
+
+        line = line.strip()
+
+        if not line:
+
+            continue
+
+        try:
+
+            year, temp, _ = line.split('\t')
+
+            temp = float(temp)
+
+            if year in yearly_min:
+
+                if temp < yearly_min[year]:
+
+                    yearly_min[year] = temp
+
+            else:
+
+                yearly_min[year] = temp
+
+                
+
+        except ValueError:
+
+            continue
+
+    coolest_year = None
+
+    coolest_temp = float('inf')
+
+    for year, temp in yearly_min.items():
+
+        if temp < coolest_temp:
+
+            coolest_temp = temp
+
+            coolest_year = year
+
+    
+
+    if coolest_year:
+
+        print "coolest year "+str(coolest_year)+"  Minimum Temperature "+str(coolest_temp)
+
+
+
+if __name__ == "__main__":
+
+    reducer()
+
+=======
+## COMMAND
+=======
+cd /home/cloudera/Weather    # adjust to where files are
+chmod +x Mapper.py Reducer.py
+
+chmod +x /home/cloudera/Weather/Mapper.py
+chmod +x /home/cloudera/Weather/Reducer.py
+dos2unix /home/cloudera/Weather/Mapper.py
+dos2unix /home/cloudera/Weather/Reducer.py
+dos2unix /home/cloudera/Weather/Weatherdata.txt
+
+
+hdfs dfs -rm -r -f /user/cloudera/weather_input
+hdfs dfs -rm -r -f /user/cloudera/weather_output
+
+hdfs dfs -mkdir -p /user/cloudera/weather_input
+
+hdfs dfs -put -f /home/cloudera/Weather/Weatherdata.txt /user/cloudera/weather_input/
+
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+  -files /home/cloudera/Weather/Mapper.py,/home/cloudera/Weather/Reducer.py \
+  -mapper "Mapper.py" \
+  -reducer "Reducer.py" \
+  -input /user/cloudera/weather_input/Weatherdata.txt \
+  -output /user/cloudera/weather_output
+
+hdfs dfs -cat /user/cloudera/weather_output/part-00000
