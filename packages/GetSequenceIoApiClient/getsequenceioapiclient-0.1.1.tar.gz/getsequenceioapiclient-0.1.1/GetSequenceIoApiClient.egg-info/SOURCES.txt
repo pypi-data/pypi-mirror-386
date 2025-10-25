@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+GetSequenceIoApiClient/__init__.py
+GetSequenceIoApiClient/client.py
+GetSequenceIoApiClient.egg-info/PKG-INFO
+GetSequenceIoApiClient.egg-info/SOURCES.txt
+GetSequenceIoApiClient.egg-info/dependency_links.txt
+GetSequenceIoApiClient.egg-info/requires.txt
+GetSequenceIoApiClient.egg-info/top_level.txt
+tests/test_client.py

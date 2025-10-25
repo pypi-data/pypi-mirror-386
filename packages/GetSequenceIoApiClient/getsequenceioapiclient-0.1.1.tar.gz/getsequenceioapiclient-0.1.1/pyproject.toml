@@ -1,0 +1,23 @@
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-asyncio"
+]
+[project]
+name = "GetSequenceIoApiClient"
+version = "0.1.1"
+description = "Async Python client for Sequence financial orchestration platform API."
+authors = [
+    { name = "Dyllan Macias", email = "DellanX@Live.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp>=3.8.0"
+]
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/DellanX/GetSequenceIoApiClient"
+Source = "https://github.com/DellanX/GetSequenceIoApiClient"
