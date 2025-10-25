@@ -1,0 +1,3 @@
+[console_scripts]
+soda = rtty_soda.main:cli
+
