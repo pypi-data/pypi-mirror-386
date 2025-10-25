@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "build", "twine"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bengali-bpe"
+version = "0.2.0"
+description = "A Byte Pair Encoding (BPE) library for the Bengali language."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+  { name = "Firoj Ahmmed Patwary", email = "firoj.stat@gmail.com" }
+]
+keywords = ["bengali", "bangla", "bpe", "tokenization", "nlp"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Natural Language :: Bengali",
+  "Topic :: Text Processing :: Linguistic",
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/firojap/bengali_bpe"
+Repository = "https://github.com/firojap/bengali_bpe"
+Issues = "https://github.com/firojap/bengali_bpe/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
