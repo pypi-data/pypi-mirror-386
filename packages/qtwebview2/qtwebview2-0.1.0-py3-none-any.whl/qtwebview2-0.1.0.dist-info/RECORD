@@ -1,0 +1,16 @@
+qtwebview2/__init__.py,sha256=SQkyr4HPf9wL15VXUSgwUXJA78jPwwMNhsebk1WrCkc,277
+qtwebview2/exceptions.py,sha256=mkpYxWdqupuvZYVLGINwLuQlgB2PyAhEkrXXzCAjSVk,1063
+qtwebview2/logger.py,sha256=JkAAuZeBowsVHf7HWzZNrHgo2FCnhTTeXPMjT3ab0LU,301
+qtwebview2/utils.py,sha256=Obu8w1wd-UbA9Miyq5NiOx9iN2FmewxAmKyk5Q2fmqY,772
+qtwebview2/widget.py,sha256=fUhj46RhacPPEup0ZbVVua2r0sD3pm9V0IaeFn3gbeg,21502
+qtwebview2/lib/Microsoft.Web.WebView2.Core.dll,sha256=y4yFL8xO9V1jC2TRcdwRU4uyUlgEHtIs8xc1mCouCeM,603712
+qtwebview2/lib/Microsoft.Web.WebView2.LICENSE.md,sha256=_PCDRZuybUJfHYBVSpK7r5JvP7kX2F-lxH1vCN0PlFg,1641
+qtwebview2/lib/Microsoft.Web.WebView2.WinForms.dll,sha256=5iBWvuKKsJQHEUS0c3EAmm-8Fi-a6hhHGfLobtUV9_g,38976
+qtwebview2/lib/runtimes/win-arm64/native/WebView2Loader.dll,sha256=J36EzZR072MC_zvJFwbMrJvHCc0ibeTb19rShXGyvAU,139840
+qtwebview2/lib/runtimes/win-x64/native/WebView2Loader.dll,sha256=JxtX4-wDxDahXYDK_rn9FhikN5MjPYsFyURvjeClG-Q,165960
+qtwebview2/lib/runtimes/win-x86/native/WebView2Loader.dll,sha256=fzYv2YzCQ61iDy0KSmwiPfgPlgxOGaLZly9K95OFZc8,116312
+qtwebview2-0.1.0.dist-info/licenses/LICENSE,sha256=kiHC-TYVm4RG0ykkn7TA8lvlEPRHODoPEzNqx5hWaKM,17099
+qtwebview2-0.1.0.dist-info/METADATA,sha256=eeVbRxBK4oValDrymBg8TPKFpxSrhnOh8NsO6A3n8CQ,26355
+qtwebview2-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+qtwebview2-0.1.0.dist-info/top_level.txt,sha256=Ty0ZmQJf0mUfMJ3TlewmxbPQXg7UYEIZ5vrObjp1S14,11
+qtwebview2-0.1.0.dist-info/RECORD,,
