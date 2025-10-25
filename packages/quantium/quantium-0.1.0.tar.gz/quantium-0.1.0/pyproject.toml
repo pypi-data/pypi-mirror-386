@@ -1,0 +1,72 @@
+# pyproject.toml (at repo root)
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantium"
+version = "0.1.0"
+description = "A modern Python library for dimensional analysis and unit-safe scientific computation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{ name = "Parneet Sidhu"}]
+keywords = [
+    "Python", "open-source",
+    "physics",
+    "numpy",
+    "unit-conversion", 
+    "dimensional-analysis", 
+    "units", 
+    "scientific-computing",
+    "quantium"
+]
+
+dependencies = [
+  "typing-extensions"
+  # "numpy>=1.26",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["quantium*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+fix = true
+unsafe-fixes = false  # only apply safe fixes by default
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I"]
+ignore = ["E203", "E266", "E501"]  # ignore long-line & a few style rules
+
+# import sorting / extra rule settings
+[tool.ruff.lint.isort]
+known-first-party = ["quantium"]
+force-sort-within-sections = true
+
+# formatter settings (if you use `ruff format`)
+[tool.ruff.format]
+quote-style = "preserve"
+indent-style = "space"
+
+
+[tool.mypy]
+# Enforce strong type checking
+strict = false
+
+# Ignore 3rd-party packages without type hints (e.g., numpy, etc.)
+ignore_missing_imports = true
+
+# Check your source directory
+files = ["quantium"]
+
+# Optional quality of life
+disallow_untyped_defs = true     # All functions must have type hints
+disallow_incomplete_defs = true  # No partial type hints
+warn_unused_ignores = true
+warn_return_any = true
