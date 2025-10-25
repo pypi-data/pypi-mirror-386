@@ -1,0 +1,110 @@
+# s1ncipher
+
+A simple cipher keeps original order and can be search partly by encode 1 byte data to many bytes. 
+
+*Note: s1ncipher designed to be a partly searchable and sortable string encode method, but after many test, we find that it may returns more result while doing partly search. New applications should NOT use this package anymore. This is kept for old applications that already using this encode method. Use `srndcipher` instead.*
+
+## Install
+
+```shell
+pip install s1ncipher
+```
+
+## Installed Utils
+
+- s1ncipher_encrypt
+- s1ncipher_decrypt
+- S1nCipher
+
+## Usage examples
+
+1. Use raw API s1ncipher_encrypt and s1ncipher_decrypt.
+
+```
+In [1]: from s1ncipher import s1ncipher_encrypt
+
+In [2]: from s1ncipher import s1ncipher_decrypt
+
+In [3]: password = "test-password"
+
+In [4]: data1 = b"plain text"
+
+In [5]: data2 = s1ncipher_encrypt(data1, password)
+
+In [6]: print(data2)
+b's:n\xeceAm\x9eq \xadwX|k\xf6Iy\x0ewX|'
+
+In [7]: data3 = s1ncipher_decrypt(data2, password)
+
+In [8]: print(data3)
+b'plain text'
+
+In [9]: data1 == data3
+Out[9]: True
+
+In [10]:
+```
+
+- Plain data must be in bytes format.
+- Encrypted data is also in bytes format.
+
+2. Use S1nCipher enveloped API
+
+```
+In [14]: from s1ncipher import S1nCipher
+
+In [15]: from zenutils import cipherutils
+
+In [16]: password = "test-password"
+
+In [17]: text1 = "plain text"
+
+In [18]: cipher = S1nCipher(password=password, result_encoder=cipherutils.HexlifyEncoder(), force_text=True)
+
+In [19]: text2 = cipher.encrypt(text1)
+
+In [20]: print(text2)
+733a6eec65416d9e7120ad77587c6bf649790e77587c
+
+In [21]: text3 = cipher.decrypt(text2)
+
+In [22]: print(text3)
+plain text
+
+In [23]: text1 == text3
+Out[23]: True
+
+```
+
+- Create a cipher instance to do encrypt and decrypt.
+- With result_encoder=cipherutils.HexlifyEncoder(), encrypted data will be hexlified.
+- With force_text decrypted data will be decoded from bytes to str.
+
+## Test With Python
+
+- 2.7
+- 3.2
+- 3.3
+- 3.4
+- 3.5
+- 3.6
+- 3.7
+- 3.8
+- 3.9
+- 3.10
+- 3.11
+
+## Releases
+
+### 0.3.0
+
+- First release.
+
+### 0.3.1
+
+- Deps on zenutils, instead of fastutils.
+- Doc fix.
+
+### 0.3.2
+
+- Doc update.

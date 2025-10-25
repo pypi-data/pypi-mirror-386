@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+s1ncipher.py
+setup.py
+s1ncipher.egg-info/PKG-INFO
+s1ncipher.egg-info/SOURCES.txt
+s1ncipher.egg-info/dependency_links.txt
+s1ncipher.egg-info/not-zip-safe
+s1ncipher.egg-info/requires.txt
+s1ncipher.egg-info/top_level.txt
