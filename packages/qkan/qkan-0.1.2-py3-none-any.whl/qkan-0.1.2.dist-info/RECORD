@@ -1,0 +1,13 @@
+qkan/__init__.py,sha256=T3o0k0NgmpM8nTD0vXX5hXSVwE_Ynjr9Lm_8lqWaw54,481
+qkan/feynman.py,sha256=rnHfhmKgmq4_vAFrbZC0E8pJjGkyG_ROPv7w5axjDEY,45621
+qkan/kan.py,sha256=PefRDQzr94DHYfQK6-02qohsaUPsUuFdB4_fuaBFI7o,15834
+qkan/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+qkan/qkan.py,sha256=WQE-bXIDk8vFVvYZqIbuaBGOW8eR-sK9Jl9omuN2MKU,58587
+qkan/solver.py,sha256=UeMJFjVEfQMDHJ1B8NSEYG7MMZ_3Zt3bbdSlGHqOoso,6554
+qkan/torch_qc.py,sha256=zn1p7di3VXC-YZqFrKVPZFsWvg9IrkpeUCzEez5D9vU,13476
+qkan/utils.py,sha256=Rq16-AoxsB0otWap-ss8uvnB7gz8RXC7qEIln2DPPfU,9598
+qkan-0.1.2.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+qkan-0.1.2.dist-info/METADATA,sha256=nFyubx4-jWPt0UQsnuPR6vmXDzAr7JUcUGMieRMmm90,18934
+qkan-0.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+qkan-0.1.2.dist-info/top_level.txt,sha256=xiXgna1wQU2eud5HLuSZHwMvkMIiF7fOBw7mBC96vDA,5
+qkan-0.1.2.dist-info/RECORD,,
