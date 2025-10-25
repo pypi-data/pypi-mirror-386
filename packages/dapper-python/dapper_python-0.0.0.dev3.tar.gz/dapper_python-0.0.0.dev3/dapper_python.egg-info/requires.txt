@@ -1,0 +1,11 @@
+tomlkit
+
+[:python_version < "3.10"]
+typing-extensions>=4.6
+
+[dev]
+build
+pre-commit
+
+[test]
+pytest
