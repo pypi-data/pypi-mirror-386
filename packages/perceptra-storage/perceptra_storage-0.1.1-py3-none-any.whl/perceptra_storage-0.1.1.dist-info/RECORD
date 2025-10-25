@@ -1,0 +1,13 @@
+perceptra_storage/__init__.py,sha256=CEoLeF0usESQZFltkyM9FgM8prV282HML-8WxFEB2_4,2095
+perceptra_storage/base.py,sha256=PpK29gO4PODXe1qwdSOctpYkqr80aGJbozk-G5lVlQQ,6524
+perceptra_storage/factory.py,sha256=x-Bufl9O6Wrxxou-8WbExPPRgfyZLdQeIou_sFV1sJE,4078
+perceptra_storage/adapters/__init__.py,sha256=w3k3k5OOtAukT27JSfsfFUmruCNkjv-e2YMJusnKNrc,309
+perceptra_storage/adapters/azure.py,sha256=VB0latqstiG0g2DjyxoEErbnD8AApYGJhtBBwAzyfiA,13473
+perceptra_storage/adapters/local.py,sha256=it0VIgoCbIQpI9iB1re_MAJ52TtlVhd5gCMuJZuyTxs,12570
+perceptra_storage/adapters/minio.py,sha256=UQYCfFxjKtk0QdPPejKcMiKnmN81Q5R5I8-B8bbpZD0,11344
+perceptra_storage/adapters/s3.py,sha256=uQg3HjYXb6J4G4P-b1bMHjw8DG0hl9lHXHGnb3ISyLM,11691
+perceptra_storage-0.1.1.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+perceptra_storage-0.1.1.dist-info/METADATA,sha256=jQAA27xWidPh35qvzXANFla3FqHcZ3CDgfHqO0bOJjs,12687
+perceptra_storage-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+perceptra_storage-0.1.1.dist-info/top_level.txt,sha256=-uLjvRaKB9HAphZz2GLVZCAFz3aRh1vf7g8PZxSN_5U,18
+perceptra_storage-0.1.1.dist-info/RECORD,,
