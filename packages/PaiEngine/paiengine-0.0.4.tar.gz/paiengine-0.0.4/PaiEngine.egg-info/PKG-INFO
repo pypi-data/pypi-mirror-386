@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: PaiEngine
+Version: 0.0.4
+Summary: PaiEngine - simple GUI engine
+Home-page: https://github.com/Pai100707/PaiEngine
+Author: Pai100707
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pygame>=2.0.0
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+how to use
+
+1. create new python script
+
+2. type import PaiEngine in line 1
+
+3. type PaiEngine.init(screen or None, app name)
+3.1 PaiEngine.SetBackgroundColor(app name, (color R, color G, color B))
+3.2 PaiEngine.SetBackgroundTransparency(app name, Transparency 0 - 255)
+3.3 PaiEngine.CreateText(app name, text, x, y, font size or None, color or None)
+3.3.1 PaiEngine.SetTextColor(app name, index, (color R, color G, color B))
+3.3.2 PaiEngine.SetTextTransparency(app name, index, Transparency 0 - 255)
+
+4. PaiEngine.CreateFrame(app_name, width, height, (Position X, Position Y))
+4.1 You can use it like 3.
+
+                                                                                  Text color                BackgroundColor         TextTransparency      BackgroundTransparency
+                                                                                    ↓                            ↓                           ↓                      ↓
+5. PaiEngine.CreateButton(app name, button name, text, callback or None, font size, (color R, color G, color B), (color R, color G, color B), Transparency 0 - 255, Transparency 0 - 255)
+5.1 PaiEngine.SetButtonPosition(app name, button name, x, y)
+5.2 PaiEngine.SetButtonSize(app name, button name, width, height)
+
+6. main loop
+6.1 PaiEngine.Draw(app name, screen or None)
+6.2 PaiEngine.HandleClick(app name, (Position X, Position Y))
+6.3 PaiEngine.GetFrameRect(app name) ← the function is return the value
+6.4 PaiEngine.GetSurface(app name) ← the function is return the display
