@@ -1,0 +1,2 @@
+[console_scripts]
+user-agents-man = user_agents_man.bot:main
