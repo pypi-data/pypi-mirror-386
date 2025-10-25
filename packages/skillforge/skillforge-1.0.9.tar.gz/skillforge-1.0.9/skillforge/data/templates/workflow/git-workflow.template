@@ -1,0 +1,632 @@
+---
+name: "{{skill_name}}"
+description: >
+  {{description}}
+version: "{{version}}"
+author: "SkillForge Auto-Generated"
+generated_at: "{{timestamp}}"
+workflow_type: "git"
+allowed-tools:
+  - bash_tool
+  - view
+  - edit_file
+{{#if additional_tools}}
+{{#each additional_tools}}
+  - {{this}}
+{{/each}}
+{{/if}}
+---
+
+# {{skill_name}} - Git Workflow
+
+## Overview
+
+{{overview}}
+
+This skill defines the Git workflow conventions for commit messages, branch naming, pull requests, and code reviews.
+
+## When to Use
+
+Use this skill when:
+{{#each use_cases}}
+- {{this}}
+{{/each}}
+- Making commits to the repository
+- Creating new branches
+- Opening pull requests
+- Reviewing code
+- Managing releases
+
+---
+
+## Commit Message Format
+
+### Standard Format
+
+```
+{{commit_format}}
+```
+
+### Structure
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+### Types
+
+{{#if commit_types}}
+{{#each commit_types}}
+- **{{type}}**: {{description}}
+{{/each}}
+{{else}}
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that don't affect the code meaning (white-space, formatting, etc.)
+- **refactor**: Code change that neither fixes a bug nor adds a feature
+- **perf**: Code change that improves performance
+- **test**: Adding missing tests or correcting existing tests
+- **chore**: Changes to the build process or auxiliary tools and libraries
+- **ci**: Changes to CI configuration files and scripts
+- **build**: Changes that affect the build system or external dependencies
+- **revert**: Reverts a previous commit
+{{/if}}
+
+### Scopes
+
+{{#if commit_scopes}}
+Common scopes in this project:
+{{#each commit_scopes}}
+- **{{scope}}**: {{description}}
+{{/each}}
+{{else}}
+Scopes are optional and should represent the section of the codebase affected:
+- **auth**: Authentication-related changes
+- **api**: API changes
+- **ui**: User interface changes
+- **db**: Database changes
+- **config**: Configuration changes
+{{/if}}
+
+### Examples
+
+**Feature Addition**:
+```
+feat(auth): add Google OAuth integration
+
+- Implement OAuth flow with Google provider
+- Add OAuth callback handler
+- Update user model to support OAuth providers
+- Add tests for OAuth authentication
+
+Closes #123
+```
+
+**Bug Fix**:
+```
+fix(api): resolve CORS issue in production
+
+The CORS middleware wasn't properly configured for production domains.
+Added production URLs to allowed origins list.
+
+Fixes #456
+```
+
+**Documentation**:
+```
+docs(readme): update installation instructions
+
+- Add Node.js version requirement
+- Update environment variables section
+- Add troubleshooting guide
+```
+
+**Refactoring**:
+```
+refactor(components): extract common Button logic
+
+Extract shared button styles and behavior into reusable component.
+No functional changes.
+```
+
+**Performance Improvement**:
+```
+perf(database): optimize user query with indexes
+
+Added composite index on user.email and user.created_at
+Reduced query time from 500ms to 50ms for user listings.
+
+Benchmarks attached in #789
+```
+
+### Breaking Changes
+
+For breaking changes, add `BREAKING CHANGE:` in the footer:
+
+```
+feat(api): update user endpoint response format
+
+BREAKING CHANGE: User endpoint now returns nested profile object
+instead of flat structure. Clients need to update their response parsing.
+
+Migration guide: docs/migrations/v2-user-endpoint.md
+```
+
+### Rules
+
+- ✅ **DO**: Keep subject line under 72 characters
+- ✅ **DO**: Use imperative mood ("add" not "added" or "adds")
+- ✅ **DO**: Capitalize subject line
+- ✅ **DO**: Don't end subject line with period
+- ✅ **DO**: Separate subject from body with blank line
+- ✅ **DO**: Wrap body at 72 characters
+- ✅ **DO**: Use body to explain what and why, not how
+- ✅ **DO**: Reference issues and PRs in footer
+- ❌ **DON'T**: Use vague messages like "fix bug" or "update code"
+- ❌ **DON'T**: Commit multiple unrelated changes together
+- ❌ **DON'T**: Include sensitive information in commit messages
+
+---
+
+## Branch Naming
+
+### Standard Format
+
+```
+{{branch_format}}
+```
+
+### Pattern
+
+```
+<type>/<issue-number>-<short-description>
+```
+
+### Types
+
+{{#if branch_types}}
+{{#each branch_types}}
+- **{{type}}**: {{description}}
+{{/each}}
+{{else}}
+- **feature/**: New features
+- **bugfix/**: Bug fixes
+- **hotfix/**: Urgent production fixes
+- **refactor/**: Code refactoring
+- **docs/**: Documentation changes
+- **test/**: Test additions or changes
+- **chore/**: Maintenance tasks
+- **release/**: Release preparation
+{{/if}}
+
+### Examples
+
+```
+feature/123-user-authentication
+bugfix/456-fix-api-cors-error
+hotfix/789-production-crash
+refactor/321-extract-auth-logic
+docs/654-update-api-documentation
+test/987-add-unit-tests-auth
+chore/147-update-dependencies
+release/v2.0.0
+```
+
+### Rules
+
+- ✅ **DO**: Use lowercase letters
+- ✅ **DO**: Use hyphens to separate words
+- ✅ **DO**: Include issue/ticket number when applicable
+- ✅ **DO**: Keep description short and meaningful
+- ✅ **DO**: Delete branches after merging
+- ❌ **DON'T**: Use special characters or spaces
+- ❌ **DON'T**: Create overly long branch names
+- ❌ **DON'T**: Keep stale branches around
+
+---
+
+## Pull Request Template
+
+### Standard PR Description
+
+```markdown
+{{#if pr_template}}
+{{{pr_template}}}
+{{else}}
+## Summary
+
+Brief description of the changes and their purpose.
+
+## Changes
+
+- List of specific changes made
+- Another change
+- Yet another change
+
+## Type of Change
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+- [ ] Refactoring (no functional changes)
+- [ ] Performance improvement
+- [ ] Test update
+
+## Testing
+
+Describe the tests you ran and how to reproduce them:
+
+- [ ] Test A - Description
+- [ ] Test B - Description
+- [ ] Test C - Description
+
+## Screenshots (if applicable)
+
+Add screenshots to help explain your changes.
+
+## Checklist
+
+- [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] Any dependent changes have been merged and published
+
+## Related Issues
+
+Closes #(issue number)
+Relates to #(issue number)
+
+## Additional Context
+
+Add any other context about the pull request here.
+{{/if}}
+```
+
+### Rules
+
+- ✅ **DO**: Provide clear summary of changes
+- ✅ **DO**: Link related issues
+- ✅ **DO**: Add screenshots for UI changes
+- ✅ **DO**: Document breaking changes
+- ✅ **DO**: Complete the checklist
+- ✅ **DO**: Request reviews from relevant team members
+- ❌ **DON'T**: Leave template sections empty
+- ❌ **DON'T**: Create PRs with too many changes
+- ❌ **DON'T**: Merge without approvals
+
+---
+
+## Code Review Checklist
+
+### For Reviewers
+
+{{#if review_checklist}}
+{{#each review_checklist}}
+- [ ] {{this}}
+{{/each}}
+{{else}}
+
+#### Code Quality
+- [ ] Code is readable and well-structured
+- [ ] Naming conventions are followed
+- [ ] No unnecessary complexity
+- [ ] No code duplication
+- [ ] Proper error handling
+- [ ] No commented-out code
+- [ ] No console.logs or debug statements
+
+#### Functionality
+- [ ] Changes work as described
+- [ ] Edge cases are handled
+- [ ] No breaking changes (or properly documented)
+- [ ] Performance considerations addressed
+- [ ] Security implications considered
+
+#### Testing
+- [ ] Tests are included
+- [ ] Tests cover main scenarios
+- [ ] Tests are meaningful and not just for coverage
+- [ ] All tests pass
+- [ ] No flaky tests introduced
+
+#### Documentation
+- [ ] Code comments where necessary
+- [ ] README updated if needed
+- [ ] API documentation updated
+- [ ] Breaking changes documented
+- [ ] Migration guide provided (if applicable)
+
+#### Best Practices
+- [ ] Follows project conventions
+- [ ] No security vulnerabilities
+- [ ] Proper dependency management
+- [ ] Environment variables documented
+- [ ] Secrets not committed
+
+#### Git Hygiene
+- [ ] Commit messages follow conventions
+- [ ] No merge commits (if using rebase workflow)
+- [ ] Branch is up to date with base
+- [ ] No unnecessary files committed
+{{/if}}
+
+### For Authors
+
+Before requesting review:
+
+- [ ] Self-review completed
+- [ ] All tests passing
+- [ ] No linting errors
+- [ ] Documentation updated
+- [ ] PR description complete
+- [ ] Related issues linked
+- [ ] Reviewers assigned
+
+---
+
+## Workflow Process
+
+### 1. Starting Work
+
+```bash
+# Update main branch
+git checkout main
+git pull origin main
+
+# Create feature branch
+git checkout -b feature/123-user-authentication
+```
+
+### 2. Making Changes
+
+```bash
+# Make changes to files
+
+# Stage changes
+git add .
+
+# Commit with proper message
+git commit -m "feat(auth): add user authentication"
+
+# Push to remote
+git push origin feature/123-user-authentication
+```
+
+### 3. Keeping Branch Updated
+
+```bash
+{{#if rebase_workflow}}
+# Rebase workflow (recommended)
+git checkout main
+git pull origin main
+git checkout feature/123-user-authentication
+git rebase main
+
+# If conflicts, resolve and continue
+git add .
+git rebase --continue
+
+# Force push (only on feature branches!)
+git push origin feature/123-user-authentication --force-with-lease
+{{else}}
+# Merge workflow
+git checkout main
+git pull origin main
+git checkout feature/123-user-authentication
+git merge main
+
+# Resolve conflicts if any
+git add .
+git commit -m "merge: resolve conflicts with main"
+
+# Push
+git push origin feature/123-user-authentication
+{{/if}}
+```
+
+### 4. Creating Pull Request
+
+1. Push your branch to remote
+2. Navigate to repository on GitHub/GitLab
+3. Click "New Pull Request"
+4. Fill out PR template completely
+5. Add reviewers
+6. Add labels (if applicable)
+7. Link related issues
+
+### 5. Addressing Review Comments
+
+```bash
+# Make requested changes
+
+# Commit changes
+git add .
+git commit -m "refactor: address review comments"
+
+# Push
+git push origin feature/123-user-authentication
+```
+
+### 6. Merging
+
+{{#if merge_strategy}}
+**Merge Strategy**: {{merge_strategy}}
+{{else}}
+**Merge Strategy**: Squash and merge (default)
+{{/if}}
+
+After PR approval:
+1. Ensure all CI checks pass
+2. Squash commits (if using squash merge)
+3. Update commit message if needed
+4. Merge the PR
+5. Delete the branch
+
+---
+
+## Hotfix Process
+
+For urgent production fixes:
+
+```bash
+# Create hotfix from main
+git checkout main
+git pull origin main
+git checkout -b hotfix/critical-bug-fix
+
+# Make fix
+# ... changes ...
+
+# Commit
+git commit -m "fix: resolve critical production issue"
+
+# Push and create PR
+git push origin hotfix/critical-bug-fix
+
+# After merge, tag release
+git checkout main
+git pull origin main
+git tag -a v1.2.3 -m "Hotfix: critical bug fix"
+git push origin v1.2.3
+```
+
+---
+
+## Release Process
+
+{{#if release_process}}
+{{{release_process}}}
+{{else}}
+### Creating a Release
+
+1. Create release branch:
+```bash
+git checkout main
+git pull origin main
+git checkout -b release/v2.0.0
+```
+
+2. Update version numbers:
+   - package.json
+   - README.md
+   - CHANGELOG.md
+
+3. Commit changes:
+```bash
+git commit -m "chore: prepare release v2.0.0"
+```
+
+4. Create PR and merge to main
+
+5. Tag the release:
+```bash
+git checkout main
+git pull origin main
+git tag -a v2.0.0 -m "Release v2.0.0"
+git push origin v2.0.0
+```
+
+6. Create GitHub/GitLab release with:
+   - Release notes
+   - Breaking changes
+   - Migration guide
+   - Assets (if applicable)
+{{/if}}
+
+---
+
+## Tips and Best Practices
+
+### Commits
+
+- ✅ Commit early and often
+- ✅ Make atomic commits (one logical change per commit)
+- ✅ Write meaningful commit messages
+- ✅ Test before committing
+- ❌ Don't commit broken code
+- ❌ Don't commit sensitive data
+
+### Branches
+
+- ✅ Keep branches short-lived (< 1 week)
+- ✅ Sync with main frequently
+- ✅ Delete merged branches
+- ❌ Don't work directly on main
+- ❌ Don't create long-lived feature branches
+
+### Pull Requests
+
+- ✅ Keep PRs small and focused
+- ✅ Respond to review comments promptly
+- ✅ Test thoroughly before requesting review
+- ❌ Don't create mega PRs (> 500 lines)
+- ❌ Don't merge your own PRs (unless solo project)
+
+### Code Review
+
+- ✅ Review code promptly
+- ✅ Be constructive and respectful
+- ✅ Ask questions to understand
+- ✅ Approve when truly satisfied
+- ❌ Don't rubber-stamp reviews
+- ❌ Don't be overly nitpicky on style
+
+---
+
+## User Conventions
+
+{{#if user_conventions}}
+### Project-Specific Conventions
+
+{{#each user_conventions}}
+- {{this}}
+{{/each}}
+{{/if}}
+
+---
+
+## Related Skills
+
+{{#if related_skills}}
+{{#each related_skills}}
+- `{{name}}` - {{description}}
+{{/each}}
+{{else}}
+- `git-basics` - Git fundamentals
+- `github-actions` - CI/CD with GitHub Actions
+- `code-review` - Code review best practices
+{{/if}}
+
+---
+
+## Resources
+
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Git Best Practices](https://git-scm.com/book/en/v2)
+- [GitHub Flow](https://guides.github.com/introduction/flow/)
+- [Semantic Versioning](https://semver.org/)
+{{#each resources}}
+- [{{title}}]({{url}})
+{{/each}}
+
+---
+
+## Version History
+
+- {{version}} ({{timestamp}}): Initial generation
+
+---
+
+**Generated by SkillForge** - Your personalized Claude Code skills generator
+**Workflow Type**: Git
+**Last Updated**: {{timestamp}}
