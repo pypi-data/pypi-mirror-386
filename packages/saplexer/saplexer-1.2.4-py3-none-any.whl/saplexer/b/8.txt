@@ -1,0 +1,156 @@
+###########################
+## H-BASE
+############################
+
+-- [cloudera@quickstart Desktop]$ hbase shell
+2025-10-24 20:40:22,262 INFO  [main] Configuration.deprecation: hadoop.native.lib is deprecated. Instead, use io.native.lib.available
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.0.0-cdh5.4.2, rUnknown, Tue May 19 17:07:29 PDT 2015
+
+-- hbase(main):001:0> create 'employees', 'personal_info', 'job_info', 'contact_info'
+0 row(s) in 0.7090 seconds
+
+=> Hbase::Table - employees
+
+-- hbase(main):002:0> put 'employees', 'EMP001', 'personal_info:first_name', 'Alice'
+0 row(s) in 0.1080 seconds
+
+-- hbase(main):003:0> put 'employees', 'EMP001', 'personal_info:last_name', 'Johnson'
+0 row(s) in 0.0090 seconds
+
+-- hbase(main):004:0> put 'employees', 'EMP001', 'personal_info:age', '28'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):005:0> put 'employees', 'EMP001', 'job_info:department', 'IT'
+0 row(s) in 0.0120 seconds
+
+-- hbase(main):006:0> put 'employees', 'EMP001', 'job_info:position', 'Software Engineer'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):007:0> put 'employees', 'EMP001', 'job_info:salary', '75000'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):008:0> put 'employees', 'EMP001', 'contact_info:email', 'alice.j@company.com'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):009:0> put 'employees', 'EMP001', 'contact_info:phone', '123-456-7890'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):010:0> put 'employees', 'EMP002', 'personal_info:first_name', 'Bob'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):011:0> put 'employees', 'EMP002', 'personal_info:last_name', 'Smith'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):012:0> put 'employees', 'EMP002', 'personal_info:age', '32'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):013:0> put 'employees', 'EMP002', 'job_info:department', 'HR'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):014:0> put 'employees', 'EMP002', 'job_info:position', 'HR Manager'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):015:0> put 'employees', 'EMP002', 'job_info:salary', '65000'
+0 row(s) in 0.0090 seconds
+
+-- hbase(main):016:0> put 'employees', 'EMP002', 'contact_info:email', 'bob.smith@company.com'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):017:0> put 'employees', 'EMP002', 'contact_info:phone', '123-456-7891'
+0 row(s) in 0.0100 seconds
+
+-- hbase(main):020:0> put 'employees', 'EMP003', 'personal_info:first_name', 'Carol'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):021:0> put 'employees', 'EMP003', 'personal_info:last_name', 'Davis'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):022:0> put 'employees', 'EMP003', 'personal_info:age', '35'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):023:0> put 'employees', 'EMP003', 'job_info:department', 'Finance'
+0 row(s) in 0.0080 seconds
+
+-- hbase(main):024:0> put 'employees', 'EMP003', 'job_info:position', 'Financial Analyst'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):025:0> put 'employees', 'EMP003', 'job_info:salary', '70000'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):026:0> put 'employees', 'EMP003', 'contact_info:email', 'carol.d@company.com'
+0 row(s) in 0.0070 seconds
+
+-- hbase(main):027:0> put 'employees', 'EMP003', 'contact_info:phone', '123-456-7892'
+0 row(s) in 0.0090 seconds
+
+-- hbase(main):028:0> get 'employees', 'EMP001'
+COLUMN                CELL                                                      
+ contact_info:email   timestamp=1761363694185, value=alice.j@company.com        
+ contact_info:phone   timestamp=1761363700696, value=123-456-7890               
+ job_info:department  timestamp=1761363673620, value=IT                         
+ job_info:position    timestamp=1761363681129, value=Software Engineer          
+ job_info:salary      timestamp=1761363687356, value=75000                      
+ personal_info:age    timestamp=1761363662860, value=28                         
+ personal_info:first_ timestamp=1761363642147, value=Alice                      
+ name                                                                           
+ personal_info:last_n timestamp=1761363652350, value=Johnson                    
+ ame                                                                            
+8 row(s) in 0.0230 seconds
+
+-- hbase(main):029:0> get 'employees', 'EMP002', {COLUMN => ['personal_info:first_name', 'job_info:department']}
+COLUMN                CELL                                                      
+ job_info:department  timestamp=1761363726518, value=HR                         
+ personal_info:first_ timestamp=1761363709919, value=Bob                        
+ name                                                                           
+2 row(s) in 0.0090 seconds
+
+-- hbase(main):030:0> scan 'employees'
+ROW                   COLUMN+CELL                                               
+ EMP001               column=contact_info:email, value=alice.j@company.com      
+ EMP001               column=contact_info:phone, value=123-456-7890             
+ EMP001               column=job_info:department, value=IT                      
+ EMP001               column=job_info:position, value=Software Engineer         
+ EMP001               column=job_info:salary, value=75000                       
+ EMP001               column=personal_info:age, value=28                        
+ EMP001               column=personal_info:first_name, value=Alice              
+ EMP001               column=personal_info:last_name, value=Johnson             
+ EMP002               column=contact_info:email, value=bob.smith@company.com    
+ EMP002               column=contact_info:phone, value=123-456-7891             
+ EMP002               column=job_info:department, value=HR                      
+ EMP002               column=job_info:position, value=HR Manager                
+ EMP002               column=job_info:salary, value=65000                       
+ EMP002               column=personal_info:age, value=32                        
+ EMP002               column=personal_info:first_name, value=Bob                
+ EMP002               column=personal_info:last_name, value=Smith               
+ EMP003               column=contact_info:email, value=carol.d@company.com      
+ EMP003               column=contact_info:phone, value=123-456-7892             
+ EMP003               column=job_info:department, value=Finance                 
+ EMP003               column=job_info:position, value=Financial Analyst         
+ EMP003               column=job_info:salary, value=70000                       
+ EMP003               column=personal_info:age, value=35                        
+ EMP003               column=personal_info:first_name, value=Carol              
+ EMP003               column=personal_info:last_name, value=Davis               
+3 row(s) in 0.0740 seconds
+
+-- hbase(main):031:0> scan 'employees', {COLUMNS => ['personal_info:first_name', 'personal_info:last_name', 'job_info:department']}
+ROW                   COLUMN+CELL                                               
+ EMP001               column=job_info:department, value=IT                      
+ EMP001               column=personal_info:first_name, value=Alice              
+ EMP001               column=personal_info:last_name, value=Johnson             
+ EMP002               column=job_info:department, value=HR                      
+ EMP002               column=personal_info:first_name, value=Bob                
+ EMP002               column=personal_info:last_name, value=Smith               
+ EMP003               column=job_info:department, value=Finance                 
+ EMP003               column=personal_info:first_name, value=Carol              
+ EMP003               column=personal_info:last_name, value=Davis               
+3 row(s) in 0.0200 seconds
+
+-- hbase(main):032:0> scan 'employees', {LIMIT => 2}
+ROW                   COLUMN+CELL                                               
+ EMP001               column=contact_info:email, value=alice.j@company.com      
+ EMP001               column=contact_info:phone, value=123-456-7890             
+ EMP001               column=job_info:department, value=IT                      
+ EMP001               column=job_info:position, value=Software Engineer         
+ EMP001               column=job_info:salary, value=75000         

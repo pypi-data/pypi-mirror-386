@@ -1,0 +1,72 @@
+##########
+#BIGRAM
+##########
+
+### MAPPER 
+#!/usr/bin/env python
+
+import sys
+
+for line in sys.stdin:
+    line = line.strip()
+    words = line.split()
+    
+    # Generate bigrams
+    for i in range(len(words) - 1):
+        bigram = f"{words[i]} {words[i+1]}"
+        print '%s\t%s' % (bigram, 1)
+
+## REDUCER
+
+#!/usr/bin/env python
+
+from operator import itemgetter
+import sys
+
+current_bigram = None
+current_count = 0
+bigram = None
+
+for line in sys.stdin:
+    line = line.strip()
+    
+    bigram, count = line.split('\t', 1)
+    
+    try:
+        count = int(count)
+    except ValueError:
+        continue
+
+    if current_bigram == bigram:
+        current_count += count
+    else:
+        if current_bigram:
+            print '%s\t%s' % (current_bigram, current_count)
+        current_count = count
+        current_bigram = bigram
+
+if current_bigram == bigram:
+    print '%s\t%s' % (current_bigram, current_count)
+
+## INPUT.txt 
+The quick brown fox jumps over the lazy dog.
+The dog barks loudly at the fox.
+Brown fox is a fast runner.
+
+## COMMAND
+
+chmod +x mapper.py
+chmod +x reducer.py
+
+hdfs dfs -mkdir /bigram_input
+hdfs dfs -put input.txt /bigram_input/
+
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+    -input /bigram_input/input.txt \
+    -output /bigram_output \
+    -mapper mapper.py \
+    -reducer reducer.py \
+    -file mapper.py \
+    -file reducer.py
+
+hdfs dfs -cat /bigram_output/part-00000

@@ -1,0 +1,434 @@
+################################################################################
+
+# 12. Implement Classification with Decision Tree, Naive Bayes, Random Forest  
+
+################################################################################
+
+import sys
+!{sys.executable} -m pip install scikit-learn
+!{sys.executable} -m pip install pandas
+!{sys.executable} -m pip install numpy
+!{sys.executable} -m pip install matplotlib
+!{sys.executable} -m pip install seaborn
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn import datasets
+from sklearn.model_selection import (
+    train_test_split,
+    cross_val_score,
+    GridSearchCV,
+    StratifiedKFold,
+)
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import (
+    accuracy_score,
+    classification_report,
+    confusion_matrix,
+    ConfusionMatrixDisplay,
+)
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
+
+sns.set(style="whitegrid")
+RANDOM_STATE = 42
+
+# Cell 2: load Iris dataset
+iris = datasets.load_iris()
+X = pd.DataFrame(iris.data, columns=iris.feature_names)
+y = pd.Series(iris.target, name="target")
+target_names = iris.target_names
+
+print("Dataset shape:", X.shape)
+print("Classes:", target_names)
+display(X.head()) 
+
+# Cell 3: train/test split and scaling
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, stratify=y, random_state=RANDOM_STATE
+)
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+print("Train shape:", X_train.shape, "Test shape:", X_test.shape) 
+
+# Cell 4: helper function to train and evaluate
+def evaluate_model(name, model, X_tr, X_te, y_tr, y_te, show_cm=True):
+    model.fit(X_tr, y_tr)
+    y_pred = model.predict(X_te)
+    acc = accuracy_score(y_te, y_pred)
+    print(f"\n=== {name} ===")
+    print("Accuracy:", acc)
+    print("Classification report:")
+    print(classification_report(y_te, y_pred, target_names=target_names))
+    if show_cm:
+        cm = confusion_matrix(y_te, y_pred)
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=target_names)
+        disp.plot(cmap=plt.cm.Blues)
+        plt.title(f"{name} - Confusion Matrix")
+        plt.show()
+    return model, acc
+
+
+# Cell 5: instantiate models
+dt = DecisionTreeClassifier(random_state=RANDOM_STATE)
+gnb = GaussianNB()
+rf = RandomForestClassifier(n_estimators=100, random_state=RANDOM_STATE)
+
+# Evaluate (using scaled features for consistency)
+dt_model, dt_acc = evaluate_model("Decision Tree", dt, X_train_scaled, X_test_scaled, y_train, y_test)
+gnb_model, gnb_acc = evaluate_model("Gaussian Naive Bayes", gnb, X_train_scaled, X_test_scaled, y_train, y_test)
+rf_model, rf_acc = evaluate_model("Random Forest", rf, X_train_scaled, X_test_scaled, y_train, y_test)
+
+# Cell 6: cross-validation (5-fold stratified)
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
+
+def cv_scores(name, estimator, X_all, y_all):
+    scores = cross_val_score(estimator, X_all, y_all, cv=cv, scoring="accuracy")
+    print(f"{name} CV accuracy: mean={scores.mean():.4f} std={scores.std():.4f} scores={scores}")
+    return scores
+
+print("Cross-validation on full dataset (scaled):")
+cv_scores("Decision Tree", dt, scaler.fit_transform(X), y)
+cv_scores("GaussianNB", gnb, scaler.transform(X), y)
+cv_scores("Random Forest", rf, scaler.transform(X), y)
+
+# Cell 7: feature importances
+def show_feature_importances(model, name, feature_names):
+    if hasattr(model, "feature_importances_"):
+        importances = model.feature_importances_
+        fi = pd.Series(importances, index=feature_names).sort_values(ascending=False)
+        print(f"\n{name} feature importances:")
+        display(fi)
+        fi.plot(kind="bar")
+        plt.title(f"{name} Feature Importances")
+        plt.ylabel("Importance")
+        plt.tight_layout()
+        plt.show()
+
+show_feature_importances(dt_model, "Decision Tree", X.columns)
+show_feature_importances(rf_model, "Random Forest", X.columns)
+
+# Cell 8: GridSearchCV for Decision Tree and Random Forest
+print("Hyperparameter tuning (GridSearchCV)")
+
+dt_param_grid = {
+    "criterion": ["gini", "entropy"],
+    "max_depth": [None, 2, 3, 4, 5],
+    "min_samples_split": [2, 3, 4],
+}
+dt_gs = GridSearchCV(
+    DecisionTreeClassifier(random_state=RANDOM_STATE),
+    dt_param_grid,
+    cv=cv,
+    scoring="accuracy",
+    n_jobs=-1,
+)
+dt_gs.fit(scaler.fit_transform(X), y)
+print("Decision Tree best score: {:.4f}".format(dt_gs.best_score_))
+print("Decision Tree best params:", dt_gs.best_params_)
+
+rf_param_grid = {
+    "n_estimators": [50, 100, 200],
+    "max_depth": [None, 3, 5],
+    "min_samples_split": [2, 3],
+}
+rf_gs = GridSearchCV(
+    RandomForestClassifier(random_state=RANDOM_STATE),
+    rf_param_grid,
+    cv=cv,
+    scoring="accuracy",
+    n_jobs=-1,
+)
+rf_gs.fit(scaler.transform(X), y)
+print("Random Forest best score: {:.4f}".format(rf_gs.best_score_))
+print("Random Forest best params:", rf_gs.best_params_)
+
+# Cell 9: evaluate best estimators on test set
+best_dt = dt_gs.best_estimator_
+best_rf = rf_gs.best_estimator_
+
+# Fit best models on train split (scaled)
+best_dt.fit(X_train_scaled, y_train)
+best_rf.fit(X_train_scaled, y_train)
+
+evaluate_model("Best Decision Tree", best_dt, X_train_scaled, X_test_scaled, y_train, y_test)
+evaluate_model("Best Random Forest", best_rf, X_train_scaled, X_test_scaled, y_train, y_test)
+
+print("\nSummary of test accuracies:")
+print(f"Decision Tree accuracy: {dt_acc:.4f}")
+print(f"GaussianNB accuracy:    {gnb_acc:.4f}")
+print(f"Random Forest accuracy: {rf_acc:.4f}")
+
+
+#########################################
+# with Dataset
+######################################
+
+################################################################################
+# 1. Setup & Install Dependencies
+################################################################################
+
+import sys
+!{sys.executable} -m pip install scikit-learn pandas numpy matplotlib seaborn
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import (
+    train_test_split,
+    cross_val_score,
+    GridSearchCV,
+    StratifiedKFold,
+)
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.metrics import (
+    accuracy_score,
+    classification_report,
+    confusion_matrix,
+    ConfusionMatrixDisplay,
+)
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
+
+sns.set(style="whitegrid")
+RANDOM_STATE = 42
+
+
+################################################################################
+# 2. Load CSV Dataset
+################################################################################
+
+# Replace with your file path
+csv_path = "Dataset.csv"
+
+# Load dataset
+df = pd.read_csv(csv_path)
+print("✅ Dataset loaded successfully!")
+print("Shape:", df.shape)
+df.head()
+
+
+################################################################################
+# 3. Exploratory Data Analysis (EDA)
+################################################################################
+
+print("\n=== Basic Info ===")
+df.info()
+
+print("\n=== Null Values ===")
+print(df.isnull().sum())
+
+print("\n=== Summary Statistics ===")
+display(df.describe(include="all"))
+
+# Detect categorical and numeric columns
+cat_cols = df.select_dtypes(include=["object", "category"]).columns.tolist()
+num_cols = df.select_dtypes(include=["int64", "float64"]).columns.tolist()
+print("\nCategorical Columns:", cat_cols)
+print("Numeric Columns:", num_cols)
+
+# Visualize numeric distributions
+if num_cols:
+    df[num_cols].hist(figsize=(12, 8), bins=20)
+    plt.suptitle("Numeric Feature Distributions")
+    plt.show()
+
+# Pairplot (only if small dataset)
+if len(df) < 500:
+    sns.pairplot(df, diag_kind="kde")
+    plt.show()
+
+# Correlation heatmap (numeric)
+if num_cols:
+    plt.figure(figsize=(10, 6))
+    sns.heatmap(df[num_cols].corr(), annot=True, cmap="coolwarm")
+    plt.title("Feature Correlation Heatmap")
+    plt.show()
+
+
+################################################################################
+# 4. Prepare Data for Modeling
+################################################################################
+
+# Try to detect target column automatically
+# If not found, set manually like: target_col = "class"
+possible_targets = ["target", "label", "class", "species", "y"]
+target_col = None
+for c in df.columns:
+    if c.lower() in possible_targets:
+        target_col = c
+        break
+
+if target_col is None:
+    raise ValueError("❌ Could not detect target column automatically. Please set 'target_col' manually.")
+
+print(f"✅ Using '{target_col}' as target column")
+
+# Separate features and target
+X = df.drop(columns=[target_col])
+y = df[target_col]
+
+# Encode categorical target if necessary
+if y.dtype == "object":
+    le = LabelEncoder()
+    y = le.fit_transform(y)
+    print("Target encoded:", dict(zip(le.classes_, le.transform(le.classes_))))
+
+# Encode categorical features
+X = pd.get_dummies(X, drop_first=True)
+
+print("Final feature shape:", X.shape)
+print("Target unique classes:", np.unique(y))
+
+
+################################################################################
+# 5. Train/Test Split & Scaling
+################################################################################
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, stratify=y, random_state=RANDOM_STATE
+)
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+print("Train shape:", X_train.shape, "Test shape:", X_test.shape)
+
+
+################################################################################
+# 6. Helper Function to Evaluate Models
+################################################################################
+
+def evaluate_model(name, model, X_tr, X_te, y_tr, y_te, show_cm=True):
+    model.fit(X_tr, y_tr)
+    y_pred = model.predict(X_te)
+    acc = accuracy_score(y_te, y_pred)
+    print(f"\n=== {name} ===")
+    print("Accuracy:", acc)
+    print("Classification report:")
+    print(classification_report(y_te, y_pred))
+    if show_cm:
+        cm = confusion_matrix(y_te, y_pred)
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+        disp.plot(cmap=plt.cm.Blues)
+        plt.title(f"{name} - Confusion Matrix")
+        plt.show()
+    return model, acc
+
+
+################################################################################
+# 7. Train Models
+################################################################################
+
+dt = DecisionTreeClassifier(random_state=RANDOM_STATE)
+gnb = GaussianNB()
+rf = RandomForestClassifier(n_estimators=100, random_state=RANDOM_STATE)
+
+dt_model, dt_acc = evaluate_model("Decision Tree", dt, X_train_scaled, X_test_scaled, y_train, y_test)
+gnb_model, gnb_acc = evaluate_model("Gaussian Naive Bayes", gnb, X_train_scaled, X_test_scaled, y_train, y_test)
+rf_model, rf_acc = evaluate_model("Random Forest", rf, X_train_scaled, X_test_scaled, y_train, y_test)
+
+
+################################################################################
+# 8. Cross-validation
+################################################################################
+
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
+
+def cv_scores(name, estimator, X_all, y_all):
+    scores = cross_val_score(estimator, X_all, y_all, cv=cv, scoring="accuracy")
+    print(f"{name} CV accuracy: mean={scores.mean():.4f}, std={scores.std():.4f}")
+    return scores
+
+print("\nCross-validation on full dataset (scaled):")
+cv_scores("Decision Tree", dt, scaler.fit_transform(X), y)
+cv_scores("GaussianNB", gnb, scaler.transform(X), y)
+cv_scores("Random Forest", rf, scaler.transform(X), y)
+
+
+################################################################################
+# 9. Feature Importances
+################################################################################
+
+def show_feature_importances(model, name, feature_names):
+    if hasattr(model, "feature_importances_"):
+        fi = pd.Series(model.feature_importances_, index=feature_names).sort_values(ascending=False)
+        print(f"\n{name} Feature Importances:")
+        display(fi)
+        fi.plot(kind="bar", figsize=(8, 4))
+        plt.title(f"{name} Feature Importances")
+        plt.ylabel("Importance")
+        plt.tight_layout()
+        plt.show()
+
+show_feature_importances(dt_model, "Decision Tree", X.columns)
+show_feature_importances(rf_model, "Random Forest", X.columns)
+
+
+################################################################################
+# 10. Hyperparameter Tuning (GridSearchCV)
+################################################################################
+
+print("Hyperparameter tuning (GridSearchCV)...")
+
+dt_param_grid = {
+    "criterion": ["gini", "entropy"],
+    "max_depth": [None, 2, 3, 4, 5],
+    "min_samples_split": [2, 3, 4],
+}
+dt_gs = GridSearchCV(
+    DecisionTreeClassifier(random_state=RANDOM_STATE),
+    dt_param_grid,
+    cv=cv,
+    scoring="accuracy",
+    n_jobs=-1,
+)
+dt_gs.fit(scaler.fit_transform(X), y)
+print("Decision Tree best score:", dt_gs.best_score_)
+print("Decision Tree best params:", dt_gs.best_params_)
+
+rf_param_grid = {
+    "n_estimators": [50, 100, 200],
+    "max_depth": [None, 3, 5],
+    "min_samples_split": [2, 3],
+}
+rf_gs = GridSearchCV(
+    RandomForestClassifier(random_state=RANDOM_STATE),
+    rf_param_grid,
+    cv=cv,
+    scoring="accuracy",
+    n_jobs=-1,
+)
+rf_gs.fit(scaler.transform(X), y)
+print("Random Forest best score:", rf_gs.best_score_)
+print("Random Forest best params:", rf_gs.best_params_)
+
+
+################################################################################
+# 11. Evaluate Best Estimators
+################################################################################
+
+best_dt = dt_gs.best_estimator_
+best_rf = rf_gs.best_estimator_
+
+best_dt.fit(X_train_scaled, y_train)
+best_rf.fit(X_train_scaled, y_train)
+
+evaluate_model("Best Decision Tree", best_dt, X_train_scaled, X_test_scaled, y_train, y_test)
+evaluate_model("Best Random Forest", best_rf, X_train_scaled, X_test_scaled, y_train, y_test)
+
+print("\nSummary of Test Accuracies:")
+print(f"Decision Tree: {dt_acc:.4f}")
+print(f"GaussianNB:    {gnb_acc:.4f}")
+print(f"Random Forest: {rf_acc:.4f}")

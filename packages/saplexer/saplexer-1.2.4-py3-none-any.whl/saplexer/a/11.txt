@@ -1,0 +1,239 @@
+# ============================================================
+# Exercise 11: Knowledge Representation in FOL using Python
+# ============================================================
+
+# ----- Basic FOL Components -----
+
+class Term:
+    """Base class for Terms (constants, variables, functions)."""
+    pass
+
+
+class Constant(Term):
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+
+class Variable(Term):
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+
+class Function(Term):
+    def __init__(self, name, *args):
+        self.name = name
+        self.args = args
+
+    def __repr__(self):
+        return f"{self.name}({', '.join(map(str, self.args))})"
+
+
+class Predicate:
+    """Represents an atomic formula or relation."""
+    def __init__(self, name, *args):
+        self.name = name
+        self.args = args
+
+    def __repr__(self):
+        return f"{self.name}({', '.join(map(str, self.args))})"
+
+
+# ----- Logical Connectives and Quantifiers -----
+
+def ForAll(vars, expr):
+    """Universal quantifier (∀)"""
+    return f"FOR ALL {', '.join(map(str, vars))}: {expr}"
+
+def Exists(vars, expr):
+    """Existential quantifier (∃)"""
+    return f"THERE EXISTS {', '.join(map(str, vars))}: {expr}"
+
+def And(*args):
+    return " ∧ ".join(map(str, args))
+
+def Or(*args):
+    return " ∨ ".join(map(str, args))
+
+def Not(expr):
+    return f"¬({expr})"
+
+def Iff(a, b):
+    """Logical equivalence ⇔"""
+    return f"({a}) ⇔ ({b})"
+
+def Implies(a, b):
+    """Implication ⇒"""
+    return f"({a}) ⇒ ({b})"
+
+
+# ============================================================
+# Knowledge Base (KB) Implementation
+# ============================================================
+
+class KnowledgeBase:
+    def __init__(self):
+        self.sentences = []
+
+    def TELL(self, sentence):
+        """Add a logical sentence to the KB."""
+        self.sentences.append(sentence)
+        print("TELL:", sentence)
+
+    def SHOW(self):
+        """Display all stored knowledge."""
+        print("\n--- KNOWLEDGE BASE ---")
+        for s in self.sentences:
+            print(s)
+        print("----------------------")
+
+
+# ============================================================
+# Define FOL Predicates and Functions for Family Relations
+# ============================================================
+
+# Predicates (relations)
+Parent = lambda x, y: Predicate("Parent", x, y)
+Sibling = lambda x, y: Predicate("Sibling", x, y)
+Brother = lambda x, y: Predicate("Brother", x, y)
+Sister = lambda x, y: Predicate("Sister", x, y)
+Child = lambda x, y: Predicate("Child", x, y)
+Daughter = lambda x, y: Predicate("Daughter", x, y)
+Son = lambda x, y: Predicate("Son", x, y)
+Spouse = lambda x, y: Predicate("Spouse", x, y)
+Wife = lambda x, y: Predicate("Wife", x, y)
+Husband = lambda x, y: Predicate("Husband", x, y)
+Grandparent = lambda x, y: Predicate("Grandparent", x, y)
+Grandchild = lambda x, y: Predicate("Grandchild", x, y)
+Cousin = lambda x, y: Predicate("Cousin", x, y)
+Aunt = lambda x, y: Predicate("Aunt", x, y)
+Uncle = lambda x, y: Predicate("Uncle", x, y)
+
+# Unary predicates
+Male = lambda x: Predicate("Male", x)
+Female = lambda x: Predicate("Female", x)
+
+# Functions
+Mother = lambda x: Function("Mother", x)
+Father = lambda x: Function("Father", x)
+
+
+# ============================================================
+# Create Knowledge Base and Add FOL Sentences
+# ============================================================
+
+KB = KnowledgeBase()
+
+# Variables
+g = Variable("g")
+c = Variable("c")
+p = Variable("p")
+x = Variable("x")
+y = Variable("y")
+m = Variable("m")
+w = Variable("w")
+h = Variable("h")
+
+# --- Rules based on given examples ---
+
+# 1. A grandparent is a parent of one’s parent
+stmt1 = ForAll([g, c], Iff(Grandparent(g, c), Exists([p], And(Parent(g, p), Parent(p, c)))))
+KB.TELL(stmt1)
+
+# 2. A sibling is another child of one’s parents
+stmt2 = ForAll([x, y], Iff(Sibling(x, y), And(Not(f"{x} = {y}"), Exists([p], And(Parent(p, x), Parent(p, y))))))
+KB.TELL(stmt2)
+
+# 3. One’s mother is one’s female parent
+stmt3 = ForAll([m, c], Iff(f"{Mother(c)} = {m}", And(Female(m), Parent(m, c))))
+KB.TELL(stmt3)
+
+# 4. One’s husband is one’s male spouse
+stmt4 = ForAll([w, h], Iff(Husband(h, w), And(Male(h), Spouse(h, w))))
+KB.TELL(stmt4)
+
+# 5. Male and female are disjoint categories
+stmt5 = ForAll([x], Iff(Male(x), Not(Female(x))))
+KB.TELL(stmt5)
+
+# 6. Parent and child are inverse relations
+stmt6 = ForAll([p, c], Iff(Parent(p, c), Child(c, p)))
+KB.TELL(stmt6)
+
+# 7. Sibling relationship is symmetric
+stmt7 = ForAll([x, y], Iff(Sibling(x, y), Sibling(y, x)))
+KB.TELL(stmt7)
+
+# Show all knowledge
+KB.SHOW()
+
+
+________________________________
+
+## 11 Write simple FOL statements for Knowledge Representation
+
+________________________________
+
+class Term:
+    def __init__(self, name, arguments=None):
+        self.name = name
+        self.arguments = arguments or []
+
+    def __str__(self):
+        if not self.arguments:
+            return self.name
+        else:
+            args_str = ', '.join(map(str, self.arguments))
+            return f"{self.name}({args_str})"
+
+class Variable:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name
+
+class Atom:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name
+
+class FOLStatement:
+    def __init__(self, predicate, arguments):
+        self.predicate = predicate
+        self.arguments = arguments
+
+    def __str__(self):
+        args_str = ', '.join(map(str, self.arguments))
+        return f"{self.predicate}({args_str})"
+
+if __name__ == "__main__":
+    # Part 1: Terms, Variables, Atoms
+    term1 = Term("father", [Variable("X"), Atom("John")])
+    term2 = Term("mother", [Atom("Alice"), Variable("Y")])
+    variable1 = Variable("Z")
+    atom1 = Atom("parent")
+
+    print("Created Terms, Variables, and Atoms:")
+    print("Term 1:", term1)
+    print("Term 2:", term2)
+    print("Variable 1:", variable1)
+    print("Atom 1:", atom1)
+
+    # Part 2: FOL Statements
+    statement1 = FOLStatement("parent", [Atom("Alice"), Atom("Bob")])
+    statement2 = FOLStatement("father", [Atom("Bob"), Atom("Charlie")])
+    statement3 = FOLStatement("mother", [Atom("Alice"), Atom("Charlie")])
+
+    print("\nCreated FOL Statements:")
+    print("Statement 1:", statement1)
+    print("Statement 2:", statement2)
+    print("Statement 3:", statement3)
+

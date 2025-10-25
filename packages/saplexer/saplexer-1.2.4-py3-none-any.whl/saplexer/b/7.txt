@@ -1,0 +1,197 @@
+#####
+## HIVE
+####
+
+#employee.txt:
+1,Amar,SDE,70000
+2,Vinay,HR,40000
+3,Arun,TAX,50000
+4,Deepa,SDE,60000
+5,Ravi,HR,45000
+
+employee3.txt:
+1,Kendriya,Delhi,8
+2,Narayana,Chennai,9
+3,SriChaitanya,Bangalore,10
+4,Bhashyam,Hyderabad,7
+5,Velammal,Chennai,9
+
+
+##
+START 
+##
+-- [cloudera@quickstart ~]$ hive
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+
+-- hive> CREATE DATABASE company_db;
+OK
+Time taken: 1.313 seconds
+
+-- hive> USE company_db;
+OK
+Time taken: 0.1 seconds
+
+-- hive> CREATE TABLE employee2(
+--     eid INT, 
+--     name STRING, 
+--     role STRING, 
+--     salary STRING
+-- ) ROW FORMAT DELIMITED 
+-- FIELDS TERMINATED BY ',';
+OK
+Time taken: 0.334 seconds
+
+-- hive> CREATE TABLE personal2(
+--     id INT, 
+--     school STRING, 
+--     city STRING, 
+--     score INT
+-- ) ROW FORMAT DELIMITED 
+-- FIELDS TERMINATED BY ',';
+OK
+Time taken: 0.097 seconds
+
+-- hive> SHOW TABLES;
+employee2
+personal2
+Time taken: 0.229 seconds, Fetched: 2 row(s)
+
+-- hive> DESCRIBE employee2;
+eid	int	
+name	string	
+role	string	
+salary	string	
+Time taken: 0.24 seconds, Fetched: 4 row(s)
+
+-- hive> DESCRIBE personal2;
+id	int	
+school	string	
+city	string	
+score	int	
+Time taken: 0.114 seconds, Fetched: 4 row(s)
+
+-- hive> LOAD DATA LOCAL INPATH '/home/cloudera/employee.txt' INTO TABLE employee2;
+Loading data to table company_db.employee2
+Table company_db.employee2 stats: [numFiles=1, totalSize=87]
+OK
+Time taken: 1.185 seconds
+
+-- hive> LOAD DATA LOCAL INPATH '/home/cloudera/employee3.txt' INTO TABLE personal2;
+Loading data to table company_db.personal2
+Table company_db.personal2 stats: [numFiles=1, totalSize=112]
+OK
+Time taken: 0.348 seconds
+
+-- hive> SELECT * FROM employee2;
+1	Amar	SDE	70000
+2	Vinay	HR	40000
+3	Arun	TAX	50000
+4	Deepa	SDE	60000
+5	Ravi	HR	45000
+NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL
+Time taken: 0.347 seconds, Fetched: 7 row(s)
+
+-- hive> SELECT * FROM personal2;
+1	Kendriya	Delhi	8
+2	Narayana	Chennai	9
+3	SriChaitanya	Bangalore	10
+4	Bhashyam	Hyderabad	7
+5	Velammal	Chennai	9
+Time taken: 0.126 seconds, Fetched: 5 row(s)
+
+-- hive> SELECT * FROM employee2 ORDER BY salary;
+NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL
+2	Vinay	HR	40000
+5	Ravi	HR	45000
+3	Arun	TAX	50000
+4	Deepa	SDE	60000
+1	Amar	SDE	70000
+Time taken: 24.821 seconds, Fetched: 7 row(s)
+
+-- hive> SELECT * FROM personal2 ORDER BY score;
+4	Bhashyam	Hyderabad	7
+1	Kendriya	Delhi	8
+5	Velammal	Chennai	9
+2	Narayana	Chennai	9
+3	SriChaitanya	Bangalore	10
+Time taken: 15.251 seconds, Fetched: 5 row(s)
+
+-- hive> SELECT role, COUNT(*) as employee_count FROM employee2 GROUP BY role;
+NULL	2
+HR	2
+SDE	2
+TAX	1
+Time taken: 17.43 seconds, Fetched: 4 row(s)
+
+-- hive> SELECT city, COUNT(*) as student_count FROM personal2 GROUP BY city;
+Bangalore	1
+Chennai	2
+Delhi	1
+Hyderabad	1
+Time taken: 17.205 seconds, Fetched: 4 row(s)
+
+-- hive> SELECT e.name, e.role, p.school, p.city 
+-- FROM employee2 e 
+-- JOIN personal2 p ON e.eid = p.id;
+Amar	SDE	Kendriya	Delhi
+Vinay	HR	Narayana	Chennai
+Arun	TAX	SriChaitanya	Bangalore
+Deepa	SDE	Bhashyam	Hyderabad
+Ravi	HR	Velammal	Chennai
+Time taken: 15.348 seconds, Fetched: 5 row(s)
+
+-- hive> SELECT e.name, e.role, p.city 
+-- FROM employee2 e 
+-- LEFT OUTER JOIN personal2 p ON e.eid = p.id;
+Amar	SDE	Delhi
+Vinay	HR	Chennai
+Arun	TAX	Bangalore
+Deepa	SDE	Hyderabad
+Ravi	HR	Chennai
+NULL	NULL	NULL
+NULL	NULL	NULL
+Time taken: 14.564 seconds, Fetched: 7 row(s)
+
+-- hive> SELECT * FROM employee2 WHERE role IN ('SDE','TAX');
+1	Amar	SDE	70000
+3	Arun	TAX	50000
+4	Deepa	SDE	60000
+Time taken: 0.068 seconds, Fetched: 3 row(s)
+
+-- hive> SELECT * FROM personal2 WHERE score > 9;
+3	SriChaitanya	Bangalore	10
+Time taken: 0.062 seconds, Fetched: 1 row(s)
+
+-- hive> SELECT COUNT(eid) as count_employees, role 
+-- FROM employee2 
+-- GROUP BY role 
+-- HAVING COUNT(eid) >= 2;
+2	HR
+2	SDE
+Time taken: 16.922 seconds, Fetched: 2 row(s)
+
+-- hive> SELECT COUNT(id) as count_students, city 
+-- FROM personal2 
+-- GROUP BY city 
+-- HAVING COUNT(id) = 1 
+-- ORDER BY city DESC;
+1	Hyderabad
+1	Delhi
+1	Bangalore
+Time taken: 30.929 seconds, Fetched: 3 row(s)
+
+-- hive> SELECT COUNT(DISTINCT role) as distinct_roles FROM employee2;
+3
+Time taken: 14.711 seconds, Fetched: 1 row(s)
+
+-- hive> SELECT COUNT(DISTINCT city) as distinct_cities FROM personal2;
+4
+Time taken: 16.896 seconds, Fetched: 1 row(s)
+
+
+
+
+### PIG in b9.txt

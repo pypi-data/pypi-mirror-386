@@ -1,0 +1,130 @@
+###############
+# PEARSON_CORRELATION_COEFFICIENT
+#############
+
+##MAPPER 
+#!/usr/bin/env python
+
+import sys
+
+for line in sys.stdin:
+    line = line.strip()
+    if not line:
+        continue
+    
+    try:
+        x_str, y_str = line.split(',')
+        x = float(x_str)
+        y = float(y_str)
+        
+        # Emit X and Y for sum(X) and sum(Y)
+        print "sum_x\t%s" % x
+        print "sum_y\t%s" % y
+        
+        # Emit X*Y for sum(X*Y)
+        print "sum_xy\t%s" % (x * y)
+        
+        # Emit X^2 for sum(X^2)
+        print "sum_x2\t%s" % (x * x)
+        
+        # Emit Y^2 for sum(Y^2)
+        print "sum_y2\t%s" % (y * y)
+        
+        # Emit a count for N
+        print "count\t1"
+        
+    except ValueError:
+        # Handle malformed lines if necessary
+        sys.stderr.write("Skipping malformed line: %s\n" % line)
+
+
+##REDUCER
+
+#!/usr/bin/env python
+
+import sys
+
+# Initialize sums
+sum_x = 0.0
+sum_y = 0.0
+sum_xy = 0.0
+sum_x2 = 0.0
+sum_y2 = 0.0
+n = 0
+
+current_key = None
+
+for line in sys.stdin:
+    line = line.strip()
+    if not line:
+        continue
+
+    key, value_str = line.split('\t', 1)
+    
+    try:
+        value = float(value_str)
+    except ValueError:
+        sys.stderr.write("Skipping malformed value: %s for key: %s\n" % (value_str, key))
+        continue
+    
+    if key == "sum_x":
+        sum_x += value
+    elif key == "sum_y":
+        sum_y += value
+    elif key == "sum_xy":
+        sum_xy += value
+    elif key == "sum_x2":
+        sum_x2 += value
+    elif key == "sum_y2":
+        sum_y2 += value
+    elif key == "count":
+        n += int(value)
+
+# After processing all input, calculate Pearson Correlation Coefficient
+if n > 0:
+    # Numerator of the Pearson formula
+    numerator = n * sum_xy - sum_x * sum_y
+    
+    # Denominators
+    denominator_x = n * sum_x2 - (sum_x * sum_x)
+    denominator_y = n * sum_y2 - (sum_y * sum_y)
+    
+    # Handle cases where denominator might be zero (e.g., no variance)
+    if denominator_x == 0 or denominator_y == 0:
+        pearson_r = 0.0 # Or handle as NaN, depending on desired behavior
+    else:
+        import math
+        pearson_r = numerator / math.sqrt(denominator_x * denominator_y)
+    
+    print "Pearson Correlation Coefficient: %s" % pearson_r
+else:
+    print "Error: No data to process for Pearson Correlation Coefficient."
+
+
+## INPUT.txt 
+
+10,20
+12,25
+15,28
+18,30
+20,3510,20
+12,25
+15,28
+18,30
+20,35
+
+## COMMAND
+
+$ chmod +x pearson_mapper.py
+$ hdfs dfs -mkdir /pearson_input
+$ hdfs dfs -put input.txt /pearson_input
+$ hdfs dfs -ls /pearson_input
+$ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
+   -input /pearson_input \
+   -output /pearson_output \
+   -mapper pearson_mapper.py \
+   -reducer pearson_reducer.py \
+   -file pearson_mapper.py \
+   -file pearson_reducer.py
+$ hdfs dfs -cat /pearson_output/part-00000
+$ hdfs dfs -rm -r /pearson_output
