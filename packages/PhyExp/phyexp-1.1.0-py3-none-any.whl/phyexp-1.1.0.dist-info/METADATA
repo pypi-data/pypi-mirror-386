@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: PhyExp
+Version: 1.1.0
+Summary: A short description of your amazing package.
+Author-email: Anthony Cheng <Anthony_cx@qq.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Anthony-xyr/PhyExp
+Project-URL: Bug Tracker, https://github.com/Anthony-xyr/PhyExp/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.21.6
+Requires-Dist: matplotlib>=3.5.3
+Dynamic: license-file
+
+# PhyExp
+---
+The Python package is designed for the physics experiment course of BUAA.
