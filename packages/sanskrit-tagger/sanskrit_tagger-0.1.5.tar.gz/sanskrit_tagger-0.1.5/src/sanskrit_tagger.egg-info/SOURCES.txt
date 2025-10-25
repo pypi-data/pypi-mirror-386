@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+src/sanskrit_tagger/__init__.py
+src/sanskrit_tagger/device_util.py
+src/sanskrit_tagger/pos_tagger.py
+src/sanskrit_tagger/tagger_factory.py
+src/sanskrit_tagger.egg-info/PKG-INFO
+src/sanskrit_tagger.egg-info/SOURCES.txt
+src/sanskrit_tagger.egg-info/dependency_links.txt
+src/sanskrit_tagger.egg-info/requires.txt
+src/sanskrit_tagger.egg-info/top_level.txt
+src/sanskrit_tagger/data/char2id_42_734.dat
+src/sanskrit_tagger/data/unique_tags_42_734.dat
+tests/test_tagger_factory.py
