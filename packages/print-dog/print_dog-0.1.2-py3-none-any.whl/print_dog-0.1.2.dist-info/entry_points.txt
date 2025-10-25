@@ -1,0 +1,2 @@
+[console_scripts]
+print-dog = print_dog.cli:main
