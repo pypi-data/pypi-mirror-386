@@ -1,0 +1,6 @@
+
+[test]
+flake8
+ipython
+notebook==6.2.0
+pytest-cov
