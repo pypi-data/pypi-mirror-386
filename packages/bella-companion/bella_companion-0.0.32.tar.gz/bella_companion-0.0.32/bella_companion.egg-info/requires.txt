@@ -1,0 +1,5 @@
+arviz>=0.22.0
+bella-lumiere>=0.0.14
+dotenv>=0.9.9
+phylogenie>=3.1.2
+seaborn>=0.13.2
