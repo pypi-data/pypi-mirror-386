@@ -1,0 +1,12 @@
+aigroup_econ_mcp/__init__.py,sha256=JX9x6D6f8r4vFb51i_kN9LmCp57GIpPG6MfiMEQ3bf0,472
+aigroup_econ_mcp/cli.py,sha256=QEQjK6Y7TpgLHpdd8QqQhCjATkJ3-BjYjiXaB4HbJMk,2972
+aigroup_econ_mcp/server.py,sha256=2g8qZBCu3Sed5Wlqp1IDqBBl8R_WA4H8nvLO5V8p7RM,14892
+aigroup_econ_mcp/tools/__init__.py,sha256=o_mAyxeUVxh-xBrggUzS5Yg0uO9FjKvroLXQhFO6ezg,141
+aigroup_econ_mcp/tools/regression.py,sha256=d-WiOSRSPIw5p7nFE6JE34ktQrBBXmZp6eQPfHXTFvA,6230
+aigroup_econ_mcp/tools/statistics.py,sha256=arw5ahGBH4d4pS-wRHh_5z35Yf4LMpiUblR_TLZSbZ0,3415
+aigroup_econ_mcp/tools/time_series.py,sha256=YFGBsKKA1a1FIH3x6gphw4bhVjgw8c-72ibJ4wOeDEM,8122
+aigroup_econ_mcp-0.1.1.dist-info/METADATA,sha256=Mph1KsWcJn39HcX37cBi5ovWmsz7-FH8ClFShDUsC98,5333
+aigroup_econ_mcp-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+aigroup_econ_mcp-0.1.1.dist-info/entry_points.txt,sha256=j5ZJYOc4lAZV-X3XkAuGhzHtIRcJtZ6Gz8ZKPY_QTrM,62
+aigroup_econ_mcp-0.1.1.dist-info/licenses/LICENSE,sha256=x4onvmayh9xPtyeLWVwM9av5hlduofabbcq2z45BbPY,1063
+aigroup_econ_mcp-0.1.1.dist-info/RECORD,,
