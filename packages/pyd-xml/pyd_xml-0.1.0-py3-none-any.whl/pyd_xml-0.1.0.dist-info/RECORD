@@ -1,0 +1,13 @@
+pyd_xml/__init__.py,sha256=16U1mmI8sI1Dj5c1KoHXKmVC_FV3k46Rouzwxq2Mew0,590
+pyd_xml/base.py,sha256=wb9YnSWcBdFlBWwHxtiVKXwXztLoYBSyG8js-McbPsc,1103
+pyd_xml/decoder.py,sha256=h0P2ojiuEVXO76E2_cKM7920HIVw5z3twWScQam5uwE,2687
+pyd_xml/encoder.py,sha256=xDCeDdNixivD7_3M5iqagFKHsYk2jJ-pB-Kzb73zz6M,1919
+pyd_xml/exceptions.py,sha256=WJvIpzTXo2zf9-xAZzHHsxzgu1wjQmFELcwlc6bYnVM,1375
+pyd_xml/fields.py,sha256=z8zK00w01yOEe1ulDTfh-S5u5jnzoVoTnCF9alLKT_k,452
+pyd_xml/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyd_xml/utils.py,sha256=nv0giO_z9T5lY_e6ueKpWNUF5eT8nJqSqH5DSmh8VAA,1387
+pyd_xml-0.1.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pyd_xml-0.1.0.dist-info/METADATA,sha256=bMQD4uyyAc02U5AUksnh9KjP2JlIguehJfslB5snC_w,17327
+pyd_xml-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pyd_xml-0.1.0.dist-info/top_level.txt,sha256=GIVqSkQZdKojbx1YqGiyic9NrkkmnuhnroBZr0e96qI,8
+pyd_xml-0.1.0.dist-info/RECORD,,
