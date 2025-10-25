@@ -1,0 +1,185 @@
+# tfkan/layers/convolution.py
+
+import tensorflow as tf
+import numpy as np
+from keras.layers import Layer
+from typing import Tuple, Union, Any
+from abc import abstractmethod
+
+from .base import LayerKAN
+from .dense import DenseKAN
+
+class ConvolutionKAN(Layer, LayerKAN):
+    """
+    Abstract base class for KAN convolutional layers.
+
+    This layer works by extracting patches from the input tensor and applying a
+    single DenseKAN layer to the flattened patches. This effectively shares the
+    KAN activation functions across all spatial locations.
+    """
+    def __init__(self,
+        rank: int,
+        filters: int,
+        kernel_size: Any,
+        strides: Any,
+        padding: str = 'VALID',
+        use_bias: bool = True,
+        kan_kwargs: dict = None,
+        **kwargs
+    ):
+        super().__init__(**kwargs)
+        self.rank = rank
+        self.filters = filters
+        self.padding = padding.upper()
+        self.use_bias = use_bias
+        self.kan_kwargs = kan_kwargs if kan_kwargs is not None else {}
+
+        if not isinstance(kernel_size, (tuple, list)):
+            kernel_size = tuple([kernel_size] * self.rank)
+        if not isinstance(strides, (tuple, list)):
+            strides = tuple([strides] * self.rank)
+
+        if len(kernel_size) != self.rank:
+            raise ValueError(f"kernel_size must be of length {self.rank}, but got {len(kernel_size)}")
+        if len(strides) != self.rank:
+            raise ValueError(f"strides must be of length {self.rank}, but got {len(strides)}")
+
+        self.kernel_size = kernel_size
+        self.strides = strides
+
+    def build(self, input_shape: Union[tf.TensorShape, tuple, list]):
+        in_channels = int(input_shape[-1])
+        self._in_channels = in_channels
+        self._in_size = int(np.prod(self.kernel_size) * in_channels)
+
+        # The core of the convolution is a single DenseKAN layer.
+        # Pass any specific KAN arguments via kan_kwargs.
+        self.kernel_kan = DenseKAN(
+            units=self.filters,
+            dtype=self.dtype,
+            use_bias=False, # Bias is applied separately after convolution.
+            **self.kan_kwargs
+        )
+        self.kernel_kan.build(self._in_size)
+
+        if self.use_bias:
+            self.bias = self.add_weight(
+                name='bias',
+                shape=(self.filters,),
+                initializer='zeros',
+                trainable=True
+            )
+        super().build(input_shape)
+
+    def call(self, inputs: tf.Tensor) -> tf.Tensor:
+        # 1. Extract patches and reshape to 2D
+        patches_2d, output_spatial_shape = self._extract_and_reshape_patches(inputs)
+
+        # 2. Apply the core DenseKAN layer
+        output = self.kernel_kan(patches_2d) # Shape: (batch*num_patches, filters)
+
+        # 3. Reshape back to spatial dimensions
+        final_output_shape = tf.concat([output_spatial_shape, [self.filters]], axis=0)
+        output = tf.reshape(output, final_output_shape)
+
+        if self.use_bias:
+            output += self.bias
+
+        return output
+
+    @abstractmethod
+    def _extract_and_reshape_patches(self, inputs: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
+        """Method to be implemented by subclasses for 1D, 2D, 3D patch extraction."""
+        raise NotImplementedError
+
+    # --- NEWLY ADDED METHODS ---
+    # These methods provide concrete implementations for the abstract methods
+    # inherited from the LayerKAN mixin, fixing the TypeError.
+
+    def update_grid_from_samples(self, inputs: tf.Tensor, **kwargs):
+        """
+        Updates the grid of the internal DenseKAN layer.
+
+        This method extracts patches from the input and passes them to the
+        underlying KAN kernel for grid adaptation.
+        """
+        patches_2d, _ = self._extract_and_reshape_patches(inputs)
+        self.kernel_kan.update_grid_from_samples(patches_2d, **kwargs)
+
+    def extend_grid_from_samples(self, inputs: tf.Tensor, extend_grid_size: int, **kwargs):
+        """
+        Extends the grid of the internal DenseKAN layer.
+
+        This method extracts patches from the input and passes them to the
+        underlying KAN kernel to extend its grid resolution.
+        """
+        patches_2d, _ = self._extract_and_reshape_patches(inputs)
+        self.kernel_kan.extend_grid_from_samples(patches_2d, extend_grid_size, **kwargs)
+
+    def get_config(self) -> dict:
+        config = super().get_config()
+        config.update({
+            'rank': self.rank,
+            'filters': self.filters,
+            'kernel_size': self.kernel_size,
+            'strides': self.strides,
+            'padding': self.padding,
+            'use_bias': self.use_bias,
+            'kan_kwargs': self.kan_kwargs
+        })
+        return config
+
+# --- Concrete Implementations ---
+
+@tf.keras.utils.register_keras_serializable(package="tfkan")
+class Conv1DKAN(ConvolutionKAN):
+    """1D KAN convolution layer (e.g., for time series)."""
+    def __init__(self, filters, kernel_size, strides=1, padding='VALID', use_bias=True, kan_kwargs=None, **kwargs):
+        super().__init__(rank=1, filters=filters, kernel_size=kernel_size, strides=strides, padding=padding, use_bias=use_bias, kan_kwargs=kan_kwargs, **kwargs)
+
+    def _extract_and_reshape_patches(self, inputs: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
+        patches = tf.signal.frame(
+            inputs,
+            frame_length=self.kernel_size[0] * self._in_channels,
+            frame_step=self.strides[0] * self._in_channels,
+            pad_end=(self.padding == 'SAME'),
+            axis=1
+        )
+        output_spatial_shape = tf.shape(patches)[:2]
+        patches_reshaped = tf.reshape(patches, (-1, self._in_size))
+        return patches_reshaped, output_spatial_shape
+
+@tf.keras.utils.register_keras_serializable(package="tfkan")
+class Conv2DKAN(ConvolutionKAN):
+    """2D KAN convolution layer (e.g., for images). Assumes `channels_last`."""
+    def __init__(self, filters, kernel_size, strides=(1, 1), padding='VALID', use_bias=True, kan_kwargs=None, **kwargs):
+        super().__init__(rank=2, filters=filters, kernel_size=kernel_size, strides=strides, padding=padding, use_bias=use_bias, kan_kwargs=kan_kwargs, **kwargs)
+
+    def _extract_and_reshape_patches(self, inputs: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
+        patches = tf.image.extract_patches(
+            inputs,
+            sizes=[1, *self.kernel_size, 1],
+            strides=[1, *self.strides, 1],
+            rates=[1, 1, 1, 1],
+            padding=self.padding
+        )
+        output_spatial_shape = tf.shape(patches)[:-1]
+        patches_reshaped = tf.reshape(patches, (-1, self._in_size))
+        return patches_reshaped, output_spatial_shape
+
+@tf.keras.utils.register_keras_serializable(package="tfkan")
+class Conv3DKAN(ConvolutionKAN):
+    """3D KAN convolution layer (e.g., for video). Assumes `channels_last`."""
+    def __init__(self, filters, kernel_size, strides=(1, 1, 1), padding='VALID', use_bias=True, kan_kwargs=None, **kwargs):
+        super().__init__(rank=3, filters=filters, kernel_size=kernel_size, strides=strides, padding=padding, use_bias=use_bias, kan_kwargs=kan_kwargs, **kwargs)
+
+    def _extract_and_reshape_patches(self, inputs: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
+        patches = tf.extract_volume_patches(
+            inputs,
+            ksizes=[1, *self.kernel_size, 1],
+            strides=[1, *self.strides, 1],
+            padding=self.padding
+        )
+        output_spatial_shape = tf.shape(patches)[:-1]
+        patches_reshaped = tf.reshape(patches, (-1, self._in_size))
+        return patches_reshaped, output_spatial_shape
