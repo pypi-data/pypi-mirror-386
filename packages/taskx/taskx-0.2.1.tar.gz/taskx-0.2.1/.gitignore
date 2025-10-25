@@ -1,0 +1,67 @@
+# Internal Documentation (not for public release)
+ARCHITECTURE.md
+BRANDING.md
+COMPLETION_CHECKLIST.md
+FINAL_IMPLEMENTATION_SUMMARY.md
+FINAL_SUMMARY.md
+IMPLEMENTATION_STATUS.md
+NEXT_STEPS.md
+PRODUCT_PLAN.md
+PROJECT_SUMMARY.md
+TEST_STRATEGY.md
+docs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
