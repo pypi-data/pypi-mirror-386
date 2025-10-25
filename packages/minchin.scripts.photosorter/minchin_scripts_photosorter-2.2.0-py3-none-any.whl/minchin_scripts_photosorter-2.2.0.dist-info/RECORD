@@ -1,0 +1,17 @@
+minchin/scripts/photosorter/__init__.py,sha256=S_jr6dFWA-AnpUlyNFvtK3NGcLiT8S3OFsGNF55iX9A,13822
+minchin/scripts/photosorter/tests/__init__.py,sha256=stgvPkm2BjsMrgRE-PtdeqMGQE_21IyfSoJFJebyLlU,68
+minchin/scripts/photosorter/tests/test_sorter.py,sha256=1I4h5oCgOZw8V_gPMpm7ULFerGAd9NwP-ZPB0TjTL0k,9551
+minchin/scripts/photosorter/tests/test_examples/2004-05-07 20.16.31.jpg,sha256=omSIn1CxXQyDgfUntnf7cHDaFY7ayqSQzEsK6nca8bc,550947
+minchin/scripts/photosorter/tests/test_examples/2006-09-09 07.00.24-alt.jpg,sha256=HaDutXtpjjbVdkT_lCphvsU6XdIF-93qRKNT9nE6cbg,547967
+minchin/scripts/photosorter/tests/test_examples/2006-09-09 07.00.24.jpg,sha256=ODkf7CwPb5EQQGy_5Pss2qvgXg43SsBIRsgF2vh_jiM,550029
+minchin/scripts/photosorter/tests/test_examples/2014-02-06 09.15.17.jpg,sha256=sB-8CATo4wNzE4WEf34goLmoGA-_lPewJ2kSiNe82jw,2567134
+minchin/scripts/photosorter/tests/test_examples/no-exif.jpg,sha256=HaDutXtpjjbVdkT_lCphvsU6XdIF-93qRKNT9nE6cbg,547967
+minchin/scripts/photosorter/tests/test_examples/test.png,sha256=Hj8IrrKMAaDzuv_D2YAV2hlNKPSM-STpX3ufw0WAkKQ,30681
+minchin/scripts/photosorter/tests/test_examples/root/2006/2006-09/2006-09-09 07.00.24-1.jpg,sha256=ODkf7CwPb5EQQGy_5Pss2qvgXg43SsBIRsgF2vh_jiM,550029
+minchin/scripts/photosorter/tests/test_examples/root/2006/2006-09/2006-09-09 07.00.24.jpg,sha256=ODkf7CwPb5EQQGy_5Pss2qvgXg43SsBIRsgF2vh_jiM,550029
+minchin_scripts_photosorter-2.2.0.dist-info/licenses/LICENSE.txt,sha256=b6g0ZuQgO5m5mOpJDOB-KHrUlgzEomMTBo4WxU4uufw,1120
+minchin_scripts_photosorter-2.2.0.dist-info/METADATA,sha256=KWpNSIeRInsl2e-e9NgL3vXXHHjZwFxaSFzYhirVT68,6740
+minchin_scripts_photosorter-2.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+minchin_scripts_photosorter-2.2.0.dist-info/entry_points.txt,sha256=1c4J4ckPpgcjzjCnQG3HkzcVG44nvok4eCdJwvzKqm0,65
+minchin_scripts_photosorter-2.2.0.dist-info/top_level.txt,sha256=UfZcij00rJG77eOQBb7_ze25M4GNX6IZ7pbW2toN94c,8
+minchin_scripts_photosorter-2.2.0.dist-info/RECORD,,
