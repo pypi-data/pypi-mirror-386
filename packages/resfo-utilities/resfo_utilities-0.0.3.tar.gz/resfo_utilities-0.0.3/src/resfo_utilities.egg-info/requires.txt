@@ -1,0 +1,16 @@
+numpy
+resfo
+matplotlib
+scipy
+
+[dev]
+pytest
+hypothesis
+pre-commit
+mypy
+pytest-benchmark
+scipy-stubs
+
+[doc]
+sphinx
+sphinx-rtd-theme
