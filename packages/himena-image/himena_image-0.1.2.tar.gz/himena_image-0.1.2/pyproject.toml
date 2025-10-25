@@ -1,0 +1,93 @@
+[build-system]
+requires = ["hatchling>=1.26.1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "himena-image"
+dynamic = ["version"]
+description = 'Himena plugin for image processing and analysis'
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = []
+authors = [
+  { name = "hanjinliu", email = "liuhanjin.sc@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "himena>=0.0.13",
+  "ndv",
+  "impy-array>=2.5.0",
+  "roifile>=2024.5.24",
+]
+
+[project.optional-dependencies]
+all = [
+  "tifffile",
+  "mrcfile",
+  "nd2",
+]
+testing = [
+  "himena[testing]",
+  "pytest",
+  "pytest-cov",
+  "pyqt6",
+  "click!=8.3.0",
+]
+
+[project.urls]
+Documentation = "https://github.com/hanjinliu/himena-image#readme"
+Issues = "https://github.com/hanjinliu/himena-image/issues"
+Source = "https://github.com/hanjinliu/himena-image"
+
+[tool.hatch.version]
+path = "src/himena_image/__init__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/himena_image tests}"
+
+[tool.hatch.envs.test]
+features = ["testing"]
+
+[tool.hatch.envs.test.scripts]
+run = "pytest -v --cov --cov-report=xml"
+
+[tool.coverage.run]
+source_pkgs = ["himena_image"]
+branch = true
+parallel = true
+omit = [
+  "src/himena_image/__init__.py",
+]
+
+[tool.coverage.paths]
+himena_image = ["src/himena_image", "*/himena-image/src/himena_image"]
+tests = ["tests", "*/himena-image/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[project.entry-points."himena.plugin"]
+"Image IO" = "himena_image.io"
+"New and Samples" = "himena_image.new"
+"Image Processing and Analysis" = "himena_image.processing"
+"Image Viewer Widgets" = "himena_image.widgets"
+"ImageJ Utilities" = "himena_image.ij"
