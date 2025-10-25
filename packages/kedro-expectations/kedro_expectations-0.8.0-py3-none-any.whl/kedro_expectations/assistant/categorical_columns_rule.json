@@ -1,0 +1,154 @@
+{
+    "domain_builder": {
+        "exclude_semantic_types": [
+            "binary",
+            "currency",
+            "identifier"
+        ],
+        "allowed_semantic_types_passthrough": [
+            "logic"
+        ],
+        "exclude_column_names": [
+            "id",
+            "ID",
+            "Id"
+        ],
+        "semantic_type_filter_module_name": null,
+        "semantic_type_filter_class_name": null,
+        "max_proportion_unique": null,
+        "max_unique_values": null,
+        "exclude_column_name_suffixes": [
+            "_id",
+            "_ID"
+        ],
+        "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.domain_builder.categorical_column_domain_builder",
+        "class_name": "CategoricalColumnDomainBuilder",
+        "include_column_names": null,
+        "cardinality_limit_mode": "$variables.cardinality_limit_mode",
+        "include_column_name_suffixes": null,
+        "include_semantic_types": null
+    },
+    "parameter_builders": [
+        {
+            "enforce_numeric_metric": true,
+            "metric_domain_kwargs": "$domain.domain_kwargs",
+            "replace_nan_with_zero": true,
+            "name": "column_distinct_values_count",
+            "metric_value_kwargs": null,
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+            "class_name": "MetricMultiBatchParameterBuilder",
+            "metric_name": "column.distinct_values.count",
+            "reduce_scalar_metric": true,
+            "single_batch_mode": false
+        },
+        {
+            "enforce_numeric_metric": false,
+            "metric_domain_kwargs": "$domain.domain_kwargs",
+            "replace_nan_with_zero": false,
+            "name": "column_value_counts",
+            "metric_value_kwargs": {
+                "sort": "value"
+            },
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+            "class_name": "MetricMultiBatchParameterBuilder",
+            "metric_name": "column.value_counts",
+            "reduce_scalar_metric": true,
+            "single_batch_mode": false
+        }
+    ],
+    "expectation_configuration_builders": [
+        {
+            "condition": "$parameter.value_set_estimator.details.parse_strings_as_datetimes != True",
+            "value_set": "$parameter.value_set_estimator.value",
+            "validation_parameter_builder_configs": [
+                {
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "name": "value_set_estimator",
+                    "metric_value_kwargs": null,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.value_set_multi_batch_parameter_builder",
+                    "class_name": "ValueSetMultiBatchParameterBuilder"
+                }
+            ],
+            "expectation_type": "expect_column_values_to_be_in_set",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.expectation_configuration_builder.default_expectation_configuration_builder",
+            "class_name": "DefaultExpectationConfigurationBuilder",
+            "meta": {
+                "profiler_details": "$parameter.value_set_estimator.details"
+            },
+            "mostly": "$variables.mostly",
+            "column": "$domain.domain_kwargs.column"
+        },
+        {
+            "condition": null,
+            "validation_parameter_builder_configs": [
+                {
+                    "suite_parameter_builder_configs": [
+                        {
+                            "enforce_numeric_metric": true,
+                            "metric_domain_kwargs": "$domain.domain_kwargs",
+                            "replace_nan_with_zero": true,
+                            "name": "column_distinct_values_count",
+                            "metric_value_kwargs": null,
+                            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+                            "class_name": "MetricMultiBatchParameterBuilder",
+                            "metric_name": "column.distinct_values.count",
+                            "reduce_scalar_metric": true,
+                            "single_batch_mode": false
+                        }
+                    ],
+                    "name": "column_distinct_values_count_range",
+                    "round_decimals": "$variables.round_decimals",
+                    "estimator": "$variables.estimator",
+                    "include_estimator_samples_histogram_in_details": "$variables.include_estimator_samples_histogram_in_details",
+                    "enforce_numeric_metric": true,
+                    "truncate_values": "$variables.truncate_values",
+                    "metric_name": "column.distinct_values.count",
+                    "n_resamples": "$variables.n_resamples",
+                    "quantile_statistic_interpolation_method": "$variables.quantile_statistic_interpolation_method",
+                    "quantile_bias_correction": "$variables.quantile_bias_correction",
+                    "metric_multi_batch_parameter_builder_name": "column_distinct_values_count",
+                    "metric_value_kwargs": null,
+                    "false_positive_rate": "$variables.false_positive_rate",
+                    "quantile_bias_std_error_ratio_threshold": "$variables.quantile_bias_std_error_ratio_threshold",
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "replace_nan_with_zero": true,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.numeric_metric_range_multi_batch_parameter_builder",
+                    "class_name": "NumericMetricRangeMultiBatchParameterBuilder",
+                    "random_seed": "$variables.random_seed",
+                    "bw_method": null,
+                    "reduce_scalar_metric": true
+                }
+            ],
+            "strict_min": "$variables.strict_min",
+            "min_value": "$parameter.column_distinct_values_count_range.value[0]",
+            "max_value": "$parameter.column_distinct_values_count_range.value[1]",
+            "expectation_type": "expect_column_unique_value_count_to_be_between",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.expectation_configuration_builder.default_expectation_configuration_builder",
+            "class_name": "DefaultExpectationConfigurationBuilder",
+            "strict_max": "$variables.strict_max",
+            "meta": {
+                "profiler_details": "$parameter.column_distinct_values_count_range.details"
+            },
+            "column": "$domain.domain_kwargs.column"
+        }
+    ],
+    "variables": {
+        "cardinality_limit_mode": "FEW",
+        "mostly": 1.0,
+        "strict_min": false,
+        "strict_max": false,
+        "false_positive_rate": 0.05,
+        "estimator": "bootstrap",
+        "n_resamples": 9999,
+        "random_seed": null,
+        "quantile_statistic_interpolation_method": "nearest",
+        "quantile_bias_correction": false,
+        "quantile_bias_std_error_ratio_threshold": null,
+        "include_estimator_samples_histogram_in_details": false,
+        "truncate_values": {
+            "lower_bound": 0.0,
+            "upper_bound": null
+        },
+        "round_decimals": null
+    }
+}

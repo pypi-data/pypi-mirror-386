@@ -1,0 +1,295 @@
+{
+    "domain_builder": {
+        "exclude_semantic_types": [
+            "identifier"
+        ],
+        "exclude_column_names": null,
+        "semantic_type_filter_module_name": null,
+        "semantic_type_filter_class_name": null,
+        "exclude_column_name_suffixes": [
+            "_id",
+            "_ID"
+        ],
+        "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.domain_builder.column_domain_builder",
+        "class_name": "ColumnDomainBuilder",
+        "include_column_names": null,
+        "include_column_name_suffixes": null,
+        "include_semantic_types": [
+            "numeric"
+        ]
+    },
+    "parameter_builders": [
+        {
+            "name": "column_values_partition",
+            "suite_parameter_builder_configs": [
+                {
+                    "enforce_numeric_metric": false,
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "replace_nan_with_zero": false,
+                    "name": "column_partition_metric_single_batch_parameter_builder",
+                    "metric_value_kwargs": {
+                        "bins": "uniform",
+                        "n_bins": 10,
+                        "allow_relative_error": false
+                    },
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder",
+                    "class_name": "MetricSingleBatchParameterBuilder",
+                    "metric_name": "column.partition",
+                    "reduce_scalar_metric": false
+                }
+            ],
+            "class_name": "HistogramSingleBatchParameterBuilder",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.histogram_single_batch_parameter_builder"
+        },
+        {
+            "enforce_numeric_metric": true,
+            "metric_domain_kwargs": "$domain.domain_kwargs",
+            "replace_nan_with_zero": true,
+            "name": "column_min",
+            "metric_value_kwargs": null,
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+            "class_name": "MetricMultiBatchParameterBuilder",
+            "metric_name": "column.min",
+            "reduce_scalar_metric": true,
+            "single_batch_mode": false
+        },
+        {
+            "enforce_numeric_metric": true,
+            "metric_domain_kwargs": "$domain.domain_kwargs",
+            "replace_nan_with_zero": true,
+            "name": "column_max",
+            "metric_value_kwargs": null,
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+            "class_name": "MetricMultiBatchParameterBuilder",
+            "metric_name": "column.max",
+            "reduce_scalar_metric": true,
+            "single_batch_mode": false
+        }
+    ],
+    "expectation_configuration_builders": [
+        {
+            "condition": null,
+            "validation_parameter_builder_configs": [
+                {
+                    "suite_parameter_builder_configs": [
+                        {
+                            "enforce_numeric_metric": true,
+                            "metric_domain_kwargs": "$domain.domain_kwargs",
+                            "replace_nan_with_zero": true,
+                            "name": "column_min",
+                            "metric_value_kwargs": null,
+                            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+                            "class_name": "MetricMultiBatchParameterBuilder",
+                            "metric_name": "column.min",
+                            "reduce_scalar_metric": true,
+                            "single_batch_mode": false
+                        }
+                    ],
+                    "name": "column_min_range",
+                    "round_decimals": "$variables.round_decimals",
+                    "estimator": "$variables.estimator",
+                    "include_estimator_samples_histogram_in_details": "$variables.include_estimator_samples_histogram_in_details",
+                    "enforce_numeric_metric": true,
+                    "truncate_values": "$variables.truncate_values",
+                    "metric_name": "column.min",
+                    "n_resamples": "$variables.n_resamples",
+                    "quantile_statistic_interpolation_method": "$variables.quantile_statistic_interpolation_method",
+                    "quantile_bias_correction": "$variables.quantile_bias_correction",
+                    "metric_multi_batch_parameter_builder_name": "column_min",
+                    "metric_value_kwargs": null,
+                    "false_positive_rate": "$variables.false_positive_rate",
+                    "quantile_bias_std_error_ratio_threshold": "$variables.quantile_bias_std_error_ratio_threshold",
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "replace_nan_with_zero": true,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.numeric_metric_range_multi_batch_parameter_builder",
+                    "class_name": "NumericMetricRangeMultiBatchParameterBuilder",
+                    "random_seed": "$variables.random_seed",
+                    "bw_method": null,
+                    "reduce_scalar_metric": true
+                }
+            ],
+            "strict_min": "$variables.strict_min",
+            "min_value": "$parameter.column_min_range.value[0]",
+            "max_value": "$parameter.column_min_range.value[1]",
+            "expectation_type": "expect_column_min_to_be_between",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.expectation_configuration_builder.default_expectation_configuration_builder",
+            "class_name": "DefaultExpectationConfigurationBuilder",
+            "strict_max": "$variables.strict_max",
+            "meta": {
+                "profiler_details": "$parameter.column_min_range.details"
+            },
+            "column": "$domain.domain_kwargs.column"
+        },
+        {
+            "condition": null,
+            "validation_parameter_builder_configs": [
+                {
+                    "suite_parameter_builder_configs": [
+                        {
+                            "enforce_numeric_metric": true,
+                            "metric_domain_kwargs": "$domain.domain_kwargs",
+                            "replace_nan_with_zero": true,
+                            "name": "column_max",
+                            "metric_value_kwargs": null,
+                            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+                            "class_name": "MetricMultiBatchParameterBuilder",
+                            "metric_name": "column.max",
+                            "reduce_scalar_metric": true,
+                            "single_batch_mode": false
+                        }
+                    ],
+                    "name": "column_max_range",
+                    "round_decimals": "$variables.round_decimals",
+                    "estimator": "$variables.estimator",
+                    "include_estimator_samples_histogram_in_details": "$variables.include_estimator_samples_histogram_in_details",
+                    "enforce_numeric_metric": true,
+                    "truncate_values": "$variables.truncate_values",
+                    "metric_name": "column.max",
+                    "n_resamples": "$variables.n_resamples",
+                    "quantile_statistic_interpolation_method": "$variables.quantile_statistic_interpolation_method",
+                    "quantile_bias_correction": "$variables.quantile_bias_correction",
+                    "metric_multi_batch_parameter_builder_name": "column_max",
+                    "metric_value_kwargs": null,
+                    "false_positive_rate": "$variables.false_positive_rate",
+                    "quantile_bias_std_error_ratio_threshold": "$variables.quantile_bias_std_error_ratio_threshold",
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "replace_nan_with_zero": true,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.numeric_metric_range_multi_batch_parameter_builder",
+                    "class_name": "NumericMetricRangeMultiBatchParameterBuilder",
+                    "random_seed": "$variables.random_seed",
+                    "bw_method": null,
+                    "reduce_scalar_metric": true
+                }
+            ],
+            "strict_min": "$variables.strict_min",
+            "min_value": "$parameter.column_max_range.value[0]",
+            "max_value": "$parameter.column_max_range.value[1]",
+            "expectation_type": "expect_column_max_to_be_between",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.expectation_configuration_builder.default_expectation_configuration_builder",
+            "class_name": "DefaultExpectationConfigurationBuilder",
+            "strict_max": "$variables.strict_max",
+            "meta": {
+                "profiler_details": "$parameter.column_max_range.details"
+            },
+            "column": "$domain.domain_kwargs.column"
+        },
+        {
+            "condition": null,
+            "validation_parameter_builder_configs": [
+                {
+                    "suite_parameter_builder_configs": [
+                        {
+                            "enforce_numeric_metric": true,
+                            "metric_domain_kwargs": "$domain.domain_kwargs",
+                            "replace_nan_with_zero": true,
+                            "name": "column_min",
+                            "metric_value_kwargs": null,
+                            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+                            "class_name": "MetricMultiBatchParameterBuilder",
+                            "metric_name": "column.min",
+                            "reduce_scalar_metric": true,
+                            "single_batch_mode": false
+                        }
+                    ],
+                    "name": "column_min_range",
+                    "round_decimals": "$variables.round_decimals",
+                    "estimator": "$variables.estimator",
+                    "include_estimator_samples_histogram_in_details": "$variables.include_estimator_samples_histogram_in_details",
+                    "enforce_numeric_metric": true,
+                    "truncate_values": "$variables.truncate_values",
+                    "metric_name": "column.min",
+                    "n_resamples": "$variables.n_resamples",
+                    "quantile_statistic_interpolation_method": "$variables.quantile_statistic_interpolation_method",
+                    "quantile_bias_correction": "$variables.quantile_bias_correction",
+                    "metric_multi_batch_parameter_builder_name": "column_min",
+                    "metric_value_kwargs": null,
+                    "false_positive_rate": "$variables.false_positive_rate",
+                    "quantile_bias_std_error_ratio_threshold": "$variables.quantile_bias_std_error_ratio_threshold",
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "replace_nan_with_zero": true,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.numeric_metric_range_multi_batch_parameter_builder",
+                    "class_name": "NumericMetricRangeMultiBatchParameterBuilder",
+                    "random_seed": "$variables.random_seed",
+                    "bw_method": null,
+                    "reduce_scalar_metric": true
+                },
+                {
+                    "suite_parameter_builder_configs": [
+                        {
+                            "enforce_numeric_metric": true,
+                            "metric_domain_kwargs": "$domain.domain_kwargs",
+                            "replace_nan_with_zero": true,
+                            "name": "column_max",
+                            "metric_value_kwargs": null,
+                            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+                            "class_name": "MetricMultiBatchParameterBuilder",
+                            "metric_name": "column.max",
+                            "reduce_scalar_metric": true,
+                            "single_batch_mode": false
+                        }
+                    ],
+                    "name": "column_max_range",
+                    "round_decimals": "$variables.round_decimals",
+                    "estimator": "$variables.estimator",
+                    "include_estimator_samples_histogram_in_details": "$variables.include_estimator_samples_histogram_in_details",
+                    "enforce_numeric_metric": true,
+                    "truncate_values": "$variables.truncate_values",
+                    "metric_name": "column.max",
+                    "n_resamples": "$variables.n_resamples",
+                    "quantile_statistic_interpolation_method": "$variables.quantile_statistic_interpolation_method",
+                    "quantile_bias_correction": "$variables.quantile_bias_correction",
+                    "metric_multi_batch_parameter_builder_name": "column_max",
+                    "metric_value_kwargs": null,
+                    "false_positive_rate": "$variables.false_positive_rate",
+                    "quantile_bias_std_error_ratio_threshold": "$variables.quantile_bias_std_error_ratio_threshold",
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "replace_nan_with_zero": true,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.numeric_metric_range_multi_batch_parameter_builder",
+                    "class_name": "NumericMetricRangeMultiBatchParameterBuilder",
+                    "random_seed": "$variables.random_seed",
+                    "bw_method": null,
+                    "reduce_scalar_metric": true
+                }
+            ],
+            "strict_min": "$variables.strict_min",
+            "min_value": "$parameter.column_min_range.value[0]",
+            "max_value": "$parameter.column_max_range.value[1]",
+            "expectation_type": "expect_column_values_to_be_between",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.expectation_configuration_builder.default_expectation_configuration_builder",
+            "class_name": "DefaultExpectationConfigurationBuilder",
+            "strict_max": "$variables.strict_max",
+            "meta": {
+                "profiler_details": {
+                    "column_min_values_range_estimator": "$parameter.column_min_range.details",
+                    "column_max_values_range_estimator": "$parameter.column_max_range.details"
+                }
+            },
+            "mostly": "$variables.mostly",
+            "column": "$domain.domain_kwargs.column"
+        }
+    ],
+    "variables": {
+        "mostly": 1.0,
+        "strict_min": false,
+        "strict_max": false,
+        "quantiles": [
+            0.25,
+            0.5,
+            0.75
+        ],
+        "allow_relative_error": false,
+        "false_positive_rate": 0.05,
+        "estimator": "bootstrap",
+        "n_resamples": 9999,
+        "random_seed": null,
+        "quantile_statistic_interpolation_method": "nearest",
+        "quantile_bias_correction": false,
+        "quantile_bias_std_error_ratio_threshold": null,
+        "include_estimator_samples_histogram_in_details": false,
+        "truncate_values": {
+            "lower_bound": null,
+            "upper_bound": null
+        },
+        "round_decimals": null
+    }
+}

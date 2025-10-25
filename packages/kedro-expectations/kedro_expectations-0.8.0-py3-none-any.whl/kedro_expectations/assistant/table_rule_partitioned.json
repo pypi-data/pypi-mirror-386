@@ -1,0 +1,61 @@
+{
+    "domain_builder": {
+        "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.domain_builder.table_domain_builder",
+        "class_name": "TableDomainBuilder"
+    },
+    "parameter_builders": [
+        {
+            "enforce_numeric_metric": false,
+            "metric_domain_kwargs": "$domain.domain_kwargs",
+            "replace_nan_with_zero": false,
+            "name": "table_columns",
+            "metric_value_kwargs": {
+                "include_nested": true
+            },
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+            "class_name": "MetricMultiBatchParameterBuilder",
+            "metric_name": "table.columns",
+            "reduce_scalar_metric": true,
+            "single_batch_mode": false
+        }
+    ],
+    "expectation_configuration_builders": [
+        {
+            "condition": "$parameter.column_names_set_estimator.details.success_ratio >= $variables.success_ratio",
+            "validation_parameter_builder_configs": [
+                {
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "name": "column_names_set_estimator",
+                    "metric_value_kwargs": null,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.mean_table_columns_set_match_multi_batch_parameter_builder",
+                    "class_name": "MeanTableColumnsSetMatchMultiBatchParameterBuilder"
+                }
+            ],
+            "expectation_type": "expect_table_columns_to_match_set",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.expectation_configuration_builder.default_expectation_configuration_builder",
+            "class_name": "DefaultExpectationConfigurationBuilder",
+            "column_set": "$parameter.column_names_set_estimator.value",
+            "meta": {
+                "profiler_details": "$parameter.column_names_set_estimator.details"
+            },
+            "exact_match": "$variables.exact_match"
+        }
+    ],
+    "variables": {
+        "false_positive_rate": 0.05,
+        "estimator": "bootstrap",
+        "n_resamples": 9999,
+        "random_seed": null,
+        "quantile_statistic_interpolation_method": "nearest",
+        "quantile_bias_correction": false,
+        "quantile_bias_std_error_ratio_threshold": null,
+        "include_estimator_samples_histogram_in_details": false,
+        "truncate_values": {
+            "lower_bound": 0,
+            "upper_bound": null
+        },
+        "round_decimals": 0,
+        "exact_match": true,
+        "success_ratio": 1.0
+    }
+}
