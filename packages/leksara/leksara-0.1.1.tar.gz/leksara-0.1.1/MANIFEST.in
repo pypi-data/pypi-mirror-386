@@ -1,0 +1,3 @@
+include README.md
+include LICENSE
+recursive-include leksara/resources *.json *.csv *.txt
