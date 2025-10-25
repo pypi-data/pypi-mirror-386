@@ -1,0 +1,12 @@
+colored-logging
+rasters>=1.14.0
+sentinel-tiles
+xmltodict
+
+[dev]
+build
+pytest>=6.0
+pytest-cov
+jupyter
+pytest
+twine
