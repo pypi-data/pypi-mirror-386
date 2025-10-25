@@ -1,0 +1,2 @@
+[console_scripts]
+ha-enviro-plus = ha_enviro_plus.agent:main
