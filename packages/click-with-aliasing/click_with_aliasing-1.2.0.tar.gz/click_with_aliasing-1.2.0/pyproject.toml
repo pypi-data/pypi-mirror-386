@@ -1,0 +1,86 @@
+[project]
+name = "click_with_aliasing"
+version = "1.2.0"
+description = "A library that allows you to add aliases to your Click group and commands."
+authors = [
+    { name = "Marcus Fredriksson", email = "marcus@marcusfredriksson.com" },
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = ["click>=8.1.8"]
+keywords = ["click", "alias", "group", "command"]
+
+[project.optional-dependencies]
+build = ["build", "twine"]
+dev = [
+    "black>=24.10.0",
+    "pytest>=8.3.4",
+    "isort>=5.13.2",
+    "pylint>=3.3.2",
+    "pre-commit>=4.0.1",
+    "mypy>=1.18.2"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["click_with_aliasing"]
+
+[tool.black]
+line-length = 80
+target-version = ["py310", "py311", "py312", "py313"]
+
+[tool.isort]
+profile = "black"
+line_length = 80
+
+[tool.pylint.master]
+ignore = ["venv", ".venv", "__pycache__", ".git", "tests", "docs", "build", "dist", ".pytest_cache", ".mypy_cache", "*.egg-info"]
+ignore-paths = ["^tests/.*$", "^docs/.*$", "^\\..*$"]
+persistent = true
+
+[tool.pylint.messages_control]
+disable = [
+    "W0718", # broad-exception-caught
+    "R0801", # duplicate-code
+    "R0903", # too-few-public-methods
+    "E1101", # no-member
+    "W0613", # unused-argument
+    "W0401", # wildcard-import
+    "W0621", # redefined-outer-name
+]
+
+[tool.pylint.format]
+max-line-length = 80
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --verbosity=1"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_unimported = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = false
+warn_no_return = true
+check_untyped_defs = true
+strict_equality = true
+
+[project.urls]
+Homepage = "https://github.com/marcusfrdk/click-with-aliasing"
+Repository = "https://github.com/marcusfrdk/click-with-aliasing"
+Issues = "https://github.com/marcusfrdk/click-with-aliasing/issues"
