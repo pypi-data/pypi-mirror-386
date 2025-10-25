@@ -1,0 +1,33 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "tastyigniter",
+  "total_simulators": 1,
+  "successful_tests": 1,
+  "failed_tests": 0,
+  "total_duration": 24.431694984436035,
+  "login_attempts": 1,
+  "successful_logins": 1,
+  "login_success_rate": 100.0,
+  "overall_success_rate": 100.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "tastyigniter",
+      "success": true,
+      "total_duration": 24.306101083755493,
+      "environment_id": "beee3ea0-b70e-42b3-adef-3c068b66db73",
+      "steps_timing": {
+        "environment_creation": 0.10009312629699707,
+        "environment_ready": 0.051963090896606445,
+        "environment_reset": 0.3958263397216797,
+        "public_url_retrieval": 8.225440979003906e-05,
+        "login_test": 20.12930393218994,
+        "browser_operations": 23.75811791419983,
+        "environment_closure": 0.0
+      },
+      "tasks_count": 0,
+      "login_attempted": true,
+      "login_successful": true,
+      "error": null
+    }
+  ]
+}

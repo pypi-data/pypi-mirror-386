@@ -1,0 +1,31 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "tastyigniter",
+  "total_simulators": 1,
+  "successful_tests": 0,
+  "failed_tests": 1,
+  "total_duration": 1.1817169189453125,
+  "login_attempts": 0,
+  "successful_logins": 0,
+  "login_success_rate": 0,
+  "overall_success_rate": 0.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "tastyigniter",
+      "success": false,
+      "total_duration": 1.1816339492797852,
+      "environment_id": "fcc9456b-7868-45c9-8846-3afc98af0ebc",
+      "steps_timing": {
+        "environment_creation": 0.10306811332702637,
+        "environment_ready": 0.08241391181945801,
+        "environment_reset": 0.3954160213470459,
+        "public_url_retrieval": 9.584426879882812e-05,
+        "environment_closure": 0.0
+      },
+      "tasks_count": 0,
+      "login_attempted": false,
+      "login_successful": false,
+      "error": "BrowserType.launch: Executable doesn't exist at /Users/zachplato/Library/Caches/ms-playwright/chromium_headless_shell-1155/chrome-mac/headless_shell\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d"
+    }
+  ]
+}

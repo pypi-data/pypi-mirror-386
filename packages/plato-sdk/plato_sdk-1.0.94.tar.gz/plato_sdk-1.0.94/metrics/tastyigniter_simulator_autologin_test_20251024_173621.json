@@ -1,0 +1,25 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "tastyigniter",
+  "total_simulators": 1,
+  "successful_tests": 0,
+  "failed_tests": 1,
+  "total_duration": 0.2633180618286133,
+  "login_attempts": 0,
+  "successful_logins": 0,
+  "login_success_rate": 0,
+  "overall_success_rate": 0.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "tastyigniter",
+      "success": false,
+      "total_duration": 0.2627592086791992,
+      "environment_id": null,
+      "steps_timing": {},
+      "tasks_count": 0,
+      "login_attempted": false,
+      "login_successful": false,
+      "error": "HTTP 400: {'detail': 'No versions found for simulator tastyigniter'}"
+    }
+  ]
+}

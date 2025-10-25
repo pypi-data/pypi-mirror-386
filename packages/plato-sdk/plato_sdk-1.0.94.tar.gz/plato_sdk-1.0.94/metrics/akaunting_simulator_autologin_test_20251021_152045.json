@@ -1,0 +1,25 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "akaunting",
+  "total_simulators": 1,
+  "successful_tests": 0,
+  "failed_tests": 1,
+  "total_duration": 0.13687777519226074,
+  "login_attempts": 0,
+  "successful_logins": 0,
+  "login_success_rate": 0,
+  "overall_success_rate": 0.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "akaunting",
+      "success": false,
+      "total_duration": 0.13520216941833496,
+      "environment_id": null,
+      "steps_timing": {},
+      "tasks_count": 0,
+      "login_attempted": false,
+      "login_successful": false,
+      "error": "HTTP 502: Bad Gateway"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "webarenacms",
+  "total_simulators": 1,
+  "successful_tests": 1,
+  "failed_tests": 0,
+  "total_duration": 10.418888807296753,
+  "login_attempts": 1,
+  "successful_logins": 0,
+  "login_success_rate": 0.0,
+  "overall_success_rate": 100.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "webarenacms",
+      "success": true,
+      "total_duration": 10.334825038909912,
+      "environment_id": "5298d95f-080e-4729-9abc-5ffcdcbb950b",
+      "steps_timing": {
+        "environment_creation": 0.1749591827392578,
+        "environment_ready": 0.07734394073486328,
+        "environment_reset": 1.5129790306091309,
+        "public_url_retrieval": 4.9114227294921875e-05,
+        "login_test": 2.213588237762451,
+        "browser_operations": 8.569417953491211,
+        "environment_closure": 0.0
+      },
+      "tasks_count": 0,
+      "login_attempted": true,
+      "login_successful": false,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "akaunting",
+  "total_simulators": 1,
+  "successful_tests": 1,
+  "failed_tests": 0,
+  "total_duration": 35.56859278678894,
+  "login_attempts": 1,
+  "successful_logins": 0,
+  "login_success_rate": 0.0,
+  "overall_success_rate": 100.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "akaunting",
+      "success": true,
+      "total_duration": 35.47914123535156,
+      "environment_id": "e1cb7bcf-d19b-4255-b1e4-4e502ea25d7c",
+      "steps_timing": {
+        "environment_creation": 0.27851128578186035,
+        "environment_ready": 0.09914612770080566,
+        "environment_reset": 10.582050085067749,
+        "public_url_retrieval": 7.200241088867188e-05,
+        "login_test": 20.288385152816772,
+        "browser_operations": 24.51926589012146,
+        "environment_closure": 0.0
+      },
+      "tasks_count": 25,
+      "login_attempted": true,
+      "login_successful": false,
+      "error": null
+    }
+  ]
+}

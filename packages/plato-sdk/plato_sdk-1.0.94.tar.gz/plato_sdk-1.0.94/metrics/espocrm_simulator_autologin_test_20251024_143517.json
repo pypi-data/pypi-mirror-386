@@ -1,0 +1,33 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "espocrm",
+  "total_simulators": 1,
+  "successful_tests": 1,
+  "failed_tests": 0,
+  "total_duration": 24.874759912490845,
+  "login_attempts": 1,
+  "successful_logins": 0,
+  "login_success_rate": 0.0,
+  "overall_success_rate": 100.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "espocrm",
+      "success": true,
+      "total_duration": 19.746902227401733,
+      "environment_id": "c03ed212-7bf4-4e37-98d8-90359ea4c01e",
+      "steps_timing": {
+        "environment_creation": 2.6369359493255615,
+        "environment_ready": 0.0777440071105957,
+        "environment_reset": 11.210338115692139,
+        "public_url_retrieval": 0.00010323524475097656,
+        "login_test": 2.1462900638580322,
+        "browser_operations": 5.821718215942383,
+        "environment_closure": 9.5367431640625e-07
+      },
+      "tasks_count": 969,
+      "login_attempted": true,
+      "login_successful": false,
+      "error": null
+    }
+  ]
+}

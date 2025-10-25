@@ -1,0 +1,28 @@
+{
+  "test_type": "single_simulator_test",
+  "tested_simulator": "akaunting",
+  "total_simulators": 1,
+  "successful_tests": 0,
+  "failed_tests": 1,
+  "total_duration": 30.39389705657959,
+  "login_attempts": 0,
+  "successful_logins": 0,
+  "login_success_rate": 0,
+  "overall_success_rate": 0.0,
+  "individual_simulator_metrics": [
+    {
+      "simulator_name": "akaunting",
+      "success": false,
+      "total_duration": 30.39318084716797,
+      "environment_id": "3d2f3b2e-dde3-4c33-93b4-3e62f2bd6e6b",
+      "steps_timing": {
+        "environment_creation": 0.28984904289245605,
+        "environment_closure": 2.86102294921875e-06
+      },
+      "tasks_count": 25,
+      "login_attempted": false,
+      "login_successful": false,
+      "error": "HTTP 500: {'detail': 'Not all jobs ready within timeout (30s). Missing: 1 jobs'}"
+    }
+  ]
+}
