@@ -1,0 +1,11 @@
+dapper_python/__init__.py,sha256=Oln72dWHcyyJMMlvG6pReifeABgRKp0XxftYufpFZ4g,39
+dapper_python/dataset_loader.py,sha256=GQgDqz8O8WcbsvE7a1ULhpfl078d3ZO2TFlRH8IJsZw,5094
+dapper_python/normalize.py,sha256=DXGCdAEd_M5wTEz1q1oH3jQGUqAnUJtu3U51tm0YAdM,4963
+dapper_python/databases/database.py,sha256=dQLakX_c1Fz1MDDSa1VHkyb9_BrY7z5YqnzIgpuHODE,3705
+dapper_python/databases/linuxDB.py,sha256=8KZTtjI8pMNmlb15fV3KCanvp_5tVPKuilH9hixMPKs,2118
+dapper_python/databases/nugetDB.py,sha256=qRDhxz7Aahfp3sEAaqHXoog_GU5jqELyu4_7fR53W8M,2543
+dapper_python/databases/pythonDB.py,sha256=pcTQEq0Oc_AsPfIx05_E7Oqyp6glDiLzZu8qBD1z8qA,3087
+dapper_python-0.0.0.dev3.dist-info/METADATA,sha256=VO5BTAkslGSAZVjBdxVS3C44o57IXEUhFTAuA8cZdhU,2191
+dapper_python-0.0.0.dev3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dapper_python-0.0.0.dev3.dist-info/top_level.txt,sha256=dD2_i9kBC8CFqc6h3j7xDuEuzdMfg3NPa8vRHcH9ND4,14
+dapper_python-0.0.0.dev3.dist-info/RECORD,,
