@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: he-kit
+Version: 0.0.2
+Summary: A project generator that bootstraps a FastAPI setup following Helicon's standards and best practices.
+Author-email: gs <gs@helicon.ai>
+Requires-Python: >=3.12
+Requires-Dist: aiosqlite>=0.21.0
+Requires-Dist: alembic>=1.17.0
+Requires-Dist: fastapi[standard]>=0.119.1
+Requires-Dist: pydantic-settings>=2.11.0
+Requires-Dist: sqlmodel>=0.0.27
+Requires-Dist: structlog>=25.4.0
+Description-Content-Type: text/markdown
+
+# Helicon kit
+
+A project generator that bootstraps a FastAPI setup following Helicon's
+standards and best practices.
+
+## Local development setup
+
+### Testing from local disk
+
+```
+mkdir test-dir
+cd test-dir
+uv venv
+pip install -e ../path/to/he-kit
+```
