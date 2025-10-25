@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: gsaphub
+Version: 0.3.0
+Summary: Data transfer platform from inception to graphql and filesystem
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp>=3.11.2
+Requires-Dist: gql>=3.5.0
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: pip>=25.0.1
+Requires-Dist: pycaprio>=0.3.0
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: spacy>=3.8.5
+
+# Migraion tool to import exported inception annotations to postgraphile graphql backend
+
+## .env file
+ * please copy example.env to .env and add your credentials
+
+
+
+## To load the spacy model used for tokenizing to create the plmarker format:
+ * `uv run -- spacy download en_core_web_sm`
