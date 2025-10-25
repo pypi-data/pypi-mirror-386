@@ -1,0 +1,20 @@
+colorama>=0.2.5
+
+[:python_version == "2.6"]
+backports.shutil_get_terminal_size>=1.0.0
+
+[:python_version == "2.7"]
+backports.shutil_get_terminal_size>=1.0.0
+
+[:python_version == "3.2"]
+backports.shutil_get_terminal_size>=1.0.0
+
+[build]
+minchin.releaser>=0.8.2
+
+[dev]
+black
+
+[docs]
+
+[test]

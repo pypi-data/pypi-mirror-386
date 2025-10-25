@@ -1,0 +1,13 @@
+CHANGELOG.rst
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+minchin/text.py
+minchin.text.egg-info/PKG-INFO
+minchin.text.egg-info/SOURCES.txt
+minchin.text.egg-info/dependency_links.txt
+minchin.text.egg-info/requires.txt
+minchin.text.egg-info/top_level.txt
+test/test_printing.py
+test/test_progressbar.py
