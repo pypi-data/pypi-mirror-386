@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: saplexer
+Version: 1.0.0
+Summary: A simple package that displays all text files from folders A and B.
+Author: Jeevakrishna.V
+License: MIT
+Requires-Python: >=3.7
+Dynamic: author
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
