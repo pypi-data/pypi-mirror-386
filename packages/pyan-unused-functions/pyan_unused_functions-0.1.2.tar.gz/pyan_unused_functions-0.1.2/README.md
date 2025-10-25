@@ -1,0 +1,311 @@
+# pyan-unused-functions
+
+A Python static analysis tool to find unused functions in your codebase using AST (Abstract Syntax Tree) parsing. Perfect for CLI usage and CI/CD pipelines with GitHub Actions.
+
+## Features
+
+- 🔍 **Accurate Detection**: Uses Python's built-in AST module for reliable parsing
+- 🚀 **Fast Analysis**: Efficiently scans entire codebases
+- 📊 **Detailed Reports**: Shows all defined functions and their usage
+- 🎯 **Smart Filtering**: Automatically skips private functions (starting with `_`)
+- 🔄 **Class-Aware**: Handles both module-level functions and class methods
+- ⚡ **Async Support**: Recognizes async functions and methods
+- 🤖 **CI/CD Ready**: Easy integration with GitHub Actions and other CI systems
+- 🛠️ **Lightweight**: Minimal dependencies (requires pyan3 for enhanced analysis)
+
+## Installation
+
+Install from PyPI:
+
+```bash
+pip install pyan-unused-functions
+```
+
+This will automatically install the required dependency: `pyan3==1.1.1`
+
+Or install from source:
+
+```bash
+git clone https://github.com/yourusername/pyan-unused-functions.git
+cd pyan-unused-functions
+pip install -e .
+```
+
+## Usage
+
+> 💡 **Quick Start**: Check the [`examples/`](examples/) directory for ready-to-use GitHub Actions workflows and Git hooks!
+
+### Command Line
+
+Analyze a directory:
+
+```bash
+pyan-unused-functions /path/to/your/code
+```
+
+Analyze current directory:
+
+```bash
+pyan-unused-functions .
+```
+
+### As a Python Module
+
+```python
+from pathlib import Path
+from pyan_unused_functions import analyze_codebase, find_unused_functions
+
+# Analyze a codebase
+root_path = Path("./my_project")
+defined_functions, called_functions = analyze_codebase(root_path)
+
+# Find unused functions
+unused = find_unused_functions(defined_functions, called_functions)
+
+print(f"Found {len(unused)} unused functions:")
+for func in sorted(unused):
+    print(f"  {func}")
+```
+
+## Example Output
+
+```
+Analyzing Python code in: ./my_project
+Analyzing 45 Python files...
+
+=== Analysis Results ===
+Total functions defined: 127
+Total function calls found: 98
+Potentially unused functions: 12
+
+=== Potentially Unused Functions ===
+  module_a.helper_function
+  module_b.old_implementation
+  utils.deprecated_method
+  ...
+
+Note: This analysis may have false positives for:
+  - Functions called dynamically (getattr, exec, etc.)
+  - Functions used in decorators or metaclasses
+  - Functions called from other modules not analyzed
+  - Entry points, CLI commands, or framework callbacks
+```
+
+## How It Works
+
+1. **Discovery**: Recursively finds all Python files in the specified directory
+2. **Parsing**: Uses AST to parse each file and extract function definitions and calls
+3. **Analysis**: Compares defined functions against called functions
+4. **Reporting**: Identifies functions that are defined but never called
+
+## Limitations
+
+This tool provides **static analysis** and may report false positives in the following cases:
+
+- **Dynamic calls**: Functions invoked via `getattr()`, `exec()`, `eval()`, etc.
+- **Decorator usage**: Functions used as decorators or in metaclasses
+- **External calls**: Functions called from modules outside the analyzed directory
+- **Framework callbacks**: Entry points, CLI commands, or framework-specific callbacks
+- **String-based invocation**: Functions referenced by name strings
+
+Always review the results and verify before removing any function!
+
+## GitHub Actions Integration
+
+### Basic Workflow
+
+Create `.github/workflows/check-unused-functions.yml`:
+
+```yaml
+name: Check Unused Functions
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install pyan-unused-functions
+      run: pip install pyan-unused-functions
+    
+    - name: Check for unused functions
+      run: pyan-unused-functions .
+```
+
+### Advanced Workflow with Failure on Unused Functions
+
+```yaml
+name: Code Quality Check
+
+on: [push, pull_request]
+
+jobs:
+  check-unused-functions:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install pyan-unused-functions
+      run: pip install pyan-unused-functions
+    
+    - name: Analyze codebase
+      id: analyze
+      run: |
+        OUTPUT=$(pyan-unused-functions . 2>&1)
+        echo "$OUTPUT"
+        echo "$OUTPUT" | grep -q "Potentially unused functions: 0" || exit 1
+      continue-on-error: false
+    
+    - name: Comment on PR (if unused functions found)
+      if: failure() && github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '⚠️ Unused functions detected! Please review the workflow logs.'
+          })
+```
+
+### Multi-Project Workflow
+
+```yaml
+name: Check Multiple Projects
+
+on: [push]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        directory: ['./backend', './frontend-utils', './scripts']
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install pyan-unused-functions
+      run: pip install pyan-unused-functions
+    
+    - name: Check ${{ matrix.directory }}
+      run: pyan-unused-functions ${{ matrix.directory }}
+```
+
+> 📖 **More Examples**: See [`examples/`](examples/) for more GitHub Actions workflows including:
+> - Strict mode (fail on unused functions)
+> - Scheduled weekly checks with issue creation
+> - Multi-project/monorepo setups
+> - Pre-commit Git hooks
+
+## Configuration
+
+The tool automatically skips common directories:
+- `.venv`, `venv` (virtual environments)
+- `__pycache__` (Python cache)
+- `.git` (version control)
+- `node_modules` (JavaScript dependencies)
+- `.pytest_cache` (pytest cache)
+
+## CI/CD Best Practices
+
+### Recommended Usage
+
+- **Pre-commit hooks**: Run as a pre-commit check
+- **Pull request checks**: Automatically analyze PRs
+- **Scheduled scans**: Weekly cron jobs to catch accumulating unused code
+- **Release gates**: Ensure no unused functions before releases
+
+### Exit Codes
+
+The tool returns:
+- `0` - Success (analysis completed)
+- `1` - Error (invalid path, no files found, etc.)
+
+Note: The tool doesn't fail on finding unused functions by default. Wrap with custom logic to enforce policies.
+
+## Development
+
+### Setup Development Environment
+
+```bash
+git clone https://github.com/yourusername/pyan-unused-functions.git
+cd pyan-unused-functions
+pip install -e .
+```
+
+### Build Package
+
+```bash
+python -m build
+```
+
+### Local Testing
+
+```bash
+# Test on your own codebase
+pyan-unused-functions ./your-project
+
+# Test on current directory
+pyan-unused-functions .
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Documentation
+
+- **[CLI Usage Guide](CLI_GUIDE.md)** - Complete command-line reference
+- **[Examples Directory](examples/)** - Ready-to-use GitHub Actions workflows and Git hooks
+- **[Publishing Guide](PUBLISHING.md)** - How to publish to PyPI
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Changelog
+
+### Version 0.1.0 (Initial Release)
+
+- Basic unused function detection
+- AST-based parsing
+- Command-line interface
+- Class method support
+- Async function support
+
+## Author
+
+mhs - mohammedhs404@gmail.com
+
+## Acknowledgments
+
+- Built with Python's `ast` module
+- Inspired by the need for better code quality tools

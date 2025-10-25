@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyan-unused-functions"
+version = "0.1.2"
+description = "Find unused functions in Python codebases - perfect for CLI usage and CI/CD pipelines"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "mhs", email = "mohammedhs404@gmail.com"}
+]
+dependencies = [
+    "pyan3==1.1.1"
+]
+keywords = ["static-analysis", "code-quality", "unused-code", "linter", "ast", "dead-code", "code-cleanup", "ci-cd", "github-actions", "cli-tool", "python-analysis", "code-maintenance"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MohammedHS404/pyan-unused-functions"
+"Bug Tracker" = "https://github.com/MohammedHS404/pyan-unused-functions/issues"
+
+[project.scripts]
+pyan-unused-functions = "pyan_unused_functions.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyan_unused_functions*"]
+exclude = ["tests*"]
