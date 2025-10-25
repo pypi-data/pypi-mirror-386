@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/hopeit_agents.model_client.egg-info/PKG-INFO
+src/hopeit_agents.model_client.egg-info/SOURCES.txt
+src/hopeit_agents.model_client.egg-info/dependency_links.txt
+src/hopeit_agents.model_client.egg-info/requires.txt
+src/hopeit_agents.model_client.egg-info/top_level.txt
+src/hopeit_agents/model_client/__init__.py
+src/hopeit_agents/model_client/client.py
+src/hopeit_agents/model_client/conversation.py
+src/hopeit_agents/model_client/models.py
+src/hopeit_agents/model_client/py.typed
+src/hopeit_agents/model_client/settings.py
+src/hopeit_agents/model_client/api/__init__.py
+src/hopeit_agents/model_client/api/generate.py
+src/hopeit_agents/model_client/api/py.typed
