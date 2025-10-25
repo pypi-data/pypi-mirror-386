@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: raybender
+Version: 4.0.3
+Summary: Embree bindings for Python
+Author-email: Mihai Dusmanu <mihai.dusmanu@inf.ethz.ch>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2021, Computer Vision and Geometry Lab
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Homepage, https://github.com/cvg/raybender
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: trimesh; extra == "test"
+Requires-Dist: scipy; extra == "test"
+Requires-Dist: pillow; extra == "test"
+Dynamic: license-file
+
+# RayBender - Fast Python Ray-Tracing
+
+RayBender is a Python package for fast CPU rendering using the Intel® Embree backend.
+
+## Installation
+
+1. Clone the repository and its submodules by running:
+
+```sh
+git clone --recursive git@github.com:cvg/raybender.git
+cd raybender
+```
+
+2. Install Embree following the [official instructions](https://www.embree.org/downloads.html) and set the environmental variable `embree_DIR` to point to `embree-config.cmake`. On Linux, this can be done as follows:
+
+```sh
+wget https://github.com/embree/embree/releases/download/v3.12.2/embree-3.12.2.x86_64.linux.tar.gz
+tar xvzf embree-3.12.2.x86_64.linux.tar.gz
+rm embree-3.12.2.x86_64.linux.tar.gz
+mv embree-3.12.2.x86_64.linux embree-3.12.2
+export embree_DIR=`readlink -f embree-3.12.2/lib/cmake/embree-3.12.2`
+```
+
+3. Finally, RayBender can be installed using pip:
+
+```sh
+pip install .
+```
+
+## Examples
+
+Start by setting up the demo conda environment by running `conda env create -f examples/env.yml` and activate it `conda activate raybender`. Next, install RayBender by following the instructions above. Please refer to `examples/demo.py` for a minimal RGBD rendering examples from a triangle mesh.
