@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "kedro-expectations"
+version = "0.8.0"
+license = {text = "MIT"}
+authors = [{name = "anacision GmbH", email = "tech@anacision.de"}]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+description = "Combine Kedro data science pipelines with Great Expectations data validations."
+readme = {file = "README.md", content-type = "text/markdown"}
+dependencies = [
+  "great_expectations~=1.5.3",
+  "kedro-datasets~=2.0",
+  "kedro~=0.19",
+  "pandas~=2.1",
+  "s3fs~=2024.2.0",
+  "fsspec~=2024.2.0",
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0",
+    "twine~=4.0",
+    "gitflow-manager"
+]
+
+test = [
+    "pytest~=7.4",
+    "pytest-cov~=5.0",
+    "moto~=5.1.1",
+    "flask~=3.1.0",
+    "flask-cors~=5.0.1"
+]
+
+
+[project.entry-points."kedro.global_commands"]
+kedro-expectations = "kedro_expectations:commands"
+
+
+[tool.setuptools.packages.find]
+include = ["kedro_expectations*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"kedro_expectations.assistant" = ["*.json"]

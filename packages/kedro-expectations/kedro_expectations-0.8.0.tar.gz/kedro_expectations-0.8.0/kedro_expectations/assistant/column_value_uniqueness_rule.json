@@ -1,0 +1,85 @@
+{
+    "domain_builder": {
+        "exclude_semantic_types": null,
+        "exclude_column_names": null,
+        "map_metric_name": "column_values.unique",
+        "semantic_type_filter_module_name": null,
+        "max_unexpected_ratio": null,
+        "semantic_type_filter_class_name": null,
+        "exclude_column_name_suffixes": null,
+        "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.domain_builder.map_metric_column_domain_builder",
+        "class_name": "MapMetricColumnDomainBuilder",
+        "include_column_names": null,
+        "min_max_unexpected_values_proportion": 0.975,
+        "max_unexpected_values": 0,
+        "include_column_name_suffixes": null,
+        "include_semantic_types": null
+    },
+    "parameter_builders": [
+        {
+            "enforce_numeric_metric": true,
+            "metric_domain_kwargs": "$domain.domain_kwargs",
+            "replace_nan_with_zero": true,
+            "name": "column_values_unique_unexpected_count",
+            "metric_value_kwargs": null,
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+            "class_name": "MetricMultiBatchParameterBuilder",
+            "metric_name": "column_values.unique.unexpected_count",
+            "reduce_scalar_metric": true,
+            "single_batch_mode": false
+        }
+    ],
+    "expectation_configuration_builders": [
+        {
+            "condition": "$parameter.column_values.unique.unexpected_count.value <= 1.0 - $variables.success_ratio",
+            "validation_parameter_builder_configs": [
+                {
+                    "suite_parameter_builder_configs": [
+                        {
+                            "enforce_numeric_metric": true,
+                            "metric_domain_kwargs": null,
+                            "replace_nan_with_zero": true,
+                            "name": "table_row_count",
+                            "metric_value_kwargs": null,
+                            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+                            "class_name": "MetricMultiBatchParameterBuilder",
+                            "metric_name": "table.row_count",
+                            "reduce_scalar_metric": true,
+                            "single_batch_mode": false
+                        },
+                        {
+                            "enforce_numeric_metric": true,
+                            "metric_domain_kwargs": "$domain.domain_kwargs",
+                            "replace_nan_with_zero": true,
+                            "name": "column_values_nonnull_unexpected_count",
+                            "metric_value_kwargs": null,
+                            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.metric_multi_batch_parameter_builder",
+                            "class_name": "MetricMultiBatchParameterBuilder",
+                            "metric_name": "column_values.nonnull.unexpected_count",
+                            "reduce_scalar_metric": true,
+                            "single_batch_mode": false
+                        }
+                    ],
+                    "map_metric_name": "column_values.unique",
+                    "metric_domain_kwargs": "$domain.domain_kwargs",
+                    "total_count_parameter_builder_name": "table_row_count",
+                    "name": "column_values.unique.unexpected_count",
+                    "metric_value_kwargs": null,
+                    "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.parameter_builder.mean_unexpected_map_metric_multi_batch_parameter_builder",
+                    "class_name": "MeanUnexpectedMapMetricMultiBatchParameterBuilder",
+                    "null_count_parameter_builder_name": "column_values_nonnull_unexpected_count"
+                }
+            ],
+            "expectation_type": "expect_column_values_to_be_unique",
+            "module_name": "kedro_expectations.assistant.experimental.rule_based_profiler.expectation_configuration_builder.default_expectation_configuration_builder",
+            "class_name": "DefaultExpectationConfigurationBuilder",
+            "meta": {
+                "profiler_details": "$parameter.column_values.unique.unexpected_count.details"
+            },
+            "column": "$domain.domain_kwargs.column"
+        }
+    ],
+    "variables": {
+        "success_ratio": 0.75
+    }
+}
