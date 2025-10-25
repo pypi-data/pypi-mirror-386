@@ -1,0 +1,12 @@
+EdrParser_.cp310-win_amd64.pyd,sha256=ejK08CrLpoA4cvDX7fZtRuhSyQJ41c0bOyFPA40621c,49664
+TprParser_.cp310-win_amd64.pyd,sha256=BE1rMBwVce2tmiaZriM7zMV9cNWPd7OQg3PRPeNSNaQ,182272
+TprParser/EdrReader.py,sha256=bXflsgVJQFswBfEYy34GVmNGEi5pxPzvDYzZNrKdEfU,630
+TprParser/TprMakeTop.py,sha256=t34tA7BccaJhn_jcJN4ozv4ZCHToaJ777OCDwwza3iU,7459
+TprParser/TprReader.py,sha256=Df1LsFkFrRnqx1d1RAo-Ju8lcfhWNsBuBFxJAFauwsQ,13863
+TprParser/__init__.py,sha256=4aXx_coGvIIiBly1Yf2GYmwODpUCXzRkGViiYtkshCU,104
+TprParser/version.py,sha256=8tffxFHDv34gP6a_81FvgajOw_LCiABjoqTS7FTfGgU,69
+tprparser-0.1.58.dist-info/licenses/LICENSE,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+tprparser-0.1.58.dist-info/METADATA,sha256=gutCGzPSTELSkHl5LV7-GjIAhmbAHFjWnR28VFsIQhA,6903
+tprparser-0.1.58.dist-info/WHEEL,sha256=KUuBC6lxAbHCKilKua8R9W_TM71_-9Sg5uEP3uDWcoU,101
+tprparser-0.1.58.dist-info/top_level.txt,sha256=jn4gQiOMVJxV4hJCH9znttkCb80eM5NnPk6WLN-Frj4,32
+tprparser-0.1.58.dist-info/RECORD,,
