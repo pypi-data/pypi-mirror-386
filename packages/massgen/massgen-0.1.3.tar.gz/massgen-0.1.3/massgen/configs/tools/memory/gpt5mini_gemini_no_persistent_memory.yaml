@@ -1,0 +1,133 @@
+# Example Configuration: Context Window Management WITHOUT Persistent Memory
+#
+# Use Case: Demonstrates context compression warnings when no persistent memory
+#
+# This configuration demonstrates what happens when:
+# - Conversation memory is enabled (tracks short-term history)
+# - Persistent memory is DISABLED (no long-term storage)
+# - Context window fills up (triggering compression warnings)
+#
+# Run with:
+#   python massgen/configs/tools/memory/test_context_window_management.py \
+#     --config massgen/configs/tools/memory/gpt5mini_gemini_no_persistent_memory.yaml
+
+# ====================
+# AGENT DEFINITIONS
+# ====================
+agents:
+  - id: "agent_a"
+    system_message: |
+      You are a creative storyteller who crafts detailed, immersive narratives.
+
+      When telling stories:
+      - Create rich, detailed descriptions of settings, characters, and events
+      - Build on previous plot points and maintain narrative consistency
+      - Ask engaging questions to guide the story forward
+      - Make each response substantial and immersive (aim for 400-600 words)
+      - Reference earlier story elements to create callbacks and continuity
+
+      Your goal is to create a long, engaging narrative that will naturally fill up
+      the context window over multiple turns, demonstrating how the system manages
+      conversation history automatically.
+
+    backend:
+      # Use GPT-5-mini with medium reasoning
+      type: "openai"
+      model: "gpt-5-mini"
+
+      # LLM parameters
+      temperature: 0.8
+      max_tokens: 2000
+
+      text:
+        verbosity: "medium"
+
+      reasoning:
+        effort: "medium"
+        summary: "auto"
+
+  - id: "agent_b"
+    system_message: |
+      You are a creative storyteller who crafts detailed, immersive narratives.
+
+      When telling stories:
+      - Create rich, detailed descriptions of settings, characters, and events
+      - Build on previous plot points and maintain narrative consistency
+      - Ask engaging questions to guide the story forward
+      - Make each response substantial and immersive (aim for 400-600 words)
+      - Reference earlier story elements to create callbacks and continuity
+
+      Your goal is to create a long, engaging narrative that will naturally fill up
+      the context window over multiple turns, demonstrating how the system manages
+      conversation history automatically.
+
+    backend:
+      # Use Gemini 2.5 Flash
+      type: "gemini"
+      model: "gemini-2.5-flash"
+
+      # LLM parameters
+      temperature: 0.8
+      max_tokens: 2000
+
+# ====================
+# MEMORY CONFIGURATION
+# ====================
+memory:
+  # Memory is enabled
+  enabled: true
+
+  # Conversation memory tracks short-term history
+  conversation_memory:
+    enabled: true
+
+  # Persistent memory is DISABLED - this will trigger warnings
+  persistent_memory:
+    enabled: false  # ⚠️ Set to false to see warning behavior
+
+  # Context window management still works
+  compression:
+    trigger_threshold: 0.75  # Compress when context usage exceeds 75%
+    target_ratio: 0.40       # Target 40% of context after compression
+
+# Expected behavior when context fills:
+# ⚠️  Warning: Dropping N messages (X tokens)
+#    No persistent memory configured to retain this information
+#    Consider adding persistent_memory to avoid losing context
+#
+# The system will still compress context, but information is lost
+# rather than stored in long-term memory.
+
+# ====================
+# ORCHESTRATOR CONFIGURATION
+# ====================
+orchestrator:
+  # Multi-turn mode
+  session_storage: "massgen_logs/memory_test_sessions"
+
+  # Agent workspaces
+  agent_temporary_workspace: "massgen_logs/memory_test_workspaces"
+  snapshot_storage: "massgen_logs/memory_test_snapshots"
+
+# ====================
+# UI CONFIGURATION
+# ====================
+ui:
+  display_type: "rich_terminal"
+  logging_enabled: true
+
+# ====================
+# EXECUTION FLOW
+# ====================
+# What happens:
+# 1. Conversation proceeds normally with short-term memory
+# 2. When context reaches 75% capacity:
+#    - System logs: "📊 Context usage: X / Y tokens (Z%) - compressing old context"
+#    - Warning shown: "⚠️  Warning: Dropping N messages"
+#    - Warning shown: "No persistent memory configured"
+# 3. Old messages are dropped (not saved anywhere)
+# 4. Agent continues with reduced context
+# 5. Information from dropped messages is permanently lost
+#
+# Compare this to the config with persistent memory enabled to see
+# the difference between graceful compression and data loss.

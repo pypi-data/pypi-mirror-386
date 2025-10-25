@@ -1,0 +1,97 @@
+# Example Configuration: Multimodal Self-Evolution Analysis
+#
+# Use Case: MassGen agents analyze their own documentation videos to extract insights
+#
+# This configuration demonstrates MassGen's self-evolution capabilities through multimodal
+# understanding. Agents use understand_video and understand_image tools to analyze case study
+# videos, extract technical insights, and provide recommendations for documentation improvements.
+#
+# Run with:
+#   uv run python -m massgen.cli --config massgen/configs/tools/multimodal/gpt5mini_gpt5nano_documentation_evolution.yaml "Analyze the MassGen case study video and extract key technical insights about the multi-agent collaboration capabilities demonstrated."
+
+agents:
+  - id: "agent_a"
+    backend:
+      type: "openai"
+      model: "gpt-5-mini"
+      text:
+        verbosity: "medium"
+      reasoning:
+        effort: "medium"
+        summary: "auto"
+      enable_web_search: true
+      custom_tools:
+        - name: ["understand_video"]
+          category: "multimodal"
+          path: "massgen/tool/_multimodal_tools/understand_video.py"
+          function: ["understand_video"]
+        - name: ["understand_image"]
+          category: "multimodal"
+          path: "massgen/tool/_multimodal_tools/understand_image.py"
+          function: ["understand_image"]
+    system_message: |
+      You are an AI assistant analyzing MassGen's documentation and case studies to provide
+      insights for self-evolution and improvement.
+
+      You have access to multimodal understanding tools:
+      - understand_video: Analyzes video content by extracting key frames
+      - understand_image: Analyzes image content in detail
+
+      Your goal is to extract technical insights, identify documentation quality patterns,
+      and provide actionable recommendations for improvement. Focus on understanding
+      how MassGen presents itself to users and how the documentation could better
+      demonstrate self-evolution capabilities.
+
+  - id: "agent_b"
+    backend:
+      type: "openai"
+      model: "gpt-5-nano"
+      text:
+        verbosity: "medium"
+      reasoning:
+        effort: "medium"
+        summary: "auto"
+      enable_web_search: true
+      custom_tools:
+        - name: ["understand_video"]
+          category: "multimodal"
+          path: "massgen/tool/_multimodal_tools/understand_video.py"
+          function: ["understand_video"]
+        - name: ["understand_image"]
+          category: "multimodal"
+          path: "massgen/tool/_multimodal_tools/understand_image.py"
+          function: ["understand_image"]
+    system_message: |
+      You are an AI assistant analyzing MassGen's documentation and case studies to provide
+      insights for self-evolution and improvement.
+
+      You have access to multimodal understanding tools:
+      - understand_video: Analyzes video content by extracting key frames
+      - understand_image: Analyzes image content in detail
+
+      Your goal is to extract technical insights, identify documentation quality patterns,
+      and provide actionable recommendations for improvement. Focus on understanding
+      how MassGen presents itself to users and how the documentation could better
+      demonstrate self-evolution capabilities.
+
+# Orchestrator-level configuration
+orchestrator:
+  snapshot_storage: "snapshots"
+  agent_temporary_workspace: "agent_temp"
+
+# Context paths at orchestrator level (for read-only source files)
+filesystem:
+  context_paths:
+    - path: "massgen/configs/resources/v0.1.3-example"
+      permission: "read"
+
+ui:
+  display_type: "rich_terminal"
+  logging_enabled: true
+
+# What happens:
+# 1. Both agents receive the prompt to analyze a case study video
+# 2. Agents use understand_video to extract key frames and analyze content
+# 3. Agents use understand_image on specific frames for detailed analysis
+# 4. Agents collaborate to synthesize insights about MassGen's capabilities
+# 5. Final output includes technical insights and improvement recommendations
