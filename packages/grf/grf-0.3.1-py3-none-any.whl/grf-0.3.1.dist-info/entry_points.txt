@@ -1,0 +1,3 @@
+[console_scripts]
+grftopy = grf.decompile:main
+
