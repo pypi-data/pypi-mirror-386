@@ -1,0 +1,177 @@
+import pytest
+import vise_logger.pseudonymization as SUT
+
+@pytest.mark.parametrize("text", ["", "hello world", "!@#$%^&*()_+-=[]{}|;':\",./<>?", "héllo wørld 🌍", "\x00\x01\x02\xff\x7f"])
+def test_pseudonymize_base62_roundtrip(text):
+    user_key = "a" * 32
+    user_id = "user123"
+    context = "TEST"
+
+    pseudonymized = SUT.pseudonymize_to_base62(text, user_key, user_id, context)
+    recovered = SUT.depseudonymize_from_base62(pseudonymized, user_key, user_id, context)
+
+    assert pseudonymized != text
+    assert recovered == text
+
+def test_pseudonymized_uses_base62_alphabet():
+    original = "test string"
+    user_key = "a" * 32
+    user_id = "user123"
+    context = "TEST"
+    
+    pseudonymized = SUT.pseudonymize_to_base62(original, user_key, user_id, context)
+    
+    for char in pseudonymized:
+        assert char in SUT.ALPHA_DECAZaz_62
+
+def test_pseudonymized_minimum_length():
+    """Test that pseudonymized output meets minimum domain size for FF3."""
+    original = "x"  # Very short input
+    user_key = "a" * 32
+    user_id = "user123"
+    context = "TEST"
+    
+    pseudonymized = SUT.pseudonymize_to_base62(original, user_key, user_id, context)
+    
+    # Should be padded to meet minimum domain size
+    domain_size = len(ALPHA_DECAZaz_62) ** len(pseudonymized)
+    assert domain_size >= MIN_DOMAIN_POWER
+
+def test_deterministic_same_inputs():
+    """Test that same inputs always produce same outputs."""
+    original = "deterministic test"
+    user_key = "a" * 32
+    user_id = "user123"
+    context = "TEST"
+    
+    result1 = SUT.pseudonymize_to_base62(original, user_key, user_id, context)
+    result2 = SUT.pseudonymize_to_base62(original, user_key, user_id, context)
+    
+    assert result1 == result2
+
+def test_different_user_keys_produce_different_results():
+    """Test that different user keys produce different pseudonymized results."""
+    original = "same input"
+    user_key1 = "a" * 32
+    user_key2 = "b" * 32
+    user_id = "user123"
+    context = "TEST"
+    
+    result1 = SUT.pseudonymize_to_base62(original, user_key1, user_id, context)
+    result2 = SUT.pseudonymize_to_base62(original, user_key2, user_id, context)
+    
+    assert result1 != result2
+
+def test_different_user_ids_produce_different_results():
+    """Test that different user IDs produce different pseudonymized results."""
+    original = "same input"
+    user_key = "a" * 32
+    user_id1 = "user123"
+    user_id2 = "user456"
+    context = "TEST"
+    
+    result1 = SUT.pseudonymize_to_base62(original, user_key, user_id1, context)
+    result2 = SUT.pseudonymize_to_base62(original, user_key, user_id2, context)
+    
+    assert result1 != result2
+
+def test_different_contexts_produce_different_results():
+    """Test that different contexts produce different pseudonymized results."""
+    original = "same input"
+    user_key = "a" * 32
+    user_id = "user123"
+    context1 = "TEST1"
+    context2 = "TEST2"
+    
+    result1 = SUT.pseudonymize_to_base62(original, user_key, user_id, context1)
+    result2 = SUT.pseudonymize_to_base62(original, user_key, user_id, context2)
+    
+    assert result1 != result2
+
+def test_wrong_context_breaks_roundtrip():
+    """Test that using wrong context breaks roundtrip."""
+    original = "test data"
+    user_key = "a" * 32
+    user_id = "user123"
+    correct_context = "CORRECT"
+    wrong_context = "WRONG"
+    
+    pseudonymized = SUT.pseudonymize_to_base62(original, user_key, user_id, correct_context)
+    
+    # Should not recover original with wrong context
+    with pytest.raises(Exception):  # Could be various exceptions from FF3 or base conversion
+        recovered = SUT.depseudonymize_from_base62(pseudonymized, user_key, user_id, wrong_context)
+
+def test_wrong_user_key_breaks_roundtrip():
+    """Test that using wrong user key breaks roundtrip."""
+    original = "test data"
+    correct_key = "a" * 32
+    wrong_key = "b" * 32
+    user_id = "user123"
+    context = "TEST"
+    
+    pseudonymized = SUT.pseudonymize_to_base62(original, correct_key, user_id, context)
+    
+    # Should not recover original with wrong key
+    recovered = SUT.depseudonymize_from_base62(pseudonymized, wrong_key, user_id, context)
+    assert recovered != original
+
+def test_wrong_user_id_breaks_roundtrip():
+    """Test that using wrong user ID breaks roundtrip."""
+    original = "test data"
+    user_key = "a" * 32
+    correct_id = "user123"
+    wrong_id = "user456"
+    context = "TEST"
+    
+    pseudonymized = SUT.pseudonymize_to_base62(original, correct_id, user_key, context)
+    
+    # Should not recover original with wrong user ID
+    recovered = SUT.depseudonymize_from_base62(pseudonymized, user_key, wrong_id, context)
+    assert recovered != original
+
+@pytest.mark.parametrize("length", [1, 5, 10, 50, 100, 1000])
+def test_roundtrip_various_lengths(length):
+    """Test roundtrip with various input lengths."""
+    original = "x" * length
+    user_key = "a" * 32
+    user_id = "user123"
+    context = "TEST"
+    
+    pseudonymized = SUT.pseudonymize_to_base62(original, user_key, user_id, context)
+    recovered = SUT.depseudonymize_from_base62(pseudonymized, user_key, user_id, context)
+    
+    assert recovered == original
+
+def test_long_string_performance():
+    """Test that reasonably long strings can be processed."""
+    original = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " * 100
+    user_key = "a" * 32
+    user_id = "user123"
+    context = "TEST"
+    
+    pseudonymized = SUT.pseudonymize_to_base62(original, user_key, user_id, context)
+    recovered = SUT.depseudonymize_from_base62(pseudonymized, user_key, user_id, context)
+    
+    assert recovered == original
+
+def test_contextual_separation():
+    """Test that contexts provide domain separation as intended."""
+    original = "sensitive data"
+    user_key = "a" * 32
+    user_id = "user123"
+    
+    # Same data in different contexts should produce different results
+    pwd_result = SUT.pseudonymize_to_base62(original, user_key, user_id, "PWD")
+    api_result = SUT.pseudonymize_to_base62(original, user_key, user_id, "APIKEY") 
+    username_result = SUT.pseudonymize_to_base62(original, user_key, user_id, "USERNAME")
+    
+    # All should be different
+    assert pwd_result != api_result
+    assert pwd_result != username_result
+    assert api_result != username_result
+    
+    # But each should roundtrip correctly
+    assert SUT.depseudonymize_base62(pwd_result, user_key, user_id, "PWD") == original
+    assert SUT.depseudonymize_base62(api_result, user_key, user_id, "APIKEY") == original
+    assert SUT.depseudonymize_base62(username_result, user_key, user_id, "USERNAME") == original

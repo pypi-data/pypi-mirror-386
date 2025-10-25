@@ -1,0 +1,1172 @@
+[
+  {
+    "addr": "Calle Mayor 45",
+    "number": "45",
+    "country": "spain",
+    "style": "type_first",
+    "name": "Mayor",
+    "type": "Calle"
+  },
+  {
+    "addr": "Avenida de la Constitución 12",
+    "number": "12",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de la Constitución",
+    "type": "Avenida"
+  },
+  {
+    "addr": "Paseo de la Castellana 200",
+    "number": "200",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de la Castellana",
+    "type": "Paseo"
+  },
+  {
+    "addr": "Plaza Mayor 3",
+    "number": "3",
+    "country": "spain",
+    "style": "type_first",
+    "name": "Mayor",
+    "type": "Plaza"
+  },
+  {
+    "addr": "Calle de Alcalá 95",
+    "number": "95",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de Alcalá",
+    "type": "Calle"
+  },
+  {
+    "addr": "Calle Gran Vía 22",
+    "number": "22",
+    "country": "spain",
+    "style": "type_first",
+    "name": "Gran Vía",
+    "type": "Calle"
+  },
+  {
+    "addr": "Ronda de Atocha 6",
+    "number": "6",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de Atocha",
+    "type": "Ronda"
+  },
+  {
+    "addr": "Travesía de San Mateo 14",
+    "number": "14",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de San Mateo",
+    "type": "Travesía"
+  },
+  {
+    "addr": "Camino Real 7",
+    "number": "7",
+    "country": "spain",
+    "style": "type_first",
+    "name": "Real",
+    "type": "Camino"
+  },
+  {
+    "addr": "Carretera de Cádiz 102",
+    "number": "102",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de Cádiz",
+    "type": "Carretera"
+  },
+  {
+    "addr": "Carrer de Mallorca 401",
+    "number": "401",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de Mallorca",
+    "type": "Carrer"
+  },
+  {
+    "addr": "Rambla de Catalunya 15",
+    "number": "15",
+    "country": "spain",
+    "style": "type_first",
+    "name": "de Catalunya",
+    "type": "Rambla"
+  },
+  {
+    "addr": "Via Roma 12",
+    "number": "12",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Roma",
+    "type": "Via"
+  },
+  {
+    "addr": "Viale Europa 50",
+    "number": "50",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Europa",
+    "type": "Viale"
+  },
+  {
+    "addr": "Piazza del Duomo 1",
+    "number": "1",
+    "country": "italy",
+    "style": "type_first",
+    "name": "del Duomo",
+    "type": "Piazza"
+  },
+  {
+    "addr": "Corso Vittorio Emanuele II 45",
+    "number": "45",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Vittorio Emanuele II",
+    "type": "Corso"
+  },
+  {
+    "addr": "Largo Augusto 7",
+    "number": "7",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Augusto",
+    "type": "Largo"
+  },
+  {
+    "addr": "Strada Statale 12 100",
+    "number": "100",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Statale 12",
+    "type": "Strada"
+  },
+  {
+    "addr": "Via Garibaldi 18",
+    "number": "18",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Garibaldi",
+    "type": "Via"
+  },
+  {
+    "addr": "Piazza Navona 3",
+    "number": "3",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Navona",
+    "type": "Piazza"
+  },
+  {
+    "addr": "Rua Augusta 100",
+    "number": "100",
+    "country": "portugal",
+    "style": "type_first",
+    "name": "Augusta",
+    "type": "Rua"
+  },
+  {
+    "addr": "Avenida da Liberdade 245",
+    "number": "245",
+    "country": "portugal",
+    "style": "type_first",
+    "name": "da Liberdade",
+    "type": "Avenida"
+  },
+  {
+    "addr": "Praça do Comércio 3",
+    "number": "3",
+    "country": "portugal",
+    "style": "type_first",
+    "name": "do Comércio",
+    "type": "Praça"
+  },
+  {
+    "addr": "Alameda dos Oceanos 12",
+    "number": "12",
+    "country": "portugal",
+    "style": "type_first",
+    "name": "dos Oceanos",
+    "type": "Alameda"
+  },
+  {
+    "addr": "Estrada da Luz 77",
+    "number": "77",
+    "country": "portugal",
+    "style": "type_first",
+    "name": "da Luz",
+    "type": "Estrada"
+  },
+  {
+    "addr": "Rue du Rhône 31",
+    "number": "31",
+    "country": "switzerland",
+    "style": "type_first",
+    "name": "du Rhône",
+    "type": "Rue"
+  },
+  {
+    "addr": "Rue de la Loi 16",
+    "number": "16",
+    "country": "belgium",
+    "style": "type_first",
+    "name": "de la Loi",
+    "type": "Rue"
+  },
+  {
+    "addr": "Avenue de la Gare 18",
+    "number": "18",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "de la Gare",
+    "type": "Avenue"
+  },
+  {
+    "addr": "Rue de l'Eau 12",
+    "number": "12",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "de l'Eau",
+    "type": "Rue"
+  },
+  {
+    "addr": "Odos Athinas 10",
+    "number": "10",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Athinas",
+    "type": "Odos"
+  },
+  {
+    "addr": "Οδός Ηρώδου Αττικού 1",
+    "number": "1",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Ηρώδου Αττικού",
+    "type": "Οδός"
+  },
+  {
+    "addr": "Plateia Syntagmatos 10000",
+    "number": "10000",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Syntagmatos",
+    "type": "Plateia"
+  },
+  {
+    "addr": "Πλατεία Αριστοτέλους 8",
+    "number": "8",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Αριστοτέλους",
+    "type": "Πλατεία"
+  },
+  {
+    "addr": "Parodos Nikis 12",
+    "number": "12",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Nikis",
+    "type": "Parodos"
+  },
+  {
+    "addr": "Πάροδος Διονύσου 7",
+    "number": "7",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Διονύσου",
+    "type": "Πάροδος"
+  },
+  {
+    "addr": "Leoforos Amalias 5",
+    "number": "5",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Amalias",
+    "type": "Leoforos"
+  },
+  {
+    "addr": "λεωφόρος Amalias 5",
+    "number": "5",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Amalias",
+    "type": "λεωφόρος"
+  },
+  {
+    "addr": "Ulica Marszałkowska 60",
+    "number": "60",
+    "country": "poland",
+    "style": "type_first",
+    "name": "Marszałkowska",
+    "type": "Ulica"
+  },
+  {
+    "addr": "улица Арбат 25",
+    "number": "25",
+    "country": "russia",
+    "style": "type_first",
+    "name": "Арбат",
+    "type": "улица"
+  },
+  {
+    "addr": "Проспект Невский 28",
+    "number": "28",
+    "country": "russia",
+    "city": "191186 Санкт-Петербург",
+    "style": "type_first",
+    "name": "Невский",
+    "type": "Проспект"
+  },
+  {
+    "addr": "Prospekt Nevsky 3/6",
+    "number": "3/6",
+    "country": "russia",
+    "city": "191186 St. Petersburg",
+    "style": "type_first",
+    "name": "Nevsky",
+    "type": "Prospekt"
+  },
+  {
+    "addr": "Площадь Красная 3",
+    "number": "3",
+    "country": "russia",
+    "city": "109012 Москва",
+    "style": "type_first",
+    "name": "Красная",
+    "type": "Площадь"
+  },
+  {
+    "addr": "Ploshchad Krasnaya 7A",
+    "number": "7A",
+    "country": "russia",
+    "city": "109012 Moscow",
+    "style": "type_first",
+    "name": "Krasnaya",
+    "type": "Ploshchad"
+  },
+  {
+    "addr": "Бульвар Приморский 74",
+    "number": "74",
+    "country": "russia",
+    "city": "354000 Сочи",
+    "style": "type_first",
+    "name": "Приморский",
+    "type": "Бульвар"
+  },
+  {
+    "addr": "Bulvar Primorsky 1A-2A",
+    "number": "1A-2A",
+    "country": "russia",
+    "city": "354000 Sochi",
+    "style": "type_first",
+    "name": "Primorsky",
+    "type": "Bulvar"
+  },
+  {
+    "addr": "Переулок Столешников 11",
+    "number": "11",
+    "country": "russia",
+    "city": "107031 Москва",
+    "style": "type_first",
+    "name": "Столешников",
+    "type": "Переулок"
+  },
+  {
+    "addr": "Pereulok Stoleshnikov 50000",
+    "number": "50000",
+    "country": "russia",
+    "city": "107031 Moskau",
+    "style": "type_first",
+    "name": "Stoleshnikov",
+    "type": "Pereulok"
+  },
+  {
+    "addr": "Шоссе Ленинградское 39",
+    "number": "39",
+    "country": "russia",
+    "city": "125212 Москва",
+    "style": "type_first",
+    "name": "Ленинградское",
+    "type": "Шоссе"
+  },
+  {
+    "addr": "Shosse Leningradskoye 01A",
+    "number": "01A",
+    "country": "russia",
+    "city": "125212 Moscow",
+    "style": "type_first",
+    "name": "Leningradskoye",
+    "type": "Shosse"
+  },
+  {
+    "addr": "Проезд Театральный 5",
+    "number": "5",
+    "country": "russia",
+    "city": "109012 Москва",
+    "style": "type_first",
+    "name": "Театральный",
+    "type": "Проезд"
+  },
+  {
+    "addr": "Proyezd Teatralny 10/3/5",
+    "number": "10/3/5",
+    "country": "russia",
+    "city": "109012 Moskau",
+    "style": "type_first",
+    "name": "Teatralny",
+    "type": "Proyezd"
+  },
+  {
+    "addr": "Тупик Протопоповский 19",
+    "number": "19",
+    "country": "russia",
+    "city": "129010 Москва",
+    "style": "type_first",
+    "name": "Протопоповский",
+    "type": "Тупик"
+  },
+  {
+    "addr": "Tupik Protopopovsky 99 / 99 / 999",
+    "number": "99 / 99 / 999",
+    "country": "russia",
+    "city": "129010 Moscow",
+    "style": "type_first",
+    "name": "Protopopovsky",
+    "type": "Tupik"
+  },
+  {
+    "addr": "Аллея Университетская 7",
+    "number": "7",
+    "country": "russia",
+    "city": "199034 Санкт-Петербург",
+    "style": "type_first",
+    "name": "Университетская",
+    "type": "Аллея"
+  },
+  {
+    "addr": "Alleya Universitetskaya 1A/6/1000",
+    "number": "1A/6/1000",
+    "country": "russia",
+    "city": "199034",
+    "style": "type_first",
+    "name": "Universitetskaya",
+    "type": "Alleya"
+  },
+  {
+    "addr": "Дорога Рублёвская 42",
+    "number": "42",
+    "country": "russia",
+    "city": "121609 Москва",
+    "style": "type_first",
+    "name": "Рублёвская",
+    "type": "Дорога"
+  },
+  {
+    "addr": "Doroga Rublyovskaya 9 /9999 /01",
+    "number": "9 /9999 /01",
+    "country": "russia",
+    "city": "121609 Moscow",
+    "style": "type_first",
+    "name": "Rublyovskaya",
+    "type": "Doroga"
+  },
+  {
+    "addr": "Aleja Jerozolimskie 54",
+    "number": "54",
+    "country": "poland",
+    "style": "type_first",
+    "name": "Jerozolimskie",
+    "type": "Aleja"
+  },
+  {
+    "addr": "Ulice Karlova 12",
+    "number": "12",
+    "country": "czech",
+    "style": "type_first",
+    "name": "Karlova",
+    "type": "Ulice"
+  },
+  {
+    "addr": "Musterstraße 13",
+    "number": "13",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Muster",
+    "type": "Straße"
+  },
+  {
+    "addr": "Hauptstraße 5",
+    "number": "5",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Haupt",
+    "type": "Straße"
+  },
+  {
+    "addr": "Bahnhofstraße 7",
+    "number": "7",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Bahnhof",
+    "type": "Straße"
+  },
+  {
+    "addr": "Goethestraße 12",
+    "number": "12",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Goethe",
+    "type": "Straße"
+  },
+  {
+    "addr": "Berliner Allee 100",
+    "number": "100",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Berliner",
+    "type": "Allee"
+  },
+  {
+    "addr": "Alexanderplatz 1",
+    "number": "1",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Alexander",
+    "type": "Platz"
+  },
+  {
+    "addr": "Ringstraße 25",
+    "number": "25",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Ring",
+    "type": "Straße"
+  },
+  {
+    "addr": "Friedrichstraße 99",
+    "number": "99",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Friedrich",
+    "type": "Straße"
+  },
+  {
+    "addr": "Königsallee 3",
+    "number": "3",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Königs",
+    "type": "Allee"
+  },
+  {
+    "addr": "Lindenplatz 8",
+    "number": "8",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Linden",
+    "type": "Platz"
+  },
+  {
+    "addr": "Mariahilfer Straße 88",
+    "number": "88",
+    "country": "austria",
+    "style": "name_first",
+    "name": "Mariahilfer",
+    "type": "Straße"
+  },
+  {
+    "addr": "Getreidegasse 9",
+    "number": "9",
+    "country": "austria",
+    "style": "name_first",
+    "name": "Getreide",
+    "type": "Gasse"
+  },
+  {
+    "addr": "Operngasse 12",
+    "number": "12",
+    "country": "austria",
+    "style": "name_first",
+    "name": "Opern",
+    "type": "Gasse"
+  },
+  {
+    "addr": "Bahnhofstrasse 1",
+    "number": "1",
+    "country": "switzerland",
+    "style": "name_first",
+    "name": "Bahnhof",
+    "type": "Strasse"
+  },
+  {
+    "addr": "Seestrasse 20",
+    "number": "20",
+    "country": "switzerland",
+    "style": "name_first",
+    "name": "See",
+    "type": "Strasse"
+  },
+  {
+    "addr": "Pilatusstrasse 5",
+    "number": "5",
+    "country": "switzerland",
+    "style": "name_first",
+    "name": "Pilatus",
+    "type": "Strasse"
+  },
+  {
+    "addr": "Kerkstraat 12",
+    "number": "12",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Kerk",
+    "type": "Straat"
+  },
+  {
+    "addr": "Stationsweg 8",
+    "number": "8",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Stations",
+    "type": "Weg"
+  },
+  {
+    "addr": "Dorpsstraat 3",
+    "number": "3",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Dorps",
+    "type": "Straat"
+  },
+  {
+    "addr": "Laan van Meerdervoort 100",
+    "number": "100",
+    "country": "netherlands",
+    "style": "type_first",
+    "name": "van Meerdervoort",
+    "type": "Laan"
+  },
+  {
+    "addr": "Nieuwstraat 34",
+    "number": "34",
+    "country": "belgium",
+    "style": "name_first",
+    "name": "Nieuw",
+    "type": "Straat"
+  },
+  {
+    "addr": "Lange Leemstraat 22",
+    "number": "22",
+    "country": "belgium",
+    "style": "name_first",
+    "name": "Lange Leem",
+    "type": "Straat"
+  },
+  {
+    "addr": "Storgatan 5",
+    "number": "5",
+    "country": "sweden",
+    "style": "name_first",
+    "name": "Stor",
+    "type": "Gatan"
+  },
+  {
+    "addr": "Drottninggatan 20",
+    "number": "20",
+    "country": "sweden",
+    "style": "name_first",
+    "name": "Drottning",
+    "type": "Gatan"
+  },
+  {
+    "addr": "Kungsgatan 12",
+    "number": "12",
+    "country": "sweden",
+    "style": "name_first",
+    "name": "Kungs",
+    "type": "Gatan"
+  },
+  {
+    "addr": "Nørrebrogade 35",
+    "number": "35",
+    "country": "denmark",
+    "style": "name_first",
+    "name": "Nørrebro",
+    "type": "Gade"
+  },
+  {
+    "addr": "Østerbrogade 10",
+    "number": "10",
+    "country": "denmark",
+    "style": "name_first",
+    "name": "Østerbro",
+    "type": "Gade"
+  },
+  {
+    "addr": "Karl Johans gate 7",
+    "number": "7",
+    "country": "norway",
+    "style": "name_first",
+    "name": "Karl Johans",
+    "type": "gate"
+  },
+  {
+    "addr": "Dronningens gate 12",
+    "number": "12",
+    "country": "norway",
+    "style": "name_first",
+    "name": "Dronningens",
+    "type": "gate"
+  },
+  {
+    "addr": "Mannerheimintie 10",
+    "number": "10",
+    "country": "finland",
+    "style": "name_first",
+    "name": "Mannerheimin",
+    "type": "tie"
+  },
+  {
+    "addr": "Aleksanterinkatu 22",
+    "number": "22",
+    "country": "finland",
+    "style": "name_first",
+    "name": "Aleksanterin",
+    "type": "katu"
+  },
+  {
+    "addr": "Laugavegur 15",
+    "number": "15",
+    "country": "iceland",
+    "style": "name_first",
+    "name": "Lauga",
+    "type": "vegur"
+  },
+  {
+    "addr": "Náměstí Republiky 10",
+    "number": "10",
+    "country": "czech",
+    "style": "type_first",
+    "name": "Republiky",
+    "type": "Náměstí"
+  },
+  {
+    "addr": "Bahnhofplatz 2",
+    "number": "2",
+    "country": "switzerland",
+    "style": "name_first",
+    "name": "Bahnhof",
+    "type": "Platz"
+  },
+  {
+    "addr": "Stortorget 2",
+    "number": "2",
+    "country": "sweden",
+    "style": "name_first",
+    "name": "Stor",
+    "type": "Torget"
+  },
+  {
+    "addr": "Hovedvej 6",
+    "number": "6",
+    "country": "denmark",
+    "style": "name_first",
+    "name": "Hoved",
+    "type": "Vej"
+  },
+  {
+    "addr": "Ringvei 5",
+    "number": "5",
+    "country": "norway",
+    "style": "name_first",
+    "name": "Ring",
+    "type": "vei"
+  },
+  {
+    "addr": "Hverfisgata 10",
+    "number": "10",
+    "country": "iceland",
+    "style": "name_first",
+    "name": "Hverfis",
+    "type": "gata"
+  },
+  {
+    "addr": "Grote Markt 1",
+    "number": "1",
+    "country": "belgium",
+    "style": "name_first",
+    "name": "Grote",
+    "type": "Markt"
+  },
+  {
+    "addr": "Museumplein 6",
+    "number": "6",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Museum",
+    "type": "Plein"
+  },
+  {
+    "addr": "Myllykuja 7",
+    "number": "7",
+    "country": "finland",
+    "style": "name_first",
+    "name": "Mylly",
+    "type": "kuja"
+  },
+  {
+    "addr": "Vicolo Sant'Andrea 4",
+    "number": "4",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Sant'Andrea",
+    "type": "Vicolo"
+  },
+  {
+    "addr": "Piazzale Loreto 15",
+    "number": "15",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Loreto",
+    "type": "Piazzale"
+  },
+  {
+    "addr": "Lungomare Vittorio Veneto 28",
+    "number": "28",
+    "country": "italy",
+    "style": "type_first",
+    "name": "Vittorio Veneto",
+    "type": "Lungomare"
+  },
+  {
+    "addr": "Chaussée de Waterloo 329",
+    "number": "329",
+    "country": "belgium",
+    "style": "type_first",
+    "name": "de Waterloo",
+    "type": "Chaussée"
+  },
+  {
+    "addr": "Steenweg op Tienen 23",
+    "number": "23",
+    "country": "belgium",
+    "style": "type_first",
+    "name": "op Tienen",
+    "type": "Steenweg"
+  },
+  {
+    "addr": "Gaass um Knued 3",
+    "number": "3",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "um Knued",
+    "type": "Gaass"
+  },
+  {
+    "addr": "Rue de l'Industrie 19",
+    "number": "19",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "de l'Industrie",
+    "type": "Rue"
+  },
+  {
+    "addr": "Grand-Rue 3",
+    "number": "3",
+    "country": "luxembourg",
+    "style": "name_first",
+    "name": "Grand-",
+    "type": "Rue"
+  },
+  {
+    "addr": "Avenue John F. Kennedy 14",
+    "number": "14",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "John F. Kennedy",
+    "type": "Avenue"
+  },
+  {
+    "addr": "Rue des Jardins 5",
+    "number": "5",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "des Jardins",
+    "type": "Rue"
+  },
+  {
+    "addr": "Allée Scheffer 7",
+    "number": "7",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "Scheffer",
+    "type": "Allée"
+  },
+  {
+    "addr": "Strooss an der Gare 5",
+    "number": "5",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "an der Gare",
+    "type": "Strooss"
+  },
+  {
+    "addr": "Gaass um Knued 3",
+    "number": "3",
+    "country": "luxembourg",
+    "style": "type_first",
+    "name": "um Knued",
+    "type": "Gaass"
+  },
+  {
+    "addr": "Plateia Syntagmatos 1",
+    "number": "1",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Syntagmatos",
+    "type": "Plateia"
+  },
+  {
+    "addr": "Parodos Nikis 12",
+    "number": "12",
+    "country": "greece",
+    "style": "type_first",
+    "name": "Nikis",
+    "type": "Parodos"
+  },
+  {
+    "addr": "Plac Defilad 1",
+    "number": "1",
+    "country": "poland",
+    "style": "type_first",
+    "name": "Defilad",
+    "type": "Plac"
+  },
+  {
+    "addr": "Skwer Kościuszki 2",
+    "number": "2",
+    "country": "poland",
+    "style": "type_first",
+    "name": "Kościuszki",
+    "type": "Skwer"
+  },
+  {
+    "addr": "Osiedle Leśne 7",
+    "number": "7",
+    "country": "poland",
+    "style": "type_first",
+    "name": "Leśne",
+    "type": "Osiedle"
+  },
+  {
+    "addr": "Droga Leśna 5",
+    "number": "5",
+    "country": "poland",
+    "style": "type_first",
+    "name": "Leśna",
+    "type": "Droga"
+  },
+  {
+    "addr": "Rynek Główny 3",
+    "number": "3",
+    "country": "poland",
+    "style": "type_first",
+    "name": "Główny",
+    "type": "Rynek"
+  },
+  {
+    "addr": "Třída Tomáše Garrigua Masaryka 2",
+    "number": "2",
+    "country": "czech",
+    "style": "type_first",
+    "name": "Tomáše Garrigua Masaryka",
+    "type": "Třída"
+  },
+  {
+    "addr": "Nábřeží Ludvíka Svobody 10",
+    "number": "10",
+    "country": "czech",
+    "style": "type_first",
+    "name": "Ludvíka Svobody",
+    "type": "Nábřeží"
+  },
+  {
+    "addr": "Alej Svobody 5",
+    "number": "5",
+    "country": "czech",
+    "style": "type_first",
+    "name": "Svobody",
+    "type": "Alej"
+  },
+  {
+    "addr": "Altstadtring 14",
+    "number": "14",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Altstadt",
+    "type": "Ring"
+  },
+  {
+    "addr": "Schillergasse 4",
+    "number": "4",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Schiller",
+    "type": "Gasse"
+  },
+  {
+    "addr": "Museumsufer 3",
+    "number": "3",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Museums",
+    "type": "Ufer"
+  },
+  {
+    "addr": "Sperrdamm 8",
+    "number": "8",
+    "country": "germany",
+    "style": "name_first",
+    "name": "Sperr",
+    "type": "Damm"
+  },
+  {
+    "addr": "Herengracht 123",
+    "number": "123",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Heren",
+    "type": "Gracht"
+  },
+  {
+    "addr": "Zeedijk 7",
+    "number": "7",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Zee",
+    "type": "Dijk"
+  },
+  {
+    "addr": "Stadhouderskade 90",
+    "number": "90",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Stadhouders",
+    "type": "Kade"
+  },
+  {
+    "addr": "Binnenhof 1",
+    "number": "1",
+    "country": "netherlands",
+    "style": "name_first",
+    "name": "Binnen",
+    "type": "Hof"
+  },
+  {
+    "addr": "Ekerövägen 35",
+    "number": "35",
+    "country": "sweden",
+    "style": "name_first",
+    "name": "Ekerö",
+    "type": "Vägen"
+  },
+  {
+    "addr": "Lövväg 12",
+    "number": "12",
+    "country": "sweden",
+    "style": "name_first",
+    "name": "Löv",
+    "type": "Väg"
+  },
+  {
+    "addr": "Björkallé 3",
+    "number": "3",
+    "country": "sweden",
+    "style": "name_first",
+    "name": "Björk",
+    "type": "Allé"
+  },
+  {
+    "addr": "Rådhuspladsen 5",
+    "number": "5",
+    "country": "denmark",
+    "style": "name_first",
+    "name": "Rådhus",
+    "type": "Pladsen"
+  },
+  {
+    "addr": "Sjøvei 14",
+    "number": "14",
+    "country": "norway",
+    "style": "name_first",
+    "name": "Sjø",
+    "type": "vei"
+  },
+  {
+    "addr": "Kauppatori 1",
+    "number": "1",
+    "country": "finland",
+    "style": "name_first",
+    "name": "Kauppa",
+    "type": "tori"
+  },
+  {
+    "addr": "Itäinen Aukio 3",
+    "number": "3",
+    "country": "finland",
+    "style": "name_first",
+    "name": "Itäinen",
+    "type": "aukio"
+  },
+  {
+    "addr": "Metsäpolku 8",
+    "number": "8",
+    "country": "finland",
+    "style": "name_first",
+    "name": "Metsä",
+    "type": "polku"
+  },
+  {
+    "addr": "Leoforos Amalias 05",
+    "number": "05",
+    "country": "cyprus",
+    "style": "type_first",
+    "name": "Amalias",
+    "type": "Leoforos"
+  },
+  {
+    "addr": "Odos Athinas 10",
+    "number": "10",
+    "country": "cyprus",
+    "style": "type_first",
+    "name": "Athinas",
+    "type": "Odos"
+  },
+  {
+    "addr": "Makariou III Avenue 8A",
+    "number": "8A",
+    "country": "cyprus",
+    "style": "name_first",
+    "name": "Makariou III",
+    "type": "Avenue"
+  },
+  {
+    "addr": "Austurstræti 4",
+    "number": "4",
+    "country": "iceland",
+    "style": "name_first",
+    "name": "Austur",
+    "type": "stræti"
+  },
+  {
+    "addr": "Suðurlandsbraut 30",
+    "number": "30",
+    "country": "iceland",
+    "style": "name_first",
+    "name": "Suðurlands",
+    "type": "braut"
+  }
+]
