@@ -1,0 +1,79 @@
+[project]
+name = "hepatitis-c-predictor"
+version = "0.1.8"
+description = "Interactive ML application for Hepatitis C classification using PyTorch with Streamlit interface"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "Endika"},
+    {name = "Igor"},
+    {name = "Wassim"}
+]
+
+keywords = ["machine-learning", "pytorch", "hepatitis-c", "classification", "streamlit", "medical-ai", "deep-learning", "neural-network"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Ninjalice/HEPATITIS_C_MODEL"
+Documentation = "https://ninjalice.github.io/HEPATITIS_C_MODEL/src.html"
+Repository = "https://github.com/Ninjalice/HEPATITIS_C_MODEL"
+Issues = "https://github.com/Ninjalice/HEPATITIS_C_MODEL/issues"
+
+[project.scripts]
+hepatitis-c-demo = "app:cli_main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+notebooks = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.22.0",
+    "ipython>=8.0.0",
+]
+docs = [
+    "pdoc>=14.0.0",
+]
+
+dependencies = [
+    "streamlit>=1.50.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.13.0",
+    "plotly>=5.14.0",
+    "torch>=2.0.0",
+    "scikit-learn>=1.3.0",
+]
+
+[tool.pdoc]
+output-directory = "docs"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "app"]
+
+[tool.setuptools.package-data]
+"*" = ["*.txt", "*.md"]
+
+[tool.setuptools]
+py-modules = ["app"]
