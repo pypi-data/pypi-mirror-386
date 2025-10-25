@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coloraphie"
+version = "1.0.0"
+description = "Простая библиотека для цветного текста в консоли"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "vvoid", email = "plip30392@gmail.com"}]
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://github.com/zqLinkqn/"
+
+[pypi]
+username = "__token__"
+password = "pypi-AgEIcHlwaS5vcmcCJDUxYjAyNjNkLTBlYzgtNDE1OC05MjEwLWUwZjU4ODhhODU2NwACKlszLCI5MDBkYWNkNC0wMmQ2LTQ2M2QtYWE1MS1hYjg2ZGJmZDQ1MTAiXQAABiAXII_1CqlrwSLxB8fOV5nnjYsCRy6K6csNjlJmwuuSVQ"
