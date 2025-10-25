@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: esc-ai
+Version: 0.1.0
+Summary: esc allows you to easily add human in the loop to your LLM workflows.
+Author-email: Gustavo Cid <gustavocidornelas@gmail.com>
+Requires-Python: >=3.10
+Requires-Dist: ruff>=0.14.2
