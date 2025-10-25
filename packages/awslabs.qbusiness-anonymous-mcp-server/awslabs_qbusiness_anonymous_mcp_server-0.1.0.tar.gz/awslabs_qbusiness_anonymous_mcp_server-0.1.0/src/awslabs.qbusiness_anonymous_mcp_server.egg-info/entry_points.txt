@@ -1,0 +1,2 @@
+[console_scripts]
+awslabs.qbusiness-anonymous-mcp-server = awslabs_qbusiness_anonymous_mcp_server.main:main

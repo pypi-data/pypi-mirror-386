@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/awslabs.qbusiness_anonymous_mcp_server.egg-info/PKG-INFO
+src/awslabs.qbusiness_anonymous_mcp_server.egg-info/SOURCES.txt
+src/awslabs.qbusiness_anonymous_mcp_server.egg-info/dependency_links.txt
+src/awslabs.qbusiness_anonymous_mcp_server.egg-info/entry_points.txt
+src/awslabs.qbusiness_anonymous_mcp_server.egg-info/top_level.txt
+src/awslabs_qbusiness_anonymous_mcp_server/__init__.py
+src/awslabs_qbusiness_anonymous_mcp_server/main.py
