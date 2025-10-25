@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+src/simpleprompts/__init__.py
+src/simpleprompts.egg-info/PKG-INFO
+src/simpleprompts.egg-info/SOURCES.txt
+src/simpleprompts.egg-info/dependency_links.txt
+src/simpleprompts.egg-info/top_level.txt
