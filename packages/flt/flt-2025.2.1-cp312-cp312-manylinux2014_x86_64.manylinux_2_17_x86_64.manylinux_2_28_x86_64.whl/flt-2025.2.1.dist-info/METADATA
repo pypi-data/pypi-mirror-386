@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: flt
+Version: 2025.2.1
+Summary: Fast Legendre transform for NumPy and JAX
+Maintainer-email: Nicolas Tessore <n.tessore@ucl.ac.uk>
+License: MIT
+Project-URL: Homepage, https://github.com/ntessore/flt
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: numpy; extra == "test"
+Requires-Dist: scipy; extra == "test"
+Requires-Dist: jax; extra == "test"
+Provides-Extra: doc
+Requires-Dist: sphinx; extra == "doc"
+Requires-Dist: furo; extra == "doc"
+Requires-Dist: sphinxcontrib-katex; extra == "doc"
+Requires-Dist: numpydoc; extra == "doc"
+Provides-Extra: numpy
+Requires-Dist: numpy; extra == "numpy"
+Requires-Dist: scipy; extra == "numpy"
+Provides-Extra: jax
+Requires-Dist: jax; extra == "jax"
+Dynamic: license-file
+
+# flt
+
+**Fast Legendre transform for NumPy and JAX**
+
+This is a minimal Python package for fast discrete Legendre transforms (DLTs).
+The implementation uses a recursive version of the matrix relations by Alpert &
+Rokhlin (1991) to compute the DLT via a discrete cosine transform (DCT).
+
+The package can be installed using pip:
+
+    pip install flt
+
+For more information, please see the [documentation].
+
+Current functionality covers the absolutely minimal use case. Please open an
+issue on GitHub if you would like to see anything added.
+
+[documentation]: https://flt.readthedocs.io/
+
+## Array backends
+
+The `flt` package supports generic array backends via single dispatch.
+Currently available implementations are:
+
+- NumPy+SciPy (install with `pip install flt[numpy]`)
+- JAX (install with `pip install flt[jax]`)
+
+Other implementations are easily added, even from third-party code, and will be
+picked up by the `flt` methods automatically.
+
+## Example
+
+The main functionality of the `flt` module in contained in the pair `flt.dlt`
+and `flt.idlt` of discrete Legendre transforms:
+
+```py
+>>> import jax
+>>> import flt
+>>> key = jax.random.key(42)
+>>> x = jax.random.uniform(key, shape=(100,))
+>>> a = flt.dlt(x)
+>>> y = flt.idlt(a)
+>>> jax.numpy.allclose(x, y)
+Array(True, dtype=bool)
+```
