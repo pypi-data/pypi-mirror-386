@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: hopeit-agents.mcp-client
+Version: 0.1.0b2
+Summary: Hopeit Agents: Model Context Protocol tools client
+Author-email: hopeit-agents contributors <opensource@hopeit.com.ar>
+License: Apache 2
+Project-URL: Homepage, https://github.com/hopeit-git/hopeit.agents
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: AsyncIO
+Description-Content-Type: text/markdown
+Requires-Dist: hopeit.engine>=0.27.0
+Requires-Dist: mcp>=0.4.0
+
+# hopeit_agents MCP Client
+
+Library that connects to HTTP MCP servers and exposes MCP endpoints as hopeit.engine HTTP endpoints for non-MCP integrations.
+
+Check details at [hopeit.agents README](https://github.com/hopeit-git/hopeit.agents/blob/master/README.md).
