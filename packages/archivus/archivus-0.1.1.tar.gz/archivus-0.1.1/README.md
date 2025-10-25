@@ -1,0 +1,115 @@
+# PROJECT IS NOT DONE, THIS IS JUST A RESERVED NAME. 
+
+# 🧙‍♂️ Archivus
+
+> A command-line and (optional) TUI tool for syncing **World of Warcraft** addons, profiles, and configurations — across characters, accounts, and even friends.
+
+---
+
+### ⚠️ Disclaimer
+This project was conceptualized and partially written with help from **ChatGPT (GPT-5)**, serving as an assistant in ideation, naming, and boilerplate creation.  
+All final design, logic, and implementation are written and maintained by **Eivind Teig**.
+
+---
+
+## ✨ Overview
+
+**Archivus** is a modern Python-based tool that goes beyond ordinary addon managers.  
+It doesn’t just download addons — it *archives* and *syncs* your complete World of Warcraft setup:
+
+- 🧩 Addons  
+- ⚙️ Configurations  
+- 🧙 Character profiles  
+- 🪄 Pre-made collections (for sharing with friends or new characters)
+
+Perfect for players who want to quickly bootstrap a new character or share a fully configured interface with others.
+
+---
+
+## 🚀 Quick start
+
+### 1. Install
+```bash
+pip install archivus
+```
+
+### 2. Basic usage
+```
+# Sync your current setup to your WoW Retail folder
+archivus sync --to /path/to/World\ of\ Warcraft/_retail_
+
+# Optional TUI mode
+archivus tui
+```
+
+If you have both batgrl
+ and Textual
+ installed,
+archivus tui will prefer batgrl automatically, falling back to textual if unavailable.
+
+# 🧩 Features (planned and in progress)
+
+| Status | Feature                                            |
+| :----: | :------------------------------------------------- |
+|    ✅   | Typer-based CLI with subcommands                   |
+|   ⚙️   | `batgrl` and `textual` TUI backends                |
+|   🔄   | Sync addons and saved variables between characters |
+|   📦   | Share complete setups with others                  |
+|   🧠   | Smart detection of new or updated addons           |
+|   ☁️   | (Planned) Remote sync backend using GitHub or Gist |
+|   🧹   | (Planned) Backup & restore management              |
+
+
+# 🧭 CLI Examples
+# Export current addon setup to archive
+```
+archivus export --character "eivl"
+
+# Import a shared profile
+archivus import --from ./profiles/frost_archivus.zip
+
+# List tracked addons and profiles
+archivus list
+```
+
+# 🧱 Tech stack
+Python ≥ 3.10
+Typer
+batgrl (preferred TUI backend)
+Textual (fallback TUI)
+Rich
+Tomlkit
+httpx
+
+# 🛠️ Development
+
+Clone the repo and install in editable mode:
+```bash
+git clone https://github.com/eivl/archivus.git
+cd archivus
+pip install -e .[dev]
+```
+Run locally from source:
+```bash
+python -m archivus sync --to ~/Games/WoW/_retail_
+```
+
+# 📜 License
+MIT License © Eivind Teig
+
+# 🪶 Credits
+Eivind Teig — design, code, vision
+
+ChatGPT (GPT-5) — creative assistance and boilerplate generation
+
+salt-die  — author of batgrl, inspiration for the TUI backend
+
+Blizzard Entertainment — creators of World of Warcraft (this tool is not affiliated with or endorsed by Blizzard Entertainment in any way)
+
+# 💬 Feedback
+Issues, ideas, or addon-sync suggestions?
+Open a GitHub Issue or reach out directly — contributions are welcome!
+
+“Archivus remembers what others forget.” 🪶
+
+
