@@ -1,0 +1,2 @@
+Version: 1.11.2
+Arguments: ['C:\\Users\\jeongseok\\dev\\momentum\\.pixi\\envs\\py312\\Scripts\\delvewheel', 'repair', '--no-mangle-all', '--add-path', '%CONDA_PREFIX%\\Library\\bin', '--exclude', 'torch_cpu.dll', '--exclude', 'torch_python.dll', '--exclude', 'c10.dll', '--exclude', 'fbgemm.dll', '--exclude', 'asmjit.dll', '--exclude', 'shm.dll', '--exclude', 'mkl_intel_thread.2.dll', 'dist\\pymomentum_cpu-0.1.78.post14-cp312-cp312-win_amd64.whl', '-w', 'dist']
