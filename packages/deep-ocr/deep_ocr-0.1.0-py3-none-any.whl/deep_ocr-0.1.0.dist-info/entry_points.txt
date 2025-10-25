@@ -1,0 +1,2 @@
+[console_scripts]
+deep-ocr = deep_ocr.cli:main
