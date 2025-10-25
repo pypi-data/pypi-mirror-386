@@ -1,0 +1,33 @@
+[project]
+name = "simple-period-tracker"
+version = "0.1.2"
+description = "A simple, command-line period tracker with statistical analysis and prediction."
+license = "MIT"
+authors = [
+    {name = "aufildelanuit",email = "yohann.opolka@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+]
+
+[project.optional-dependencies]
+full = [
+    "pandas",
+    "numpy",
+    "scipy",
+    "matplotlib",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [
+    { include = "period_tracker" },
+]
+
+[project.scripts]
+period-tracker = "period_tracker.__main__:main"
