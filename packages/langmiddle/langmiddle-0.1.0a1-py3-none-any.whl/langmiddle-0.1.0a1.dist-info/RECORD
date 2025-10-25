@@ -1,0 +1,17 @@
+langmiddle/__init__.py,sha256=_aVXpCBdGuVLop3iGJ1ImEpufltNL4zgGReuEXVyLxM,453
+langmiddle/history.py,sha256=AXjAfjl7OXFq7fnFyXfi0LswN6Ci-TwSaT4O58HPKJk,10083
+langmiddle/py.typed,sha256=Ptrx6PU2H815JHZJxESj27JOVQfc2UJgWY2kf89qCX8,73
+langmiddle/storage/__init__.py,sha256=ZKTyAd2lOLqm0CYLgnXatRz75rVOGe04Nx8BPdGms0o,9002
+langmiddle/storage/base.py,sha256=xjr0qykMgR5X42Ltbnll4q6d8t-jqhgQ8NYcgWXjpyA,2368
+langmiddle/storage/firebase_backend.py,sha256=HLnKecKrR5eAngVm-rw1s_VpMh7rVhy8pWfFtTwT8i0,8293
+langmiddle/storage/sqlite_backend.py,sha256=5US27QTh4ywdS3iESbafnCeGpe5CwuLOhc10Maa5SmI,10414
+langmiddle/storage/supabase_backend.py,sha256=Io1VnqhJpA3soGCsInKM38YJ0gCyESoIN7A7oRWxJjs,14425
+langmiddle/storage/supabase/chat_messages.sql,sha256=JnhoCeKPznpGLbbOxxTuLOgSg53UOCJZU7gVqVF5yfk,1308
+langmiddle/storage/supabase/chat_threads.sql,sha256=RgHQ9eRm0ETniO0uyjGv10QdxB_r_r4Ld4lOsu0JEXE,944
+langmiddle/utils/logging.py,sha256=qIQhQpx4SvGb_3glyHNUKY6mQUy73UG7zbpMW9SCX0g,10384
+langmiddle/utils/storage.py,sha256=RZkNUx7ImIu9OzqoVneY0Uq1d9aQMUiQirTeu98W-7o,5191
+langmiddle-0.1.0a1.dist-info/licenses/LICENSE,sha256=Tzm1lRDL9aoPORFiDLm5XhXLxuCHEswgTN3x6BKEMb8,1088
+langmiddle-0.1.0a1.dist-info/METADATA,sha256=xUwsPXm1MzI5L9C4vZBcduU58wF8pP71Z6Q6FxICL7U,4903
+langmiddle-0.1.0a1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+langmiddle-0.1.0a1.dist-info/top_level.txt,sha256=gMq5yhHCbrKtbvM0Fw6EzmYnmTwhnghEWNmGwVdZ-Jw,11
+langmiddle-0.1.0a1.dist-info/RECORD,,
