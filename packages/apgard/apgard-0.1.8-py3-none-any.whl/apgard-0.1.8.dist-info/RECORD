@@ -1,0 +1,14 @@
+apgard/__init__.py,sha256=cyQIdhOdzItsCMjf0e1Lp8fsddOdagQtw_qoatH-_ww,781
+apgard/breaks.py,sha256=Xyg0sH9SIkPwZvD3wIaAU1qTZyc1boY4LVgJ9oUneJY,2469
+apgard/client.py,sha256=0HND3JG4o_gJ2vyddJi3rxYXhq8EpQycEqyd9eJRWZk,2100
+apgard/enums.py,sha256=Aw07BmLL-LTObW-pV6lccB42uKkLPYgA9SRaUQtBh5E,112
+apgard/errors.py,sha256=nIb6eyQHqR_l159B60q1unHo3Nh8Ec_5fgGEZ6D4iB0,372
+apgard/moderation.py,sha256=Rth9x6sLMV4RlPn7Lg5xRW58nvSSmZccviB_CR_6wQU,2788
+apgard/async_client/__init__.py,sha256=0M4Mz2Me_dqcKcAHhN_9E4GGmizfvXzoYSA8bloMZSE,231
+apgard/async_client/async_breaks.py,sha256=pCg5G27cqIg9CTR3LKxIcf9Pheo8FdBfp7mGFsybCOI,2184
+apgard/async_client/async_client.py,sha256=UFvhXJxAbEiDytanITk3BF9wgQFYGr-ankT1UuLTITw,2194
+apgard/async_client/async_moderation.py,sha256=aoL3sAnXYXYg6hiSt0XSBw09vWMZDF35GBF66shMA7A,2912
+apgard-0.1.8.dist-info/METADATA,sha256=gh56r9QzvO_uj_tnB_K8iWihD7PjZeFEZ7x9fdekj8E,2912
+apgard-0.1.8.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+apgard-0.1.8.dist-info/top_level.txt,sha256=3W62nz1rScrpRKhmNv3-KT3v-5GxjVhFWRNicU4O7Ik,7
+apgard-0.1.8.dist-info/RECORD,,
