@@ -1,0 +1,56 @@
+pandas
+pandas-stubs
+scikit-learn
+scikit-allel
+Pgenlib
+matplotlib
+joblib
+tqdm
+plotly
+plotly_express
+nbformat
+adjustText
+zstandard
+
+[:python_version < "3.10"]
+numpy<2
+
+[:python_version < "3.14"]
+polars
+
+[:python_version >= "3.10"]
+numpy
+
+[:python_version >= "3.14"]
+polars-lts-cpu
+
+[benchmark]
+pytest
+pytest-benchmark
+memory_profiler
+pandas-plink
+pysam
+scikit-allel
+sgkit[plink]
+hail
+pysnptools
+Pgenlib
+cyvcf2
+plinkio
+PyVCF3
+
+[demos]
+jupyterlab
+seaborn
+
+[docs]
+pdoc
+torch
+
+[gpu]
+torch
+
+[tests]
+tox
+pytest
+pytest-cov
