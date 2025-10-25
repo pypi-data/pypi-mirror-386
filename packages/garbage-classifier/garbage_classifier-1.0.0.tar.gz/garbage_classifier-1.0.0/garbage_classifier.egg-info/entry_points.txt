@@ -1,0 +1,4 @@
+[console_scripts]
+garbage-app = app.main:main
+garbage-predict = source.predict:main
+garbage-train = source.train:main

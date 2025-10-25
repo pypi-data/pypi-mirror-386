@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include data/raw/sample.jpg
+exclude models/**
+prune models
+global-exclude *.ckpt
+global-exclude *.pt
+global-exclude *.pth

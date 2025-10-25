@@ -1,0 +1,85 @@
+[project]
+name = "garbage_classifier"
+version = "1.0.0"
+description = "Finetunned ResNet18 for garbage image classification"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "lightning>=2.5.2",
+    "matplotlib>=3.10.6",
+    "numba>=0.61.2",
+    "numpy<2",
+    "pandas>=2.3.2",
+    "pyarrow>=21.0.0",
+    "seaborn>=0.13.2",
+    "tables>=3.10.2",
+    "tensorboard>=2.18.0",
+    "tensorflow==2.18.*",
+    "torch>=2.7.1",
+    "torchinfo>=1.8.0",
+    "torchvision>=0.22.1",
+    "scikit-learn",
+    "gdown",
+    "gradio>=5.49.1",
+    "codecarbon>=3.0.7",
+    "opencv-python>=4.11.0.86",
+    "requests>=2.31.0",
+    "tqdm>=4.66.0"
+]
+authors = [
+	{name = "Melchor Lafuente"},
+	{name = "Iker Jauregui"}
+]
+maintainers = [
+	{name = "Melchor Lafuente"},
+	{name = "Iker Jauregui"}
+]
+keywords = [
+	"machine-learning",
+	"datascience",
+	"ai",
+	"garbage",
+	"garbage classifier",
+	"garbage-classifier",
+	"garbage_classifier",
+	"resnet"
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.9.0",
+    "build>=1.3.0",
+    "flake8>=7.3.0",
+    "pdoc>=15.0.4",
+    "twine>=6.2.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+source = ["data/raw/sample.jpg"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["*.ckpt"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["source*", "app*"]
+exclude = [
+    "models*",
+    "reports*",
+    "notebooks*",
+    "scripts*",
+    "docs*",
+    "*.egg-info",
+]
+
+[project.scripts]
+garbage-train = "source.train:main"
+garbage-predict = "source.predict:main"
+garbage-app = "app.main:main"
