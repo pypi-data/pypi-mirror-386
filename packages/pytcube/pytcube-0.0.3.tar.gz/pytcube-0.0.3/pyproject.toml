@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pytcube"
+version = "0.0.3"
+description = "A Python library for multidimensional subsetting around observation points"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Gwenaël CAËR", email = "gwenael.caer@data-terra.org"}
+]
+readme = "README.md"
+requires-python = ">= 3.11"
+dependencies = [
+    "dask",
+    "fast-vindex>=0.0.2",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "xarray",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4",
+    "pytest-cov>=4.0"
+]
+
+[project.urls]
+Homepage = "https://gitlab.ifremer.fr/odatis-public/pytcube"
+Documentation  = "https://odatis-public.gitlab-pages.ifremer.fr/pytcube/"

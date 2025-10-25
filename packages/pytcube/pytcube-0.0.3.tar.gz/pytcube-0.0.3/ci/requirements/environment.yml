@@ -1,0 +1,41 @@
+
+name: pytcube-tests
+channels:
+  - conda-forge
+dependencies:
+  # Required dependencies
+  - python>=3.9
+  - numpy<2.0.0
+  - xarray
+  - pip
+  - pip:
+      - fast-vindex>=0.0.2
+
+  # Dev dependencies
+  - pip:
+      - build
+      - twine
+  # - hatch
+  # - hatch-vcs
+
+  # Test dependencies
+  - pre-commit
+  - pytest
+  - pytest-cov
+
+  # Docs dependencies
+  - sphinx
+  - myst-parser
+  - myst-nb
+  - sphinx-inline-tabs
+  - sphinx-design
+  - pydata-sphinx-theme
+  - nbsphinx
+
+  # Optional dependencies
+  - dask
+  - matplotlib
+  - pandas
+  - zarr
+  - s3fs
+  - ipykernel
