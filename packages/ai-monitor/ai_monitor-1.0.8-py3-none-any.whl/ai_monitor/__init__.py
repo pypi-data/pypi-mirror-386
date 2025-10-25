@@ -1,0 +1,151 @@
+"""
+AI Agent Monitor - Plug & Play Monitoring Solution
+=================================================
+
+A comprehensive monitoring library for AI agents that requires no source code changes.
+Simply import and use decorators or context managers.
+
+Usage:
+    from ai_monitor import AIMonitor, monitor_llm_call, monitor_agent
+    
+    # Decorator usage
+    @monitor_llm_call()
+    def my_llm_function():
+        pass
+    
+    # Context manager usage
+    with AIMonitor() as monitor:
+        # Your AI agent code here
+        pass
+"""
+
+from .core import AIMonitor, MonitoringConfig
+from .decorators import monitor_llm_call, monitor_agent, monitor_tool_use
+from .context_managers import LLMCallMonitor, AgentSessionMonitor, monitor_agent_session
+from .collectors import MetricsCollector, TraceCollector
+from .exporters import PrometheusExporter, JaegerExporter, LogExporter
+from .detectors import HallucinationDetector, DriftDetector
+from .utils import setup_monitoring, configure_exporters
+from .auto_integrate import enable_auto_monitoring, one_line_setup, quick_monitor
+from .http_interceptor import enable_http_monitoring, disable_http_monitoring
+from .version import __version__, __version_info__
+
+# Ensure HTTP monitoring is enabled on import for better cross-machine compatibility
+try:
+    from .http_interceptor import enable_http_monitoring
+    import sys
+    
+    # Enable HTTP monitoring immediately if not already done
+    if not hasattr(sys.modules.get('requests', {}), '_ai_monitor_patched'):
+        enable_http_monitoring()
+        # Mark as patched to avoid double-patching
+        if 'requests' in sys.modules:
+            sys.modules['requests']._ai_monitor_patched = True
+except Exception as e:
+    import logging
+    logging.getLogger(__name__).warning(f"Could not auto-enable HTTP monitoring: {e}")
+
+# Import plug & play functions
+try:
+    from .plug_and_play import (
+        ultra_simple_setup, 
+        setup_with_traceloop,
+        flask_plug_and_play,
+        agent_plug_and_play,
+        langchain_plug_and_play,
+        multi_agent_setup,
+        setup,
+        quick_setup,
+        plug_and_play
+    )
+except ImportError:
+    # Fallback if plug_and_play module has issues
+    def ultra_simple_setup():
+        return one_line_setup()
+    
+    setup = ultra_simple_setup
+    quick_setup = ultra_simple_setup
+
+__author__ = "AI Monitor Team"
+
+# Default monitoring instance for quick setup
+default_monitor = None
+
+def init_monitoring(config=None):
+    """Initialize default monitoring with optional configuration."""
+    global default_monitor
+    if config is None:
+        config = MonitoringConfig()
+    default_monitor = AIMonitor(config)
+    return default_monitor
+
+def get_monitor():
+    """Get the default monitoring instance."""
+    global default_monitor
+    if default_monitor is None:
+        default_monitor = init_monitoring()
+    return default_monitor
+
+# Auto-setup for immediate use
+init_monitoring()
+
+def debug_setup():
+    """Debug function to check ai-monitor setup status"""
+    import logging
+    import sys
+    
+    logger = logging.getLogger(__name__)
+    logger.info("🔍 [DEBUG] AI-Monitor Setup Status:")
+    logger.info(f"   Version: {__version__}")
+    logger.info(f"   Default monitor active: {default_monitor is not None}")
+    
+    # Check if HTTP interception is working
+    try:
+        import requests
+        is_patched = hasattr(requests.post, '__name__') and 'monitored' in requests.post.__name__
+        logger.info(f"   requests.post patched: {is_patched}")
+        
+        try:
+            import httpx
+            is_httpx_patched = hasattr(httpx.post, '__name__') and 'monitored' in httpx.post.__name__
+            logger.info(f"   httpx.post patched: {is_httpx_patched}")
+        except ImportError:
+            logger.info(f"   httpx not available")
+            
+    except Exception as e:
+        logger.info(f"   HTTP patching check failed: {e}")
+    
+    # Check available modules
+    logger.info(f"   Available modules: {list(sys.modules.keys())[:10]}...")
+    
+    return {
+        'version': __version__,
+        'monitor_active': default_monitor is not None,
+        'http_patched': hasattr(sys.modules.get('requests', {}), '_ai_monitor_patched')
+    }
+
+__all__ = [
+    'AIMonitor',
+    'MonitoringConfig',
+    'monitor_llm_call',
+    'monitor_agent', 
+    'monitor_tool_use',
+    'LLMCallMonitor',
+    'AgentSessionMonitor',
+    'monitor_agent_session',
+    'MetricsCollector',
+    'TraceCollector',
+    'PrometheusExporter',
+    'JaegerExporter',
+    'LogExporter',
+    'HallucinationDetector',
+    'DriftDetector',
+    'setup_monitoring',
+    'configure_exporters',
+    'init_monitoring',
+    'get_monitor',
+    'enable_auto_monitoring',
+    'one_line_setup',
+    'quick_monitor',
+    'debug_setup'
+]
