@@ -1,0 +1,1 @@
+uv publish --username=__token__ --password=pypi-AgEIcHlwaS5vcmcCJGFhMWFlMTlhLTNlNmMtNDZmYy1hMDIwLTFkYjMwM2U4MzAxZQACKlszLCJhZTI5Y2RiYy1mOWQyLTRmODYtYTA2YS02NTY2NjFmYmNiMWIiXQAABiA_tcJkekJ7_XID4XwfqhcX3A5jIPmKq-vhrOffc076Bg -v  

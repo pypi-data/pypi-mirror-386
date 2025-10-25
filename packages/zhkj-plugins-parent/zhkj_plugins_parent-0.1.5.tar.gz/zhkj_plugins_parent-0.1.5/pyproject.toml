@@ -1,0 +1,17 @@
+[project]
+name = "zhkj-plugins-parent"
+version = "0.1.5"
+authors = [{"name"="yasin", "email"="l1y0l20@qq.com"}]
+description = "插件管理"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "psutil>=7.1.1",
+    "pyyaml>=6.0.3",
+    "requests>=2.32.5",
+]
+
+[tool.uv.workspace]
+members = [
+    "zhkj-plugins",
+]
