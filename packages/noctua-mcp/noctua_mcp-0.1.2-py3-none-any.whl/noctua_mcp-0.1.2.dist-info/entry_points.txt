@@ -1,0 +1,2 @@
+[console_scripts]
+noctua-mcp = noctua_mcp.cli:main
