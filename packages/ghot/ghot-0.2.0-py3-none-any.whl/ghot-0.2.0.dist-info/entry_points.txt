@@ -1,0 +1,2 @@
+[console_scripts]
+ghot = ghot.ghot:main
