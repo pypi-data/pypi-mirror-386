@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="hcApp" style="background: #fff">
+
+<head>
+  <!-- #{gtag} -->
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="https://mappr-player.openmappr.org/img/logos/vdl-logo.svg">
+  <meta name="viewport" content="initial-scale=.7, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta property="fb:app_id" content="1389717224632761"><!-- #{opengraph} -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="https://mappr-player.openmappr.org/css/mappr-icons/style.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://mappr-player.openmappr.org/css/vendor.css">
+  <script>window.MP_APP = {};
+    window.DATA_PATH = '/data/';
+  </script>
+  <link rel="stylesheet" href="https://mappr-player.openmappr.org/css/player.debug.css">
+</head>
+
+<body id="app" data-custom-background data-off-canvas-nav style="background: #fff"
+  class="nav-min light-theme side-menu-compressed">
+  <auth-modal></auth-modal>
+  <!-- #{gtmtag} -->
+  <div>
+    <div
+      ng-init="playerInfo = {&quot;isPublicPlayer&quot;:true,&quot;playerBuildVer&quot;:&quot;v14.15.4&quot;,&quot;directAccess&quot;:true,&quot;isFinal&quot;:false}"
+      class="view-container">
+      <div id="content" style="background: #fff" data-ng-view="ng-view" data-close-min-nav="data-close-min-nav"></div>
+    </div>
+  </div>
+  <div id="svg-renderarea" class="hidden"></div>
+  <div
+    ng-include=" 'https://mappr-player.openmappr.org/partials/components/project/distributions/renderers/renderTemplates.html' ">
+  </div>
+  <script src="https://mappr-player.openmappr.org/libs/es5-shim.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/jquery.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/jquery-ui.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-resource.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-cookies.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-sanitize.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-scroll.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-route.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-animate.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-touch.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-simple-logger.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/ui-bootstrap-tpls.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular-vs-repeat.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/json3.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/lodash.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/leaflet.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/loading-bar.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/d3.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/snap.svg-min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/ng-infinite-scroll.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/re-tree.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/slider.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/ng-device-detector.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/bootstrap-notify.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/toastr.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/moment.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/twix.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/angular.audio.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/intro.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/deprecated.angular-intro.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/html2canvas.min.js"></script>
+  <script src="https://mappr-player.openmappr.org/libs/sql.js"></script>
+  <script src="https://mappr-player.openmappr.org/js/player/vendor.js"></script>
+  <script src="https://mappr-player.openmappr.org/js/player.min.js"></script>
+</body>
+
+</html>
