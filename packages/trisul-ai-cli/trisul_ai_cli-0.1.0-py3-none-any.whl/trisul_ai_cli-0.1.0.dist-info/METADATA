@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: trisul_ai_cli
+Version: 0.1.0
+Summary: Trisul AI CLI that starts a local MCP server and a client.
+Author: Unleash Networks Private Limited
+Author-email: info@unleashnetworks.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: httpx
+Requires-Dist: nest_asyncio
+Requires-Dist: mcp
+Requires-Dist: google-generativeai
+Requires-Dist: chromadb
+Requires-Dist: pyzmq
+Requires-Dist: protobuf
+Requires-Dist: requests
+Requires-Dist: matplotlib
+Requires-Dist: python-dotenv
+
+# trisul-ai-cli
+Conversation AI Interface to Trisul Network Analytics.
