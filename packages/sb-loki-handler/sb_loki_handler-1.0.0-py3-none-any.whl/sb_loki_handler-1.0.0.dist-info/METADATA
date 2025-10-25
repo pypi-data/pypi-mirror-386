@@ -1,0 +1,55 @@
+Metadata-Version: 2.4
+Name: sb-loki-handler
+Version: 1.0.0
+Summary: Typed loki handler for logging
+Author-email: Pradish Bijukchhe <pradish@sandbox.com.np>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/sandbox-pokhara/sb-loki-handler
+Project-URL: Issues, https://github.com/sandbox-pokhara/sb-loki-handler/issues
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: httpx>=0.20.0
+Provides-Extra: pre-commit
+Requires-Dist: pre-commit; extra == "pre-commit"
+
+# sb-loki-handler
+
+Typed loki handler for logging
+
+## Installation
+
+You can install the package via pip:
+
+```
+pip install sb-loki-handler
+```
+
+## Usage
+
+```python
+import logging
+
+from sb_loki_handler import LokiHandler
+
+logger = logging.getLogger("my-logger")
+logger.setLevel(logging.INFO)
+
+handler = LokiHandler(
+    "https://user:pass@host/loki/api/v1/push",
+    labels={"application": "my-app"}
+)
+logger.addHandler(handler)
+
+
+logger.info("Hello world.")
+logger.info("With extra", extra={"labels": {"foo": "bar"}})
+
+with handler.labels({"foo": "bar"}):
+    logger.info("With context")
+
+```
+
+## License
+
+This project is licensed under the terms of the MIT license.
