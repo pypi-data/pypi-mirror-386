@@ -1,0 +1,17 @@
+empix>=0.0.6
+
+[all]
+embeam[docs,examples,tests]
+
+[docs]
+sphinx<7
+sphinx_rtd_theme
+sphinx-autodoc-typehints
+numpydoc
+docutils
+
+[examples]
+jupyter
+
+[tests]
+pytest-cov
