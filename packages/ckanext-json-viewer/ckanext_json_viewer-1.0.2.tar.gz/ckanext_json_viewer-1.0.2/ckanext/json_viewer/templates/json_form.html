@@ -1,0 +1,87 @@
+{% import 'macros/form.html' as form %}
+
+{% call form.select(
+    'theme',
+    label=_('Preview theme'),
+    options=h.json_viewer_get_theme_options(),
+    selected=data.theme,
+    attrs={'data-module': 'autocomplete'},
+    error=errors.theme)
+%}
+    {{ form.info(_('Select the theme for the JSON viewer preview.')) }}
+{% endcall %}
+
+{% call form.input(
+    'max_height',
+    label=_('Maximum height (px)'),
+    value=data.max_height,
+    attrs={'type': 'number', 'min': '100', 'class': 'form-control'},
+    error=errors.max_height)
+%}
+    {{ form.info(_('Set the maximum height of the JSON viewer in pixels.')) }}
+{% endcall %}
+
+{% call form.select(
+    'expand',
+    label=_('Default expand level'),
+    options=[{'value': True, 'text': _('Expanded')}, {'value': False, 'text': _('Collapsed')}],
+    selected=data.expand,
+    attrs={'class': 'form-select'},
+    error=errors.expand)
+%}
+    {{ form.info(_('Choose whether the JSON viewer should be expanded or collapsed by default.')) }}
+{% endcall %}
+
+{% call form.input(
+    'indentation',
+    label=_('Indentation spaces'),
+    value=data.indentation,
+    attrs={'type': 'number', 'min': '0', 'class': 'form-control'},
+    error=errors.indentation)
+%}
+    {{ form.info(_('Set the number of spaces to use for indentation in the JSON viewer.')) }}
+{% endcall %}
+
+{% call form.select(
+    'show_data_types',
+    label=_('Show data types'),
+    options=[{'value': True, 'text': _('Yes')}, {'value': False, 'text': _('No')}],
+    selected=data.show_data_types,
+    attrs={'class': 'form-select'},
+    error=errors.show_data_types)
+%}
+    {{ form.info(_('Choose whether to show data types in the JSON viewer.')) }}
+{% endcall %}
+
+{% call form.select(
+    'show_toolbar',
+    label=_('Show toolbar'),
+    options=[{'value': True, 'text': _('Yes')}, {'value': False, 'text': _('No')}],
+    selected=data.show_toolbar,
+    attrs={'class': 'form-select'},
+    error=errors.show_toolbar)
+%}
+    {{ form.info(_('Choose whether to show the toolbar in the JSON viewer.')) }}
+{% endcall %}
+
+{% call form.select(
+    'show_copy_button',
+    label=_('Show copy button'),
+    options=[{'value': True, 'text': _('Yes')}, {'value': False, 'text': _('No')}],
+    selected=data.show_copy_button,
+    attrs={'class': 'form-select'},
+    error=errors.show_copy_button)
+%}
+    {{ form.info(_('Choose whether to show the copy button in the JSON viewer.')) }}
+{% endcall %}
+
+{% call form.select(
+    'show_sizes',
+    label=_('Show sizes'),
+    options=[{'value': True, 'text': _('Yes')}, {'value': False, 'text': _('No')}],
+    selected=data.show_sizes,
+    attrs={'class': 'form-select'},
+    error=errors.show_sizes)
+%}
+    {{ form.info(_('Choose whether to show sizes of the JSON data.')) }}
+{% endcall %}

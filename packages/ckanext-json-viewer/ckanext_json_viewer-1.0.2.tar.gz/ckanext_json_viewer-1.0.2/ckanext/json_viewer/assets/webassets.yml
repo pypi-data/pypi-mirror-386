@@ -1,0 +1,14 @@
+json_viewer-js:
+  filter: rjsmin
+  output: ckanext-json_viewer/%(version)s-json_viewer.js
+  contents:
+    - js/vendor/json-viewer.min.js
+  extra:
+    preload:
+      - base/main
+
+json_viewer-css:
+  filter: cssrewrite
+  output: ckanext-json_viewer/%(version)s-json_viewer.css
+  contents:
+    - css/json_viewer.css
