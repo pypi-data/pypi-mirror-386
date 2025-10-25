@@ -1,0 +1,56 @@
+Metadata-Version: 2.4
+Name: arcturus-buildkit
+Version: 0.1.2
+Summary: Lightweight NLP and supervised ML chatbot framework in pure Python
+Home-page: 
+Author: FlameZI0
+Author-email: abdulrehmanshoaib136@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+\# Arcturus BuildKit
+
+
+
+Arcturus BuildKit is a \*\*lightweight, pure Python NLP and supervised ML chatbot framework\*\*.  
+
+It combines \*\*ArcturusNLP\*\* for text preprocessing with \*\*ArcturusSUPERVISED\_INTENT\*\* for intent-based chat responses.
+
+
+
+\## Features
+
+
+
+\- Tokenization, lemmatization, and POS tagging  
+
+\- Multiword entity recognition with fuzzy matching  
+
+\- Synonyms and n-grams  
+
+\- Intent-based supervised ML for chatbot responses  
+
+\- Pure Python, no external libraries required  
+
+
+
+\## Installation
+
+
+
+```bash
+
+pip install arcturus-buildkit
+
+
+
