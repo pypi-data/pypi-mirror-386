@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+spst/__init__.py
+spst/core.py
+spst.egg-info/PKG-INFO
+spst.egg-info/SOURCES.txt
+spst.egg-info/dependency_links.txt
+spst.egg-info/entry_points.txt
+spst.egg-info/top_level.txt
