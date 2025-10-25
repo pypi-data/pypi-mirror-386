@@ -1,0 +1,12 @@
+CopySvgTranslate/__init__.py,sha256=j27Bfg7lYak8TY849IGdxafBInJ4b3uzfG-GHyVMH54,433
+CopySvgTranslate/text_utils.py,sha256=n9KKFDcFA7y8Cb9JKJ9N4bVv5OHQo5lgcUikazpz1fs,869
+CopySvgTranslate/workflows.py,sha256=nxFy8kX1YDIyXo0yzojbQY5UTx9_42tXLgROztDYsfI,3943
+CopySvgTranslate/extraction/__init__.py,sha256=pv7KHM36KNheFyxsgl9BWSzfnUjNm73aMnSwXQwAmjs,108
+CopySvgTranslate/extraction/extractor.py,sha256=KBTU_8Lup3Es5ZmQFi5II2rO7iU2HCi4f7EefiQknlY,5625
+CopySvgTranslate/injection/__init__.py,sha256=EoqKtkHLvcr6raScCB4HP_B-Vtn-4j2f159W9qiO1Bs,448
+CopySvgTranslate/injection/batch.py,sha256=MvYY21986GHYAoneawAwsZX0FSZcMNB86kQ2KMrh2cU,2276
+CopySvgTranslate/injection/injector.py,sha256=2N1dXsQdzt2Fq7yH9FDD4Fo8Ao8sUXhIRJFuGUbqVlY,12586
+CopySvgTranslate/injection/preparation.py,sha256=bBhRZqP3LA9qtAjcKWpF2IKH_btgsXNH7L2AQDDMYzw,14217
+copysvgtranslate-0.1.1.dist-info/METADATA,sha256=cL1933ei9WnmME0xb3_zP7I8pkoz7Dx1ynHLnxTqwng,4881
+copysvgtranslate-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+copysvgtranslate-0.1.1.dist-info/RECORD,,
