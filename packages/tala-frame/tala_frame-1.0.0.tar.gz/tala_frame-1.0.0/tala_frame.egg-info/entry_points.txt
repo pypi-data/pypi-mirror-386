@@ -1,0 +1,2 @@
+[console_scripts]
+tala = tala.cli.main:main
