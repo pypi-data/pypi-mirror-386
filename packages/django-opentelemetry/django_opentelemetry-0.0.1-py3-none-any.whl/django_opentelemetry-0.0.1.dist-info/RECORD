@@ -1,0 +1,9 @@
+django_opentelemetry/__init__.py,sha256=p3JPRNuzAMctaIS_wLye55DtpKBtXAdbdbXrQKwRNlg,68
+django_opentelemetry/apps.py,sha256=yuVksvVhEY0lVt_-QWsAKVvPwBrfMTkgXySpwvu_5pE,919
+django_opentelemetry/features.py,sha256=4UfvtpMAACtLlJ9QPeWPs4szKQAfAc03huXe7ReU_AU,766
+django_opentelemetry/model_signals.py,sha256=sOEsIQtCJkNXELvRPiDHg7vKtTiEhqYJisk4HJZtFdg,1584
+django_opentelemetry/task_signals.py,sha256=iDZNg1hh43RaioFGQs3D5ft8Um58oNHE-2yX5DDyYlw,3728
+django_opentelemetry-0.0.1.dist-info/METADATA,sha256=N25ivASD4I_3J9Ox6cqXVJXCj7pcyEQ6MaGwOhP7lIA,1943
+django_opentelemetry-0.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+django_opentelemetry-0.0.1.dist-info/licenses/LICENSE.txt,sha256=kOvCUvzryghKaukojIClJbh6Bol2HnkAZIRgqa2pEDM,1112
+django_opentelemetry-0.0.1.dist-info/RECORD,,
