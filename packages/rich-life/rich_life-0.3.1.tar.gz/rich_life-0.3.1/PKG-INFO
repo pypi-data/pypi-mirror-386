@@ -1,0 +1,170 @@
+Metadata-Version: 2.4
+Name: rich_life
+Version: 0.3.1
+Summary: Terminal-based life and ant simulation.
+Project-URL: Homepage, https://github.com/paulrobello/rich_life
+Project-URL: Documentation, https://github.com/paulrobello/rich_life/blob/main/README.md
+Project-URL: Repository, https://github.com/paulrobello/rich_life
+Project-URL: Issues, https://github.com/paulrobello/rich_life/issues
+Project-URL: Discussions, https://github.com/paulrobello/rich_life/discussions
+Project-URL: Wiki, https://github.com/paulrobello/rich_life/wiki
+Author-email: Paul Robello <probello@gmail.com>
+Maintainer-email: Paul Robello <probello@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2024 Paul Robello
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: simulation,terminal
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Games/Entertainment :: Simulation
+Classifier: Typing :: Typed
+Requires-Python: >=3.11
+Requires-Dist: rich>=14.2.0
+Requires-Dist: typer>=0.20.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Conway's Game of Life and Langton's Ant
+
+
+[![PyPI](https://img.shields.io/pypi/v/rich_life)](https://pypi.org/project/rich_life/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rich_life.svg)](https://pypi.org/project/rich_life/)  
+![Runs on Linux | MacOS | Windows](https://img.shields.io/badge/runs%20on-Linux%20%7C%20MacOS%20%7C%20Windows-blue)
+![Arch x86-63 | ARM | AppleSilicon](https://img.shields.io/badge/arch-x86--64%20%7C%20ARM%20%7C%20AppleSilicon-blue)  
+![PyPI - License](https://img.shields.io/pypi/l/rich_life)
+
+## About
+This project implements Conway's Game of Life and Langton's Ant.  
+Both are cellular automaton simulations.
+Uses Rich for terminal visualization.
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/probello3)
+
+## Screenshots
+![Game of Life Screenshot](https://raw.githubusercontent.com/paulrobello/rich_life/main/life-screenshot.png)
+![Langton's Ant Screenshot](https://raw.githubusercontent.com/paulrobello/rich_life/main/ants-screenshot.png)
+
+## Installation
+
+To install make sure you have Python 3.11 or higher (tested with Python 3.13) and [uv](https://pypi.org/project/uv/) installed.
+
+### Installation From Source
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/paulrobello/rich_life.git
+   cd rich_life
+   ```
+
+2. Install the required dependencies:
+   ```bash
+   uv sync
+   ```
+
+### Installation From PyPI
+
+To install from PyPI, run any of the following commands:
+
+```bash
+uv tool install rich-life
+```
+
+```bash
+pipx install rich-life
+```
+
+## Usage
+
+### Running if installed from PyPI
+```bash
+rich_life
+```
+
+### Running from source
+Run the Game of Life simulation using the following command:
+
+```bash
+uv run rich_life
+```
+
+You can customize the grid size, number of generations, and neighborhood rules using command-line options:
+
+```bash
+uv run rich_life --width 50 --height 30 --generations 300 --rules moore
+```
+
+Run the Langton's Ant simulation using the following command:
+
+```bash
+uv run rich_life --mode ants
+```
+
+
+Available options:
+- `--width` or `-w`: Width of the grid (default: half of console height)
+- `--height` or `-h`: Height of the grid (default: half of console height minus 2)
+- `--infinite` or `-i`: Enable infinite mode. Simulation grid has no bounds (default: False)
+- `--generations` or `-g`: Number of generations to simulate (default: 100)
+- `--mode` or `-m`: Simulation mode (options: 'life' or 'ants', default: 'ants')
+- `--rules` or `-r`: Neighborhood rules for game of life (options: 'moore' or 'van_neumann', default: 'moore')
+- `--offset-x` or `-x`: Bord display X-coordinate offset for infinite mode (default: 0)
+- `--offset-y` or `-y`: Bord display Y-coordinate offset for infinite mode (default: 0)
+- `--rps` or `-r`: Refresh / generations per second (default: 10)
+- `--follow` or `-f`: Follow the ant in ANTS mode (default: False)
+
+
+Keys:
+- 'Arrows' / 'WSAD': Pan the grid
+
+## Running Tests
+
+To run the tests, use the following command:
+
+```bash
+uv run pytest tests/test_game_of_life.py
+```
+
+## What's New
+
+- Version 0.3.1: Updated dependencies and ensured compatibility with Python 3.13
+- Version 0.3.0: Added follow mode for Langton's Ant
+- Version 0.2.0: Better keyboard handling
+- Version 0.1.0: Initial release
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Author
+
+Paul Robello (probello@gmail.com)
