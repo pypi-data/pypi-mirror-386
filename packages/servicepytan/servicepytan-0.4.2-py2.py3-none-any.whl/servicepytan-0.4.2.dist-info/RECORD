@@ -1,0 +1,16 @@
+servicepytan/__init__.py,sha256=5evZ58ScWb9fnRZ5-qzP7OlzF0bjJiUiAVm5dVbqQNI,853
+servicepytan/_dates.py,sha256=6SLuj8D6sT8REaiL9zkGmW_YwbHPfZxbldlSA96gLug,3961
+servicepytan/attachments.py,sha256=1ri2qbeV28fGoPtvfeqke9Luk0q4beQVWFs29mxU1X8,1086
+servicepytan/auth.py,sha256=wwRAB2F5AwvCRb5_vTyZKshVxoa5_YJmdRk2GkpLFgs,9499
+servicepytan/data.py,sha256=9MWLCAbzGhn18DvFH3M7hms3ivWwaOjw2B0affp2InY,11175
+servicepytan/reports.py,sha256=cffWPNU0FDFcCpxdfxHX-OKoMekGU7YAZNTLvlSkn5g,12037
+servicepytan/requests.py,sha256=lEv3aS_4OVuQ0mAvpKaaxiVi_J0F7kg_Zcp_3h6eLTw,13318
+servicepytan/summary.py,sha256=mty9xgha9y-2BoGD-gskPhR2LUozLs9Afsn8fxZGgMQ,1204
+servicepytan/utils.py,sha256=PgHF-7T1k5RccANQnOT4i-gLPebWcHcmppksqJpMD0c,8654
+servicepytan-0.4.2.dist-info/licenses/AUTHORS.rst,sha256=CZTNtStea8VWibUYZmfNXvoseA4GogT1mHPAxHTmruQ,174
+servicepytan-0.4.2.dist-info/licenses/LICENSE,sha256=RwnobTJY3f7Rky0N2h04brQDqu1KTXyUBVvpfT226g0,1094
+servicepytan-0.4.2.dist-info/METADATA,sha256=HDThQWfNKDnQkmqIXPiwJO9oTPZtWKRuS3MCqtgqXjQ,3154
+servicepytan-0.4.2.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+servicepytan-0.4.2.dist-info/entry_points.txt,sha256=l7cTH5mvGo0tSKWTQFaTgaE4MOujlUxXlKQuUBNPnLY,55
+servicepytan-0.4.2.dist-info/top_level.txt,sha256=c7ibcQwWzyPBjFleXZTaNHcOSyuDOo8iCgoj_zrXTkA,13
+servicepytan-0.4.2.dist-info/RECORD,,

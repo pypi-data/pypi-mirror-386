@@ -1,0 +1,2 @@
+[console_scripts]
+servicepytan = servicepytan.cli:main

@@ -1,0 +1,114 @@
+Metadata-Version: 2.4
+Name: servicepytan
+Version: 0.4.2
+Summary: Python Library to make it easier to interact with the ServiceTitan API v2
+Home-page: https://github.com/elliotpalmer/servicepytan
+Author: Elliot Palmer
+Author-email: elliot@ecoplumbers.com
+License: MIT license
+Keywords: servicepytan
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: Click>=7.0
+Requires-Dist: requests
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Requires-Dist: python-dotenv
+Requires-Dist: pyyaml
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+============
+servicepytan
+============
+
+
+.. image:: https://img.shields.io/pypi/v/servicepytan.svg
+        :target: https://pypi.org/pypi/servicepytan
+
+.. image:: https://img.shields.io/travis/elliotpalmer/servicepytan.svg
+        :target: https://travis-ci.com/elliotpalmer/servicepytan
+
+.. image:: https://readthedocs.org/projects/servicepytan/badge/?version=latest
+        :target: https://servicepytan.readthedocs.io/en/latest/?version=latest
+        :alt: Documentation Status
+
+.. image:: https://img.shields.io/pypi/pyversions/servicepytan.svg
+        :target: https://pypi.org/pypi/servicepytan
+
+Python Library to make it easier to interact with the ServiceTitan API v2
+
+Requirements
+------------
+
+* Python 3.9 or higher
+
+* Free software: MIT license
+* Documentation: https://servicepytan.readthedocs.io.
+
+
+Features
+--------
+
+* Simple Syntax for getting data from standard RESTful endpoints from ServiceTitan
+* Ability to extract custom report data and automatically make calls for additional data
+
+Installation
+------------
+
+Basic installation:
+.. code-block:: bash
+
+    pip install servicepytan
+
+For development:
+.. code-block:: bash
+
+    pip install servicepytan[dev]
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.4.0 (2024-12-19)
+------------------
+
+* Updated Python version requirement to >=3.9 (breaking change)
+* Updated development dependencies to latest versions
+* Updated CI/CD configuration for Python 3.9+
+
+0.1.0 (2022-03-27)
+------------------
+
+* First release on PyPI.
