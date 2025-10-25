@@ -1,0 +1,9 @@
+name: 'rabbitbigquery'
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+# This is a minimal dbt_project.yml for the adapter
+# It's required for dbt to recognize this as a valid adapter
+
