@@ -1,0 +1,2 @@
+[console_scripts]
+awsdac-mcp-server = awsdac_mcp_server.main:main
