@@ -1,0 +1,11 @@
+Please review this pull request:
+Title: {{ pr_info.title }}
+Author: {{ pr_info.author }}
+Source Branch: {{ pr_info.source_branch }}
+Target Branch: {{ pr_info.target_branch }}
+
+Files changed:
+{% for file in files %}
+{{ file.emoji }} {{ file.filename }} (+{{ file.additions }}, -{{ file.deletions }})
+{% endfor %}
+
