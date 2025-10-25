@@ -1,0 +1,2 @@
+[console_scripts]
+activity-logger = activity_logger.cli:main

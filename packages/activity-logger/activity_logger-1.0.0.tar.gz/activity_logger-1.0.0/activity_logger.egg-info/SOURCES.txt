@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+activity_logger/__init__.py
+activity_logger/cli.py
+activity_logger/core.py
+activity_logger.egg-info/PKG-INFO
+activity_logger.egg-info/SOURCES.txt
+activity_logger.egg-info/dependency_links.txt
+activity_logger.egg-info/entry_points.txt
+activity_logger.egg-info/requires.txt
+activity_logger.egg-info/top_level.txt
