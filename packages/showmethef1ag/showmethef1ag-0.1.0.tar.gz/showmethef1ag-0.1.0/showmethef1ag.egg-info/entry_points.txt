@@ -1,0 +1,3 @@
+[console_scripts]
+showmethef1ag = showmethef1ag.test:main
+
