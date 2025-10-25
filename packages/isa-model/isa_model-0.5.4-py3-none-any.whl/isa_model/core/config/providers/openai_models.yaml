@@ -1,0 +1,365 @@
+provider: openai
+description: "OpenAI models for various AI tasks"
+models:
+  # Multimodal Models - GPT-4.1 Series (supports both text and vision)
+  - model_id: "gpt-4.1"
+    model_type: "omni"
+    capabilities:
+      - "image_analysis"
+      - "image_understanding" 
+      - "ocr"
+      - "ui_detection"
+      - "table_detection"
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+    metadata:
+      description: "Latest GPT-4.1 multimodal model with advanced vision and language capabilities. Best-in-class for complex multimodal tasks combining text and images."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "complex image analysis"
+        - "advanced OCR"
+        - "UI element detection"
+        - "table extraction"
+        - "visual reasoning"
+        - "document analysis"
+        - "multimodal conversation"
+        - "code generation"
+        - "technical analysis"
+      provider_model_name: "gpt-4.1"
+      supports_streaming: true
+      supports_vision: true
+      max_image_size: "20MB"
+      supported_formats: ["jpg", "jpeg", "png", "gif", "webp"]
+      max_tokens: 200000
+      pricing_tier: "premium"
+      
+  - model_id: "gpt-4.1-mini"
+    model_type: "omni"
+    capabilities:
+      - "image_analysis"
+      - "image_understanding"
+      - "ocr"
+      - "ui_detection"
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+    metadata:
+      description: "Cost-effective GPT-4.1-mini multimodal model with excellent vision and language capabilities. Great balance of quality, speed and cost."
+      performance_tier: "high"
+      specialized_tasks:
+        - "image analysis"
+        - "text extraction"
+        - "OCR"
+        - "UI element detection"
+        - "image description"
+        - "conversation"
+        - "code assistance"
+        - "general Q&A"
+      provider_model_name: "gpt-4.1-mini"
+      supports_streaming: true
+      supports_vision: true
+      max_image_size: "20MB"
+      supported_formats: ["jpg", "jpeg", "png", "gif", "webp"]
+      max_tokens: 128000
+      pricing_tier: "standard"
+
+  - model_id: "gpt-4.1-nano"
+    model_type: "omni"
+    capabilities:
+      - "image_analysis"
+      - "image_understanding"
+      - "ocr"
+      - "text_generation"
+      - "chat"
+    metadata:
+      description: "Ultra-fast GPT-4.1-nano multimodal model for basic vision and text tasks. Perfect for high-volume, simple processing."
+      performance_tier: "efficient"
+      specialized_tasks:
+        - "basic image analysis"
+        - "simple OCR"
+        - "image captioning"
+        - "basic conversation"
+        - "simple text generation"
+        - "quick Q&A"
+      provider_model_name: "gpt-4.1-nano"
+      supports_streaming: true
+      supports_vision: true
+      max_image_size: "10MB"
+      supported_formats: ["jpg", "jpeg", "png", "gif", "webp"]
+      max_tokens: 64000
+      pricing_tier: "budget"
+
+  # Text-to-Speech Models
+  - model_id: "tts-1"
+    model_type: "audio"
+    capabilities:
+      - "text_to_speech"
+    metadata:
+      description: "OpenAI's standard text-to-speech model for natural voice synthesis."
+      performance_tier: "standard"
+      specialized_tasks:
+        - "text to speech"
+        - "voice generation"
+        - "audio content creation"
+      provider_model_name: "tts-1"
+      available_voices: ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
+      supported_formats: ["mp3", "opus", "aac", "flac"]
+      pricing_tier: "standard"
+      cost_per_1000_chars: 0.015
+
+  - model_id: "tts-1-hd"
+    model_type: "audio"
+    capabilities:
+      - "text_to_speech"
+    metadata:
+      description: "OpenAI's high-definition text-to-speech model for premium voice quality."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "high quality speech"
+        - "professional voice generation"
+        - "premium audio content"
+      provider_model_name: "tts-1-hd"
+      available_voices: ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
+      supported_formats: ["mp3", "opus", "aac", "flac"]
+      pricing_tier: "premium"
+      cost_per_1000_chars: 0.030
+
+  # Speech-to-Text Models
+  - model_id: "whisper-1"
+    model_type: "audio"
+    capabilities:
+      - "speech_to_text"
+      - "audio_transcription"
+      - "audio_translation"
+    metadata:
+      description: "OpenAI's Whisper model for accurate speech recognition and transcription."
+      performance_tier: "high"
+      specialized_tasks:
+        - "speech recognition"
+        - "audio transcription"
+        - "multilingual translation"
+        - "language detection"
+      provider_model_name: "whisper-1"
+      supported_formats: ["mp3", "mp4", "mpeg", "mpga", "m4a", "wav", "webm"]
+      max_file_size: 26214400  # 25MB
+      supported_languages: 99
+      pricing_tier: "standard"
+      cost_per_minute: 0.006
+
+  # Embedding Models
+  - model_id: "text-embedding-3-small"
+    model_type: "embedding"
+    capabilities:
+      - "text_embedding"
+    metadata:
+      description: "OpenAI's efficient text embedding model for semantic search and similarity."
+      performance_tier: "efficient"
+      specialized_tasks:
+        - "semantic search"
+        - "text similarity"
+        - "content clustering"
+        - "recommendation systems"
+      provider_model_name: "text-embedding-3-small"
+      dimensions: 1536
+      max_input_tokens: 8192
+      pricing_tier: "budget"
+      cost_per_1000_tokens: 0.00002
+
+  - model_id: "text-embedding-3-large"
+    model_type: "embedding"
+    capabilities:
+      - "text_embedding"
+    metadata:
+      description: "OpenAI's large text embedding model for highest quality semantic understanding."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "advanced semantic search"
+        - "high-precision similarity"
+        - "complex content analysis"
+        - "research applications"
+      provider_model_name: "text-embedding-3-large"
+      dimensions: 3072
+      max_input_tokens: 8192
+      pricing_tier: "premium"
+      cost_per_1000_tokens: 0.00013
+
+  - model_id: "text-embedding-ada-002"
+    model_type: "embedding"
+    capabilities:
+      - "text_embedding"
+    metadata:
+      description: "OpenAI's legacy embedding model for basic text embedding tasks."
+      performance_tier: "standard"
+      specialized_tasks:
+        - "basic text embedding"
+        - "simple similarity"
+        - "legacy applications"
+      provider_model_name: "text-embedding-ada-002"
+      dimensions: 1536
+      max_input_tokens: 8192
+      pricing_tier: "budget"
+      cost_per_1000_tokens: 0.0001
+
+  # Realtime Models
+  - model_id: "gpt-4o-realtime-preview-2024-10-01"
+    model_type: "audio"
+    capabilities:
+      - "audio_realtime"
+      - "speech_to_text"
+      - "text_to_speech"
+      - "conversation"
+      - "text_generation"
+      - "chat"
+    metadata:
+      description: "OpenAI's GPT-4o Realtime model for low-latency, multimodal voice conversations with advanced reasoning capabilities."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "real-time voice conversation"
+        - "voice assistant"
+        - "live audio streaming"
+        - "multimodal interaction"
+        - "speech-to-speech"
+        - "conversational AI"
+        - "voice interfaces"
+        - "interactive applications"
+      provider_model_name: "gpt-4o-realtime-preview-2024-10-01"
+      supports_streaming: true
+      supports_audio: true
+      supports_vision: false
+      max_session_time_minutes: 15
+      max_context_tokens: 128000
+      audio_tokens_per_minute: 800
+      available_voices: ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
+      supported_audio_formats: ["pcm16", "g711_ulaw", "g711_alaw"]
+      input_audio_format: "pcm16"
+      output_audio_format: "pcm16"
+      pricing_tier: "premium"
+      cost_per_audio_token_input: 0.00001  # $10/1M tokens
+      cost_per_audio_token_output: 0.00002 # $20/1M tokens
+      cost_per_text_token_input: 0.0025    # $2.50/1M tokens (estimated)
+      cost_per_text_token_output: 0.01     # $10.00/1M tokens (estimated)
+
+  - model_id: "gpt-4o-mini-realtime-preview"
+    model_type: "audio"
+    capabilities:
+      - "audio_realtime"
+      - "speech_to_text"
+      - "text_to_speech"
+      - "conversation"
+      - "text_generation"
+      - "chat"
+    metadata:
+      description: "OpenAI's GPT-4o Mini Realtime model for cost-effective, low-latency voice conversations with good quality."
+      performance_tier: "standard"
+      specialized_tasks:
+        - "real-time voice conversation"
+        - "voice assistant"
+        - "basic audio streaming"
+        - "conversational AI"
+        - "voice interfaces"
+        - "cost-effective realtime"
+      provider_model_name: "gpt-4o-mini-realtime-preview"
+      supports_streaming: true
+      supports_audio: true
+      supports_vision: false
+      max_session_time_minutes: 15
+      max_context_tokens: 128000
+      audio_tokens_per_minute: 800
+      available_voices: ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
+      supported_audio_formats: ["pcm16", "g711_ulaw", "g711_alaw"]
+      input_audio_format: "pcm16"
+      output_audio_format: "pcm16"
+      pricing_tier: "standard"
+      cost_per_audio_token_input: 0.00001  # $10/1M tokens
+      cost_per_audio_token_output: 0.00002 # $20/1M tokens
+      cost_per_text_token_input: 0.00015   # $0.15/1M tokens (estimated)
+      cost_per_text_token_output: 0.0006   # $0.60/1M tokens (estimated)
+
+  # O-Series Reasoning Models - Advanced reasoning and deep research
+  - model_id: "o4-mini"
+    model_type: "omni"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+      - "image_analysis"
+      - "image_understanding"
+      - "code_generation"
+      - "mathematical_reasoning"
+      - "tool_calling"
+      - "function_calling"
+    metadata:
+      description: "OpenAI's o4-mini reasoning model optimized for fast, cost-efficient reasoning with exceptional performance in math, coding, and visual tasks."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "mathematical reasoning"
+        - "code generation and debugging"
+        - "complex problem solving"
+        - "logical reasoning"
+        - "visual reasoning with images"
+        - "tool-augmented reasoning"
+        - "multi-step reasoning chains"
+        - "scientific analysis"
+      provider_model_name: "o4-mini-2025-04-16"
+      supports_streaming: true
+      supports_vision: true
+      supports_reasoning: true
+      supports_tool_calling: true
+      max_image_size: "20MB"
+      supported_formats: ["jpg", "jpeg", "png", "gif", "webp"]
+      max_tokens: 100000
+      max_context_tokens: 200000
+      pricing_tier: "premium"
+      cost_per_1m_input_tokens: 1.10
+      cost_per_1m_output_tokens: 4.40
+      cost_per_1m_reasoning_tokens: 1.10  # Reasoning tokens charged at input rate
+      supports_caching: true
+      supports_batching: true
+
+  - model_id: "o4-mini-deep-search"
+    model_type: "omni"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+      - "deep_research"
+      - "web_search"
+      - "image_analysis"
+      - "image_understanding"
+      - "code_generation"
+      - "mathematical_reasoning"
+      - "tool_calling"
+      - "function_calling"
+      - "research_synthesis"
+    metadata:
+      description: "OpenAI's o4-mini deep research model for comprehensive research tasks with web search capabilities and in-depth analysis."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "deep research and analysis"
+        - "web search integration"
+        - "comprehensive report generation"
+        - "research synthesis"
+        - "fact verification"
+        - "multi-source analysis"
+        - "long-form content creation"
+        - "academic research"
+        - "market research"
+        - "competitive analysis"
+      provider_model_name: "o4-mini-deep-research-2025-06-26"
+      supports_streaming: true
+      supports_vision: true
+      supports_reasoning: true
+      supports_tool_calling: true
+      supports_web_search: true
+      max_image_size: "20MB"
+      supported_formats: ["jpg", "jpeg", "png", "gif", "webp"]
+      max_tokens: 100000
+      max_context_tokens: 200000
+      pricing_tier: "premium"
+      cost_per_1m_input_tokens: 2.00
+      cost_per_1m_output_tokens: 8.00
+      cost_per_1m_reasoning_tokens: 2.00  # Reasoning tokens charged at input rate
+      cost_per_search_tokens: 2.00  # Search content tokens charged at model rate
+      supports_caching: true
+      supports_batching: true

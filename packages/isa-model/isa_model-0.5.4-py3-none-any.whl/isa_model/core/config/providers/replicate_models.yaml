@@ -1,0 +1,170 @@
+provider: replicate
+description: "Replicate hosted open-source models for various AI tasks"
+models:
+  # Core Image Generation Models (4 main services)
+  - model_id: "flux-schnell"
+    model_type: "image"
+    capabilities:
+      - "image_generation"
+    metadata:
+      description: "FLUX Schnell ultra-fast text-to-image generation. Excellent for rapid prototyping and high-volume image creation."
+      performance_tier: "efficient"
+      specialized_tasks:
+        - "text to image"
+        - "rapid generation"
+        - "high volume production"
+        - "concept art"
+      provider_model_name: "flux-schnell"
+      replicate_model_path: "black-forest-labs/flux-schnell"
+      cost_per_1000_images: 3.0
+      generation_time: "fast"
+      pricing_tier: "budget"
+
+  - model_id: "flux-kontext-pro"
+    model_type: "image"
+    capabilities:
+      - "image_generation"
+      - "image_to_image"
+    metadata:
+      description: "FLUX Kontext Pro for advanced image-to-image generation with superior control and quality."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "image to image"
+        - "style transfer"
+        - "image editing"
+        - "professional workflows"
+      provider_model_name: "flux-kontext-pro"
+      replicate_model_path: "kontext-tech/flux-kontext-pro"
+      cost_per_image: 0.04
+      generation_time: "medium"
+      pricing_tier: "standard"
+
+  - model_id: "sticker-maker"
+    model_type: "image"
+    capabilities:
+      - "image_generation"
+    metadata:
+      description: "Specialized sticker generation model for creating cute and appealing stickers from text prompts."
+      performance_tier: "efficient"
+      specialized_tasks:
+        - "sticker generation"
+        - "cute artwork"
+        - "emoji-style images"
+        - "marketing materials"
+      provider_model_name: "sticker-maker"
+      replicate_model_path: "fofr/sticker-maker:4acb778eb059772225ec213948f0660867b2e03f277448f18cf1800b96a65a1a"
+      cost_per_generation: 0.0024
+      generation_time: "fast"
+      pricing_tier: "budget"
+
+  - model_id: "face-swap"
+    model_type: "image"
+    capabilities:
+      - "image_generation"
+      - "face_manipulation"
+    metadata:
+      description: "Advanced face swapping with hair source control and gender-aware processing."
+      performance_tier: "high"
+      specialized_tasks:
+        - "face swapping"
+        - "identity transfer"
+        - "portrait manipulation"
+        - "character creation"
+      provider_model_name: "face-swap"
+      replicate_model_path: "easel/advanced-face-swap"
+      cost_per_generation: 0.04
+      generation_time: "medium"
+      pricing_tier: "standard"
+
+  # Vision Models (existing)
+  - model_id: "cogvlm"
+    model_type: "vision"
+    capabilities:
+      - "image_analysis"
+      - "image_understanding"
+    metadata:
+      description: "Open-source vision-language model for general image understanding and visual question answering. Good for basic image analysis tasks."
+      performance_tier: "standard"
+      specialized_tasks:
+        - "visual question answering"
+        - "image description"
+        - "basic object recognition"
+      provider_model_name: "cogvlm"
+      replicate_model_path: "cjwbw/cogvlm:a5092d718ea77a073e6d8f6969d5c0fb87d0ac7e4cdb7175427331e1798a34ed"
+      pricing_tier: "budget"
+
+  - model_id: "florence-2"
+    model_type: "vision"
+    capabilities:
+      - "image_analysis"
+      - "ocr"
+      - "table_detection"
+    metadata:
+      description: "Microsoft's Florence-2 model for comprehensive image understanding including object detection, OCR, and document analysis. Excellent for structured content extraction."
+      performance_tier: "high"
+      specialized_tasks:
+        - "object detection"
+        - "document analysis"
+        - "OCR"
+        - "table detection"
+        - "image captioning"
+      provider_model_name: "florence-2"
+      replicate_model_path: "microsoft/florence-2-large:fcdb54e52322b9e6dce7a35e5d8ad173dce30b46ef49a236c1a71bc6b78b5bed"
+      pricing_tier: "standard"
+
+  - model_id: "omniparser"
+    model_type: "vision"
+    capabilities:
+      - "ui_detection"
+      - "image_analysis"
+    metadata:
+      description: "Specialized model for parsing and understanding user interface elements. Perfect for UI automation, testing, and interface analysis tasks."
+      performance_tier: "high"
+      specialized_tasks:
+        - "UI element detection"
+        - "interface parsing"
+        - "web automation"
+        - "app testing"
+        - "UI analysis"
+      provider_model_name: "omniparser"
+      replicate_model_path: "microsoft/omniparser-v2:49cf3d41b8d3aca1360514e83be4c97131ce8f0d99abfc365526d8384caa88df"
+      pricing_tier: "standard"
+
+  - model_id: "yolov8"
+    model_type: "vision"
+    capabilities:
+      - "image_analysis"
+    metadata:
+      description: "Fast and accurate object detection model. Excellent for real-time object recognition and counting tasks."
+      performance_tier: "efficient"
+      specialized_tasks:
+        - "object detection"
+        - "real-time analysis"
+        - "object counting"
+        - "fast inference"
+      provider_model_name: "yolov8"
+      replicate_model_path: "adirik/yolov8:3b21ba0e5da47bb2c69a96f72894a31b7c1e77b3e8a7b6ba43b7eb93b7b2c4f4"
+      pricing_tier: "budget"
+
+  - model_id: "qwen-vl-chat"
+    model_type: "vision"
+    capabilities:
+      - "image_analysis"
+      - "image_understanding"
+      - "ocr"
+      - "ui_detection"
+      - "table_detection"
+    metadata:
+      description: "Alibaba's multimodal conversational AI model with strong Chinese and English capabilities. Excellent for comprehensive image analysis, OCR, and visual reasoning through intelligent prompting."
+      performance_tier: "high"
+      specialized_tasks:
+        - "multimodal conversation"
+        - "OCR (Chinese/English)"
+        - "table extraction"
+        - "UI element detection"
+        - "visual reasoning"
+        - "image analysis"
+        - "multilingual support"
+      provider_model_name: "qwen-vl-chat"
+      replicate_model_path: "lucataco/qwen-vl-chat:50881b153b4d5f72b3db697e2bbad23bb1277ab741c5b52d80cd6ee17ea660e9"
+      pricing_tier: "standard"

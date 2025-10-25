@@ -1,0 +1,145 @@
+provider: cerebras
+description: "Cerebras ultra-fast inference provider - World's fastest LLM inference"
+api:
+  api_key_env: "CEREBRAS_API_KEY"
+  base_url: "https://api.cerebras.ai/v1"
+
+models:
+  - model_id: "gpt-oss-120b"
+    model_type: "llm"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+    metadata:
+      description: "OpenAI GPT OSS 120B - Ultra-fast inference at ~3000 tokens/sec. Best performance-to-speed ratio."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "general purpose chat"
+        - "code generation"
+        - "reasoning tasks"
+        - "content generation"
+        - "analysis"
+      provider_model_name: "gpt-oss-120b"
+      supports_streaming: true
+      max_tokens: 8192
+      context_window: 8192
+      pricing_tier: "premium"
+      input_cost_per_1k_tokens: 0.001
+      output_cost_per_1k_tokens: 0.001
+      inference_speed_tokens_per_sec: 3000
+      parameters: "120B"
+      special_features:
+        - "ultra_fast_inference"
+        - "low_latency"
+
+  - model_id: "llama-3.3-70b"
+    model_type: "llm"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+    metadata:
+      description: "Llama 3.3 70B - Powerful reasoning at ~2100 tokens/sec. Excellent for complex tasks."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "complex reasoning"
+        - "code generation"
+        - "problem solving"
+        - "technical analysis"
+        - "creative writing"
+      provider_model_name: "llama-3.3-70b"
+      supports_streaming: true
+      max_tokens: 8192
+      context_window: 8192
+      pricing_tier: "standard"
+      input_cost_per_1k_tokens: 0.0006
+      output_cost_per_1k_tokens: 0.0006
+      inference_speed_tokens_per_sec: 2100
+      parameters: "70B"
+      special_features:
+        - "ultra_fast_inference"
+        - "high_quality_reasoning"
+
+  - model_id: "llama-4-scout-17b-16e-instruct"
+    model_type: "llm"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+    metadata:
+      description: "Llama 4 Scout 109B - High-performance instruction following at ~2600 tokens/sec."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "instruction following"
+        - "complex reasoning"
+        - "code generation"
+        - "analysis"
+        - "problem solving"
+      provider_model_name: "llama-4-scout-17b-16e-instruct"
+      supports_streaming: true
+      max_tokens: 8192
+      context_window: 8192
+      pricing_tier: "premium"
+      input_cost_per_1k_tokens: 0.0008
+      output_cost_per_1k_tokens: 0.0008
+      inference_speed_tokens_per_sec: 2600
+      parameters: "109B"
+      special_features:
+        - "ultra_fast_inference"
+        - "instruction_tuned"
+
+  - model_id: "llama3.1-8b"
+    model_type: "llm"
+    capabilities:
+      - "text_generation"
+      - "chat"
+    metadata:
+      description: "Llama 3.1 8B - Fast and efficient at ~2200 tokens/sec. Cost-effective for general tasks."
+      performance_tier: "standard"
+      specialized_tasks:
+        - "general chat"
+        - "quick responses"
+        - "simple tasks"
+        - "content generation"
+      provider_model_name: "llama3.1-8b"
+      supports_streaming: true
+      max_tokens: 8192
+      context_window: 8192
+      pricing_tier: "budget"
+      input_cost_per_1k_tokens: 0.0001
+      output_cost_per_1k_tokens: 0.0001
+      inference_speed_tokens_per_sec: 2200
+      parameters: "8B"
+      special_features:
+        - "ultra_fast_inference"
+        - "cost_effective"
+
+  - model_id: "qwen-3-32b"
+    model_type: "llm"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+    metadata:
+      description: "Qwen 3 32B - Balanced performance at ~2600 tokens/sec. Good for various tasks."
+      performance_tier: "standard"
+      specialized_tasks:
+        - "general purpose"
+        - "reasoning"
+        - "code generation"
+        - "analysis"
+        - "multilingual support"
+      provider_model_name: "qwen-3-32b"
+      supports_streaming: true
+      max_tokens: 8192
+      context_window: 32768
+      pricing_tier: "standard"
+      input_cost_per_1k_tokens: 0.0004
+      output_cost_per_1k_tokens: 0.0004
+      inference_speed_tokens_per_sec: 2600
+      parameters: "32B"
+      special_features:
+        - "ultra_fast_inference"
+        - "multilingual"
+        - "large_context"

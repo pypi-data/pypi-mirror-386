@@ -1,0 +1,55 @@
+# Production Environment Configuration
+
+environment: production
+debug: false
+
+# Database settings
+database:
+  use_supabase: true
+  fallback_to_sqlite: false
+  connection_pool_size: 20
+  max_retries: 3
+
+# Deployment settings
+deployment:
+  platform: "modal"
+  auto_scaling: true
+  scale_to_zero: true
+  default_gpu: "A100-40GB"
+  default_memory_mb: 32768
+  keep_warm: 2
+  timeout_seconds: 1800
+
+# API settings
+api:
+  rate_limit_rpm: 100
+  max_file_size_mb: 50
+  cache_ttl_seconds: 3600
+  enable_auth: true
+  cors_origins: ["https://yourdomain.com"]
+
+# Serving settings
+serving:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  reload: false
+  log_level: "info"
+
+# Billing and monitoring
+billing:
+  track_costs: true
+  cost_alerts_enabled: true
+  monthly_budget_usd: 1000.0
+
+# Health monitoring
+health:
+  check_interval_seconds: 60
+  timeout_seconds: 10
+  enabled: true
+
+# Model caching
+cache:
+  enabled: true
+  size_gb: 100
+  cleanup_interval_seconds: 3600
