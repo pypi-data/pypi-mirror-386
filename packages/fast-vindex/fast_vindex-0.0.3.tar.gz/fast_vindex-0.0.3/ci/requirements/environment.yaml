@@ -1,0 +1,33 @@
+name: fast-vindex-tests
+channels:
+  - conda-forge
+dependencies:
+  # Required dependencies
+  - dask
+  - matplotlib
+  - numpy<=2.0.0
+  - pandas
+  - xarray
+
+  # Dev dependencies
+  - pip:
+      - build
+      - twine
+
+  # Test dependencies
+  - pre-commit
+  - pytest
+  - pytest-cov
+
+  # Docs dependencies
+  - sphinx
+  - myst-parser
+  - myst-nb
+  - sphinx-inline-tabs
+  - sphinx-design
+  - pydata-sphinx-theme
+  - nbsphinx
+
+  # Optional dependencies
+  - scipy
+  - ipykernel

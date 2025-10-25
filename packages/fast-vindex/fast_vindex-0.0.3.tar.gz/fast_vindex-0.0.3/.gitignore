@@ -1,0 +1,12 @@
+**/.ipynb_checkpoints/
+**/__pycache__/
+**/.pytest_cache
+**/.ruff_cache
+**/Thumbs.db
+dist
+_dev
+docs/build
+docs/source/_autosummary
+docs/source/_dump
+DEV.md
+src/fast_vindex/api_original.py
