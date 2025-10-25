@@ -1,0 +1,338 @@
+# Logflow - Python
+
+[<img src="https://img.shields.io/badge/Version-1.0.0-blue">](#)
+[<img src="https://img.shields.io/badge/Status-Stable-brightgreen">](#)
+[<img src="https://img.shields.io/badge/Python-3.11-brightgreen">](#)
+
+A simple yet elegant logging library for your `python` apps.
+
+<!-- ![Demo Logs](/assets/logs_demo.png) -->
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Specs](#specs)
+
+   * [Logging](#logging)
+   * [Configuration](#configuration)
+3. [Setup](#setup)
+
+   * [Installation](#installation)
+   * [Check (optional)](#check-optional)
+4. [Simple Example](#simple-example)
+
+   * [Basic Setup](#basic-setup)
+   * [Code](#code)
+   * [Output](#output)
+5. [Logger Configuration](#logger-configuration)
+
+   * [DateTime Format Configuration](#datetime-format-configuration)
+   * [Example Code](#example-code)
+   * [Example Output](#example-output)
+   * [Summary](#summary)
+6. [Custom Handler Implementation and Integration](#custom-handler-implementation-and-integration)
+
+   * [Example Code](#example-code-1)
+   * [Example Output](#example-output-1)
+   * [Explanation](#explanation)
+   * [Summary](#summary-1)
+7. [Logflow Configuration](#logflow-configuration)
+8. [Author & Contributions](#author--contributions)
+
+## Overview
+
+**LogFlow** is a lightweight yet powerful logging library for Python applications, designed to provide flexibility, readability, and modularity out of the box.
+It simplifies how developers handle log generation, formatting, and output destinations — whether to the console, file system, or a custom handler such as a database or remote service.
+
+With LogFlow, you can:
+
+* Create structured, color-coded, and human-readable logs.
+* Configure date and time formats with built-in or custom masks.
+* Add or disable handlers dynamically at runtime.
+* Extend the logging pipeline with your own formatters and handlers.
+* Maintain consistency and clarity across small scripts or large-scale systems.
+
+The library’s modular design allows developers to easily integrate it into existing codebases while maintaining full control over configuration and output behavior.
+
+## Specs
+
+### Logging
+
+* **`console`** – colorful and elegant log format for the terminal.
+* **`file`** – stashing and persistence of logs on your system with organization by date.
+* **`database`** – custom logging that allows you to save your logs in a database for remote access and optimized search.
+
+### Configuration
+
+* **`datetime mask`** – you have a variety of standard datetime/timestamp masks to choose from.
+* **`custom handlers`** – you can implement and add your own custom handlers to the logger’s handler list using our `Handler` interface/abstract class.
+* **`logging file path config`** – configurable logging file path in `LogConfig`.
+
+## Setup
+
+Setting up Logflow on your device.
+
+### Installation
+
+```bash
+pip install logflow-python
+```
+
+> Works on any system — no specific download required!
+
+### Check (optional)
+
+```bash
+pip list
+```
+
+After running the following command, check for `logflow` in the list. If not found, install again.
+
+## Simple Example
+
+A quick demo of `logflow`.
+
+### Basic setup
+
+Bare minimum code for setting up and running Logflow
+
+#### Code
+
+```python
+from logflow import *
+
+logger: Logger = Logger()
+
+def main() -> None:
+    logger.log(Log(LogType.DEBUG), 'some test message')
+
+if __name__ == '__main__':
+    main()
+```
+
+#### Output
+
+```bash
+[Debug]-[2025-10-24T10:22:43]: some test message
+```
+
+## Logger Configuration
+
+### DateTime Format Configuration
+
+With **LogFlow**, you can fully customize the **date and time format** of your log messages.
+You can choose from the built-in standard formats (`ISO`, `US`, `EU`, `SIMPLE`, `FULL`, `SHORT_TIME`)
+or define a custom format to match your preferred logging style.
+This flexibility allows consistent timestamp formatting across regions, systems, and user interfaces.
+
+---
+
+#### Example Code
+
+```python
+from logflow import *
+
+logger: Logger = Logger()
+
+def main() -> None:
+    # Default: ISO format -> "%Y-%m-%dT%H:%M:%S"
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    # US -> "%m/%d/%Y %I:%M %p"
+    LogConfig.LOG_DATE_TIME_FORMAT = DateTimeFormat.US    
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    # EU -> "%d/%m/%Y %H:%M"
+    LogConfig.LOG_DATE_TIME_FORMAT = DateTimeFormat.EU    
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    # SIMPLE -> "%Y-%m-%d"
+    LogConfig.LOG_DATE_TIME_FORMAT = DateTimeFormat.SIMPLE    
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    # FULL -> "%A, %B %d, %Y %H:%M:%S"
+    LogConfig.LOG_DATE_TIME_FORMAT = DateTimeFormat.FULL    
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    # SHORT_TIME -> "%H:%M"
+    LogConfig.LOG_DATE_TIME_FORMAT = DateTimeFormat.SHORT_TIME    
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    # CUSTOM -> User-defined format
+    DateTimeFormat.CUSTOM = "%d-%m-%Y %H:%M:%S"  # Example of setting a custom format   
+    LogConfig.LOG_DATE_TIME_FORMAT = DateTimeFormat.CUSTOM
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+#### Example Output
+
+```bash
+[Debug]-[2025-10-24T10:22:43]: LogFlow is running smoothly!
+[Debug]-[10/24/2025 10:22 AM]: LogFlow is running smoothly!
+[Debug]-[24/10/2025 10:22]: LogFlow is running smoothly!
+[Debug]-[2025-10-24]: LogFlow is running smoothly!
+[Debug]-[Friday, October 24, 2025 10:22:43]: LogFlow is running smoothly!
+[Debug]-[10:22]: LogFlow is running smoothly!
+[Debug]-[24-10-2025 10:22:43]: LogFlow is running smoothly!
+```
+
+---
+
+### Summary
+
+| Format Type    | Mask Example             | Description                                         |
+| -------------- | ------------------------ | --------------------------------------------------- |
+| **ISO**        | `%Y-%m-%dT%H:%M:%S`      | Standard ISO 8601 timestamp (default)               |
+| **US**         | `%m/%d/%Y %I:%M %p`      | U.S. date format with AM/PM                         |
+| **EU**         | `%d/%m/%Y %H:%M`         | European date format                                |
+| **SIMPLE**     | `%Y-%m-%d`               | Date-only representation                            |
+| **FULL**       | `%A, %B %d, %Y %H:%M:%S` | Full date and time                                  |
+| **SHORT_TIME** | `%H:%M`                  | Time-only (hours and minutes)                       |
+| **CUSTOM**     | *User-defined*           | Fully customizable using Python’s `strftime` syntax |
+
+---
+
+> **Tip**:
+You can dynamically change `LogConfig.LOG_DATE_TIME_FORMAT` at runtime.
+This makes it easy to adjust log output for localization, system integration, or debugging needs.
+
+## Custom Handler Implementation and Integration
+
+LogFlow allows you to extend its functionality by defining **custom formatters** and **handlers**.
+This makes it possible to modify how log messages are formatted, processed, or routed — for example, sending logs to a database, cloud service, or custom file format.
+
+In the example below, a custom formatter and handler are implemented to demonstrate how logs can be formatted and handled outside of the default LogFlow configuration.
+
+---
+
+### Example Code
+
+```python
+from logflow import *
+
+
+class CustomFormatter(Formatter):
+    def __init__(self):
+        pass
+    
+    def format(self, log: Log) -> str:
+        timestamp = log.get_date_time().strftime(LogConfig.LOG_DATE_TIME_FORMAT)
+        return f"{log.get_color()}<{log.get_level().name}> {timestamp} :: {LogColors.RESET}{log.get_message()}"
+    
+
+class CustomHandler(Handler):
+    def __init__(self, formatter: Formatter = None):
+        self.__formatter = formatter
+    
+    def handle(self, log: Log) -> None:
+        """You can implement any custom handling logic here. 
+        For demonstration, we'll just print the formatted log."""
+        print(f"CustomHandler Output: {self.__formatter.format(log)}")
+
+
+# Disable default file and console logging to use only the custom handler
+LogConfig.FILE_LOGGING_ENABLED = False
+LogConfig.CONSOLE_LOGGING_ENABLED = False
+
+logger: Logger = Logger()
+logger.add_handler(CustomHandler(CustomFormatter()))
+
+def main() -> None:
+    logger.log(Log(LogTypes.DEBUG, "LogFlow is running smoothly!"))
+    
+    
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+### Example Output
+
+```bash
+CustomHandler Output: <DEBUG> 2025-10-24T10:22:43 :: LogFlow is running smoothly!
+```
+
+---
+
+### Explanation
+
+**1. CustomFormatter**
+Defines how the log message should be formatted.
+
+* Uses the currently configured `LogConfig.LOG_DATE_TIME_FORMAT` for timestamps.
+* Applies color codes from `LogColors` and includes log level, timestamp, and message.
+* Returns a string representation of the formatted log.
+
+
+**2. CustomHandler**
+Defines how the log message should be processed or delivered.
+
+* Accepts a `Formatter` instance for flexible formatting.
+* Implements the `handle()` method where the log can be printed, saved, or sent elsewhere.
+* In this example, it simply prints the formatted log message.
+
+**3. Integration with Logger**
+
+* Default handlers (file and console) are disabled via `LogConfig`.
+* The `CustomHandler` is added to the `Logger` using `logger.add_handler()`.
+* All logs emitted through this logger are now handled exclusively by the custom handler.
+
+---
+
+### Summary
+
+| Component                | Purpose                                        | Customization                          |
+| ------------------------ | ---------------------------------------------- | -------------------------------------- |
+| **CustomFormatter**      | Controls the output format of each log message | Modify color, layout, or timestamp     |
+| **CustomHandler**        | Controls where and how logs are processed      | Print, store, send to API, etc.        |
+| **Logger.add_handler()** | Registers a new handler to process logs        | Attach one or multiple custom handlers |
+
+---
+
+> **Tip**: 
+By implementing your own handlers and formatters, you can integrate LogFlow seamlessly into any environment — from simple terminal applications to complex distributed logging infrastructures.
+
+### Logflow Configuration
+
+Configuration is handled by `LogConfig` class/structure below you can see default implementation of it.
+
+```python
+class LogConfig:
+    CONSOLE_LOGGING_ENABLED = True
+    FILE_LOGGING_ENABLED = True
+    LOG_FILE_PATH = _filepath
+    LOG_DATE_TIME_FORMAT = DateTimeFormat.ISO 
+```
+
+> **Note** Logflow allowes you to manage config in runtime
+
+## Author & Contributions
+
+**Author:** [Aleko Khomasuridze](https://github.com/aleko-khomasuridze)
+**Project Repository:** [LogFlow on GitHub](https://github.com/aleko-khomasuridze/LogFlow)
+
+LogFlow is an open-source project built to provide a clean, modular, and extensible logging solution for Python developers.
+Contributions of all kinds — from bug fixes and feature suggestions to documentation improvements — are welcome and highly appreciated.
+
+If you’d like to contribute:
+
+1. Fork the repository
+2. Create a new branch for your feature or fix
+3. Commit your changes with clear messages
+4. Submit a pull request describing your update
+
+Your contributions help improve the project for everyone and keep LogFlow evolving.
+
+---
+
+> For questions, ideas, or collaboration inquiries, feel free to reach out via GitHub Issues or contact me directly.
+
+
+
