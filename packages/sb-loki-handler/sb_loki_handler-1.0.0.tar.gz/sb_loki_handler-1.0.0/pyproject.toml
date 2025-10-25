@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=70.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sb-loki-handler"
+requires-python = ">=3.6"
+authors = [{ name = "Pradish Bijukchhe", email = "pradish@sandbox.com.np" }]
+description = "Typed loki handler for logging"
+readme = "README.md"
+license = "MIT"
+keywords = []
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = ["httpx>=0.20.0"]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+pre-commit = ["pre-commit"]
+
+[project.urls]
+Homepage = "https://github.com/sandbox-pokhara/sb-loki-handler"
+Issues = "https://github.com/sandbox-pokhara/sb-loki-handler/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-dir]
+"sb_loki_handler" = "sb_loki_handler"
+
+[tool.setuptools.dynamic]
+version = { attr = "sb_loki_handler.__version__" }
+
+[tool.ruff.lint]
+select = ["I"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+include = ["sb_loki_handler", "test.py"]
+typeCheckingMode = "strict"
