@@ -1,0 +1,132 @@
+Metadata-Version: 2.4
+Name: NitroDec
+Version: 0.1.4
+Summary: Decorator For Starlette, FastAPI style Decorators
+Home-page: https://github.com/yuvrajmodz/NitroDec
+Author: @Nactire
+Author-email: yuvrajmodz@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: starlette[full]
+Requires-Dist: uvicorn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+## NitroDec
+
+**Letest Version:** 0.1.4  
+**Developer:** [@Nactire](https://t.me/Nactire)  
+**Git Repo:** [NitroDec](https://github.com/yuvrajmodz/NitroDec)
+
+
+## 🚀 Overview
+
+**NitroDec** is an Advanced Decorator For **Starlette**,  
+Supports **Sync** And **Async** Both def Functions.  
+
+
+## ⚡ Key Features
+
+• Easy To Use  
+• Auto **Execute** After import **“patch_starlette_app()”**  
+• Use NitroDec And Boost Your Coding Speed      
+• Lightweight And Super Fast  
+
+
+## 🎲 Supported HTTP Methods
+
+- **GET**, **POST**, **PUT**
+- **PATCH**, **DELETE**, **OPTIONS**
+- **HEAD**, **TRACE**
+
+
+## 🛠️ System Requirements
+
+- Python **3.8+**  
+- **Ubuntu** Or **Debian** Recommended
+
+
+## 🌊 Module installation
+
+```bash
+pip install NitroDec --break-system-packages
+```
+
+## 🧭 Usage Examples
+
+**Async Example**
+
+```bash
+from starlette.applications import Starlette
+import NitroDec
+
+app = Starlette()
+
+@app.get("/")
+async def home(request):
+    return {"message": "Hello World"}
+```  
+
+**Sync Example**
+
+```bash
+import NitroDec
+from starlette.applications import Starlette
+
+app = Starlette()
+
+@app.get("/sync")
+def sync_route(request):
+    return {"message": "This is a sync function, auto-wrapped by NitroDec"}
+```
+
+**Post Route With Data**
+
+```bash
+from starlette.requests import Request
+from starlette.responses import JSONResponse
+import NitroDec
+from starlette.applications import Starlette
+
+app = Starlette()
+
+@app.post("/echo")
+async def echo(request: Request):
+    data = await request.json()
+    return {"you_sent": data}
+```
+
+**Multiple Http Methods (Same Route)**
+
+```bash
+import NitroDec
+from starlette.applications import Starlette
+from starlette.requests import Request
+
+app = Starlette()
+
+@app.get("/multi")
+@app.post("/multi")
+async def multi_method(request: Request):
+    return {"method_used": request.method}
+```  
+
+
+**Start Example Using Uvicorn**
+
+```bash
+# 𝘍𝘰𝘳 𝘢𝘱𝘱.𝘱𝘺 𝘞𝘪𝘵𝘩 𝘢𝘱𝘱 𝘝𝘢𝘳𝘪𝘢𝘣𝘭𝘦.
+uvicorn app:app --reload
+```
