@@ -1,0 +1,74 @@
+Metadata-Version: 2.4
+Name: safemove-tool
+Version: 1.0.0
+Summary: 安全移动或复制文件，智能处理文件名冲突
+Home-page: https://github.com/63616B65/safemove-tool.git
+Author: Your Name
+Author-email: your.email@example.com
+Keywords: file move copy safe conflict resolution
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-python
+Dynamic: summary
+
+# Safe Move Tool
+
+A Python tool for safely moving or copying files with intelligent conflict resolution.
+
+## Features
+
+- Safely move or copy files between directories
+- Intelligent handling of filename conflicts
+- Interactive prompts for conflict resolution
+- Preserves file metadata when possible
+
+## Installation
+
+```bash
+pip install .
+```
+
+## Usage
+
+```bash
+safemove [source] [destination]
+```
+
+Options:
+- `-x` or `--move`: Move files (default mode)
+- `-c` or `--copy`: Copy files instead of moving them
+- `-s` or `--strict`: Enable strict mode (byte-by-byte file comparison)
+
+## Example
+
+```bash
+# Move a file
+safemove -x ./file.txt /home/user/documents/
+
+# Copy a file
+safemove -c ./file.txt /home/user/documents/
+
+# Move with strict mode
+safemove -x -s ./file.txt /home/user/documents/
+```
+
+## License
+
+MIT License
