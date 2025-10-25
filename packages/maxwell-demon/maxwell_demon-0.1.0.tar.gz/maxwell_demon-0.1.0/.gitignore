@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.env
+*$py.class
+
+.DS_Store
+.ruff_cache
+.pytest_cache
+.tox
+.maxwell
+debug.txt
+
+# Vibelint old reports directory (deprecated)
+.vibelint-reports/*
+
+# Maxwell analysis output directory
+.maxwell/
+
+.claude/
+coverage.xml
+.coverage
+
+dev.pyproject.toml

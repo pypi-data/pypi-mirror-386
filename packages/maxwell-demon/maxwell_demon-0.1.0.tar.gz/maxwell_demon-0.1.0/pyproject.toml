@@ -1,0 +1,230 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maxwell-demon"
+version = "0.1.0"
+description = "Semantic workflow automation for codebases and documents - CLI-first tool for content analysis, search, and code quality."
+authors = [
+  { name = "Mithran Mohanraj", email = "mithran.mohanraj@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    # Core workflow system
+    "pydantic>=2.0",
+    "rich>=12.0",
+
+    # Configuration
+    "tomli-w",
+    "python-dotenv>=1.0",
+
+    # Code analysis
+    "libcst",
+
+    # HTTP client
+    "requests>=2.25",
+]
+
+[project.optional-dependencies]
+# Chat and semantic search workflows
+chat = [
+    "pymongo>=4.0",
+    "qdrant-client>=1.0",
+    "rank-bm25>=0.2",
+    "numpy>=1.21",
+]
+
+# PDF and document extraction
+docs = [
+    "marker-pdf>=0.2",
+    "markitdown>=0.0.1",
+]
+
+# MCP server support
+mcp = [
+    "mcp>=0.1",
+]
+
+# All optional features
+all = [
+    "pymongo>=4.0",
+    "qdrant-client>=1.0",
+    "rank-bm25>=0.2",
+    "numpy>=1.21",
+    "marker-pdf>=0.2",
+    "markitdown>=0.0.1",
+    "mcp>=0.1",
+]
+
+# Development tools
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-asyncio>=0.21",
+    "ruff>=0.1",
+    "black>=23.0",
+]
+
+[project.scripts]
+maxwell = "maxwell.cli:main"
+
+[project.entry-points."maxwell.formatters"]
+human = "maxwell.reporting:HumanFormatter"
+natural = "maxwell.reporting:NaturalLanguageFormatter"
+json = "maxwell.reporting:JsonFormatter"
+sarif = "maxwell.reporting:SarifFormatter"
+llm = "maxwell.reporting:LLMFormatter"
+
+[project.urls]
+"Homepage" = "https://github.com/mithranm/maxwell-file-demon"
+"Bug Tracker" = "https://github.com/mithranm/maxwell-file-demon/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["maxwell*"]
+
+[tool.black]
+target-version = ["py311", "py312"]
+line-length=100
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = [
+    ".git",
+    ".pytest_cache",
+    "__pycache__",
+    "build",
+    "dist",
+    ".venv",
+    "venv"
+]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "D",      # pydocstyle - docstring checks (replaces docstring.py validator)
+    "T201",   # Print statement detection (replaces print_statements.py validator)
+    "TID",    # Import style enforcement (replaces relative_imports.py validator)
+    "C901",   # Complexity checks (replaces code_smells.py validator)
+]
+ignore = [
+    "E501",   # Line too long (handled by black)
+    "B008",   # Allow function calls in argument defaults
+    "B904",   # Allow raise without from for now
+    "UP036",  # Allow outdated version blocks
+    "C414",   # Allow unnecessary list() calls for clarity
+    "SIM102", # Allow nested if statements
+    "SIM210", # Allow if-else instead of bool()
+    "SIM113", # Allow manual index tracking
+    "SIM103", # Allow explicit return True/False
+    "N802",   # Allow uppercase function names (LibCST visitor methods)
+    "N806",   # Allow uppercase variables
+    "B006",   # Allow mutable defaults for now
+    "B007",   # Allow unused loop variables
+    "UP007",  # Allow Union syntax for now
+    "C901",   # Allow complex functions (we'll refactor later)
+    "F821",   # Allow undefined names (forward refs in type hints)
+    "F841",   # Allow unused local variables
+    # Docstring rules (D) - relax some for existing code
+    "D100",   # Missing docstring in public module
+    "D101",   # Missing docstring in public class
+    "D102",   # Missing docstring in public method
+    "D103",   # Missing docstring in public function
+    "D104",   # Missing docstring in public package
+    "D105",   # Missing docstring in magic method
+    "D107",   # Missing docstring in __init__
+    "D203",   # 1 blank line required before class docstring (conflicts with D211)
+    "D205",   # 1 blank line required between summary line and description
+    "D213",   # Multi-line docstring summary should start at second line (conflicts with D212)
+    "D400",   # First line should end with period
+    "D401",   # First line should be imperative mood
+    "D415",   # First line should end with period/question/exclamation
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["F401", "F811", "D"]  # Allow unused imports and missing docstrings in tests
+"src/maxwell/cli.py" = ["T201"]  # Allow print in CLI (used for user output)
+"src/maxwell/workflows/validate/validators/single_file/*.py" = ["T201", "TID252"]  # Allow prints, relative imports in validators
+"src/maxwell/workflows/validate/validators/project_wide/*.py" = ["TID252", "F401"]  # Allow relative imports, unused imports in validators
+"src/maxwell/workflows/**/*.py" = ["T201", "F821"]  # Allow prints, forward refs in workflows
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--showlocals",
+    "--ignore=tests/live/",  # Skip live integration tests by default (run explicitly with: pytest tests/live/)
+]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["maxwell"]
+branch = true
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+    "*/site-packages/*",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+
+[tool.setuptools.package-data]
+maxwell = ["DEMON.txt"]
+
+# Maxwell config for analyzing maxwell itself
+[tool.maxwell]
+include_globs = ["**/*.py"]
+exclude_globs = [
+    # Exclude all dot directories (hidden directories)
+    ".*/**",  # Any directory starting with .
+
+    # Build/distribution artifacts
+    "**/__pycache__/**",
+    "build/**",
+    "dist/**",
+    "*.egg-info/**",
+    "*cache*/**",
+
+    # Compiled Python
+    "*.pyc", "*.pyo", "*.pyd",
+
+    # Logs and generated files
+    "*.log",
+    "*.xml",
+    "*.json",
+
+    # Documentation
+    "docs/**",
+]
+
+

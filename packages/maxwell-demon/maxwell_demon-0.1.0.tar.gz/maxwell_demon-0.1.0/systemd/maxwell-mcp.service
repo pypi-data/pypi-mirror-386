@@ -1,0 +1,24 @@
+[Unit]
+Description=Maxwell MCP Server
+After=network.target
+
+[Service]
+Type=simple
+User=mithranmohanraj
+WorkingDirectory=/home/mithranmohanraj/Documents/maxwell-file-demon
+Environment="PYTHONPATH=/home/mithranmohanraj/Documents/maxwell-file-demon/src"
+ExecStart=/home/mithranmohanraj/miniconda3/envs/mcp-unified/bin/python -m maxwell.mcp_server
+Restart=on-failure
+RestartSec=5s
+StandardOutput=journal
+StandardError=journal
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/mithranmohanraj/Documents
+
+[Install]
+WantedBy=multi-user.target

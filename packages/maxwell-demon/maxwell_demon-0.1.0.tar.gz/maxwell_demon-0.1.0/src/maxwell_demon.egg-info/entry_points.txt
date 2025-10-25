@@ -1,0 +1,9 @@
+[console_scripts]
+maxwell = maxwell.cli:main
+
+[maxwell.formatters]
+human = maxwell.reporting:HumanFormatter
+json = maxwell.reporting:JsonFormatter
+llm = maxwell.reporting:LLMFormatter
+natural = maxwell.reporting:NaturalLanguageFormatter
+sarif = maxwell.reporting:SarifFormatter
