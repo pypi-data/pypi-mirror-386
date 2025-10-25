@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "var-irf"
+version = "0.1.0"
+description = "Impulse Response Function (IRF) computation and plotting utilities built on statsmodels VAR"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "VAR-IRF Maintainers" }
+]
+license = { file = "LICENSE" }
+keywords = ["irf", "var", "econometrics", "time-series", "statsmodels", "impulse-response"]
+dependencies = [
+  "numpy>=1.21",
+  "pandas>=1.3",
+  "statsmodels>=0.13",
+  "scipy>=1.7",
+  "matplotlib>=3.5"
+]
+
+[project.urls]
+Homepage = "https://github.com/TianzhuQin/Vector-Autoregression-Impulse-Response-Function"
+Repository = "https://github.com/TianzhuQin/Vector-Autoregression-Impulse-Response-Function.git"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
