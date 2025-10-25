@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(uv sync:*)",
+      "Bash(python:*)",
+      "Bash(git push:*)",
+      "Bash(git branch:*)",
+      "Bash(gh issue create:*)",
+      "Bash(gh issue list:*)",
+      "Bash(rsvg-convert:*)",
+      "Bash(gh repo edit:*)",
+      "Bash(gh api:*)",
+      "Bash(git reset:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr view:*)",
+      "Bash(git pull:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh pr list:*)",
+      "Read(//private/tmp/**)",
+      "Bash(git rev-parse:*)",
+      "Bash(git fetch:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(git tag:*)",
+      "Bash(uv build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
