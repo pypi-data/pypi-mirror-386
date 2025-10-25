@@ -1,0 +1,73 @@
+[project]
+name = "impact-stack-jwt"
+description = "JWT handling and permisson check related functionality for Impact Stack."
+dependencies = [
+  "flask-jwt-extended",
+]
+authors = [
+  {name = "Roman Zimmermann", email = "roman@more-onion.com"},
+]
+readme = "README.md"
+dynamic = ["version"]
+
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "django",
+  "flask",
+  "isort",
+  "pre-commit",
+  "pylint",
+  "pytest",
+  "pytest-cov",
+  "requests-mock",
+  "twine",
+]
+
+[build-system]
+requires = [
+  "setuptools>=45",
+  "setuptools-scm[toml]>=6.2",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project.entry-points.pytest11]
+impact_stack_jwt = "impact_stack.jwt.pytest_plugin"
+
+[tool.setuptools_scm]
+
+[tool.black]
+line-length = 100
+
+[tool.coverage.run]
+source = ["impact_stack"]
+relative_files = true
+
+[tool.coverage.report]
+fail_under = 98
+
+[tool.coverage.xml]
+output = "pytest-junit.xml"
+
+[tool.isort]
+profile = "black"
+line_length = 100
+combine_as_imports = true
+known_local_folder = ["impact_stack.jwt"]
+
+[tool.pydocstyle]
+convention = "google"
+
+[tool.pylint.basic]
+good-names = ["db"]
+
+[tool.pylint.format]
+max-line-length = "100"
+
+[tool.pytest.ini_options]
+python_classes = [
+  "*Test",
+  "Test*",
+]
