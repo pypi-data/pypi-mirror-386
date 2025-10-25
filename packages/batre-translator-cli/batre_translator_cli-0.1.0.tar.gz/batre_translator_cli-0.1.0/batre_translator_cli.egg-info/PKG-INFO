@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: batre-translator-cli
+Version: 0.1.0
+Summary: CLI tool for syncing localization files with Batre Translator API
+Author-email: Collabwire <dev@collabwire.com>
+License-Expression: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.31
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: rich>=13.0
+Requires-Dist: gitpython>=3.1.43
+Requires-Dist: tqdm>=4.66.4
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: quickjs>=1.19.4
+
+# Batre CLI — Client-Side Ingestion Tool
+
+## Setup
+```bash
+make install

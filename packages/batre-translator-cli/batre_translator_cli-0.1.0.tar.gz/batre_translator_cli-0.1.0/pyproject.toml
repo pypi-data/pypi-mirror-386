@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "batre-translator-cli"
+version = "0.1.0"
+description = "CLI tool for syncing localization files with Batre Translator API"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Collabwire", email = "dev@collabwire.com" }]
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31",
+    "PyYAML>=6.0",
+    "rich>=13.0",
+    "gitpython>=3.1.43",
+    "tqdm>=4.66.4",
+    "python-dotenv>=1.0.1",
+    "quickjs>=1.19.4"
+]
+
+[project.scripts]
+batre = "batre.sync:main"
+
+[tool.setuptools.packages.find]
+include = ["batre*"]
+exclude = ["resources*", "tmp*", "tests*"]

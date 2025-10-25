@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+batre/__init__.py
+batre/aggregate.py
+batre/sync.py
+batre/utils.py
+batre_translator_cli.egg-info/PKG-INFO
+batre_translator_cli.egg-info/SOURCES.txt
+batre_translator_cli.egg-info/dependency_links.txt
+batre_translator_cli.egg-info/entry_points.txt
+batre_translator_cli.egg-info/requires.txt
+batre_translator_cli.egg-info/top_level.txt
