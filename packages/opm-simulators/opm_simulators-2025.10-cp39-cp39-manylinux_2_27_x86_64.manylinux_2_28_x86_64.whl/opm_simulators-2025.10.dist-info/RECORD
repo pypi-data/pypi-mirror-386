@@ -1,0 +1,11 @@
+opm/simulators/BlackOil.cpython-39-x86_64-linux-gnu.so,sha256=amOWmynzGOFM9j1gyBr1vQokwtt-X7k6dhnbkCXJRlI,51689601
+opm/simulators/GasWater.cpython-39-x86_64-linux-gnu.so,sha256=7ZEDuJkpS-mv1nx4r72thY8P9ithEReUOtBOqf2iXj4,51767753
+opm/simulators/OnePhase.cpython-39-x86_64-linux-gnu.so,sha256=vrJaEpPAdoX4FK-7GyAwprpztrJrHLFJ4Eh5EopJxgE,51697889
+opm/simulators/__init__.py,sha256=TdCsghlucu3aNwlt282BVDp2WSKCV8WD0eYkHOHsTy8,604
+opm_simulators.libs/libgfortran-83c28eba.so.5.0.0,sha256=5VSHn-5-2oAFW2yhQHpU0ABQh0-DDMhrK_P1DfXHuys,2714697
+opm_simulators.libs/libgomp-e985bcbb.so.1.0.0,sha256=pDkE5PopcwHUZA3BuzyKNIC0BvmeSY66mxkUtoqrYEo,253289
+opm_simulators.libs/libquadmath-2284e583.so.0.0.0,sha256=qTB7uqNTYj-gFOi2gtUMRin15cfWHaqahlL30WXNQho,272193
+opm_simulators-2025.10.dist-info/METADATA,sha256=FMC1voXkZORPZL1vY0tKZplyBy_8_awb5uo_hpeP1uk,2539
+opm_simulators-2025.10.dist-info/WHEEL,sha256=W9XqxLZI_ty_TyEOg6isnRDSjqYJ7Gv3qLHiTIajmT0,143
+opm_simulators-2025.10.dist-info/top_level.txt,sha256=uRgSfi0ap7tsRORXPej5HOWFJ2slgVMIuzb00w-v43w,4
+opm_simulators-2025.10.dist-info/RECORD,,
