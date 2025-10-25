@@ -1,0 +1,13 @@
+hopeit_agents/model_client/__init__.py,sha256=iEO8EmTBSKzkG9vuvYffKD7hXlKCBWLXOcarkluCfVg,60
+hopeit_agents/model_client/client.py,sha256=tY5bto7oArMSrNG8AVWbeh1i7bPMEVxGy3p6eimHQeo,8007
+hopeit_agents/model_client/conversation.py,sha256=JbXJ3bUa2OIp3NDkceoryunAmHK2naDx3SNBqedwIb4,1329
+hopeit_agents/model_client/models.py,sha256=lx2hUZh2-pli1sbJQzom0tPP5lSVocCRH-YKMPHpsFQ,7248
+hopeit_agents/model_client/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hopeit_agents/model_client/settings.py,sha256=lLT58oWbgujvuJcJ1vDGD0n8mRHtCy7bPPXQiMedOGQ,2690
+hopeit_agents/model_client/api/__init__.py,sha256=CAifSgeWe_wB24898SM4lR60kU0L_KZ0zbT-hPSGjgw,68
+hopeit_agents/model_client/api/generate.py,sha256=Xc4NnMeA7QQZJ0au0Jt51MDM0_3RWW75XBRLE7ySsQ4,2026
+hopeit_agents/model_client/api/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hopeit_agents_model_client-0.1.0b2.dist-info/METADATA,sha256=nrQJDgKwBCFroNCx7duxSkyc4Z9l5B5AXiCAgQUxGsA,982
+hopeit_agents_model_client-0.1.0b2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+hopeit_agents_model_client-0.1.0b2.dist-info/top_level.txt,sha256=sQ386Tx2IUDC6eZ8DcXxsLzszFtnoxpgoAOWdft94s0,14
+hopeit_agents_model_client-0.1.0b2.dist-info/RECORD,,
