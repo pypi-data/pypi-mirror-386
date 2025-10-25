@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: saplexer
+Version: 1.2.3
+Summary: A simple and efficient package to display text files from folders A and B.
+Author: SeventyThree
+Author-email: 73@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# saplexer
+
+A simple and efficient Python package that displays the contents of text files stored in internal folders `a` and `b`.
+
+## Installation
+
+```bash
+pip install saplexer
+
