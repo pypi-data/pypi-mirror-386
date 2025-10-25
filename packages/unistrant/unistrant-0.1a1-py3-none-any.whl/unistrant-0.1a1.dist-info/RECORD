@@ -1,0 +1,16 @@
+unistrant/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+unistrant/__main__.py,sha256=8JDZN-I-B6NwbLWng42NQLeFVCVDVriy2LGXY6jRFHo,210
+unistrant/app.py,sha256=jKDwtGzlhrZtDdQTkmKtagAgkexKYvMEzBSDPOJNjvw,4529
+unistrant/command.py,sha256=p4aiMntE2oWbDjc39iL8JdUlCd_4unpWK7xET0eDP4w,1978
+unistrant/error.py,sha256=4A-O7y4nKAq8Y0M6HuKvOEv0Ywwlk3qi9s9JFIuEn88,88
+unistrant/http.py,sha256=tPf7aHYaxNq92AoKrRkZgpdDT4X3VT1UaO1NPR2AFNs,1341
+unistrant/options.py,sha256=EKNAMYqcVSYObyYtpqWoWaAMT75m1c_ScfVBJo0wYdA,721
+unistrant/record.py,sha256=TGPJc20gYWKEc1kBM9SM53m1sxPRQ3u0dILvdA3zf0c,1318
+unistrant/sams.py,sha256=kRTotCXsOqN94fiugv3n8ffozWPC6IvvkF8JUcMXvP8,1772
+unistrant/settings.py,sha256=9xx9ryHeGXeb4m_jCXlU86_wY4SOk-4qS2F0jhH8Z38,2389
+unistrant/data/settings.toml,sha256=SRwAltHYd6hlvBvfRXNRsb45bNfPM0S-1SC_jw9VLHo,312
+unistrant-0.1a1.dist-info/METADATA,sha256=PQl0g-dL7Bysq3h_mHMrviaSG79ZNLPFEoUkTIqXs54,101
+unistrant-0.1a1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+unistrant-0.1a1.dist-info/entry_points.txt,sha256=A5Ax4bo1BJHGfjNLUIYNMmHkuxGxt9uSaSNq-UKPar4,49
+unistrant-0.1a1.dist-info/top_level.txt,sha256=3Hj_yp_v0kwpj-UYXQhhUL7zcVGVK9V52zsVGjzcxSs,10
+unistrant-0.1a1.dist-info/RECORD,,
