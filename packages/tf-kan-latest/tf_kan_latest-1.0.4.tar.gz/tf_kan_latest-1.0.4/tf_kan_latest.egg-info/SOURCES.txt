@@ -1,0 +1,16 @@
+LICENSE
+pyproject.toml
+setup.py
+tf_kan_latest.egg-info/PKG-INFO
+tf_kan_latest.egg-info/SOURCES.txt
+tf_kan_latest.egg-info/dependency_links.txt
+tf_kan_latest.egg-info/requires.txt
+tf_kan_latest.egg-info/top_level.txt
+tfkan/__init__.py
+tfkan/layers/__init__.py
+tfkan/layers/base.py
+tfkan/layers/convolution.py
+tfkan/layers/dense.py
+tfkan/ops/__init__.py
+tfkan/ops/grid.py
+tfkan/ops/spline.py
