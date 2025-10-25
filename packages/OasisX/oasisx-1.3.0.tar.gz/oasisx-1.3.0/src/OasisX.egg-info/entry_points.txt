@@ -1,0 +1,2 @@
+[console_scripts]
+oasisx = oasisx.__main__:main
