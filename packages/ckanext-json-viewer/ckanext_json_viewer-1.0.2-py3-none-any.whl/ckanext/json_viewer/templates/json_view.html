@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block subtitle %}{% endblock %}
+
+{% block scripts %}
+    {% asset "json_viewer/json_viewer-js" %}
+{% endblock %}
+
+{% block styles %}
+    {% asset "json_viewer/json_viewer-css" %}
+{% endblock %}
+
+{% block custom_styles %}
+    <style>
+        #andypf-json-viewer {
+            --json-viewer-max-height: {{ resource_view.max_height }}px;
+        }
+    </style>
+{% endblock %}
+
+{% block page %}
+    <andypf-json-viewer
+        id="andypf-json-viewer"
+        expand-icon-type="square"
+        theme="{{ resource_view.theme }}"
+        indent="{{ resource_view.indentation }}"
+        expanded="{{ 'true' if resource_view.expand else 'false' }}"
+        show-data-types="{{ 'true' if resource_view.show_data_types else 'false' }}"
+        show-toolbar="{{ 'true' if resource_view.show_toolbar else 'false' }}"
+        show-copy="{{ 'true' if resource_view.show_copy_button else 'false' }}"
+        show-size="{{ 'true' if resource_view.show_sizes else 'false' }}"
+        data="{{ resource_url }}"></andypf-json-viewer>
+{% endblock %}
