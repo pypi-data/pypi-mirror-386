@@ -1,0 +1,9 @@
+bs4
+eaf_base_api
+lxml
+
+[av]
+av
+
+[ffmpeg]
+ffmpeg-progress-yield
