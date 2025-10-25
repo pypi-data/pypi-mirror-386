@@ -1,0 +1,212 @@
+# noctua-mcp
+
+MCP server for GO-CAM model editing via the Barista API.
+
+This package provides a thin MCP (Model Context Protocol) wrapper around the [noctua-py](https://github.com/geneontology/noctua-py) library, exposing GO-CAM editing capabilities through a standardized interface.
+
+## Quick Start
+
+Once published:
+
+```bash
+uvx noctua-mcp
+```
+
+For development:
+
+```bash
+uv run noctua-mcp serve
+```
+
+## Docker Deployment
+
+### Building the Container
+
+```bash
+docker build -t noctua-mcp .
+```
+
+### Running with Docker
+
+```bash
+docker run -e BARISTA_TOKEN="your-token" noctua-mcp
+```
+
+### Environment Variables
+
+- `BARISTA_TOKEN`: Authentication token for Barista API (required)
+- `BARISTA_BASE`: Barista base URL (default: http://barista-dev.berkeleybop.org)
+- `BARISTA_NAMESPACE`: Minerva namespace (default: minerva_public_dev)
+- `BARISTA_PROVIDED_BY`: Provided-by agent (default: http://geneontology.org)
+
+## Smithery.ai Deployment
+
+This server is configured for deployment on [smithery.ai](https://smithery.ai) using the included `smithery.yaml` configuration.
+
+### How it Works
+
+When installed via smithery.ai, users configure their credentials through their MCP client (like Claude Desktop):
+
+1. Install the noctua-mcp server from smithery.ai
+2. Configure your `BARISTA_TOKEN` in your MCP client settings
+3. The token is passed to the server when it starts
+
+The `smithery.yaml` configuration:
+- Defines how users provide their Barista API token
+- Specifies Docker-based deployment
+- Uses stdio-based MCP protocol communication
+- Allows users to optionally configure the Barista server URL and namespace
+
+## How MCP Servers Work with Credentials
+
+MCP servers receive configuration from the **client** (e.g., Claude Desktop, Claude Code), not from environment variables on the server side. This means:
+
+1. **Users provide their credentials** in their MCP client configuration
+2. **The client passes these credentials** to the server when starting it
+3. **The server receives credentials** as environment variables at startup
+
+This keeps credentials secure and user-specific - each user provides their own API token.
+
+### Using with Claude Code
+
+1. **Configure the MCP server**: The project includes a `.mcp.json` configuration file that tells Claude Code how to run the server.
+
+2. **Set your Barista token in your MCP configuration**:
+
+   For Claude Desktop, add to your config:
+   ```json
+   {
+     "noctua-mcp": {
+       "type": "stdio",
+       "command": "uvx",
+       "args": ["noctua-mcp"],
+       "env": {
+         "BARISTA_TOKEN": "your-barista-token-here"
+       }
+     }
+   }
+   ```
+
+   Or set it in your shell before starting Claude Code:
+   ```bash
+   export BARISTA_TOKEN="your-barista-token-here"
+   claude-code /path/to/noctua-mcp
+   ```
+
+3. **Verify the connection**: Once Claude Code starts, the MCP server will be available. You can ask Claude to use the Noctua tools to interact with GO-CAM models.
+
+The `.mcp.json` configuration is already set up to:
+- Run the server using `uv run noctua-mcp`
+- Pass through the `BARISTA_TOKEN` environment variable
+- Configure the default Barista endpoints
+
+## Environment Variables
+
+- `BARISTA_TOKEN` (required) – Barista API token for privileged operations
+- `BARISTA_BASE` (default: http://barista-dev.berkeleybop.org) – Barista server URL
+- `BARISTA_NAMESPACE` (default: minerva_public_dev) – Minerva namespace
+- `BARISTA_PROVIDED_BY` (default: http://geneontology.org) – Provider identifier
+
+## Available Tools
+
+### Model Editing
+- `add_individual(model_id, class_curie, assign_var)` – Add an instance of a GO/ECO term
+- `add_fact(model_id, subject_id, object_id, predicate_id)` – Add a relation between individuals
+- `add_evidence_to_fact(model_id, subject_id, object_id, predicate_id, eco_id, sources, with_from)` – Add evidence to a fact
+- `remove_individual(model_id, individual_id)` – Remove an individual
+- `remove_fact(model_id, subject_id, object_id, predicate_id)` – Remove a fact
+
+### Model Patterns
+- `add_basic_pathway(model_id, pathway_curie, mf_curie, gene_product_curie, cc_curie)` – Add a basic GO-CAM unit
+- `add_causal_chain(model_id, mf1_curie, mf2_curie, gp1_curie, gp2_curie, causal_relation)` – Add causally linked activities
+
+### Model Query
+- `get_model(model_id)` – Retrieve full model JSON
+- `model_summary(model_id)` – Get model statistics and summary
+
+### Configuration
+- `configure_token(token)` – Set Barista token at runtime (not echoed)
+
+## Architecture
+
+This server is designed as a thin shim layer:
+
+```
+MCP Client (e.g., Claude)
+    ↓
+noctua-mcp (this package)
+    ↓
+noctua-py library
+    ↓
+Barista API / Noctua
+```
+
+All core logic resides in the `noctua-py` library. This MCP server only:
+1. Exposes noctua-py functionality through MCP tools
+2. Manages client singleton
+3. Provides prompts for common patterns
+
+## Testing
+
+The package includes comprehensive tests:
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run unit tests only
+uv run pytest tests/test_unit.py
+
+# Run MCP integration tests
+uv run pytest tests/test_mcp.py
+
+# Run with coverage
+uv run pytest --cov=noctua_mcp --cov-report=term-missing
+```
+
+Tests are divided into:
+- **Unit tests** (`test_unit.py`): Direct function testing with mocks
+- **MCP tests** (`test_mcp.py`): Server startup and tool invocation via FastMCP client
+- **Live tests**: Optional tests that require `BARISTA_TOKEN` and network access
+
+## Development
+
+```bash
+# Install dependencies including noctua-py from local path
+uv sync
+
+# Run the server
+uv run noctua-mcp serve
+
+# Run tests
+uv run pytest
+
+# Type checking
+uv run mypy src/
+
+# Linting
+uv run ruff check src/
+```
+
+## Protocol Overview
+
+This project implements an MCP server using [FastMCP](https://gofastmcp.com).
+MCP (Model Context Protocol) standardizes how tools/resources are exposed to
+LLMs and agent clients.
+
+Useful links:
+- [MCP Specification](https://github.com/modelcontextprotocol/spec)
+- [FastMCP Documentation](https://gofastmcp.com/getting-started/welcome)
+- [noctua-py Library](https://github.com/geneontology/noctua-py)
+
+## Best Practices
+
+- stdio transport by default with single entry point
+- Rich docstrings for all tools (parameters, returns, examples)
+- No secrets echoed in outputs (Barista token handled securely)
+- Comprehensive async testing using fastmcp.Client
+- Thin wrapper pattern - core logic in upstream library
+
+## Credits
+
+This project uses the [monarch-project-copier](https://github.com/monarch-initiative/monarch-project-copier) template.

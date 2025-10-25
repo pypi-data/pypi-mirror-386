@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "noctua": {
+      "command": "uv",
+      "args": ["run", "noctua-mcp"],
+      "env": {
+        "BARISTA_TOKEN": "${BARISTA_TOKEN}",
+        "BARISTA_BASE": "http://barista-dev.berkeleybop.org",
+        "BARISTA_NAMESPACE": "minerva_public_dev",
+        "BARISTA_PROVIDED_BY": "http://geneontology.org"
+      }
+    }
+  }
+}
