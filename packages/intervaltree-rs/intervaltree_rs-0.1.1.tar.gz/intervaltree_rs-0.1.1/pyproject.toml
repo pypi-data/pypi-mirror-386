@@ -1,0 +1,28 @@
+[build-system]
+requires = ["maturin>=1.6"]
+build-backend = "maturin"
+
+[project]
+name = "intervaltree-rs"             # PyPI name (can have dash)
+version = "0.1.1"
+description = "Fast interval tree (Rust) with Python bindings"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Astarag Mohapatra", email = "astarag2843@gmail.com" }]
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Rust",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[tool.maturin]
+module-name = "intervaltree_rs"
+include = ["intervaltree_rs.pyi"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
