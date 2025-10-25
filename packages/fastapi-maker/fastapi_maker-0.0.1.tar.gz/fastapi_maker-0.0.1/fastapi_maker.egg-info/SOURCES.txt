@@ -1,0 +1,10 @@
+LICENSE
+README.md
+cli.py
+pyproject.toml
+fastapi_maker.egg-info/PKG-INFO
+fastapi_maker.egg-info/SOURCES.txt
+fastapi_maker.egg-info/dependency_links.txt
+fastapi_maker.egg-info/entry_points.txt
+fastapi_maker.egg-info/requires.txt
+fastapi_maker.egg-info/top_level.txt
