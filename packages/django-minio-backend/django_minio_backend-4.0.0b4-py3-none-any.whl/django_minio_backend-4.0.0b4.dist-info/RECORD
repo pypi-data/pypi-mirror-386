@@ -1,0 +1,13 @@
+django_minio_backend/__init__.py,sha256=4B48Iq1rdrMgVC3cL7M1kqs28c1lOTVyR2jKR1-3_Lc,42
+django_minio_backend/apps.py,sha256=_fFNh8b9yQ0Xc9wDwxl73Rv2NJY3TbnStrKIHQdzPhM,3308
+django_minio_backend/models.py,sha256=YZHnTqXzyV8QIyLkNXmdT7E7e6Qb15DJ7i7DATiXpMg,23119
+django_minio_backend/tests.py,sha256=mrbGGRNg5jwbTJtWWa7zSKdDyeB4vmgZCRc2nk6VY-g,60
+django_minio_backend/utils.py,sha256=1W7U0Xz9MomYspwtfK1fBaEhFTL90lYy94J9813f3fk,2663
+django_minio_backend/management/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_minio_backend/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_minio_backend/management/commands/initialize_buckets.py,sha256=I-veTmJQtHvqJyKxqZteDFW__e8Ui35eoAbHmjKQHiM,3068
+django_minio_backend/management/commands/is_minio_available.py,sha256=gAv31K_xZsN6IznJCX2L51XjNGrXUJrjjDqAKTb0AJA,1294
+django_minio_backend-4.0.0b4.dist-info/METADATA,sha256=-GG2jgkqZ58r8q62l-v1VP25b42DO6h_rCJrd3IZWCs,16282
+django_minio_backend-4.0.0b4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+django_minio_backend-4.0.0b4.dist-info/licenses/LICENSE,sha256=sWLcqRpnnegPTCsyCg-NxbXx20fPYqSahU1RAp61wQU,1084
+django_minio_backend-4.0.0b4.dist-info/RECORD,,
