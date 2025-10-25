@@ -1,0 +1,12 @@
+build*
+python/inc/constants.hpp
+__pycache__
+.pytest_cache
+*.pyc
+aqtinstall.log
+wheel
+wheelhouse
+.vscode
+.venv
+6.*
+/uv.lock
