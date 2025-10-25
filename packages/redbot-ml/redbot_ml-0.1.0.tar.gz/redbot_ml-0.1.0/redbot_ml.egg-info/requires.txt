@@ -1,0 +1,11 @@
+numpy
+opencv-python
+torch
+torchvision
+Pillow
+scikit-learn
+scikit-image
+mahotas
+albumentations
+matplotlib
+joblib
