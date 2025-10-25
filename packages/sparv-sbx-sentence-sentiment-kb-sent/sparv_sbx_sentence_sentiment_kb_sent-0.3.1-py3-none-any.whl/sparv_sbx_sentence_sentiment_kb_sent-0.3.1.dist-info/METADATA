@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: sparv-sbx-sentence-sentiment-kb-sent
+Version: 0.3.1
+Summary: A sparv plugin for computing sentence sentiment.
+Project-URL: Homepage, https://spraakbanken.gu.se
+Project-URL: Repository, https://github.com/spraakbanken/sparv-sbx-sentiment-kb-sent
+Project-URL: Bug Tracker, https://github.com/spraakbanken/sparv-sbx-sentiment-kb-sent/issues
+Author-email: Språkbanken Text <sb-info@svenska.gu.se>, Kristoffer Andersson <kristoffer.andersson@gu.se>
+License-Expression: MIT
+Classifier: Development Status :: 7 - Inactive
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Requires-Python: >=3.11
+Requires-Dist: sparv>=5.3.1
+Requires-Dist: transformers>=4.56.1
+Description-Content-Type: text/markdown
+
+# sparv-sbx-sentence-sentiment-kb-sent is now sparv-sbx-sentiment-kb-sent
+
+This project has changed name to [`sparv-sbx-sentiment-kb-sent`](https://github.com/spraakbanken/sparv-sbx-sentiment-kb-sent).
+
+## To use the new project:
+
+- Uninstall this plugin: `sparv plugins uninstall sparv-sbx-sentence-sentiment-kb-sent`
+- Install new plugin: `sparv plugins install sparv-sbx-sentiment-kb-sent`
