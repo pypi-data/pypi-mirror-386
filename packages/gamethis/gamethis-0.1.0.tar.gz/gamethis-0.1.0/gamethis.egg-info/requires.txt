@@ -1,0 +1,7 @@
+beautifulsoup4>=4.14.2
+httpx>=0.28.1
+magnet2torrent>=1.2.1
+path>=17.1.1
+questionary>=2.1.1
+rich>=14.2.0
+typer>=0.20.0

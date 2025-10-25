@@ -1,0 +1,22 @@
+[project]
+name = "gamethis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.2",
+    "httpx>=0.28.1",
+    "magnet2torrent>=1.2.1",
+    "path>=17.1.1",
+    "questionary>=2.1.1",
+    "rich>=14.2.0",
+    "typer>=0.20.0",
+]
+
+[project.scripts]
+gamethis = "gamethis.main:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

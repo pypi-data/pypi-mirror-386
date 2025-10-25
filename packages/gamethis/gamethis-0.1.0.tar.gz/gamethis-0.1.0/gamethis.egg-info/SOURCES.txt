@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+gamethis/__init__.py
+gamethis/main.py
+gamethis.egg-info/PKG-INFO
+gamethis.egg-info/SOURCES.txt
+gamethis.egg-info/dependency_links.txt
+gamethis.egg-info/entry_points.txt
+gamethis.egg-info/requires.txt
+gamethis.egg-info/top_level.txt
+gamethis/scraper/__init__.py
+gamethis/scraper/fitgirl.py
+gamethis/utils/__init__.py
+gamethis/utils/conversion.py
+gamethis/utils/helpers.py
+gamethis/utils/run.py
+gamethis/utils/style.py
