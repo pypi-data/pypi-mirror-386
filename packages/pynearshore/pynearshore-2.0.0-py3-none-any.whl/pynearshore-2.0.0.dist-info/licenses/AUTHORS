@@ -1,0 +1,62 @@
+# Authors and Contributors
+
+## Primary Author
+
+**Pavlishenku**  
+Email: pavlishenku@gmail.com  
+GitHub: @pavlishenku
+
+## Acknowledgments
+
+This package implements coastal wave propagation and sediment transport models
+based on foundational work by numerous researchers in coastal engineering and
+physical oceanography.
+
+### Key Scientific Contributors (via their published models):
+
+- **Jan A. Battjes and J.P.F.M. Janssen** - Wave breaking energy dissipation model (1978)
+- **Yoshimi Goda** - Breaking wave height formulation (1970, 1985)
+- **James A. Bailard** - Energetics-based sediment transport (1981)
+- **Michael S. Longuet-Higgins and R.W. Stewart** - Radiation stress theory (1964)
+- **Edward B. Thornton and R.T. Guza** - Probabilistic breaking model (1983)
+- **Robert G. Dean and Robert A. Dalrymple** - Water wave mechanics theory
+
+### Numerical Methods:
+
+- **J.R. Dormand and P.J. Prince** - DOP853 adaptive Runge-Kutta method (1980)
+- **E. Fehlberg** - Runge-Kutta-Fehlberg methods
+- **William H. Press, et al.** - Numerical algorithms (Numerical Recipes)
+
+## Contributing
+
+Contributions are welcome! If you would like to contribute to this project:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+## Contact
+
+For questions, bug reports, or collaboration inquiries:
+- **Email**: pavlishenku@gmail.com
+- **GitHub Issues**: https://github.com/pavlishenku/coastal_wave_transport/issues
+
+## Citation
+
+If you use this software in your research, please cite:
+
+```bibtex
+@software{coastal_wave_transport2025,
+  title = {Coastal Wave Transport Model: Advanced Python Package for Nearshore Dynamics},
+  author = {Pavlishenku},
+  year = {2025},
+  url = {https://github.com/pavlishenku/coastal_wave_transport},
+  email = {pavlishenku@gmail.com}
+}
+```
+
+And please cite the original papers for the physical models you use (see README.md for full references).
+
