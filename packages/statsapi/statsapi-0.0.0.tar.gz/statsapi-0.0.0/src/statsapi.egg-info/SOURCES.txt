@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+src/ca_certificates/__init__.py
+src/statsapi.egg-info/PKG-INFO
+src/statsapi.egg-info/SOURCES.txt
+src/statsapi.egg-info/dependency_links.txt
+src/statsapi.egg-info/top_level.txt
