@@ -1,0 +1,13 @@
+pettag/.DS_Store,sha256=3z6MJrl8qo9E-7fMvFnl_8U8FkswI2AUYWl4Ke6_TXk,6148
+pettag/__init__.py,sha256=wlmLckNcxJ0ssDBd9Gh1UhB5sSsBUZZXJH3N7WL-84g,63
+pettag/predict.py,sha256=vQG-KKbDmhZnMroKUOi8zK7-RqGPO5YVGN_fVzGZM7A,8385
+pettag/utils/.DS_Store,sha256=VLLj6yRGEVg0O6ULn22a_5rJcPWxJHBhIBvUC4t-F-Y,6148
+pettag/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pettag/utils/dataset.py,sha256=60lFLNtAmRtDR4NEjTkxZSaDgJhdYC1z_x5HkC3BNR8,13438
+pettag/utils/logging_setup.py,sha256=3l9giLY9TI0piy56CVp7JTVZsfHnGI5Rph96rddD15A,3192
+pettag/utils/processor_code.py,sha256=VhCco94uN2fjUkT60jJudsx-v9AxRvL0QvWNZyBSNsk,3021
+pettag/utils/processor_model.py,sha256=cmQmdQf54dYcNUShDAWkKHmCxuesnKilKLdXXP3C7rU,6598
+pettag-0.0.4.dist-info/METADATA,sha256=xdM6n9ZS7XsC_IKhzGIOXXrjnx_wRBbYHMBxZ2ylRVQ,14379
+pettag-0.0.4.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+pettag-0.0.4.dist-info/licenses/LICENSE,sha256=DMHy1MDAcogPsqi5_vXrNEH5O3uILs3CEGQgX_65npI,1069
+pettag-0.0.4.dist-info/RECORD,,
