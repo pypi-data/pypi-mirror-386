@@ -1,0 +1,63 @@
+[project]
+name = "sparv-sbx-sentiment-kb-sent"
+description = "A sparv plugin for computing sentiment for sentences."
+requires-python = ">=3.11"
+version = "0.4.1"
+dependencies = [
+ "sparv>=5.3.1",
+ "transformers>=4.56.1",
+]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    # "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Operating System :: POSIX",
+    # "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    # "uncomment if you test on these interpreters:",
+    # "Programming Language :: Python :: Implementation :: IronPython",
+    # "Programming Language :: Python :: Implementation :: Jython",
+    # "Programming Language :: Python :: Implementation :: Stackless",
+    "Topic :: Utilities",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.4,<0.10.0"]
+build-backend = "uv_build"
+
+[project.entry-points."sparv.plugin"]
+sbx_sentiment_kb_sent = "sbx_sentiment_kb_sent"
+
+[project.urls]
+Homepage = "https://spraakbanken.gu.se"
+Repository = "https://github.com/spraakbanken/sparv-sbx-sentiment-kb-sent"
+"Bug Tracker" = "https://github.com/spraakbanken/sparv-sbx-sentiment-kb-sent/issues"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17.1",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.12.12",
+    "syrupy>=5.0.0",
+    "sparv-testing",
+]
+metadata = [
+    "sparv-sbx-metadata",
+]
+
+[tool.uv]
+
+[tool.uv.sources]
+sparv-sbx-metadata = { git = "https://github.com/spraakbanken/sparv-sbx-metadata", tag = "v2.3.1" }
+sparv-testing = { git = "https://github.com/spraakbanken/sparv-testing", tag = "v0.2.0" }
+
+[tool.uv.build-backend]
+module-name = "sbx_sentiment_kb_sent"
