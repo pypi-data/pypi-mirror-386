@@ -1,0 +1,10 @@
+[dongle.hook.api]
+dongle.develop = dongle.runtime.runtime_hooks:DeveloperAPI
+dongle.optional = dongle.runtime.runtime_hooks:OptionalFeature
+
+[dongle.hook.dongle]
+dongle.runtime = dongle.runtime.runtime_hooks:RuntimeAPI
+
+[dongle.hook.license]
+dongle.optional = dongle.runtime.runtime_hooks:OptionalFeature
+dongle.redist = dongle.runtime.runtime_hooks:RedistLicense

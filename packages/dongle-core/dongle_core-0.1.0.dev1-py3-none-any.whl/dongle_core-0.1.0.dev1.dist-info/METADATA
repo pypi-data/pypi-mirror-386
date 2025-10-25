@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: dongle-core
+Version: 0.1.0.dev1
+Summary: Python license manager (core runtime)
+Author-email: Michael Meinel <led02@me.com>
+License-Expression: Apache-2.0
+Project-URL: Homepage, https://www.led-inc.eu/dongle
+Project-URL: Repository, https://github.com/led02/dongle.git
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSES/Apache-2.0.txt
+License-File: LICENSES/CC-BY-SA-4.0.txt
+License-File: LICENSES/CC0-1.0.txt
+Requires-Dist: cryptography
+Dynamic: license-file
+
+<!--
+SPDX-FileCopyrightText: 2025 led-inc.eu
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+# dongle License Framework
+
+This package provides a framework that can be used to run signed and encrypted Python code.
+The protocol is based on public key cryptography and tries to adhere to common standards.
+
+Except for `cryptography`, no third party components are required.
+The implementation is compliant with CPython standards and does not require any patched runtime.
