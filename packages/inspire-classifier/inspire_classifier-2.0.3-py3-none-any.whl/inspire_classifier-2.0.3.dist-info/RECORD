@@ -1,0 +1,11 @@
+inspire_classifier/__init__.py,sha256=FRbWazWKR0HHfVaLqVNzzP5S4mWE1ZkEMQuOPSWSHKo,1171
+inspire_classifier/cli.py,sha256=SwT3qP9fV85IGzJ01hr2TW3NZf48zDBoQNalc7CfnRU,3614
+inspire_classifier/core/__init__.py,sha256=hsfPUcnfxXmT2OWCGdfQuT2ANUcS1SIzsF46IEu0kiY,906
+inspire_classifier/core/api.py,sha256=PEiMFhcJx_YSOiMamHO95cWCnE6etc7mwvyjDa-IbFM,7738
+inspire_classifier/core/model.py,sha256=16Xz3PT9InhZaVkUz_rOguDse9hUqdqZk8aT_TJvwHk,8291
+inspire_classifier/core/preprocessor.py,sha256=U0O8t9Su9ZMTwKrT1WBM7GN75_iaAFW8dv4mgimV934,2202
+inspire_classifier/core/utils.py,sha256=l61Tg2NUjFe7ecrkxcoHzizPtz_D-QVneKc70T4LXm8,2898
+inspire_classifier-2.0.3.dist-info/METADATA,sha256=AYT2QzEiZxbPCVqg1aXVNuZ84Rax2q9BcMXd-gGBccA,3928
+inspire_classifier-2.0.3.dist-info/WHEEL,sha256=zp0Cn7JsFoX2ATtOhtaFYIiE2rmFAD4OcMhtUki8W3U,88
+inspire_classifier-2.0.3.dist-info/entry_points.txt,sha256=PHuOWGzMdhvUADlFFUgSTo7hrTVHtagGpZD_adsQqfg,80
+inspire_classifier-2.0.3.dist-info/RECORD,,
