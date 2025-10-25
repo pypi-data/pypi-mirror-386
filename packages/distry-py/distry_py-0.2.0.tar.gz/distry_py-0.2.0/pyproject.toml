@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "distry-py"
+version = "0.2.0"
+description = "Distributed task execution framework"
+authors = [{name = "Carlo Moro"}]
+license = {text = "MIT"}
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+keywords = ["distributed", "computing", "parallel", "processing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.scripts]
+distry-worker = "distry.worker:main"
+
+[project.urls]
+Homepage = "https://github.com/cnmoro/distry"
+
+[project.optional-dependencies]
+client = ["requests", "cloudpickle"]
+worker = ["fastapi", "uvicorn[standard]", "cloudpickle", "pydantic"]
+dev = ["pytest", "pytest-asyncio", "requests", "black", "flake8", "mypy"]
+all = ["requests", "cloudpickle", "fastapi", "uvicorn[standard]", "cloudpickle", "pydantic"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --strict-markers"
+
+[tool.setuptools]
+packages = ["distry"]
