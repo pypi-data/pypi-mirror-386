@@ -1,0 +1,3 @@
+[console_scripts]
+rapt = rapt2.rapt:main
+
