@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/email_signature_detector/__init__.py
+src/email_signature_detector/predictor.py
+src/email_signature_detector/utils.py
+src/email_signature_detector.egg-info/PKG-INFO
+src/email_signature_detector.egg-info/SOURCES.txt
+src/email_signature_detector.egg-info/dependency_links.txt
+src/email_signature_detector.egg-info/requires.txt
+src/email_signature_detector.egg-info/top_level.txt
+src/email_signature_detector/model/__init__.py
+src/email_signature_detector/model/tokenizer/special_tokens_map.json
+src/email_signature_detector/model/tokenizer/tokenizer.json
+src/email_signature_detector/model/tokenizer/tokenizer_config.json
