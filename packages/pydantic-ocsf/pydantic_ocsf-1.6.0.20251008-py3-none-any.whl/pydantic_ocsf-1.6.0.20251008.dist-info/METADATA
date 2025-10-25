@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: pydantic-ocsf
+Version: 1.6.0.20251008
+Summary: Pydantic models for OCSF
+Author-email: Steve McMaster <steve@mcmaster.io>
+License: MIT License
+Project-URL: Homepage, https://github.com/mcm/pydantic-ocsf
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: annotated-types>=0.7.0
+Requires-Dist: dateparser>=1.2.2
+Requires-Dist: pydantic-extra-types>=2.10.2
+Requires-Dist: pydantic[email]<2.12,>=2.10.6
+Requires-Dist: semver>=3.0.4
+Dynamic: license-file
+
+# Pydantic OCSF
+
+## Description
+
+A collection of [Pydantic](https://docs.pydantic.dev/latest/) models for [OCSF](https://schema.ocsf.io/) events and objects.
+
+## License
+
+This project is licensed under the MIT license. See the license file for details.
