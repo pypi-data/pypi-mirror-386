@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools >= 77.0.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autovod"
+version = "1.0.3"
+description = "Automatically download livestreams, clip with AI, and upload in realtime"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "0jc1", email = "52017130+0jc1@users.noreply.github.com" }]
+dependencies = [
+    "build>=1.3.0",
+]
+
+[project.urls]
+Repository = "https://github.com/0jc1/py-autovod.git"
+
+[project.scripts]
+autovod = "main:main"
+
+[tool.black]
+skip-magic-trailing-comma = true
