@@ -1,0 +1,38 @@
+# requirements.txt
+
+# 🔐 Post-quantum cryptography
+pypqc>=0.0.6.2
+
+# 🧪 Traffic analysis and scrambling
+pyshark>=0.6
+scapy>=2.5.0
+
+# 🕸️ Mesh network + WireGuard
+wg-meshconf>=2.5.1
+wireguard>=1.0.2
+wireguard4netns>=0.1.6
+
+# 🧪 Testing
+pytest>=8.4.2
+
+# 📄 YAML parsing
+PyYAML>=6.0
+
+# 🧦 SOCKS proxy support
+PySocks>=1.7.1
+
+# ⚙️ Native bindings
+cffi>=2.0.0
+pycparser>=2.23
+
+# 📊 Logging
+logging4>=0.0.2
+
+# 📲 QR code export
+qrcode[pil]>=7.4.2
+
+# 📦 Packaging (dev only)
+build
+twine
+setuptools
+wheel
