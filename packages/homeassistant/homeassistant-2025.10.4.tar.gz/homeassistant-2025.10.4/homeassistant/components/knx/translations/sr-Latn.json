@@ -1,0 +1,15 @@
+{
+    "config_panel": {
+        "entities": {
+            "create": {
+                "light": {
+                    "knx": {
+                        "section_switch": {
+                            "description": "Uklju\u010di/Isklju\u010di svetlo."
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
