@@ -1,0 +1,135 @@
+Metadata-Version: 2.4
+Name: lupin_logger
+Version: 0.1.0
+Summary: LupinDental logger
+Author-email: LupinDental <contact@lupindental.com>
+Maintainer-email: LupinDental <contact@lupindental.com>
+License: MIT
+Project-URL: homepage, https://gitlab.com/lupindental/arsene/rd-utilities/lupin_logger
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: System :: Logging
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: colorama>=0.4.6
+Dynamic: license-file
+
+# Lupin Logger
+
+A custom logging system for LupinDental with colored console output and structured JSON logging.
+
+## Features
+
+- **Colored console output** with visual formatting based on log level
+- **Structured JSON logs** saved to `.lupinlog.jsonl` files
+- **Custom attributes** with automatic type-based coloring
+- **Custom NOTICE level** (between INFO and WARNING)
+- **Automatic organization** of logs by date
+- **Full traceability** with timestamp, application, origin, and location
+
+## Installation from PYPI
+
+```bash
+pip install lupin_logger
+```
+
+## Deployment on PYPI
+
+- Add the version to pyproject.toml
+
+```python
+version = "0.1.0"
+```
+
+- Go to [GitLab Tags](https://gitlab.com/lupindental/arsene/rd-utilities/lupin_logger/-/tags)
+
+  - Click on **New tag**
+  - Select the **main** branch if it is a final tag and click on **Create tag**.
+  - Select the **current branch** if it is a test or development tag.
+
+## Quick Start
+
+```python
+from lupin_logger import get_logger
+
+# Create a logger
+logger = get_logger(name="my_module", app="my_application")
+
+# Basic logs
+logger.info("Application started")
+logger.debug("Debug information")
+logger.warning("Warning!")
+logger.error("An error occurred")
+logger.critical("Critical error")
+
+# Custom NOTICE level
+logger.notice("Important operation succeeded")
+```
+
+## Logging with Attributes
+
+Attributes allow you to add structured data to your logs:
+
+```python
+# Simple attributes
+logger.info("File processed", {"filename": "data.csv", "rows": 1500})
+
+# With different types (automatic coloring)
+logger.info("Process completed", {
+    "duration": 3.14,        # float → yellow
+    "success": True,          # bool → white
+    "files_count": 42,        # int → yellow
+    "output_path": Path("/tmp/out")  # Path → cyan
+})
+
+# Exception logging
+try:
+    result = 1 / 0
+except Exception:
+    logger.exception("Division by zero", {"operation": "calculate"})
+```
+
+## Log Levels
+
+| Level    | Usage                                      | Console Color |
+|----------|--------------------------------------------|--------------:|
+| DEBUG    | Detailed debugging information             | Blue          |
+| INFO     | General information                        | White         |
+| NOTICE   | Important successful events                | Green         |
+| WARNING  | Warnings                                   | Yellow        |
+| ERROR    | Non-critical errors                        | Red           |
+| CRITICAL | Critical errors requiring attention        | Magenta       |
+
+## Log Directory Configuration
+
+By default, logs are saved to:
+- **Linux/macOS**: `~/LupinDentalData/logs/`
+- **Windows**: `C:/Users/<USERNAME>/LupinDentalData/logs/`
+
+### Custom Directory
+
+```python
+logger = get_logger(
+    name="my_module",
+    app="my_app",
+    log_directory="/custom/path/logs"
+)
+```
+
+## Development
+
+### Requirements
+
+- Python >= 3.11
+
+### Development Installation
+
+```bash
+git clone https://gitlab.com/lupindental/arsene/rd-utilities/lupin_logger.git
+cd lupin_logger
+pip install -e .
+```
+
+## License
+
+MIT - LupinDental
