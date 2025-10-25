@@ -1,0 +1,2 @@
+[console_scripts]
+pdf-to-xls = pdf_to_xls_cli:main
