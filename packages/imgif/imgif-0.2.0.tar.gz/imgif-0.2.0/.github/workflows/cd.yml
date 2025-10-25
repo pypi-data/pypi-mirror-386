@@ -1,0 +1,92 @@
+# 🚀 Continuous Deployment workflow for img2gif
+
+name: CD
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (optional, uses tag if not provided)'
+        required: false
+        type: string
+
+jobs:
+  # 🔍 Run full CI checks first
+  ci-checks:
+    name: 🔍 Run CI Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 📦 Install uv
+        uses: astral-sh/setup-uv@v2
+
+      - name: 🔧 Install dependencies
+        run: uv sync --all-extras
+
+      - name: 🔍 Run linter
+        run: uv run ruff check .
+
+      - name: 🧪 Run tests
+        run: uv run pytest
+
+  # 📦 Build and publish to PyPI
+  publish:
+    name: 📦 Publish to PyPI
+    runs-on: ubuntu-latest
+    needs: ci-checks
+    permissions:
+      id-token: write  # Required for trusted publishing
+      contents: read
+    environment:
+      name: pypi
+      url: https://pypi.org/p/img2gif
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 📦 Install uv
+        uses: astral-sh/setup-uv@v2
+
+      - name: 🔧 Install build dependencies
+        run: uv pip install --system build twine
+
+      - name: 🏗️ Build package
+        run: python -m build
+
+      - name: 🔍 Check package
+        run: twine check dist/*
+
+      - name: 🚀 Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true
+
+  # 🎉 Post-release tasks
+  post-release:
+    name: 🎉 Post-Release Tasks
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🎊 Celebrate
+        run: |
+          echo "🎉 Successfully published img2gif to PyPI!"
+          echo "📦 Package is now available for installation"
+          echo "   pip install img2gif"

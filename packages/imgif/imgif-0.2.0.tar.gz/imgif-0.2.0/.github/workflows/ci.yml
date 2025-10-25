@@ -1,0 +1,79 @@
+# 🔄 Continuous Integration workflow for img2gif
+
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  # 🔍 Linting job
+  lint:
+    name: 🔍 Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 📦 Install uv
+        uses: astral-sh/setup-uv@v2
+
+      - name: 🔧 Install dependencies
+        run: uv sync --all-extras
+
+      - name: 🔍 Run ruff linter
+        run: uv run ruff check .
+
+      - name: 🎨 Check ruff formatting
+        run: uv run ruff format --check .
+
+  # 🧪 Testing job with matrix
+  test:
+    name: 🧪 Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    needs: lint
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 📦 Install uv
+        uses: astral-sh/setup-uv@v2
+
+      - name: 🔧 Install dependencies
+        run: uv sync --all-extras
+
+      - name: 🧪 Run tests with coverage
+        run: uv run pytest --cov=src/img2gif --cov-report=xml --cov-report=term-missing
+
+      - name: 📊 Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        if: matrix.python-version == '3.11'
+        with:
+          file: ./coverage.xml
+          fail_ci_if_error: false
+
+  # ✅ All checks passed
+  all-checks:
+    name: ✅ All Checks Passed
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    steps:
+      - name: 🎉 Success
+        run: echo "All CI checks passed successfully!"

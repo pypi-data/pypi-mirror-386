@@ -1,0 +1,49 @@
+# 🎣 Pre-commit hooks configuration for img2gif
+# See https://pre-commit.com for more information
+
+repos:
+  # Ruff - Fast Python linter and formatter ⚡
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.9
+    hooks:
+      # Run the linter 🔍
+      - id: ruff
+        args: [--fix]
+      # Run the formatter 🎨
+      - id: ruff-format
+
+  # Basic pre-commit hooks 🧹
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      # Trim trailing whitespace ✂️
+      - id: trailing-whitespace
+      # Ensure files end with newline 📝
+      - id: end-of-file-fixer
+      # Check YAML files 📄
+      - id: check-yaml
+      # Check for large files 📏
+      - id: check-added-large-files
+        args: [--maxkb=1000]
+      # Check for merge conflicts 🔀
+      - id: check-merge-conflict
+      # Check JSON files 📋
+      - id: check-json
+      # Check TOML files ⚙️
+      - id: check-toml
+
+  # Type checking with mypy (optional but recommended) 🔬
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.7.1
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-all]
+        args: [--ignore-missing-imports]
+        exclude: ^tests/
+
+# CI configuration ⚙️
+ci:
+  autofix_commit_msg: "chore: auto-fix pre-commit hooks 🤖"
+  autofix_prs: true
+  autoupdate_commit_msg: "chore: pre-commit autoupdate 🔄"
+  autoupdate_schedule: weekly
