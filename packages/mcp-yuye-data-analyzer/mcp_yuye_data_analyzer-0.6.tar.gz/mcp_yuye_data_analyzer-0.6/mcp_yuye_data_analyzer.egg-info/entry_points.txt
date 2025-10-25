@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-yuye-data-analyzer = mcp_yuye_data_analyzer.cli:main
