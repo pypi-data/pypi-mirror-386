@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: django-inngest
+Version: 0.0.1
+Summary: Missing Django integration for Inngest
+Author-email: Justin Mitchel <justin@codingforentrepreneurs.com>
+Project-URL: Changelog, https://github.com/jmitchel3/django-inngest
+Project-URL: Documentation, https://github.com/jmitchel3/django-inngest
+Project-URL: Funding, https://github.com/jmitchel3/django-inngest
+Project-URL: Repository, https://github.com/jmitchel3/django-inngest
+Keywords: background-tasks,django,event-driven,inngest,scheduler
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 5.2
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: django>=5.2.7
+Requires-Dist: inngest>=0.5.10
+
+# Django Inngest
+
+Missing Django integration for Inngest.
+
+
+```python
+
+```
