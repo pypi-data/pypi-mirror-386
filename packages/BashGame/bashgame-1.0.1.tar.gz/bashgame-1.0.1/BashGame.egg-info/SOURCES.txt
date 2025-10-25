@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+BashGame/__init__.py
+BashGame/main.py
+BashGame.egg-info/PKG-INFO
+BashGame.egg-info/SOURCES.txt
+BashGame.egg-info/dependency_links.txt
+BashGame.egg-info/top_level.txt

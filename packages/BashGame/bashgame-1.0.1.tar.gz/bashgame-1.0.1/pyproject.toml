@@ -1,0 +1,14 @@
+[project]
+name = "BashGame"  # nom unique sur PyPI, pas juste "mon_module"
+version = "1.0.1"
+description = "A Module for create a Game in terminal"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Apache"}
+
+authors = [
+  { name="Grivy16", email="grivy16public@gmail.com" }
+]
+
+[project.urls]
+Homepage = "https://github.com/Grivy16/BashGame"
