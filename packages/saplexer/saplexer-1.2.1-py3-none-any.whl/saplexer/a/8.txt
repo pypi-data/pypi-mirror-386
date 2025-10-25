@@ -1,0 +1,290 @@
+___________________________________________________________
+
+## 8.Solve Map Colouring Problem using Backtracking, by formulating the problem as
+Constraint Satisfaction Problem
+
+______________________________________________________________
+counter = 0
+DOMAINS = "DOMAINS"
+VARIABLES = "VARIABLES"
+CONSTRAINTS = "CONSTRAINTS"
+FAILURE = "FAILURE"
+
+def is_complete(assignment):
+    return None not in (assignment.values())
+
+def select_unassigned_variable(variables, assignment):
+    for var in variables:
+        if assignment[var] is None:
+            return var
+    return None  # should not happen if called correctly
+
+def is_consistent(assignment, constraints):
+    global counter
+    counter += 1
+    for constraint_violated in constraints:
+        if constraint_violated(assignment):
+            return False
+    return True
+
+def init_assignment(csp):
+    assignment = {}
+    for var in csp[VARIABLES]:
+        assignment[var] = None
+    return assignment
+
+def recursive_backtracking(assignment, csp):
+    if is_complete(assignment):
+        return assignment
+    var = select_unassigned_variable(csp[VARIABLES], assignment)
+    for value in csp[DOMAINS]:
+        assignment[var] = value
+        if is_consistent(assignment, csp[CONSTRAINTS]):
+            result = recursive_backtracking(assignment, csp)
+            if result != FAILURE:
+                return result
+        assignment[var] = None
+    return FAILURE
+
+# Constraints (as provided)
+
+def eq(a, b):
+    return a is not None and b is not None and a == b
+
+def wa_nt(asmt):
+    return eq(asmt["WA"], asmt["NT"])
+
+def wa_sa(asmt):
+    return eq(asmt["WA"], asmt["SA"])
+
+def nt_sa(asmt):
+    return eq(asmt["NT"], asmt["SA"])
+
+def nt_q(asmt):
+    return eq(asmt["NT"], asmt["Q"])
+
+def sa_q(asmt):
+    return eq(asmt["SA"], asmt["Q"])
+
+def sa_nsw(asmt):
+    return eq(asmt["SA"], asmt["NSW"])
+
+def sa_v(asmt):
+    return eq(asmt["SA"], asmt["V"])
+
+def q_nsw(asmt):
+    return eq(asmt["Q"], asmt["NSW"])
+
+def v_t(asmt):
+    return eq(asmt["V"], asmt["T"])
+
+# CSP definition (as provided)
+
+my_csp = {
+    VARIABLES: ["WA", "NT", "Q", "NSW", "V", "SA", "T"],
+    DOMAINS: ["red", "green", "blue"],
+    CONSTRAINTS: [
+        wa_nt, wa_sa, nt_sa, nt_q, sa_q, sa_nsw, sa_v, q_nsw, v_t
+    ]
+}
+
+# Run
+
+counter = 0
+initial = init_assignment(my_csp)
+result = recursive_backtracking(initial, my_csp)
+
+print("Counter (constraint checks):", counter)
+print("Result:")
+print(result)
+
+__________________________________________________________________
+
+# Sudoku Solver using Backtracking (Constraint Satisfaction Problem)
+# A 9x9 Sudoku grid with zeros representing empty cells
+_____________________________________________________________________
+
+grid = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+]
+
+
+# Function to print Sudoku in a readable format
+def print_grid(g):
+    for r in range(9):
+        if r % 3 == 0 and r != 0:
+            print("-" * 21)
+        for c in range(9):
+            if c % 3 == 0 and c != 0:
+                print("|", end=" ")
+            print(g[r][c] if g[r][c] != 0 else ".", end=" ")
+        print()
+    print()
+
+
+# Check if assigning a number is valid according to Sudoku rules
+def is_valid(g, row, col, num):
+    # Row check
+    if num in g[row]:
+        return False
+
+    # Column check
+    for i in range(9):
+        if g[i][col] == num:
+            return False
+
+    # 3x3 subgrid check
+    start_row, start_col = 3 * (row // 3), 3 * (col // 3)
+    for r in range(start_row, start_row + 3):
+        for c in range(start_col, start_col + 3):
+            if g[r][c] == num:
+                return False
+
+    return True
+
+
+# Backtracking function
+def solve_sudoku(g):
+    for row in range(9):
+        for col in range(9):
+            if g[row][col] == 0:
+                for num in range(1, 10):
+                    if is_valid(g, row, col, num):
+                        g[row][col] = num
+                        if solve_sudoku(g):
+                            return True
+                        g[row][col] = 0  # backtrack
+                return False
+    return True
+
+
+# Show unsolved Sudoku
+print(" Initial Sudoku Grid:\n")
+print_grid(grid)
+
+# Solve and display result
+if solve_sudoku(grid):
+    print("Solved Sudoku Grid:\n")
+    print_grid(grid)
+else:
+    print(" No solution exists for this Sudoku.")
+
+
+________________________________________________
+# Cryptarithmetic Puzzle: SEND + MORE = MONEY
+# Solved as a Constraint Satisfaction Problem (CSP)
+
+____________________________________________________
+from itertools import permutations
+
+# Words in the puzzle
+word1 = "SEND"
+word2 = "MORE"
+result = "MONEY"
+
+# Extract unique letters
+letters = set(word1 + word2 + result)
+letters = list(letters)
+
+# Ensure there are not more than 10 unique letters (digits 0-9)
+if len(letters) > 10:
+    raise ValueError("Too many unique letters for digits 0-9!")
+
+# Try all permutations of digits 0-9 for the letters
+for perm in permutations(range(10), len(letters)):
+    assign = dict(zip(letters, perm))
+
+    # First letters of numbers cannot be zero
+    if assign[word1[0]] == 0 or assign[word2[0]] == 0 or assign[result[0]] == 0:
+        continue
+
+    # Convert words to numeric values based on assignment
+    send = assign['S'] * 1000 + assign['E'] * 100 + assign['N'] * 10 + assign['D']
+    more = assign['M'] * 1000 + assign['O'] * 100 + assign['R'] * 10 + assign['E']
+    money = assign['M'] * 10000 + assign['O'] * 1000 + assign['N'] * 100 + assign['E'] * 10 + assign['Y']
+
+    # Check the equation SEND + MORE = MONEY
+    if send + more == money:
+        print(" Solution Found!")
+        print(f"SEND  = {send}")
+        print(f"MORE  = {more}")
+        print(f"MONEY = {money}")
+        print("\nLetter → Digit Mapping:")
+        for k, v in assign.items():
+            print(f"{k} → {v}")
+        break
+else:
+    print(" No solution found.")
+
+_________________________________________________________
+
+# N-Queens Problem using Backtracking (CSP)
+# Place N queens on a chessboard so that no two queens attack each other.
+
+_______________________________________________________________
+N = 8  # You can change N (like 4, 8, 10...)
+
+# Create chessboard
+board = [[0 for _ in range(N)] for _ in range(N)]
+
+# Check if queen can be placed safely
+def is_valid(board, row, col):
+    # Check column
+    for i in range(row):
+        if board[i][col] == 1:
+            return False
+
+    # Check upper-left diagonal
+    i, j = row, col
+    while i >= 0 and j >= 0:
+        if board[i][j] == 1:
+            return False
+        i -= 1
+        j -= 1
+
+    # Check upper-right diagonal
+    i, j = row, col
+    while i >= 0 and j < N:
+        if board[i][j] == 1:
+            return False
+        i -= 1
+        j += 1
+
+    return True
+
+# Backtracking solver
+def solve_queens(board, row):
+    if row == N:
+        return True
+
+    for col in range(N):
+        if is_valid(board, row, col):
+            board[row][col] = 1
+            if solve_queens(board, row + 1):
+                return True
+            board[row][col] = 0  # Backtrack
+    return False
+
+# Display the chessboard
+def print_board(board):
+    for r in range(N):
+        for c in range(N):
+            print("Q" if board[r][c] == 1 else ".", end=" ")
+        print()
+    print()
+
+# Solve and show result
+if solve_queens(board, 0):
+    print(f" {N}-Queens Solution Found:\n")
+    print_board(board)
+else:
+    print(" No solution exists.")
+
