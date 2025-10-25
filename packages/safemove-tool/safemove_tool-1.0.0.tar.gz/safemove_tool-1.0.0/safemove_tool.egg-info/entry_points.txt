@@ -1,0 +1,2 @@
+[console_scripts]
+safemove = safe_move.cli:main
