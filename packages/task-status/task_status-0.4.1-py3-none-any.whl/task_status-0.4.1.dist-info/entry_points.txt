@@ -1,0 +1,3 @@
+[console_scripts]
+task-status=task_status.task_status:main
+

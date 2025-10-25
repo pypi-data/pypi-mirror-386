@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: task-status
+Version: 0.4.1
+Summary: Utility to get status data built from taskwarrior
+Author: Alex Kelly
+Author-email: alex.kelly@franklin.edu
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: click (>=8.0.1,<9.0.0)
+Requires-Dist: python-dateutil (>=2.8.2,<3.0.0)
