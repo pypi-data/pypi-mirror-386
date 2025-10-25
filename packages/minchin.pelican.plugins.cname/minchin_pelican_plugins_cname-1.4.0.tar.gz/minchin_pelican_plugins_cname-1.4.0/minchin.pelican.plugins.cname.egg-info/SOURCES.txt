@@ -1,0 +1,10 @@
+License.txt
+README.rst
+pyproject.toml
+setup.py
+minchin.pelican.plugins.cname.egg-info/PKG-INFO
+minchin.pelican.plugins.cname.egg-info/SOURCES.txt
+minchin.pelican.plugins.cname.egg-info/dependency_links.txt
+minchin.pelican.plugins.cname.egg-info/requires.txt
+minchin.pelican.plugins.cname.egg-info/top_level.txt
+minchin/pelican/plugins/cname.py

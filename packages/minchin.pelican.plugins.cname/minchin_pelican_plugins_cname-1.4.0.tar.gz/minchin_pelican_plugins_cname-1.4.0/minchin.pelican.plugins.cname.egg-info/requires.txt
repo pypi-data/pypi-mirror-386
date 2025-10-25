@@ -1,0 +1,16 @@
+pelican
+minchin.pelican.plugins.autoloader!=1.2.0
+jinja2>=3.1.6
+pygments>=2.15.0
+
+[all]
+minchin.releaser
+pip-tools
+
+[build]
+minchin.releaser
+pip-tools
+
+[docs]
+
+[test]
