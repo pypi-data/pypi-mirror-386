@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/main.py
+src/models.py
+src/tasks.py
+stt_bench.egg-info/PKG-INFO
+stt_bench.egg-info/SOURCES.txt
+stt_bench.egg-info/dependency_links.txt
+stt_bench.egg-info/entry_points.txt
+stt_bench.egg-info/requires.txt
+stt_bench.egg-info/top_level.txt
