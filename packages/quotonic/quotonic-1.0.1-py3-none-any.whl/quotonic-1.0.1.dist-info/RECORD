@@ -1,0 +1,17 @@
+quotonic/__init__.py,sha256=uhgo4JKKcE8v3_heuOJ0gMYOEJAmI35v3iMV7zTFlME,678
+quotonic/aa.py,sha256=MtK_mj9DBbHoLrdbM_ku7d3851ASCSgMaaL8t7NIBUg,10391
+quotonic/clements.py,sha256=wtQy9CM70Y77FQPYxcpTrpC3gvOCyepRUXCk46Z7kYI,27995
+quotonic/fock.py,sha256=-l12598mrLKzpnP7UhFUTlxP6KmHp-IRDeOjkHLTjEs,8755
+quotonic/logic.py,sha256=pcEdvb-mpbb9QEG4aM6bKney38g_Hdm76toRLyf83co,8876
+quotonic/nl.py,sha256=TSssBmprB_jURuRt79LAGnkLYAM92NVdnY5SUVKqzCU,9700
+quotonic/perm.py,sha256=_bBh2ZegIHFLDNqIaa8m-JnvV0rc1lghS8bzfPizqaQ,10433
+quotonic/qpnn.py,sha256=nbmRLm-Uk7CVBdKkzfXJQPlBpydAy9tgPVrKHyaY6lw,58826
+quotonic/trainer.py,sha256=ppAROlMRohXYSLBbEOih8hga_U4RiJZqMPaSVdOvowM,36178
+quotonic/training_sets.py,sha256=qMlo8_ETcgJf2P-SIGdUYmdpT2xtiLgiamiXwCxOXT4,19145
+quotonic/types.py,sha256=zcrg2kZ0CLfV-gg1VBfrXg4ZPPnOhbZ7yCEGb-JqVLg,487
+quotonic/utils.py,sha256=YGpBv84v1GoaB284m-2MeG4SQYK1knLxS6auwTBO8QM,7635
+quotonic-1.0.1.dist-info/licenses/LICENSE,sha256=EPeLRoPmImnKB3tHVTgJGzwUVQO_9koHee_mWEsVMn0,1070
+quotonic-1.0.1.dist-info/METADATA,sha256=4eoAvzJ3GjXILTUwU9mCEcIPFZjhA5TeBFOgfF4yGWA,12358
+quotonic-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+quotonic-1.0.1.dist-info/top_level.txt,sha256=eWQ5wRjCx4mlmY0BCW2MRnxo0Al7Ajve3Z0ia_gYcZE,9
+quotonic-1.0.1.dist-info/RECORD,,
