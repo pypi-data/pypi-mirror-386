@@ -1,0 +1,14 @@
+codetracer_python_recorder-0.2.0.dist-info/METADATA,sha256=1mefarTGT-0Wy86PuK0cV3OWs6GZVU7u1nGTguMbqEM,6727
+codetracer_python_recorder-0.2.0.dist-info/WHEEL,sha256=n8ZdhGDUio-M1d1jdBhS3kD6MKEN1SRxo8BOjWwZdsg,96
+codetracer_python_recorder-0.2.0.dist-info/entry_points.txt,sha256=Hdw_MjTg6LiPXh7393dDJ8R-YJs4XeIWIike1tSzEWw,81
+codetracer_python_recorder-0.2.0.dist-info/licenses/LICENSE,sha256=WnqD9hmajydpWL0z4lwQlIi0F_7QwyH7iqBRdrlxKDk,1096
+codetracer_python_recorder/.gitignore,sha256=hb4XJYR9dELcPt93wdvgfiU74uDvErV0lg_e6gMdALI,4
+codetracer_python_recorder/__init__.py,sha256=19-q_lXoAdWCeKq-k8XYNpLSEOE3m33poSi_Sz6Gd8g,1016
+codetracer_python_recorder/__main__.py,sha256=X0OSPFaBr7RlAsm-zScvIggyXAee1MQO4GzKgvAsVgg,208
+codetracer_python_recorder/api.py,sha256=Ez25WgTKkwrl4L1EI_QlOGQU5B0mi1YwcYAsqSwIGZM,674
+codetracer_python_recorder/auto_start.py,sha256=40QtT8Z4KDbWsLiQ6gJg3WLUTp1Mai9bjcli61SgB9o,1349
+codetracer_python_recorder/cli.py,sha256=K37mdYuAlSvzaB8pSFI6GIuK-pTs-HVmZkjNJ6_pSXM,9774
+codetracer_python_recorder/codetracer_python_recorder.cp312-win_amd64.pyd,sha256=xGA9K4jU2zFVdfa6RJzvfvfydL55IjItP0Ya1JPlrNk,3604992
+codetracer_python_recorder/formats.py,sha256=oYw2o1bZQasY2iQzELBe2MxzD7kPqqdq97L5AMTiuH0,1159
+codetracer_python_recorder/session.py,sha256=c1KFqT5Pl7ZpG4ZHwjcHh_hk-9GtvTgNBht_OhDrpg0,8200
+codetracer_python_recorder-0.2.0.dist-info/RECORD,,
