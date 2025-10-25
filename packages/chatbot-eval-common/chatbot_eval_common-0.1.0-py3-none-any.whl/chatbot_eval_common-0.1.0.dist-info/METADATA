@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: chatbot-eval-common
+Version: 0.1.0
+Summary: Shared domain models for the Chatbot Evaluation platform.
+Author-email: habib-z <habib.zafarian@gmail.com>
+License: Proprietary
+Keywords: chatbot,evaluation,events
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Typing :: Typed
+Requires-Python: <3.13.0,>=3.10
+Requires-Dist: pydantic<3.0,>=2.6
+Description-Content-Type: text/markdown
+
+# chatbot-eval-common
+
+Shared domain models for the Chatbot Evaluation platform. The `chatbot_eval_common`
+package provides the event schema consumed by the `evaluation-client` SDK and any
+other services that need to parse run telemetry.
+
+## Installation
+
+```bash
+pip install chatbot-eval-common
+```
+
+## Exposed modules
+
+- `chatbot_eval_common.events` – Pydantic models for dataset progress, lifecycle
+  events, and system messages emitted during evaluation runs.
+
+The package ships with `py.typed`, so static type checkers can read the type
+information directly from the wheel.
