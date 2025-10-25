@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: macroeconomy
+Version: 0.1.0
+Summary: An realism economic analysis package.
+Author-email: Jerry_Skywolf <jerryskywolf@outlook.com>
+License-Expression: GPL-3.0
+Keywords: Jerry Skywolf,Jerry_Skywolf,macroeconomy,economy,economic analysis
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 1 - Planning
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Dynamic: license-file
+
+# Macroeconomy  _0.1.0_
+
+An realism economic analysis package.
+
+### Development Status
+This programme is currently being planned.
+
+### Download
+
+Here is our website:
+* https://github.com/JerrySkywolf/
+
+This package could be downloaded through PyPi by:
+
+`pip install miding`
+
+View at the webpage
+* https://pypi.org/project/macroeconomy

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "macroeconomy"
+version = "0.1.0"
+authors = [
+  { name="Jerry_Skywolf", email="jerryskywolf@outlook.com" },
+]
+description = "An realism economic analysis package."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Development Status :: 1 - Planning"
+]
+license = "GPL-3.0"
+license-files = ["LICEN[CS]E*"]
+keywords = [
+    'Jerry Skywolf',
+    'Jerry_Skywolf',
+    'macroeconomy',
+    'economy',
+    'economic analysis'
+]
+
+[project.entry-points."spam.magical"]
+tomatoes = "spam:main_tomatoes"

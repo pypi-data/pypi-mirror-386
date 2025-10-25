@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/macroeconomy/__init__.py
+src/macroeconomy/tool.py
+src/macroeconomy.egg-info/PKG-INFO
+src/macroeconomy.egg-info/SOURCES.txt
+src/macroeconomy.egg-info/dependency_links.txt
+src/macroeconomy.egg-info/entry_points.txt
+src/macroeconomy.egg-info/top_level.txt
