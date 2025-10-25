@@ -1,0 +1,76 @@
+# Experiment Configuration
+
+# Datasets to evaluate
+datasets:
+  adult:
+    file: "datasets/adult.csv"
+    target: "income"
+    task: "classification"
+    test_size: 0.2
+    discrete_columns:
+      - workclass
+      - education
+      - marital_status
+      - occupation
+      - relationship
+      - race
+      - sex
+      - native_country
+    sensitive_columns:
+      - race
+      - sex
+
+  # credit:
+  #   file: "datasets/credit.csv"
+  #   target: "default"
+  #   task: "classification"
+  #   test_size: 0.2
+  #   discrete_columns: []
+  #   sensitive_columns: []
+
+  diabetes:
+    file: "datasets/diabetes.csv"
+    target: "target"
+    task: "regression"
+    test_size: 0.2
+    discrete_columns: []
+    sensitive_columns: []
+
+# Generators to evaluate
+generators:
+  ctgan:
+    class: "CTGANGenerator"
+    params:
+      epochs: 300
+      batch_size: 200
+      verbose: false
+
+  tvae:
+    class: "TVAEGenerator"
+    params:
+      epochs: 300
+      batch_size: 200
+      verbose: false
+
+  gaussian_copula:
+    class: "GaussianCopulaGenerator"
+    params:
+      default_distribution: "beta"
+
+# Evaluation settings
+evaluation:
+  n_runs: 5  # Number of runs for averaging
+  n_synthetic_samples: 300  # null = match training size
+  metrics:
+    - sdmetrics
+    - ml_utility
+    - privacy
+
+  random_seed: 42
+
+# Output settings
+output:
+  results_dir: "results"
+  save_synthetic_data: false
+  save_plots: true
+  plot_format: "png"
