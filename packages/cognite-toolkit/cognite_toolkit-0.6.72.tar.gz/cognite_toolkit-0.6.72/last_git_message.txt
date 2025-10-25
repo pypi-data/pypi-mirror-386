@@ -1,0 +1,20 @@
+Default version should be v2 in the QueryKnowledgeGraph tool (#2121)
+
+# Description
+
+According to the Atlas team, version should be v2 like in the SDK.
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Improved
+
+- Default version of the QueryKnowledgeGraph Agent tool is set to v2
+
+## templates
+
+No changes.
