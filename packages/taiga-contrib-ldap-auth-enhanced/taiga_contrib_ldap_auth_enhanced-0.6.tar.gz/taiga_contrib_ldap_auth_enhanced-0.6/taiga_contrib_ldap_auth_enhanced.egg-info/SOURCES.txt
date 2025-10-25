@@ -1,0 +1,17 @@
+AUTHORS.md
+LICENSE
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+taiga_contrib_ldap_auth_enhanced/__init__.py
+taiga_contrib_ldap_auth_enhanced/apps.py
+taiga_contrib_ldap_auth_enhanced/connector.py
+taiga_contrib_ldap_auth_enhanced/services.py
+taiga_contrib_ldap_auth_enhanced.egg-info/PKG-INFO
+taiga_contrib_ldap_auth_enhanced.egg-info/SOURCES.txt
+taiga_contrib_ldap_auth_enhanced.egg-info/dependency_links.txt
+taiga_contrib_ldap_auth_enhanced.egg-info/requires.txt
+taiga_contrib_ldap_auth_enhanced.egg-info/top_level.txt
+tests/test_ldap.py
