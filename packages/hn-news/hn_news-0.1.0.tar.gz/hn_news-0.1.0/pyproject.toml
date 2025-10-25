@@ -1,0 +1,16 @@
+[project]
+name = "hn-news"
+version = "0.1.0"
+description = "Hacker News CLI client"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{name = "Mohannad Ahmed", email = "mohnnadabdo21@gmail.com"}]
+dependencies = ["httpx", "beautifulsoup4", "rich"]
+
+[project.scripts]
+hn-news = "main:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
