@@ -1,0 +1,183 @@
+provider: isa
+description: "ISA自研/部署的模型配置"
+models:
+  - model_id: "isa-surya-ocr-service"
+    model_type: "vision"
+    capabilities:
+      - "OCR"
+      - "TEXT_DETECTION" 
+      - "TEXT_EXTRACTION"
+      - "IMAGE_ANALYSIS"
+    metadata:
+      name: "ISA SuryaOCR Multilingual Service"
+      description: "ISA部署的SuryaOCR服务，支持90+语言文本识别"
+      provider: "isa"
+      deployment: "modal"
+      endpoint: "https://isa-vision-ocr.modal.run"
+      
+      # 计费信息
+      pricing:
+        model: "pay-per-use"
+        gpu_type: "T4"
+        cost_per_hour_usd: 0.40
+        cost_per_request_base: 0.0005
+        
+      # 技术规格
+      specs:
+        gpu_memory: "4GB"
+        ram: "8GB" 
+        max_containers: 20
+        auto_scaling: true
+        cold_start_time: "30-45s"
+        warm_response_time: "<2s"
+        
+      # 支持的任务
+      supported_tasks:
+        - "extract"
+        - "extract_text"
+        - "ocr"
+        
+      # 输入限制
+      limits:
+        max_image_size: "20MB"
+        max_width: 4096
+        max_height: 4096
+        supported_formats: ["jpg", "jpeg", "png", "gif", "webp", "bmp"]
+        timeout_seconds: 60
+        
+      # 服务质量
+      sla:
+        availability: "99.0%"
+        max_response_time: "10s"
+        throughput_rps: 50
+        
+      # 模型元数据
+      underlying_model: "SuryaOCR (EfficientViT + Donut)"
+      architecture: "Transformer-based"
+      languages_supported: 90
+      version: "1.0.0"
+      last_updated: "2025-01-09"
+      
+  - model_id: "isa-omniparser-ui-detection"
+    model_type: "vision"
+    capabilities:
+      - "UI_DETECTION"
+      - "IMAGE_ANALYSIS" 
+      - "IMAGE_UNDERSTANDING"
+      - "OBJECT_COORDINATES"
+    metadata:
+      name: "ISA OmniParser UI Detection"
+      description: "ISA部署的OmniParser v2.0 UI检测服务，支持精确UI元素识别"
+      provider: "isa"
+      deployment: "modal"
+      endpoint: "https://isa-vision-ui.modal.run"
+      
+      # 计费信息
+      pricing:
+        model: "pay-per-use"
+        gpu_type: "A10G"
+        cost_per_hour_usd: 0.60
+        cost_per_request_base: 0.001
+        
+      # 技术规格
+      specs:
+        gpu_memory: "8GB" 
+        max_containers: 50
+        auto_scaling: true
+        cold_start_time: "10-15s"
+        warm_response_time: "<1s"
+        
+      # 支持的任务
+      supported_tasks:
+        - "analyze"
+        - "detect_objects" 
+        - "get_coordinates"
+        
+      # 输入限制
+      limits:
+        max_image_size: "20MB"
+        max_width: 4096
+        max_height: 4096
+        supported_formats: ["jpg", "jpeg", "png", "gif", "webp", "bmp"]
+        timeout_seconds: 30
+        
+      # 服务质量
+      sla:
+        availability: "99.5%"
+        max_response_time: "5s"
+        throughput_rps: 100
+        
+      # 模型元数据
+      underlying_model: "microsoft/OmniParser-v2.0"
+      optimization: "single_model_optimized"
+      version: "1.0.0"
+      last_updated: "2025-01-07"
+      
+  - model_id: "isa-jina-reranker-v2-service"
+    model_type: "embedding"
+    capabilities:
+      - "RERANKING"
+      - "DOCUMENT_RANKING"
+      - "SEMANTIC_SEARCH"
+      - "CROSS_LINGUAL_RANKING"
+    metadata:
+      name: "ISA Jina Reranker v2 Multilingual Service"
+      description: "ISA部署的Jina Reranker v2服务，支持100+语言文档重排序"
+      provider: "isa"
+      deployment: "modal"
+      endpoint: "https://isa-embed-rerank.modal.run"
+      
+      # 计费信息
+      pricing:
+        model: "pay-per-use"
+        gpu_type: "T4"
+        cost_per_hour_usd: 0.40
+        cost_per_request_base: 0.0002
+        
+      # 技术规格
+      specs:
+        gpu_memory: "4GB"
+        ram: "8GB" 
+        max_containers: 10
+        auto_scaling: true
+        cold_start_time: "15-30s"
+        warm_response_time: "<2s"
+        
+      # 支持的任务
+      supported_tasks:
+        - "rerank"
+        - "rerank_documents"
+        - "document_ranking"
+        
+      # 输入限制
+      limits:
+        max_query_length: 1024
+        max_document_length: 1024
+        max_documents_per_request: 100
+        timeout_seconds: 30
+        
+      # 服务质量
+      sla:
+        availability: "99.0%"
+        max_response_time: "5s"
+        throughput_rps: 25
+        
+      # 模型元数据
+      underlying_model: "jinaai/jina-reranker-v2-base-multilingual"
+      architecture: "Transformer (Cross-encoder)"
+      languages_supported: 100
+      sota_2024: true
+      version: "1.0.0"
+      last_updated: "2025-01-10"
+      
+# 服务端点配置
+endpoints:
+  modal_base_url: "https://isa-vision-ui.modal.run"
+  health_check: "/health_check"
+  usage_stats: "/get_usage_stats"
+  
+# 认证配置  
+auth:
+  api_key_required: false
+  # api_key_env: "ISA_API_KEY"
+  # rate_limit_per_minute: 1000

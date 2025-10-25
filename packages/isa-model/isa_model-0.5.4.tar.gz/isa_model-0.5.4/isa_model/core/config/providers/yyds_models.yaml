@@ -1,0 +1,89 @@
+provider: yyds
+description: "YYDS provider models (Anthropic Claude via custom endpoint)"
+models:
+  - model_id: "gpt-4o-mini"
+    model_type: "omni"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+      - "image_analysis"
+      - "image_understanding"
+      - "ocr"
+      - "ui_detection"
+      - "table_detection"
+    metadata:
+      description: "OpenAI's GPT-4o-mini model via YYDS provider. Cost-effective multimodal model with excellent vision and language capabilities."
+      performance_tier: "high"
+      specialized_tasks:
+        - "image analysis"
+        - "text extraction"
+        - "OCR"
+        - "UI element detection"
+        - "image description"
+        - "conversation"
+        - "code assistance"
+        - "general Q&A"
+      provider_model_name: "gpt-4o-mini"
+      supports_streaming: true
+      supports_vision: true
+      max_image_size: "20MB"
+      supported_formats: ["jpg", "jpeg", "png", "gif", "webp"]
+      max_tokens: 128000
+      context_window: 128000
+      pricing_tier: "standard"
+
+  - model_id: "claude-sonnet-4-20250514"
+    model_type: "omni"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+      - "image_analysis"
+      - "image_understanding"
+      - "ocr"
+      - "ui_detection"
+      - "table_detection"
+    metadata:
+      description: "Anthropic's most advanced language model with superior reasoning, analysis, and coding capabilities. Ideal for complex tasks requiring deep understanding."
+      performance_tier: "premium"
+      specialized_tasks:
+        - "complex reasoning"
+        - "advanced analysis"
+        - "code generation"
+        - "research assistance"
+        - "detailed explanations"
+        - "long-form writing"
+        - "technical documentation"
+      provider_model_name: "claude-sonnet-4-20250514"
+      supports_streaming: true
+      max_tokens: 200000
+      context_window: 200000
+      pricing_tier: "premium"
+  
+  - model_id: "gemini-2.5-flash-preview-05-20:thinking"
+    model_type: "llm"
+    capabilities:
+      - "text_generation"
+      - "chat"
+      - "reasoning"
+    metadata:
+      description: "Google's Gemini 2.5 Flash with internal thinking process. Shows step-by-step reasoning before final answer."
+      performance_tier: "standard"
+      specialized_tasks:
+        - "chain of thought reasoning"
+        - "complex problem solving"
+        - "mathematical reasoning"
+        - "code analysis"
+        - "logical deduction"
+        - "multi-step reasoning"
+      provider_model_name: "gemini-2.5-flash-preview-05-20:thinking"
+      supports_streaming: true
+      max_tokens: 8192
+      context_window: 32768
+      pricing_tier: "standard"
+      input_cost_per_1k_tokens: 0.000225
+      output_cost_per_1k_tokens: 0.00525
+      special_features:
+        - "internal_thinking"
+        - "reasoning_transparency"
