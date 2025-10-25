@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: projext
+Version: 0.1.0a0
+Summary: Generate a project map from a directory.
+License: MIT
+License-File: LICENSE
+Author: noahsark-nexus
+Author-email: noahsark.nexus@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Dist: click (>=8.1.7,<9.0.0)
+Requires-Dist: rich (>=13.7.1,<14.0.0)
+Project-URL: Homepage, https://github.com/noahsark-nexus/projext
+Project-URL: Repository, https://github.com/noahsark-nexus/projext
+Description-Content-Type: text/markdown
+
+
+# projext
+
+A CLI tool to generate a project map from a directory.
+
+## Installation
+
+```bash
+pip install projext
+```
+
+## Quick Start
+
+```bash
+projext map ./src --out project_map.md
+```
+
+## License
+
+This project is licensed under the MIT License.
+
