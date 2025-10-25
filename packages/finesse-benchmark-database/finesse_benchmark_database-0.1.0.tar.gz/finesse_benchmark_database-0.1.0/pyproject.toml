@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "finesse-benchmark-database"
+version = "0.1.0"
+description = "Data generation factory for atomic probes in Finesse benchmark. Generates probes_atomic.jsonl from Wikimedia Wikipedia."
+authors = ["winter.sci.dev <enzoescipy@gmail.com>"]
+readme = "README.md"
+packages = [{include = "finesse_benchmark_database", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+datasets = "^4.3.0"
+transformers = "^4.35.0"
+torch = "^2.1.0"  # For tokenizer if needed
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
