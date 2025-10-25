@@ -1,0 +1,11 @@
+aiomysql>=0.3.2
+mysql-connector-python>=9.5.0
+pandas>=2.3.3
+pydantic[all,email]>=2.12.3
+pymysql>=1.1.2
+sqlacodegen>=3.0.0
+sqlalchemy>=2.0.44
+xtlog>=0.1.9
+xtwraps>=0.2.1
+
+[test]
