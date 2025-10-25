@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+data_tamer/__init__.py
+data_tamer/batch.py
+data_tamer/core.py
+data_tamer/prompt.py
+data_tamer/schema.py
+data_tamer/types.py
+data_tamer.egg-info/PKG-INFO
+data_tamer.egg-info/SOURCES.txt
+data_tamer.egg-info/dependency_links.txt
+data_tamer.egg-info/requires.txt
+data_tamer.egg-info/top_level.txt
