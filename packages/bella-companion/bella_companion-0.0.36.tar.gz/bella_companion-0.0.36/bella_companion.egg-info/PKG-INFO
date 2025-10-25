@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: bella-companion
+Version: 0.0.36
+Summary: Add your description here
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: arviz>=0.22.0
+Requires-Dist: bella-lumiere>=0.0.14
+Requires-Dist: dotenv>=0.9.9
+Requires-Dist: phylogenie>=3.1.2
+Requires-Dist: poetry>=2.2.1
+Requires-Dist: seaborn>=0.13.2
