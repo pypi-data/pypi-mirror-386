@@ -1,0 +1,61 @@
+[build-system]
+requires = [ "setuptools>=61", "setuptools-scm>=8" ]
+
+[project]
+name = "earthkit-geo"
+description = "Geospatial computations"
+readme = "README.md"
+license = { text = "Apache License Version 2.0" }
+authors = [
+  { name = "European Centre for Medium-Range Weather Forecasts (ECMWF)", email = "software.support@ecmwf.int" },
+]
+requires-python = ">=3.8"
+
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = [ "version" ]
+dependencies = [
+  "pyproj",
+  "requests",
+  "scipy",
+]
+optional-dependencies.all = [ "cartopy" ]
+optional-dependencies.cartography = [ "cartopy" ]
+optional-dependencies.test = [
+  "pytest",
+  "pytest-cov",
+]
+urls.Documentation = "https://earthkit-geo.readthedocs.io/"
+urls.Homepage = "https://github.com/ecmwf/earthkit-geo/"
+urls.Issues = "https://github.com/ecmwf/earthkit-geo/issues"
+urls.Repository = "https://github.com/ecmwf/earthkit-geo/"
+
+[tool.setuptools.packages.find]
+include = [ "earthkit.geo" ]
+where = [ "src/" ]
+
+[tool.setuptools_scm]
+version_file = "src/earthkit/geo/_version.py"
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.run]
+branch = "true"
+
+[tool.pydocstyle]
+add_ignore = [ "D1", "D200", "D205", "D400", "D401" ]
+convention = "numpy"

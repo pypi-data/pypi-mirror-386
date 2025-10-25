@@ -1,0 +1,13 @@
+pyproj
+requests
+scipy
+
+[all]
+cartopy
+
+[cartography]
+cartopy
+
+[test]
+pytest
+pytest-cov
