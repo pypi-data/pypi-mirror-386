@@ -1,0 +1,76 @@
+<!-- Templates for the task alerts. -->
+<span hidden id="started-alert-template">
+<div class="alert alert-primary alert-dismissible fade show d-inline-flex align-items-center mx-auto">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto"><i class="fas fa-info-circle"></i></div>
+      <div class="col-auto"> Started. </div>
+    </div>
+    <div class="row">
+      <small><span class="task-id"></span></small>
+    </div>
+  </div>
+</div>
+</span>
+<span hidden id="success-alert-template">
+<div class="alert alert-success alert-dismissible fade show d-inline-flex align-items-center mx-auto">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto"><i class="fas fa-check-circle"></i></div>
+      <div class="col-auto"> Done. </div>
+      <div class="col-auto"><code></code></div>
+    </div>
+    <div class="row">
+      <small><span class="task-id"></span></small>
+    </div>
+  </div>
+</div>
+</span>
+<span hidden id="error-alert-template">
+<div class="alert alert-danger alert-dismissible fade show d-inline-flex align-items-center mx-auto">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto"><i class="fas fa-exclamation-triangle"></i></div>
+      <div class="col-auto"> Error: </div>
+      <div class="col-auto"><pre></pre></div>
+    </div>
+    <div class="row">
+      <small><span class="task-id"></span></small>
+    </div>
+  </div>
+</div>
+</span>
+<span hidden id="alert-group-template">
+  <div class="row">
+    <div class="alert alert-dismissible fade show d-inline-flex align-items-center mx-auto">
+      <div class="card d-inline-flex">
+        <div class="card-header d-inline-flex text-primary">
+          &#x24D8; Task &nbsp; <span class="task-name"></span>
+        </div>
+        <div class="task-alerts d-inline-flex p-1"></div>
+      </div>
+      <button type="button" class="btn btn-close btn-secondary" data-dismiss="alert" aria-label="Close" title="Dismiss this alert">
+        &times;
+      </button>
+    </div>
+  </div>
+</span>
+
+<!-- Socket notifications module, placed after Django's recent-actions module in the admin index page. -->
+<div class="col-auto">
+  <div hidden class="module" id="socket-notifications-module">
+    <div class="alert alert-dismissible fade show d-inline-flex align-items-center mx-auto">
+      <div class="card border-info mb-3">
+        <div class="card-header d-flex justify-content-between">
+          <h5 class="m-0">Socket Notifications</h5>
+          <button id="dismiss-all-alerts" type="button" class="btn btn-close btn-outline-warning ml-auto" data-dismiss="alert" aria-label="Close" title="Dismiss all alerts">
+            <i class="fas fa-window-close"></i>
+          </button>
+        </div>
+        <div class="card-body">
+          <div id="task-alert-groups" class="col"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
