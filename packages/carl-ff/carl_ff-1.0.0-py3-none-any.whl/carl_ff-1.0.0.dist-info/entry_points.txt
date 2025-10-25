@@ -1,0 +1,2 @@
+[console_scripts]
+carl-ff = carl_ff.main:main
