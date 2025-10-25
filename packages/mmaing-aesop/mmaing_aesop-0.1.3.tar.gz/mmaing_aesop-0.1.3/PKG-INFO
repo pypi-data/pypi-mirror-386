@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: mmaing_aesop
+Version: 0.1.3
+Summary: Mixed Model of Artificial Intelligence and Next-Generation for outbreak detection.
+Author-email: Dérick Borges <seudemail@example.com>
+License: Apache-2.0
+Project-URL: Homepage, https://pypi.org/project/mmaing_aesop/
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: pyod
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+
+# MMAING-AESOP
+
+**MMAING-AESOP** é um sistema de detecção precoce de surtos baseado na combinação de:
+
+- Rt (Reproduction Transmission indicator)
+- Ensemble de modelos de Machine Learning (Isolation Forest, LOF, OCSVM, COPOD)
+
+O modelo emite *Early Warning Signals (EWS)* a partir de séries temporais semanais de atenção primária.
+
+---
+
+## 📌 Instalação
+
+```bash
+pip install mmaing_aesop
