@@ -1,0 +1,100 @@
+Metadata-Version: 2.4
+Name: event_scale_http_client
+Version: 0.1.0
+Summary: A lightweight HTTP client with retry and form/JSON support
+Author: Bedram Tamang
+Author-email: tmgbedu@gmail.com
+Requires-Python: >=3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: pytest (>=8.4.2,<9.0.0)
+Requires-Dist: requests (>=2.32.5,<3.0.0)
+Requires-Dist: responses (>=0.25.8,<0.26.0)
+Description-Content-Type: text/markdown
+
+# HTTP Client
+
+A lightweight, chainable HTTP client for Python that supports automatic retries, custom retry callbacks, and easy JSON or form submissions.
+
+### Features
+
+* Simple and expressive chainable API
+* Built-in retry support with customizable retry callbacks
+* Automatic JSON and form data handling
+* Fully testable with responses
+* No heavy dependencies — designed to be minimal and easy to extend
+
+### Usage
+
+1. Basic GET request
+
+```python
+from event_scale_http_client import Http
+
+response = Http().get("http://127.0.0.1:7000/", {
+    "name": "Alex"
+})
+print(response.status_code)
+print(response.json())
+```
+
+2. Automatic retries with callback
+
+You can define how many times the request should retry and handle each failed attempt with a callback:
+
+```python
+from event_scale_http_client import Http
+
+
+def retry_callback(attempt, error):
+    print(f"Attempt {attempt} failed due to: {error}")
+
+
+(
+    Http()
+    .retry(3, retry_callback)
+    .get("http://127.0.0.1:7000/")
+)
+```
+
+Explanation:
+* retry(3, callback) → retries up to 3 times if the request fails.
+* The callback function receives two arguments:
+attempt → current attempt number (starting at 1)
+error → the exception or status that caused the failure
+
+3. POST request with JSON body
+
+```python
+from event_scale_http_client import Http
+
+data = {
+    "name": "Bedram",
+    "email": "tmgbedu@gmail.com"
+}
+
+response = Http().post("http://127.0.0.1:7000", data)
+print(response.status_code)
+```
+
+* [x] Sends JSON data by default (Content-Type: application/json).
+
+4. POST request as form data
+
+```python
+from event_scale_http_client import Http
+
+(
+    Http()
+    .asForm()
+    .post("http://127.0.0.1:7000", {
+        "name": "Bedram",
+        "email": "tmgbedu@gmail.com"
+    })
+)
+```
+
+* [x] Sends data as application/x-www-form-urlencoded.
+* [x] Automatically encodes form fields.
+
