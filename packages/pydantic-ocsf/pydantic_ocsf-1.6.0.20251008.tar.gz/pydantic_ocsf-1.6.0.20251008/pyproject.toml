@@ -1,0 +1,46 @@
+[project]
+name = "pydantic-ocsf"
+version = "1.6.0.20251008"
+description = "Pydantic models for OCSF"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "annotated-types>=0.7.0",
+  "dateparser>=1.2.2",
+  "pydantic-extra-types>=2.10.2",
+  "pydantic[email]>=2.10.6,<2.12",
+  "semver>=3.0.4",
+]
+[[project.authors]]
+name = "Steve McMaster"
+email = "steve@mcmaster.io"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+  "mypy>=1.17.1",
+  "pyright>=1.1.404",
+  "ruff>=0.12.11",
+  "types-dateparser>=1.2.2.20250809",
+]
+
+[project.license]
+text = "MIT License"
+
+[project.urls]
+Homepage = "https://github.com/mcm/pydantic-ocsf"
+
+[tool.mypy]
+show_error_codes = true
+
+[tool.pyright]
+reportIncompatibleMethodOverride = false
+reportIncompatibleVariableOverride = false

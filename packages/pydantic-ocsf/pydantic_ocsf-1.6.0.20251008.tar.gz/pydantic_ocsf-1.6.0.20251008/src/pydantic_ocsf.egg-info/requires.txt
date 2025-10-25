@@ -1,0 +1,5 @@
+annotated-types>=0.7.0
+dateparser>=1.2.2
+pydantic-extra-types>=2.10.2
+pydantic[email]<2.12,>=2.10.6
+semver>=3.0.4
