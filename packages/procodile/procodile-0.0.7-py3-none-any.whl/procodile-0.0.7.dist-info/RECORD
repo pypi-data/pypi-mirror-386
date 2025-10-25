@@ -1,0 +1,12 @@
+procodile/__init__.py,sha256=NiOaYZwVEGCRJgZdNodPSZBZ5FcyxNjsJU_GfYjHmeY,622
+procodile/job.py,sha256=zf8YQ8510ZdvxR4Xn1SHfj6ZLYeKjcrYN74KaXZvLUo,11349
+procodile/process.py,sha256=UsOgWizQ_IO4Pwr9GcCk2fJYCeifQQTGvZw48jjX7bA,9923
+procodile/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+procodile/registry.py,sha256=V4Ao0EDonE38vVNjtq4KsHBoD017nxKrzwW_n9Ur3F8,4063
+procodile/reporter.py,sha256=NUI9R40kWWSMkhtAmjOwSJll_ALwq49lhk9GZGBsogc,2300
+procodile/cli/__init__.py,sha256=7oXZefh9gFv4EgzCh6ctn8UUP27Noi0EvMqH3ATrJMg,351
+procodile/cli/cli.py,sha256=XE94EAZsA59a_i_8EHMMFyoga2-kIyaw8HDB6vFXzBU,6328
+procodile-0.0.7.dist-info/METADATA,sha256=hqwSsIYILHYkE1KgWn9-8Tbyv9xlAjYyoHKfkevgyjk,2648
+procodile-0.0.7.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+procodile-0.0.7.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+procodile-0.0.7.dist-info/RECORD,,
