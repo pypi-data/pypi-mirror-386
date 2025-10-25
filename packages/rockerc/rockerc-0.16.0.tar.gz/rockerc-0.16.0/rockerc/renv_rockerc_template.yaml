@@ -1,0 +1,20 @@
+image: ubuntu:24.04
+args:
+#core
+  - pull
+  - persist-image
+  - x11
+  - user
+  - cwd
+  - git
+  - git-clone
+  - ssh
+  - ssh-client
+  - fzf
+# dev tools
+  - auto
+  - deps-devtools
+  # - nvim
+  # - lazygit
+  # - jquery
+  
