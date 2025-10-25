@@ -1,0 +1,3 @@
+[console_scripts]
+lfcdemo-convert-secret = lfcdemolib.db.bin.convert_secret_to_credential:main
+lfcdemo-deploy-credentials = lfcdemolib.db.bin.deploy_credentials_to_workspaces:main

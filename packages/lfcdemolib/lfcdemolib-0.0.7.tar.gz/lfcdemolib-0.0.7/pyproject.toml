@@ -1,0 +1,144 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lfcdemolib"
+version = "0.0.7"  # Managed by bump_version.py - updates VERSION file
+description = "Lakeflow Connect Demo Library"
+readme = "README.md"
+license = {text = "Databricks Labs License"}
+authors = [
+    {name = "Databricks Labs", email = "labs@databricks.com"}
+]
+maintainers = [
+    {name = "Databricks Labs", email = "labs@databricks.com"}
+]
+keywords = [
+    "databricks",
+    "lakeflow",
+    "federation",
+    "cdc",
+    "change-data-capture",
+    "data-engineering",
+    "etl",
+    "database",
+    "replication"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Monitoring",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "sqlalchemy>=1.4.0,<3.0.0",
+    "pandas>=1.3.0",
+    "databricks-sdk>=0.1.0",
+    "apscheduler>=3.9.0,<4.0.0",
+    "pydantic>=1.10.0",  # Supports both v1.10+ and v2.x via compatibility layer
+    "requests>=2.25.0",
+    # Database drivers (all included as core dependencies)
+    "pymysql>=1.0.0",
+    "psycopg2-binary>=2.9.0",
+    "pymssql>=2.2.0",
+    "oracledb>=1.0.0",
+]
+
+[project.optional-dependencies]
+# Development dependencies
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=3.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.900",
+    "isort>=5.10",
+]
+# Documentation dependencies
+docs = [
+    "sphinx>=4.0",
+    "sphinx-rtd-theme>=1.0",
+    "myst-parser>=0.18",
+]
+
+[project.urls]
+Homepage = "https://github.com/databricks-labs/lfcdemolib"
+Documentation = "https://github.com/databricks-labs/lfcdemolib#readme"
+Repository = "https://github.com/databricks-labs/lfcdemolib"
+"Bug Tracker" = "https://github.com/databricks-labs/lfcdemolib/issues"
+
+[project.scripts]
+# Command-line tools
+lfcdemo-deploy-credentials = "lfcdemolib.db.bin.deploy_credentials_to_workspaces:main"
+lfcdemo-convert-secret = "lfcdemolib.db.bin.convert_secret_to_credential:main"
+
+[tool.setuptools]
+packages = ["lfcdemolib"]
+package-dir = {"lfcdemolib" = "db/lfcdemolib"}
+
+[tool.setuptools.package-data]
+lfcdemolib = ["*.py", "py.typed"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+follow_imports = "silent"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers"
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
