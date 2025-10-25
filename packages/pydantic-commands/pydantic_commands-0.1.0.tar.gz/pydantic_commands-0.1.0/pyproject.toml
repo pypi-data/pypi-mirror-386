@@ -1,0 +1,138 @@
+[project]
+name = "pydantic-commands"
+version = "0.1.0"
+description = "A Django-like command system with Pydantic model integration for automatic argparse generation"
+readme = "README.md"
+authors = [
+    { name = "Starscribers", email = "Starscribers@gmail.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "pydantic>=2.0.0",
+    "any-registries>=0.1.0",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "mypy>=0.950",
+    "ruff>=0.13.1",
+    "pre-commit>=3.0.0",
+    "bandit>=1.7.0",
+    "twine>=4.0.0",
+]
+testing = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Starscribers/python-packages"
+Repository = "https://github.com/Starscribers/python-packages.git"
+Issues = "https://github.com/Starscribers/python-packages/issues"
+Documentation = "https://github.com/Starscribers/python-packages/blob/main/pydantic-commands/README.md"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"pydantic_commands" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = "pydantic_commands"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+[tool.mypy]
+python_version = "3.9"
+check_untyped_defs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+strict_equality = true
+disable_error_code = "misc"
+
+[tool.bandit]
+skips = ["B101", "B601"]
+exclude_dirs = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/**" = ["B011"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "pre-commit>=3.5.0",
+    "pytest>=8.3.5",
+    "ruff>=0.13.1",
+]
+
+docs = [
+    "myst-parser>=3.0.1",
+    "sphinx>=7.1.2",
+    "sphinx-conestack-theme>=1.0",
+]

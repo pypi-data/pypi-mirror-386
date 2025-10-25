@@ -1,0 +1,16 @@
+pydantic>=2.0.0
+any-registries>=0.1.0
+
+[dev]
+pytest>=7.0.0
+black>=22.0.0
+isort>=5.10.0
+mypy>=0.950
+ruff>=0.13.1
+pre-commit>=3.0.0
+bandit>=1.7.0
+twine>=4.0.0
+
+[testing]
+pytest>=7.0.0
+pytest-cov>=3.0.0

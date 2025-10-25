@@ -1,0 +1,456 @@
+# Pydantic Commands
+
+A Django-like command system with Pydantic model integration for automatic argparse generation.
+
+## Features
+
+- 🎯 **Django-inspired API**: Familiar command structure similar to Django's management commands
+- 🔒 **Type-Safe**: Leverage Pydantic models for automatic validation and type conversion
+- 🚀 **Auto-generated argparse**: Convert Pydantic models to argparse arguments automatically
+- 🎨 **Flexible**: Support both class-based and function-based (decorator) commands
+- 📦 **Registry System**: Built on `any-registries` for pluggable command architecture
+- ✅ **Rich Type Support**: Handles strings, integers, floats, booleans, enums, lists, Path objects, and more
+
+## Installation
+
+```bash
+pip install pydantic-commands
+```
+
+## Quick Start
+
+### Class-Based Commands
+
+```python
+from pydantic import BaseModel, Field
+from pydantic_commands import BaseCommand
+
+class CreateUserCommand(BaseCommand):
+    """Create a new user in the system."""
+
+    name = "createuser"
+    help = "Create a new user"
+
+    class Arguments(BaseModel):
+        username: str = Field(..., description="Username for the new user")
+        email: str = Field(..., description="Email address")
+        age: int = Field(default=18, description="User age")
+        is_admin: bool = Field(default=False, description="Admin privileges")
+
+    def handle(self, args: Arguments) -> None:
+        print(f"Creating user: {args.username}")
+        print(f"Email: {args.email}")
+        print(f"Age: {args.age}")
+        print(f"Admin: {args.is_admin}")
+
+```
+
+### Function-Based Commands (Decorator)
+
+```python
+from pydantic import BaseModel
+from pydantic_commands import command
+
+class GreetArgs(BaseModel):
+    name: str
+    greeting: str = "Hello"
+    enthusiastic: bool = False
+
+@command(name="greet", help="Greet someone", arguments=GreetArgs)
+def greet_command(args: GreetArgs) -> None:
+    message = f"{args.greeting}, {args.name}!"
+    if args.enthusiastic:
+        message = message.upper() + "!!!"
+    print(message)
+
+# The decorator automatically creates a command class
+# and registers it in the command registry
+```
+
+### CLI Application Entry Point (host_cli)
+
+The simplest way to create a CLI application is using `host_cli()`, similar to Django's `manage.py`:
+
+```python
+# cli.py
+from pydantic import BaseModel, Field
+from pydantic_commands import BaseCommand, command_registry, host_cli
+
+class CreateUserCommand(BaseCommand):
+    name = "createuser"
+    help = "Create a new user"
+
+    class Arguments(BaseModel):
+        username: str = Field(..., description="Username")
+        email: str = Field(..., description="Email address")
+
+    def handle(self, args: Arguments) -> None:
+        print(f"Creating user: {args.username}")
+
+# Register your commands
+command_registry.register(CreateUserCommand())
+
+# This is your entry point - that's it!
+if __name__ == "__main__":
+    host_cli()
+```
+
+Run your CLI:
+
+```bash
+# Show help
+python cli.py --help
+
+# List commands
+python cli.py
+
+# Run a command
+python cli.py createuser --username john --email john@example.com
+
+# Get command help
+python cli.py createuser --help
+```
+
+### Alternative: Manual CommandExecutor
+
+For more control, use `CommandExecutor` directly:
+
+```python
+from pydantic_commands import CommandExecutor, command_registry
+
+# Register your commands
+cmd = CreateUserCommand()
+command_registry.register(cmd)
+
+# Execute from command line
+if __name__ == "__main__":
+    executor = CommandExecutor(prog_name="myapp")
+    exit_code = executor.execute()  # Uses sys.argv
+    sys.exit(exit_code)
+```
+
+Run your CLI:
+
+```bash
+# Show help
+python myapp.py --help
+
+# List commands
+python myapp.py
+
+# Run a command
+python myapp.py createuser --username john --email john@example.com
+
+# Get command help
+python myapp.py createuser --help
+```
+
+## Advanced Usage
+
+### Enum Fields
+
+```python
+from enum import Enum
+from pydantic import BaseModel
+from pydantic_commands import BaseCommand
+
+class Status(str, Enum):
+    ACTIVE = "active"
+    INACTIVE = "inactive"
+    PENDING = "pending"
+
+class UpdateStatusCommand(BaseCommand):
+    name = "updatestatus"
+
+    class Arguments(BaseModel):
+        user_id: int
+        status: Status
+
+    def handle(self, args: Arguments) -> None:
+        print(f"Updating user {args.user_id} to {args.status.value}")
+```
+
+```bash
+python myapp.py updatestatus --user-id 123 --status active
+```
+
+### List Fields
+
+```python
+class TagCommand(BaseCommand):
+    name = "tag"
+
+    class Arguments(BaseModel):
+        tags: list[str]
+        resource_ids: list[int]
+
+    def handle(self, args: Arguments) -> None:
+        print(f"Tagging resources {args.resource_ids} with {args.tags}")
+```
+
+```bash
+python myapp.py tag --tags python cli tool --resource-ids 1 2 3
+```
+
+### Path Fields
+
+```python
+from pathlib import Path
+
+class ConvertCommand(BaseCommand):
+    name = "convert"
+
+    class Arguments(BaseModel):
+        input_file: Path
+        output_file: Path
+        overwrite: bool = False
+
+    def handle(self, args: Arguments) -> None:
+        if args.output_file.exists() and not args.overwrite:
+            raise CommandError("Output file exists, use --overwrite")
+        # Process files...
+```
+
+### Custom Argument Parsing
+
+You can extend the `add_arguments` method to add custom argparse arguments:
+
+```python
+class CustomCommand(BaseCommand):
+    name = "custom"
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--custom-flag",
+            action="store_true",
+            help="A custom flag"
+        )
+
+    def handle(self, args):
+        print(f"Custom flag: {args.custom_flag}")
+```
+
+### Error Handling
+
+```python
+from pydantic_commands import BaseCommand, CommandError
+
+class RiskyCommand(BaseCommand):
+    name = "risky"
+
+    def handle(self, args):
+        if some_condition:
+            raise CommandError("Something went wrong!")
+        # Normal execution...
+```
+
+### Auto-Loading Commands
+
+The command registry automatically discovers and loads command files using a configurable pattern matching system:
+
+```python
+from pydantic_commands import command_registry
+
+# By default, all files matching "*/commands.py" are auto-loaded
+# This means any file named "commands.py" in any directory will be discovered
+```
+
+**Default Pattern**: `*/commands.py`
+
+The registry will automatically find and import all Python files matching this pattern, making any command classes defined in those files available in your CLI application.
+
+**Custom Pattern with Environment Variable**:
+
+You can customize the discovery pattern using the `COMMANDS_PATTERN` environment variable:
+
+```bash
+# Load commands from specific patterns
+export COMMANDS_PATTERN="myapp/management/commands/*.py"
+python cli.py
+
+# Load from multiple app directories
+export COMMANDS_PATTERN="apps/*/commands.py"
+python cli.py
+
+# Load from nested command directories
+export COMMANDS_PATTERN="**/commands/*.py"
+python cli.py
+```
+
+**Example Directory Structure**:
+
+```
+myproject/
+├── cli.py
+├── user_management/
+│   └── commands.py          # Auto-loaded (contains UserCommands)
+├── data_processing/
+│   └── commands.py          # Auto-loaded (contains DataCommands)
+└── reporting/
+    └── commands.py          # Auto-loaded (contains ReportCommands)
+```
+
+**How It Works**:
+
+1. When the command registry is initialized, it scans for files matching the pattern
+2. Each matching file is automatically imported
+3. Any `BaseCommand` subclasses or `@command` decorated functions in those files are registered
+4. Commands become available immediately without manual registration
+
+**Manual Registration** (if you prefer explicit control):
+
+```python
+from pydantic_commands import command_registry
+from myapp.commands import MyCommand
+
+# Disable auto-loading and register manually
+command_registry.register(MyCommand())
+```
+
+This auto-discovery system makes it easy to organize commands across multiple files and modules while keeping your CLI application simple and maintainable.
+
+## Comparison with Django Commands
+
+| Feature | Django Commands | Pydantic Commands |
+|---------|----------------|-------------------|
+| Base Class | `BaseCommand` | `BaseCommand` |
+| Argument Definition | `add_arguments()` | Pydantic model |
+| Type Validation | Manual | Automatic (Pydantic) |
+| Argument Types | argparse types | Python types + Pydantic |
+| Error Handling | `CommandError` | `CommandError` |
+| Registry | Django app system | `any-registries` |
+| Django Required | Yes | No |
+
+## API Reference
+
+### BaseCommand
+
+The base class for all commands.
+
+**Attributes:**
+- `name` (str): Command name (auto-inferred from class name if not set)
+- `help` (str): Short help text
+- `description` (str): Detailed description
+- `Arguments` (Type[BaseModel]): Pydantic model for arguments
+
+**Methods:**
+- `handle(args)`: Main command logic (must be implemented)
+- `add_arguments(parser)`: Hook for adding custom arguments
+- `execute(argv)`: Execute the command with given arguments
+- `create_parser()`: Create an ArgumentParser for this command
+
+### @command Decorator
+
+Create commands from functions.
+
+**Parameters:**
+- `name` (str): Command name
+- `help` (str): Help text
+- `description` (str): Detailed description
+- `arguments` (Type[BaseModel]): Pydantic model for arguments
+- `register` (bool): Auto-register in registry (default: True)
+
+### host_cli()
+
+The main entry point for CLI applications (recommended).
+
+**Function Signature:**
+```python
+def host_cli(
+    argv: Optional[list[str]] = None,
+    prog_name: Optional[str] = None
+) -> None
+```
+
+**Parameters:**
+- `argv` (list[str], optional): Command-line arguments (defaults to `sys.argv`)
+- `prog_name` (str, optional): Program name for help text (defaults to `sys.argv[0]`)
+
+**Usage:**
+```python
+# cli.py
+from pydantic_commands import host_cli
+
+if __name__ == "__main__":
+    host_cli()
+```
+
+**Features:**
+- Automatically discovers and executes registered commands
+- Handles all argument parsing and validation
+- Exits with appropriate exit code
+- Similar to Django's `manage.py` pattern
+
+### CommandExecutor
+
+Execute commands from CLI arguments (for advanced usage).
+
+**Methods:**
+- `execute(argv=None)`: Execute command from arguments
+- `list_commands()`: Get list of registered commands
+
+### command_registry
+
+Global registry for commands (instance of `any_registries.Registry`).
+
+**Methods:**
+- `register(command)`: Register a command
+- `get(name)`: Get command by name
+- `list()`: List all command names
+
+## Development
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/Starscribers/python-packages.git
+cd python-packages/pydantic-commands
+
+# Install dependencies
+pip install -e ".[dev]"
+
+# Install pre-commit hooks
+pre-commit install
+```
+
+### Running Tests
+
+```bash
+pytest tests/
+```
+
+### Code Quality
+
+```bash
+# Format code
+ruff format .
+
+# Lint
+ruff check .
+
+# Type check
+mypy src/
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Contributing
+
+Contributions are welcome! Please see CONTRIBUTING.md for guidelines.
+
+## Links
+
+- **GitHub**: https://github.com/Starscribers/python-packages
+- **Issues**: https://github.com/Starscribers/python-packages/issues
+- **PyPI**: https://pypi.org/project/pydantic-commands/
+
+## Credits
+
+Built with:
+- [Pydantic](https://github.com/pydantic/pydantic) - Data validation using Python type hints
+- [any-registries](https://github.com/Starscribers/python-packages/tree/main/any-registries) - Flexible registry system
+
+Inspired by Django's management command system.
