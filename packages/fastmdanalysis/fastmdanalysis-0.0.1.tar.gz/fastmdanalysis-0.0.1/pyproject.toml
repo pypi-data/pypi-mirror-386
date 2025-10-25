@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fastmdanalysis"
+version = "0.0.1"
+description = "Software for automated MD trajectory analysis"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+{ name = "Adekunle Aina", email = "kunleaina@gmail.com" }
+]
+keywords = ["molecular dynamics", "trajectory analysis"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+# Move runtime dependencies here (sync with requirements.txt)
+dependencies = [
+  "mdtraj>=1.9.7",
+  "numpy>=1.21.0",
+  "matplotlib>=3.5.0",
+  "scikit-learn>=1.0.0",
+  "scipy>=1.10"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0"
+]
+
+test = [
+    "pytest>=7.0"
+]
+
+[project.urls]
+Repository = "https://github.com/aai-research-lab/fastmdanalysis"
+Documentation = "https://fastmdanalysis.readthedocs.io"
+Issues = "https://github.com/aai-research-lab/fastmdanalysis/issues"
+
+[project.scripts]
+fastmda = "fastmdanalysis.cli:main"
+
+# Package top-level directory
+[tool.hatch.build.targets.wheel]
+packages = ["src/fastmdanalysis"]
+
+# Include non-.py assets (datasets, examples, etc.) in wheels & sdists
+[tool.hatch.build]
+include = [
+  "src/fastmdanalysis/**",
+  "README.md",
+  "LICENSE"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
