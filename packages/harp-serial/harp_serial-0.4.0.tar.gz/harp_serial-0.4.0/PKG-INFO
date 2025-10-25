@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: harp-serial
+Version: 0.4.0
+Summary: Library for data acquisition and control of devices implementing the Harp protocol.
+Keywords: python,harp
+Author: Hardware and Software Platform, Champalimaud Foundation
+Author-email: Hardware and Software Platform, Champalimaud Foundation <software@research.fchampalimaud.org>
+License-Expression: MIT
+Requires-Dist: harp-protocol==0.4.0
+Requires-Dist: pyserial>=3.5
+Requires-Python: >=3.10, <4.0
