@@ -1,0 +1,5 @@
+pipecat-ai>=0.0.87
+textual<7,>=6.0.0
+textual-plotext<2,>=1.0.0
+typer<1,>=0.20.0
+websockets<15.0,>=13.1

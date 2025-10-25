@@ -1,0 +1,2 @@
+[pipecat_cli.extensions]
+tail = pipecat_tail.cli:entrypoint_cli_typer
