@@ -1,0 +1,214 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "py-irclib"
+dynamic = ["version"]
+description = "A simple library for working with the IRC protocol"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "linuxdaemon", email = "linuxdaemon.irc@gmail.com" }]
+keywords = ["irc", "irc-parser"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = ["attrs>=20.3.0", "typing_extensions"]
+
+[project.urls]
+Homepage = "https://github.com/TotallyNotRobots/py-irclib"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/.github"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["irclib"]
+
+[tool.hatch.build.hooks.vcs]
+version-file = "irclib/_version.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+    "coverage[toml]==7.11.0",
+    "pytest==8.4.2",
+    "irc-parser-tests==0.0.4",
+    "pre-commit==4.3.0",
+    "mypy==1.18.2",
+    "ruamel.yaml==0.18.16",
+]
+post-install-commands = ["hatch run pre-commit install -f"]
+
+[tool.hatch.envs.default.scripts]
+fix-pre-commit = ["hatch run python3 -m scripts.fix_pre_commit"]
+
+[tool.hatch.envs.hatch-test]
+default-args = ["tests", "irclib"]
+extra-args = ["-vv"]
+extra-dependencies = [
+    "coverage[toml]==7.11.0",
+    "pytest==8.4.2",
+    "irc-parser-tests==0.0.4",
+]
+
+[tool.hatch.envs.hatch-test.scripts]
+run = "pytest{env:HATCH_TEST_ARGS:} {args}"
+run-cov = "coverage run -m pytest{env:HATCH_TEST_ARGS:} {args}"
+cov-combine = "coverage combine"
+cov-report = ["coverage report --show-missing --skip-covered", "coverage xml"]
+[[tool.hatch.envs.hatch-test.matrix]]
+python = ["3.14", "3.13", "3.12", "3.11", "3.10"]
+
+[tool.hatch.envs.types]
+extra-dependencies = ["mypy==1.18.2"]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:irclib tests}"
+
+[tool.isort]
+profile = "black"
+line_length = 80
+include_trailing_comma = true
+use_parentheses = true
+known_first_party = ["irclib"]
+float_to_top = true
+
+[tool.black]
+line-length = 80
+target-version = ["py310"]
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 80
+target-version = 'py310'
+
+[tool.ruff.format]
+docstring-code-format = true
+line-ending = "lf"
+skip-magic-trailing-comma = true
+
+[tool.ruff.lint]
+ignore-init-module-imports = false
+extend-safe-fixes = [
+    "EM101",
+    "UP038",
+    "EM102",
+    "EM103",
+    "FLY002",
+    "TCH001",
+    "TCH002",
+    "TRY400",
+    "SIM117",
+    "SIM108",
+    "ANN201",
+    "D415",
+    "D200",
+]
+ignore = [
+    "TRY003", # TODO(aspen): Switch to custom exceptions
+    "ANN101", # Due to be deprecated in ruff
+    "ANN102", # Due to be deprecated in ruff
+    "COM812", # Conflicts with formatter
+    "ISC001", # Conflicts with formatter
+    "EXE002", # pre-commit does it better, works with SMB shares
+]
+select = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = [
+    "PLR2004", # Allow "magic values" in tests -aspen
+    "S101",    # Allow asserts in tests
+    "SIM201",  # We need to test weird comparison operators
+    "SIM202",  # We need to test weird comparison operstors
+    "SIM300",  # We need to test both forward and reverse comparisons
+    "FBT001",  # Boolean parameters are fine for test cases
+]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 100
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.flynt]
+aggressive = true
+transform-joins = true
+transform-concats = true
+line-length = 120
+
+[tool.mypy]
+namespace_packages = true
+python_version = "3.10"
+warn_unused_configs = true
+strict = true
+strict_bytes = false
+strict_optional = true
+check_untyped_defs = true
+show_error_codes = true
+warn_unused_ignores = true
+no_implicit_reexport = true
+warn_redundant_casts = true
+strict_equality = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_untyped_decorators = true
+extra_checks = true
+warn_unreachable = true
+warn_return_any = true
+warn_no_return = true
+enable_error_code = [
+    "redundant-self",
+    "redundant-expr",
+    "possibly-undefined",
+    "truthy-bool",
+    "truthy-iterable",
+    "ignore-without-code",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--doctest-modules"
+testpaths = ["irclib", "tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver2"
+version_provider = "scm"
+update_changelog_on_bump = true
+major_version_zero = true
+annotated_tag = true
+
+[tool.nitpick]
+style = ["gh://TotallyNotRobots/nitpick/lib-style-3.10.toml"]
+
+[tool.check-spdx-header]
+headers = ["2017-present linuxdaemon <linuxdaemon.irc@gmail.com>"]
