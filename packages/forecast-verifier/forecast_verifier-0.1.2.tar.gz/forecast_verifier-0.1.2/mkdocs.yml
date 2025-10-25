@@ -1,0 +1,32 @@
+site_name: forecast-verifier
+repo_url: https://github.com/maichi-bui/forecast-verifier
+repo_name: forecast-verifier
+nav:
+  - Home: index.md
+  - Quickstart: usage.md
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - navigation.indexes
+    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+extra:
+  homepage: https://maichi-bui.github.io/forecast-verifier
+  social:
+    - icon: fontawesome/brands/github
+      link: https://maichi-bui.github.io/forecast-verifier
+  tags:
+    Quickstart: example
