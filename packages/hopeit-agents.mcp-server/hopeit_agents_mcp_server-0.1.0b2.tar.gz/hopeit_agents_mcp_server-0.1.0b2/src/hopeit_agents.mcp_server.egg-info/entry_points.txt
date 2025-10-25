@@ -1,0 +1,2 @@
+[console_scripts]
+hopeit_mcp_server = hopeit_agents.mcp_server.cli.server:server
