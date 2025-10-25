@@ -1,0 +1,17 @@
+svy_io-0.0.3a0.dist-info/METADATA,sha256=dqi9XlK40Sh8k2LgR2CAShZEtFB6_VAnw579vBcFal0,3491
+svy_io-0.0.3a0.dist-info/WHEEL,sha256=QC3zdlgimDC1GtRrc0qfjqbzuc7G6nDvPrjaINbNOTw,95
+svy_io-0.0.3a0.dist-info/licenses/LICENSE.md,sha256=MZ8KD_LVaWPyC1StagZD278Bh2PuSskR_sBx0TWsLXU,1098
+svy_io/__init__.py,sha256=216fcUMQNzPO2aLCK99alnGXb5aa3pA_-qMjoq9OQvI,1599
+svy_io/factor.py,sha256=O4F6qiYHUBqyjMmYUN-YjNXxM4YCGzSV_oXbsGom2L4,2461
+svy_io/helpers.py,sha256=ixP74I2muM8Kt8xT1Z5w2J1zv_bagpSfm2pQBlQeiBk,2020
+svy_io/labelled.py,sha256=NzRmnfcQENatS26JnaPfk-NJ2LgypN4w8a2FB66wRFg,22001
+svy_io/metadata.py,sha256=rZo_Sw6dSq8J6A7EZUSupqnPqynhNG7QjKrFxXMif5M,650
+svy_io/sas.py,sha256=cvL6jAjf691iKEHA57I4YqvfLJPhTE0ebc6mjlo8BMQ,27391
+svy_io/spss.py,sha256=qmYaHXFbOt-j_VqJgx3Bj82cldcricAT-kpk8YMVsbk,15858
+svy_io/stata.py,sha256=ZpIr-zn_-GxnXTNmwWx7MLRaj00HWPML537mdS1wjJI,17439
+svy_io/svyreadstat_rs.pyd,sha256=fQrjVtkc2yOTztiJD1mqAWgKD7gbFsMwj1l4Ff5CegM,1854464
+svy_io/tagged_na.py,sha256=ipiln_O_PGqVs9UqIt9LIPxsJ4UfP-bORUdBWIS0jCM,2806
+svy_io/temporals.py,sha256=Nu2VVo12yfjEt85_FabjkCehZp6pn_UVDbqW-smO318,9399
+svy_io/utils.py,sha256=L3u1-EDKTbBjMn_4dSRcA-TkLtPOloTXhNt3dFYv49Y,3245
+svy_io/zap.py,sha256=Q_MfcjzPpsS4NCpkkkg7RozJkzQyPEBmwMr4cd4vdv4,15971
+svy_io-0.0.3a0.dist-info/RECORD,,
