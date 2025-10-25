@@ -1,0 +1,5 @@
+pytest
+ruff
+nbval
+black[jupyter]
+dms_variants
