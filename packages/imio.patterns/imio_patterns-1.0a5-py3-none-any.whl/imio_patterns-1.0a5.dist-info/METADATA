@@ -1,0 +1,164 @@
+Metadata-Version: 2.4
+Name: imio.patterns
+Version: 1.0a5
+Summary: An add-on for Plone
+Home-page: https://pypi.python.org/pypi/imio.patterns
+Author: aurore
+Author-email: aurore@affinitic.be
+License: GPL version 2
+Keywords: Python Plone
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: Addon
+Classifier: Framework :: Plone :: 5.0
+Classifier: Framework :: Plone :: 5.1
+Classifier: Framework :: Plone :: 5.2
+Classifier: Framework :: Plone :: 6.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+License-File: LICENSE.GPL
+License-File: LICENSE.rst
+Requires-Dist: setuptools
+Requires-Dist: z3c.jbot
+Requires-Dist: plone.api>=1.8.4
+Requires-Dist: plone.restapi
+Requires-Dist: plone.app.dexterity
+Provides-Extra: test
+Requires-Dist: plone.app.testing; extra == "test"
+Requires-Dist: plone.testing>=5.0.0; extra == "test"
+Requires-Dist: plone.app.contenttypes; extra == "test"
+Requires-Dist: plone.app.robotframework[debug]; extra == "test"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
+
+.. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
+   If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+   This text does not appear on pypi or github. It is a comment.
+
+=============
+imio.patterns
+=============
+
+Tell me what your product does
+
+Features
+--------
+
+- Can be bullet points
+
+
+Examples
+--------
+
+This add-on can be seen in action at the following sites:
+- Is there a page on the internet where everybody can see the features?
+
+
+Documentation
+-------------
+
+Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+
+
+Translations
+------------
+
+This product has been translated into
+
+- Klingon (thanks, K'Plai)
+
+
+Installation
+------------
+
+Install imio.patterns by adding it to your buildout::
+
+    [buildout]
+
+    ...
+
+    eggs =
+        imio.patterns
+
+
+and then running ``bin/buildout``
+
+
+Contribute
+----------
+
+- Issue Tracker: https://github.com/collective/imio.patterns/issues
+- Source Code: https://github.com/collective/imio.patterns
+- Documentation: https://docs.plone.org/foo/bar
+
+
+Support
+-------
+
+If you are having issues, please let us know.
+We have a mailing list located at: project@example.com
+
+
+License
+-------
+
+The project is licensed under the GPLv2.
+
+
+Contributors
+============
+
+- aurore, aurore@affinitic.be
+
+
+Changelog
+=========
+
+
+1.0a5 (2025-10-24)
+------------------
+
+- Plone6.1 : add compatibility. Remove useless old Plone compatibility
+  [boulch]
+
+
+1.0a4 (2023-07-04)
+------------------
+
+- Fix bad python requirement
+  [thomlamb]
+
+
+1.0a3 (2020-02-10)
+------------------
+
+- Add attr to make slick slider custom reponsive.
+  [thomlamb]
+
+
+1.0a2 (2020-02-06)
+------------------
+
+- Add attr for slick.
+  [tlamb]
+
+
+1.0a1 (2020-01-29)
+------------------
+
+- Initial release.
+  []
