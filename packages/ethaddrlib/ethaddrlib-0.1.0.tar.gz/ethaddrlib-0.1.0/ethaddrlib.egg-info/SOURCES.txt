@@ -1,0 +1,9 @@
+pyproject.toml
+ethaddrlib/__init__.py
+ethaddrlib/core.py
+ethaddrlib.egg-info/PKG-INFO
+ethaddrlib.egg-info/SOURCES.txt
+ethaddrlib.egg-info/dependency_links.txt
+ethaddrlib.egg-info/requires.txt
+ethaddrlib.egg-info/top_level.txt
+tests/test_core.py
