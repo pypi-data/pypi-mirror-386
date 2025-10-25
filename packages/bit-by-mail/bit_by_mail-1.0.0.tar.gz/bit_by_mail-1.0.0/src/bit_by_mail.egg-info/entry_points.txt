@@ -1,0 +1,2 @@
+[console_scripts]
+bit-by-mail = bit_by_mail.cli:main
