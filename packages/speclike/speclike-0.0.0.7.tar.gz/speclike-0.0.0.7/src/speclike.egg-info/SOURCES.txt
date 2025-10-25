@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/speclike/__init__.py
+src/speclike.egg-info/PKG-INFO
+src/speclike.egg-info/SOURCES.txt
+src/speclike.egg-info/dependency_links.txt
+src/speclike.egg-info/requires.txt
+src/speclike.egg-info/top_level.txt
+src/speclike/mod/__init__.py
+src/speclike/mod/dispatch.py
+src/speclike/mod/mark.py
