@@ -1,0 +1,15 @@
+pdf_to_xls/__init__.py,sha256=7FHZ-HgGQyVoPUpHx1tzKeXq-0xKEwhZ2qOKzeHG04o,1085
+pdf_to_xls/config.py,sha256=zsyenv2mic4ta5Lp8FtRchgz4Oe4CSmRNudAcT-wVWc,940
+pdf_to_xls/converter.py,sha256=F-u8v4LBFKGJuxQd0ldAM8KqzEyKLcIUbYx7R7mVMlE,6475
+pdf_to_xls/data_cleaning.py,sha256=WnlCXTjgfJAUM55t-MIw8KJfSfEvCoKkZcC0phAqydI,6722
+pdf_to_xls/excel_writer.py,sha256=nm43ZQv_0rslcnADBMMDCmnyAzRQZ4ZdotIs5Ci2DRc,10261
+pdf_to_xls/image_processing.py,sha256=2H8dw0cd6Mti_1Enjzbr8YpXeYZ-UQmZWGOi0qtwDqI,3304
+pdf_to_xls/pdf_detection.py,sha256=arXO1RjcoZSA0yQ7OV6m6UPBUr7g7wMqM9Q55hRla4Y,1317
+pdf_to_xls/quality_check.py,sha256=Ib3JECIX9eBfJ1IR9KwjaB-df778rltwLhKhhkuF9fU,5334
+pdf_to_xls/table_extraction.py,sha256=b48dPi7bCTVorLlPMseOeDF9w1jrp9nD3PtYcuUNnR4,11932
+pdf_to_xls_vision-1.0.0.dist-info/licenses/LICENSE,sha256=ZT6mvbMcs0Tb01fimAJgO62Wje6MVSCxywgv_amwB-0,1091
+pdf_to_xls_vision-1.0.0.dist-info/METADATA,sha256=PMEvZ6XjTpbKQ4hqLMbbQ4ryoZYatA4KV3sTPLR5p98,11753
+pdf_to_xls_vision-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pdf_to_xls_vision-1.0.0.dist-info/entry_points.txt,sha256=TT1vtDgpfPTPKEup33RTjk5iOfHzYy4hoyZpNUqzSLg,51
+pdf_to_xls_vision-1.0.0.dist-info/top_level.txt,sha256=U_leI7inCrLwa_HZ-pdnEETTSRqTvEqnZkYv4wCmikU,11
+pdf_to_xls_vision-1.0.0.dist-info/RECORD,,
