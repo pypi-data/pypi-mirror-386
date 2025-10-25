@@ -1,0 +1,6 @@
+readabilipy==0.3.0
+markdownify==1.2.0
+PyYAML==6.0.2
+requests==2.32.5
+mdformat==0.7.22
+click<8.2,>=8.1.0
