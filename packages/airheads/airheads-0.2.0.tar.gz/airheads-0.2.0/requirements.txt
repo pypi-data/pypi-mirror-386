@@ -1,0 +1,5 @@
+# Air framework (required dependency)
+air
+
+# Web server for production
+uvicorn[standard]
