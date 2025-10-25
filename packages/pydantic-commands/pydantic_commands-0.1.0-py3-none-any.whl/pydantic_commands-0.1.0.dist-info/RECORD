@@ -1,0 +1,13 @@
+pydantic_commands/__init__.py,sha256=gArI3k6XkPdCbW97UiKXdZPWrbGWBqKc6CVvnqiki7M,655
+pydantic_commands/base.py,sha256=75yJceERIfxEP-iK-9SzKQaBypswgAAUNA79OIYnsVE,12659
+pydantic_commands/decorators.py,sha256=Lpk9ga7YpRQT7-iQ6VTIv92wzv4n9Q5bXOelb2SOzu8,3002
+pydantic_commands/exceptions.py,sha256=54W4i6aMiAsXiCtGVcBofsj2P3A4N3Ht8lPK-KExjxE,566
+pydantic_commands/executor.py,sha256=woThUfH7ZJO84VmrDjfHchM7IrOliYHK2aA6bHneRSI,5199
+pydantic_commands/parser.py,sha256=fVsWvbI19rmndeXpp4xnZQBAvBHu6nowE0DFzkHBHTw,6438
+pydantic_commands/py.typed,sha256=Ak9NmZnYRB-taj_O3ETyJg4nEJvBWlbwcbFNcBIcQAM,29
+pydantic_commands/registry.py,sha256=E3lCUcvKoeNl9VYOziQC4A3wiM2kyxsQN5m0lAHSdYE,602
+pydantic_commands-0.1.0.dist-info/licenses/LICENSE,sha256=sEupB1JS1khwE8v0ydJRnR2MD5Yw3AiofDo0c4C-rWc,1069
+pydantic_commands-0.1.0.dist-info/METADATA,sha256=XqU9u0wrpDyf_cB1zOMFzwZ1zmCCkfbkrMXYdIjar4U,13362
+pydantic_commands-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pydantic_commands-0.1.0.dist-info/top_level.txt,sha256=yrHlZat-45hWD3k1Fj5YW2lRFwBaRjPDHnuJxItwIp0,18
+pydantic_commands-0.1.0.dist-info/RECORD,,
