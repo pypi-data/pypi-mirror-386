@@ -1,0 +1,611 @@
+---
+tags: [gradio-custom-component, Slider]
+title: gradio_xyslider
+short_description: an 2d slider for 4-way text prompt interpolation
+colorFrom: blue
+colorTo: yellow
+sdk: gradio
+pinned: false
+app_file: space.py
+---
+
+# `gradio_xyslider`
+<a href="https://pypi.org/project/gradio_xyslider/" target="_blank"><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gradio_xyslider"></a>  
+
+Python library for easily interacting with trained machine learning models
+
+## Installation
+
+```bash
+pip install gradio_xyslider
+```
+
+## Usage
+
+```python
+
+import os
+import sys
+import gradio as gr
+
+
+from gradio_xyslider import XYSlider
+
+
+def passthrough(payload):
+    # Just echo the xy + bilinear dict
+    return payload
+
+
+def set_corner_labels(ul: str, ur: str, lr: str, ll: str, current_value):
+    """Return a merged dict so the XY pad updates labels without losing position.
+
+    current_value is the XY pad's current value (dict with x, y, bilinear, labels, colors).
+    """
+    value = {}
+    if isinstance(current_value, dict):
+        # Preserve existing fields (x, y, bilinear, colors, etc.)
+        value.update(current_value)
+    value["upper_left_label"] = ul
+    value["upper_right_label"] = ur
+    value["lower_right_label"] = lr
+    value["lower_left_label"] = ll
+    return value
+
+
+with gr.Blocks() as demo:
+    gr.Markdown("## XY Pad Demo")
+    with gr.Row():
+        audio = gr.Audio(label="Audio", sources=["upload", "microphone"], type="filepath")
+    with gr.Row():
+        lane = XYSlider(
+            label="XY Pad",
+            x_min=0.0,
+            x_max=1.0,
+            y_min=0.0,
+            y_max=1.0,
+            upper_left_label="Upper Left",
+            upper_right_label="Upper Right",
+            lower_right_label="Lower Right",
+            lower_left_label="Lower Left",
+            color_upper_left="rgba(239, 68, 68, 0.9)",  # red
+            color_upper_right="rgba(59, 130, 246, 0.9)",  # blue
+            color_lower_right="rgba(16, 185, 129, 0.9)",  # emerald
+            color_lower_left="rgba(234, 179, 8, 0.9)",  # yellow
+        )
+
+    with gr.Row():
+        with gr.Column():
+            ul = gr.Textbox(label="Upper Left Label", value="Upper Left")
+            ll = gr.Textbox(label="Lower Left Label", value="Lower Left")
+        with gr.Column():
+            ur = gr.Textbox(label="Upper Right Label", value="Upper Right")
+            lr = gr.Textbox(label="Lower Right Label", value="Lower Right")
+
+    # Update XY labels when any textbox changes
+    for tb in [ul, ur, lr, ll]:
+        tb.change(fn=set_corner_labels, inputs=[ul, ur, lr, ll, lane], outputs=lane)
+
+    # Echo xy + bilinear on release
+    out = gr.JSON(label="Current XY + Bilinear")
+    lane.release(fn=passthrough, inputs=lane, outputs=out)
+
+
+if __name__ == "__main__":
+    demo.launch(share=True)
+
+```
+
+## `XYSlider`
+
+### Initialization
+
+<table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left" style="width: 25%;">type</th>
+<th align="left">default</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>value</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+list[list[float]] | dict[str, Any] | Callable | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">Initial points list ([[x, y], ...]) or an object {"points": [[x,y],...], "audio_url": str}.</td>
+</tr>
+
+<tr>
+<td align="left"><code>x_min</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+float
+```
+
+</td>
+<td align="left"><code>0.0</code></td>
+<td align="left">Minimum x value of the canvas domain.</td>
+</tr>
+
+<tr>
+<td align="left"><code>x_max</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+float
+```
+
+</td>
+<td align="left"><code>1.0</code></td>
+<td align="left">Maximum x value of the canvas domain.</td>
+</tr>
+
+<tr>
+<td align="left"><code>y_min</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+float
+```
+
+</td>
+<td align="left"><code>0.0</code></td>
+<td align="left">Minimum y value of the canvas range.</td>
+</tr>
+
+<tr>
+<td align="left"><code>y_max</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+float
+```
+
+</td>
+<td align="left"><code>1.0</code></td>
+<td align="left">Maximum y value of the canvas range.</td>
+</tr>
+
+<tr>
+<td align="left"><code>precision</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+int | None
+```
+
+</td>
+<td align="left"><code>3</code></td>
+<td align="left">Number of decimal places to round values to when serializing.</td>
+</tr>
+
+<tr>
+<td align="left"><code>audio_url</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">Optional URL or path to an audio file to render waveform background.</td>
+</tr>
+
+<tr>
+<td align="left"><code>shade_enabled</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+bool
+```
+
+</td>
+<td align="left"><code>True</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>shade_above_color</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>"rgba(250, 204, 21, 0.25)"</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>shade_below_color</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>"rgba(34, 197, 94, 0.25)"</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>top_label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>bottom_label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>upper_left_label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>upper_right_label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>lower_right_label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>lower_left_label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>color_upper_left</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>"rgba(239, 68, 68, 0.9)"</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>color_upper_right</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>"rgba(59, 130, 246, 0.9)"</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>color_lower_right</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>"rgba(16, 185, 129, 0.9)"</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>color_lower_left</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>"rgba(234, 179, 8, 0.9)"</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | I18nData | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>info</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | I18nData | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>every</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+Timer | float | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>inputs</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+Component | Sequence[Component] | set[Component] | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>show_label</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+bool | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>container</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+bool
+```
+
+</td>
+<td align="left"><code>True</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>scale</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+int | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>min_width</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+int
+```
+
+</td>
+<td align="left"><code>160</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>interactive</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+bool | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>visible</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+bool | Literal["hidden"]
+```
+
+</td>
+<td align="left"><code>True</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>elem_id</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>elem_classes</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+list[str] | str | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>render</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+bool
+```
+
+</td>
+<td align="left"><code>True</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>key</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+int | str | tuple[int | str, ...] | None
+```
+
+</td>
+<td align="left"><code>None</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>preserved_by_key</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+list[str] | str | None
+```
+
+</td>
+<td align="left"><code>"value"</code></td>
+<td align="left">None</td>
+</tr>
+
+<tr>
+<td align="left"><code>show_reset_button</code></td>
+<td align="left" style="width: 25%;">
+
+```python
+bool
+```
+
+</td>
+<td align="left"><code>True</code></td>
+<td align="left">Standard component options.</td>
+</tr>
+</tbody></table>
+
+
+### Events
+
+| name | description |
+|:-----|:------------|
+| `change` | Triggered when the value of the XYSlider changes either because of user input (e.g. a user types in a textbox) OR because of a function update (e.g. an image receives a value from the output of an event trigger). See `.input()` for a listener that is only triggered by user input. |
+| `input` | This listener is triggered when the user changes the value of the XYSlider. |
+| `release` | This listener is triggered when the user releases the mouse on this XYSlider. |
+
+
+
+### User function
+
+The impact on the users predict function varies depending on whether the component is used as an input or output for an event (or both).
+
+- When used as an Input, the component only impacts the input signature of the user function.
+- When used as an output, the component only impacts the return signature of the user function.
+
+The code snippet below is accurate in cases where the component is used as both an input and an output.
+
+- **As output:** Is passed, dict with rounded {x, y, bilinear} to pass to the user's function.
+
+
+ ```python
+ def predict(
+     value: dict[str, typing.Any]
+ ) -> typing.Any:
+     return value
+ ```
+ 
