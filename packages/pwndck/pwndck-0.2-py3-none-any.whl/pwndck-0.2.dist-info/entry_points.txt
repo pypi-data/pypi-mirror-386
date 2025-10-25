@@ -1,0 +1,3 @@
+[console_scripts]
+pwndck=pwndck.pwndck:main
+
