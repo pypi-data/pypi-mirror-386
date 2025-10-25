@@ -1,0 +1,19 @@
+name: {{ agent_name }}
+role: {{ role }}
+goal: {{ goal }}
+{% if backstory -%}
+backstory: {{ backstory }}
+{% endif -%}
+llm:
+  provider: {{ llm_provider }}
+  model: {{ llm_model }}
+  api_key: ${{"{"}}{{ llm_api_key_var }}{{"}"}}
+  temperature: {{ temperature }}
+  max_tokens: {{ max_tokens }}
+tools:
+{%- for tool in tools %}
+  - {{ tool }}
+{%- endfor %}
+max_iterations: {{ max_iterations }}
+allow_delegation: {{ allow_delegation }}
+verbose: {{ verbose }}

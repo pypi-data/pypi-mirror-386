@@ -1,0 +1,18 @@
+try:
+    from evenage.core.controller_base import ControllerBase
+except ImportError:  # pragma: no cover
+    from evenage.core.controller import Controller as ControllerBase
+from .message_bus import MessageBus
+from .database import DatabaseService
+
+
+class Controller(ControllerBase):
+    """Project-specific controller.
+    
+    Extends ControllerBase with project-specific message bus and database connections.
+    """
+
+    def __init__(self, config):
+        super().__init__(config)
+        self.bus = MessageBus(config.redis_url)
+        self.db = DatabaseService(config.database_url)

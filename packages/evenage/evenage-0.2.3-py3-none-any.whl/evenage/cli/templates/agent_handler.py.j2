@@ -1,0 +1,69 @@
+"""
+{{ agent_name | pascal_case }} agent handler.
+
+{{ description }}
+"""
+
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Any
+
+from core.agent_runtime import Agent
+
+
+@dataclass
+class AgentConfig:
+    """Agent configuration."""
+    
+    name: str
+    redis_url: str
+    database_url: str
+
+
+def load_tools() -> dict[str, Any]:
+    """Load agent tools.
+    
+    Returns:
+        dict: Tool name -> tool function mapping
+    """
+    tools = {}
+    
+    # Import tools
+    {%- for tool in tools %}
+    from .tools import {{ tool }} as {{ tool }}_module
+    tools["{{ tool }}"] = {{ tool }}_module.run
+    {%- endfor %}
+    
+    return tools
+
+
+class {{ agent_name | pascal_case }}Agent(Agent):
+    """{{ description }}"""
+
+    def __init__(self, config: AgentConfig):
+        tools = load_tools()
+        super().__init__(config, tools=tools)
+
+    def handle(self, task: dict):
+        """Handle a task.
+        
+        Args:
+            task: Task dictionary with job_id and payload
+            
+        Returns:
+            dict: Task result
+        """
+        job_id = str(task.get("job_id", "unknown"))
+        payload = task.get("payload", {})
+        
+        # TODO: Implement agent logic
+        # Example:
+        # query = payload.get("query", "")
+        # result = self.run_tool("tool_name", {"param": query})
+        # summary = self.llm.chat(f"Summarize: {result}") if getattr(self, 'llm', None) else result
+        # self.db.save_result(job_id, {"result": summary})
+        
+        result = {"status": "completed", "data": payload}
+        self.db.save_result(job_id, result)
+        
+        return result
