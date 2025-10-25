@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: polyase
+Version: 0.1.8
+Summary: A package for analyzing allele-specific expression in polyploid organisms
+Author-email: nadjano <nadja.franziska.nolte@nib.si>
+License: MIT
+Project-URL: Homepage, https://polyase.readthedocs.io/en/latest/
+Project-URL: Issues, https://github.com/nadjano/polyase/issues
+Requires-Python: <3.13,>=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: anndata
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: RNApysoforms
+Requires-Dist: isotools
+Dynamic: license-file
+
+
+![potatoesaregreat](polyase_diagramm.png)
+# Polyase
+
+A Python package for analyzing allele-specific expression in polyploid organisms.
+
+## Installation
+
+You can install polyase using pip:
+pip install polyase==0.1.8
+
+
+
+
+
+Pyranges must be installed manually for reading GTF files.
+
+
