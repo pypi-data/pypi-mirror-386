@@ -1,0 +1,437 @@
+## 🧠 pqbit
+
+![Banner pqbit v1.3.1](assets/banner.png)
+![PyPI](https://img.shields.io/pypi/v/pqbit)
+![License](https://img.shields.io/github/license/kitohamachi/pqbit)
+![Build](https://img.shields.io/github/actions/workflow/status/kitohamachi/pqbit/python-app.yml)
+![Coverage](https://img.shields.io/codecov/c/github/kitohamachi/pqbit)
+
+**pqbit** library with post-quantum mesh VPN using WireGuard, PQClean, Pyshark, Scapy, Logging4, digital wallet with (Dilithium5 and SHA3-512) and integrated CLI — developed for Bit512.
+
+---
+
+## 📦 Objective
+
+To help build the blockchain of the next millennium. To offer a lightweight, auditable, and ready-to-use library, integrating post-quantum security and anonymity technologies such as Obfs4, WireGuard, and PySocks, with decentralized networks like Bit512. You can also experiment with and use **pqbit** in your projects to increase the level of security. This is an open-source project. It's free.
+
+---
+
+## 🤝 Contributing
+
+All contributions are welcome! Fork the repository, open issues, and submit pull requests to help develop Bit512.
+For major changes, please open an issue to discuss your idea and what you would like to change to improve the library.
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details. 
+
+---
+
+## 🙏 Gratitude
+
+Inspired by [PQClean](https://github.com/PQClean/PQClean) and dedicated to the community that values ​​security and open source.
+I dedicate this **pqbit** project to the entire Python community and those who believe in digital freedom.
+
+---
+
+**Version 1.3.1**  
+Falcon-1024 powered wallet generator, signer and verifier — built for post-quantum cryptography.
+**Author**: Kito Hamachi — Bit512 Labs  
+**License**: MIT  
+**Repository**: [github.com/kitohamachi/pqbit](https://github.com/kitohamachi/pqbit)  
+**PyPI**: [pypi.org/project/pqbit](https://pypi.org/project/pqbit)
+
+---
+
+## 📦 Installation
+
+Install via PyPI:
+
+```bash
+pip install pqbit
+```
+
+## Or clone the repository:
+
+```bash
+git clone https://github.com/kitohamachi/pqbit.git
+cd pqbit
+pip install -r requirements.txt
+```
+
+---
+
+## 🧪 Usage Examples
+
+### ⚠️ Falcon Patent Notice and 📄 License
+
+MIT License.
+This project uses the Falcon-1024 cryptosystem.
+Falcon cryptosystem may be subject to additional patent restrictions.  
+According to [NIST IP statements](https://csrc.nist.gov/csrc/media/Projects/post-quantum-cryptography/documents/selected-algos-2022/final-ip-statements/Falcon-Statements-final.pdf#page=20), Falcon may be covered by patent **US7308097B2**.  
+Use at your own risk. This is not legal advice.
+
+### 🔐 Falcon Signature
+
+```python
+from pqbit import falcon_keypair, falcon_sign, falcon_verify
+
+pk, sk = falcon_keypair()
+message = b"Bit512 integrity test"
+signature = falcon_sign(message, sk)
+
+if falcon_verify(message, signature, pk):
+    print("Signature verified ✅")
+```
+
+### 🔑 Wallet Generation
+
+```python
+from pqbit import generate_wallet, verify_wallet
+from pqbit.wallet import generate
+
+wallet = generate()
+print(wallet)
+
+wallet = generate_wallet()
+print("Fingerprint:", wallet["public_key"])
+print("Verified:", verify_wallet(wallet))
+```
+
+Explore more examples in the project documentation.
+
+---
+
+## 🛠️ CLI Usage
+
+```bash
+pqbit generate            # Generate a new wallet
+pqbit verify wallet.json  # Verify wallet integrity
+pqbit sign message.txt    # Sign a message using wallet.json
+pqbit inspect wallet.json # Show wallet details
+pqbit export --format pem # Export keys in PEM format
+pqbit batch-sign *.txt    # Sign multiple files
+pqbit qr wallet.json      # Generate QR code from wallet
+pqbit yaml wallet.json    # Convert wallet to YAML
+```
+
+---
+
+## 📦 Python API
+
+```python
+from pqbit.wallet import generate, verify_wallet, sign_message, verify_signature
+
+wallet = generate()
+assert verify_wallet(wallet)
+
+msg = b"hello world"
+sig = sign_message(msg, bytes.fromhex(wallet["private_key"]))
+assert verify_signature(msg, sig, bytes.fromhex(wallet["raw_public_key"]))
+```
+
+---
+
+## ✅ Running Tests
+
+```bash
+pytest tests/
+```
+
+---
+
+## 📊 Running Benchmarks
+
+```bash
+python benchmarks/benchmark_wallet.py
+```
+
+---
+
+## 🧪 Test Coverage
+
+- ✅ Wallet generation
+- ✅ Signature verification
+- ✅ Message signing
+- ✅ Batch signing
+- ✅ QR code export
+- ✅ YAML/JSON export
+- ✅ PEM export
+
+---
+
+## 📦 Output Example
+
+```json
+{
+  "public_key": "f3a1...9c",
+  "raw_public_key": "04ab...ff",
+  "digest": "e9d1...2a",
+  "signature": "30b2...cd",
+  "private_key": "9f8e...01"
+}
+```
+
+---
+
+```markdown
+<p align="center">
+  <img src="assets/banner.png" alt="pqbit — Post-Quantum Wallet" width="600"/>
+</p>
+
+<h1 align="center">pqbit</h1>
+
+<p align="center">
+  <strong>Post-Quantum Offline Wallet</strong><br>
+  <em>Dilithium5 Signatures · SHA3-512 Integrity · Built for Bit512</em>
+</p>
+
+<p align="center">
+  <a href="https://pypi.org/project/pqbit/"><img src="https://img.shields.io/pypi/v/pqbit?color=blue&label=PyPI" alt="PyPI Version"></a>
+  <a href="https://github.com/kitohamachi/pqbit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/kitohamachi/pqbit?color=green" alt="License"></a>
+  <a href="https://github.com/kitohamachi/pqbit/issues"><img src="https://img.shields.io/github/issues/kitohamachi/pqbit?color=orange" alt="Issues"></a>
+  <a href="https://github.com/kitohamachi/pqbit/stargazers"><img src="https://img.shields.io/github/stars/kitohamachi/pqbit?color=yellow" alt="Stars"></a>
+</p>
+
+---
+
+## 📚 Table of Contents
+
+- [🚀 Features](#-features)
+- [📦 Installation](#-installation)
+- [🧪 Usage](#-usage)
+- [🔐 Security](#-security)
+- [🧭 Roadmap](#-roadmap)
+- [📄 License](#-license)
+- [🤝 Contributing](#-contributing)
+- [🌐 Related Projects](#-related-projects)
+
+---
+
+## 🚀 Features
+
+- 🔐 Offline wallet generation using post-quantum cryptography
+
+- 🧬 Dilithium5 digital signatures for quantum-safe authentication
+
+- 🔒 SHA3-512 hashing for data integrity
+
+- 🌐 Mesh VPN integration with WireGuard
+
+- 🧠 Compatible with [PQClean](https://github.com/pqclean/pqclean), [Pyshark](https://github.com/KimiNewt/pyshark), [Scapy](https://github.com/secdev/scapy), and Logging4
+
+- 🦊 Designed for [Bit512](https://github.com/kitohamachi/bit512) — the currency of the next millennium
+
+---
+
+## 🔍 Features
+
+- 🔐 **Post-Quantum Cryptography**: Kyber1024, Dilithium5, Falcon1024 via PQClean
+
+- 🕸️ **Mesh VPN**: WireGuard tunnels with automatic peer discovery and config
+
+- 🛰️ **Encrypted Broadcast**: Kyber-encrypted discovery messages
+
+- 🧬 **Adaptive Routing**: Based on entropy and latency
+
+- 🧭 **Distributed Authentication**: Falcon-signed peer validation
+
+- 🕵️ **Traffic Cloaking**: Obfs4 + PySocks integration
+
+- 📊 **Live Monitoring**: Real-time entropy, latency, and event logs via PyShark
+
+- 🔑 **Offline Wallets**: SHA3-512 + Dilithium5 for post-quantum identity generation
+
+---
+
+## 🧩 Key Components
+
+- 🔐 **Post-Quantum Cryptography**  
+  Kyber1024, Dilithium5, and Falcon1024 for quantum-resistant key exchange and digital signatures.
+
+- 🕸️ **Mesh VPN Architecture**  
+  WireGuard tunnels with automatic peer discovery, namespace support, and adaptive topology.
+
+- 🔭 **Distributed Authentication**  
+  Falcon-signed node identities with peer verification and audit logging.
+
+- 🔑 **Offline Wallets (v1.2.0+)**  
+  36-word seed phrases hashed with SHA3-512 and signed using Dilithium5. Enables portable, verifiable, post-quantum identities without exposing raw keys.
+
+- 🛰️ **Encrypted Broadcast Channels**  
+  Kyber-encrypted discovery packets for secure mesh initialization and peer signaling.
+
+- 🧬 **Entropy-Based Routing**  
+  Peer selection based on real-time entropy and latency metrics, optimizing for security and performance.
+
+- 🕵️ **Traffic Cloaking & Proxying**  
+  Obfs4 integration with PySocks for stealth routing and anonymous overlays.
+
+- 📊 **Live Monitoring & Inspection**  
+  Real-time packet analysis, entropy tracking, and event visualization via PyShark and Scapy.
+
+---
+
+## 🔐 Supported Algorithms and Technologies
+
+🧠 Simulates key generation, encapsulation, signing, and verification using `secrets.token_bytes()` and 36-word seed phrases
+
+- **Kyber1024** — Quantum-resistant key encapsulation (KEM)
+- **Dilithium5** — High-security post-quantum digital signatures (used in wallet signing)
+- **Falcon1024** — Compact and efficient signatures for constrained environments
+- **SHA3-512** — Cryptographic hashing for seed digest and public key fingerprinting
+- **Obfs4** — Traffic cloaking for anonymous networks
+- **WireGuard** — Lightweight and secure VPN tunneling
+- **PySocks** — SOCKS proxy for flexible traffic routing
+- **PQClean** — Clean C implementations for post-quantum cryptography
+- **Wireshark (via PyShark)** — Deep packet inspection and live traffic analysis
+
+---
+
+## 📁 Modules Overview
+
+### ✅ `benchmark.py`
+Performs cryptographic performance tests across Kyber, Falcon, and Dilithium. Measures key generation time, signature throughput, and latency under simulated load.
+
+### ✅ `benchmark_routes.py`
+Evaluates routing performance across mesh paths. Calculates entropy, latency, and cloaking efficiency using synthetic traffic and randomized peer selection.
+
+### ✅ `cli.py`
+Command-line interface for pqbit operations. Handles wallet generation, verification, signing, and various export formats including QR codes and YAML.
+
+### ✅ `dilithium.py`
+Implements Dilithium5 digital signatures via PQClean. Used for signing messages, identities, and wallet digests with post-quantum security guarantees.
+
+### ✅ `falcon.py`
+Provides Falcon1024 signature generation and verification. Optimized for constrained environments and used in peer authentication.
+
+### ✅ `guardian.py`
+Core module for node validation and distributed trust. Handles peer audits, identity signing, entropy scoring, and latency-based selection.
+
+### ✅ `__init__.py`
+Exposes the public API of `pqbit`. Centralizes imports, versioning, and module registration for PyPI and internal use.
+
+### ✅ `kyber.py`
+Handles Kyber1024 key encapsulation and decapsulation. Used for encrypted broadcast, peer discovery, and secure tunnel initialization.
+
+### ✅ `log_benchmark.py`
+Captures structured logs from benchmarking modules. Supports JSON output, timestamping, and integration with external log viewers.
+
+### ✅ `log_viewer.py`
+Interactive CLI or GUI tool for visualizing logs. Displays entropy trends, latency spikes, and authentication events in real time.
+
+### ✅ `mesh.yaml`
+Declarative configuration file for mesh topology. Defines peers, routes, namespaces, and tunnel parameters for WireGuard orchestration.
+
+### ✅ `obfs4.py`
+Wraps `obfs4proxy` for traffic cloaking. Supports certificate pinning, port randomization, and stealth routing for anonymous overlays.
+
+### ✅ `pqclean.py`
+Provides low-level bindings to PQClean C implementations via `ctypes`. Enables direct access to Kyber, Falcon, and Dilithium primitives.
+
+### ✅ `pysocks.py`
+Sets up SOCKS proxies for flexible routing. Integrates with WireGuard and Obfs4 to support layered anonymity and traffic redirection.
+
+### ✅ `report.py`
+Generates audit reports from peer validation and guardian logs. Summarizes trust scores, signature integrity, and routing performance.
+
+### ✅ `simulation.py`
+Provides simulation capabilities for testing cryptographic operations and network scenarios in controlled environments.
+
+### ✅ `tunnel.py`
+Manages WireGuard tunnel lifecycle. Validates configs, applies namespaces, and monitors tunnel health across mesh nodes.
+
+### ✅ `verifier.py`
+Verifies digital signatures and peer identities. Used during handshake, broadcast validation, and audit replay.
+
+### ✅ `wallet.py`
+Generates offline post-quantum wallets using 36-word seed phrases. Hashes seed with SHA3-512, signs digest with Dilithium5, and outputs a verifiable identity fingerprint. Includes signature verification logic for integrity checks.
+
+### ✅ `wg-meshconf.py`
+Generates WireGuard configuration files from `mesh.yaml`. Supports multi-peer setups, namespace isolation, and adaptive routing hints.
+
+### ✅ `wireguard.py`
+Low-level interface to WireGuard. Handles key generation, tunnel setup, peer registration, and config synchronization.
+
+### ✅ `wireshark.py`
+Captures and analyzes packets using PyShark and Scapy. Tracks entropy, latency, and cloaking effectiveness across mesh traffic.
+
+---
+
+## 📖 Table of Contents
+
+- [🧠 pqbit](#-pqbit)
+- [📦 Objective](#-objective)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [🙏 Gratitude](#-gratitude)
+- [📦 Installation](#-installation)
+- [🧪 Usage Examples](#-usage-examples)
+- [🛠️ CLI Usage](#️-cli-usage)
+- [📦 Python API](#-python-api)
+- [✅ Running Tests](#-running-tests)
+- [📊 Running Benchmarks](#-running-benchmarks)
+- [🧪 Test Coverage](#-test-coverage)
+- [📦 Output Example](#-output-example)
+- [🚀 Features](#-features)
+- [🔍 Features](#-features-1)
+- [🧩 Key Components](#-key-components)
+- [🔐 Supported Algorithms and Technologies](#-supported-algorithms-and-technologies)
+- [📁 Modules Overview](#-modules-overview)
+- [🚀 Project Overview](#-project-overview)
+- [🔐 Security](#-security)
+- [🧭 Roadmap](#-roadmap)
+- [🌐 Related Projects](#-related-projects)
+
+---
+
+## 🚀 Project Overview
+
+**pqbit** is a modular Python library for building secure, decentralized, and post-quantum digital infrastructure. It combines cryptographic primitives, mesh networking, traffic cloaking, and offline identity generation into a unified toolkit designed for resilience and autonomy.
+
+Built for researchers, engineers, and privacy advocates, `pqbit` empowers users to:
+
+- 🔐 Generate and verify post-quantum keys and signatures using Kyber, Dilithium, and Falcon
+- 🕸️ Deploy adaptive WireGuard mesh networks with entropy-based routing and namespace isolation
+- 🛰️ Broadcast encrypted discovery messages across cloaked overlays using Obfs4 and PySocks
+- 🔑 Create offline wallets with SHA3-512 fingerprints and Dilithium-signed seed phrases
+- 📊 Monitor traffic entropy, latency, and peer trust in real time via PyShark and Scapy
+
+Whether you're prototyping quantum-safe VPNs, auditing peer identities, or building sovereign mesh systems, `pqbit` gives you full control over every cryptographic and network layer — with zero reliance on centralized infrastructure.
+
+---
+
+## 🔐 Security
+
+**Dilithium5** is a lattice-based digital signature scheme selected by [NIST](https://csrc.nist.gov/projects/post-quantum-cryptography) for post-quantum cryptography. It offers strong resistance against quantum attacks while remaining efficient for real-world use.
+
+**SHA3-512** is part of the Keccak family, providing robust hashing with high collision resistance and integrity guarantees.
+Together, they ensure that `pqbit` remains secure even in a future with quantum computing.
+
+---
+
+## 🧭 Roadmap
+
+- ✅ Offline wallet generation (Dilithium5 + SHA3-512)
+
+- 🔄 Integration with [Bit512](https://github.com/kitohamachi/bit512)
+
+- 🧪 Falcon signature support (experimental)
+
+- 📡 Decentralized mesh VPN node deployment
+
+- 📱 Mobile wallet interface (planned)
+
+- 📊 Benchmarking and performance suite
+
+---
+
+## 🌐 Related Projects
+
+- [Bit512](https://github.com/kitohamachi/bit512)
+- [PQClean](https://github.com/pqclean/pqclean)
+- [WireGuard](https://www.wireguard.com/)
+- [Pyshark](https://github.com/KimiNewt/pyshark)
+- [Scapy](https://github.com/secdev/scapy)
