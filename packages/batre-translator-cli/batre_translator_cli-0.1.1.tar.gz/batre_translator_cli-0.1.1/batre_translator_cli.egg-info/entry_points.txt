@@ -1,0 +1,2 @@
+[console_scripts]
+batre = batre.sync:main
