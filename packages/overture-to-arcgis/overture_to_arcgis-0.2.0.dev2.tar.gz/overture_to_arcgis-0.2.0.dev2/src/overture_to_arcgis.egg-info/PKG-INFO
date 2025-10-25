@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: overture-to-arcgis
+Version: 0.2.0.dev2
+Summary: Utility for easily getting data from Overture into ArcGIS Pro.
+Author: Joel McCune (https://github.com/knu2xs)
+License-Expression: Apache-2.0
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: arcgis>=2.2.0
+Requires-Dist: geomet>=1.0.0
+Requires-Dist: numpy>=1.7
+Requires-Dist: pandas>=1.0.5
+Requires-Dist: pyarrow>=1.0.0
+Provides-Extra: h3
+Requires-Dist: h3; extra == "h3"
+Dynamic: license-file
+
+# Overture to ArcGIS
+
+<!--start-->
+Utility for easily getting data from Overture into ArcGIS Pro.
+
+## Getting Started
+
+1 - Clone this repo.
+
+2 - Create an environment with the requirements.
+    
+```
+        > make env
+```
+
+3 - Try it out!
+
+There is a toolbox file for use within ArcGIS Pro at `./arcgis/overture_to_arcgis.pyt`. Use the `Make Overture Feature Class` tool to create a feature class from Overture data.
+
+You can also use this utility directly from Python. Here is an example of getting a spatially enabled dataframe for places within a given extent.
+
+``` python
+from arcgis_overture import get_spatially_enabled_dataframe
+
+extent = (-119.911,48.3852,-119.8784,48.4028)
+
+df = get_spatially_enabled_dataframe('places', extent)
+```
+
+!!! note
+    All extents must be in the format `(xmin, ymin, xmax, ymax)` and use WGS84 decimal degrees coordinates.
+
+<!--end-->
