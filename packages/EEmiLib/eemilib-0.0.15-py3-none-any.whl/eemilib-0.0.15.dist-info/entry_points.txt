@@ -1,0 +1,2 @@
+[console_scripts]
+eemilib-gui = eemilib.gui.gui:main
