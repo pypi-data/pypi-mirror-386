@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: fvdb_reality_capture
+Version: 0.3.0
+Summary: fVDB Reality Capture Toolbox.
+Author-email: Francis Williams <francis@fwilliams.info>, Jonathan Swartz <jonathan@jswartz.info>, Mark Harris <MHarris@nvidia.com>, Matthew Cong <mcong@nvidia.com>, Brent Bartlett <bbartlett@nvidia.com>, Zoe Lalena <zlalena@nvidia.com>, Christopher Horvath <chorvath@nvidia.com>, Efty Sifakis <esifakis@nvidia.com>, Andrew Reidmeyer <areidmeyer@nvidia.com>, Petra Hapalova <phapalova@nvidia.com>, Ken Museth <kmuseth@nvidia.com>
+License-Expression: Apache-2.0
+Project-URL: Homepage, https://github.com/openvdb/fvdb-reality-capture
+Project-URL: Issues, https://github.com/openvdb/fvdb-reality-capture/issues
+License-File: LICENSE
+Requires-Dist: fvdb-core>=0.3.0
+Requires-Dist: boto3
+Requires-Dist: dlnr_lite
+Requires-Dist: nanovdb-editor<0.2.0
+Requires-Dist: numpy>=2.0.0
+Requires-Dist: opencv-python-headless
+Requires-Dist: point-cloud-utils
+Requires-Dist: pye57
+Requires-Dist: pyproj
+Requires-Dist: requests
+Requires-Dist: sam2==1.1.0
+Requires-Dist: scikit-image
+Requires-Dist: scipy
+Requires-Dist: tensorboard
+Requires-Dist: torch>=2.8.0
+Requires-Dist: torchvision
+Requires-Dist: tqdm
+Requires-Dist: tyro
+Requires-Dist: usd-core
+Requires-Dist: msgpack
+Requires-Dist: types-usd
+Dynamic: license-file

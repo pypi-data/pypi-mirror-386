@@ -1,0 +1,3 @@
+[console_scripts]
+frdev = fvdb_reality_capture.cli.frdev:frdev
+frgs = fvdb_reality_capture.cli.frgs:frgs
