@@ -1,0 +1,4 @@
+[console_scripts]
+pythaiidcard = pythaiidcard.cli:app
+pythaiidcard-desktop = desktop_client.main:main
+pythaiidcard-server = api_server.main:start_server
