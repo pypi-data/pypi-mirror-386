@@ -1,0 +1,13 @@
+various_api_tools-0.3.4.dist-info/METADATA,sha256=JrtkzfkoHdCY1c4d19FVZheZ95KqJqtP7AgBjy6ZIis,2515
+various_api_tools-0.3.4.dist-info/WHEEL,sha256=9P2ygRxDrTJz3gsagc0Z96ukrxjr-LFBGOgv3AuKlCA,90
+various_api_tools-0.3.4.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+various_api_tools/__init__.py,sha256=ihKHLKuRvsTk3eq9euSF6KzaJXEbJRzLZF5rr-kpDz4,557
+various_api_tools/error_maps/__init__.py,sha256=dnGnFo4IpkWm6TQ8kLgD-Mvowic-nWpv6jlcWM4juI0,38
+various_api_tools/error_maps/pydantic.py,sha256=9f6gbBEYICrgQsjiggUoM8qQ6Rpi-2i5pgASLDCFLLU,2997
+various_api_tools/translators/__init__.py,sha256=v2bJFou-sb1R7PhkPOSJ2de8XSEyvft_X73oknoaMok,220
+various_api_tools/translators/json.py,sha256=xSlpWRuuusmQEH31NTL9VfAykjfTiRxg6sWWjp6w-t8,3367
+various_api_tools/translators/psycopg2.py,sha256=rtmqC8YKKed_aFcbj5f2y8idm6Aq8K3PLo4mCKBQGH4,5689
+various_api_tools/translators/pydantic.py,sha256=JNIXg4NbfQiFvK0vZaumCoJGCmQzilNNYa4LTbFp9bE,3210
+various_api_tools/validators/__init__.py,sha256=02risyeYGqr9sHov8eNxk4AiGEPT0I8CEg7zvH4n5XE,41
+various_api_tools/validators/pydantic.py,sha256=CO-cIkVQ-RlvCCOTUPcjeLq0nG2FEd8d0syYY6r9oi0,6469
+various_api_tools-0.3.4.dist-info/RECORD,,
