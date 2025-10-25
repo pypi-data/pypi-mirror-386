@@ -1,0 +1,2 @@
+[console_scripts]
+github-backup-sync = github_backup_sync:app
