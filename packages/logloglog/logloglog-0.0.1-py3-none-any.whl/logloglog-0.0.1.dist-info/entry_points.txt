@@ -1,0 +1,3 @@
+[console_scripts]
+stream-logs=logloglog.tools.stream_logs:main
+
