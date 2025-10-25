@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytermcolors"
+version = "1.0.0"
+description = "Terminal output styling - ANSI colors and styles for Python"
+readme = "README.md"
+license = "MIT"
+authors = [
+  { name = "Etsor", email = "etsorucheba@gmail.com" },
+]
+keywords = ["terminal", "ansi", "colors", "cli", "styling"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+requires-python = ">=3.6"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["pytermcolors*"]
+exclude = ["res*"]
+
+[project.urls]
+Homepage = "https://github.com/Etsor/PyTermColors"
+Repository = "https://github.com/Etsor/PyTermColors"

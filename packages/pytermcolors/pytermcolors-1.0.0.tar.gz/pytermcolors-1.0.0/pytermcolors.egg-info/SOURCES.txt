@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+pytermcolors/__init__.py
+pytermcolors/pytermcolors.py
+pytermcolors.egg-info/PKG-INFO
+pytermcolors.egg-info/SOURCES.txt
+pytermcolors.egg-info/dependency_links.txt
+pytermcolors.egg-info/top_level.txt
