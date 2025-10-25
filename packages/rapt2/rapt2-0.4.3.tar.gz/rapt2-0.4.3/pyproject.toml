@@ -1,0 +1,29 @@
+[project]
+name = "rapt2"
+version = "0.4.3"
+description = "Relational algebra parsing tools"
+authors = [
+    { name = "Aidan Bailey" }
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "psycopg2-binary==2.9.10",
+    "pyparsing>=3.2.3",
+]
+license = { file = "LICENSE" }
+keywords = ["relational-algebra", "parser", "database", "query"]
+
+[dependency-groups]
+dev = [
+    "debugpy>=1.8.16",
+    "pytest>=8.4.2",
+    "ruff>=0.12.12",
+]
+
+[project.scripts]
+rapt = "rapt2.rapt:main"
+
+[build-system]
+requires = ["uv_build>=0.8.19,<0.9.0"]
+build-backend = "uv_build"
