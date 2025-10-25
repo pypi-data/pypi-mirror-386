@@ -1,0 +1,14 @@
+dtcc_pyspade_native-0.1.1.dist-info/RECORD,,
+dtcc_pyspade_native-0.1.1.dist-info/WHEEL,sha256=e8zRXXe0m9rb0lubAfNKoq0NqzHoaXRFcyxnC1Sqoa0,143
+dtcc_pyspade_native-0.1.1.dist-info/METADATA,sha256=npo27W6FwyOS8K7T1LdC6fd68EaxUtFrlEcDiXnEZvQ,7664
+dtcc_pyspade_native-0.1.1.dist-info/licenses/LICENSE,sha256=b0euBP1xi8rsqIfDxJA5kMjj8ew9D5njHTL1MrtlQeQ,10359
+pyspade_native/__init__.py,sha256=HeHXU7VJLORlCaNWJH6DK597Jw1tDXoKAjG7P11CTmE,4308
+pyspade_native/__main__.py,sha256=axnCQPPGv60XclNRcrQNNf7tIba7v9zkETKO-cW9h98,346
+pyspade_native/cmake/pyspade_native-config-version.cmake,sha256=UiBjOZuxtL9NIURCw-QJmqs1aQLAaLZWDLE6O-ftTLA,2762
+pyspade_native/cmake/pyspade_native-config.cmake,sha256=0zIVd0QdEEZTDfzzA5EceJOrReLQDg-KfhC710bIZAI,2905
+pyspade_native/include/spade_ffi.h,sha256=yLnTeJ2tl6RqOXqnCcmzZS7ywa-EXhSspVDaQAbAPrw,2241
+pyspade_native/include/spade_wrapper.h,sha256=htblQkzoecH_d4xfpKXbxuvZZ7kgizyMuN3J1iK6Uh0,2562
+pyspade_native/lib/libspade_wrapper.dylib,sha256=GYvQqQVUAC-tFzt4zPLOxkPJDYUUlx4EKUHRsm2APu4,76272
+pyspade_native/lib/libspade_wrapper.0.dylib,sha256=QddhrP9CSagGV4Kcde5bYZXlAdcr7g9HdFh9m31qomY,76240
+pyspade_native/lib/libspade_ffi.dylib,sha256=1hvgYviBlJ2tEyI059vK0aKgKYNJijnZ8jvCWPmQY3Q,478352
+pyspade_native/lib/libspade_wrapper.0.1.1.dylib,sha256=QddhrP9CSagGV4Kcde5bYZXlAdcr7g9HdFh9m31qomY,76240
