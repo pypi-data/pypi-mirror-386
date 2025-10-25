@@ -1,0 +1,38 @@
+# Include documentation
+include README.md
+include LICENSE
+include VERSION
+include pyproject.toml
+
+# Include all Python files
+recursive-include db/lfcdemolib *.py
+
+# Include type stubs if any
+recursive-include db/lfcdemolib *.pyi
+
+# Exclude compiled Python files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+
+# Exclude test files
+global-exclude test_*.py
+global-exclude *_test.py
+
+# Exclude notebooks and example files
+recursive-exclude db *.ipynb
+exclude db/*.ipynb
+
+# Exclude egg-info
+prune lfclib.egg-info
+
+# Exclude cache directories
+prune db/lfcdemolib/__pycache__
+prune __pycache__
+
+# Exclude build artifacts
+global-exclude *.so
+global-exclude *.dylib
+global-exclude *.dll
+
+
