@@ -1,0 +1,5 @@
+[console_scripts]
+matsushiba-db = matsushiba_db.server:main
+matsushiba-init = matsushiba_db.init:main
+matsushiba-server = matsushiba_db.server:main
+matsushiba-welcome = matsushiba_db.welcome:main
