@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: e2b-devcontainers
+Version: 0.1.3
+Summary: E2B Devcontainers SDK
+Author-email: e2b <hello@e2b.dev>
+License-Expression: MIT
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: e2b>=2.4.2
