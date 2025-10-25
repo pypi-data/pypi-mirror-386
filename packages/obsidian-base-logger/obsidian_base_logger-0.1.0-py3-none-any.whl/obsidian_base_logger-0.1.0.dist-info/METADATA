@@ -1,0 +1,279 @@
+Metadata-Version: 2.4
+Name: obsidian-base-logger
+Version: 0.1.0
+Summary: A CLI tool that wraps shell processes and logs execution metadata to Obsidian-compatible Markdown files
+Author: obsidian-base-logger contributors
+Requires-Python: >=3.10
+Requires-Dist: psutil>=5.9.0
+Description-Content-Type: text/markdown
+
+# obsidian-base-logger
+
+A CLI tool that wraps arbitrary shell processes and logs their execution metadata and output to Obsidian-compatible Markdown files.
+
+## Features
+
+- **Process Wrapping**: Execute any command and capture its behavior
+- **Rich Metadata**: Captures execution time, resource usage, and system information
+- **Obsidian Integration**: Outputs formatted Markdown with YAML frontmatter (properties)
+- **Organized Storage**: Automatically organizes logs by host and date with iteration tracking
+- **Edge Case Handling**: Gracefully handles binary output, large outputs, and empty results
+- **ANSI Preservation**: Retains terminal color codes for viewing
+
+## Installation
+
+### Using uv (recommended)
+
+```bash
+# Install from source
+git clone <repository-url>
+cd obsidian-base-logger
+uv sync
+```
+
+### Using pip
+
+```bash
+pip install obsidian-base-logger
+```
+
+## Usage
+
+### Basic Usage
+
+```bash
+# Wrap a simple command
+obsidian-base-logger echo "hello world"
+
+# Run tests and log the results
+obsidian-base-logger npm test
+
+# Execute a Python script
+obsidian-base-logger python script.py --arg1 value
+```
+
+### Specify Vault Location
+
+```bash
+# Use -o flag to specify vault path
+obsidian-base-logger -o ~/Documents/MyVault npm test
+
+# Or set environment variable
+export OBSIDIAN_VAULT=~/Documents/MyVault
+obsidian-base-logger npm test
+```
+
+### Complex Commands with Pipes
+
+```bash
+# Use bash -c for commands with pipes or redirects
+obsidian-base-logger bash -c "cat file.txt | grep error"
+
+# Multiple commands chained
+obsidian-base-logger bash -c "cd /tmp && ls -la"
+```
+
+## Output Format
+
+### File Location
+
+Logs are saved to:
+```
+${OBSIDIAN_VAULT}/logs/${hostname}/{date}-{command}-{iteration}.md
+```
+
+**Example:**
+```
+~/.local/obsidian/vault/logs/myserver/2025-10-24-npm-3.md
+```
+
+### Vault Path Priority
+
+1. CLI option: `-o <path>`
+2. Environment variable: `$OBSIDIAN_VAULT`
+3. Default: `~/.local/obsidian/vault`
+
+### Markdown Structure
+
+```markdown
+---
+host: myserver
+started: 2025-10-24T10:30:15.123Z
+time: 2.456
+return: 0
+command: npm
+arguments: test --verbose
+pid: 12345
+user: alice
+cwd: /home/alice/projects/myapp
+cpu_time_user_ms: 1850
+cpu_time_system_ms: 320
+memory_peak_mb: 145.2
+io_read_bytes: 5242880
+io_write_bytes: 1048576
+---
+
+## stdout
+
+✓ All tests passed
+  Duration: 2.3s
+
+---
+
+## stderr
+
+[no output]
+```
+
+### Captured Metadata
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `host` | text | System hostname |
+| `started` | datetime | Execution start time (ISO 8601) |
+| `time` | number | Execution time in seconds |
+| `return` | number | Exit code (0 = success) |
+| `command` | text | Base command name |
+| `arguments` | text | Command arguments |
+| `pid` | number | Process ID |
+| `user` | text | Username |
+| `cwd` | text | Working directory |
+| `cpu_time_user_ms` | number | User CPU time (milliseconds) |
+| `cpu_time_system_ms` | number | System CPU time (milliseconds) |
+| `memory_peak_mb` | number | Peak memory usage (MB) |
+| `io_read_bytes` | number | Disk bytes read |
+| `io_write_bytes` | number | Disk bytes written |
+
+## Edge Cases
+
+### Empty Output
+When stdout or stderr is empty:
+```markdown
+## stdout
+
+[no output]
+```
+
+### Binary Output
+Binary content is detected and replaced:
+```markdown
+## stdout
+
+[binary output]
+```
+
+### Large Output
+Output is truncated after 10,000 lines:
+```markdown
+[Output truncated: 15,243 total lines, showing first 10,000]
+```
+
+### ANSI Escape Codes
+Terminal colors are preserved in the output for potential rendering by Obsidian plugins or external tools.
+
+## Development
+
+### Setup
+
+```bash
+# Clone repository
+git clone <repository-url>
+cd obsidian-base-logger
+
+# Install dependencies with uv
+uv sync
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run with coverage
+uv run pytest --cov=obsidian_base_logger --cov-report=html
+
+# Run specific test file
+uv run pytest tests/test_executor.py
+
+# Run with verbose output
+uv run pytest -v
+```
+
+### Project Structure
+
+```
+obsidian-base-logger/
+├── src/obsidian_base_logger/
+│   ├── cli.py           # CLI entry point
+│   ├── executor.py      # Process execution and metrics
+│   ├── formatter.py     # Markdown/YAML formatting
+│   └── utils.py         # File operations and helpers
+├── tests/
+│   ├── test_cli.py
+│   ├── test_executor.py
+│   ├── test_formatter.py
+│   ├── test_utils.py
+│   └── test_integration.py
+├── docs/                # Design documentation
+└── pyproject.toml       # Project configuration
+```
+
+## Documentation
+
+Comprehensive documentation is available in the `docs/` directory:
+
+- [Overview](docs/overview.md) - Project purpose and quick start
+- [Architecture](docs/architecture.md) - Code structure and design decisions
+- [File Format](docs/file-format.md) - Complete output format specification
+- [Edge Cases](docs/edge-cases.md) - Special handling for edge cases
+- [Testing](docs/testing.md) - Test strategy and examples
+
+For AI agents working on this project, see [CLAUDE.md](CLAUDE.md).
+
+## Examples
+
+### Logging Test Runs
+
+```bash
+obsidian-base-logger npm test
+obsidian-base-logger pytest
+obsidian-base-logger cargo test
+```
+
+### Logging Build Processes
+
+```bash
+obsidian-base-logger npm run build
+obsidian-base-logger make
+obsidian-base-logger cargo build --release
+```
+
+### Logging Deployment Scripts
+
+```bash
+obsidian-base-logger ./deploy.sh production
+obsidian-base-logger ansible-playbook deploy.yml
+```
+
+### Capturing System Information
+
+```bash
+obsidian-base-logger df -h
+obsidian-base-logger free -m
+obsidian-base-logger ps aux
+```
+
+## Requirements
+
+- Python 3.10+
+- `psutil` for process metrics
+- `uv` for development (recommended)
+
+## License
+
+[Add your license here]
+
+## Contributing
+
+[Add contribution guidelines here]
