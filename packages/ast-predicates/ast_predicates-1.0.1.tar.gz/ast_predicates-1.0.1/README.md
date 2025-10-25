@@ -1,0 +1,95 @@
+# AST Predicates
+
+A Python library for matching and querying Python AST nodes, inspired by [libcst's matcher API](https://libcst.readthedocs.io/en/latest/matchers_tutorial.html) but designed to work with Python's built-in `ast` module.
+
+## Overview
+
+AST Predicates provides a declarative way to search for and match patterns in [Python Abstract Syntax Trees](https://docs.python.org/3/library/ast.html) using the standard library's `ast` module. It offers a more ergonomic alternative to manual AST traversal and isinstance checks.
+
+## Features
+
+- **Declarative matching**: Define patterns using a clean, composable API
+- **Type-safe matchers**: Match AST node types with optional attribute constraints
+- **Flexible queries**: Support for wildcards, sequences, and logical operators
+- **Built on stdlib**: Works with Python's built-in `ast` module - no additional dependencies
+- **Familiar API**: Inspired by libcst matchers
+
+## Installation
+
+```bash
+pip install ast-predicates
+```
+
+## Quick Start
+
+```python
+import ast
+from ast_predicates import matches, Call, Name, Attribute
+
+# Parse some code
+tree = ast.parse("foo.bar(42)")
+
+# Find function calls to methods named 'bar'
+pattern = Call(func=Attribute(attr="bar"))
+
+# Check if pattern matches
+if matches(tree.body[0].value, pattern):
+    print("Found a call to a 'bar' method!")
+```
+
+## Basic Usage
+
+### Matching Node Types
+
+```python
+from ast_predicates import matches, FunctionDef
+
+# Match any function definition
+pattern = FunctionDef()
+
+# Match function with specific name
+pattern = FunctionDef(name="my_function")
+```
+
+### Wildcards and Sequences
+
+```python
+from pyast_matchers import DoNotCare, OneOf, AllOf
+
+# Match any value (wildcard)
+pattern = Call(func=Name(id=DoNotCare()))
+
+# Match one of several possibilities
+pattern = BinOp(op=OneOf(Add(), Sub()))
+
+# Match all conditions
+pattern = AllOf(
+    FunctionDef(name="process"),
+    FunctionDef(decorator_list=[...])
+)
+```
+
+### Finding Matches in a Tree
+
+```python
+from pyast_matchers import find_all
+
+tree = ast.parse(source_code)
+pattern = Call(func=Name(id="print"))
+
+# Find all matching nodes
+matches = find_all(tree, pattern)
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Roadmap
+
+- [ ] Performance benchmarks
+- [ ] Implement [TypeOf](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.TypeOf) matcher
+- [ ] Implement [DoesNotMatch](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.DoesNotMatch) matcher
+- [ ] Implement [MatchRegex](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.MatchRegex) matcher
+- [ ] Implement [ZeroOrMore](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.ZeroOrMore) matcher
+- [ ] Implement [ZeroOrOne](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.ZeroOrOne) matcher

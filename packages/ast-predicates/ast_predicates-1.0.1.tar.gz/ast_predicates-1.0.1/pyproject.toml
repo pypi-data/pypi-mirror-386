@@ -1,0 +1,77 @@
+[project]
+name = "ast-predicates"
+version = "1.0.1"
+description = "A Python library for matching and querying Python AST nodes"
+readme = "README.md"
+authors = [{ name = "Xavier Barbosa", email = "clint.northwood@gmail.com" }]
+requires-python = ">=3.12"
+dependencies = []
+license = "MIT"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+[project.urls]
+Homepage = "https://github.com/johnnoone/pytest-ast-predicates"
+Source = "https://github.com/johnnoone/pytest-ast-predicates"
+Tracker = "https://github.com/johnnoone/pytest-ast-predicates/issues"
+
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 120
+fix = true
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+preview = true
+extend-select = [
+    "I",
+    "F",
+    "ERA",
+    "ANN",
+    "ASYNC",
+    "B",
+    "C4",
+    "UP",
+    "FURB",
+    "RUF",
+    "TRY",
+]
+extend-ignore = ["ANN401", "B011", "TRY003", "RUF001", "F811"]
+fixable = ["ALL"]
+
+[tool.mypy]
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "--cov=ast_predicates"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-subtests>=0.15.0",
+    "ruff>=0.14.1",
+]
