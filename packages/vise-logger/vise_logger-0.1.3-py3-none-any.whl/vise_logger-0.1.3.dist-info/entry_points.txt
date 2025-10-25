@@ -1,0 +1,2 @@
+[console_scripts]
+vise-logger = vise_logger.main:main

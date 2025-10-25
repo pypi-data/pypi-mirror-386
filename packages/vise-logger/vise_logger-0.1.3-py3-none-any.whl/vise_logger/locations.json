@@ -1,0 +1,64 @@
+{
+  "locations": [
+    {
+      "dir": "~/.claude/projects/",
+      "tool": "claude",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Code/User/globalStorage/saoudrizwan.claude-dev/tasks/",
+      "tool": "cline",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Code/User/globalStorage/rooveterinaryinc.roo-cline/tasks/",
+      "tool": "roo",
+      "verified": false
+    },
+    {
+      "dir": "~/.continue/logs/",
+      "tool": "continue",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Cursor/User/workspaceStorage/",
+      "tool": "cursor",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Code/User/workspaceStorage",
+      "tool": "copilot",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Code/logs/",
+      "tool": "copilot",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Roaming/Code/User/globalStorage/github.copilot",
+      "tool": "copilot",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Roaming/Code/User/globalStorage/github.copilot-chat",
+      "tool": "copilot",
+      "verified": false
+    },
+    {
+      "dir": "~/.codex/sessions",
+      "tool": "codex",
+      "verified": false
+    },
+    {
+      "dir": "%APPDATA%/Kiro/User/globalStorage/kiro.kiroagent/",
+      "tool": "kiro",
+      "verified": false
+    },
+    {
+      "dir": "%LOCALAPPDATA%/JetBrains/PyCharm2025.2/",
+      "tool": "junie",
+      "verified": false
+    }
+  ]
+}
