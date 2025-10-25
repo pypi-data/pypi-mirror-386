@@ -1,0 +1,14 @@
+syqlorix/__init__.py,sha256=POpqSXCIgKgsJgRlnKuEa3oUpNxBAVSSYnExrc-3GAw,790
+syqlorix/cli.py,sha256=SxVSfmWYEZHoks2gQAvy209855fmbA_9JYhX8aZitXI,8720
+syqlorix/core.py,sha256=X1UBW-nSp883-oA_eJ0aN4o6mZNhKyjkN0mzHgfpFN4,40950
+syqlorix/core.pyi,sha256=32NP1DurSr0FfCx7waSvfUaZXCBnsPyD7rz3VHfY9Ik,3468
+syqlorix/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+syqlorix/tailwind.py,sha256=WNRWQjf441YHYz_xWylr9r4FJEJkyAY4CP2ybpJl0uE,9201
+syqlorix/templating.py,sha256=5p6-vCyHPNBzTIJnz7Ig1UKEusGinKm-mb0DdW8ItVU,1085
+syqlorix/templating.pyi,sha256=Z4Ja9AIW0MnW6ZF6v0P09jipLpaGY2b9WM3cU55YfGQ,2264
+syqlorix-1.2.9.dist-info/licenses/LICENSE,sha256=Ab-CoEqv86wy1_GYN4HkWsruQSrpRRjuMzOYkVL9UjQ,1079
+syqlorix-1.2.9.dist-info/METADATA,sha256=QkkQEMyEI40QXzXuMMitRdHdaNUB_Feyjpp5J54Ql84,9055
+syqlorix-1.2.9.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+syqlorix-1.2.9.dist-info/entry_points.txt,sha256=lHncIo8avM_zi1wwkCh2-Sd7wpeN5TlsUfdnnsWMV6k,47
+syqlorix-1.2.9.dist-info/top_level.txt,sha256=g7WoJ_0250zjgGqShiZ2mLWHU2t3EdhENRUxud7Ytak,9
+syqlorix-1.2.9.dist-info/RECORD,,
