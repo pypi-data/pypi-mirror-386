@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include src/email_signature_detector/model/tokenizer *
+exclude src/email_signature_detector/model/*.onnx
