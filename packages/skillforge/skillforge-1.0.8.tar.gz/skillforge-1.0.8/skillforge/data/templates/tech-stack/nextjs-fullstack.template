@@ -1,0 +1,980 @@
+---
+name: "{{skill_name}}"
+description: >
+  {{description}}
+version: "{{version}}"
+author: "SkillForge Auto-Generated"
+generated_at: "{{timestamp}}"
+based_on: "Next.js {{framework_version}}"
+framework: "nextjs"
+allowed-tools:
+  - bash_tool
+  - view
+  - create_file
+  - str_replace
+  - edit_file
+  - list_dir
+{{#if additional_tools}}
+{{#each additional_tools}}
+  - {{this}}
+{{/each}}
+{{/if}}
+---
+
+# {{skill_name}} - Next.js Fullstack Development
+
+## Overview
+
+{{overview}}
+
+This skill provides comprehensive guidance for building fullstack applications with Next.js {{framework_version}}, focusing on the App Router architecture, Server Components, and modern React patterns.
+
+## When to Use
+
+Use this skill when:
+{{#each use_cases}}
+- {{this}}
+{{/each}}
+- Building with Next.js App Router (app/ directory)
+- Implementing Server Components and Client Components
+- Creating API routes with Route Handlers
+- Optimizing images, fonts, and metadata
+- Setting up middleware and authentication
+
+## Prerequisites
+
+{{#each prerequisites}}
+- {{this}}
+{{/each}}
+- Node.js {{node_version}} or higher
+- Understanding of React fundamentals
+- Familiarity with TypeScript (recommended)
+
+---
+
+## Routing Patterns
+
+### App Router Structure
+
+Next.js uses a file-system based router built on Server Components. The app directory structure:
+
+```
+app/
+├── layout.tsx          # Root layout (required)
+├── page.tsx            # Home page
+├── loading.tsx         # Loading UI
+├── error.tsx           # Error UI
+├── not-found.tsx       # 404 UI
+├── api/                # API routes
+│   └── route.ts
+└── [dynamic]/          # Dynamic routes
+    └── page.tsx
+```
+
+### Dynamic Routes
+
+**Basic Dynamic Route**:
+```typescript
+// app/posts/[id]/page.tsx
+interface PageProps {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default function PostPage({ params, searchParams }: PageProps) {
+  return <div>Post ID: {params.id}</div>
+}
+
+// Generate static paths at build time
+export async function generateStaticParams() {
+  const posts = await fetch('https://api.example.com/posts').then(res => res.json())
+  return posts.map((post: any) => ({ id: post.id }))
+}
+```
+
+**Catch-all Routes**:
+```typescript
+// app/docs/[...slug]/page.tsx
+interface PageProps {
+  params: { slug: string[] }
+}
+
+export default function DocsPage({ params }: PageProps) {
+  // /docs/a/b/c -> slug = ['a', 'b', 'c']
+  return <div>Path: {params.slug.join('/')}</div>
+}
+```
+
+### Route Groups
+
+Organize routes without affecting URL structure:
+
+```
+app/
+├── (marketing)/
+│   ├── layout.tsx      # Marketing layout
+│   ├── page.tsx        # Home page
+│   └── about/
+│       └── page.tsx    # /about
+└── (dashboard)/
+    ├── layout.tsx      # Dashboard layout
+    └── settings/
+        └── page.tsx    # /settings
+```
+
+### Parallel Routes
+
+Display multiple pages simultaneously:
+
+```
+app/
+├── @analytics/
+│   └── page.tsx
+├── @team/
+│   └── page.tsx
+├── layout.tsx
+└── page.tsx
+
+// layout.tsx
+export default function Layout({
+  children,
+  analytics,
+  team
+}: {
+  children: React.ReactNode
+  analytics: React.ReactNode
+  team: React.ReactNode
+}) {
+  return (
+    <>
+      {children}
+      {analytics}
+      {team}
+    </>
+  )
+}
+```
+
+### Intercepting Routes
+
+Intercept routes for modals and overlays:
+
+```
+app/
+├── feed/
+│   └── page.tsx
+├── photo/
+│   └── [id]/
+│       └── page.tsx
+└── @modal/
+    └── (..)photo/       # Intercept from same level
+        └── [id]/
+            └── page.tsx
+```
+
+---
+
+## Component Patterns
+
+### Server Components (Default)
+
+**All components are Server Components by default** in the App Router:
+
+```typescript
+// app/components/UserProfile.tsx
+// No 'use client' directive = Server Component
+async function UserProfile({ userId }: { userId: string }) {
+  // Can fetch data directly
+  const user = await fetch(`https://api.example.com/users/${userId}`)
+    .then(res => res.json())
+
+  // Can access backend resources
+  // Can use environment variables safely
+
+  return (
+    <div>
+      <h1>{user.name}</h1>
+      <p>{user.email}</p>
+    </div>
+  )
+}
+
+export default UserProfile
+```
+
+**Benefits**:
+- Zero JavaScript sent to client
+- Direct database/API access
+- Automatic code splitting
+- Better SEO
+- Improved performance
+
+### Client Components
+
+Use `'use client'` when you need:
+- Interactive handlers (onClick, onChange, etc.)
+- React hooks (useState, useEffect, etc.)
+- Browser APIs (localStorage, window, etc.)
+- Third-party libraries that use React hooks
+
+```typescript
+'use client'
+
+import { useState } from 'react'
+
+export function Counter() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Count: {count}
+    </button>
+  )
+}
+```
+
+### Composition Pattern
+
+**Best Practice**: Keep Client Components at the leaves of your component tree:
+
+```typescript
+// ❌ DON'T: Making entire page a Client Component
+'use client'
+
+export default function Page() {
+  const [state, setState] = useState()
+  return (
+    <div>
+      <Header />
+      <ServerContent />  {/* Now can't be Server Component */}
+      <InteractiveButton state={state} setState={setState} />
+    </div>
+  )
+}
+
+// ✅ DO: Only interactive parts are Client Components
+export default function Page() {
+  return (
+    <div>
+      <Header />           {/* Server Component */}
+      <ServerContent />    {/* Server Component */}
+      <InteractiveButton /> {/* Client Component */}
+    </div>
+  )
+}
+```
+
+### Children Pattern
+
+Pass Server Components as children to Client Components:
+
+```typescript
+// ClientWrapper.tsx
+'use client'
+
+export function ClientWrapper({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(true)
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>Toggle</button>
+      {isOpen && children}
+    </div>
+  )
+}
+
+// page.tsx (Server Component)
+export default function Page() {
+  return (
+    <ClientWrapper>
+      <ServerComponent />  {/* Remains Server Component! */}
+    </ClientWrapper>
+  )
+}
+```
+
+---
+
+## Data Fetching
+
+### Server-Side Data Fetching
+
+**Async Server Components**:
+```typescript
+// app/posts/page.tsx
+async function getPosts() {
+  const res = await fetch('https://api.example.com/posts', {
+    next: { revalidate: 3600 } // Cache for 1 hour
+  })
+
+  if (!res.ok) throw new Error('Failed to fetch posts')
+  return res.json()
+}
+
+export default async function PostsPage() {
+  const posts = await getPosts()
+
+  return (
+    <ul>
+      {posts.map((post: any) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+### Caching Strategies
+
+**Static Data (Default)**:
+```typescript
+// Cached indefinitely
+fetch('https://api.example.com/data')
+```
+
+**Revalidated Data**:
+```typescript
+// Revalidate every 60 seconds
+fetch('https://api.example.com/data', {
+  next: { revalidate: 60 }
+})
+```
+
+**Dynamic Data**:
+```typescript
+// Never cache
+fetch('https://api.example.com/data', {
+  cache: 'no-store'
+})
+```
+
+**Tag-based Revalidation**:
+```typescript
+// Tag for on-demand revalidation
+fetch('https://api.example.com/data', {
+  next: { tags: ['posts'] }
+})
+
+// Revalidate in API route
+import { revalidateTag } from 'next/cache'
+revalidateTag('posts')
+```
+
+### Streaming and Suspense
+
+**Progressive Rendering**:
+```typescript
+import { Suspense } from 'react'
+
+async function SlowComponent() {
+  await new Promise(resolve => setTimeout(resolve, 3000))
+  return <div>Slow content loaded!</div>
+}
+
+export default function Page() {
+  return (
+    <div>
+      <h1>Page loads immediately</h1>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SlowComponent />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+### Client-Side Data Fetching
+
+**With {{state_library}}** (if user specified):
+```typescript
+'use client'
+
+import { useQuery } from '{{state_library_import}}'
+
+export function Posts() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['posts'],
+    queryFn: () => fetch('/api/posts').then(res => res.json())
+  })
+
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error: {error.message}</div>
+
+  return (
+    <ul>
+      {data.map((post: any) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+---
+
+## State Management
+
+### URL State (Recommended)
+
+Use URL search params for shareable state:
+
+```typescript
+'use client'
+
+import { useSearchParams, useRouter } from 'next/navigation'
+
+export function FilteredList() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const filter = searchParams.get('filter') || 'all'
+
+  const setFilter = (newFilter: string) => {
+    const params = new URLSearchParams(searchParams)
+    params.set('filter', newFilter)
+    router.push(`?${params.toString()}`)
+  }
+
+  return (
+    <div>
+      <button onClick={() => setFilter('active')}>Active</button>
+      <button onClick={() => setFilter('completed')}>Completed</button>
+    </div>
+  )
+}
+```
+
+### Server State
+
+Read-only state from Server Components (preferred):
+
+```typescript
+// Pass data from Server Component to Client Component
+export default async function Page() {
+  const data = await fetchData()
+
+  return <ClientComponent initialData={data} />
+}
+```
+
+### Client State
+
+**Local State**:
+```typescript
+'use client'
+
+import { useState } from 'react'
+
+export function Form() {
+  const [formData, setFormData] = useState({ name: '', email: '' })
+
+  return (
+    <form>
+      <input
+        value={formData.name}
+        onChange={e => setFormData({ ...formData, name: e.target.value })}
+      />
+    </form>
+  )
+}
+```
+
+{{#if state_library}}
+**Global State with {{state_library}}**:
+```typescript
+{{{state_library_example}}}
+```
+{{/if}}
+
+---
+
+## Styling
+
+{{#if ui_library}}
+### {{ui_library}} Integration
+
+{{{ui_library_setup}}}
+
+**Example Component**:
+```typescript
+{{{ui_library_example}}}
+```
+{{/if}}
+
+### CSS Modules
+
+```typescript
+// app/components/Button.module.css
+.button {
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+// app/components/Button.tsx
+import styles from './Button.module.css'
+
+export function Button({ children }: { children: React.ReactNode }) {
+  return <button className={styles.button}>{children}</button>
+}
+```
+
+### Tailwind CSS
+
+```typescript
+export function Card({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="rounded-lg border bg-card p-6 shadow-sm">
+      {children}
+    </div>
+  )
+}
+```
+
+### Global Styles
+
+```css
+/* app/globals.css */
+:root {
+  --foreground: #000;
+  --background: #fff;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+```
+
+---
+
+## API Routes (Route Handlers)
+
+### Basic Route Handler
+
+```typescript
+// app/api/posts/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams
+  const query = searchParams.get('query')
+
+  const posts = await fetchPosts(query)
+
+  return NextResponse.json({ posts })
+}
+
+export async function POST(request: NextRequest) {
+  const body = await request.json()
+
+  const post = await createPost(body)
+
+  return NextResponse.json({ post }, { status: 201 })
+}
+```
+
+### Dynamic Route Handlers
+
+```typescript
+// app/api/posts/[id]/route.ts
+interface RouteContext {
+  params: { id: string }
+}
+
+export async function GET(
+  request: NextRequest,
+  { params }: RouteContext
+) {
+  const post = await fetchPost(params.id)
+
+  if (!post) {
+    return NextResponse.json({ error: 'Not found' }, { status: 404 })
+  }
+
+  return NextResponse.json({ post })
+}
+
+export async function PATCH(
+  request: NextRequest,
+  { params }: RouteContext
+) {
+  const body = await request.json()
+  const post = await updatePost(params.id, body)
+
+  return NextResponse.json({ post })
+}
+
+export async function DELETE(
+  request: NextRequest,
+  { params }: RouteContext
+) {
+  await deletePost(params.id)
+
+  return new NextResponse(null, { status: 204 })
+}
+```
+
+### Error Handling
+
+```typescript
+// app/api/posts/route.ts
+export async function GET(request: NextRequest) {
+  try {
+    const posts = await fetchPosts()
+    return NextResponse.json({ posts })
+  } catch (error) {
+    console.error('Failed to fetch posts:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+```
+
+### CORS Headers
+
+```typescript
+export async function GET(request: NextRequest) {
+  const data = await fetchData()
+
+  return NextResponse.json(data, {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  })
+}
+
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  })
+}
+```
+
+---
+
+## Metadata API
+
+### Static Metadata
+
+```typescript
+// app/page.tsx
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'My App',
+  description: 'My app description',
+  openGraph: {
+    title: 'My App',
+    description: 'My app description',
+    images: ['/og-image.png'],
+  },
+}
+
+export default function Page() {
+  return <div>Home</div>
+}
+```
+
+### Dynamic Metadata
+
+```typescript
+// app/posts/[id]/page.tsx
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const post = await fetchPost(params.id)
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  }
+}
+```
+
+---
+
+## Image Optimization
+
+```typescript
+import Image from 'next/image'
+
+export function Hero() {
+  return (
+    <div>
+      {/* External image */}
+      <Image
+        src="https://example.com/photo.jpg"
+        alt="Photo"
+        width={800}
+        height={600}
+        priority
+      />
+
+      {/* Local image */}
+      <Image
+        src="/hero.png"
+        alt="Hero"
+        width={1200}
+        height={600}
+        placeholder="blur"
+      />
+
+      {/* Fill container */}
+      <div style={{ position: 'relative', height: '400px' }}>
+        <Image
+          src="/background.jpg"
+          alt="Background"
+          fill
+          style={{ objectFit: 'cover' }}
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+---
+
+## Font Optimization
+
+```typescript
+// app/layout.tsx
+import { Inter, Roboto_Mono } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto-mono',
+})
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+      <body className={inter.className}>{children}</body>
+    </html>
+  )
+}
+```
+
+---
+
+## Middleware
+
+```typescript
+// middleware.ts
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+
+export function middleware(request: NextRequest) {
+  // Authentication check
+  const token = request.cookies.get('token')
+
+  if (!token && request.nextUrl.pathname.startsWith('/dashboard')) {
+    return NextResponse.redirect(new URL('/login', request.url))
+  }
+
+  // Add custom header
+  const response = NextResponse.next()
+  response.headers.set('x-custom-header', 'value')
+
+  return response
+}
+
+export const config = {
+  matcher: [
+    '/dashboard/:path*',
+    '/api/:path*',
+  ],
+}
+```
+
+---
+
+## Error Handling
+
+### Error Boundary
+
+```typescript
+// app/error.tsx
+'use client'
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+}) {
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <p>{error.message}</p>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  )
+}
+```
+
+### Not Found
+
+```typescript
+// app/not-found.tsx
+import Link from 'next/link'
+
+export default function NotFound() {
+  return (
+    <div>
+      <h2>404 - Page Not Found</h2>
+      <Link href="/">Return Home</Link>
+    </div>
+  )
+}
+
+// Trigger programmatically
+import { notFound } from 'next/navigation'
+
+export default async function Page({ params }: PageProps) {
+  const post = await fetchPost(params.id)
+
+  if (!post) {
+    notFound()
+  }
+
+  return <div>{post.title}</div>
+}
+```
+
+---
+
+## Loading States
+
+```typescript
+// app/dashboard/loading.tsx
+export default function Loading() {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="spinner" />
+    </div>
+  )
+}
+```
+
+---
+
+## Best Practices
+
+### Architecture
+
+- ✅ **DO**: Use Server Components by default
+- ✅ **DO**: Only use 'use client' when necessary (interactivity, hooks, browser APIs)
+- ✅ **DO**: Colocate components with routes
+- ✅ **DO**: Keep Client Components at the leaves of the tree
+- ✅ **DO**: Use React Server Actions for mutations
+- ❌ **DON'T**: Use getServerSideProps or getStaticProps (Pages Router API)
+- ❌ **DON'T**: Fetch data on the client if it can be done on the server
+- ❌ **DON'T**: Put 'use client' at the top of every file
+
+### Data Fetching
+
+- ✅ **DO**: Fetch data where it's needed (component-level)
+- ✅ **DO**: Use proper caching strategies
+- ✅ **DO**: Implement loading states with Suspense
+- ✅ **DO**: Handle errors gracefully with error boundaries
+- ❌ **DON'T**: Waterfall requests (use Promise.all)
+- ❌ **DON'T**: Fetch same data multiple times (dedupe automatically handles this)
+
+### Performance
+
+- ✅ **DO**: Use the Image component for all images
+- ✅ **DO**: Implement proper lazy loading
+- ✅ **DO**: Use dynamic imports for large components
+- ✅ **DO**: Optimize fonts with next/font
+- ❌ **DON'T**: Use regular <img> tags
+- ❌ **DON'T**: Import large libraries in Client Components unnecessarily
+
+### SEO
+
+- ✅ **DO**: Implement proper metadata for all pages
+- ✅ **DO**: Use semantic HTML
+- ✅ **DO**: Generate sitemaps and robots.txt
+- ❌ **DON'T**: Rely on client-side rendering for content
+
+---
+
+## User Conventions
+
+{{#if user_conventions.naming}}
+### File Naming
+- Components: {{user_conventions.naming.components}}
+- Files: {{user_conventions.naming.files}}
+- Routes: {{user_conventions.naming.routes}}
+{{/if}}
+
+{{#if user_conventions.structure}}
+### Directory Structure
+{{user_conventions.structure}}
+{{/if}}
+
+{{#if user_conventions.coding}}
+### Coding Style
+{{#each user_conventions.coding}}
+- {{this}}
+{{/each}}
+{{/if}}
+
+---
+
+## Related Skills
+
+{{#if related_skills}}
+{{#each related_skills}}
+- `{{name}}` - {{description}}
+{{/each}}
+{{else}}
+- `react-components` - React component patterns
+- `typescript-nextjs` - TypeScript with Next.js
+- `tailwind-styling` - Tailwind CSS styling
+- `api-design` - RESTful API design
+{{/if}}
+
+---
+
+## Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Next.js App Router](https://nextjs.org/docs/app)
+- [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
+- [Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
+- [Routing](https://nextjs.org/docs/app/building-your-application/routing)
+{{#each resources}}
+- [{{title}}]({{url}})
+{{/each}}
+
+---
+
+## Version History
+
+- {{version}} ({{timestamp}}): Initial generation for Next.js {{framework_version}}
+
+---
+
+**Generated by SkillForge** - Your personalized Claude Code skills generator
+**Framework**: Next.js {{framework_version}}
+**Last Updated**: {{timestamp}}

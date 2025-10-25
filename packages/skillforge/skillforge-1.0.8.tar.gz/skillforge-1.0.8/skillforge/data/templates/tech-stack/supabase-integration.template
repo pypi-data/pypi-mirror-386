@@ -1,0 +1,889 @@
+---
+name: "{{skill_name}}"
+description: >
+  {{description}}
+version: "{{version}}"
+author: "SkillForge Auto-Generated"
+generated_at: "{{timestamp}}"
+based_on: "Supabase {{framework_version}}"
+framework: "supabase"
+allowed-tools:
+  - bash_tool
+  - view
+  - create_file
+  - str_replace
+  - edit_file
+  - list_dir
+{{#if additional_tools}}
+{{#each additional_tools}}
+  - {{this}}
+{{/each}}
+{{/if}}
+---
+
+# {{skill_name}} - Supabase Integration
+
+## Overview
+
+{{overview}}
+
+This skill provides comprehensive guidance for integrating Supabase into your application, covering authentication, database operations, storage, real-time subscriptions, and edge functions.
+
+## When to Use
+
+Use this skill when:
+{{#each use_cases}}
+- {{this}}
+{{/each}}
+- Building applications with user authentication
+- Implementing real-time features
+- Managing file uploads and storage
+- Using PostgreSQL with Row Level Security
+- Deploying serverless functions
+
+## Prerequisites
+
+{{#each prerequisites}}
+- {{this}}
+{{/each}}
+- Supabase account and project
+- Understanding of PostgreSQL
+- Familiarity with React hooks (for frontend)
+- Basic knowledge of SQL
+
+---
+
+## Setup
+
+### Installation
+
+```bash
+# Install Supabase client
+npm install @supabase/supabase-js
+
+# Install Auth helpers (Next.js)
+npm install @supabase/auth-helpers-nextjs
+
+# Install Auth helpers (React)
+npm install @supabase/auth-helpers-react
+```
+
+### Client Configuration
+
+```typescript
+// lib/supabase/client.ts
+import { createClient } from '@supabase/supabase-js'
+import { Database } from '@/types/supabase'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
+```
+
+### Server-side Client (Next.js)
+
+```typescript
+// lib/supabase/server.ts
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+import { Database } from '@/types/supabase'
+
+export function createClient() {
+  const cookieStore = cookies()
+
+  return createServerClient<Database>(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value
+        },
+      },
+    }
+  )
+}
+```
+
+### Environment Variables
+
+```bash
+# .env.local
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
+
+---
+
+## Authentication
+
+### Sign Up with Email/Password
+
+```typescript
+// Client-side
+import { supabase } from '@/lib/supabase/client'
+
+async function signUp(email: string, password: string) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: `${window.location.origin}/auth/callback`,
+    },
+  })
+
+  if (error) throw error
+  return data
+}
+```
+
+### Sign In
+
+```typescript
+async function signIn(email: string, password: string) {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
+
+  if (error) throw error
+  return data
+}
+```
+
+### OAuth Authentication
+
+```typescript
+async function signInWithGoogle() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback`,
+      queryParams: {
+        access_type: 'offline',
+        prompt: 'consent',
+      },
+    },
+  })
+
+  if (error) throw error
+  return data
+}
+
+// Other providers: github, gitlab, bitbucket, azure, facebook, etc.
+```
+
+### Magic Link Authentication
+
+```typescript
+async function signInWithMagicLink(email: string) {
+  const { data, error } = await supabase.auth.signInWithOtp({
+    email,
+    options: {
+      emailRedirectTo: `${window.location.origin}/auth/callback`,
+    },
+  })
+
+  if (error) throw error
+  return data
+}
+```
+
+### Sign Out
+
+```typescript
+async function signOut() {
+  const { error } = await supabase.auth.signOut()
+  if (error) throw error
+}
+```
+
+### Get Current User
+
+```typescript
+// Client-side
+async function getCurrentUser() {
+  const { data: { user }, error } = await supabase.auth.getUser()
+  if (error) throw error
+  return user
+}
+
+// Server-side (Next.js)
+import { createClient } from '@/lib/supabase/server'
+
+async function getCurrentUser() {
+  const supabase = createClient()
+  const { data: { user }, error } = await supabase.auth.getUser()
+  return user
+}
+```
+
+### Auth State Management
+
+```typescript
+// React Hook
+import { useState, useEffect } from 'react'
+import { User } from '@supabase/supabase-js'
+import { supabase } from '@/lib/supabase/client'
+
+export function useAuth() {
+  const [user, setUser] = useState<User | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null)
+      setLoading(false)
+    })
+
+    // Listen for auth changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  return { user, loading }
+}
+```
+
+### Auth Callback Route (Next.js)
+
+```typescript
+// app/auth/callback/route.ts
+import { createClient } from '@/lib/supabase/server'
+import { NextResponse } from 'next/server'
+
+export async function GET(request: Request) {
+  const requestUrl = new URL(request.url)
+  const code = requestUrl.searchParams.get('code')
+
+  if (code) {
+    const supabase = createClient()
+    await supabase.auth.exchangeCodeForSession(code)
+  }
+
+  return NextResponse.redirect(requestUrl.origin)
+}
+```
+
+---
+
+## Database Operations
+
+### Type Generation
+
+```bash
+# Generate TypeScript types from your database
+npx supabase gen types typescript --project-id your-project-id > types/supabase.ts
+```
+
+### Basic Queries
+
+```typescript
+import { supabase } from '@/lib/supabase/client'
+
+// Select all
+const { data, error } = await supabase
+  .from('posts')
+  .select('*')
+
+// Select specific columns
+const { data, error } = await supabase
+  .from('posts')
+  .select('id, title, author_id')
+
+// Select with filters
+const { data, error } = await supabase
+  .from('posts')
+  .select('*')
+  .eq('author_id', userId)
+  .order('created_at', { ascending: false })
+  .limit(10)
+```
+
+### Filtering
+
+```typescript
+// Equal to
+.eq('status', 'published')
+
+// Not equal to
+.neq('status', 'draft')
+
+// Greater than
+.gt('views', 100)
+
+// Greater than or equal
+.gte('views', 100)
+
+// Less than
+.lt('views', 1000)
+
+// Less than or equal
+.lte('views', 1000)
+
+// Like (case-sensitive)
+.like('title', '%react%')
+
+// iLike (case-insensitive)
+.ilike('title', '%react%')
+
+// In array
+.in('status', ['published', 'featured'])
+
+// Is null
+.is('deleted_at', null)
+
+// Text search
+.textSearch('content', 'react & nextjs')
+
+// Multiple filters (AND)
+.eq('status', 'published')
+.gte('views', 100)
+
+// OR filters
+.or('status.eq.published,status.eq.featured')
+```
+
+### Joins (Relations)
+
+```typescript
+// One-to-many
+const { data, error } = await supabase
+  .from('posts')
+  .select(`
+    *,
+    author:profiles(id, name, avatar_url),
+    comments(id, content, created_at)
+  `)
+
+// Many-to-many
+const { data, error } = await supabase
+  .from('posts')
+  .select(`
+    *,
+    tags:post_tags(
+      tag:tags(id, name)
+    )
+  `)
+```
+
+### Insert
+
+```typescript
+// Insert single row
+const { data, error } = await supabase
+  .from('posts')
+  .insert({
+    title: 'My Post',
+    content: 'Post content...',
+    author_id: userId,
+  })
+  .select()
+
+// Insert multiple rows
+const { data, error } = await supabase
+  .from('posts')
+  .insert([
+    { title: 'Post 1', content: '...' },
+    { title: 'Post 2', content: '...' },
+  ])
+  .select()
+```
+
+### Update
+
+```typescript
+const { data, error } = await supabase
+  .from('posts')
+  .update({ title: 'Updated Title' })
+  .eq('id', postId)
+  .select()
+```
+
+### Upsert
+
+```typescript
+const { data, error } = await supabase
+  .from('profiles')
+  .upsert({
+    id: userId,
+    name: 'John Doe',
+    updated_at: new Date().toISOString(),
+  })
+  .select()
+```
+
+### Delete
+
+```typescript
+const { data, error } = await supabase
+  .from('posts')
+  .delete()
+  .eq('id', postId)
+```
+
+### Pagination
+
+```typescript
+const PAGE_SIZE = 10
+const page = 1
+
+const { data, error, count } = await supabase
+  .from('posts')
+  .select('*', { count: 'exact' })
+  .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1)
+
+const totalPages = Math.ceil((count || 0) / PAGE_SIZE)
+```
+
+### Row Level Security (RLS)
+
+```sql
+-- Enable RLS
+ALTER TABLE posts ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Users can only read published posts
+CREATE POLICY "Public posts are viewable by everyone"
+  ON posts FOR SELECT
+  USING (status = 'published');
+
+-- Policy: Users can only update their own posts
+CREATE POLICY "Users can update their own posts"
+  ON posts FOR UPDATE
+  USING (auth.uid() = author_id);
+
+-- Policy: Users can insert their own posts
+CREATE POLICY "Users can insert their own posts"
+  ON posts FOR INSERT
+  WITH CHECK (auth.uid() = author_id);
+
+-- Policy: Users can delete their own posts
+CREATE POLICY "Users can delete their own posts"
+  ON posts FOR DELETE
+  USING (auth.uid() = author_id);
+```
+
+---
+
+## Storage
+
+### Upload File
+
+```typescript
+import { supabase } from '@/lib/supabase/client'
+
+async function uploadFile(file: File, bucket: string, path: string) {
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .upload(path, file, {
+      cacheControl: '3600',
+      upsert: false,
+    })
+
+  if (error) throw error
+
+  // Get public URL
+  const { data: { publicUrl } } = supabase.storage
+    .from(bucket)
+    .getPublicUrl(path)
+
+  return publicUrl
+}
+
+// Usage
+const file = event.target.files[0]
+const url = await uploadFile(file, 'avatars', `${userId}/avatar.png`)
+```
+
+### Upload with Progress
+
+```typescript
+async function uploadWithProgress(
+  file: File,
+  bucket: string,
+  path: string,
+  onProgress: (progress: number) => void
+) {
+  const chunkSize = 6 * 1024 * 1024 // 6MB chunks
+  const chunks = Math.ceil(file.size / chunkSize)
+
+  for (let i = 0; i < chunks; i++) {
+    const start = i * chunkSize
+    const end = Math.min(start + chunkSize, file.size)
+    const chunk = file.slice(start, end)
+
+    const { error } = await supabase.storage
+      .from(bucket)
+      .upload(`${path}.part${i}`, chunk)
+
+    if (error) throw error
+
+    onProgress(((i + 1) / chunks) * 100)
+  }
+}
+```
+
+### Download File
+
+```typescript
+async function downloadFile(bucket: string, path: string) {
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .download(path)
+
+  if (error) throw error
+  return data
+}
+```
+
+### Delete File
+
+```typescript
+async function deleteFile(bucket: string, path: string) {
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .remove([path])
+
+  if (error) throw error
+  return data
+}
+```
+
+### List Files
+
+```typescript
+async function listFiles(bucket: string, folder: string) {
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .list(folder, {
+      limit: 100,
+      offset: 0,
+      sortBy: { column: 'name', order: 'asc' },
+    })
+
+  if (error) throw error
+  return data
+}
+```
+
+### Storage Policies
+
+```sql
+-- Allow authenticated users to upload to their own folder
+CREATE POLICY "Users can upload to own folder"
+  ON storage.objects FOR INSERT
+  WITH CHECK (
+    bucket_id = 'avatars' AND
+    auth.uid()::text = (storage.foldername(name))[1]
+  );
+
+-- Allow users to view their own files
+CREATE POLICY "Users can view own files"
+  ON storage.objects FOR SELECT
+  USING (
+    bucket_id = 'avatars' AND
+    auth.uid()::text = (storage.foldername(name))[1]
+  );
+```
+
+---
+
+## Real-time Subscriptions
+
+### Subscribe to Changes
+
+```typescript
+import { useEffect, useState } from 'react'
+import { supabase } from '@/lib/supabase/client'
+
+export function useRealtimePosts() {
+  const [posts, setPosts] = useState<Post[]>([])
+
+  useEffect(() => {
+    // Initial fetch
+    fetchPosts()
+
+    // Subscribe to changes
+    const channel = supabase
+      .channel('posts-channel')
+      .on(
+        'postgres_changes',
+        {
+          event: '*', // INSERT, UPDATE, DELETE
+          schema: 'public',
+          table: 'posts',
+        },
+        (payload) => {
+          console.log('Change received!', payload)
+
+          if (payload.eventType === 'INSERT') {
+            setPosts((current) => [...current, payload.new as Post])
+          } else if (payload.eventType === 'UPDATE') {
+            setPosts((current) =>
+              current.map((post) =>
+                post.id === payload.new.id ? (payload.new as Post) : post
+              )
+            )
+          } else if (payload.eventType === 'DELETE') {
+            setPosts((current) =>
+              current.filter((post) => post.id !== payload.old.id)
+            )
+          }
+        }
+      )
+      .subscribe()
+
+    return () => {
+      supabase.removeChannel(channel)
+    }
+  }, [])
+
+  async function fetchPosts() {
+    const { data } = await supabase.from('posts').select('*')
+    if (data) setPosts(data)
+  }
+
+  return posts
+}
+```
+
+### Presence (Online Users)
+
+```typescript
+function usePresence(channelName: string) {
+  const [onlineUsers, setOnlineUsers] = useState<any[]>([])
+
+  useEffect(() => {
+    const channel = supabase.channel(channelName)
+
+    channel
+      .on('presence', { event: 'sync' }, () => {
+        const state = channel.presenceState()
+        const users = Object.values(state).flat()
+        setOnlineUsers(users)
+      })
+      .subscribe(async (status) => {
+        if (status === 'SUBSCRIBED') {
+          await channel.track({
+            user_id: user.id,
+            online_at: new Date().toISOString(),
+          })
+        }
+      })
+
+    return () => {
+      supabase.removeChannel(channel)
+    }
+  }, [channelName])
+
+  return onlineUsers
+}
+```
+
+### Broadcast Messages
+
+```typescript
+function useBroadcast(channelName: string) {
+  useEffect(() => {
+    const channel = supabase.channel(channelName)
+
+    channel
+      .on('broadcast', { event: 'message' }, (payload) => {
+        console.log('Message received:', payload)
+      })
+      .subscribe()
+
+    return () => {
+      supabase.removeChannel(channel)
+    }
+  }, [channelName])
+
+  const sendMessage = async (message: string) => {
+    const channel = supabase.channel(channelName)
+    await channel.send({
+      type: 'broadcast',
+      event: 'message',
+      payload: { message },
+    })
+  }
+
+  return { sendMessage }
+}
+```
+
+---
+
+## Edge Functions
+
+### Creating an Edge Function
+
+```typescript
+// supabase/functions/hello/index.ts
+import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+serve(async (req) => {
+  try {
+    // CORS headers
+    if (req.method === 'OPTIONS') {
+      return new Response('ok', { headers: corsHeaders })
+    }
+
+    // Get request body
+    const { name } = await req.json()
+
+    // Initialize Supabase client
+    const supabaseClient = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+      {
+        global: {
+          headers: { Authorization: req.headers.get('Authorization')! },
+        },
+      }
+    )
+
+    // Get current user
+    const {
+      data: { user },
+    } = await supabaseClient.auth.getUser()
+
+    // Return response
+    return new Response(
+      JSON.stringify({
+        message: `Hello ${name || user?.email || 'World'}!`,
+      }),
+      {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 200,
+      }
+    )
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      status: 400,
+    })
+  }
+})
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
+```
+
+### Invoking Edge Functions
+
+```typescript
+// Client-side
+const { data, error } = await supabase.functions.invoke('hello', {
+  body: { name: 'John' },
+})
+
+// With authentication
+const { data, error } = await supabase.functions.invoke('hello', {
+  body: { name: 'John' },
+  headers: {
+    Authorization: `Bearer ${session.access_token}`,
+  },
+})
+```
+
+---
+
+## Best Practices
+
+### Authentication
+
+- ✅ **DO**: Use Row Level Security (RLS) for all tables
+- ✅ **DO**: Validate email addresses
+- ✅ **DO**: Implement proper error handling
+- ✅ **DO**: Use secure session management
+- ❌ **DON'T**: Store sensitive data in localStorage
+- ❌ **DON'T**: Expose service role key in client code
+
+### Database
+
+- ✅ **DO**: Use TypeScript types generated from schema
+- ✅ **DO**: Implement proper indexes for performance
+- ✅ **DO**: Use transactions for related operations
+- ✅ **DO**: Enable RLS on all tables
+- ❌ **DON'T**: Query too many relations at once
+- ❌ **DON'T**: Use `select('*')` in production without limits
+
+### Storage
+
+- ✅ **DO**: Set appropriate file size limits
+- ✅ **DO**: Validate file types before upload
+- ✅ **DO**: Use storage policies for access control
+- ✅ **DO**: Implement upload progress indicators
+- ❌ **DON'T**: Allow unlimited file uploads
+- ❌ **DON'T**: Store sensitive data without encryption
+
+### Real-time
+
+- ✅ **DO**: Clean up subscriptions on unmount
+- ✅ **DO**: Handle connection errors
+- ✅ **DO**: Implement reconnection logic
+- ❌ **DON'T**: Subscribe to entire tables in production
+- ❌ **DON'T**: Create too many concurrent subscriptions
+
+---
+
+## User Conventions
+
+{{#if user_conventions}}
+{{#each user_conventions}}
+- {{this}}
+{{/each}}
+{{else}}
+Following Supabase best practices and conventions.
+{{/if}}
+
+---
+
+## Related Skills
+
+{{#if related_skills}}
+{{#each related_skills}}
+- `{{name}}` - {{description}}
+{{/each}}
+{{else}}
+- `nextjs-supabase` - Next.js with Supabase
+- `react-supabase` - React with Supabase
+- `postgresql` - PostgreSQL database
+- `realtime-apps` - Building real-time applications
+{{/if}}
+
+---
+
+## Resources
+
+- [Supabase Documentation](https://supabase.com/docs)
+- [Supabase JavaScript Client](https://supabase.com/docs/reference/javascript)
+- [Row Level Security](https://supabase.com/docs/guides/auth/row-level-security)
+- [Storage](https://supabase.com/docs/guides/storage)
+- [Realtime](https://supabase.com/docs/guides/realtime)
+{{#each resources}}
+- [{{title}}]({{url}})
+{{/each}}
+
+---
+
+## Version History
+
+- {{version}} ({{timestamp}}): Initial generation for Supabase {{framework_version}}
+
+---
+
+**Generated by SkillForge** - Your personalized Claude Code skills generator
+**Framework**: Supabase {{framework_version}}
+**Last Updated**: {{timestamp}}
