@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+liteconfig_py/__init__.py
+liteconfig_py/config.py
+liteconfig_py/py.typed
+liteconfig_py/validation.py
+liteconfig_py.egg-info/PKG-INFO
+liteconfig_py.egg-info/SOURCES.txt
+liteconfig_py.egg-info/dependency_links.txt
+liteconfig_py.egg-info/requires.txt
+liteconfig_py.egg-info/top_level.txt
+tests/__init__.py
+tests/test_config.py
+tests/test_validation.py
