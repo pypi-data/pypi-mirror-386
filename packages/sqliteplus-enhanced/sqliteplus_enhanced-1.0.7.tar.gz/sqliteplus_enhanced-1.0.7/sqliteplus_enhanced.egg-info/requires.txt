@@ -1,0 +1,11 @@
+aiosqlite
+click
+fastapi
+uvicorn
+redis
+bcrypt
+PyJWT
+python-multipart
+httpx
+pytest
+setuptools
