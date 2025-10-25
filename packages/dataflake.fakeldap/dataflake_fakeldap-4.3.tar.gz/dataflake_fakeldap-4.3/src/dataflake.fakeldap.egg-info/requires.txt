@@ -1,0 +1,9 @@
+python-ldap>=3.3
+
+[docs]
+Sphinx
+furo
+
+[test]
+python-ldap
+volatildap
