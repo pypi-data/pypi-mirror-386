@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: calapy
+Version: 0.2.0.3
+Summary: Personal Package
+Home-page: https://pypi.org/project/calapy
+Author: Carmelo Calafiore
+Author-email: Carmelo Calafiore <dr.carmelo.calafiore@gmail.com>
+Maintainer-email: Carmelo Calafiore <dr.carmelo.calafiore@gmail.com>
+License-Expression: MIT
+Project-URL: Repository, https://github.com/ccalafiore/CalaPy
+Project-URL: Issues, https://github.com/ccalafiore/CalaPy/issues
+Keywords: basic,tools,toolkit,toolbox,kit,utilities
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# CalaPy
+
+CalaPy is an undocumented python library that Dr Carmelo Calafiore developed for personal use. It is a collection of
+many python functions that Dr Carmelo tends to use in different projects.
+
+In previous versions from 0.0.0 to 0.0.60, the name of this package was ccalafiore.
+
+You can install CalaPy by pip as:
+
+```
+pip install calapy
+```
+
+## Contacts
+
+Dr Carmelo Calafiore
+
+Newcastle University
+
+Newcastle, UK
+
+[dr.carmelo.calafiore@gmail.com](mailto:dr.carmelo.calafiore@gmail.com)
+
+[LinkedIn](https://www.linkedin.com/in/carmelo-calafiore-a07120269)
+
+[GitHub](https://github.com/ccalafiore)
