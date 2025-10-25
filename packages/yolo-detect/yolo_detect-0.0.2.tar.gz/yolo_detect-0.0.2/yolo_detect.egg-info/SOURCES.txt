@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+yolo-detect/__init__.py
+yolo-detect/drone_detect.py
+yolo_detect.egg-info/PKG-INFO
+yolo_detect.egg-info/SOURCES.txt
+yolo_detect.egg-info/dependency_links.txt
+yolo_detect.egg-info/requires.txt
+yolo_detect.egg-info/top_level.txt
