@@ -1,0 +1,63 @@
+[project]
+name = "sparv-sbx-sentence-sentiment-kb-sent"
+version = "0.3.1"
+description = "A sparv plugin for computing sentence sentiment."
+authors = [
+    { name = "Språkbanken Text", email = "sb-info@svenska.gu.se" },
+    { name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se" },
+]
+dependencies = [
+ "sparv>=5.3.1",
+ "transformers>=4.56.1",
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">= 3.11"
+classifiers = [
+    "Development Status :: 7 - Inactive",
+    # "Development Status :: 4 - Beta",
+    # "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Operating System :: POSIX",
+    # "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    # "uncomment if you test on these interpreters:",
+    # "Programming Language :: Python :: Implementation :: IronPython",
+    # "Programming Language :: Python :: Implementation :: Jython",
+    # "Programming Language :: Python :: Implementation :: Stackless",
+    "Topic :: Utilities",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.entry-points."sparv.plugin"]
+sbx_sentence_sentiment_kb_sent = "sbx_sentence_sentiment_kb_sent"
+
+[project.urls]
+Homepage = "https://spraakbanken.gu.se"
+Repository = "https://github.com/spraakbanken/sparv-sbx-sentiment-kb-sent"
+"Bug Tracker" = "https://github.com/spraakbanken/sparv-sbx-sentiment-kb-sent/issues"
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/.github", "/docs"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sbx_sentence_sentiment_kb_sent"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "syrupy>=5.0.0",
+    "sparv-testing @ git+https://github.com/spraakbanken/sparv-testing.git@v0.2.0",
+]
