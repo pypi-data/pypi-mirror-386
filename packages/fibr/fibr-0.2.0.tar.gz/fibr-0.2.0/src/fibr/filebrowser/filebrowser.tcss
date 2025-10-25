@@ -1,0 +1,16 @@
+Panel {
+    border: gray;
+}
+
+DataTable {
+    height: 100fr;
+    scrollbar-size: 1 1
+}
+
+InfoBar {
+    height: 1;
+    margin: 0 0;
+    width: 1fr;
+    content-align: center middle;
+    color: gray;
+}
