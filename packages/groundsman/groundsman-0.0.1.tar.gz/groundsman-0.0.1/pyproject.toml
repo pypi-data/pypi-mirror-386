@@ -1,0 +1,17 @@
+[project]
+name = "groundsman"
+version = "0.0.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "axis-vapix>=0.1.5",
+    "dotenv>=0.9.9",
+    "logging>=0.4.9.6",
+    "pco-calendar>=0.1.2",
+    "pyyaml>=6.0.2",
+    "schedule>=1.2.2",
+]
+
+[project.scripts]
+groundsman = "groundsman:app"
