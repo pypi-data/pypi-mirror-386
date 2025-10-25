@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/electroid/__init__.py
+src/electroid/roid.py
+src/electroid.egg-info/PKG-INFO
+src/electroid.egg-info/SOURCES.txt
+src/electroid.egg-info/dependency_links.txt
+src/electroid.egg-info/top_level.txt
