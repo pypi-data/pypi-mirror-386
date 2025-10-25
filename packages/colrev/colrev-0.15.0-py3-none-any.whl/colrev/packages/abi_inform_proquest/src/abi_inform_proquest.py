@@ -1,0 +1,298 @@
+#! /usr/bin/env python
+"""SearchSource: ABI/INFORM (ProQuest)"""
+from __future__ import annotations
+
+import logging
+import re
+import typing
+from pathlib import Path
+
+from pydantic import Field
+
+import colrev.package_manager.package_base_classes as base_classes
+import colrev.record.record
+from colrev.constants import ENTRYTYPES
+from colrev.constants import Fields
+from colrev.constants import SearchSourceHeuristicStatus
+from colrev.constants import SearchType
+from colrev.ops.search_db import create_db_source
+from colrev.ops.search_db import run_db_search
+from colrev.writer.write_utils import write_file
+
+# pylint: disable=unused-argument
+# pylint: disable=duplicate-code
+
+
+class ABIInformProQuestSearchSource(base_classes.SearchSourcePackageBaseClass):
+    """ABI/INFORM (ProQuest)"""
+
+    CURRENT_SYNTAX_VERSION = "0.1.0"
+
+    endpoint = "colrev.abi_inform_proquest"
+    source_identifier = "{{ID}}"
+    search_types = [SearchType.DB]
+
+    ci_supported: bool = Field(default=False)
+    heuristic_status = SearchSourceHeuristicStatus.supported
+
+    db_url = "https://search.proquest.com/abicomplete/advanced"
+
+    def __init__(
+        self,
+        *,
+        search_file: colrev.search_file.ExtendedSearchFile,
+        logger: typing.Optional[logging.Logger] = None,
+    ) -> None:
+        self.logger = logger or logging.getLogger(__name__)
+        self.search_source = search_file
+
+    @classmethod
+    def heuristic(cls, filename: Path, data: str) -> dict:
+        """Source heuristic for ABI/INFORM (ProQuest)"""
+
+        result = {"confidence": 0.0}
+
+        if "proquest.com" in data:  # nosec
+            if data.count("proquest.com") >= data.count("\n@"):
+                result["confidence"] = 1.0
+            if data.count("proquest.com") >= data.count("TY  -"):
+                result["confidence"] = 1.0
+
+        return result
+
+    @classmethod
+    def add_endpoint(
+        cls,
+        params: str,
+        path: Path,
+        logger: typing.Optional[logging.Logger] = None,
+    ) -> colrev.search_file.ExtendedSearchFile:
+        """Add SearchSource as an endpoint"""
+
+        params_dict = {params.split("=")[0]: params.split("=")[1]}
+
+        search_source = create_db_source(
+            path=path,
+            platform=cls.endpoint,
+            params=params_dict,
+            add_to_git=True,
+            logger=logger,
+        )
+        return search_source
+
+    def search(self, rerun: bool) -> None:
+        """Run a search of ABI/INFORM"""
+
+        if self.search_source.search_type == SearchType.DB:
+            run_db_search(
+                db_url=self.db_url,
+                source=self.search_source,
+                add_to_git=True,
+            )
+
+    @classmethod
+    def _remove_duplicates(
+        cls, *, records: dict, filename: Path, logger: logging.Logger
+    ) -> None:
+        to_delete = []
+        for record in records.values():
+            if re.search(r"-\d{1,2}$", record[Fields.ID]):
+                original_record_id = re.sub(r"-\d{1,2}$", "", record[Fields.ID])
+                if original_record_id not in records:
+                    continue
+                original_record = records[original_record_id]
+
+                # Note: between duplicate records,
+                # there are variations in spelling and completeness
+                if (
+                    colrev.record.record.Record.get_record_similarity(
+                        record_a=colrev.record.record.Record(record),
+                        record_b=colrev.record.record.Record(original_record),
+                    )
+                    < 0.9
+                ):
+                    continue
+
+                if original_record_id not in records:
+                    continue
+                to_delete.append(record[Fields.ID])
+        if to_delete:
+            for rid in to_delete:
+                logger.info(f" remove duplicate {rid}")
+                del records[rid]
+
+            write_file(records_dict=records, filename=filename)
+
+    def prep_link_md(
+        self,
+        prep_operation: colrev.ops.prep.Prep,
+        record: colrev.record.record.Record,
+        save_feed: bool = True,
+        timeout: int = 10,
+    ) -> colrev.record.record.Record:
+        """Not implemented"""
+        return record
+
+    @classmethod
+    def _load_ris(cls, filename: Path, logger: logging.Logger) -> dict:
+
+        def id_labeler(records: list) -> None:
+            for record_dict in records:
+                record_dict[Fields.ID] = record_dict["AN"]
+
+        def entrytype_setter(record_dict: dict) -> None:
+            if record_dict["TY"] == "JOUR":
+                record_dict[Fields.ENTRYTYPE] = ENTRYTYPES.ARTICLE
+            elif record_dict["TY"] == "BOOK":
+                record_dict[Fields.ENTRYTYPE] = ENTRYTYPES.BOOK
+            elif record_dict["TY"] == "THES":
+                record_dict[Fields.ENTRYTYPE] = ENTRYTYPES.PHDTHESIS
+            else:
+                record_dict[Fields.ENTRYTYPE] = ENTRYTYPES.MISC
+
+        def field_mapper(record_dict: dict) -> None:
+
+            key_maps = {
+                ENTRYTYPES.ARTICLE: {
+                    "PY": Fields.YEAR,
+                    "AU": Fields.AUTHOR,
+                    "TI": Fields.TITLE,
+                    "JF": Fields.JOURNAL,
+                    "AB": Fields.ABSTRACT,
+                    "VL": Fields.VOLUME,
+                    "IS": Fields.NUMBER,
+                    "KW": Fields.KEYWORDS,
+                    "DO": Fields.DOI,
+                    "PB": Fields.PUBLISHER,
+                    "SP": Fields.PAGES,
+                    "PMID": Fields.PUBMED_ID,
+                    "SN": Fields.ISSN,
+                    "AN": f"{cls.endpoint}.accession_number",
+                    "LA": Fields.LANGUAGE,
+                    "L2": Fields.FULLTEXT,
+                    "UR": Fields.URL,
+                },
+                ENTRYTYPES.PHDTHESIS: {
+                    "PY": Fields.YEAR,
+                    "AU": Fields.AUTHOR,
+                    "T1": Fields.TITLE,
+                    "UR": Fields.URL,
+                    "PB": Fields.SCHOOL,
+                    "KW": Fields.KEYWORDS,
+                    "AN": f"{cls.endpoint}.accession_number",
+                    "AB": Fields.ABSTRACT,
+                    "LA": Fields.LANGUAGE,
+                    "CY": Fields.ADDRESS,
+                    "L2": Fields.FULLTEXT,
+                    "A3": f"{cls.endpoint}.supervisor",
+                },
+            }
+
+            if record_dict[Fields.ENTRYTYPE] == ENTRYTYPES.ARTICLE:
+                if "T1" in record_dict and "TI" not in record_dict:
+                    record_dict["TI"] = record_dict.pop("T1")
+
+            key_map = key_maps[record_dict[Fields.ENTRYTYPE]]
+            for ris_key in list(record_dict.keys()):
+                if ris_key in key_map:
+                    standard_key = key_map[ris_key]
+                    record_dict[standard_key] = record_dict.pop(ris_key)
+
+            if "SP" in record_dict and "EP" in record_dict:
+                record_dict[Fields.PAGES] = (
+                    f"{record_dict.pop('SP')}--{record_dict.pop('EP')}"
+                )
+
+            if Fields.AUTHOR in record_dict and isinstance(
+                record_dict[Fields.AUTHOR], list
+            ):
+                record_dict[Fields.AUTHOR] = " and ".join(record_dict[Fields.AUTHOR])
+            if Fields.EDITOR in record_dict and isinstance(
+                record_dict[Fields.EDITOR], list
+            ):
+                record_dict[Fields.EDITOR] = " and ".join(record_dict[Fields.EDITOR])
+            if Fields.KEYWORDS in record_dict and isinstance(
+                record_dict[Fields.KEYWORDS], list
+            ):
+                record_dict[Fields.KEYWORDS] = ", ".join(record_dict[Fields.KEYWORDS])
+
+            keys_to_remove = [
+                "TY",
+                "Y2",
+                "DB",
+                "C1",
+                "T3",
+                "DA",
+                "JF",
+                "L1",
+                "SP",
+                "Y1",
+                "M1",
+                "M3",
+                "N1",
+                "PP",
+                "CY",
+                "SN",
+                "ER",
+                "AN",
+            ]
+
+            for key in keys_to_remove:
+                record_dict.pop(key, None)
+
+            for key, value in record_dict.items():
+                record_dict[key] = str(value)
+
+        records = colrev.loader.load_utils.load(
+            filename=filename,
+            id_labeler=id_labeler,
+            entrytype_setter=entrytype_setter,
+            field_mapper=field_mapper,
+            logger=logger,
+        )
+
+        return records
+
+    def load(self) -> dict:
+        """Load the records from the SearchSource file"""
+
+        if self.search_source.search_results_path.suffix == ".bib":
+            records = colrev.loader.load_utils.load(
+                filename=self.search_source.search_results_path,
+                logger=self.logger,
+                unique_id_field="ID",
+            )
+            self._remove_duplicates(
+                records=records,
+                filename=self.search_source.search_results_path,
+                logger=self.logger,
+            )
+            return records
+
+        if self.search_source.search_results_path.suffix == ".ris":
+            return self._load_ris(self.search_source.search_results_path, self.logger)
+
+        raise NotImplementedError
+
+    def prepare(
+        self,
+        record: colrev.record.record_prep.PrepRecord,
+    ) -> colrev.record.record.Record:
+        """Source-specific preparation for ABI/INFORM (ProQuest)"""
+
+        if (
+            record.data.get(Fields.JOURNAL, "")
+            .lower()
+            .endswith("conference proceedings.")
+        ):
+            record.change_entrytype(new_entrytype="inproceedings")
+
+        if Fields.LANGUAGE in record.data:
+            if record.data[Fields.LANGUAGE] in ["ENG", "English"]:
+                record.update_field(
+                    key=Fields.LANGUAGE,
+                    value="eng",
+                    source="prep_abi_inform_proquest_source",
+                )
+
+        return record
