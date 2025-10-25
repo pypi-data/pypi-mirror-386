@@ -1,0 +1,26 @@
+[project]
+name = "gen-workflow-mcp-server"
+version = "0.0.3"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "hun", email = "k01084758975dev@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "agno>=2.1.4",
+    "ddgs>=9.6.1",
+    "fastapi[standard]>=0.119.0",
+    "google-genai>=1.44.0",
+    "mcp[cli]>=1.18.0",
+    "openai>=2.6.0",
+    "sqlalchemy>=2.0.44",
+    "twine>=6.2.0",
+]
+
+[project.scripts]
+gen-workflow-mcp-server = "gen_workflow_mcp_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

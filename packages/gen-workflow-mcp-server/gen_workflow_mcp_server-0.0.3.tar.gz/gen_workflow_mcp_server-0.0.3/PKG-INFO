@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: gen-workflow-mcp-server
+Version: 0.0.3
+Summary: Add your description here
+Author-email: hun <k01084758975dev@gmail.com>
+Requires-Python: >=3.13
+Requires-Dist: agno>=2.1.4
+Requires-Dist: ddgs>=9.6.1
+Requires-Dist: fastapi[standard]>=0.119.0
+Requires-Dist: google-genai>=1.44.0
+Requires-Dist: mcp[cli]>=1.18.0
+Requires-Dist: openai>=2.6.0
+Requires-Dist: sqlalchemy>=2.0.44
+Requires-Dist: twine>=6.2.0
