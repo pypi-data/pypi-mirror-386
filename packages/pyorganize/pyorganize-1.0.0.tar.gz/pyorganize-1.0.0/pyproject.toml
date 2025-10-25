@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyorganize"
+version = "1.0.0"
+description = "A simple file organizer that sorts files into folders by type."
+readme = "README.md"
+license = { text = "GPL-3.0" }
+authors = [
+  { name = "J.P. Ramackers", email = "jramackers@proton.me" }
+]
+requires-python = ">=3.7"
+keywords = ["organize", "files", "automation"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent"
+]
+
+[project.scripts]
+pyorganize = "main:main"
