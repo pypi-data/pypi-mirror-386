@@ -1,0 +1,9 @@
+petrosa_otel/__init__.py,sha256=C19IbMg0QpMR3FIumVD6nYTe_IO7ZvhSxDubEKAtlTk,897
+petrosa_otel/instrumentors.py,sha256=aQtTFuM2pSbzGTmyKrw7JMyR-ZID0JfdL82_ACzVHdQ,2952
+petrosa_otel/logging_handlers.py,sha256=dkjOi2RIvX7xr4tPRs64CCJ489VrZz5saHlZkqXLTzw,2814
+petrosa_otel/processors.py,sha256=QHxOnUNiGhxmc_qtsXcK3a8atKeanLmshUw3aC5C6P0,1819
+petrosa_otel/setup.py,sha256=RqqYrgCFiGYpuPBD6d9OAxkU32XNDrlyaYtZ3wQbLhE,11453
+petrosa_otel-1.0.0.dist-info/METADATA,sha256=ih-NEU_3pIi40s_j-ixQuM3INq6FMFw4xVzFM6-B02Y,11534
+petrosa_otel-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+petrosa_otel-1.0.0.dist-info/top_level.txt,sha256=LPMVD0hXyqfTPX731Bbip1Rhzj0WBCIO6VnE5L2k7n0,13
+petrosa_otel-1.0.0.dist-info/RECORD,,

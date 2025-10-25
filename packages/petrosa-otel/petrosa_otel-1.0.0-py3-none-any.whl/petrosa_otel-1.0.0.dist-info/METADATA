@@ -1,0 +1,425 @@
+Metadata-Version: 2.4
+Name: petrosa-otel
+Version: 1.0.0
+Summary: Unified OpenTelemetry initialization for Petrosa services
+Author-email: Petrosa Team <dev@petrosa.com>
+Project-URL: Homepage, https://github.com/PetroSa2/petrosa-otel
+Project-URL: Repository, https://github.com/PetroSa2/petrosa-otel
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: opentelemetry-api>=1.20.0
+Requires-Dist: opentelemetry-sdk>=1.20.0
+Requires-Dist: opentelemetry-exporter-otlp-proto-grpc>=1.20.0
+Requires-Dist: opentelemetry-instrumentation-logging>=0.41b0
+Requires-Dist: opentelemetry-instrumentation-requests>=0.41b0
+Requires-Dist: opentelemetry-instrumentation-urllib3>=0.41b0
+Provides-Extra: fastapi
+Requires-Dist: opentelemetry-instrumentation-fastapi>=0.41b0; extra == "fastapi"
+Provides-Extra: mysql
+Requires-Dist: opentelemetry-instrumentation-pymysql>=0.41b0; extra == "mysql"
+Provides-Extra: mongodb
+Requires-Dist: opentelemetry-instrumentation-pymongo>=0.41b0; extra == "mongodb"
+Provides-Extra: all
+Requires-Dist: petrosa-otel[fastapi,mongodb,mysql]; extra == "all"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+
+# Petrosa OpenTelemetry Package
+
+Unified OpenTelemetry initialization for all Petrosa services. This package eliminates code duplication across services and ensures consistent observability behavior.
+
+## Features
+
+- ✅ **Unified Setup**: Single `setup_telemetry()` function for all services
+- ✅ **Multi-Service Support**: FastAPI, async services, CronJobs, CLI scripts
+- ✅ **Comprehensive Instrumentation**: HTTP, MySQL, MongoDB, FastAPI
+- ✅ **Smart Defaults**: Auto-configuration from environment variables
+- ✅ **MongoDB Compatible**: AttributeFilterSpanProcessor prevents dict/list attribute errors
+- ✅ **Flexible Logging**: Different strategies for different service types
+- ✅ **Zero Boilerplate**: 5 lines of code vs 300+ lines per service
+
+## Installation
+
+```bash
+# Base installation (traces, metrics, logs, HTTP instrumentation)
+pip install petrosa-otel
+
+# With FastAPI support
+pip install petrosa-otel[fastapi]
+
+# With MySQL support
+pip install petrosa-otel[mysql]
+
+# With MongoDB support
+pip install petrosa-otel[mongodb]
+
+# With all optional dependencies
+pip install petrosa-otel[all]
+```
+
+## Quick Start
+
+### FastAPI Service (ta-bot, realtime-strategies, data-manager)
+
+```python
+from fastapi import FastAPI
+from petrosa_otel import setup_telemetry
+from petrosa_otel.instrumentors import instrument_fastapi
+
+# Setup telemetry
+setup_telemetry(
+    service_name="ta-bot",
+    service_type="fastapi",
+    enable_fastapi=True,
+    enable_mysql=True,
+    enable_mongodb=True,
+)
+
+# Create FastAPI app
+app = FastAPI()
+
+# Instrument the app
+instrument_fastapi(app)
+
+# Your routes here...
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+```
+
+### Async Service (socket-client, NATS listeners)
+
+```python
+import asyncio
+from petrosa_otel import setup_telemetry, attach_logging_handler
+
+# Setup telemetry with auto-logging attachment
+setup_telemetry(
+    service_name="socket-client",
+    service_type="async",
+    enable_mongodb=True,
+    auto_attach_logging=True,  # Automatically attach logging handler
+)
+
+async def main():
+    # Your async code here
+    logger.info("Service started")
+    await process_messages()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### CronJob (data-extractor batch jobs)
+
+```python
+from petrosa_otel import setup_telemetry
+
+# Setup telemetry for batch job
+setup_telemetry(
+    service_name="data-extractor",
+    service_type="cronjob",
+    enable_mysql=True,
+    enable_mongodb=True,
+    auto_attach_logging=True,
+)
+
+# Your batch processing code
+def extract_klines():
+    logger.info("Starting kline extraction")
+    # ... extraction logic ...
+
+if __name__ == "__main__":
+    extract_klines()
+```
+
+### Trade Engine with Leader Election
+
+```python
+from petrosa_otel import setup_telemetry
+
+# Setup telemetry
+setup_telemetry(
+    service_name="tradeengine",
+    service_type="async",
+    enable_mongodb=True,
+    auto_attach_logging=True,
+)
+
+# Your trade execution logic
+async def process_signals():
+    # Leader election and signal processing
+    pass
+```
+
+## Configuration
+
+### Environment Variables
+
+The package respects standard OpenTelemetry environment variables:
+
+```bash
+# Required
+OTEL_EXPORTER_OTLP_ENDPOINT=https://otlp-gateway.example.com/otlp
+OTEL_EXPORTER_OTLP_HEADERS=Authorization=Bearer token123
+
+# Optional (with defaults)
+ENABLE_OTEL=true                    # Global enable/disable
+ENABLE_TRACES=true                  # Enable trace export
+ENABLE_METRICS=true                 # Enable metrics export
+ENABLE_LOGS=true                    # Enable log export
+OTEL_SERVICE_VERSION=1.0.0          # Service version
+OTEL_RESOURCE_ATTRIBUTES=key=value  # Custom attributes
+OTEL_METRIC_EXPORT_INTERVAL=60000   # Metric export interval (ms)
+ENVIRONMENT=production              # Deployment environment
+```
+
+### Service Types
+
+| Type | Description | Use Case | Logging Strategy |
+|------|-------------|----------|------------------|
+| `fastapi` | FastAPI application | Web APIs | Uvicorn handles logging |
+| `async` | Async service | NATS listeners, WebSocket clients | Manual attachment via `attach_logging_handler()` |
+| `cronjob` | Kubernetes CronJob | Batch processing | Auto-attach with `auto_attach_logging=True` |
+| `cli` | Command-line script | One-off tasks | Auto-attach with `auto_attach_logging=True` |
+
+## API Reference
+
+### `setup_telemetry()`
+
+Main entry point for OpenTelemetry setup.
+
+```python
+def setup_telemetry(
+    service_name: str,
+    service_version: str | None = None,
+    service_type: Literal["fastapi", "async", "cronjob", "cli"] = "async",
+    otlp_endpoint: str | None = None,
+    enable_metrics: bool = True,
+    enable_traces: bool = True,
+    enable_logs: bool = True,
+    enable_http: bool = True,
+    enable_mysql: bool = False,
+    enable_mongodb: bool = False,
+    enable_fastapi: bool = False,
+    auto_attach_logging: bool = False,
+) -> bool:
+```
+
+**Parameters**:
+- `service_name`: Name of the service (e.g., "ta-bot")
+- `service_version`: Version (defaults to `OTEL_SERVICE_VERSION` env var)
+- `service_type`: Type of service (affects logging behavior)
+- `otlp_endpoint`: OTLP endpoint (defaults to `OTEL_EXPORTER_OTLP_ENDPOINT`)
+- `enable_metrics`: Enable metrics export
+- `enable_traces`: Enable trace export
+- `enable_logs`: Enable log export
+- `enable_http`: Instrument HTTP libraries (requests, urllib3)
+- `enable_mysql`: Instrument PyMySQL
+- `enable_mongodb`: Instrument PyMongo (enables AttributeFilterSpanProcessor)
+- `enable_fastapi`: Whether this is a FastAPI app (call `instrument_fastapi()` separately)
+- `auto_attach_logging`: Auto-attach logging handler (for async/cli/cronjob)
+
+**Returns**: `True` if successful, `False` otherwise
+
+### `attach_logging_handler()`
+
+Attach OTLP logging handler to root logger. Required for async services that don't auto-attach.
+
+```python
+from petrosa_otel import attach_logging_handler
+
+# After setup_telemetry()
+attach_logging_handler()
+```
+
+### `get_tracer()` and `get_meter()`
+
+Get tracer and meter instances for custom instrumentation.
+
+```python
+from petrosa_otel import get_tracer, get_meter
+
+tracer = get_tracer("my-component")
+meter = get_meter("my-component")
+
+# Create custom spans
+with tracer.start_as_current_span("my-operation") as span:
+    span.set_attribute("key", "value")
+    # ... your code ...
+
+# Create custom metrics
+counter = meter.create_counter("my_counter")
+counter.add(1, {"label": "value"})
+```
+
+### `instrument_fastapi(app)`
+
+Instrument a FastAPI application.
+
+```python
+from petrosa_otel.instrumentors import instrument_fastapi
+
+app = FastAPI()
+instrument_fastapi(app)
+```
+
+## Migration Guide
+
+### Before (per-service otel_init.py - 300+ lines)
+
+```python
+# otel_init.py (300+ lines of duplicated code)
+from opentelemetry import trace, metrics
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+# ... 290 more lines ...
+
+def setup_telemetry(...):
+    # Complex setup logic
+    pass
+
+# Auto-init at import
+if os.getenv("OTEL_AUTO_SETUP", "true") == "true":
+    setup_telemetry()
+```
+
+### After (using petrosa-otel - 5 lines)
+
+```python
+from petrosa_otel import setup_telemetry
+
+setup_telemetry(
+    service_name="ta-bot",
+    service_type="fastapi",
+    enable_mysql=True,
+)
+```
+
+### Migration Steps
+
+1. **Install Package**:
+   ```bash
+   pip install petrosa-otel[all]
+   ```
+
+2. **Replace otel_init Import**:
+   ```python
+   # Old
+   from otel_init import setup_telemetry, attach_logging_handler_simple, get_tracer
+   
+   # New
+   from petrosa_otel import setup_telemetry, attach_logging_handler, get_tracer
+   ```
+
+3. **Update setup_telemetry() Call**:
+   ```python
+   # Old (many parameters)
+   setup_telemetry(
+       service_name="ta-bot",
+       service_version="1.0.0",
+       otlp_endpoint=os.getenv("OTEL_EXPORTER_OTLP_ENDPOINT"),
+       enable_metrics=True,
+       enable_traces=True,
+       enable_logs=True,
+   )
+   
+   # New (simplified with smart defaults)
+   setup_telemetry(
+       service_name="ta-bot",
+       service_type="fastapi",
+       enable_mysql=True,
+       enable_mongodb=True,
+   )
+   ```
+
+4. **Update requirements.txt**:
+   ```bash
+   # Remove opentelemetry-* dependencies
+   # Add petrosa-otel with extras
+   petrosa-otel[fastapi,mysql,mongodb]>=1.0.0
+   ```
+
+5. **Remove Local otel_init.py**:
+   ```bash
+   rm otel_init.py
+   ```
+
+## Troubleshooting
+
+### No traces/metrics/logs appearing
+
+1. Check `OTEL_EXPORTER_OTLP_ENDPOINT` is set
+2. Check `ENABLE_OTEL=true`
+3. Check service has network access to OTLP endpoint
+4. For async services, ensure `attach_logging_handler()` was called
+
+### MongoDB dict/list attribute errors
+
+This should not happen with `petrosa-otel` as it automatically uses `AttributeFilterSpanProcessor` when `enable_mongodb=True`.
+
+If you still see errors, verify:
+```python
+setup_telemetry(
+    service_name="my-service",
+    enable_mongodb=True,  # ← This must be True
+)
+```
+
+### FastAPI logs not exported
+
+FastAPI uses Uvicorn's logging configuration. The package automatically handles this when `service_type="fastapi"`.
+
+If logs aren't appearing:
+1. Ensure Uvicorn is configured with proper log level
+2. Check `ENABLE_LOGS=true`
+3. Verify OTLP endpoint is reachable
+
+## Development
+
+### Running Tests
+
+```bash
+# Install dev dependencies
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+
+# Run with coverage
+pytest --cov=petrosa_otel --cov-report=html
+```
+
+### Linting
+
+```bash
+# Format and lint
+ruff check src/
+ruff format src/
+```
+
+## Benefits
+
+| Metric | Before | After | Improvement |
+|--------|--------|-------|-------------|
+| Lines of Code | ~1,900 | ~400 | **80% reduction** |
+| Files to Maintain | 6 | 1 | **83% reduction** |
+| Bug Fix Propagation | Manual (6×) | Automatic | **6× faster** |
+| Time to Add OTel | 30+ min | < 5 min | **6× faster** |
+| Consistency | ❌ Divergent | ✅ Uniform | **100% consistent** |
+
+## License
+
+Internal Petrosa package - not for public distribution.
+
+## Support
+
+For issues or questions, contact the Petrosa platform team or create an issue in the repository.
+
