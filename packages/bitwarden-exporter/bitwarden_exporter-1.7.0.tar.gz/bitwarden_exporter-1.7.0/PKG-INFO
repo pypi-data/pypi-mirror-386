@@ -1,0 +1,156 @@
+Metadata-Version: 2.4
+Name: bitwarden-exporter
+Version: 1.7.0
+Summary: Export Bitwarden vault
+Keywords: bitwarden,export,keepass,backup
+Author: arpan
+Author-email: arpan <me@arpanrec.com>
+License-Expression: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: System :: Archiving :: Backup
+Classifier: Topic :: Security
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: System :: Recovery Tools
+Requires-Dist: gnupg==2.3.1
+Requires-Dist: pydantic==2.12.3
+Requires-Dist: pykeepass==4.1.1.post1
+Requires-Dist: cachier==4.1.0
+Requires-Dist: pyfiglet==1.0.4
+Requires-Dist: jmespath>=1.0.1
+Requires-Dist: bandit==1.8.6 ; extra == 'dev'
+Requires-Dist: black==25.9.0 ; extra == 'dev'
+Requires-Dist: isort==7.0.0 ; extra == 'dev'
+Requires-Dist: mypy==1.18.2 ; extra == 'dev'
+Requires-Dist: neovim==0.3.1 ; extra == 'dev'
+Requires-Dist: pylint==4.0.2 ; extra == 'dev'
+Requires-Dist: pyright==1.1.406 ; extra == 'dev'
+Requires-Dist: types-pyyaml==6.0.12.20250915 ; extra == 'dev'
+Requires-Dist: types-requests==2.32.4.20250913 ; extra == 'dev'
+Requires-Dist: types-jmespath==1.0.2.20250809 ; extra == 'dev'
+Requires-Python: >=3.10
+Provides-Extra: dev
+Description-Content-Type: text/markdown
+
+# Bitwarden Exporter
+
+Python Wrapper for [Password Manager CLI](https://bitwarden.com/help/cli/) for exporting bitwarden vaults to KeePass.
+
+## Features
+
+- **Comprehensive data mapping**
+  - Credentials
+  - URIs (Compatible with keepass URL)
+  - Notes (Compatible with keepass note)
+  - TOTP codes (Compatible with keepass totp)
+  - Custom Fields (Compatible with additional attributes)
+  - Identity/Cards (Backup only, not supported by Keepass yet)
+  - Attachments (Compatible with keepass attachment)
+  - SSH keys (Compatible with keepass ssh and attachments)
+  - Fido U2F Keys (Backup only, not supported by Keepass yet)
+- **Preserves vault structure**
+  - Collection and Folder hierarchy is preserved as Keepass groups.
+- Built-in JSON snapshot of vault data for auditing.
+- Configurable CLI with options for duplicates handling, custom temp directory, debug logging, and Bitwarden CLI path.
+
+## Prerequisites
+
+- [Bitwarden CLI](https://bitwarden.com/help/article/cli/#download-and-install)
+
+### (Recommended) Run with [uvx](https://docs.astral.sh/uv/guides/tools/)
+
+```bash
+BW_SESSION=<session token> uvx bitwarden-exporter==VERSION --help
+```
+
+or
+
+```bash
+BW_SESSION=<session token> uvx bitwarden-exporter --help
+```
+
+### Install with [pipx](https://github.com/pypa/pipx)
+
+```bash
+BW_SESSION=<session token> pipx install bitwarden-exporter
+```
+
+### Options
+
+```bash
+bitwarden-exporter --help
+```
+
+#### Export Location (-l, --export-location)
+
+Bitwarden Export Location, Default: `bitwarden_dump_<timestamp>.kdbx`,
+
+This is a dynamic value, Just in case if it exists, it will be overwritten.
+
+#### Export Password (-p, --export-password)
+
+- Required
+
+Bitwarden Export Password or Path to Password File.
+
+File paths can be prefixed with 'file:' to reference a file, e.g. file:secret.txt.
+
+Environment variables can be used to reference a file, e.g. env:SECRET_PASSWORD.
+
+From vault, jmespath expression on `bw list items`,
+
+e.g. `jmespath:[?id=='xx-xx-xx-xxx-xxx'].fields[] | [?name=='export-password'].value`.
+
+#### Allow Duplicates (-d, --allow-duplicates)
+
+Allow Duplicates entries in Export, In bitwarden each item can be in multiple collections.
+
+Default: --no-allow-duplicates
+
+#### Temporary Directory (-t, --tmp-dir)
+
+Temporary Directory to store temporary sensitive files, Make sure to delete it after the export.
+
+Default: ./bitwarden_dump_attachments
+
+#### Bitwarden CLI Executable (-e, --bw-executable)
+
+Path to the Bitwarden CLI executable.
+
+Default: bw
+
+#### Debug (-d, --debug)
+
+Enable Verbose Logging.
+
+This will print debug logs, THAT MAY CONTAIN SENSITIVE INFORMATION.
+
+**This will not delete the temporary directory after the export.**
+
+Default: --no-debug
+
+## Roadmap
+
+- Make a cloud-ready option for bitwarden zero-touch backup, Upload to cloud storage.
+- Restore back to bitwarden.
+
+## Credits
+
+[@ckabalan](https://github.com/ckabalan)
+for [bitwarden-attachment-exporter](https://github.com/ckabalan/bitwarden-attachment-exporter)
+
+## License
+
+MIT
