@@ -1,0 +1,36 @@
+# Callixir
+
+A small and convenient tool for implementing command execution in any application. Suitable for a console application or a social media bot.
+
+Its principle of operation is simple: the user sends a string containing the command name and its arguments, if required. The next step is to execute the corresponding method based on this string.
+
+___
+
+## Example
+
+```py
+from callixir import SimpleShell
+
+shell = SimpleShell()
+
+@shell.reg("echo")
+def cmdEcho(arg: str):
+	return f"Echo {arg}"
+
+@shell.reg("sum")
+def сmdSum(a: int, b: int):
+	return a + b
+
+@shell.reg("log")
+def cmdLog(*args: str):
+	return ", ".join(args)
+
+result = shell.execute("echo Hello_World!")
+print(result.result) # Echo Hello_World!
+
+result = shell.execute("sum 1 2")
+print(result.result) # 3
+
+result = shell.execute("log 1 2 Hi 10 J 100 \"many words in one\" 999 71")
+print(result.result) # 1, 2, Hi, 10, J, 100, many words in one, 999, 71
+```
