@@ -1,0 +1,4 @@
+[console_scripts]
+tinyrv-dump = tinyrv.dump:main
+tinyrv-system-virt = tinyrv.system:run_virt
+tinyrv-user-elf = tinyrv.user:run_elf
