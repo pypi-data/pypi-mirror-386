@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/genome_mcp/__init__.py
+src/genome_mcp/__main__.py
+src/genome_mcp/main.py
+src/genome_mcp.egg-info/PKG-INFO
+src/genome_mcp.egg-info/SOURCES.txt
+src/genome_mcp.egg-info/dependency_links.txt
+src/genome_mcp.egg-info/entry_points.txt
+src/genome_mcp.egg-info/requires.txt
+src/genome_mcp.egg-info/top_level.txt
