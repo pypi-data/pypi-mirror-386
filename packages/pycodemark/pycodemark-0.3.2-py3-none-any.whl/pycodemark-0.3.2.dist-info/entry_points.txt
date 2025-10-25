@@ -1,0 +1,4 @@
+[console_scripts]
+codemark=codemark.console:main
+pycodemark=codemark.console:main
+
