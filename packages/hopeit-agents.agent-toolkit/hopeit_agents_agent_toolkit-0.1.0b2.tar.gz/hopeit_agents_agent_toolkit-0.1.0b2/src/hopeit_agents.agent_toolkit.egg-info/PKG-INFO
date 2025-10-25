@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: hopeit-agents.agent-toolkit
+Version: 0.1.0b2
+Summary: Hopeit Agents: Agent Toolkit plugin
+Author-email: hopeit-agents contributors <opensource@hopeit.com.ar>
+License: Apache 2
+Project-URL: Homepage, https://github.com/hopeit-git/hopeit.agents
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: AsyncIO
+Description-Content-Type: text/markdown
+Requires-Dist: hopeit.engine>=0.27.0
+Requires-Dist: hopeit-agents.mcp-client
+
+# hopeit_agents Agent Toolkit
+
+Library offering utilities to create and serve agents as hopeit.engine events within the hopeit.agents framework.
+
+Check details at [hopeit.agents README](https://github.com/hopeit-git/hopeit.agents/blob/master/README.md).
