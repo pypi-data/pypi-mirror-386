@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+pyan_unused_functions/__init__.py
+pyan_unused_functions/analyzer.py
+pyan_unused_functions/cli.py
+pyan_unused_functions.egg-info/PKG-INFO
+pyan_unused_functions.egg-info/SOURCES.txt
+pyan_unused_functions.egg-info/dependency_links.txt
+pyan_unused_functions.egg-info/entry_points.txt
+pyan_unused_functions.egg-info/requires.txt
+pyan_unused_functions.egg-info/top_level.txt
