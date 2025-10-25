@@ -1,0 +1,15 @@
+gcmd/__init__.py,sha256=JRUjOgzaxsVEfJ29aw1UyJKE8ZHYy0FHPYmzR-4pauc,50
+gcmd/__main__.py,sha256=LN0j1PXNbDs-TLaQrRbVYGN3Z7nKWyo88Sn8wKXryCs,81
+gcmd/auth.py,sha256=XvbYSmmcH6TOU6u-Jnn9xzfyTFRk6pHC-Ecfex-bnKM,5554
+gcmd/cli.py,sha256=GCavAtAKEMg3E_AUI6aztoMb0V8OQoK-x1QK5XIQx7c,12661
+gcmd/client.py,sha256=mgIKjWbFOsja0Pfz9lf5n_3BWGKu1aLW1Z7AitMtefs,756
+gcmd/comments.py,sha256=qe9m9ysNj6KUzVKVouyoH0hF5jUyI-rdNXjRw-izszU,3005
+gcmd/docs.py,sha256=dQcHl_mIVWq_56MQG1Oympjy_A_Y96gcwBBKScHVD7g,9378
+gcmd/download.py,sha256=4zfMwYIF0QPzkho_QYEp5FGYtLj5se-KjJc_YqC5WbA,5826
+gcmd/list.py,sha256=izDOU9D42blJ2K4I0fvv-Gt0NRePKP4U8VHEzWzi6BA,4667
+gcmd/utils.py,sha256=OF3mfIi_Qnoh1L2sDSz7XMt4GqXZcZbbw25l_rg825k,2826
+gcmd-0.1.0.dist-info/METADATA,sha256=Oqh3jv3HrgAiVzBoc80CsNwDX1qqPjISm7UVJaVMpxw,5888
+gcmd-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gcmd-0.1.0.dist-info/entry_points.txt,sha256=5pl8cgUaMTZHklFh9j5_4tNLfEEiVU8l9reEHDSgW94,39
+gcmd-0.1.0.dist-info/top_level.txt,sha256=dNnraV8iPn0IlAou9DpaA3JqdIKkD-7TC0br1C_SvVs,5
+gcmd-0.1.0.dist-info/RECORD,,
