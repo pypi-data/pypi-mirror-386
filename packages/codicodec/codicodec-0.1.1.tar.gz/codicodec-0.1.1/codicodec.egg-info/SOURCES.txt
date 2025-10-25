@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+codicodec/__init__.py
+codicodec/audio.py
+codicodec/hparams.py
+codicodec/hparams_inference.py
+codicodec/inference.py
+codicodec/models.py
+codicodec/transformer.py
+codicodec/transformer_layers.py
+codicodec/utils.py
+codicodec.egg-info/PKG-INFO
+codicodec.egg-info/SOURCES.txt
+codicodec.egg-info/dependency_links.txt
+codicodec.egg-info/requires.txt
+codicodec.egg-info/top_level.txt
