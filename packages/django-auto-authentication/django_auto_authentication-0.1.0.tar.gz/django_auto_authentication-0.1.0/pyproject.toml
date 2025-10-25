@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "twine"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django_auto_authentication"  # must be unique
+version = "0.1.0"
+authors = [
+  { name="Jagriti Srivastava", email="jagritisrvstv@gmail.com" }
+]
+description = "Reusable Django authentication package: login, register, dashboard ready out-of-the-box!"
+readme = "README.md"  # full README will render on PyPI
+requires-python = ">=3.10"
+dependencies = [
+    "Django>=4.0"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Framework :: Django",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/jagritiS/django_auth_package"
+Issues = "https://github.com/jagritiS/django_auth_package/issues"

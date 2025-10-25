@@ -1,0 +1,2 @@
+recursive-include django_auth_app/templates *
+recursive-include django_auth_app/management *

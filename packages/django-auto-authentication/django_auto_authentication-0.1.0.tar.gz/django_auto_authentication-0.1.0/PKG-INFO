@@ -1,0 +1,99 @@
+Metadata-Version: 2.4
+Name: django_auto_authentication
+Version: 0.1.0
+Summary: Reusable Django authentication package: login, register, dashboard ready out-of-the-box!
+Home-page: https://github.com/jagritiS/django_auto_authentication
+Author: Jagriti Srivastava
+Author-email: Jagriti Srivastava <jagritisrvstv@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/jagritiS/django_auth_package
+Project-URL: Issues, https://github.com/jagritiS/django_auth_package/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: Django>=4.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Django Auth App
+
+A reusable Django authentication package that provides **login, logout, registration, and dashboard functionality** out-of-the-box.  
+No need to rewrite authentication logic for every Django project—just install, migrate, and copy templates.
+
+---
+
+## Features
+
+- Login, logout, and registration views  
+- Dashboard and home page templates  
+- Ready-to-use URLs  
+- Easy template customization via management command  
+- Works with any Django 4.x+ project  
+
+---
+
+## Installation
+
+Install the package via pip:
+
+```bash
+pip install /path/to/django_auth_package
+Add to INSTALLED_APPS in your settings.py:
+
+INSTALLED_APPS = [
+    ...
+    'django_auth_app',
+] 
+```
+Run migrations:
+```
+python manage.py migrate
+```
+
+## Copy Templates
+
+To customize templates, copy them into your project:
+
+python manage.py copy_templates
+
+
+This will create:
+```
+myproject/templates/django_auth_app/
+├─ login.html
+├─ register.html
+├─ dashboard.html
+└─ home_page.html
+```
+
+You can now edit HTML/CSS as needed.
+URLs
+
+Include the app URLs in your project’s urls.py:
+```
+from django.urls import path, include
+
+urlpatterns = [
+    path('', include('django_auth_app.urls', namespace='django_auth_app')),
+]
+```
+---
+Available URLs:
+
+- /login/ → Login page
+
+- /register/ → Registration page
+
+- /dashboard/ → Dashboard
+
+- / → Home page
+---
+## Usage
+
+Af---ter installation, your Django project will have fully functional authentication without writing a single line of authentication code. You can customize templates, add CSS, or integrate it with other apps seamlessly.
