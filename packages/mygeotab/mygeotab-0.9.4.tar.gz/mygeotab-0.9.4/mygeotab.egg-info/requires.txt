@@ -1,0 +1,10 @@
+requests
+urllib3
+click
+pytz
+arrow
+aiohttp[speedups]<4,>=3.12.2
+python-rapidjson
+
+[notebook]
+pandas
