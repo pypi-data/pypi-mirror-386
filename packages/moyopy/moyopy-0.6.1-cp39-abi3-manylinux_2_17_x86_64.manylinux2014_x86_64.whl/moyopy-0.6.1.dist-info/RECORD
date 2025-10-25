@@ -1,0 +1,12 @@
+moyopy-0.6.1.dist-info/METADATA,sha256=lVenT5Sq-LgQCaAi8ELs106EdKWKyiEA2IoBn6npaG4,2637
+moyopy-0.6.1.dist-info/WHEEL,sha256=ZQ_FKSRjS1XeETYNrnZrMTYXk27dAt10hDfb9wJzlpM,127
+moyopy/__init__.py,sha256=q0kxut3msK0456YpxfaTkh4kgeaubu4io4ReXhEkChM,37
+moyopy/_base.pyi,sha256=BAMfje4Ma_D154HpP2lU4lfLU6BZvsRMk6Kcr5NNkJA,4411
+moyopy/_data.pyi,sha256=DbodEfp9Mwd5VnW2-pnPlVGx2-4XASosPdUNW-H3vn0,6904
+moyopy/_dataset.pyi,sha256=AUHXReJkvrU61isAZznCoT6cfh_Lpxtt9a3pnfVZKkI,12076
+moyopy/_identify.pyi,sha256=EIoZDDzO2S59rXnALZCtF0ScCHKzkUcqDFesqMNP5zU,1867
+moyopy/_moyopy.abi3.so,sha256=IIMY0zj3W6k78rBlRKXJp9m23ZRSeV62MuKoKOAbk3w,3441336
+moyopy/_moyopy.pyi,sha256=LIO34F7Moc9VaBu0H8ERzQhLLFLvrY8QlJxfogHrm_I,1153
+moyopy/interface.py,sha256=8YnCcwsynJGvxIGOgNj33Gm_ZtGBPTGSHH-D6G5HtfM,9954
+moyopy/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+moyopy-0.6.1.dist-info/RECORD,,
