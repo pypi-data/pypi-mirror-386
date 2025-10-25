@@ -1,0 +1,46 @@
+Metadata-Version: 2.3
+Name: square-database-helper
+Version: 2.6.3
+Summary: helper to access the database layer for my personal server.
+Keywords: database,helper,utilities
+Author: Parth Mukesh Mangtani
+Author-email: Parth Mukesh Mangtani <thepmsquare@gmail.com>
+License: GPLv3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pydantic>=2.9.2
+Requires-Dist: square-commons>=2.0.0
+Requires-Python: >=3.12
+Project-URL: homepage, https://github.com/thepmsquare/square_database_helper
+Description-Content-Type: text/markdown
+
+# square_database_helper
+
+> 📌 versioning: see [CHANGELOG.md](./CHANGELOG.md).
+
+## about
+
+helper to access the database layer for my personal server.
+
+## installation
+
+```shell
+pip install square_database_helper
+```
+
+## usage
+
+[reference python file](./example.py)
+
+## env
+
+- python>=3.12.0
+
+> feedback is appreciated. thank you!
