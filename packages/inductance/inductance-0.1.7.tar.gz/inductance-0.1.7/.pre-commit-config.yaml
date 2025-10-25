@@ -1,0 +1,74 @@
+default_stages: [pre-commit, pre-push]
+ci:
+  autoupdate_commit_msg: "chore: update pre-commit hooks"
+
+repos:
+  - repo: https://github.com/PyCQA/bandit
+    rev: "1.7.9"
+    hooks:
+      - id: bandit
+        types: [python]
+        require_serial: true
+        args: ["-c", "bandit.yml"]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+        name: Check for added large files
+        entry: check-added-large-files
+        language: system
+      - id: check-toml
+        name: Check Toml
+        entry: check-toml
+        language: system
+        types: [toml]
+      - id: check-yaml
+        name: Check Yaml
+        entry: check-yaml
+        language: system
+        types: [yaml]
+      - id: end-of-file-fixer
+        name: Fix End of Files
+        entry: end-of-file-fixer
+        language: system
+        types: [text]
+      - id: trailing-whitespace
+        name: Trim Trailing Whitespace
+        entry: trailing-whitespace-fixer
+        language: system
+        types: [text]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.2
+    hooks:
+      - id: ruff
+        types_or: [python]
+        args: [--fix]
+      - id: ruff-format
+        types_or: [python]
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.16.0
+    hooks:
+      - id: pyupgrade
+        name: pyupgrade
+        description: Automatically upgrade syntax for newer versions.
+        entry: pyupgrade
+        language: system
+        types: [python]
+        args: [--py39-plus]
+  - repo: https://github.com/codespell-project/codespell
+    rev: "v2.3.0" # Use the latest version which adds inline ignore support
+    hooks:
+      - id: codespell
+        types: [python]
+        additional_dependencies:
+          - tomli
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: "v0.24"
+    hooks:
+      - id: validate-pyproject
+        additional_dependencies: ["validate-pyproject-schema-store[all]"]
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0 # Use the ref you want to point at
+    hooks:
+      - id: python-use-type-annotations

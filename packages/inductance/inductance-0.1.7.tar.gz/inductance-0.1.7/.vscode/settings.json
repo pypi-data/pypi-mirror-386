@@ -1,0 +1,9 @@
+{
+  "editor.tabCompletion": "on",
+  "diffEditor.codeLens": true,
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": false,
+  "markdown-mermaid.languages": ["mermaid"],
+  "map.preview.style.polygon.stroke.width": ""
+}
