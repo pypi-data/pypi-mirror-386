@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ethaddrlib"
+version = "0.1.1"
+dependencies = [
+    "eth-account",
+    "eth-keys"
+]

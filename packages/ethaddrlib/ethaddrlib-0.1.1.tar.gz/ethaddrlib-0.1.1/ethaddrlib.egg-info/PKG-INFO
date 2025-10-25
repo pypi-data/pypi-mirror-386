@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: ethaddrlib
+Version: 0.1.1
+Requires-Dist: eth-account
+Requires-Dist: eth-keys
