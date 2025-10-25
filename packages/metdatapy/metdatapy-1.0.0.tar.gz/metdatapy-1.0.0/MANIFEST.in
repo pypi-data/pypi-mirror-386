@@ -1,0 +1,38 @@
+include README.md
+include LICENSE
+include CITATION.cff
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
+include pyproject.toml
+include .coveragerc
+
+recursive-include metdatapy *.py
+recursive-include tests *.py
+recursive-include docs *.md
+
+# Exclude data directory from package (used for examples only)
+prune data
+prune examples
+
+exclude .gitignore
+exclude TO-DO.md
+exclude mkdocs.yml
+exclude .github
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.pyc
+recursive-exclude * *.pyo
+recursive-exclude * .DS_Store
+recursive-exclude * *.so
+recursive-exclude * *.dylib
+prune site
+prune htmlcov
+prune .pytest_cache
+prune .mypy_cache
+prune .ruff_cache
+prune .coverage
+prune dist
+prune build
+prune *.egg-info
+
