@@ -1,0 +1,67 @@
+# MassGen Configuration: Crawl4AI Web Scraping via MCP
+#
+# Prerequisites:
+#   1. Start crawl4ai Docker container (one-time setup):
+#      docker pull unclecode/crawl4ai:latest
+#      docker run -d -p 11235:11235 --name crawl4ai --shm-size=1g unclecode/crawl4ai:latest
+#
+#   2. Verify container is running:
+#      docker ps | grep crawl4ai
+#
+#   3. Test MCP endpoint (optional):
+#      curl http://localhost:11235/mcp/schema
+#
+# Usage:
+#   massgen --config massgen/configs/tools/custom_tools/crawl4ai_mcp_example.yaml "Scrape https://example.com and summarize the content"
+#
+# Available Tools (via MCP):
+#   - md: Generate markdown from web content
+#   - html: Extract preprocessed HTML
+#   - screenshot: Capture webpage screenshots
+#   - pdf: Generate PDF documents
+#   - execute_js: Run JavaScript on web pages
+#   - crawl: Perform multi-URL crawling
+#   - ask: Query the Crawl4AI library context
+#
+# Note: Multiple agents can connect to the same crawl4ai container.
+#       The server handles up to 5 concurrent crawls by default.
+
+orchestrator:
+  snapshot_storage: "snapshots"
+  agent_temporary_workspace: "temp_workspaces"
+
+agents:
+  - id: "web_scraper_agent"
+    backend:
+      type: "claude_code"
+      model: "claude-sonnet-4-20250514"
+      cwd: "workspace1"
+
+      # Connect to crawl4ai MCP server
+      mcp_servers:
+        - name: "crawl4ai"
+          type: "sse"  # Server-Sent Events transport
+          url: "http://localhost:11235/mcp/sse"
+
+    append_system_prompt: |
+      You are a web scraping specialist with access to the Crawl4AI toolset via MCP.
+
+      Available tools:
+      - md: Convert webpages to clean markdown (best for LLM consumption)
+      - html: Extract preprocessed HTML
+      - screenshot: Capture webpage as image
+      - pdf: Generate PDF from webpage
+      - execute_js: Run JavaScript on pages (for dynamic content)
+      - crawl: Scrape multiple URLs in parallel
+
+      When users ask to scrape, analyze, or extract web content:
+      1. Use 'md' tool for text-based content (articles, docs, etc.)
+      2. Use 'screenshot' for visual content or layout analysis
+      3. Use 'execute_js' for JavaScript-heavy sites
+      4. Use 'crawl' for multiple pages
+
+      Always provide clear summaries of scraped content.
+
+ui:
+  display_type: "rich_terminal"
+  logging_enabled: true

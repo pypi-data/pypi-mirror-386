@@ -1,0 +1,68 @@
+# MassGen Configuration: Multi-Agent Web Research with Crawl4AI
+#
+# This example demonstrates multiple agents sharing a single crawl4ai MCP server
+# for collaborative web research and analysis.
+#
+# Prerequisites:
+#   1. Start crawl4ai Docker container:
+#      docker run -d -p 11235:11235 --name crawl4ai --shm-size=1g unclecode/crawl4ai:latest
+#
+# Usage:
+#   massgen --config massgen/configs/tools/custom_tools/crawl4ai_multi_agent_example.yaml "Research AI safety best practices by scraping relevant documentation sites and academic papers"
+#
+# What happens:
+#   - Multiple agents can scrape different URLs concurrently
+#   - The crawl4ai server handles up to 5 parallel crawls
+#   - Agents collaborate and vote on the synthesized research
+
+orchestrator:
+  snapshot_storage: "snapshots"
+  agent_temporary_workspace: "temp_workspaces"
+  voting_sensitivity: "balanced"
+  answer_novelty_requirement: "balanced"
+  max_new_answers_per_agent: 3
+
+agents:
+  - id: "research_agent_1"
+    backend:
+      type: "openai"
+      model: "gpt-5-nano"
+      cwd: "workspace1"
+
+      # All agents connect to the same crawl4ai container
+      mcp_servers:
+        - name: "crawl4ai"
+          type: "sse"
+          url: "http://localhost:11235/mcp/sse"
+
+      enable_web_search: true
+
+    system_message: |
+      You are a research specialist focused on finding authoritative sources and extracting key insights.
+
+      Use the crawl4ai tools to scrape documentation, articles, and research papers.
+      Prioritize official documentation and academic sources.
+
+  - id: "research_agent_2"
+    backend:
+      type: "gemini"
+      model: "gemini-2.5-pro"
+      cwd: "workspace2"
+
+      # Connects to the SAME crawl4ai container as agent_1
+      mcp_servers:
+        - name: "crawl4ai"
+          type: "sse"
+          url: "http://localhost:11235/mcp/sse"
+
+      enable_web_search: true
+
+    system_message: |
+      You are a synthesis specialist who combines information from multiple sources.
+
+      Use crawl4ai to gather diverse perspectives and cross-reference information.
+      Focus on finding patterns and connections across sources.
+
+ui:
+  display_type: "rich_terminal"
+  logging_enabled: true
