@@ -1,0 +1,15 @@
+odoo/addons/account_followup_subscribe/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+odoo/addons/account_followup_subscribe/README.rst,sha256=PwoOIQan9slukXd5HXUrsCqm6UmgHviiKNQMJTjd6sM,719
+odoo/addons/account_followup_subscribe/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/account_followup_subscribe/__manifest__.py,sha256=xBT1bjNaRkGtvIZJMYrTfGruLcpLCKGlYuIQuVDWayA,497
+odoo/addons/account_followup_subscribe/images/screen.png,sha256=iHFtYOG7nhY0NQAAajPUjytoGt8P2KHwdCidPVBVNKk,1054012
+odoo/addons/account_followup_subscribe/models/__init__.py,sha256=JEhipL-DGBDxLDSL2Cf8HNnqaHBCzSz9cSWP3_Owlfo,38
+odoo/addons/account_followup_subscribe/models/account_followup_report.py,sha256=-YUG0g4VeLBCgXMcVpt7ji5hTM6oH0I6oZreWGATFRM,798
+odoo/addons/account_followup_subscribe/static/description/icon.png,sha256=5TowYYN8cWXqBAasznGpstK-rIA3K5JG6hcrVoPoLzQ,2809
+odoo/addons/account_followup_subscribe/static/description/index.html,sha256=5sJwr0rcJamp25jR_IB7WWiZXHK2WskYo8J3k0A8FDQ,17334
+odoo/addons/account_followup_subscribe/tests/TEST_INSTRUCTIONS.rst,sha256=u_4RfGrcL-aR3Q8At4uWhB8y0NYv21XwoZ8soFPDDx4,293
+odoo/addons/account_followup_subscribe/wizard/followup_manual_reminder.py,sha256=APPweEXhxMDD3HNRsnc6d_nCcNm607QSxQr42Jq-wyY,490
+odoo_addon_account_followup_subscribe-18.0.1.0.0.dist-info/METADATA,sha256=fgLvz0h2D6yqLIkSnPM8CQOpMSposS4BnrBk4A9i4Nw,1226
+odoo_addon_account_followup_subscribe-18.0.1.0.0.dist-info/WHEEL,sha256=ZhOvUsYhy81Dx67gN3TV0RchQWBIIzutDZaJODDg2Vo,81
+odoo_addon_account_followup_subscribe-18.0.1.0.0.dist-info/top_level.txt,sha256=QE6RBQ0QX5f4eFuUcGgU5Kbq1A_qJcDs-e_vpr6pmfU,4
+odoo_addon_account_followup_subscribe-18.0.1.0.0.dist-info/RECORD,,
