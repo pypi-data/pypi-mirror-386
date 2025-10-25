@@ -1,0 +1,23 @@
+[project]
+name = "lupin_logger"
+version = "0.2.0"
+description = "LupinDental logger"
+readme = "README.md"
+authors = [
+  {name = "LupinDental", email = "contact@lupindental.com"}
+]
+maintainers = [
+  {name = "LupinDental", email = "contact@lupindental.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Topic :: System :: Logging"
+]
+license = {text = "MIT"}
+dependencies = [
+  "colorama>=0.4.6"
+]
+requires-python = ">= 3.11"
+
+[project.urls]
+homepage = "https://gitlab.com/lupindental/arsene/rd-utilities/lupin_logger"
