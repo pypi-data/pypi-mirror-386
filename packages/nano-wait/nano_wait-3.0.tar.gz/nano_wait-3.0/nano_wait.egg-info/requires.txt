@@ -1,0 +1,9 @@
+psutil
+pywifi
+
+[vision]
+pyautogui
+pytesseract
+pynput
+opencv-python
+numpy

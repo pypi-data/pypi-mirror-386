@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: nano_wait
+Version: 3.0
+Summary: Adaptive waiting and smart automation library — includes Wi-Fi, system context, and Vision Mode for screen-based decisions.
+Author: Luiz Filipe Seabra de Marco
+Author-email: luizfilipeseabra@icloud.com
+License: MIT License
+Keywords: automation automação wifi wait vision ocr screen adaptive ai
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: psutil
+Requires-Dist: pywifi
+Provides-Extra: vision
+Requires-Dist: pyautogui; extra == "vision"
+Requires-Dist: pytesseract; extra == "vision"
+Requires-Dist: pynput; extra == "vision"
+Requires-Dist: opencv-python; extra == "vision"
+Requires-Dist: numpy; extra == "vision"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Nano-Wait Vision Module
+
+Nano-Wait agora inclui um módulo de **Visão Inteligente**, capaz de ler números diretamente da tela e tomar decisões automáticas em aplicativos ou vídeos.
+
+## Funcionalidades principais
+
+- **Múltiplas regiões**: capture números de várias áreas da tela ao mesmo tempo.
+- **Marcação interativa**: selecione regiões da tela facilmente usando o mouse com `mark_region()`.
+- **Modos inteligentes**:
+  - `observe`: apenas lê e exibe números.
+  - `decision`: lê números e executa ações automáticas com base em valores.
+  - `learn`: registra padrões visuais para uso futuro.
+- **Ações automatizadas**: clique duplo, pular itens, etc.
+- Compatível com macOS, Windows e Linux.
+
+## Instalação
+
+```bash
+pip install -e .
+# Dependências para o módulo de visão
+pip install pyautogui pytesseract pynput opencv-python-headless
+# macOS: instale o Tesseract OCR
+brew install tesseract
