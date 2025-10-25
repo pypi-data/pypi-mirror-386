@@ -1,0 +1,318 @@
+# Deep-OCR
+
+A Python wrapper for DeepSeek-OCR model with easy-to-use API, CPU/GPU support, and Flash Attention optimization.
+
+[![PyPI version](https://badge.fury.io/py/deep-ocr.svg)](https://badge.fury.io/py/deep-ocr)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Features
+
+- **Easy to use**: Simple Python API for OCR tasks
+- **High Performance**: Optimized for NVIDIA GPUs with Flash Attention 2
+- **CPU/GPU Support**: Works on both CPU and GPU (with CUDA patch for CPU compatibility)
+- **Multiple Model Sizes**: Choose from tiny, small, base, large, or gundam presets
+- **Flexible Configuration**: Customizable prompts, output formats, and processing options
+- **Multiple Output Formats**: Markdown, plain text, and structured data
+- **Command Line Interface**: Use from terminal or integrate into your applications
+- **Batch Processing**: Process multiple images with same or different prompts
+
+## Installation
+
+### Using uv (Recommended)
+```bash
+# Install uv if you haven't already
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Basic installation
+uv add deep-ocr
+
+# With Flash Attention (Recommended for GPU users)
+uv add "deep-ocr[flash-attn]"
+
+# Development installation
+uv add --dev deep-ocr
+```
+
+### Using pip
+```bash
+# Basic installation
+pip install deep-ocr
+
+# With Flash Attention (Recommended for GPU users)
+pip install deep-ocr[flash-attn]
+
+# Development installation
+pip install deep-ocr[dev]
+```
+
+### Development Setup
+```bash
+# Clone the repository
+git clone https://github.com/Gershonbest/deep-ocr.git
+cd deep-ocr
+
+# Install with uv
+uv sync --dev
+
+# Run tests
+uv run pytest
+
+# Format code
+uv run black .
+uv run isort .
+
+# Type checking
+uv run mypy deep_ocr/
+```
+
+## Quick Start
+
+### Python API
+
+```python
+from deep_ocr import DeepSeekOCR, OCRConfig
+
+# Basic usage
+ocr = DeepSeekOCR()
+result = ocr.process("image.jpg", output_dir="output")
+
+# Custom configuration
+config = OCRConfig(
+    model_size="large",
+    device="cpu",  # or "cuda:0" for GPU
+    crop_mode=True
+)
+ocr = DeepSeekOCR(config=config)
+result = ocr.process("document.jpg", output_dir="results")
+```
+
+### Command Line Interface
+
+```bash
+# Basic OCR
+deep-ocr image.jpg
+
+# Specify output directory
+deep-ocr image.jpg -o output/
+
+# Use large model
+deep-ocr image.jpg --model-size large
+
+# Custom prompt
+deep-ocr image.jpg --prompt "Extract all text from this document"
+```
+
+## Configuration Options
+
+### Flash Attention Optimization
+
+For NVIDIA GPU users, Flash Attention 2 provides significant performance improvements:
+
+```python
+from deep_ocr import DeepSeekOCR, OCRConfig
+
+# Enable Flash Attention for high performance
+config = OCRConfig(
+    model_size="large",
+    device="cuda:0",
+    use_flash_attention=True  # Enable Flash Attention 2
+)
+
+ocr = DeepSeekOCR(config=config)
+result = ocr.process("image.jpg", output_dir="output")
+```
+
+**Requirements for Flash Attention:**
+- NVIDIA GPU with CUDA support
+- `flash-attn` package installed
+- Sufficient GPU memory
+
+**Performance Benefits:**
+- 2-4x faster inference on compatible GPUs
+- Lower memory usage
+- Better scaling with larger models
+
+## Model Size Presets
+
+| Size    | Base Size | Image Size | Description                    |
+|---------|-----------|------------|--------------------------------|
+| tiny    | 512       | 512        | Fastest, lowest memory usage   |
+| small   | 768       | 768        | Good balance of speed/quality  |
+| base    | 1024      | 1024       | Default, good quality          |
+| large   | 1024      | 1024       | Higher quality, more memory    |
+| gundam  | 1024      | 640        | Specialized preset             |
+
+### OCRConfig Parameters
+
+```python
+config = OCRConfig(
+    model_name="deepseek-ai/DeepSeek-OCR",  # Model repository
+    device="cpu",                           # Device: "cpu" or "cuda:0"
+    dtype=torch.float32,                   # Data type
+    model_size="tiny",                     # Size preset
+    base_size=512,                         # Base image size
+    image_size=512,                        # Processing image size
+    crop_mode=False,                       # Enable crop mode
+    save_results=True,                     # Save results to files
+    test_compress=False,                   # Test compression mode
+    use_flash_attention=False              # Use flash attention (GPU only)
+)
+```
+
+## Usage Examples
+
+### Extract Text to Markdown
+
+```python
+from deep_ocr import DeepSeekOCR
+
+ocr = DeepSeekOCR()
+result = ocr.ocr_to_markdown("receipt.jpg", output_dir="output")
+print(result.text)
+```
+
+### Extract Plain Text
+
+```python
+from deep_ocr import DeepSeekOCR
+
+ocr = DeepSeekOCR()
+result = ocr.ocr_to_text("document.pdf", output_dir="output")
+print(result.text)
+```
+
+### Custom Prompt
+
+```python
+from deep_ocr import DeepSeekOCR
+
+ocr = DeepSeekOCR()
+result = ocr.process(
+    "invoice.jpg",
+    prompt="<image>\n<|grounding|>Extract all items, quantities, and prices.",
+    output_dir="invoices"
+)
+```
+
+### Batch Processing
+
+#### Same Prompt for All Images
+
+```python
+from deep_ocr import DeepSeekOCR
+
+ocr = DeepSeekOCR()
+images = ["doc1.jpg", "doc2.jpg", "doc3.jpg"]
+results = ocr.batch_process(images, output_dir="batch_results")
+
+for i, result in enumerate(results):
+    print(f"Document {i+1}: {result.text[:100]}...")
+```
+
+#### Different Prompts for Each Image
+
+```python
+from deep_ocr import DeepSeekOCR
+
+ocr = DeepSeekOCR()
+
+# Using tuples
+image_prompt_pairs = [
+    ("receipt.jpg", "<image>\n<|grounding|>Extract all items and prices from this receipt."),
+    ("invoice.jpg", "<image>\n<|grounding|>Extract company name, invoice number, and total amount."),
+    ("document.jpg", "<image>\n<|grounding|>Convert this document to markdown format.")
+]
+results = ocr.batch_process_with_prompts(image_prompt_pairs, output_dir="batch_results")
+
+# Using dictionaries
+image_prompt_pairs = [
+    {"image": "receipt.jpg", "prompt": "Extract all items and prices."},
+    {"image": "invoice.jpg", "prompt": "Extract company name and total amount."},
+    {"image": "document.jpg", "prompt": "Convert to markdown format."}
+]
+results = ocr.batch_process_with_prompts(image_prompt_pairs, output_dir="batch_results")
+
+# Process results
+for result in results:
+    if result['status'] == 'success':
+        print(f"✓ {result['image']}: {result['result'].text[:100]}...")
+    else:
+        print(f"✗ {result['image']}: {result['error']}")
+```
+
+## Command Line Options
+
+```bash
+deep-ocr IMAGE [OPTIONS]
+
+Arguments:
+  IMAGE                 Path to the image file to process
+
+Options:
+  -o, --output DIR      Output directory for results (default: output)
+  --model-size SIZE     Model size: tiny, small, base, large, gundam (default: tiny)
+  --device DEVICE       Device to use: cpu, cuda:0 (default: cpu)
+  --prompt TEXT         Custom prompt for OCR
+  --save-results        Save results to files (default: True)
+  --no-save-results     Don't save results to files
+  --test-compress       Test compression mode
+  --crop-mode           Enable crop mode
+  -h, --help            Show help message
+```
+
+## Requirements
+
+- Python 3.11+
+- PyTorch 2.6.0
+- Transformers 4.46.3
+- Pillow (PIL)
+- Other dependencies listed in `requirements.txt`
+
+## CPU Compatibility
+
+This package includes automatic CPU compatibility patches for systems without CUDA support. The model will automatically fall back to CPU processing when GPU is not available.
+
+## Output Files
+
+The package generates several output files in the specified directory:
+
+- `result.md` - Extracted text in Markdown format
+- `result.txt` - Plain text output
+- `result_with_boxes.jpg` - Image with bounding boxes (if available)
+- `result.json` - Structured data (if available)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [DeepSeek-OCR](https://huggingface.co/deepseek-ai/DeepSeek-OCR) - The original OCR model by DeepSeek AI
+- [DeepSeek AI](https://www.deepseek.com/) - For developing and releasing the DeepSeek-OCR model
+- [Hugging Face Transformers](https://github.com/huggingface/transformers) - Model loading and inference framework
+- [PyTorch](https://pytorch.org/) - Deep learning framework
+
+**Note**: This package is a wrapper/interface for the DeepSeek-OCR model. The actual model weights and architecture are developed by DeepSeek AI. This package only provides a convenient Python API for using their model.
+
+## Support
+
+If you encounter any issues or have questions, please:
+
+1. Check the [Issues](https://github.com/yourusername/deep-ocr/issues) page
+2. Create a new issue with detailed information
+3. Include your Python version, OS, and error messages
+
+## Changelog
+
+### v0.1.0
+- Initial release
+- Basic OCR functionality
+- CPU/GPU support
+- Command line interface
+- Multiple model size presets
+
