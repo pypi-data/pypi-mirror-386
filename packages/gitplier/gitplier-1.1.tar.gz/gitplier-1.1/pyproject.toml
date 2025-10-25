@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling != 1.26.*"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gitplier"
+version = "1.1"
+authors = [
+	{ name = "Jiri Benc", email = "jbenc@redhat.com" },
+]
+description = "A Python library for easy and performant querying and parsing of Git repositories."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX :: Linux",
+]
+license = "LGPL-2.1-or-later"
+license-files = { paths = ["LICENSE.md"] }
+
+[project.urls]
+Homepage = "https://gitlab.com/gitplier/gitplier"
+
+[tool.ruff]
+line-length = 150
+
+[tool.mypy]
+strict = true
+pretty = true
+error_summary = false
