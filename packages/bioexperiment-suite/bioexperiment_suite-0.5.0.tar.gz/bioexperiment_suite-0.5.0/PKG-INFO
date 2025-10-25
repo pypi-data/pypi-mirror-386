@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: bioexperiment-suite
+Version: 0.5.0
+Summary: Python toolbox for managing biological experiment devices including pumps, cell density detectors, thermometers, and other related equipment.
+Home-page: https://github.com/denis240997/bio_tools
+License: MIT
+Author: Denis Khamitov
+Author-email: hamitov.97@mail.ru
+Requires-Python: >=3.12,<3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: gui
+Provides-Extra: websocket
+Requires-Dist: loguru (>=0.7.2,<0.8.0)
+Requires-Dist: munch (>=4.0.0,<5.0.0)
+Requires-Dist: pyserial (>=3.5,<4.0)
+Requires-Dist: python-dotenv (>=1.0.1,<2.0.0)
+Requires-Dist: ttkbootstrap (>=1.10.1,<2.0.0) ; extra == "gui"
+Requires-Dist: websockets (>=14.0,<15.0) ; extra == "websocket"
+Project-URL: Repository, https://github.com/denis240997/bio_tools
+Description-Content-Type: text/markdown
+
+# BioExperiment Suite
+
+Python toolbox for managing biological experiment devices (pumps, cell density detectors etc.) and setting up experiments.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
+## Introduction
+
+This project is a Python toolbox for managing biological experiment devices (pumps, cell density detectors etc.) and setting up experiments. Communication protocol is specific for devices produced by my lab in [Institute of Protein Research RAS](https://protres.ru/en), so it may not be suitable for other devices, but you can easily adapt it for your needs by overriding corresponding methods. The toolbox is designed to be easily extensible and customizable.
+
+## Features
+
+- Abstraction above COM-port communication
+- Automatic device discovery
+- High-level API for device control
+- Easy-to-use experiment setup
+- Scrupulous logging
+- Real-time data streaming via WebSocket
+- Graphical user interface (in development)
+
+## Installation
+
+To install the package, you can use `pip`:
+
+```sh
+pip install bioexperiment-suite
+```
+
+or with optional features:
+
+```sh
+# With GUI support
+pip install bioexperiment-suite[gui]
+
+# With WebSocket streaming support
+pip install bioexperiment-suite[websocket]
+
+# With all optional features
+pip install bioexperiment-suite[gui,websocket]
+```
+
+### Prerequisites
+
+Ensure you have the following installed on your machine:
+
+- Python 3.12 or higher
+- [Windows CH340 Driver](https://sparks.gogo.co.nz/ch340.html) (for Windows users if not installed already)
+
+## Usage
+
+For comprehensive usage examples, please see the [examples](examples) directory.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
