@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/tigerodm/__init__.py
+src/tigerodm/__main__.py
+src/tigerodm.egg-info/PKG-INFO
+src/tigerodm.egg-info/SOURCES.txt
+src/tigerodm.egg-info/dependency_links.txt
+src/tigerodm.egg-info/entry_points.txt
+src/tigerodm.egg-info/not-zip-safe
+src/tigerodm.egg-info/top_level.txt

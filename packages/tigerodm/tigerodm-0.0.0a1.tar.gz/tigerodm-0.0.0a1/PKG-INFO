@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: tigerodm
+Version: 0.0.0a1
+Summary: Placeholder package to reserve the 'tigerodm' name. Official releases coming soon.
+Home-page: https://example.com/tigerodm
+Author: TigerODM authors
+License: MIT
+Project-URL: Homepage, https://example.com/tigerodm
+Project-URL: Source, https://example.com/tigerodm/source
+Project-URL: Tracker, https://example.com/tigerodm/issues
+Keywords: orange,data mining,ai,rag,llm,tigerodm
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# TigerODM (placeholder, setup.py)
+
+This is a **placeholder** to reserve the `tigerodm` project name on PyPI.
+Official releases with documentation and code will follow.
+
+- Status: Planning
+- Branding: **TigerODM** (PyPI normalizes to lowercase: project name is `tigerodm`)
+- Contact: (add later)
+
+> Please do not depend on this pre-release (`0.0.0a1`).

@@ -1,0 +1,2 @@
+[console_scripts]
+tigerodm = tigerodm.__main__:main
