@@ -1,0 +1,56 @@
+#    Written by Sean Wirtz as to update certain standard kivy libraries to improve aesthetics for the DPEA
+#    4 September 2025
+#
+#    A Button with the default appearance.
+#    When using, specify:
+#        id, text, color, size, position, on_press, and on_release
+
+<DPEAButton>:
+    size_hint: None,None
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    keep_ratio: False
+    allow_stretch: True
+    size: 150, 150
+    color: root.text_color
+    canvas.before:
+        Color:
+            rgba: root.border_color
+        RoundedRectangle:
+            size: root.width + (root.border_thickness*2), root.height + (root.border_thickness*2)
+            pos: self.pos[0] - root.border_thickness, self.pos[1] - root.border_thickness
+            radius: [(root.border_radius + root.border_thickness) if root.border_radius == root.fill_radius else root.border_radius,]
+    canvas:
+        Color:
+            rgba: root.fill_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [root.fill_radius,]
+    Label:
+        id: label
+        text: root.text
+        color: root.color
+        center: root.center
+        font_size: root.font_size
+        markup: root.markup
+        bold: root.bold
+        italic: root.italic
+        underline: root.underline
+        strikethrough: root.strikethrough
+        font_name: root.font_name
+        disabled_color: root.disabled_color
+        disabled_outline_color: root.disabled_outline_color
+        outline_color: root.outline_color
+        outline_width: root.outline_width
+        refs: root.refs
+        anchors: root.anchors
+        halign: root.halign
+        valign: root.valign
+        text_size: root.text_size
+        padding: root.padding
+        texture: root.texture
+        texture_size: root.texture_size
+        mipmap: root.mipmap
+
+

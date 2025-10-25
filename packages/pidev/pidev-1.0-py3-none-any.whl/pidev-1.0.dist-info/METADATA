@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: pidev
+Version: 1.0
+Summary: DPEA helper tool for developing Python projects with Kivy UIs
+Project-URL: Homepage, https://github.com/dpengineering/RaspberryPiCommon/tree/master/pidev
+Author: Cesar Hapaz, Lyle Harlow, Wade Varisio, Doug Whetter, Sean Wirtz
+License-File: LICENSE.txt
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: adafruit-blinka
+Requires-Dist: adafruit-circuitpython-vl6180x
+Requires-Dist: pyserial
+Requires-Dist: requests
+Requires-Dist: smbus
