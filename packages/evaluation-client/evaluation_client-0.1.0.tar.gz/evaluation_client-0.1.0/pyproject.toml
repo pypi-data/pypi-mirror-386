@@ -1,0 +1,40 @@
+[project]
+name = "evaluation-client"
+version = "0.1.0"
+description = "Python SDK for interacting with the Chatbot Evaluation API."
+authors = [{ name = "habib-z", email = "habib.zafarian@gmail.com" }]
+readme = "src/evaluation_client/README.md"
+requires-python = ">=3.10,<3.13.0"
+license = { text = "Proprietary" }
+keywords = ["chatbot", "evaluation", "sdk"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Developers",
+    "License :: Other/Proprietary License",
+    "Typing :: Typed",
+]
+dependencies = [
+    "chatbot-eval-common>=0.1.0,<0.2",
+    "pydantic>=2.6,<3.0",
+    "requests>=2.32,<3.0",
+    "rich>=14.2.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.4.0"]
+
+[tool.uv.sources]
+chatbot-eval-common = { path = "../common", editable = true }
+
+[tool.hatch.build.targets.sdist]
+include = ["src/evaluation_client"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/evaluation_client"]
+
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"

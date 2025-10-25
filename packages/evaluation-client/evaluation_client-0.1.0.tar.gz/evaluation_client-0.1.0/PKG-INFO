@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: evaluation-client
+Version: 0.1.0
+Summary: Python SDK for interacting with the Chatbot Evaluation API.
+Author-email: habib-z <habib.zafarian@gmail.com>
+License: Proprietary
+Keywords: chatbot,evaluation,sdk
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Typing :: Typed
+Requires-Python: <3.13.0,>=3.10
+Requires-Dist: chatbot-eval-common<0.2,>=0.1.0
+Requires-Dist: pydantic<3.0,>=2.6
+Requires-Dist: requests<3.0,>=2.32
+Requires-Dist: rich>=14.2.0
+Description-Content-Type: text/markdown
+
+# Evaluation Client SDK
+
+Usage examples and sample artefacts now live alongside the SDK in `services/client-examples/`. Copy the `.env.example` file in that directory, adjust any paths/URLs, and run the scripts via `uv run --project services/client-examples -m examples.<script>` or `./scripts/client.sh examples.<script>`.
+
+## Installation
+
+Install from PyPI or an internal index once the package is published:
+
+```bash
+pip install evaluation-client
+```
+
+## Client SDK quickstart
+
+Instantiate the reusable SDK from `clients.evaluation_client` to interact with the API:
+
+```python
+from pathlib import Path
+
+from evaluation_client import (
+    ApiConfig,
+    AssetBundle,
+    EvaluationClient,
+    LocalPaths,
+    RunOptions,
+)
+
+assets_root = Path("assets").resolve()
+runs_root = Path("runs-out").resolve()
+bundle = AssetBundle(
+    datasets={
+        "my-dataset@1": assets_root / "datasets" / "my-dataset" / "v1" / "data.jsonl",
+    },
+    judges={
+        "judge@1": assets_root / "judges" / "llm" / "judge" / "v1" / "config.yaml",
+    },
+)
+
+api_cfg = ApiConfig(base_url="http://localhost:8000")
+local_cfg = LocalPaths(runs_root=runs_root, download_root=runs_root)
+client = EvaluationClient.from_configs(api_cfg, local=local_cfg)
+result = client.run_suite_with_assets(
+    suite=assets_root / "suites" / "my-suite.yaml",
+    assets=bundle,
+    options=RunOptions(log_level="normal"),
+)
+print(result.status, result.run_uri)
+```
+
+See `services/client-examples/examples/` for richer console flows built on this SDK. They demonstrate how to build
+custom `AssetBundle` instances for prompts, judges, datasets, or retrieval bundles and how to
+tune monitoring verbosity via `RunOptions`.
+
+If you have already uploaded specific assets, pass `assets=None` (the default) and the client will
+skip the upload step.
