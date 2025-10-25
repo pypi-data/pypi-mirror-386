@@ -1,0 +1,81 @@
+Metadata-Version: 2.4
+Name: octodns
+Version: 1.14.0
+Summary: OctoDNS: DNS as code - Tools for managing DNS across multiple providers
+Home-page: https://github.com/octodns/octodns
+Author: Ross McFarland
+Author-email: rwmcfa1@gmail.com
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYaml>=4.2b1
+Requires-Dist: dnspython>=2.2.1
+Requires-Dist: fqdn>=1.5.0
+Requires-Dist: idna>=3.3
+Requires-Dist: natsort>=5.5.0
+Requires-Dist: python-dateutil>=2.8.1
+Provides-Extra: dev
+Requires-Dist: pytest>=6.2.5; extra == "dev"
+Requires-Dist: pytest-cov>=3.0.0; extra == "dev"
+Requires-Dist: pytest-network>=0.0.1; extra == "dev"
+Requires-Dist: black<25.0.0,>=24.3.0; extra == "dev"
+Requires-Dist: build>=0.7.0; extra == "dev"
+Requires-Dist: changelet; extra == "dev"
+Requires-Dist: isort>=5.11.5; extra == "dev"
+Requires-Dist: pycountry>=19.8.18; extra == "dev"
+Requires-Dist: pycountry-convert>=0.7.2; extra == "dev"
+Requires-Dist: pyflakes>=2.2.0; extra == "dev"
+Requires-Dist: readme_renderer[md]>=26.0; extra == "dev"
+Requires-Dist: twine>=3.4.2; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: myst-parser>=4.0.1; extra == "docs"
+Requires-Dist: Sphinx>=8.2.3; extra == "docs"
+Requires-Dist: sphinxcontrib-mermaid>=1.0.0; extra == "docs"
+Requires-Dist: sphinx-copybutton>=0.5.2; extra == "docs"
+Requires-Dist: sphinx_rtd_theme; extra == "docs"
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+<img src="https://raw.githubusercontent.com/octodns/octodns/main/docs/assets/octodns-logo.png?" alt="octoDNS Logo" height=251 width=404>
+
+## DNS as code - Tools for managing DNS across multiple providers
+
+In the vein of [infrastructure as
+code](https://en.wikipedia.org/wiki/Infrastructure_as_Code) octoDNS provides a set of tools & patterns that make it easy to manage your DNS records across multiple providers. The resulting config can live in a repository and be [deployed](https://github.com/blog/1241-deploying-at-github) just like the rest of your code, maintaining a clear history and using your existing review & workflow.
+
+The architecture is pluggable and the tooling is flexible to make it applicable to a wide variety of use-cases. Effort has been made to make adding new providers as easy as possible. In the simple case that involves writing of a single `class` and a couple hundred lines of code, most of which is translating between the provider's schema and octoDNS's. More on some of the ways we use it and how to go about extending it below and in the [the documentation](https://octodns.readthedocs.io/en/latest/).
+
+## Documentation
+
+For more information on getting started with and using octoDNS, see [the
+documentation](https://octodns.readthedocs.io/en/latest/).
+
+## Contributing
+
+Please see our [contributing document](/CONTRIBUTING.md) if you would like to participate!
+
+## Getting help
+
+If you have a problem or suggestion, please [open an issue](https://github.com/octodns/octodns/issues/new) in this repository, and we will do our best to help. Please note that this project adheres to the [Contributor Covenant Code of Conduct](/CODE_OF_CONDUCT.md).
+
+## License
+
+octoDNS is licensed under the [MIT license](LICENSE).
+
+The MIT license grant is not for GitHub's trademarks, which include the logo designs. GitHub reserves all trademark and copyright rights in and to all GitHub trademarks. GitHub's logos include, for instance, the stylized designs that include "logo" in the file title in the following folder: https://github.com/octodns/octodns/tree/main/docs/logos/
+
+GitHub® and its stylized versions and the Invertocat mark are GitHub's Trademarks or registered Trademarks. When using GitHub's logos, be sure to follow the GitHub logo guidelines.
+
+## Authors
+
+octoDNS was designed and authored by [Ross McFarland](https://github.com/ross) and [Joe Williams](https://github.com/joewilliams). See https://github.com/octodns/octodns/graphs/contributors for a complete list of people who've contributed.

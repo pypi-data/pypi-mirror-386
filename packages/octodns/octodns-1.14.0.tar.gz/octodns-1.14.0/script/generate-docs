@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Get current script path
+SCRIPT_PATH="$( dirname -- "$( readlink -f -- "${0}"; )"; )"
+# Activate OctoDNS Python venv
+source "${SCRIPT_PATH}/common.sh"
+
+cd docs
+
+if [ -z "$BUILDER" ]; then
+    BUILDER=html
+fi
+
+build="_build/${BUILDER}"
+rm -rf "$build" api/records/ api/processors/
+
+sphinx-build --builder "$BUILDER" --conf-dir . --fail-on-warning "$@" "." "$build"

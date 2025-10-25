@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Get current script path
+SCRIPT_PATH="$( dirname -- "$( readlink -f -- "${0}"; )"; )"
+# Activate OctoDNS Python venv
+source "${SCRIPT_PATH}/common.sh"
+
+SOURCE_DIR="octodns/"
+
+# Don't allow disabling coverage
+grep -r -I --line-number "# pragma: +no.*cover" $SOURCE_DIR && {
+    echo "Code coverage should not be disabled"
+    exit 1
+}
+
+pytest \
+  --disable-network \
+  --cov-reset \
+  --cov=$SOURCE_DIR \
+  --cov-fail-under=100 \
+  --cov-report=html \
+  --cov-report=xml \
+  --cov-report=term \
+  --cov-branch \
+  "$@"
