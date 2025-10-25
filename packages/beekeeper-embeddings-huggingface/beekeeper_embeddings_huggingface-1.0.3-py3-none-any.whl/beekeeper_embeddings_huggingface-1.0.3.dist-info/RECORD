@@ -1,0 +1,5 @@
+beekeeper/embeddings/huggingface/__init__.py,sha256=3MoFT1XxBfQF9c8NU6_n0hi56tWAbgZIcnHRrv6ahi0,107
+beekeeper/embeddings/huggingface/base.py,sha256=7krFW8IQaAZkElsOwa75HupNi_iQXlM5DpOnztE_Li0,1357
+beekeeper_embeddings_huggingface-1.0.3.dist-info/METADATA,sha256=sItQer24uUsJTQcU6ChPJ87d71agL-Os_VyBaRXsUdc,566
+beekeeper_embeddings_huggingface-1.0.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+beekeeper_embeddings_huggingface-1.0.3.dist-info/RECORD,,
