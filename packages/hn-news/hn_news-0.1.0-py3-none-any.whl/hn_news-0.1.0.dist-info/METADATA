@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: hn-news
+Version: 0.1.0
+Summary: Hacker News CLI client
+Author-email: Mohannad Ahmed <mohnnadabdo21@gmail.com>
+License: MIT
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: httpx
+Requires-Dist: beautifulsoup4
+Requires-Dist: rich
+
+hn-news — Hacker News CLI client
+=================================
+
+Technical summary
+-----------------
+
+`hn-news` is a small CLI and library that scrapes the Hacker News front page and prints the top headlines in a tidy, Rich-formatted list. It focuses on reliability and clear error handling (uses `httpx`, `beautifulsoup4`, and `rich`). The command-line entry point is provided as `hn-news` and the programmatic API exposes `HeadlineFetcher` for direct use in other Python code.
+
+Key behaviors
+-------------
+
+- Fetches and parses the Hacker News front page at `https://news.ycombinator.com`.
+- Returns headlines as a list of `(title, url)` tuples. Relative links like `item?id=...` are normalized to absolute URLs.
+- CLI options: configure number of headlines (`-n` / `--number`) and enable debug logging (`--debug`).
+- Uses structured logging via `rich.logging.RichHandler` and prints errors to the console on failure.
+
+Requirements
+------------
+
+- Python: >=3.12 (declared in `pyproject.toml`).
+- Python packages: `httpx`, `beautifulsoup4`, `rich` (these are declared as project dependencies).
+
+Installation
+------------
+
+Install from source (recommended for development):
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install .
+```
+
+Or install from a built wheel (after running a build):
+
+```bash
+python -m pip install dist/hn-news-<version>-py3-none-any.whl
+```
+
+Usage — CLI
+-----------
+
+Show top 5 headlines (default):
+
+```bash
+hn-news
+```
+
+Show 10 headlines:
+
+```bash
+hn-news -n 10
+```
+
+Enable debug logging to see HTTP/parse debug messages:
+
+```bash
+hn-news --debug
+```
+
+
+License
+-------
+MIT
+
