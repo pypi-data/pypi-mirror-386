@@ -1,0 +1,12 @@
+liteconfig_py/__init__.py,sha256=3kxItzPFXTnWzdMxowbhHaFBG3opfrhfidziuvrmDnw,467
+liteconfig_py/config.py,sha256=TdmNv-LQ475xEANnkxhEZR_UOI44sU_xqvnpHwsGWr4,11172
+liteconfig_py/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+liteconfig_py/validation.py,sha256=y9eBdOhQfjfbJ9xwVS7opv-lQ8MoAI7SjG5jLy9MoOA,3203
+liteconfig_py-0.2.0.dist-info/licenses/LICENSE,sha256=goVx1Y7l2qeex-mEE9kqMfXGrZN8wKuM81vF7ziu_NQ,1069
+tests/__init__.py,sha256=zLw3YEvlhU0_0BXSZmHn-QUnpTYpmWUJ8aae-TErmaY,39
+tests/test_config.py,sha256=MlM4_p-HDgsbwYbDIX6ROB441BduL-xisQkjfW3fezE,26168
+tests/test_validation.py,sha256=iOvyQrcJGaOdEatv6mFiiYlEyAW2VImaD1O8xwd3e3s,9518
+liteconfig_py-0.2.0.dist-info/METADATA,sha256=Y1Wo2fu52MGeCCqoc7lHrgSjTCVC9en_eoUn1zrteh8,7453
+liteconfig_py-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+liteconfig_py-0.2.0.dist-info/top_level.txt,sha256=O_9hshTYYabaripJRdBzaV4UywB-zmjJj4UtzgA-0LA,20
+liteconfig_py-0.2.0.dist-info/RECORD,,
