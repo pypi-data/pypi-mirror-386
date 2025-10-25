@@ -1,0 +1,28 @@
+[package]
+name = "llmcc-core"
+version.workspace = true
+description.workspace = true
+license.workspace = true
+documentation.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+typed-arena.workspace = true
+tree-sitter.workspace = true
+strum.workspace = true
+strum_macros.workspace = true
+paste.workspace = true
+regex.workspace = true
+string-interner.workspace = true
+ignore.workspace = true
+rayon.workspace = true
+
+[dev-dependencies]
+pretty_assertions = "1.4"
+llmcc-rust = { path = "../llmcc-rust" }
