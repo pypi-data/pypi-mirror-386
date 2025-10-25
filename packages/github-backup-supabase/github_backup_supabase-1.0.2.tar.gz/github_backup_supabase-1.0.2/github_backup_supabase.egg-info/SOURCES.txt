@@ -1,0 +1,10 @@
+README.md
+setup.py
+github_backup_supabase/__init__.py
+github_backup_supabase/cli.py
+github_backup_supabase.egg-info/PKG-INFO
+github_backup_supabase.egg-info/SOURCES.txt
+github_backup_supabase.egg-info/dependency_links.txt
+github_backup_supabase.egg-info/entry_points.txt
+github_backup_supabase.egg-info/requires.txt
+github_backup_supabase.egg-info/top_level.txt
