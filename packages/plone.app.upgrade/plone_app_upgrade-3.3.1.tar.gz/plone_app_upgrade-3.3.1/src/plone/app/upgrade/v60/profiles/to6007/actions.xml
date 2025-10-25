@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Plone Actions Tool"
+        name="portal_actions"
+>
+  <object meta_type="CMF Action Category"
+          name="site_actions"
+  >
+    <object meta_type="CMF Action"
+            name="sitemap"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/sitemap"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="accessibility"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/accessibility-info"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="contact"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/contact-info"</property>
+    </object>
+  </object>
+  <object meta_type="CMF Action Category"
+          name="object"
+  >
+    <object meta_type="CMF Action"
+            name="folderContents"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_context_state.folder().absolute_url()}/folder_contents"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="contentrules"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">string:${plone_context_state/canonical_object_url}/@@manage-content-rules</property>
+      <property name="available_expr">python:plone_context_state.canonical_object().restrictedTraverse('@@plone_contentrules_info').show_rules_tab()</property>
+    </object>
+  </object>
+  <object meta_type="CMF Action Category"
+          name="object_buttons"
+  >
+    <object meta_type="CMF Action"
+            name="cut"
+            i18n:domain="plone"
+    >
+      <property name="available_expr">python:checkPermission("Delete objects", plone_context_state.parent()) and checkPermission("Copy or Move", object) and not plone_context_state.is_portal_root()</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="copy"
+            i18n:domain="plone"
+    >
+      <property name="available_expr">python:checkPermission("Copy or Move", object) and not plone_context_state.is_portal_root()</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="paste"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_context_state.folder().absolute_url()}/object_paste"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="delete"
+            i18n:domain="plone"
+    >
+      <property name="available_expr">python:checkPermission("Delete objects", plone_context_state.parent()) and not plone_context_state.is_portal_root()</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="rename"
+            i18n:domain="plone"
+    >
+      <property name="available_expr">python:checkPermission("Delete objects", plone_context_state.parent()) and checkPermission("Copy or Move", object) and checkPermission("Add portal content", object) and not plone_context_state.is_portal_root()</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="redirection"
+            i18n:domain="plone"
+    >
+      <property name="available_expr">python:not plone_context_state.is_portal_root()</property>
+    </object>
+  </object>
+  <object meta_type="CMF Action Category"
+          name="portal_tabs"
+  >
+    <object meta_type="CMF Action"
+            name="index_html"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:plone_portal_state.navigation_root_url()</property>
+    </object>
+  </object>
+  <object meta_type="CMF Action Category"
+          name="user"
+  >
+    <object meta_type="CMF Action"
+            name="preferences"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/@@personal-preferences"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="login"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/login"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="join"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/@@register"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="undo"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/undo_form"</property>
+    </object>
+    <object meta_type="CMF Action"
+            name="logout"
+            i18n:domain="plone"
+    >
+      <property name="url_expr">python:f"{plone_portal_state.navigation_root_url()}/logout"</property>
+    </object>
+  </object>
+</object>
