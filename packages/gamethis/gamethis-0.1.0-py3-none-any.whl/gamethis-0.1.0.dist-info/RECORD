@@ -1,0 +1,14 @@
+gamethis/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gamethis/main.py,sha256=Rf2RINtjHnPK345C3f4JhsVZ9rgfr__xBT5cMDDaNvk,2915
+gamethis/scraper/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gamethis/scraper/fitgirl.py,sha256=Haju6spp0U1yZyhlFwJ1krttPReiJNr-EU0UJr28k5g,1913
+gamethis/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gamethis/utils/conversion.py,sha256=5RbRlFZKOGjuKftA4j0QNGnbvIk7stOZcyhZrPeMYXk,3032
+gamethis/utils/helpers.py,sha256=ObetjpuNOGstgAa1Ol20q1s6QGey9iF9IfuJFWcXPwQ,158
+gamethis/utils/run.py,sha256=2alcrIGA-_IHwWt1v3tMLK2PecboOiF6Gk9WouiGRrQ,1021
+gamethis/utils/style.py,sha256=1IXO0pMgDNe4uoqIed2D4_gVXKyQxeIZPE8RZ7ZqOts,416
+gamethis-0.1.0.dist-info/METADATA,sha256=cojCYy0wbV8fH-UOQHRA5BUrbl0MMrkzf5LRHTYdvJI,374
+gamethis-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gamethis-0.1.0.dist-info/entry_points.txt,sha256=HoSMjWVpiEiHJcaMlXbDzjnUZsD90kTvsiTiy2QCmPY,48
+gamethis-0.1.0.dist-info/top_level.txt,sha256=i1JEEabX2HH0TOA68pAioskR8mbyxzXJMEjdQA_GUZ8,9
+gamethis-0.1.0.dist-info/RECORD,,
