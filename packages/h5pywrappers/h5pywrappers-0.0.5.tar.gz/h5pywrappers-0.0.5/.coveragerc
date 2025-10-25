@@ -1,0 +1,16 @@
+[paths]
+source =
+    ../h5pywrappers
+    */site-packages/h5pywrappers
+
+[run]
+branch = true
+source =
+    h5pywrappers
+    .
+omit =
+    */h5pywrappers/version.py
+
+[report]
+show_missing = true
+precision = 2

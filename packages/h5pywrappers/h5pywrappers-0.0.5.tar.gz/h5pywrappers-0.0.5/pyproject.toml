@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "h5pywrappers"
+dynamic = ["version"]
+description = """
+Contains several functions used to facilitate loading data from and saving \
+data to HDF5 files. These functions are wrappers that call functions from the \
+library ``h5py``.\
+"""
+readme = "README.md"
+authors = [
+    {name = "Matthew Fitzpatrick", email = "matthew.rc.fitzpatrick@gmail.com"}
+]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Natural Language :: English"
+]
+keywords = [
+    "HDF5",
+    "h5py"
+]
+dependencies = [
+    "czekitout>=1.0.0",
+    "fancytypes>=1.0.0",
+    "h5py"
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+tests = [
+    "pytest-cov"
+]
+examples = [
+    "jupyter"
+]
+docs = [
+    "sphinx",
+    "sphinx_rtd_theme",
+    "sphinx-autodoc-typehints",
+    "numpydoc",
+    "docutils"
+]
+all = [
+    "h5pywrappers[tests, examples, docs]"
+]
+
+[project.urls]
+Homepage = "https://mrfitzpa.github.io/h5pywrappers"
+Repository = "https://github.com/mrfitzpa/h5pywrappers"
+
+[tool.setuptools_scm]
+write_to = "h5pywrappers/version.py"
+version_scheme = "post-release"
