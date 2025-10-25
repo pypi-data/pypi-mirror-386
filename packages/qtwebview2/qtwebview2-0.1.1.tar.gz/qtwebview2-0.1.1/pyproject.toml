@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qtwebview2"
+authors = [
+  { name="校溯", email="xiaosu-1009@qq.com" }
+]
+description = "A lightweight and powerful WebView2 widget for Python Qt (PySide/PyQt) with a seamless JS bridge."
+readme = "README.md"
+version = "0.1.1"
+requires-python = ">=3.8"
+license = "MPL-2.0"
+license-files = ["LICENSE"]
+keywords = ["qt", "qtpy", "pyqt", "pyside", "web", "webview", "webview2"]
+classifiers = [
+    # Development Status
+    "Development Status :: 4 - Beta", # Beta is perfect for a 0.x.y release
+
+    # Supported Python Versions
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+
+    # Operating System
+    "Operating System :: Microsoft :: Windows",
+
+    # Intended Audience & Topic
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces"
+]
+dependencies = [
+    "pywin32>=300",
+    "qtpy>=2.0.0",
+    "pythonnet>=3.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/xiaosuyyds/QtWebView2"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.package-data]
+qtwebview2 = ["lib/**/*.md", "lib/**/*.dll", "*.md"]
