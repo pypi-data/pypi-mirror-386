@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: AGlib
+Version: 0.2.2
+Summary: Library for helper functions I often use
+Home-page: https://github.com/aglavic/aglib
+Author: Artur Glavic
+Author-email: artur.glavic@psi.ch
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: h5py
+Requires-Dist: orsopy>=1.2.0
+Requires-Dist: pint
+Dynamic: license-file
