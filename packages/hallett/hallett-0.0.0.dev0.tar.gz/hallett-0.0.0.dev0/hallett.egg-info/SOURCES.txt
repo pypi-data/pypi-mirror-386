@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+hallett/__init__.py
+hallett/core.py
+hallett.egg-info/PKG-INFO
+hallett.egg-info/SOURCES.txt
+hallett.egg-info/dependency_links.txt
+hallett.egg-info/requires.txt
+hallett.egg-info/top_level.txt

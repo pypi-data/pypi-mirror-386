@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: hallett
+Version: 0.0.0.dev0
+Summary: RF electronics helper package.
+Author-email: Grant Giesbrecht <giesbrechtgrant@gmail.com>
+License-Expression: BSD-2-Clause
+Project-URL: Homepage, https://github.com/Grant-Giesbrecht/hallett
+Project-URL: Issues, https://github.com/Grant-Giesbrecht/hallett/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scikit-rf>=0.31.0
+Dynamic: license-file
+
+# hallett
+RF electronics helper package.
