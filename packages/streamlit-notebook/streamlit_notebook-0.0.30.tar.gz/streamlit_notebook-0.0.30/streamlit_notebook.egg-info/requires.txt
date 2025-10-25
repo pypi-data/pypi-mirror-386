@@ -1,0 +1,17 @@
+streamlit-code-editor
+streamlit>=1.41.0
+asttokens
+python-dotenv
+matplotlib
+numpy
+seaborn
+pandas
+graphviz
+altair
+plotly
+bokeh
+pydeck
+scipy
+sympy
+scikit-learn
+vega-datasets
