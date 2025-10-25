@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/file_tag_parser.egg-info/PKG-INFO
+src/file_tag_parser.egg-info/SOURCES.txt
+src/file_tag_parser.egg-info/dependency_links.txt
+src/file_tag_parser.egg-info/requires.txt
+src/file_tag_parser.egg-info/top_level.txt
+src/ocvl/__init__.py
+src/ocvl/io/__init__.py
+src/ocvl/tags/__init__.py
+src/ocvl/tags/file_tag_parser.py
+src/ocvl/tags/json_format_constants.py
+tests/test_file_tag_parser.py
