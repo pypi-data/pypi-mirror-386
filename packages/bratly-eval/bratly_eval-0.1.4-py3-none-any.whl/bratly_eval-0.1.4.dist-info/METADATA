@@ -1,0 +1,11 @@
+Metadata-Version: 2.3
+Name: bratly-eval
+Version: 0.1.4
+Summary: an extension of bratly with evaluation tools
+Requires-Dist: bratly
+Requires-Dist: bratly-io-fs
+Requires-Dist: numpy>=2.2.3
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: tqdm>=4.67.1
+Requires-Dist: xlsxwriter>=3.2.2
+Requires-Python: >=3.10
