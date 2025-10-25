@@ -1,0 +1,122 @@
+Metadata-Version: 2.4
+Name: ast-predicates
+Version: 1.0.0
+Summary: A Python library for matching and querying Python AST nodes
+Author: Xavier Barbosa
+Author-email: Xavier Barbosa <clint.northwood@gmail.com>
+License-Expression: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Python: >=3.12
+Project-URL: Homepage, https://github.com/johnnoone/pytest-ast-predicates
+Project-URL: Source, https://github.com/johnnoone/pytest-ast-predicates
+Project-URL: Tracker, https://github.com/johnnoone/pytest-ast-predicates/issues
+Description-Content-Type: text/markdown
+
+# AST Predicates
+
+A Python library for matching and querying Python AST nodes, inspired by [libcst's matcher API](https://libcst.readthedocs.io/en/latest/matchers_tutorial.html) but designed to work with Python's built-in `ast` module.
+
+## Overview
+
+AST Predicates provides a declarative way to search for and match patterns in [Python Abstract Syntax Trees](https://docs.python.org/3/library/ast.html) using the standard library's `ast` module. It offers a more ergonomic alternative to manual AST traversal and isinstance checks.
+
+## Features
+
+- **Declarative matching**: Define patterns using a clean, composable API
+- **Type-safe matchers**: Match AST node types with optional attribute constraints
+- **Flexible queries**: Support for wildcards, sequences, and logical operators
+- **Built on stdlib**: Works with Python's built-in `ast` module - no additional dependencies
+- **Familiar API**: Inspired by libcst matchers
+
+## Installation
+
+```bash
+pip install ast-predicates
+```
+
+## Quick Start
+
+```python
+import ast
+from ast_predicates import matches, Call, Name, Attribute
+
+# Parse some code
+tree = ast.parse("foo.bar(42)")
+
+# Find function calls to methods named 'bar'
+pattern = Call(func=Attribute(attr="bar"))
+
+# Check if pattern matches
+if matches(tree.body[0].value, pattern):
+    print("Found a call to a 'bar' method!")
+```
+
+## Basic Usage
+
+### Matching Node Types
+
+```python
+from ast_predicates import matches, FunctionDef
+
+# Match any function definition
+pattern = FunctionDef()
+
+# Match function with specific name
+pattern = FunctionDef(name="my_function")
+```
+
+### Wildcards and Sequences
+
+```python
+from pyast_matchers import DoNotCare, OneOf, AllOf
+
+# Match any value (wildcard)
+pattern = Call(func=Name(id=DoNotCare()))
+
+# Match one of several possibilities
+pattern = BinOp(op=OneOf(Add(), Sub()))
+
+# Match all conditions
+pattern = AllOf(
+    FunctionDef(name="process"),
+    FunctionDef(decorator_list=[...])
+)
+```
+
+### Finding Matches in a Tree
+
+```python
+from pyast_matchers import find_all
+
+tree = ast.parse(source_code)
+pattern = Call(func=Name(id="print"))
+
+# Find all matching nodes
+matches = find_all(tree, pattern)
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Roadmap
+
+- [ ] Performance benchmarks
+- [ ] Implement [TypeOf](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.TypeOf) matcher
+- [ ] Implement [DoesNotMatch](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.DoesNotMatch) matcher
+- [ ] Implement [MatchRegex](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.MatchRegex) matcher
+- [ ] Implement [ZeroOrMore](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.ZeroOrMore) matcher
+- [ ] Implement [ZeroOrOne](https://libcst.readthedocs.io/en/latest/matchers.html#libcst.matchers.ZeroOrOne) matcher
