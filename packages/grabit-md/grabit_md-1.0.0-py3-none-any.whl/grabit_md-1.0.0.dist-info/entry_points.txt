@@ -1,0 +1,2 @@
+[console_scripts]
+grabit = grabit_md.cli:main
