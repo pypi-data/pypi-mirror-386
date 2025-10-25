@@ -1,0 +1,9 @@
+{
+    "entity": {
+        "switch": {
+            "turn_off_volume_switch": {
+                "name": "Zvuk uti\u0161an"
+            }
+        }
+    }
+}
