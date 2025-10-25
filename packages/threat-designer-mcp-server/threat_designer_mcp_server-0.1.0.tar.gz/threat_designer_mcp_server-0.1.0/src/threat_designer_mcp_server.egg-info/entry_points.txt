@@ -1,0 +1,2 @@
+[console_scripts]
+threat-designer-mcp-server = threat_designer_mcp_server.main:main

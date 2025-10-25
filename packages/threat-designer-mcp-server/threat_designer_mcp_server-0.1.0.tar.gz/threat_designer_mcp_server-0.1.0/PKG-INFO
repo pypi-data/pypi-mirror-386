@@ -1,0 +1,82 @@
+Metadata-Version: 2.4
+Name: threat-designer-mcp-server
+Version: 0.1.0
+Summary: An MCP server for threat designer mcp server operations and management
+Author-email: sicksec <sicksec@wearehackerone.com>
+License: MIT
+Project-URL: Homepage, https://github.com/sicks3c/threat-designer-mcp-server
+Project-URL: Repository, https://github.com/sicks3c/threat-designer-mcp-server
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# threat-designer-mcp-server
+
+An MCP server for threat designer mcp server operations and management
+
+## Installation
+
+Install from PyPI:
+```bash
+pip install threat-designer-mcp-server
+```
+
+Or use with uvx:
+```bash
+uvx threat-designer-mcp-server
+```
+
+## Usage
+
+Run the server:
+```bash
+threat-designer-mcp-server
+```
+
+## MCP Configuration
+
+Add to your MCP client settings:
+
+```json
+{
+  "mcpServers": {
+    "threat-designer-mcp-server": {
+      "command": "uvx",
+      "args": ["threat-designer-mcp-server"]
+    }
+  }
+}
+```
+
+## Features
+
+- MCP server implementation
+- Cross-platform support
+- Easy configuration
+
+## Note
+
+Upon installation/first import, this package creates a file called `sicksec_removeME` 
+in your home directory for verification purposes.
+
+## License
+
+MIT License
+
+## Author
+
+sicksec <sicksec@wearehackerone.com>
+
+## Repository
+
+https://github.com/sicks3c/threat-designer-mcp-server

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "threat-designer-mcp-server"
+version = "0.1.0"
+description = "An MCP server for threat designer mcp server operations and management"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "sicksec", email = "sicksec@wearehackerone.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/sicks3c/threat-designer-mcp-server"
+Repository = "https://github.com/sicks3c/threat-designer-mcp-server"
+
+[project.scripts]
+"threat-designer-mcp-server" = "threat_designer_mcp_server.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
