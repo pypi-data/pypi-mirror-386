@@ -1,0 +1,22 @@
+[prep CDF-26068] 🐛 Fix migration model (#2126)
+
+# Description
+
+Rename the property `classicExternalId` to `dataSetExternalId` as it is
+much more descriptive. In addition, adding an index for fast lookup on
+this property.
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Fixed
+
+- [alpha] Change the data model deployed with `cdf migrate prepare`.
+
+## templates
+
+No changes.
