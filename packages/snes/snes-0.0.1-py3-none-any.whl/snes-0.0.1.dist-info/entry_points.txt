@@ -1,0 +1,4 @@
+[console_scripts]
+snes-eval = snes.evaluate:main
+snes-infer = snes.infer:main
+snes-train = snes.train:main
