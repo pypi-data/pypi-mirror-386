@@ -1,0 +1,160 @@
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deploy to'
+        required: true
+        default: 'test_pypi'
+        type: choice
+        options:
+          - test_pypi
+          - pypi
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build hatchling
+    
+    - name: Build package
+      run: python -m build
+    
+    - name: Store distribution packages
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+
+  publish-to-testpypi:
+    name: Publish to TestPyPI
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'test_pypi'
+    needs:
+    - build
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: test_pypi
+      url: https://test.pypi.org/p/market_data_pipeline
+    
+    permissions:
+      id-token: write
+    
+    steps:
+    - name: Download distribution packages
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    
+    - name: Publish to TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+
+  publish-to-pypi:
+    name: Publish to PyPI
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'pypi')
+    needs:
+    - build
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: pypi
+      url: https://pypi.org/p/market_data_pipeline
+    
+    permissions:
+      id-token: write
+    
+    steps:
+    - name: Download distribution packages
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
+
+  github-release:
+    name: Sign and upload to GitHub Release
+    if: github.event_name == 'release'
+    needs:
+    - publish-to-pypi
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      id-token: write
+    
+    steps:
+    - name: Download distribution packages
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    
+    - name: Sign with Sigstore
+      uses: sigstore/gh-action-sigstore-python@v2.1.1
+      with:
+        inputs: >-
+          ./dist/*.tar.gz
+          ./dist/*.whl
+    
+    - name: Upload artifacts to GitHub Release
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: >-
+        gh release upload
+        '${{ github.ref_name }}' dist/**
+        --repo '${{ github.repository }}'
+
+  notify-infra:
+    name: Notify Infra Portal (release -> infra_web runtime sync)
+    # Must run on your self-hosted runner (same host/network as infra_web)
+    runs-on: self-hosted
+    needs: github-release
+    steps:
+      - name: Notify Infra Portal (release -> infra_web runtime sync)
+        env:
+          SECRET: ${{ secrets.WEBHOOK_SECRET }}
+          REPO_NAME: ${{ github.repository }}   # e.g., mjdevaccount/market_data_pipeline
+          TAG_NAME: ${{ github.ref_name }}      # e.g., v1.3.0-pipeline
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Construct minimal GitHub-style 'release' payload
+          # Use consistent package name (market_data_pipeline)
+          payload=$(jq -n --arg repo "market_data_pipeline" --arg tag "$TAG_NAME" \
+                    '{repository:{name:$repo}, release:{tag_name:$tag}}')
+
+          sig="sha256=$(printf '%s' "$payload" | openssl dgst -sha256 -hmac "$SECRET" | cut -d' ' -f2)"
+
+          curl -sS -X POST http://localhost:8000/runtime/webhook \
+               -H "X-GitHub-Event: release" \
+               -H "X-Hub-Signature-256: $sig" \
+               -H "Content-Type: application/json" \
+               -d "$payload" \
+               -o /dev/stderr -w "HTTP %{http_code}\n"
+
