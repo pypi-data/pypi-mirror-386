@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "print-dog"
+version = "0.1.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "twine>=6.2.0",
+    "watchdog>=4.0.0",
+]
+
+[project.scripts]
+print-dog = "print_dog.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]

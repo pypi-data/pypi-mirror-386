@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+print_dog/__init__.py
+print_dog/cli.py
+print_dog.egg-info/PKG-INFO
+print_dog.egg-info/SOURCES.txt
+print_dog.egg-info/dependency_links.txt
+print_dog.egg-info/entry_points.txt
+print_dog.egg-info/requires.txt
+print_dog.egg-info/top_level.txt
