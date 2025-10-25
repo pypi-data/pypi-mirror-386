@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: odoo-apps-Odoo-Apps-Account-Reconcile
+Version: 18.0.20251024.0
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 18.0
+Requires-Dist: odoo-addon-account_accountant_reconcile==18.0.*
+Requires-Dist: odoo-addon-account_move_reconciled_date==18.0.*
