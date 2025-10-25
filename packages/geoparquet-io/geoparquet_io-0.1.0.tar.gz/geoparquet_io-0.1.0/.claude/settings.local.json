@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gt add:*)",
+      "Bash(gt:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Read(//Users/cholmes/Downloads/**)",
+      "Bash(mkdir:*)",
+      "Bash(pip install:*)",
+      "Bash(pytest:*)",
+      "Bash(duckdb:*)",
+      "Bash(time gt sort:*)",
+      "Bash(git add:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv run:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nPhase 1: Setup development environment and tools\n\n- Migrated to uv package manager with uv.lock for reproducibility\n- Added ruff for linting and formatting with comprehensive ruleset\n- Setup pre-commit hooks for automated code quality checks\n- Updated CI/CD pipeline to use uv and include lint job\n- Added Python 3.13 support\n- Formatted entire codebase with ruff\n- Fixed all linting issues (exception handling, imports, etc.)\n- Updated pyproject.toml with dev dependencies and tool configurations\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git mv:*)",
+      "Bash(find:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nPhase 2: Rename package to geoparquet-io with gpio CLI\n\n- Renamed package from geoparquet_tools to geoparquet_io\n- Updated CLI command to gpio (keeping gt as legacy alias)\n- Updated all imports across codebase\n- Updated project metadata and description\n- Updated test coverage configuration\n- Updated CI/CD workflows\n- All tests passing with new package name\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(tree:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
