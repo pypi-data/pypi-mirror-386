@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pidev"
+version = "1.0"
+dependencies = [
+    "pyserial",
+    "requests",
+    "smbus",
+    "adafruit-blinka",
+    "adafruit-circuitpython-vl6180x"
+]
+authors = [
+  { name="Cesar Hapaz" },
+  { name="Lyle Harlow" },
+  { name="Wade Varisio" },
+  { name="Doug Whetter" },
+  { name="Sean Wirtz" }
+]
+description = "DPEA helper tool for developing Python projects with Kivy UIs"
+requires-python = ">=3.7"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License (GPL)",
+  "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/dpengineering/RaspberryPiCommon/tree/master/pidev"

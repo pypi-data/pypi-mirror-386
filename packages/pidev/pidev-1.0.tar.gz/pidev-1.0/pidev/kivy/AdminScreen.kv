@@ -1,0 +1,38 @@
+<AdminScreen>:
+    name: 'admin'
+    FloatLayout:
+        size_hint: None, None
+
+    DPEAButton:
+        # Quit button
+        size: 100, 100
+        center_x: root.width * 0.5
+        center_y: root.height * 0.5
+        color: 1, 1, 1, 1
+        font_size: 30
+        fill_color: 0.25, 0.25, 1, 1
+        text: "Quit"
+        on_press: root.exit_program()
+
+    DPEAButton:
+        #Go back button
+        size: 175, 100
+        center_x: root.width * 0.35
+        center_y: root.height * 0.5
+        color: 0, 0, 0, 1
+        font_size: 30
+        fill_color: 0.25, 1, 0.25, 1
+        text: "Go back"
+        on_press: root.transition_back()
+
+    DPEAButton:
+        size: 250, 100
+        center_x: root.width * 0.65
+        center_y: root.height * 0.5
+        color: 1, 1, 1, 1
+        font_size: 30
+        fill_color: 1, 0.25, 0.25, 1
+        text: "Shutdown"
+
+        on_press: root.shutdown()
+
