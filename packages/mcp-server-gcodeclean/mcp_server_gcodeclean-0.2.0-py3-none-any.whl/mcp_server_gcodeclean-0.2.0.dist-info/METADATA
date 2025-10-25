@@ -1,0 +1,237 @@
+Metadata-Version: 2.4
+Name: mcp-server-gcodeclean
+Version: 0.2.0
+Summary: MCP server for G-code syntax validation using GCodeClean
+Project-URL: Homepage, https://github.com/ivan-loh/mcp-server-gcodeclean
+Project-URL: Repository, https://github.com/ivan-loh/mcp-server-gcodeclean
+Project-URL: Issues, https://github.com/ivan-loh/mcp-server-gcodeclean/issues
+Author-email: ivan <ivan@eriad.com>
+License: AGPL-3.0
+License-File: LICENSE
+Keywords: cnc,gcode,manufacturing,mcp,validation
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Manufacturing
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Python: >=3.10
+Requires-Dist: fastmcp>=0.4.0
+Description-Content-Type: text/markdown
+
+# mcp-server-gcodeclean
+
+MCP server for G-code syntax validation and cleaning using [GCodeClean](https://github.com/aersida/GCodeClean). Validates G-code against NIST RS274 standards with bundled binaries for all platforms.
+
+## Installation
+
+### From PyPI (Recommended)
+
+```bash
+# Using uvx (recommended for MCP servers)
+uvx mcp-server-gcodeclean
+
+# Using pip
+pip install mcp-server-gcodeclean
+```
+
+### From Source
+
+```bash
+git clone https://github.com/ivan-loh/mcp-server-gcodeclean.git
+cd mcp-server-gcodeclean
+uv sync
+```
+
+**Requirements:**
+- Python 3.10+
+- [uv](https://github.com/astral-sh/uv) (for development)
+- Claude Desktop
+
+## Configuration
+
+Add to Claude Desktop config:
+
+**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+### Using uvx (PyPI installation)
+
+```json
+{
+  "mcpServers": {
+    "gcodeclean": {
+      "command": "uvx",
+      "args": ["mcp-server-gcodeclean"]
+    }
+  }
+}
+```
+
+### Using local installation
+
+```json
+{
+  "mcpServers": {
+    "gcodeclean": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/absolute/path/to/mcp-server-gcodeclean",
+        "run",
+        "mcp-server-gcodeclean"
+      ]
+    }
+  }
+}
+```
+
+**Optional:** Override bundled binary with custom path:
+```json
+{
+  "mcpServers": {
+    "gcodeclean": {
+      "command": "uv",
+      "args": ["--directory", "/path/to/mcp-server-gcodeclean", "run", "mcp-server-gcodeclean"],
+      "env": {
+        "GCODECLEAN_PATH": "/path/to/custom/GCC"
+      }
+    }
+  }
+}
+```
+
+## Tools
+
+### validate_gcode_syntax
+
+Validates and cleans G-code programs.
+
+**Parameters:**
+- `gcode_content` (string, required): G-code to validate
+- `tolerance` (float, optional, default: 0.01): Clipping tolerance in mm
+- `minimise` (string, optional, default: "soft"): Token removal strategy
+  - `soft`: Remove F/Z codes only (10-20% reduction)
+  - `medium`: Remove all except IJK+spaces (30-50% reduction)
+  - `hard`: Maximum compression (50-70% reduction)
+- `annotate` (boolean, optional, default: false): Add explanatory comments
+
+**Response:**
+```json
+{
+  "status": "PASSED",
+  "passed": true,
+  "cleaned_gcode": "...",
+  "statistics": {
+    "original_lines": 100,
+    "output_lines": 85,
+    "reduction_percent": 25.0
+  },
+  "error": null
+}
+```
+
+**Status values:** `PASSED`, `FAILED`, `ERROR`, `TIMEOUT`
+
+**Limits:** 10MB max file size, 30 second timeout
+
+### get_gcodeclean_version
+
+Verifies GCodeClean installation and returns diagnostic information.
+
+**Response:**
+```json
+{
+  "status": "SUCCESS",
+  "binary_path": "/path/to/GCC",
+  "platform": {
+    "os": "Darwin",
+    "architecture": "arm64"
+  },
+  "version_output": "1.4.2",
+  "exit_code": 0
+}
+```
+
+## Platform Support
+
+Bundled binaries included for:
+- Linux x64
+- Linux ARM/aarch64
+- macOS Intel (x64)
+- macOS Apple Silicon (arm64)
+- Windows x64
+
+Total size: ~70MB. No .NET runtime required.
+
+## Development
+
+### Project Structure
+
+```
+mcp-server-gcodeclean/
+├── src/mcp_server_gcodeclean/
+│   └── server.py              # Main implementation
+├── resources/gcodeclean/
+│   ├── version.json           # Version metadata
+│   └── 1.4.2/                 # Platform binaries
+├── tests/                     # Test suite (42+ tests)
+├── pyproject.toml
+└── README.md
+```
+
+### Running Tests
+
+```bash
+uv run python tests/test_server.py                    # Unit tests
+uv run python tests/test_defaults_and_overrides.py    # Comprehensive tests
+```
+
+### Running Server
+
+```bash
+uv run mcp-server-gcodeclean
+```
+
+## Troubleshooting
+
+**Binary not found:**
+```bash
+ls -la resources/gcodeclean/1.4.2/
+uv run python -c "from mcp_server_gcodeclean.server import get_gcodeclean_path; print(get_gcodeclean_path())"
+```
+
+**Permission denied:**
+```bash
+chmod +x resources/gcodeclean/1.4.2/*/GCC*
+```
+
+**File too large:**
+Split G-code into sections under 10MB
+
+**Validation timeout:**
+File is very complex. Try validating in smaller sections or increase tolerance value.
+
+## Binary Selection Priority
+
+1. `GCODECLEAN_PATH` environment variable (custom override)
+2. Bundled binary for current platform (auto-detected)
+3. System PATH (`GCC` command)
+
+## License
+
+AGPL-3.0. This project bundles GCodeClean binaries (AGPL-3.0).
+
+Full license: `resources/gcodeclean/1.4.2/LICENSE`
+
+## References
+
+- [GCodeClean](https://github.com/aersida/GCodeClean)
+- [MCP Protocol](https://modelcontextprotocol.io/)
+- [FastMCP](https://github.com/jlowin/fastmcp)
+- [uv Package Manager](https://github.com/astral-sh/uv)
