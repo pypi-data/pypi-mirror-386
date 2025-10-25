@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+myapp/__init__.py
+myapp/cli.py
+passkey_cli.egg-info/PKG-INFO
+passkey_cli.egg-info/SOURCES.txt
+passkey_cli.egg-info/dependency_links.txt
+passkey_cli.egg-info/entry_points.txt
+passkey_cli.egg-info/requires.txt
+passkey_cli.egg-info/top_level.txt
