@@ -1,0 +1,174 @@
+Metadata-Version: 2.1
+Name: wechat_enterprise_sdk
+Version: 1.0.1
+Home-page: https://github.com/somenzz/wechat_enterprise
+Author: somenzz
+Author-email: somenzz@163.com
+License: MIT
+Keywords: python wechat enterprise,wechat_enterprise,send message
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: requests_toolbelt
+
+# 用 Python 发送企业微信消息
+
+[](https://pypi.org/project/wechat-enterprise-sdk/)
+[](https://opensource.org/licenses/MIT)
+
+一个用于发送企业微信应用消息的 Python SDK，内置智能 Access Token 缓存。
+
+## 核心特性
+
+  * **消息发送**：支持发送文本、Markdown、图片、文件等消息。
+  * **智能混合缓存**：自动管理 `access_token`，结合**内存缓存**（适用于常驻服务）和**文件缓存**（适用于高频短脚本，如 Cron），自动续期，避免 API 频率限制。
+  * **API 封装**：简洁的 API，已封装获取部门、成员信息、手机号换 UserID 等常用接口。
+  * **健壮的错误处理**：自动处理 API 响应，非 0 `errcode` 将抛出 `WechatEnterpriseError` 异常。
+
+## 安装
+
+```sh
+pip install wechat-enterprise-sdk
+```
+
+本库依赖 `requests`。
+
+## 快速上手
+
+下面是一个完整的使用示例：
+
+```python
+from pathlib import Path
+from wechat_enterprise import WechatEnterprise, WechatEnterpriseError
+
+if __name__ == '__main__':
+    # 替换为你自己的企业微信凭证
+    CORP_ID = "YOUR_CORP_ID"
+    APP_ID = "YOUR_APP_ID"        # (AgentId)
+    CORP_SECRET = "YOUR_CORP_SECRET"
+
+    # 接收消息的用户账号
+    USER_LIST = ["ZhangSan", "LiSi"]
+
+    try:
+        # 1. 初始化
+        # 默认会在当前目录创建 'we_token_cache.json' 用于文件缓存
+        wechat = WechatEnterprise(corpid=CORP_ID, ...appid=APP_ID, corpsecret=CORP_SECRET)
+
+        # 2. 发送文本
+        print("正在发送文本消息...")
+        response_text = wechat.send_text("这是一条来自 SDK 的测试文本消息。", USER_LIST)
+        print(f"发送成功: {response_text}")
+
+        # 3. 发送 Markdown
+        print("\n正在发送 Markdown 消息...")
+        markdown_content = (
+            "**Markdown 测试**\n"
+            "> 引用内容\n"
+            "包含 `code` 和 [链接](https://work.weixin.qq.com/api/doc/90000/90135/90236)"
+        )
+        response_md = wechat.send_markdown(markdown_content, USER_LIST)
+        print(f"发送成功: {response_md}")
+
+        # 4. 发送文件 (示例)
+        # print("\n正在发送文件...")
+        # test_file_path = "./test_upload.txt"
+        # with open(test_file_path, "w") as f:
+        #     f.write("这是一个测试上传的文件。")
+        #
+        # response_file = wechat.send_file(test_file_path, USER_LIST)
+        # print(f"发送成功: {response_file}")
+
+        # 5. 获取用户信息
+        print(f"\n正在获取用户 {USER_LIST[0]} 的信息...")
+        user_info = wechat.get_user_info(USER_LIST[0])
+        print(f"获取成功: {user_info.get('name')}")
+        
+        # 6. 根据手机号获取 userid
+        # user_id = wechat.get_userid("13800138000")
+        # print(f"\n手机号对应的 userid: {user_id}")
+
+
+    except WechatEnterpriseError as e:
+        # 捕获 API 业务异常
+        print(f"企业微信 API 出错: {e}")
+    except Exception as e:
+        # 捕获其他异常，如网络连接、文件读写等
+        print(f"发生其他错误: {e}")
+```
+
+## 核心功能：Access Token 混合缓存
+
+为了避免 `access_token` 在常驻内存的程序中和频繁调用的短脚本中被过度请求，本库默认启用了一个\*\*内存缓存（一级）+ 文件缓存（二级）\*\*的混合策略。
+
+  * **内存缓存**：Token 加载到实例内存中，在程序/实例的生命周期内极速获取。
+  * **文件缓存**：当内存缓存失效时（如脚本重启），会尝试从文件加载 Token，避免了不必要的 API 请求。
+
+### 1\. 默认行为 (推荐)
+
+默认情况下，文件缓存被启用，并会在当前工作目录创建 `we_token_cache.json` 文件。
+
+```python
+# 将在 ./we_token_cache.json 读写缓存
+wechat = WechatEnterprise(CORP_ID, APP_ID, CORP_SECRET)
+```
+
+### 2\. 自定义缓存路径
+
+你可以通过 `cache_path` 参数指定一个自定义的 `Path` 对象路径。
+
+```python
+from pathlib import Path
+
+# 指定缓存文件到 /tmp/cache/ 目录下
+custom_path = Path("/tmp/cache/my_wechat_token.json")
+wechat = WechatEnterprise(CORP_ID, APP_ID, CORP_SECRET, cache_path=custom_path)
+```
+
+### 3\. 禁用文件缓存 (仅使用内存缓存)
+
+如果你在只读文件系统（如某些 Serverless 环境）或不希望创建文件，可以将 `cache_path` 设为 `None` 来禁用文件缓存。
+
+```python
+# 禁用文件缓存，仅使用实例内存缓存
+wechat_mem_only = WechatEnterprise(CORP_ID, APP_ID, CORP_SECRET, cache_path=None)
+```
+
+## API 概览
+
+### 消息发送
+
+  * `wechat.send_text(content: str, users: List[str]) -> dict`
+  * `wechat.send_markdown(content: str, users: List[str]) -> dict`
+  * `wechat.send_image(image_path: str, users: List[str]) -> dict`
+  * `wechat.send_file(file_path: str, users: List[str]) -> dict`
+
+### 用户与部门
+
+  * `wechat.get_user_info(userid: str) -> dict`
+      * 获取成员详细信息。
+  * `wechat.get_userid(telephone: str) -> Optional[str]`
+      * 根据手机号获取成员 `userid`。
+  * `wechat.get_department_id(dept_id: int = 0) -> dict`
+      * 获取部门列表。
+  * `wechat.get_department_userlist(department_id: int = 1) -> dict`
+      * 获取部门成员简易列表。
+
+## Todo
+
+  * [ ] 添加企业微信的其他实用功能（如群机器人、审批等）。
+
+## 联系我
+
+添加微信 「somenzz-enjoy」 备注 「github」
+
+个人公众号 「Python七号」，微信搜一搜关注。
