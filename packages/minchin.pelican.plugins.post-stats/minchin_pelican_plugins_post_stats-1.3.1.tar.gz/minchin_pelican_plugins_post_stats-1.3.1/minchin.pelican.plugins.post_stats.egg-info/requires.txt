@@ -1,0 +1,15 @@
+pelican
+beautifulsoup4
+minchin.pelican.plugins.autoloader>=1.2.2
+
+[build]
+invoke
+setuptools>=18.0
+twine
+wheel
+pip-tools
+minchin.releaser>=0.8.2
+
+[docs]
+
+[test]
