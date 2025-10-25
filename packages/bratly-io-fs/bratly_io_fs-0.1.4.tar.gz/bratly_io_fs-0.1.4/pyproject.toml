@@ -1,0 +1,19 @@
+[project]
+name = "bratly-io-fs"
+version = "0.1.4"
+description = "an extension of bratly for file IO support"
+requires-python = ">=3.10"
+dependencies = ["bratly"]
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "bratly.io"
+
+[tool.uv.sources]
+bratly = { workspace = true }
+
+[tool.hatch.metadata]
+allow-direct-references = true
