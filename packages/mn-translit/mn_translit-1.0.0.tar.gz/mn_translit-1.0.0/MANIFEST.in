@@ -1,0 +1,10 @@
+# Additional files and patterns to include in the package
+include README.md
+include LICENSE
+include setup.py
+recursive-include mn_translit *.py
+recursive-include examples *.py
+recursive-include tests *.py
+exclude .gitignore
+exclude .git*
+prune .git

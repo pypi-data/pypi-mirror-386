@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+mn_translit/__init__.py
+mn_translit/translit.py
+mn_translit.egg-info/PKG-INFO
+mn_translit.egg-info/SOURCES.txt
+mn_translit.egg-info/dependency_links.txt
+mn_translit.egg-info/top_level.txt
+tests/test_translit.py
