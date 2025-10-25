@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: root_painter_trainer
+Version: 0.2.27.4
+Summary: Trainer (server component) for RootPainter
+Author: Abraham George Smith
+License: GPL-2.0
+Project-URL: Homepage, https://github.com/Abe404/root_painter
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: <3.13,>=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: Pillow==12.0.0
+Requires-Dist: imagecodecs==2025.8.2
+Requires-Dist: numpy==2.3.4
+Requires-Dist: scikit-image==0.25.2
+Requires-Dist: scipy==1.16.2
+Requires-Dist: torch==2.6.0
+Requires-Dist: torchvision==0.21.0
