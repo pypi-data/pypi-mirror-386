@@ -1,0 +1,11 @@
+sanskrit_tagger/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sanskrit_tagger/device_util.py,sha256=s10g-kV58kbsqWQQNICGtu0js_4-hxDOQSqjcNC35Es,757
+sanskrit_tagger/pos_tagger.py,sha256=A5u58_bvil84nZkkL0V4ZzClGU94uwxXnKQL4pA6V6k,2337
+sanskrit_tagger/tagger_factory.py,sha256=dRMzJo0zYhihixpYRniYd2scvdqyr27mVDH7SALhqvI,566
+sanskrit_tagger/data/char2id_42_734.dat,sha256=uBCdL0Abjl1abJxdFijGGT7IhkqpbthbbsufiOYbdwE,297
+sanskrit_tagger/data/unique_tags_42_734.dat,sha256=dqpj7wWZ0b_k9mm2ujHvmt8LjZKiopT3ZLsxlIrntXA,17218
+sanskrit_tagger-0.1.5.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+sanskrit_tagger-0.1.5.dist-info/METADATA,sha256=i8UxBAQQMIJsSwD4dcOvNn0Ew9igUXBWwVl-RgKBXLA,973
+sanskrit_tagger-0.1.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sanskrit_tagger-0.1.5.dist-info/top_level.txt,sha256=mSvUu9lWCN-PXk64j6NJHZiMX8gpf2WWpBg4Xz8QmaI,16
+sanskrit_tagger-0.1.5.dist-info/RECORD,,
