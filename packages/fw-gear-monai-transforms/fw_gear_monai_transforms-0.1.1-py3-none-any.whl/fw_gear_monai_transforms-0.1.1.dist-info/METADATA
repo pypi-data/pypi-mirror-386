@@ -1,0 +1,141 @@
+Metadata-Version: 2.4
+Name: fw-gear-monai-transforms
+Version: 0.1.1
+Summary: Apply the MONAI tranforms as specified by the user input script and save output in the destination container
+Project-URL: Repository, https://gitlab.com/flywheel-io/scientific-solutions/gears/monai-transforms
+Author-email: Flywheel <support@flywheel.io>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: Flywheel,Gears
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: <4,>=3.11
+Requires-Dist: flywheel-gear-toolkit<0.7,>=0.6
+Requires-Dist: fw-utils<6,>=5.1.0
+Requires-Dist: monai[ignite,imagecodecs,itk,matplotlib,nibabel,pandas,pillow,skimage,tifffile,torchvision,transformers]<2,>=1.5.1
+Description-Content-Type: text/markdown
+
+# MONAI Transforms
+
+## Overview
+
+### Summary
+
+Apply [MONAI transforms](https://docs.monai.io/en/stable/transforms.html#) to input
+file as specified by the user defined transform script and save the transformed
+output in the destination container.
+
+### Cite
+
+[https://doi.org/10.5281/zenodo.4323058](https://doi.org/10.5281/zenodo.4323058)
+*License:* MIT
+
+### Classification
+
+*Category:* converter
+
+*Gear Level:*
+
+- [ ] Project
+- [ ] Subject
+- [ ] Session
+- [X] Acquisition
+- [ ] Analysis
+
+## Support
+
+- *input-file*
+  - **Name**: The input-file.
+  - **Type**: nifti, dicom, image
+  - **Optional**: False
+  - **Description**: Input NIfTI file for the transform.
+
+- *transform-script*
+  - **Name**: The transform module.py.
+  - **Type**: nifti
+  - **Optional**: False
+  - **Description**: The Python module containing the definition of the
+      transforms to apply.
+
+### Config
+
+- *debug*
+  - **Name**: debug
+  - **Type**: boolean
+  - **Description**: Log debug messages
+  - **Default**: False
+
+- *number-of-iterations*
+  - **Name**: number-of-iterations
+  - **Type**: integer
+  - **Description**: Number of times the transform will be applied to the image.
+  - **Default**: False
+
+### Outputs
+
+#### Files
+
+- *transformed-file*
+  - **Name**: The transformed file
+  - **Type**: Whatever is specified in the `SaveImaged` transform
+
+## Usage
+
+### Description
+
+This gear takes as input an image file (e.g. nii, nii.gz, dcm, png, jpg, bmp), loads
+the transform defined by the input `transform-script`, applies this transform to the
+input image and saved the transformed image in the destination acquisition container.
+
+#### File Specifications
+
+##### *transform-script*
+
+The `transform-script` python file must:
+
+- define an object called `transform`  from the `Compose` class
+- start with a `LoadImaged` transform
+- end with a `SaveImaged` transform
+- apply the transformation(s) on the key `img`
+
+It is recommended to validate the transform first outside of the gear environment
+for faster/easier debugging/iteration. For example, the following code snippet will
+let you test your transform on a NIfTI file and inspect the saved output:
+
+```python
+from monai.transforms import (
+    Compose, LoadImaged, EnsureChannelFirstd, RandGaussianNoised, SaveImaged
+)
+
+transform = Compose(
+    [
+        LoadImaged(["img"]),
+        EnsureChannelFirstd(["img"], channel_dim="no_channel"),
+        RandGaussianNoised(["img"]),
+        SaveImaged(["img"], output_postfix="t", output_ext=".nii.gz"),
+    ]
+)
+
+transform({"img": "path/to/my/input/nifti.nii.gz"})
+```
+
+Examples of transforms can be found in the [examples](./examples) folder.
+
+### Workflow
+
+A picture and description of the workflow
+
+```mermaid
+graph LR;
+    A[input-file]:::input --> E((Gear));
+    B[transform-script]:::input --> E((Gear));
+    E:::gear --> F[Transformed file]:::container;
+
+    classDef container fill:#57d,color:#fff
+    classDef input fill:#7a9,color:#fff
+    classDef gear fill:#659,color:#fff
+```
+
+## Contributing
+
+[For more information about how to get started contributing to that gear,
+checkout [CONTRIBUTING.md](CONTRIBUTING.md).]
