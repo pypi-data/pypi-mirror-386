@@ -1,0 +1,4 @@
+dist/
+.jj/
+.git/
+__pycache__
