@@ -1,0 +1,2 @@
+[console_scripts]
+pyan-unused-functions = pyan_unused_functions.cli:main
