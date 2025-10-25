@@ -1,0 +1,110 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leksara"
+version = "0.1.2"
+description = "Library pemrosesan teks Bahasa Indonesia untuk domain e-commerce (cleaning, PII masking, review mining, pipeline)."
+readme = {file = "README.md", content-type = "text/markdown"}
+authors = [{name = "Rhendy Saragih"}]
+license = {text = "MIT"}
+requires-python = ">=3.9"
+keywords = [
+  "nlp", "indonesian", "text-cleaning", "ecommerce", "pii",
+  "preprocessing", "review-mining", "normalization"
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: Indonesian",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Text Processing :: Linguistic",
+  "Topic :: Software Development :: Libraries",
+]
+
+dependencies = [
+  "pandas>=1.5",
+  "regex>=2022.1.18",
+  "emoji>=2.0.0",
+  "Sastrawi>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.4.0",
+  "mypy>=1.8.0",
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "build",
+  "twine",
+  "ipykernel",
+]
+docs = [
+  "mkdocs",
+  "mkdocs-material",
+]
+test = [
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+]
+benchmark = [
+  "tqdm",
+  "tabulate",
+]
+
+[project.urls]
+Homepage = "https://example.com/leksara"
+Source = "https://example.com/leksara/repo"
+Issues = "https://example.com/leksara/issues"
+Documentation = "https://example.com/leksara/docs"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = [""]
+include = ["leksara*"]
+
+[tool.setuptools.package-data]
+leksara = [
+  "resources/*",
+  "resources/**/*"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+select = ["E", "F", "W", "I"]
+exclude = ["build", "dist", ".venv"]
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
+strict_optional = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_redundant_casts = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q --cov=leksara --cov-report=term-missing"
+testpaths = ["leksara/tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["leksara"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.coverage.html]
+directory = "coverage_html"
