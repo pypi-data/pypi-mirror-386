@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/blogsimi/__init__.py
+src/blogsimi/__main__.py
+src/blogsimi/cli.py
+src/blogsimi/core.py
+src/blogsimi.egg-info/PKG-INFO
+src/blogsimi.egg-info/SOURCES.txt
+src/blogsimi.egg-info/dependency_links.txt
+src/blogsimi.egg-info/entry_points.txt
+src/blogsimi.egg-info/requires.txt
+src/blogsimi.egg-info/top_level.txt
