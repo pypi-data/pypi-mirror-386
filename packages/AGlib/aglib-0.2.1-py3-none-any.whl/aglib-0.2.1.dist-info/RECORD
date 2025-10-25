@@ -1,0 +1,12 @@
+aglib/FF.py,sha256=obkhdLXfryWplOvtjSq9HiXdqMG5fQHvR767aOsS4gg,5523
+aglib/__init__.py,sha256=MJR32YSwWX_0lIjAPzLMoQjEnY-fkjgLhLW0S61_wDc,204
+aglib/functions.py,sha256=9F9xRxHFad6LZNgPqS5AK5zz6nxy8vd_TKl5wNg-oD8,321
+aglib/mcstas_reader.py,sha256=fyDquJ3SBohRKokxzuVerc729gFtWoSk0kEmhmthIgM,17617
+aglib/mcstas_runner.py,sha256=q-19self9lMP5p6JXXNCTO36dTK3uFVfAfvU-bd_ogE,4401
+aglib/peakfinder.py,sha256=kofV9Fx_HTFp2DFpFmWdyEwgyFSPhwx_d4elW_pm60Y,16935
+aglib/res.py,sha256=v6vARVd5u5mCPa6bG3jKE7mt_CsI_MfRj4F3GXYOyg4,6973
+aglib-0.2.1.dist-info/licenses/LICENSE,sha256=e1CncEqZFGaL4L_gXwBUR82si6NFcfX959VVjmlnboQ,1088
+aglib-0.2.1.dist-info/METADATA,sha256=lyjmzB8TETbMbjER2_D9TqxjG2Sf9pCM3taQ1nXYg_c,654
+aglib-0.2.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+aglib-0.2.1.dist-info/top_level.txt,sha256=GKAY6bUPasAsuyzyiyQ31ZIGsNMkrJ8p5n4z1QRQsxE,6
+aglib-0.2.1.dist-info/RECORD,,
