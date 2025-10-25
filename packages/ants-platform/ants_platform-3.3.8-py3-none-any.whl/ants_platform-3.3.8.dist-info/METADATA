@@ -1,0 +1,50 @@
+Metadata-Version: 2.3
+Name: ants-platform
+Version: 3.3.8
+Summary: A client library for accessing ants-platform
+License: MIT
+Author: ants-platform
+Author-email: developers@ants-platform.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: langchain
+Provides-Extra: openai
+Requires-Dist: backoff (>=1.10.0)
+Requires-Dist: httpx (>=0.15.4,<1.0)
+Requires-Dist: langchain (>=0.0.309) ; extra == "langchain"
+Requires-Dist: openai (>=0.27.8) ; extra == "openai"
+Requires-Dist: opentelemetry-api (>=1.33.1,<2.0.0)
+Requires-Dist: opentelemetry-exporter-otlp-proto-http (>=1.33.1,<2.0.0)
+Requires-Dist: opentelemetry-sdk (>=1.33.1,<2.0.0)
+Requires-Dist: packaging (>=23.2,<26.0)
+Requires-Dist: pydantic (>=1.10.7,<3.0)
+Requires-Dist: requests (>=2,<3)
+Requires-Dist: wrapt (>=1.14,<2.0)
+Description-Content-Type: text/markdown
+
+![Ants Platform GitHub Banner](static/Ants_Platform_Blended.png)
+
+# Ants Platform Python SDK
+
+[![MIT License](https://img.shields.io/badge/License-MIT-red.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![PyPI Version](https://img.shields.io/pypi/v/ants-platform.svg?style=flat-square&label=pypi+ants-platform)](https://pypi.python.org/pypi/ants-platform)
+
+## Installation
+
+> [!IMPORTANT]
+> This is the Ants Platform Python SDK, a custom observability platform built on top of modern LLM infrastructure.
+
+```
+pip install ants-platform
+```
+
+## Docs
+
+Please see our docs for detailed information on this SDK.
+
