@@ -1,0 +1,10 @@
+appligator/__init__.py,sha256=w1IjxUM9_mafIv5Jc5sLO1MG4bdIcFYkBIE7oDsZsqw,294
+appligator/cli.py,sha256=OlTocLsHOz_rrGrI39Iryr8dyfpzLLEEVcpSQL3lgOo,2926
+appligator/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+appligator/airflow/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+appligator/airflow/gen_dag.py,sha256=QxRD8i-spZdHAmKL1vjwoGu3Ar9Gpu8ihWsLVmstUv4,3186
+appligator-0.0.7.dist-info/METADATA,sha256=obRDRjA42RUGPUwpgIZ5WQ27_--1w9fN6LVlj-91X_0,2494
+appligator-0.0.7.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+appligator-0.0.7.dist-info/entry_points.txt,sha256=ahqgnF-eq8hp6ErFmkC8c9zin6DNoBFUxML2euu1uig,50
+appligator-0.0.7.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+appligator-0.0.7.dist-info/RECORD,,
