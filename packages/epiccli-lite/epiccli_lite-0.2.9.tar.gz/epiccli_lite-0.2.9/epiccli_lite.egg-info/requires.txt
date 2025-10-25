@@ -1,0 +1,10 @@
+Flask
+boto3
+click
+requests
+pywebview
+
+[:sys_platform == "linux"]
+PyQt5
+pyqtwebengine
+qtpy
