@@ -1,0 +1,54 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "setuptools_scm[toml]>=6.2" # Using setuptools_scm for versioning from Git
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pfit"
+# version is  managed by setuptools_scm based on Git tags
+dynamic = ["version"] 
+
+description = "Tools to support interoperability and the adoption of standards for permafrost data files."
+readme = "README.md" 
+requires-python = ">=3.6, <4"
+keywords = ["ground temperature", "sensor", "permafrost", "earth science", "soil", "data"]
+license = { file = "LICENSE.txt" } 
+
+authors = [
+  { name = "Nick Brown" },
+  { name = "Alex Gao" }
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "netcdf4",
+    "xlrd",
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/permafrostnet/pfit"
+"Bug Reports" = "https://gitlab.com/permafrostnet/pfit/-/issues"
+Source = "https://gitlab.com/permafrostnet/pfit"
+
+[tool.setuptools]
+
+packages = ["pfit"]
+
+
+[tool.setuptools_scm]
+# Configures setuptools_scm to manage the version
+write_to = "pfit/_version.py"
