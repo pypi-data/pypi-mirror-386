@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+  <records interface="plone.base.interfaces.ITypesSchema"
+           prefix="plone"
+  >
+    <value key="default_page_types"
+           purge="false"
+    >
+      <element>Collection</element>
+    </value>
+  </records>
+</registry>
