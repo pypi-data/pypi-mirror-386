@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+projectree/__init__.py
+projectree/cli.py
+projectree/core.py
+projectree.egg-info/PKG-INFO
+projectree.egg-info/SOURCES.txt
+projectree.egg-info/dependency_links.txt
+projectree.egg-info/entry_points.txt
+projectree.egg-info/top_level.txt
