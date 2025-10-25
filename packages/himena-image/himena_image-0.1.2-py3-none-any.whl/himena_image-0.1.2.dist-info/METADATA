@@ -1,0 +1,98 @@
+Metadata-Version: 2.4
+Name: himena-image
+Version: 0.1.2
+Summary: Himena plugin for image processing and analysis
+Project-URL: Documentation, https://github.com/hanjinliu/himena-image#readme
+Project-URL: Issues, https://github.com/hanjinliu/himena-image/issues
+Project-URL: Source, https://github.com/hanjinliu/himena-image
+Author-email: hanjinliu <liuhanjin.sc@gmail.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2024, hanjinliu
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: himena>=0.0.13
+Requires-Dist: impy-array>=2.5.0
+Requires-Dist: ndv
+Requires-Dist: roifile>=2024.5.24
+Provides-Extra: all
+Requires-Dist: mrcfile; extra == 'all'
+Requires-Dist: nd2; extra == 'all'
+Requires-Dist: tifffile; extra == 'all'
+Provides-Extra: testing
+Requires-Dist: click!=8.3.0; extra == 'testing'
+Requires-Dist: himena[testing]; extra == 'testing'
+Requires-Dist: pyqt6; extra == 'testing'
+Requires-Dist: pytest; extra == 'testing'
+Requires-Dist: pytest-cov; extra == 'testing'
+Description-Content-Type: text/markdown
+
+# himena-image
+
+[![PyPI - Version](https://img.shields.io/pypi/v/himena-image.svg)](https://pypi.org/project/himena-image)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/himena-image.svg)](https://pypi.org/project/himena-image)
+[![codecov](https://codecov.io/gh/hanjinliu/himena-image/graph/badge.svg?token=Eifn4N21SV)](https://codecov.io/gh/hanjinliu/himena-image)
+
+-----
+
+![](images/window.png)
+
+A [himena](https://github.com/hanjinliu/himena) plugin for image processing and image
+analysis.
+
+## Installation
+
+```console
+pip install himena-image[all]
+```
+
+To install this plugin to application, manually edit the setting from `Ctrl+,` or run:
+
+```console
+himena --install himena-image  # install the the default profile
+himena <my-profile> --install himena-image  # install to <my-profile> profile
+```
+
+## Contents
+
+This plugin contains following components:
+
+1. Image IO (`himena_image.io`): Reading and writing TIFF, MRC, ND2 etc.
+2. New and Samples (`himena_image.new`): Fetching [`scikit-image`](https://github.com/scikit-image/scikit-image) sample images.
+3. Image Processing and Analysis (`himena_image.processing`): filtering, segmentation, feature extraction, etc.
+4. Image Viewer Widgets (`himena_image.widgets`): 3D Image viewer widget from [`ndv`](https://github.com/pyapp-kit/ndv)

@@ -1,0 +1,6 @@
+[himena.plugin]
+Image IO = himena_image.io
+Image Processing and Analysis = himena_image.processing
+Image Viewer Widgets = himena_image.widgets
+ImageJ Utilities = himena_image.ij
+New and Samples = himena_image.new
