@@ -1,0 +1,2 @@
+[console_scripts]
+standards-explorer-mcp = standards_explorer_mcp.main:cli
