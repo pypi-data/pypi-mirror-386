@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: lichess-api
+Version: 0.5.0
+Summary: A simple Python wrapper for Lichess API
+Project-URL: Source, https://github.com/gameroman/lichess-api
+Author-email: GameRoMan <dev@rman.dev>
+License: MIT
+License-File: LICENSE
+Keywords: api,berserk,bot,chess,lichess,tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.12
+Requires-Dist: pydantic>=2.12.3
+Description-Content-Type: text/markdown
+
+# lichess-api
+
+A simple Python wrapper for Lichess API
