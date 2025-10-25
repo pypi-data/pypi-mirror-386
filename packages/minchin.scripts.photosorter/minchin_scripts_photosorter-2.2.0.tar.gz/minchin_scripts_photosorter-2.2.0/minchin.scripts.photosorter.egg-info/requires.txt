@@ -1,0 +1,17 @@
+argcomplete>=1.3.0
+ExifRead>=2.1.2
+watchdog>=0.8.3
+
+[dev]
+coveralls>=1.1
+pytest-xdist>=1.14
+pytest>=2.9.2
+mypy
+pip-tools>=6
+minchin.releaser>=0.9.6
+minchin.text
+urllib3>=1.26.5
+pytest>=7.2.0
+Pygments>=2.15.0
+bleach>=3.3.0
+requests>=2.31.0

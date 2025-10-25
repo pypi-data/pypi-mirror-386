@@ -1,0 +1,27 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+invoke.yaml
+photosorter.conf.example
+pyproject.toml
+setup.cfg
+tasks.py
+.requirements/base.in
+.requirements/dev.in
+minchin.scripts.photosorter.egg-info/PKG-INFO
+minchin.scripts.photosorter.egg-info/SOURCES.txt
+minchin.scripts.photosorter.egg-info/dependency_links.txt
+minchin.scripts.photosorter.egg-info/entry_points.txt
+minchin.scripts.photosorter.egg-info/requires.txt
+minchin.scripts.photosorter.egg-info/top_level.txt
+minchin/scripts/photosorter/__init__.py
+minchin/scripts/photosorter/tests/__init__.py
+minchin/scripts/photosorter/tests/test_sorter.py
+minchin/scripts/photosorter/tests/test_examples/2004-05-07 20.16.31.jpg
+minchin/scripts/photosorter/tests/test_examples/2006-09-09 07.00.24-alt.jpg
+minchin/scripts/photosorter/tests/test_examples/2006-09-09 07.00.24.jpg
+minchin/scripts/photosorter/tests/test_examples/2014-02-06 09.15.17.jpg
+minchin/scripts/photosorter/tests/test_examples/no-exif.jpg
+minchin/scripts/photosorter/tests/test_examples/test.png
+minchin/scripts/photosorter/tests/test_examples/root/2006/2006-09/2006-09-09 07.00.24-1.jpg
+minchin/scripts/photosorter/tests/test_examples/root/2006/2006-09/2006-09-09 07.00.24.jpg

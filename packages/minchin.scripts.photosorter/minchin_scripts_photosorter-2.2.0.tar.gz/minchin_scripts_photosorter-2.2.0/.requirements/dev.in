@@ -1,0 +1,16 @@
+coveralls >= 1.1
+# pytest-cov >= 2.2.1
+pytest-xdist >= 1.14
+# pytest-flake8 >= 0.5
+pytest >= 2.9.2
+mypy
+pip-tools >= 6
+minchin.releaser >= 0.9.6
+minchin.text
+
+# minimum versions for security reasons
+urllib3 >= 1.26.5
+pytest >= 7.2.0
+Pygments >= 2.15.0
+bleach >= 3.3.0
+requests >= 2.31.0

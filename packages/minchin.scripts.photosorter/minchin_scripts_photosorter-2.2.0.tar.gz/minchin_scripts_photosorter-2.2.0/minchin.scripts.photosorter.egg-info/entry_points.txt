@@ -1,0 +1,2 @@
+[console_scripts]
+photosorter = minchin.scripts.photosorter:main
