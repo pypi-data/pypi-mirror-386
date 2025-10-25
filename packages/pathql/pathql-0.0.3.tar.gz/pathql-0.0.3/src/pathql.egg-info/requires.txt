@@ -1,0 +1,6 @@
+python-dateutil
+
+[dev]
+pytest
+pytest-cov
+mypy
