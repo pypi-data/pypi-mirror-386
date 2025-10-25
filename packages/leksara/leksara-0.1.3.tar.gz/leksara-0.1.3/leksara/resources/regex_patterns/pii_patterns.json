@@ -1,0 +1,78 @@
+{
+  "pii_phone": {
+    "pattern": "(?:\\(\\+62\\)|\\+62|62|0)\\s?(?:\\d{2,3}[-\\s]?){2,4}\\d{2,4}\\b",
+    "desc": "Nomor HP Indonesia umum",
+    "example": "+6281234567890"
+  },
+
+  "pii_email": {
+    "pattern": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b",
+    "desc": "Alamat email umum",
+    "example": "customer123@gmail.com"
+  },
+
+  "pii_nik": {
+    "pattern": "(?<!\\d)(1[1-9]|21|[37][1-6]|5[1-3]|6[1-5]|[89][12])\\d{2}\\d{2}([04][1-9]|[1256][0-9]|[37][01])(0[1-9]|1[0-2])\\d{2}\\d{4}(?!\\d)",
+    "desc": "NIK/KTP Indonesia",
+    "example": "3276120705010003"
+  },
+
+  "pii_address": {
+    "trigger_pattern": {
+      "pattern": "\\b(Jl\\.?|Jalan|Gg\\.?|Gang|RT|RW|Kel(?:urahan)?\\.?|Kec(?:amatan)?\\.?|Kab(?:upaten)?\\.?|Kota|Prov(?:insi)?\\.?|No\\.?|Nomor)\\b",
+      "desc": "Pemicu window alamat",
+      "example": "Jl. Merdeka"
+    },
+
+    "components": {
+      "pii_addr_street": {
+        "pattern": "\\b(?:Jl\\.?|Jalan|Gg\\.?|Gang)\\s+[A-Z0-9][A-Za-z0-9 ./-]*(?:\\s+\\d+)?(?=\\s*(?:,|\\.|$|No\\.?|Nomor|RT|RW|Kel|Kec|Kab|Kota|Prov))",
+        "desc": "Nama jalan/gang",
+        "example": "Jalan Sudirman"
+      },
+
+      "pii_addr_house": {
+        "pattern": "\\b(?:No\\.?|No|Nomor|Nomer|Nmr|#)\\s*\\w+\\b",
+        "desc": "Nama jalan/gang",
+        "example": "Jalan Sudirman"
+      },
+
+      "pii_addr_rtrw": {
+        "pattern": "\\bRT\\s*\\d{1,2}\\s*RW\\s*\\d{1,2}\\b",
+        "desc": "RT/RW dengan angka",
+        "example": "RT 03 RW 05"
+      },
+
+      "pii_addr_kel": {
+        "pattern": "\\bKel(?:urahan)?\\.?\\s+[A-Za-z][A-Za-z ./-]*\\b",
+        "desc": "Kelurahan + nama",
+        "example": "Kelurahan Melati"
+      },
+
+      "pii_addr_kec": {
+        "pattern": "\\bKec(?:amatan)?\\.?\\s+[A-Za-z][A-Za-z ./-]*\\b",
+        "desc": "Kecamatan + nama",
+        "example": "Kecamatan Setiabudi"
+      },
+
+      "pii_addr_kabkota": {
+        "pattern": "\\b(?:Kab(?:upaten)?|Kota)\\.?\\s+[A-Za-z][A-Za-z ./-]*\\b",
+        "desc": "Kabupaten/Kota + nama",
+        "example": "Kabupaten Sragen"
+      },
+
+      "pii_addr_prov": {
+        "pattern": "\\bProv(?:insi)?\\.?\\s+[A-Za-z][A-Za-z ./-]*\\b",
+        "desc": "Provinsi + nama",
+        "example": "Provinsi Jawa Tengah"
+      },
+
+      "pii_addr_zip": {
+        "pattern": "\\b\\d{5}\\b",
+        "desc": "Kode pos 5 digit.",
+        "example": "57262"
+      }
+    }
+  }
+
+}
