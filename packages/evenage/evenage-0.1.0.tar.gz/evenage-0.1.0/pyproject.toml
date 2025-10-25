@@ -1,0 +1,124 @@
+[project]
+name = "evenage"
+dynamic = ["version"]
+description = "EvenAge - A transparent, Docker-native, observable, distributed agent framework. A superset of CrewAI with explicit communication, real distributed runtime, and local observability."
+readme = "README.md"
+authors = [
+    { name = "EvenAge Team", email = "team@evenage.dev" }
+]
+requires-python = ">=3.10, <3.14"
+dependencies = [
+    # Core Dependencies
+    "pydantic>=2.11.9",
+    "instructor>=1.3.3",
+    
+    # LLM Providers (all optional via extras)
+    "requests>=2.31.0",  # For local models
+    
+    # FastAPI and Web
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "websockets>=13.0",
+    
+    # Message Queue - Redis (default)
+    "redis>=5.0.0",
+    "redis-om>=0.3.0",
+    
+    # Database - SQLite (default), optional PostgreSQL/MySQL
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.13.0",
+    
+    # Storage - Local filesystem (default)
+    "aiofiles>=23.2.0",
+    
+    # Observability
+    "opentelemetry-api>=1.30.0",
+    "opentelemetry-sdk>=1.30.0",
+    "opentelemetry-exporter-otlp-proto-http>=1.30.0",
+    "opentelemetry-instrumentation-fastapi>=0.51b0",
+    "opentelemetry-instrumentation-redis>=0.51b0",
+    "opentelemetry-instrumentation-sqlalchemy>=0.51b0",
+    "prometheus-client>=0.21.0",
+    
+    # CLI
+    "click>=8.1.7",
+    "rich>=13.7.0",
+    "pyyaml>=6.0.1",
+    
+    # Docker orchestration
+    "docker>=7.0.0",
+    
+    # Text Processing
+    "pdfplumber>=0.11.4",
+    "regex>=2024.9.11",
+    
+    # Data Handling
+    "chromadb~=1.1.0",
+    "tokenizers>=0.20.3",
+    
+    # Configuration and Utils
+    "python-dotenv>=1.1.1",
+    "jsonref>=1.1.0",
+    "json-repair==0.25.2",
+    "pydantic-settings>=2.10.1",
+]
+
+[project.urls]
+Homepage = "https://evenage.dev"
+Documentation = "https://docs.evenage.dev"
+Repository = "https://github.com/evenage/evenage"
+
+[project.optional-dependencies]
+# LLM Provider extras
+openai = ["openai>=1.13.3"]
+anthropic = ["anthropic>=0.34.0"]
+gemini = ["google-generativeai>=0.8.0"]
+groq = ["groq>=0.11.0"]
+all-llms = ["openai>=1.13.3", "anthropic>=0.34.0", "google-generativeai>=0.8.0", "groq>=0.11.0"]
+
+# Database extras
+postgres = ["psycopg2-binary>=2.9.0"]
+mysql = ["pymysql>=1.1.0"]
+all-dbs = ["psycopg2-binary>=2.9.0", "pymysql>=1.1.0"]
+
+# Storage extras
+s3 = ["boto3>=1.34.0"]
+minio = ["minio>=7.2.0"]
+all-storage = ["boto3>=1.34.0", "minio>=7.2.0"]
+
+# Message Queue extras
+kafka = ["aiokafka>=0.11.0"]
+rabbitmq = ["aio-pika>=9.4.0"]
+all-queues = ["aiokafka>=0.11.0", "aio-pika>=9.4.0"]
+
+# Combined extras
+all = [
+    "openai>=1.13.3",
+    "anthropic>=0.34.0",
+    "google-generativeai>=0.8.0",
+    "groq>=0.11.0",
+    "psycopg2-binary>=2.9.0",
+    "pymysql>=1.1.0",
+    "boto3>=1.34.0",
+    "minio>=7.2.0",
+    "aiokafka>=0.11.0",
+    "aio-pika>=9.4.0",
+]
+
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "black>=24.0.0",
+    "ruff>=0.5.0",
+    "mypy>=1.11.0",
+]
+
+[project.scripts]
+evenage = "evenage.cli.main:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/evenage/__init__.py"

@@ -1,0 +1,30 @@
+# Custom Thresholds Configuration
+# Fine-tuned for specific use cases
+
+project:
+  name: my_custom_project
+  
+  # Infrastructure
+  broker: redis
+  database: postgres
+  storage: minio
+  
+  # Observability - SELECTIVE
+  tracing: true           # Keep tracing for debugging
+  metrics: true           # Keep metrics for monitoring
+  large_response_storage: true  # But with custom threshold
+  
+  # Custom storage threshold (only store REALLY large responses)
+  storage_threshold_kb: 500  # 500KB threshold instead of 100KB
+  
+  agents:
+    - researcher
+    - writer
+
+# This configuration is useful when:
+# - You want observability but have bandwidth concerns
+# - Your responses are typically medium-sized (100-500KB)
+# - You want to minimize MinIO usage
+
+# Environment variables:
+# STORAGE_THRESHOLD_KB=500

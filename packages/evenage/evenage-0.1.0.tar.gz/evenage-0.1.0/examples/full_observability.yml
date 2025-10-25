@@ -1,0 +1,36 @@
+# Full Observability Configuration
+# Production setup with all features enabled
+
+project:
+  name: my_production_project
+  
+  # Infrastructure
+  broker: redis
+  database: postgres
+  storage: minio
+  
+  # Observability - ALL ENABLED
+  tracing: true                    # OpenTelemetry traces to Jaeger
+  metrics: true                    # Prometheus metrics
+  large_response_storage: true     # Auto-store large responses
+  
+  # Storage configuration
+  storage_threshold_kb: 100        # Store responses > 100KB in MinIO
+  
+  agents:
+    - researcher
+    - writer
+    - analyst
+
+# Environment variables for this setup
+# Copy to .env:
+
+# DATABASE_URL=postgresql://postgres:postgres@postgres:5432/evenage
+# REDIS_URL=redis://redis:6379
+# MINIO_ENDPOINT=minio:9000
+# MINIO_ACCESS_KEY=minioadmin
+# MINIO_SECRET_KEY=minioadmin123
+# ENABLE_TRACING=true
+# ENABLE_METRICS=true
+# ENABLE_LARGE_RESPONSE_STORAGE=true
+# STORAGE_THRESHOLD_KB=100

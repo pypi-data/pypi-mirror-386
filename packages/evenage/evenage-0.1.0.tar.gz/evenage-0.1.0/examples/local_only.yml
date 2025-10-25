@@ -1,0 +1,41 @@
+# Local-Only Configuration
+# Zero external dependencies - runs entirely on your machine
+
+project:
+  name: my_local_project
+  
+  # Infrastructure (all local)
+  broker: redis              # Local Redis
+  database: sqlite           # Local SQLite file
+  storage: filesystem        # Local filesystem
+  
+  # Observability - LOCAL ONLY
+  tracing: false            # No external tracing (can enable locally)
+  metrics: false            # No metrics server
+  large_response_storage: false  # Everything inline
+  
+  agents:
+    - researcher
+
+# This setup requires ONLY:
+# 1. Redis running locally (docker run -d -p 6379:6379 redis)
+# 2. Ollama running locally (for LLM)
+# 3. Nothing else!
+
+# Environment variables:
+
+# DATABASE_URL=sqlite:///./data/evenage.db
+# REDIS_URL=redis://localhost:6379
+# 
+# # Storage
+# STORAGE_PROVIDER=filesystem
+# STORAGE_BASE_PATH=./.storage
+# 
+# # Observability (all disabled)
+# ENABLE_TRACING=false
+# ENABLE_METRICS=false
+# ENABLE_LARGE_RESPONSE_STORAGE=false
+# 
+# # LLM (local Ollama)
+# LLM_PROVIDER=ollama
+# LLM_API_BASE=http://localhost:11434

@@ -1,0 +1,38 @@
+# Example Agent Configuration - Custom Observability
+# Selective observability for specific needs
+
+name: writer
+role: Content Writer
+goal: Create engaging and informative content
+backstory: Professional writer with expertise in technical communication
+
+# LLM Configuration
+llm:
+  provider: openai
+  model: gpt-4
+  temperature: 0.8
+  max_tokens: 4096
+  api_key: ${OPENAI_API_KEY}
+
+tools:
+  - grammar_checker
+  - style_analyzer
+
+max_iterations: 10
+allow_delegation: false
+verbose: true
+
+# Observability Configuration - SELECTIVE
+# This agent produces large outputs, so we customize storage
+observability:
+  enable_tracing: true    # Keep tracing for debugging
+  enable_metrics: true    # Keep metrics for monitoring
+  
+  # But store even small responses since this agent produces lots of text
+  store_large_responses: true
+  storage_threshold_kb: 50   # Lower threshold (50KB instead of 100KB)
+  
+  tags:
+    team: content
+    model: gpt-4
+    high_token_usage: true

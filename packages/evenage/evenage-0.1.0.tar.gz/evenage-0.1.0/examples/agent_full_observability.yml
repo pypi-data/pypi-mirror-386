@@ -1,0 +1,49 @@
+# Example Agent Configuration - Full Observability
+# Shows all available observability options
+
+name: researcher
+role: Senior Research Analyst
+goal: Conduct thorough research and analysis
+backstory: |
+  You are an experienced researcher with expertise in data analysis
+  and information synthesis. You excel at finding patterns and insights.
+
+# LLM Configuration
+llm:
+  provider: ollama
+  model: llama2
+  temperature: 0.7
+  max_tokens: 2048
+  # api_key: ${OPENAI_API_KEY}  # For cloud providers
+
+# Tools available to this agent
+tools:
+  - web_search
+  - file_reader
+  - data_analyzer
+
+# Execution settings
+max_iterations: 15
+allow_delegation: false
+verbose: true
+
+# Observability Configuration (OPTIONAL - overrides project defaults)
+observability:
+  # Enable/disable tracing for this specific agent
+  enable_tracing: true
+  
+  # Enable/disable metrics for this specific agent
+  enable_metrics: true
+  
+  # Enable/disable large response storage for this agent
+  store_large_responses: true
+  
+  # Custom storage threshold for this agent (KB)
+  # Useful if this agent produces particularly large/small outputs
+  storage_threshold_kb: 100
+  
+  # Custom tags/labels for observability
+  tags:
+    team: research
+    priority: high
+    cost_center: data_science

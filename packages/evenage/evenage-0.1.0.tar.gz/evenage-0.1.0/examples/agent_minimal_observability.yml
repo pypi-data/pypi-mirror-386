@@ -1,0 +1,33 @@
+# Example Agent Configuration - Minimal Observability
+# For agents that should not be traced/monitored
+
+name: internal_helper
+role: Internal Helper Agent
+goal: Assist with internal system operations
+backstory: Internal utility agent for system tasks
+
+# LLM Configuration
+llm:
+  provider: ollama
+  model: llama2
+  temperature: 0.5
+  max_tokens: 1024
+
+tools: []
+
+max_iterations: 5
+allow_delegation: false
+verbose: false
+
+# Observability Configuration - ALL DISABLED
+# This agent's operations are not traced or metered
+observability:
+  enable_tracing: false        # No traces
+  enable_metrics: false        # No metrics
+  store_large_responses: false # Always inline
+
+# Use cases for disabled observability:
+# - Internal/utility agents
+# - High-frequency, low-value operations
+# - Sensitive operations that shouldn't be logged
+# - Performance-critical paths

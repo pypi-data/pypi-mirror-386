@@ -1,0 +1,37 @@
+# Cloud Deployment Configuration
+# Production setup with cloud services
+
+project:
+  name: my_cloud_project
+  
+  # Infrastructure (cloud-native)
+  broker: kafka              # Kafka for scale
+  database: postgres         # Managed PostgreSQL
+  storage: s3                # AWS S3 storage
+  
+  # Observability - FULL CLOUD
+  tracing: true             # OpenTelemetry to cloud provider
+  metrics: true             # Cloud monitoring
+  large_response_storage: true
+  storage_threshold_kb: 100
+  
+  agents:
+    - researcher
+    - writer
+    - analyst
+
+# Environment variables for AWS deployment:
+
+# DATABASE_URL=postgresql://user:pass@prod-db.rds.amazonaws.com:5432/evenage
+# REDIS_URL=redis://prod-redis.elasticache.amazonaws.com:6379
+# KAFKA_BROKERS=kafka-1:9092,kafka-2:9092
+# 
+# # AWS S3
+# MINIO_ENDPOINT=s3.amazonaws.com
+# MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE
+# MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+# MINIO_BUCKET=my-production-bucket
+# MINIO_SECURE=true
+# 
+# # OpenTelemetry to AWS X-Ray or Datadog
+# OTEL_EXPORTER_OTLP_ENDPOINT=https://your-collector.com:4318
