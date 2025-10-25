@@ -1,0 +1,10 @@
+sbx_sentiment_kb_sent/__init__.py,sha256=juTy3iJtUSGJwc-SdliwWZSK-6YEf4MQiaLIvEINx50,553
+sbx_sentiment_kb_sent/annotations.py,sha256=KgsbU_hiD1fFOi6OTiR4t-MPejO08UMH11hMwmBA-dM,1934
+sbx_sentiment_kb_sent/constants.py,sha256=jBj-86RMCcEEaLbKRdK1gVaN24pIuydYYVvKZKpAFG4,83
+sbx_sentiment_kb_sent/metadata.yaml,sha256=xZVE1ac6IlOJuVNEGT6vkJeN7fJte2z1YVWthuhYz1k,2746
+sbx_sentiment_kb_sent/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sbx_sentiment_kb_sent/sentiment_analyzer.py,sha256=t_wSyfzx_RkzqE-DsShLWVz9eZJU661sUJYraMrhhZ8,6413
+sparv_sbx_sentiment_kb_sent-0.4.1.dist-info/WHEEL,sha256=M6du7VZflc4UPsGphmOXHANdgk8zessdJG0DBUuoA-U,78
+sparv_sbx_sentiment_kb_sent-0.4.1.dist-info/entry_points.txt,sha256=qBw2L7ArNm7rBpjRSCsSwyYXlO2e7603od5y62dRBLs,62
+sparv_sbx_sentiment_kb_sent-0.4.1.dist-info/METADATA,sha256=EEwWyO7YjEHo8cYmWQ4DHtBqvxw2TizZ4IttSSaNog8,7852
+sparv_sbx_sentiment_kb_sent-0.4.1.dist-info/RECORD,,
