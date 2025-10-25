@@ -1,0 +1,2 @@
+[console_scripts]
+imgif = img2gif.cli:main
