@@ -1,0 +1,58 @@
+# qbittorrent_ark
+
+Helps to manipulate qbittorrent torrents without GUI, but only with the help of a special file (ark file).
+
+Setting up qbittorrent. 
+Run the program at least once; this ark file will be created.
+Modify it, and run it again. 
+From now on, you can change object parameters through this file. 
+To sync with qbittorrent, simply run it again.
+
+# Set up qbittorrent
+
+Install it.
+
+```bash
+sudo apt install qbittorrent  # Debian-like
+# or
+sudo pacman -Sy qbittorrent  # Arch
+
+# Also can be installed qbittorrent-nox, if needed
+```
+
+Configure it:
+
+```bash
+nano ~/.config/qBittorrent/qBittorrent.conf
+# [LegalNotice]
+# Accepted=true
+#
+# [Preferences]
+# WebUI\AuthSubnetWhitelist=192.168.0.0/24
+# WebUI\Port=8025
+# WebUI\AuthSubnetWhitelistEnabled=false
+# WebUI\UseUPnP=false
+# WebUI\Address=127.0.0.1
+# WebUI\Enabled=true
+# WebUI\LocalHostAuth=false
+# WebUI\Username=admin
+# WebUI\Password_PBKDF2="@ByteArray(uVWSMZUV90kaymHPcu5EHQ==:Ueo5NCRUEQbmiH+DZyVqmaDOXLFphmlgRqVM7pDUwkuwdXgMDhkheCTmlPzf4cSi8QRDz99oHHdf2LQosvSl2w==)"  # password is "adminadmin", change it
+
+# Or run qbittorrent and setup in Preferences -> Web UI
+```
+
+# Installation and startup
+
+> [!WARNING]
+> Just in case, backup the folders: `~/.config/qBittorrent` and `~/.local/share/qBittorrent`.
+
+```bash
+pip3 install qbittorrent_ark
+
+qbittorrent_ark /path/to/ark/file/ark.yaml  # If /path/to/ark/file/ark.yaml does not exists, then ark yaml file template will be created.
+```
+
+It worked on `qBittorrent v5.0.3` at least.
+
+> [!WARNING]
+> Just in case, backup ark file (ark.yaml) before each use of the qbittorrent_ark.

@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+qbittorrent_ark/__init__.py
+qbittorrent_ark/__main__.py
+qbittorrent_ark/args_parsing.py
+qbittorrent_ark/ark.py
+qbittorrent_ark/common.py
+qbittorrent_ark/main.py
+qbittorrent_ark/qbittorrent_logic.py
+qbittorrent_ark.egg-info/PKG-INFO
+qbittorrent_ark.egg-info/SOURCES.txt
+qbittorrent_ark.egg-info/dependency_links.txt
+qbittorrent_ark.egg-info/entry_points.txt
+qbittorrent_ark.egg-info/requires.txt
+qbittorrent_ark.egg-info/top_level.txt
