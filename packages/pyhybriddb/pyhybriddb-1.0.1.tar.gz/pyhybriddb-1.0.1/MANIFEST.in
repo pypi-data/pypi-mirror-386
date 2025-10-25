@@ -1,0 +1,14 @@
+# Include important files
+include README.md
+include PYPI_README.md
+include LICENSE
+include requirements.txt
+include config.env
+recursive-include pyhybriddb *.py
+recursive-include admin *.html *.js *.css
+recursive-include examples *.py
+recursive-exclude tests *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.phdb
+recursive-exclude * *.db
