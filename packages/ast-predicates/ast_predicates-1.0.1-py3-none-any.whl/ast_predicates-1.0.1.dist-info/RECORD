@@ -1,0 +1,9 @@
+ast_predicates/__init__.py,sha256=Py3kPMw4TSNhY5sXX-iyga_TQAHHgVHPWW28BjqN23s,3570
+ast_predicates/core.py,sha256=RRUH4TBawy0sXGOEV5FRm5Coj6U-GghgbpaO48d8KAQ,3869
+ast_predicates/matchers.py,sha256=n6CD52bRZHTy_UEb-op-WoEHyeJ13DgcOHKjFN0koVw,5822
+ast_predicates/nodes.py,sha256=NqfIHH0llNH7K-Kx_2OLFnwTbVCN6iIev6MVlW_6r0s,19303
+ast_predicates/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ast_predicates/types.py,sha256=5YQOdUDn-JNjvA0V5kIg_-sfxMr-xyIbmNi5NLDUivw,119
+ast_predicates-1.0.1.dist-info/WHEEL,sha256=-neZj6nU9KAMg2CnCY6T3w8J53nx1kFGw_9HfoSzM60,79
+ast_predicates-1.0.1.dist-info/METADATA,sha256=fKMEiRJameUD5kJfcgbTefOTftDfhQ8l5_UXnpDYM7I,3812
+ast_predicates-1.0.1.dist-info/RECORD,,
