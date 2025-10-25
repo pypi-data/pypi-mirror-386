@@ -1,0 +1,14 @@
+autogit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autogit/autogit.py,sha256=kGQDI2tG_CQEhoCxrHzfWMJbpaz8eMoPVTmDEcfugbQ,1935
+autogit/commands/__init__.py,sha256=fxGF1_nRVfc9Seas9THXPZOG9DpqN1JZ7VcRHg0yNMM,30
+autogit/commands/checkout.py,sha256=VGIX1nl864M7uH1mO9_PhNqilYLcT4A0Hj7V2Y8Tdfg,1743
+autogit/commands/checkout_command_test.py,sha256=bY1yGT5hMFeRNGPuUjTdvjcWY2s0JZPet8jii6Bz1GU,1959
+autogit/commands/createworkspace.py,sha256=_hajekhIn3kjyf5LYHoglZIPz8uSIGTz4ASYcO1fqQU,2296
+autogit/commands/createworkspace_command_test.py,sha256=62VG_C9dISOwKy9ypmnu_uY5FLWNt-KsOXyp6E8iK9I,3919
+autogit/commands/name_branch_test.py,sha256=zhwtFtiSNdpk0GnFPlRqgwO3gpk0ad6Xp9--h5qE_fg,863
+luis_autogit-0.4.0.dist-info/licenses/LICENSE,sha256=awOCsWJ58m_2kBQwBUGWejVqZm6wuRtCL2hi9rfa0X4,1211
+luis_autogit-0.4.0.dist-info/METADATA,sha256=cxcl6fhid0mNWjh2OK3bc8FnNw--bK_hDG7WaqXXcX0,359
+luis_autogit-0.4.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+luis_autogit-0.4.0.dist-info/entry_points.txt,sha256=bilE6qhbCJV9QZ1Zfs-KOBYEimLaPhpJd2J6WeGv_lw,49
+luis_autogit-0.4.0.dist-info/top_level.txt,sha256=W8ZXvPo-mgaWKiXSyRHRBPYwHdXVEgsBHa-EZDiF8E0,8
+luis_autogit-0.4.0.dist-info/RECORD,,
