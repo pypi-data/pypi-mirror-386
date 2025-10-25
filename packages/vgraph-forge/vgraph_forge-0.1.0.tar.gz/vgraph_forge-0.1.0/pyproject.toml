@@ -1,0 +1,29 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "vgraph-forge"
+version = "0.1.0"
+description = "A Rust-powered toolkit for building visibility graphs from time series."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+	{ name = "Your Name", email = "youremail@example.com" }
+]
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Programming Language :: Rust",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+networkx = ["networkx>=3.0"]
+
+[tool.maturin]
+bindings = "pyo3-abi3"
+python-source = "python"

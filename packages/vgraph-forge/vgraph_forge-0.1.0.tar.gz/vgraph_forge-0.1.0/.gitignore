@@ -1,0 +1,22 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+
+# Wheels / build outputs
+build/
+dist/
+*.egg-info/
+
+# Rust target directory
+target/
+
+# macOS
+.DS_Store
+
+# IDE settings
+.vscode/
+.idea/
