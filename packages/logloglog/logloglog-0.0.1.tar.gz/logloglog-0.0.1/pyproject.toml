@@ -1,0 +1,60 @@
+[project]
+name = "logloglog"
+description = "Efficient scrollback indexing for large log files with terminal word wrapping"
+version = "0.0.1"
+authors = [
+    { name = "Gareth Davidson", email = "gaz@bitplane.net" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "WTFPL"}
+keywords = ["logging", "terminal", "scrollback", "indexing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: Public Domain",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: System :: Logging",
+    "Topic :: Terminals",
+]
+
+dependencies = [
+    "wcwidth~=0.2.5",
+    "platformdirs~=3.0",
+    "arrayfile~=0.0.1"
+]
+
+[project.optional-dependencies]
+dev = [
+    "logloglog[textual]",
+    "pre-commit",
+    "pytest",
+    "pytest-asyncio",
+    "coverage",
+    "pytest-cov",
+    "build",
+    "twine",
+    "ruff"
+]
+textual = [
+    "textual",
+    "textual-window"
+]
+
+[project.scripts]
+stream-logs = "logloglog.tools.stream_logs:main"
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.2,<4"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.format]
+docstring-code-format = true
