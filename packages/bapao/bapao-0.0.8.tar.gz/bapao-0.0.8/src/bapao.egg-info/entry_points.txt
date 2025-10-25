@@ -1,0 +1,2 @@
+[console_scripts]
+bapao = bapao.cli:main
