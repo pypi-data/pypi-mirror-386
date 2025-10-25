@@ -1,0 +1,2 @@
+[console_scripts]
+sirnaforge = sirnaforge.cli:app
